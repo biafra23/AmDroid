@@ -12,6 +12,7 @@
   <modules>
     <module>application</module>
     <module>application-it</module>
+    <module>AmenLib</module>
   </modules>
 
   <dependencyManagement>
