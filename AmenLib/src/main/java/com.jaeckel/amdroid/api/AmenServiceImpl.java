@@ -58,39 +58,42 @@ public class AmenServiceImpl implements AmenService {
 
     signIn(authName, authPassword);
 
-    List<Amen> amens = getFeed();
+//    List<Amen> amens = getFeed();
+
 
   }
 
-  private List<Amen> getFeed() {
+  @Override
+  public List<Amen> getFeed(long sinceId, int limit) {
 
     ArrayList<Amen> result = new ArrayList<Amen>();
 
-    HttpGet httpGet = new HttpGet(serviceUrl + "amen.json");
+    StringBuilder nameValuePairs = new StringBuilder();
 
-    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
-        nameValuePairs.add(new BasicNameValuePair("_", "" + new Date().getTime()));
+    nameValuePairs.append("_=" + new Date().getTime() + "&");
+    if (sinceId != 0) {
+      nameValuePairs.append("&last_amen_id=" + sinceId);
+    }
+    nameValuePairs.append("&limit=" + limit);
+
+    HttpGet httpGet = new HttpGet(serviceUrl + "amen.json" + "?" + nameValuePairs.toString());
 
     try {
+
       HttpResponse response = httpclient.execute(httpGet);
-
       final HttpEntity responseEntity = response.getEntity();
-
       JSONTokener feedTokener = new JSONTokener(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-
       log.debug("Parsed JSON: " + feedTokener.toString());
-
       JSONArray amens = (JSONArray) feedTokener.nextValue();
 
       log.debug("Array contains " + amens.length() + " amens");
-      
       for (int i = 0; i < amens.length(); i++) {
-
         Amen current = new Amen(amens.getJSONObject(i));
-
         log.debug("Parsed Amen: " + current);
+        result.add(current);
       }
 
+      responseEntity.consumeContent();
 
     } catch (IOException e) {
       throw new RuntimeException("getFeed  failed", e);
@@ -98,44 +101,14 @@ public class AmenServiceImpl implements AmenService {
       throw new RuntimeException("parsing feed  failed", e);
     }
 
+
     return result;
   }
 
-//  private Amen parseAmen(JSONObject amensJSONObject) throws JSONException {
-//
-//    log.debug("jsonObject: " + amensJSONObject.toString());
-//    Amen amen = new Amen();
-//    final String created_at = (String) amensJSONObject.get("created_at");
-//    Date date = parseIso8601DateNoBind(created_at);
-//    amen.setCreatedAt(date);
-//
-//    amen.setId(amensJSONObject.getInt("id"));
-//    amen.setKindId(amensJSONObject.getInt("kind_id"));
-//    amen.setUserId(amensJSONObject.getInt("user_id"));
-//
-//    User user = parseUser(amensJSONObject.getJSONObject("user"));
-//    amen.setUser(user);
-//
-//    Statement statement = parseStatement(amensJSONObject.getJSONObject("statement"));
-//    amen.setStatement(statement);
-//    return amen;
-//  }
 
-//  private Statement parseStatement(JSONObject statement) {
-//    return null;  //To change body of created methods use File | Settings | File Templates.
-//  }
-//
-//  private User parseUser(JSONObject user) {
-//      return null;  //To change body of created methods use File | Settings | File Templates.
-//  }
-
-//  private Date parseIso8601Date(String dateString, Amen current) {
-//
-//    Calendar cal = javax.xml.bind.DatatypeConverter.parseDateTime(dateString);
-//
-//    return cal.getTime();
-//  }
-
+  public List<Amen> getFeed() {
+    return getFeed(0, 25);
+  }
 
 
   private void signIn(String authName, String authPassword) {
@@ -151,6 +124,7 @@ public class AmenServiceImpl implements AmenService {
 
     try {
       httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
@@ -160,6 +134,8 @@ public class AmenServiceImpl implements AmenService {
 
         log.debug(line);
       }
+
+      responseEntity.consumeContent();
 
     } catch (IOException e) {
 
@@ -172,7 +148,6 @@ public class AmenServiceImpl implements AmenService {
     HttpGet httpGet = new HttpGet(serviceUrl);
     try {
       HttpResponse response = httpclient.execute(httpGet);
-
 
       Header cookieHeader = response.getFirstHeader("Set-Cookie");
       cookie = extractCookie(cookieHeader.getValue());
