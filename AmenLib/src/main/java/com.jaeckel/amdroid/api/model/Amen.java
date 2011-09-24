@@ -1,5 +1,11 @@
 package com.jaeckel.amdroid.api.model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.Date;
 
 /**
@@ -9,14 +15,48 @@ import java.util.Date;
  */
 public class Amen {
 
-  private long id;
-  private long userId;
-  private User user;
-  private Date createdAt;
-  private int kindId; //normal, amen, dispute
+  final Logger log = LoggerFactory.getLogger("Amen");
+
+  private long      id;
+  private long      userId;
+  private User      user;
+  private Date      createdAt;
+  private int       kindId; //normal, amen, dispute
   private Statement statement;
 
   private Amen referringAmen;
+
+
+  public Amen(JSONObject object) {
+
+    try {
+
+      if (object.has("created_at")) {
+        final String created_at = (String) object.get("created_at");
+        Date date = parseIso8601DateNoBind(created_at);
+        this.setCreatedAt(date);
+      }
+
+      this.setId(object.getInt("id"));
+      this.setKindId(object.getInt("kind_id"));
+      this.setUserId(object.getInt("user_id"));
+
+      User user = new User(object.getJSONObject("user"));
+      this.setUser(user);
+
+      Statement statement = new Statement(object.getJSONObject("statement"));
+      this.setStatement(statement);
+
+
+      if (object.has("referring_amen")) {
+        final JSONObject referring_amen = object.getJSONObject("referring_amen");
+        this.referringAmen = new Amen(referring_amen);
+      }
+
+    } catch (JSONException e) {
+      throw new RuntimeException("Error parsing Amen", e);
+    }
+  }
 
   public long getId() {
     return id;
@@ -85,6 +125,14 @@ public class Amen {
            ", statement=" + statement +
            ", referringAmen=" + referringAmen +
            '}';
+  }
+
+  private Date parseIso8601DateNoBind(String dateString) {
+    try {
+      return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(dateString).toGregorianCalendar().getTime();
+    } catch (DatatypeConfigurationException e) {
+      throw new RuntimeException("Error converting timestamp", e);
+    }
   }
 }
 

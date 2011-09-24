@@ -1,5 +1,8 @@
 package com.jaeckel.amdroid.api.model;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * User: biafra
  * Date: 9/23/11
@@ -11,6 +14,18 @@ public class User {
   private long   id;
   private String name;
   private String picture;
+
+  public User(JSONObject object) {
+    try {
+
+      this.id = object.getLong("id");
+      this.name = object.getString("name");
+      this.picture = object.getString("picture");
+
+    } catch (JSONException e) {
+      throw new RuntimeException("Error parsing User", e);
+    }
+  }
 
   public long getId() {
     return id;

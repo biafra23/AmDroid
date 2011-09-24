@@ -1,5 +1,8 @@
 package com.jaeckel.amdroid.api.model;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 /**
  * User: biafra
  * Date: 9/24/11
@@ -7,13 +10,25 @@ package com.jaeckel.amdroid.api.model;
  */
 public class ObjektKey {
 
-  private long id;
+  private String value;
   private String type; //local, freebase
+
+  public ObjektKey(JSONArray object) {
+    try {
+
+      this.type = object.getString(0);
+      this.value = object.getString(1);
+      
+    } catch (JSONException e) {
+      throw new RuntimeException("", e);
+    }
+
+  }
 
   @Override
   public String toString() {
     return "ObjektKey{" +
-           "id=" + id +
+           "value=" + value +
            ", type='" + type + '\'' +
            '}';
   }

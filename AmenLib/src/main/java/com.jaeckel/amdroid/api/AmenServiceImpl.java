@@ -13,17 +13,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.datatype.DatatypeConfigurationException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -88,30 +85,12 @@ public class AmenServiceImpl implements AmenService {
       log.debug("Array contains " + amens.length() + " amens");
       
       for (int i = 0; i < amens.length(); i++) {
-        final JSONObject amensJSONObject = amens.getJSONObject(i);
-        
-        log.debug("jsonObject: " + amensJSONObject.toString());
-        Amen current = new Amen();
-        final String created_at = (String) amensJSONObject.get("created_at");
-        Date date = parseIso8601DateNoBind(created_at);
-        current.setCreatedAt(date);
 
-        current.setId(amensJSONObject.getInt("id"));
-        current.setKindId(amensJSONObject.getInt("kind_id"));
-        current.setUserId(amensJSONObject.getInt("user_id"));
+        Amen current = new Amen(amens.getJSONObject(i));
 
         log.debug("Parsed Amen: " + current);
       }
-      
 
-
-//      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-//      String line;
-//      while ((line = br.readLine()) != null) {
-//
-//        log.debug(line);
-//
-//      }
 
     } catch (IOException e) {
       throw new RuntimeException("getFeed  failed", e);
@@ -122,21 +101,42 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
-  private Date parseIso8601Date(String dateString, Amen current) {
+//  private Amen parseAmen(JSONObject amensJSONObject) throws JSONException {
+//
+//    log.debug("jsonObject: " + amensJSONObject.toString());
+//    Amen amen = new Amen();
+//    final String created_at = (String) amensJSONObject.get("created_at");
+//    Date date = parseIso8601DateNoBind(created_at);
+//    amen.setCreatedAt(date);
+//
+//    amen.setId(amensJSONObject.getInt("id"));
+//    amen.setKindId(amensJSONObject.getInt("kind_id"));
+//    amen.setUserId(amensJSONObject.getInt("user_id"));
+//
+//    User user = parseUser(amensJSONObject.getJSONObject("user"));
+//    amen.setUser(user);
+//
+//    Statement statement = parseStatement(amensJSONObject.getJSONObject("statement"));
+//    amen.setStatement(statement);
+//    return amen;
+//  }
 
-    Calendar cal = javax.xml.bind.DatatypeConverter.parseDateTime(dateString);
+//  private Statement parseStatement(JSONObject statement) {
+//    return null;  //To change body of created methods use File | Settings | File Templates.
+//  }
+//
+//  private User parseUser(JSONObject user) {
+//      return null;  //To change body of created methods use File | Settings | File Templates.
+//  }
 
-    return cal.getTime();
-  }
+//  private Date parseIso8601Date(String dateString, Amen current) {
+//
+//    Calendar cal = javax.xml.bind.DatatypeConverter.parseDateTime(dateString);
+//
+//    return cal.getTime();
+//  }
 
-  private Date parseIso8601DateNoBind(String dateString) {
 
-    try {
-      return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(dateString).toGregorianCalendar().getTime();
-    } catch (DatatypeConfigurationException e) {
-      throw new RuntimeException("Error converting timestamp", e);
-    }
-  }
 
   private void signIn(String authName, String authPassword) {
 
