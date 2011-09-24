@@ -6,7 +6,7 @@
       <artifactId>amdroid-parent</artifactId>
       <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>AmenLib</artifactId>
+    <artifactId>amenlib</artifactId>
 
     <packaging>jar</packaging>
     <name>amdroid - Lib</name>
@@ -22,56 +22,36 @@
             <version>3.8.2</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.1-alpha2</version>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.json</groupId>-->
-        <!--<artifactId>json</artifactId>-->
-        <!--<version>1.0</version>-->
-        <!--</dependency>-->
+            <version>4.1.2</version>
+        </dependency> 
+
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20090211</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>android</groupId>-->
-        <!--<artifactId>android</artifactId>-->
-        <!--<version>2.1_r2</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-android</artifactId>-->
-        <!--<version>1.6.1-RC1</version>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.6.1</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-simple</artifactId>-->
-        <!--<version>1.6.1</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
 
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.0</version>
+        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>0.9.22</version>
             <scope>runtime</scope>
         </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-android</artifactId>-->
-        <!--<version>1.6.1-RC1</version>-->
-        <!--</dependency>-->
 
     </dependencies>
     <build>

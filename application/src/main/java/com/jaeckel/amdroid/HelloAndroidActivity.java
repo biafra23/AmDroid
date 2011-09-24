@@ -1,11 +1,14 @@
 package com.jaeckel.amdroid;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import com.jaeckel.amdroid.api.AmenService;
+import com.jaeckel.amdroid.api.AmenServiceImpl;
+import com.jaeckel.amdroid.api.model.Amen;
+
+import java.util.List;
 
 public class HelloAndroidActivity extends Activity {
 
@@ -24,27 +27,35 @@ public class HelloAndroidActivity extends Activity {
     Log.v(TAG, "onCreate");
     setContentView(R.layout.main);
 
-    CookieSyncManager.createInstance(this);
-    CookieSyncManager.getInstance().sync();
-    final boolean hasCookies = CookieManager.getInstance().hasCookies();
-    if (!hasCookies) {
-      Log.v(TAG, "CookieManager has cookies");
+//    CookieSyncManager.createInstance(this);
+//    CookieSyncManager.getInstance().sync();
+//    final boolean hasCookies = CookieManager.getInstance().hasCookies();
+//    if (!hasCookies) {
+//      Log.v(TAG, "CookieManager has cookies");
+//
+//      String c = CookieManager.getInstance().getCookie("https://getamen.com/");
+//
+//
+//
+//      Log.v(TAG, "Cookie: " + c);
+//
+//    } else {
+//
+//      Log.v(TAG, "CookieManager has no cookies");
+//
+//      Intent web = new Intent(this, WebActivity.class);
+//
+//      startActivity(web);
+//    }
 
-      String c = CookieManager.getInstance().getCookie("https://getamen.com/");
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+    List<Amen> amens = service.getFeed();
 
-
-
-      Log.v(TAG, "Cookie: " + c);
-
-    } else {
-
-      Log.v(TAG, "CookieManager has no cookies");
-
-      Intent web = new Intent(this, WebActivity.class);
-
-      startActivity(web);
+    for(Amen a : amens) {
+      Log.d(TAG, "Amen: " + a);
     }
-
+    
   }
 
   @Override

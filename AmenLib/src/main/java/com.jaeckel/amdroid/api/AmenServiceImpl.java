@@ -48,6 +48,8 @@ public class AmenServiceImpl implements AmenService {
     this.authName = authName;
     this.authPassword = authPassword;
 
+//    this.httpclient = WebClientDevWrapper.wrapClient(httpclient);
+
     login(authName, authPassword);
     return this;
   }
@@ -80,9 +82,15 @@ public class AmenServiceImpl implements AmenService {
 
     try {
 
+      httpGet.addHeader("X-CSRF-Token", csrfToken);
+      httpGet.addHeader("Cookie", cookie);
+
       HttpResponse response = httpclient.execute(httpGet);
-      final HttpEntity responseEntity = response.getEntity();
-      JSONTokener feedTokener = new JSONTokener(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      JSONTokener feedTokener = new JSONTokener(responseString);
       log.debug("Parsed JSON: " + feedTokener.toString());
       JSONArray amens = (JSONArray) feedTokener.nextValue();
 
@@ -105,6 +113,19 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
+  private String makeStringFromEntity(HttpEntity responseEntity) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+    StringBuilder builder = new StringBuilder();
+    String line;
+    while ((line = br.readLine()) != null) {
+
+      builder.append(line);
+      log.debug("getFeed | " + line);
+    }
+
+    return builder.toString();
+  }
+
 
   public List<Amen> getFeed() {
     return getFeed(0, 25);
@@ -122,6 +143,9 @@ public class AmenServiceImpl implements AmenService {
     nameValuePairs.add(new BasicNameValuePair("user[password]", authPassword));
     nameValuePairs.add(new BasicNameValuePair("commit", "Sign in"));
 
+    httpPost.addHeader("X-CSRF-Token", csrfToken);
+    httpPost.addHeader("Cookie", cookie);
+
     try {
       httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -132,7 +156,7 @@ public class AmenServiceImpl implements AmenService {
       String line;
       while ((line = br.readLine()) != null) {
 
-        log.debug(line);
+        log.debug("signIn | " + line);
       }
 
       responseEntity.consumeContent();
@@ -197,5 +221,7 @@ public class AmenServiceImpl implements AmenService {
 //  public void setCookie(String cookie) {
 //    this.cookie = cookie;
 //  }
+
+
 }
 

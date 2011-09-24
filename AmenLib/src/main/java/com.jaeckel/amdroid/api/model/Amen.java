@@ -1,5 +1,9 @@
 package com.jaeckel.amdroid.api.model;
 
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -33,7 +37,7 @@ public class Amen {
 
       if (object.has("created_at")) {
         final String created_at = (String) object.get("created_at");
-        Date date = parseIso8601DateNoBind(created_at);
+        Date date = parseIso8601DateJoda(created_at);
         this.setCreatedAt(date);
       }
 
@@ -133,6 +137,13 @@ public class Amen {
     } catch (DatatypeConfigurationException e) {
       throw new RuntimeException("Error converting timestamp", e);
     }
+  }
+
+  private Date parseIso8601DateJoda(String dateString) {
+    //2011-09-24T22:23:26Z
+    DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
+    DateTime dt = fmt.parseDateTime(dateString);
+    return dt.toDate();
   }
 }
 
