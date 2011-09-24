@@ -8,6 +8,6 @@ package com.jaeckel.amdroid.api;
 public interface AmenService {
   
   public AmenService init(String username, String password);
-
-
+  public String getCsrfToken();
+  public String getCookie();
 }
