@@ -1,16 +1,14 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.User;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONTokener;
@@ -21,8 +19,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * User: biafra
@@ -57,11 +56,7 @@ public class AmenServiceImpl implements AmenService {
   private void login(String authName, String authPassword) {
 
     prepareLogin();
-
     signIn(authName, authPassword);
-
-//    List<Amen> amens = getFeed();
-
 
   }
 
@@ -70,20 +65,15 @@ public class AmenServiceImpl implements AmenService {
 
     ArrayList<Amen> result = new ArrayList<Amen>();
 
-    StringBuilder nameValuePairs = new StringBuilder();
-
-    nameValuePairs.append("_=" + new Date().getTime() + "&");
-    if (sinceId != 0) {
-      nameValuePairs.append("&last_amen_id=" + sinceId);
+    HashMap<String, String> params = new HashMap<String, String>();
+    if (sinceId > 0) {
+      params.put("last_amen_id", "" + sinceId);
     }
-    nameValuePairs.append("&limit=" + limit);
+    params.put("limit", "" + limit);
 
-    HttpGet httpGet = new HttpGet(serviceUrl + "amen.json" + "?" + nameValuePairs.toString());
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen.json", params, cookie, csrfToken);
 
     try {
-
-      httpGet.addHeader("X-CSRF-Token", csrfToken);
-      httpGet.addHeader("Cookie", cookie);
 
       HttpResponse response = httpclient.execute(httpGet);
       HttpEntity responseEntity = response.getEntity();
@@ -91,13 +81,13 @@ public class AmenServiceImpl implements AmenService {
       final String responseString = makeStringFromEntity(responseEntity);
 
       JSONTokener feedTokener = new JSONTokener(responseString);
-      log.debug("Parsed JSON: " + feedTokener.toString());
+      log.trace("Parsed JSON: " + feedTokener.toString());
       JSONArray amens = (JSONArray) feedTokener.nextValue();
 
-      log.debug("Array contains " + amens.length() + " amens");
+      log.trace("Array contains " + amens.length() + " amens");
       for (int i = 0; i < amens.length(); i++) {
         Amen current = new Amen(amens.getJSONObject(i));
-        log.debug("Parsed Amen: " + current);
+        log.trace("Parsed Amen: " + current);
         result.add(current);
       }
 
@@ -113,6 +103,46 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
+  @Override
+  public boolean follow(User u) {
+
+
+    return false;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override
+  public boolean unfollow(User u) {
+    return false;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override
+  public boolean amen(Amen a) {
+    return false;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override
+  public boolean dispute(Amen a, String dispute) {
+
+    //POST amen.json
+//body:
+//    {"statement":{"objekt":{"name":"Trio","kind_id":0},
+// "topic":{"best":false,"description":"Trio","scope":"Ever"}},"kind_id":2,"referring_amen_id":185566}
+
+
+    return false;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override
+  public long createAmen(Amen a) {
+
+    return 0;
+  }
+
+  @Override
+  public long takeBack(Amen a) {
+    return 0;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
   private String makeStringFromEntity(HttpEntity responseEntity) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
     StringBuilder builder = new StringBuilder();
@@ -120,7 +150,7 @@ public class AmenServiceImpl implements AmenService {
     while ((line = br.readLine()) != null) {
 
       builder.append(line);
-      log.debug("getFeed | " + line);
+      log.trace("getFeed | " + line);
     }
 
     return builder.toString();
@@ -134,20 +164,18 @@ public class AmenServiceImpl implements AmenService {
 
   private void signIn(String authName, String authPassword) {
 
-    HttpPost httpPost = new HttpPost(serviceUrl + "sign-in");
-    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
-    nameValuePairs.add(new BasicNameValuePair("utf-8", "✓"));
-    nameValuePairs.add(new BasicNameValuePair("authenticity_token", csrfToken));
-    nameValuePairs.add(new BasicNameValuePair("user[remember_me]", "" + 1));
-    nameValuePairs.add(new BasicNameValuePair("user[email]", authName));
-    nameValuePairs.add(new BasicNameValuePair("user[password]", authPassword));
-    nameValuePairs.add(new BasicNameValuePair("commit", "Sign in"));
 
-    httpPost.addHeader("X-CSRF-Token", csrfToken);
-    httpPost.addHeader("Cookie", cookie);
+    Map<String, String> params = new HashMap<String, String>();
+    params.put("utf-8", "✓");
+    params.put("authenticity_token", csrfToken);
+    params.put("user[remember_me]", "" + 1);
+    params.put("user[email]", authName);
+    params.put("user[password]", authPassword);
+    params.put("commit", "Sign in");
 
     try {
-      httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+      HttpUriRequest httpPost = RequestFactory.createPOSTRequest(serviceUrl + "sign-in", params, cookie, csrfToken);
 
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
@@ -156,7 +184,7 @@ public class AmenServiceImpl implements AmenService {
       String line;
       while ((line = br.readLine()) != null) {
 
-        log.debug("signIn | " + line);
+        log.trace("signIn | " + line);
       }
 
       responseEntity.consumeContent();
@@ -175,7 +203,7 @@ public class AmenServiceImpl implements AmenService {
 
       Header cookieHeader = response.getFirstHeader("Set-Cookie");
       cookie = extractCookie(cookieHeader.getValue());
-      log.debug("cookie: " + cookie);
+      log.trace("cookie: " + cookie);
       final HttpEntity responseEntity = response.getEntity();
       BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
       String line;
@@ -185,7 +213,7 @@ public class AmenServiceImpl implements AmenService {
 
           line = line.replaceFirst(".*content=\"", "");
           line = line.replaceFirst("\" name.*", "");
-          log.debug(line);
+          log.trace(line);
 
           csrfToken = line;
 

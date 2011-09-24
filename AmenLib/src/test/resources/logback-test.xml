@@ -1,0 +1,14 @@
+<configuration scan="true" scanPeriod="15 seconds">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %.-1level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <logger name="org.apache.http.wire" level="DEBUG"/>
+    <logger name="org.apache.http.client" level="DEBUG"/>
+    <logger name="httpclient.wire" level="DEBUG"/>
+    <logger name="httpclient.wire.header" level="DEBUG"/>
+    <root level="trace">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

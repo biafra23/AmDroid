@@ -3,7 +3,6 @@ package com.jaeckel.amdroid;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.webkit.CookieSyncManager;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
 import com.jaeckel.amdroid.api.model.Amen;
@@ -61,13 +60,11 @@ public class HelloAndroidActivity extends Activity {
   @Override
   public void onResume() {
     super.onResume();
-    CookieSyncManager.getInstance().startSync();
   }
 
   @Override
   public void onPause() {
     super.onPause();
-    CookieSyncManager.getInstance().stopSync();
   }
 
 }
