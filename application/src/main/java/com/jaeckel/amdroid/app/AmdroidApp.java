@@ -1,11 +1,14 @@
 package com.jaeckel.amdroid.app;
 
+import android.app.AlertDialog;
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.Log;
+import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
+import com.jaeckel.amdroid.cache.SimpleWebImageCache;
+import com.jaeckel.amdroid.thumbnail.ThumbnailBus;
+import com.jaeckel.amdroid.thumbnail.ThumbnailMessage;
 
 /**
  * User: biafra
@@ -21,8 +24,15 @@ public class AmdroidApp extends Application {
   private String      authCookie;
   private AmenService service;
 
+  //CWAC
+
+  private        ThumbnailBus                                        bus   = new ThumbnailBus();
+  private        SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+
 
   public AmdroidApp() {
+
+    Thread.setDefaultUncaughtExceptionHandler(onBlooey);
 
 
   }
@@ -58,4 +68,31 @@ public class AmdroidApp extends Application {
     }
     return service;
   }
+
+  //CWAC
+  void goBlooey(Throwable t) {
+ 		AlertDialog.Builder builder=new AlertDialog.Builder(this);
+
+ 		builder
+ 			.setTitle(R.string.exception)
+ 			.setMessage(t.toString())
+ 			.setPositiveButton(R.string.ok, null)
+ 			.show();
+ 	}
+
+ 	ThumbnailBus getBus() {
+ 		return(bus);
+ 	}
+
+ 	SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> getCache() {
+ 		return(cache);
+ 	}
+
+ 	private Thread.UncaughtExceptionHandler onBlooey=
+ 		new Thread.UncaughtExceptionHandler() {
+ 		public void uncaughtException(Thread thread, Throwable ex) {
+ 			Log.e(TAG, "Uncaught exception", ex);
+ 			goBlooey(ex);
+ 		}
+ 	};
 }
