@@ -27,7 +27,13 @@ public class Statement {
     this.topic = t;
     this.objekt = o;
   }
-  
+  public String toDisplayString() {
+    
+    return objekt.getName() + " is " + (topic.isBest() ? "the Best " : "the Worst ") + (objekt.getKindId() == 1 ? " Place for " : "") + topic.getDescription() + " " + topic.getScope();
+
+  }
+
+
   public Statement(JSONObject o) {
     try {
       //optional in referring_amen
@@ -116,4 +122,6 @@ public class Statement {
   public void setObjekt(Objekt objekt) {
     this.objekt = objekt;
   }
+
+
 }

@@ -3,14 +3,14 @@ package com.jaeckel.amdroid.test;
 import android.test.ActivityInstrumentationTestCase2;
 import com.jaeckel.amdroid.*;
 
-public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<HelloAndroidActivity> {
+public class HelloAndroidActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
 
     public HelloAndroidActivityTest() {
-        super(HelloAndroidActivity.class);
+        super(AmenListActivity.class);
     }
 
     public void testActivity() {
-        HelloAndroidActivity activity = getActivity();
+        AmenListActivity activity = getActivity();
         assertNotNull(activity);
     }
 }

@@ -1,6 +1,6 @@
 package com.jaeckel.amdroid;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
 import com.jaeckel.amdroid.api.AmenService;
@@ -9,9 +9,10 @@ import com.jaeckel.amdroid.api.model.Amen;
 
 import java.util.List;
 
-public class HelloAndroidActivity extends Activity {
+public class AmenListActivity extends ListActivity {
 
-  private static String TAG = "amdroid/HelloAndroidActivity";
+  private static String TAG = "amdroid/AmenListActivity";
+  private AmenListAdapter adapter;
 
   /**
    * Called when the activity is first created.
@@ -26,40 +27,25 @@ public class HelloAndroidActivity extends Activity {
     Log.v(TAG, "onCreate");
     setContentView(R.layout.main);
 
-//    CookieSyncManager.createInstance(this);
-//    CookieSyncManager.getInstance().sync();
-//    final boolean hasCookies = CookieManager.getInstance().hasCookies();
-//    if (!hasCookies) {
-//      Log.v(TAG, "CookieManager has cookies");
-//
-//      String c = CookieManager.getInstance().getCookie("https://getamen.com/");
-//
-//
-//
-//      Log.v(TAG, "Cookie: " + c);
-//
-//    } else {
-//
-//      Log.v(TAG, "CookieManager has no cookies");
-//
-//      Intent web = new Intent(this, WebActivity.class);
-//
-//      startActivity(web);
-//    }
-
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
-    List<Amen> amens = service.getFeed();
-
-    for(Amen a : amens) {
-      Log.d(TAG, "Amen: " + a);
-    }
-    
   }
 
   @Override
   public void onResume() {
     super.onResume();
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    List<Amen> amens = service.getFeed();
+
+    for (Amen a : amens) {
+      Log.d(TAG, "Amen: " + a);
+    }
+
+    adapter = new AmenListAdapter(this, android.R.layout.simple_list_item_1, amens);
+    setListAdapter(adapter);
+
+
+
   }
 
   @Override

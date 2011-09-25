@@ -1,0 +1,54 @@
+package com.jaeckel.amdroid;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import com.jaeckel.amdroid.api.model.Amen;
+
+import java.util.List;
+
+/**
+ * User: biafra
+ * Date: 9/25/11
+ * Time: 5:58 AM
+ */
+public class AmenListAdapter extends ArrayAdapter<Amen> {
+
+  private LayoutInflater inflater;
+
+  public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
+    super(context, textViewResourceId, objects);
+    inflater = LayoutInflater.from(context);
+    setNotifyOnChange(true);
+  }
+
+  public AmenListAdapter(Context context, int resource, int textViewResourceId, List<Amen> objects) {
+    super(context, resource, textViewResourceId, objects);
+    inflater = LayoutInflater.from(context);
+    setNotifyOnChange(true);
+  }
+
+  @Override
+  public View getView(final int position, View convertView, ViewGroup parent) {
+    View row = convertView;
+    Amen amen = getItem(position);
+
+    if (row == null) {
+      row = inflater.inflate(R.layout.list_item_amen, parent, false);
+      row.setTag(R.id.user, row.findViewById(R.id.user));
+      row.setTag(R.id.statement, row.findViewById(R.id.statement));
+
+    }
+
+    TextView user = (TextView)row.getTag(R.id.user);
+    user.setText(amen.getUser().getName());
+
+    TextView statement = (TextView)row.getTag(R.id.statement);
+    statement.setText(amen.getStatement().toDisplayString());
+    
+    return row;
+  }
+}
