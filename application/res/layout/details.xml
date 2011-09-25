@@ -13,7 +13,7 @@
               android:layout_centerVertical="true"
               android:layout_alignWithParentIfMissing="true"
               android:focusable="false"
-              android:textSize="18dp"
+              android:textSize="25dp"
               android:text="Trio is the Worst Trio Ever. Amen. "/>
 
     <TextView android:id="@+id/user"

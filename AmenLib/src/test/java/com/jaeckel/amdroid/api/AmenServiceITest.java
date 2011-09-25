@@ -131,5 +131,29 @@ public class AmenServiceITest extends TestCase {
     assertTrue("Topic has no rankedStatements", topic.getRankedStatements().keySet().size() > 0);
   }
 
+  public void testAmening() {
+
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Statement statement = service.getStatementForId(78477L);
+
+    Amen result = service.amen(statement);
+
+    assertNotNull("Result should not be null", result);
+
+    assertEquals("Wrong user", "Nancy Botwin", result.getUser().getName());
+    
+    List<User> agreeing = result.getStatement().getAgreeingNetwork();
+    boolean foundUser = false;
+    for (User u : agreeing) {
+      if ("Nancy Botwin".equals(u.getName())) {
+        foundUser = true;
+      }
+    }
+    assertTrue("Wrong user", foundUser);
+    
+    
+  }
 
 }

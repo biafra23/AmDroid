@@ -8,14 +8,10 @@
     <ImageView android:id="@+id/user_image"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_centerVertical="true"
-               android:layout_toLeftOf="@+id/drugRowCheck"
-               android:layout_alignWithParentIfMissing="true"
-               android:focusable="false"
-               android:fadingEdge="horizontal"
                android:src="@drawable/ic_menu_gear"
-               android:visibility="visible"
                android:paddingRight="5dp"
+               android:paddingBottom="2dp"
+               android:paddingTop="2dp"
             />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,22 +22,16 @@
         <TextView android:id="@+id/user"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:layout_alignParentLeft="true"
-                  android:layout_toLeftOf="@id/drugRowCheck"
-                  android:layout_centerVertical="true"
-                  android:layout_alignWithParentIfMissing="true"
-                  android:focusable="false"
-                  android:text="Franz Nase"/>
+                  android:text="Franz Nase"
+                  />
 
         <TextView android:id="@+id/statement"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:layout_alignParentLeft="true"
-                  android:layout_toLeftOf="@id/drugRowCheck"
-                  android:layout_centerVertical="true"
-                  android:layout_alignWithParentIfMissing="true"
-                  android:focusable="false"
-                  android:text="Lorem ipsum dolor sit amet"/>
+                  android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse"
+                  android:textSize="16dp"
+                  android:layout_weight="1"
+                />
 
 
     </LinearLayout>

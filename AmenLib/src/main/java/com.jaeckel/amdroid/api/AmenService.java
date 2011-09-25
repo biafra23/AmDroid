@@ -32,7 +32,7 @@ public interface AmenService {
 
   public boolean unfollow(User u);
 
-  public boolean amen(Statement a);
+  public Amen amen(Statement a);
 
   public boolean dispute(Amen a, String dispute);
 
