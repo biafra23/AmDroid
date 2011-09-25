@@ -46,7 +46,11 @@ public class Amen {
       }
 
       this.setId(object.getInt("id"));
-      this.setKindId(object.getInt("kind_id"));
+
+      if (object.has("kind_id")) {
+        this.setKindId(object.getInt("kind_id"));
+      }
+
       this.setUserId(object.getInt("user_id"));
 
       User user = new User(object.getJSONObject("user"));

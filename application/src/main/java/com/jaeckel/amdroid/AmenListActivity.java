@@ -11,19 +11,23 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
-import com.jaeckel.amdroid.api.AmenServiceImpl;
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.app.AmdroidApp;
 
 import java.util.List;
+
+import static com.jaeckel.amdroid.AmenDetailActivity.STATEMENT_ID;
 
 public class AmenListActivity extends ListActivity {
 
   private static       String TAG                = "amdroid/AmenListActivity";
   final private static int    PROGRESS_DIALOG_ID = 0;
 
-  private ProgressDialog progressDialog;
+  private ProgressDialog  progressDialog;
   private AmenListAdapter adapter;
   private AmenService     service;
 
@@ -38,25 +42,26 @@ public class AmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
-    service = new AmenServiceImpl();
+
+    progressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                         "Loading. Please wait...", true);
+    progressDialog.show();
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    String username = prefs.getString("user_name", "");
+    String password = prefs.getString("password", "");
+
+    service = AmdroidApp.getInstance().getService(username, password);
 
     setContentView(R.layout.main);
-
-
+    
+    progressDialog.hide();
+    refresh();
   }
 
   @Override
   public void onResume() {
     super.onResume();
-
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String username = prefs.getString("user_name", "");
-    String password = prefs.getString("password", "");
-    service.init(username, password);
-
-    refresh();
-
-
+//    refresh();
   }
 
   private void refresh() {
@@ -101,12 +106,25 @@ public class AmenListActivity extends ListActivity {
   }
 
 
+  @Override
+  protected void onListItemClick(ListView l, View v, int position, long id) {
+
+    Amen amen = (Amen) getListAdapter().getItem(position);
+
+    Log.d(TAG, "Selected Amen: " + amen);
+
+    Intent intent = new Intent(this, AmenDetailActivity.class);
+    intent.putExtra(STATEMENT_ID, amen.getStatement().getId());
+    startActivity(intent);
+  }
+
+
   private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
 
     @Override
     protected void onPreExecute() {
-       progressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                                   "Loading. Please wait...", true);
+      progressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                           "Loading. Please wait...", true);
 
       progressDialog.show();
     }
@@ -130,11 +148,12 @@ public class AmenListActivity extends ListActivity {
       //hide progress
       progressDialog.hide();
 
-      for(Amen a : amens) {
-        Log.d(TAG, "Amen: " + a);
-      }
+//      for (Amen a : amens) {
+//        Log.d(TAG, "Amen: " + a);
+//      }
 
     }
   }
+
 }
 

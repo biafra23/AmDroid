@@ -4,9 +4,12 @@
 
         <item android:id="@+id/refresh"
               android:icon="@drawable/ic_menu_backup"
-              android:title="Account" />
+              android:title="Refresh" />
         <item android:id="@+id/preference"
               android:icon="@drawable/ic_menu_settings"
-              android:title="Refresh" />
+              android:title="Prefences" />
 
+    <item android:id="@+id/amen"
+          android:icon="@drawable/ic_menu_connection"
+          android:title="Amen sth." />
 </menu>

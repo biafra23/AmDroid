@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,23 +17,29 @@ import java.util.List;
  */
 public class Statement {
 
-  private Long id;
-  private Long totalAmenCount;
-  private Boolean agreeable;
+  private Long       id;
+  private Long       totalAmenCount;
+  private Boolean    agreeable;
   private List<User> agreeingNetwork;
   private Topic      topic;
   private Objekt     objekt;
+  private User       firstPoster;
+  private Date       firstPostedAt;
 
   public Statement(Objekt o, Topic t) {
     this.topic = t;
     this.objekt = o;
   }
+
   public String toDisplayString() {
-    
+
     return objekt.getName() + " is " + (topic.isBest() ? "the Best " : "the Worst ") + (objekt.getKindId() == 1 ? " Place for " : "") + topic.getDescription() + " " + topic.getScope();
 
   }
 
+  public Statement(Long id) {
+    this.id = id;
+  }
 
   public Statement(JSONObject o) {
     try {
@@ -49,6 +56,13 @@ public class Statement {
         this.topic = new Topic(o.getJSONObject("topic"));
       }
 
+      if (o.has("first_poster") && !o.isNull("first_poster")) {
+        firstPoster = new User(o.getJSONObject("first_poster"));
+
+      }
+      if (o.has("first_posted_at")) {
+        firstPostedAt = Amen.parseIso8601DateJoda(o.getString("first_posted_at"));
+      }
       this.objekt = new Objekt(o.getJSONObject("objekt"));
 
     } catch (JSONException e) {
@@ -75,7 +89,7 @@ public class Statement {
     return builder.create().toJson(this);
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
@@ -124,4 +138,15 @@ public class Statement {
   }
 
 
+  public User getFirstPoster() {
+    return firstPoster;
+  }
+
+  public Date getFirstPostedAt() {
+    return firstPostedAt;
+  }
+
+  public void setFirstPostedAt(Date firstPostedAt) {
+    this.firstPostedAt = firstPostedAt;
+  }
 }

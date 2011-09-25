@@ -3,6 +3,7 @@ package com.jaeckel.amdroid.api;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Statement;
+import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 import org.apache.http.Header;
@@ -123,8 +124,8 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public boolean amen(Amen a) {
-    return false;  //To change body of implemented methods use File | Settings | File Templates.
+  public boolean amen(Statement statement) {
+    return false; 
   }
 
   @Override
@@ -189,8 +190,67 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
+  public Statement getStatementForId(Long id) {
+
+    Statement statement;
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/statements/" + id + ".json", null, cookie, csrfToken);
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      JSONTokener feedTokener = new JSONTokener(responseString);
+      log.trace("From Server: " + responseString);
+      log.trace("Parsed JSON: " + feedTokener.toString());
+      statement = new Statement((JSONObject) feedTokener.nextValue());
+
+      log.trace("Statement: " + statement);
+
+
+      responseEntity.consumeContent();
+
+    } catch (Exception e) {
+      throw new RuntimeException("getAmenForId(" + id + ") failed", e);
+    }
+
+    return statement;
+  }
+
+  @Override
+  public Topic getTopicsForId(Long id) {
+    Topic topic;
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", null, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      JSONTokener feedTokener = new JSONTokener(responseString);
+      log.trace("From Server: " + responseString);
+      log.trace("Parsed JSON: " + feedTokener.toString());
+      topic = new Topic((JSONObject) feedTokener.nextValue());
+
+      log.trace("topic: " + topic);
+
+
+      responseEntity.consumeContent();
+
+    } catch (Exception e) {
+      throw new RuntimeException("getTopicsForId(" + id + ") failed", e);
+    }
+
+    return topic;
+  }
+
+  @Override
   public long takeBack(Amen a) {
-    return 0;  //To change body of implemented methods use File | Settings | File Templates.
+    return 0;
   }
 
   @Override

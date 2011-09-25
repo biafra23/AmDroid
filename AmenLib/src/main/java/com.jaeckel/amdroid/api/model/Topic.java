@@ -2,8 +2,12 @@ package com.jaeckel.amdroid.api.model;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * User: biafra
@@ -17,6 +21,7 @@ public class Topic {
   private String  description;
   private String  scope;
   private Integer objektsCount;
+  private Map<Integer, Statement> rankedStatements;
 
   public Topic(String description, Boolean best, String scope) {
     this.description = description;
@@ -35,6 +40,18 @@ public class Topic {
       this.scope = topic.getString("scope");
       this.objektsCount = topic.getInt("objekts_count");
 
+      if (topic.has("ranked_statements")) {
+        JSONArray rankedStatementsArray = topic.getJSONArray("ranked_statements");
+        rankedStatements = new HashMap<Integer, Statement>();
+        for(int i = 0; i < rankedStatementsArray.length(); i++) {
+          JSONObject rankedStatement = rankedStatementsArray.getJSONObject(i);
+          Integer rank = rankedStatement.getInt("rank");
+          Statement statement = new Statement(rankedStatement.getJSONObject("statement"));
+          rankedStatements.put(rank, statement);
+          
+        }
+      }
+      
     } catch (JSONException e) {
       throw new RuntimeException("", e);
     }
@@ -97,4 +114,11 @@ public class Topic {
     return builder.create().toJson(this);
   }
 
+  public Map<Integer, Statement> getRankedStatements() {
+    return rankedStatements;
+  }
+
+  public void setRankedStatements(Map<Integer, Statement> rankedStatements) {
+    this.rankedStatements = rankedStatements;
+  }
 }

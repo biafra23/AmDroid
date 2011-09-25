@@ -97,8 +97,39 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
     service.init("nbotvin@different.name", "foobar23");
 
-    Statement statement = new Statement(new Objekt("Foo", 2),  new Topic("placeholder", true, "Ever"));
+    Statement statement = new Statement(new Objekt("Foo", 2), new Topic("placeholder", true, "Ever"));
     service.addStatement(statement);
-    
+
   }
+
+  public void testGetStatementForId() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Statement a = service.getStatementForId(78256L);
+
+    assertEquals("Wrong amen", 78256L, (long) a.getId());
+  }
+
+  public void testGetStatementForIdWithNullFirstPoster() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Statement a = service.getStatementForId(60814L);
+
+    assertEquals("Wrong statement", 60814L, (long) a.getId());
+  }
+
+  public void testGetTopics() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Topic topic = service.getTopicsForId(29020L);
+
+    assertEquals("Wrong topics", 29020L, topic.getId());
+    assertNotNull("Topic has null rankedStatements", topic.getRankedStatements());
+    assertTrue("Topic has no rankedStatements", topic.getRankedStatements().keySet().size() > 0);
+  }
+
+
 }

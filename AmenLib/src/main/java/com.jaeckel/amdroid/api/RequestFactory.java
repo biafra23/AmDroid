@@ -61,7 +61,7 @@ public class RequestFactory {
 
       throw new RuntimeException("Unsupported Encoding", e);
     }
-    
+
     return httpPost;
   }
 
@@ -69,11 +69,13 @@ public class RequestFactory {
 
     StringBuilder nameValuePairs = new StringBuilder();
     nameValuePairs.append("?_=" + new Date().getTime());
-    for (String key : params.keySet()) {
-      nameValuePairs.append("&")
-                    .append(key)
-                    .append("=")
-                    .append(params.get(key));
+    if (params != null) {
+      for (String key : params.keySet()) {
+        nameValuePairs.append("&")
+                      .append(key)
+                      .append("=")
+                      .append(params.get(key));
+      }
     }
     HttpGet httpGet = new HttpGet(serviceUrl + nameValuePairs.toString());
     httpGet.addHeader("X-CSRF-Token", csrfToken);

@@ -17,6 +17,8 @@
         <activity android:name=".EditPreferencesActivity">
 
         </activity>
+        <activity android:name=".AmenDetailActivity"/>
+        <activity android:name=".DisputeActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
