@@ -1,8 +1,17 @@
 package com.jaeckel.amdroid;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
 import com.jaeckel.amdroid.api.model.Amen;
@@ -11,8 +20,12 @@ import java.util.List;
 
 public class AmenListActivity extends ListActivity {
 
-  private static String TAG = "amdroid/AmenListActivity";
+  private static       String TAG                = "amdroid/AmenListActivity";
+  final private static int    PROGRESS_DIALOG_ID = 0;
+
+  private ProgressDialog progressDialog;
   private AmenListAdapter adapter;
+  private AmenService     service;
 
   /**
    * Called when the activity is first created.
@@ -25,33 +38,103 @@ public class AmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
+    service = new AmenServiceImpl();
+
     setContentView(R.layout.main);
+
 
   }
 
   @Override
   public void onResume() {
     super.onResume();
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
-    List<Amen> amens = service.getFeed();
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    String username = prefs.getString("user_name", "");
+    String password = prefs.getString("password", "");
+    service.init(username, password);
 
-    for (Amen a : amens) {
-      Log.d(TAG, "Amen: " + a);
-    }
-
-    adapter = new AmenListAdapter(this, android.R.layout.simple_list_item_1, amens);
-    setListAdapter(adapter);
-
+    refresh();
 
 
   }
+
+  private void refresh() {
+    LoaderAsyncTask loader = new LoaderAsyncTask();
+    loader.execute();
+  }
+
 
   @Override
   public void onPause() {
     super.onPause();
   }
 
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_main, menu);
+    return true;
+  }
+
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    switch (item.getItemId()) {
+
+      case R.id.preference:
+//        Toast.makeText(this, "Prefereces", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, EditPreferencesActivity.class));
+
+        return true;
+
+      case R.id.refresh:
+        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+        refresh();
+
+        return true;
+    }
+
+    return false;
+  }
+
+
+  private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
+
+    @Override
+    protected void onPreExecute() {
+       progressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                                   "Loading. Please wait...", true);
+
+      progressDialog.show();
+    }
+
+    @Override
+    protected List<Amen> doInBackground(Void... voids) {
+
+//      showDialog() progress
+      Log.d(TAG, "Loader executing");
+      List<Amen> amens = service.getFeed();
+
+      return amens;
+    }
+
+    @Override
+    protected void onPostExecute(List<Amen> amens) {
+
+      adapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.simple_list_item_1, amens);
+      setListAdapter(adapter);
+
+      //hide progress
+      progressDialog.hide();
+
+      for(Amen a : amens) {
+        Log.d(TAG, "Amen: " + a);
+      }
+
+    }
+  }
 }
 

@@ -4,7 +4,7 @@
           android:versionCode="1"
           android:versionName="1.0-SNAPSHOT">
 
-    <application android:icon="@drawable/icon"
+    <application android:icon="@drawable/ic_menu_connection"
                  android:label="@string/app_name"
                  android:name=".app.AmdroidApp">
         <activity android:name=".AmenListActivity">
@@ -14,6 +14,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".WebActivity"/>
+        <activity android:name=".EditPreferencesActivity">
+
+        </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

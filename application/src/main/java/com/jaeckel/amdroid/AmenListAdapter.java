@@ -1,10 +1,12 @@
 package com.jaeckel.amdroid;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.model.Amen;
 
@@ -40,15 +42,27 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       row = inflater.inflate(R.layout.list_item_amen, parent, false);
       row.setTag(R.id.user, row.findViewById(R.id.user));
       row.setTag(R.id.statement, row.findViewById(R.id.statement));
+      row.setTag(R.id.user_image, row.findViewById(R.id.user_image));
 
     }
 
-    TextView user = (TextView)row.getTag(R.id.user);
+    TextView user = (TextView) row.getTag(R.id.user);
     user.setText(amen.getUser().getName());
 
-    TextView statement = (TextView)row.getTag(R.id.statement);
+    TextView statement = (TextView) row.getTag(R.id.statement);
     statement.setText(amen.getStatement().toDisplayString());
+
+    ImageView userImage = (ImageView) row.getTag(R.id.user_image);
+
+    String pictureUrl = amen.getUser().getPicture();
+    if (TextUtils.isEmpty(pictureUrl)) {
+      pictureUrl = "https://getamen.com/default-user-images/small8.png";
+    }
     
+    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
+
     return row;
   }
+
+
 }
