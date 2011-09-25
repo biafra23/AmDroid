@@ -1,6 +1,7 @@
 package com.jaeckel.amdroid.api.model;
 
-import com.google.gson.Gson;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -86,8 +87,8 @@ public class Topic {
 
   public String json() {
 
-    return new Gson().toJson(this);
+    GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+    return builder.create().toJson(this);
   }
-
 
 }

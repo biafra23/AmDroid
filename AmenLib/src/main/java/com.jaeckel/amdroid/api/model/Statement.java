@@ -71,11 +71,11 @@ public class Statement {
   }
 
   public long getTotalAmenCount() {
-    return total_amen_count;
+    return totalAmenCount;
   }
 
   public void setTotalAmenCount(long totalAmenCount) {
-    this.total_amen_count = totalAmenCount;
+    this.totalAmenCount = totalAmenCount;
   }
 
   public boolean isAgreeable() {
@@ -87,11 +87,11 @@ public class Statement {
   }
 
   public List<User> getAgreeingNetwork() {
-    return agreeing_network;
+    return agreeingNetwork;
   }
 
   public void setAgreeingNetwork(List<User> agreeingNetwork) {
-    this.agreeing_network = agreeingNetwork;
+    this.agreeingNetwork = agreeingNetwork;
   }
 
   public Topic getTopic() {

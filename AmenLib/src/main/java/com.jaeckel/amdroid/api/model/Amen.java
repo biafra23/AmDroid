@@ -1,7 +1,8 @@
 package com.jaeckel.amdroid.api.model;
 
 
-import com.google.gson.Gson;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.GsonBuilder;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
@@ -129,10 +130,10 @@ public class Amen {
            ", referringAmen=" + referringAmen +
            '}';
   }
-
   public String json() {
 
-    return new Gson().toJson(this);
+    GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+    return builder.create().toJson(this);
   }
 
   private Date parseIso8601DateNoBind(String dateString) {
