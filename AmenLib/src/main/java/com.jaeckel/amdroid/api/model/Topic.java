@@ -18,6 +18,12 @@ public class Topic {
   private String  scope;
   private Integer objektsCount;
 
+  public Topic(String description, Boolean best, String scope) {
+    this.description = description;
+    this.best = best;
+    this.scope = scope;
+  }
+  
   public Topic(JSONObject topic) {
 
     try {

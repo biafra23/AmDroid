@@ -16,6 +16,13 @@ public class Objekt {
   private String    name;
   private ObjektKey key;
 
+  
+  public Objekt(String name, Integer kindId) {
+    this.name = name;
+    this.kindId = kindId;
+   
+  }
+  
   public Objekt(JSONObject objekt) {
     try {
       this.kindId = objekt.getInt("kind_id");

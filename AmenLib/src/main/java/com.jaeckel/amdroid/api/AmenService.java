@@ -1,6 +1,7 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 
@@ -34,11 +35,11 @@ public interface AmenService {
 
   public boolean dispute(Amen a, String dispute);
 
-  public long createAmen(Amen a);
-
   public long takeBack(Amen a);
 
   public List<Amen> getAmenForUser(User u);
 
   public UserInfo getUserInfo(User u);
+
+  public void addStatement(Statement statement);
 }

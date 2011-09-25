@@ -2,6 +2,7 @@ package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Dispute;
+import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 import org.apache.http.Header;
@@ -160,9 +161,31 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public long createAmen(Amen a) {
+  public void addStatement(Statement statement) {
+    final String body = statement.json();
+    log.trace("Body: " + body);
 
-    return 0;
+    try {
+      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json  ",
+                                                                     body,
+                                                                     cookie, csrfToken);
+      HttpResponse response = httpclient.execute(httpPost);
+      HttpEntity responseEntity = response.getEntity();
+
+      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+      String line;
+      while ((line = br.readLine()) != null) {
+        log.trace("addStatement | " + line);
+      }
+
+      responseEntity.consumeContent();
+
+    } catch (IOException e) {
+
+      throw new RuntimeException("addStatement failed", e);
+    }
+
+
   }
 
   @Override

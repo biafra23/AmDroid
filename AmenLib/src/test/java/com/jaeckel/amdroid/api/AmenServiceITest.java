@@ -1,6 +1,9 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Objekt;
+import com.jaeckel.amdroid.api.model.Statement;
+import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 import junit.framework.TestCase;
@@ -43,12 +46,12 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
 
     service.init("nbotvin@different.name", "foobar23");
-    List<Amen>amens = service.getFeed();
+    List<Amen> amens = service.getFeed();
     assertEquals("Amen amount wrong", 25, amens.size());
 
     amens = service.getFeed(182126L, 3);
     assertEquals("Amen amount wrong", 3, amens.size());
-    assertEquals("Amen with wrong id", 182125L, amens.get(0).getId() );
+    assertEquals("Amen with wrong id", 182125L, amens.get(0).getId());
 
     amens = service.getFeed();
     assertEquals("Amen amount wrong", 25, amens.size());
@@ -67,15 +70,15 @@ public class AmenServiceITest extends TestCase {
     service.dispute(a, "FOOO");
 
   }
-  
-  
+
+
   public void testGetUserInfo() {
     AmenService service = new AmenServiceImpl();
     service.init("nbotvin@different.name", "foobar23");
 
     UserInfo ui = service.getUserInfo(new User(14028L));
 
-    assertEquals("Wrong user for id", 14028L, (long)ui.getId());
+    assertEquals("Wrong user for id", 14028L, (long) ui.getId());
 
   }
 
@@ -85,7 +88,17 @@ public class AmenServiceITest extends TestCase {
 
     User u = service.getMe();
 
-    assertEquals("Wrong user for id", 14028L, (long)u.getId());
+    assertEquals("Wrong user", 14028L, (long) u.getId());
+    assertEquals("Wrong user", "Nancy Botwin", u.getName());
 
+  }
+
+  public void testAmen() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Statement statement = new Statement(new Objekt("Foo", 2),  new Topic("placeholder", true, "Ever"));
+    service.addStatement(statement);
+    
   }
 }
