@@ -12,14 +12,24 @@ import org.json.JSONObject;
 public class User {
 
 
-  private Long id;
+  private Long   id;
   private String name;
   private String picture;
 
   public User(Long id) {
     this.id = id;
   }
-  
+
+  public User(String id) {
+    this.id = Long.valueOf(id);
+  }
+
+  public User(UserInfo ui) {
+    this.id = ui.getId();
+    this.name = ui.getName();
+    this.picture = ui.getPicture();
+  }
+
   public User(JSONObject object) {
     try {
 

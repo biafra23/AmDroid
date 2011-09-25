@@ -15,10 +15,13 @@ public interface AmenService {
 
   public AmenService init(String username, String password);
 
+
   public String getCsrfToken();
 
   public String getCookie();
 
+  public User getMe();
+  
   public List<Amen> getFeed();
 
   public List<Amen> getFeed(long sinceId, int pageSize);
@@ -35,7 +38,7 @@ public interface AmenService {
 
   public long takeBack(Amen a);
 
-  public List<Amen> amenForUser(User u);
+  public List<Amen> getAmenForUser(User u);
 
-  public UserInfo userInfo(User u);
+  public UserInfo getUserInfo(User u);
 }

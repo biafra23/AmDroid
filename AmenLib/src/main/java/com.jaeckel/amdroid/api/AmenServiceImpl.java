@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * User: biafra
@@ -169,17 +171,17 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public List<Amen> amenForUser(User u) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+  public List<Amen> getAmenForUser(User u) {
+    return getUserInfo(u).getRecentAmen();
   }
 
   @Override
-  public UserInfo userInfo(User u) {
+  public UserInfo getUserInfo(User u) {
     UserInfo result;
 
     HashMap<String, String> params = new HashMap<String, String>();
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + u.getId() +".json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + u.getId() + ".json", params, cookie, csrfToken);
 
     try {
 
@@ -286,7 +288,7 @@ public class AmenServiceImpl implements AmenService {
       }
 
     } catch (IOException e) {
-      throw new RuntimeException("initial connection failed", e);  //To change body of catch statement use File | Settings | File Templates.
+      throw new RuntimeException("initial connection failed", e);
     }
   }
 
@@ -294,25 +296,66 @@ public class AmenServiceImpl implements AmenService {
 
     int semicolonIndex = value.indexOf(";");
     return value.substring(0, semicolonIndex);
-
   }
 
   public String getCsrfToken() {
     return csrfToken;
   }
 
-//  public void setCsrfToken(String csrfToken) {
-//    this.csrfToken = csrfToken;
-//  }
-
   public String getCookie() {
     return cookie;
   }
 
-//  public void setCookie(String cookie) {
-//    this.cookie = cookie;
-//  }
+  @Override
+  public User getMe() {
+    User result = null;
+
+    HashMap<String, String> params = new HashMap<String, String>();
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/feed", params, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+      String line;
+      while ((line = br.readLine()) != null) {
+
+//        log.trace("getMe | " + line);
+        if (line.matches(".*window.loggedInUser.*")) {
+
+          String patternStr = ".*\"id\":(\\d+),.*";
+          Pattern pattern = Pattern.compile(patternStr);
+          Matcher matcher = pattern.matcher(line);
+          boolean matchFound = matcher.find();
+          if (matchFound) {
+            String idString = matcher.group(1);
+
+            responseEntity.consumeContent();
+
+            log.trace("my id: " + idString);
+            UserInfo me = getUserInfo(new User(idString));
+            result = new User(me);
+
+            break;
+          }
 
 
+        }
+      }
+      if (result == null) {
+        responseEntity.consumeContent();
+      }
+
+
+    } catch (IOException e) {
+      throw new RuntimeException("getMe  failed", e);
+
+    }
+
+    return result;
+  }
 }
 

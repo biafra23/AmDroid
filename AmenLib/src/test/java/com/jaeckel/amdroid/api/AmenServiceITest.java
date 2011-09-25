@@ -73,11 +73,19 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
     service.init("nbotvin@different.name", "foobar23");
 
-    UserInfo ui = service.userInfo(new User(14028L));
+    UserInfo ui = service.getUserInfo(new User(14028L));
 
     assertEquals("Wrong user for id", 14028L, (long)ui.getId());
 
+  }
 
+  public void testGetMe() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    User u = service.getMe();
+
+    assertEquals("Wrong user for id", 14028L, (long)u.getId());
 
   }
 }

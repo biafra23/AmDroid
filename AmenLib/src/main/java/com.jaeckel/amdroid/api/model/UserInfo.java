@@ -157,5 +157,11 @@ public class UserInfo {
            '}';
   }
 
+  public List<Amen> getRecentAmen() {
+    return recentAmen;
+  }
 
+  public void setRecentAmen(List<Amen> recentAmen) {
+    this.recentAmen = recentAmen;
+  }
 }

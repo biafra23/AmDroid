@@ -10,12 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenService.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Amen.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Amen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/User.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" afterPath="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
@@ -108,10 +107,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AmenServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenServiceImpl.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="0" selection-start="5539" selection-end="5539" vertical-scroll-proportion="-18.961538">
+            <state line="351" column="0" selection-start="9945" selection-end="9945" vertical-scroll-proportion="0.7588785">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,7 +121,7 @@
       <file leaf-file-name="AmenServiceITest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.0">
+            <state line="85" column="22" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,16 +130,27 @@
       <file leaf-file-name="AmenService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="18" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserInfo.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RequestFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/RequestFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="13" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.54545456">
+            <state line="165" column="3" selection-start="4165" selection-end="4165" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,15 +180,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Objekt.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Objekt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Statement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Statement.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -200,7 +201,7 @@
       <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="1" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
+            <state line="29" column="35" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -232,11 +233,11 @@
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/UserInfo.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Amen.java" />
+        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenService.java" />
-        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/User.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" />
-        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java" />
+        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -712,7 +713,7 @@
       <recent name="com.jaeckel.amdroid.api.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AmenServiceITest.testGetUserInfo">
+  <component name="RunManager" selected="JUnit.AmenServiceITest.testGetMe">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -987,11 +988,35 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="4">
+    <configuration default="false" name="AmenServiceITest.testGetMe" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" />
+      <module name="AmenLib" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.jaeckel.amdroid.api" />
+      <option name="MAIN_CLASS_NAME" value="com.jaeckel.amdroid.api.AmenServiceITest" />
+      <option name="METHOD_NAME" value="testGetMe" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Android Application.run" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.AmenServiceITest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testDispute" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetUserInfo" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetMe" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1087,7 +1112,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple dispute" />
+    <option name="LAST_COMMIT_MESSAGE" value="parsing recent amens" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1112,6 +1137,7 @@
     <MESSAGE value="getter&amp;setter" />
     <MESSAGE value="fieldname policy" />
     <MESSAGE value="simple dispute" />
+    <MESSAGE value="parsing recent amens" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1132,15 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="20" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/RequestFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1705" selection-end="1705" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,39 +1221,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenService.java">
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="18" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="1" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="5539" selection-end="5539" vertical-scroll-proportion="-18.961538">
+        <state line="165" column="3" selection-start="4165" selection-end="4165" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/UserInfo.java">
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.54545456">
+        <state line="29" column="35" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/RequestFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="22" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="351" column="0" selection-start="9945" selection-end="9945" vertical-scroll-proportion="0.7588785">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
