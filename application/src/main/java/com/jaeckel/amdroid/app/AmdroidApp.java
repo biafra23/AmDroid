@@ -84,7 +84,7 @@ public class AmdroidApp extends Application {
  		return(bus);
  	}
 
- 	SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> getCache() {
+ 	public SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> getCache() {
  		return(cache);
  	}
 

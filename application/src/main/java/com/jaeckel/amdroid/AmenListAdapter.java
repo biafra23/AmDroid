@@ -58,8 +58,11 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     if (TextUtils.isEmpty(pictureUrl)) {
       pictureUrl = "https://getamen.com/default-user-images/small8.png";
     }
+
+    userImage.setImageResource(R.drawable.placeholder);
+    userImage.setTag(pictureUrl);
     
-    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
+//    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
 
     return row;
   }

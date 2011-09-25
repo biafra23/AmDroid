@@ -52,7 +52,7 @@ public class AdapterWrapper extends BaseAdapter {
 		* position in the data set.
 		* @param position Position of the item whose data we want
     */
-	@Override
+
 	public Object getItem(int position) {
 		return(wrapped.getItem(position));
 	}
@@ -61,7 +61,7 @@ public class AdapterWrapper extends BaseAdapter {
 		* How many items are in the data set represented by this
 		* Adapter.
     */
-	@Override
+
 	public int getCount() {
 		return(wrapped.getCount());
 	}
@@ -111,7 +111,7 @@ public class AdapterWrapper extends BaseAdapter {
 		* @param convertView View to recycle, if not null
 		* @param parent ViewGroup containing the returned View
     */
-	@Override
+	
 	public View getView(int position, View convertView,
 											ViewGroup parent) {
 		return(wrapped.getView(position, convertView, parent));
@@ -122,7 +122,7 @@ public class AdapterWrapper extends BaseAdapter {
 		* in the list.
 		* @param position Position of the item whose data we want
     */
-	@Override
+
 	public long getItemId(int position) {
 		return(wrapped.getItemId(position));
 	}

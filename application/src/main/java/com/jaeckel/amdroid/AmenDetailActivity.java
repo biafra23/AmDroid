@@ -37,8 +37,8 @@ public class AmenDetailActivity extends Activity {
 
     Log.v(TAG, "onCreate");
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String username = prefs.getString("user_name", "");
-    String password = prefs.getString("password", "");
+    String username = prefs.getString("user_name", "nbotvin@different.name");
+    String password = prefs.getString("password", "foobar23");
     service = AmdroidApp.getInstance().getService(username, password);
 
     setContentView(R.layout.details);

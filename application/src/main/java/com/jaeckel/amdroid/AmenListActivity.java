@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.thumbnail.ThumbnailAdapter;
 
 import java.util.List;
 
@@ -29,8 +30,9 @@ public class AmenListActivity extends ListActivity {
 
   private ProgressDialog  progressDialog;
   private AmenListAdapter adapter;
+  private ThumbnailAdapter thumbs;
   private AmenService     service;
-
+  private static final int[] IMAGE_IDS={R.id.user_image};
   /**
    * Called when the activity is first created.
    *
@@ -47,13 +49,19 @@ public class AmenListActivity extends ListActivity {
                                          "Loading. Please wait...", true);
     progressDialog.show();
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String username = prefs.getString("user_name", "");
-    String password = prefs.getString("password", "");
+    String username = prefs.getString("user_name", null);
+    String password = prefs.getString("password", null);
+
+    if (username == null || password == null) {
+      startActivity(new Intent(this, EditPreferencesActivity.class));
+    }
+    username = prefs.getString("user_name", null);
+    password = prefs.getString("password", null);
 
     service = AmdroidApp.getInstance().getService(username, password);
 
     setContentView(R.layout.main);
-    
+
     progressDialog.hide();
     refresh();
   }
@@ -143,7 +151,8 @@ public class AmenListActivity extends ListActivity {
     protected void onPostExecute(List<Amen> amens) {
 
       adapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.simple_list_item_1, amens);
-      setListAdapter(adapter);
+      thumbs=new ThumbnailAdapter(AmenListActivity.this, new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+      setListAdapter(thumbs);
 
       //hide progress
       progressDialog.hide();
