@@ -16,6 +16,10 @@ public class User {
   private String name;
   private String picture;
 
+  public User(Long id) {
+    this.id = id;
+  }
+  
   public User(JSONObject object) {
     try {
 

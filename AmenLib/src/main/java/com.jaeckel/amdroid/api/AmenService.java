@@ -2,6 +2,7 @@ package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.User;
+import com.jaeckel.amdroid.api.model.UserInfo;
 
 import java.util.List;
 
@@ -33,4 +34,8 @@ public interface AmenService {
   public long createAmen(Amen a);
 
   public long takeBack(Amen a);
+
+  public List<Amen> amenForUser(User u);
+
+  public UserInfo userInfo(User u);
 }

@@ -3,6 +3,7 @@ package com.jaeckel.amdroid.api;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.User;
+import com.jaeckel.amdroid.api.model.UserInfo;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -12,6 +13,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -128,7 +130,7 @@ public class AmenServiceImpl implements AmenService {
     try {
 
       final Dispute dispute = new Dispute(a, "Fnord");
-      
+
       log.trace("dispute: " + dispute);
       log.trace("dispute: " + dispute.json());
 
@@ -164,6 +166,44 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public long takeBack(Amen a) {
     return 0;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override
+  public List<Amen> amenForUser(User u) {
+    return null;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override
+  public UserInfo userInfo(User u) {
+    UserInfo result;
+
+    HashMap<String, String> params = new HashMap<String, String>();
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + u.getId() +".json", params, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      JSONTokener feedTokener = new JSONTokener(responseString);
+      log.trace("Parsed JSON: " + feedTokener.toString());
+      result = new UserInfo((JSONObject) feedTokener.nextValue());
+
+      log.trace("UserInfo: " + result);
+
+
+      responseEntity.consumeContent();
+
+    } catch (IOException e) {
+      throw new RuntimeException("getFeed  failed", e);
+    } catch (JSONException e) {
+      throw new RuntimeException("parsing feed  failed", e);
+    }
+
+    return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   private String makeStringFromEntity(HttpEntity responseEntity) throws IOException {

@@ -145,7 +145,7 @@ public class Amen {
     }
   }
 
-  private Date parseIso8601DateJoda(String dateString) {
+  public static Date parseIso8601DateJoda(String dateString) {
     //2011-09-24T22:23:26Z
     DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
     DateTime dt = fmt.parseDateTime(dateString);

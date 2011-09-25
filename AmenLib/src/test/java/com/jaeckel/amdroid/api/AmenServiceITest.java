@@ -1,6 +1,8 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.User;
+import com.jaeckel.amdroid.api.model.UserInfo;
 import junit.framework.TestCase;
 
 import java.util.List;
@@ -63,6 +65,19 @@ public class AmenServiceITest extends TestCase {
     final Amen a = amens.get(0);
     a.setReferringAmen(null);
     service.dispute(a, "FOOO");
+
+  }
+  
+  
+  public void testGetUserInfo() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    UserInfo ui = service.userInfo(new User(14028L));
+
+    assertEquals("Wrong user for id", 14028L, (long)ui.getId());
+
+
 
   }
 }
