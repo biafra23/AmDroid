@@ -10,20 +10,25 @@ import com.google.gson.GsonBuilder;
  */
 public class Dispute {
 
-  private int kindId;
-  private long referringAmenId;
+  private Integer   kindId;
+  private Long      referringAmenId;
   private Statement statement;
 
   public Dispute(Amen amen, String newObjektName) {
+
     this.referringAmenId = amen.getId();
+
     this.statement = amen.getStatement();
     this.statement.setAgreeingNetwork(null);
     this.statement.getObjekt().setName(newObjektName);
     this.statement.getObjekt().setKey(null);
+    this.statement.setTotalAmenCount(null);
+
     this.kindId = amen.getKindId();
-    this.statement.setTotalAmenCount(0);
+    this.statement.getTopic().setId(null);
+    this.statement.getTopic().setObjektsCount(null);
   }
-  
+
   public int getKindId() {
     return kindId;
   }
@@ -58,7 +63,7 @@ public class Dispute {
   }
 
   public String json() {
-    
+
     GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
     return builder.create().toJson(this);
   }

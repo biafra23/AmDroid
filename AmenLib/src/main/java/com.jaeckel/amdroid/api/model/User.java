@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class User {
 
 
-  private long   id;
+  private Long id;
   private String name;
   private String picture;
 

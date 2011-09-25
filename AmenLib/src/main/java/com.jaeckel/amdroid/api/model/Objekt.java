@@ -12,7 +12,7 @@ import org.json.JSONObject;
  */
 public class Objekt {
 
-  private int       kindId;
+  private Integer kindId;
   private String    name;
   private ObjektKey key;
 
@@ -34,6 +34,7 @@ public class Objekt {
            ", key=" + key +
            '}';
   }
+
   public String json() {
 
     GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);

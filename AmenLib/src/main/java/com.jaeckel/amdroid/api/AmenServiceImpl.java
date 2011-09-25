@@ -125,7 +125,7 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public boolean dispute(Amen a, String disputeString) {
 
-//    try {
+    try {
 
       final Dispute dispute = new Dispute(a, "Fnord");
       
@@ -135,22 +135,22 @@ public class AmenServiceImpl implements AmenService {
       HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
                                                                      dispute.json(),
                                                                      cookie, csrfToken);
-//      HttpResponse response = httpclient.execute(httpPost);
-//      HttpEntity responseEntity = response.getEntity();
-//
-//      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-//      String line;
-//      while ((line = br.readLine()) != null) {
-//
-//        log.trace("dispute | " + line);
-//      }
-//
-//      responseEntity.consumeContent();
-//
-//    } catch (IOException e) {
-//
-//      throw new RuntimeException("dispute failed", e);
-//    }
+      HttpResponse response = httpclient.execute(httpPost);
+      HttpEntity responseEntity = response.getEntity();
+
+      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+      String line;
+      while ((line = br.readLine()) != null) {
+
+        log.trace("dispute | " + line);
+      }
+
+      responseEntity.consumeContent();
+
+    } catch (IOException e) {
+
+      throw new RuntimeException("dispute failed", e);
+    }
 
     return false;  //To change body of implemented methods use File | Settings | File Templates.
   }

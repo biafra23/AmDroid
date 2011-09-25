@@ -21,11 +21,11 @@ public class Amen {
 
 //  transient final Logger log = LoggerFactory.getLogger("Amen");
 
-  private long      id;
-  private long      userId;
+  private Long      id;
+  private Long      userId;
   private User      user;
   private Date      createdAt;
-  private int       kindId; //normal, amen, dispute
+  private Integer   kindId; //normal, amen, dispute
   private Statement statement;
 
   private Amen referringAmen;
@@ -130,6 +130,7 @@ public class Amen {
            ", referringAmen=" + referringAmen +
            '}';
   }
+
   public String json() {
 
     GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);

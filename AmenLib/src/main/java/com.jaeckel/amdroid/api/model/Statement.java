@@ -15,9 +15,9 @@ import java.util.List;
  */
 public class Statement {
 
-  private long       id;
-  private long       totalAmenCount;
-  private boolean    agreeable;
+  private Long id;
+  private Long totalAmenCount;
+  private Boolean agreeable;
   private List<User> agreeingNetwork;
   private Topic      topic;
   private Objekt     objekt;
@@ -66,15 +66,15 @@ public class Statement {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public long getTotalAmenCount() {
+  public Long getTotalAmenCount() {
     return totalAmenCount;
   }
 
-  public void setTotalAmenCount(long totalAmenCount) {
+  public void setTotalAmenCount(Long totalAmenCount) {
     this.totalAmenCount = totalAmenCount;
   }
 
@@ -82,7 +82,7 @@ public class Statement {
     return agreeable;
   }
 
-  public void setAgreeable(boolean agreeable) {
+  public void setAgreeable(Boolean agreeable) {
     this.agreeable = agreeable;
   }
 

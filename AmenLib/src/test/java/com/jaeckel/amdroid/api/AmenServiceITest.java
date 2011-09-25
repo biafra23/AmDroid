@@ -58,7 +58,7 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
 
     service.init("nbotvin@different.name", "foobar23");
-    List<Amen> amens = service.getFeed();
+    List<Amen> amens = service.getFeed(0, 1);
 
     final Amen a = amens.get(0);
     a.setReferringAmen(null);

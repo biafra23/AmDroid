@@ -12,11 +12,11 @@ import org.json.JSONObject;
  */
 public class Topic {
 
-  private long    id;
-  private boolean best;
+  private Long id;
+  private Boolean best;
   private String  description;
   private String  scope;
-  private int     objektsCount;
+  private Integer objektsCount;
 
   public Topic(JSONObject topic) {
 
@@ -49,7 +49,7 @@ public class Topic {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -57,7 +57,7 @@ public class Topic {
     return best;
   }
 
-  public void setBest(boolean best) {
+  public void setBest(Boolean best) {
     this.best = best;
   }
 
@@ -81,7 +81,7 @@ public class Topic {
     return objektsCount;
   }
 
-  public void setObjektsCount(int objektsCount) {
+  public void setObjektsCount(Integer objektsCount) {
     this.objektsCount = objektsCount;
   }
 
