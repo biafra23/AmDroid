@@ -132,7 +132,7 @@ public class AmenServiceImpl implements AmenService {
 
     try {
 
-      final Dispute dispute = new Dispute(a, "Fnord");
+      final Dispute dispute = new Dispute(a, disputeString);
 
       log.trace("dispute: " + dispute);
       log.trace("dispute: " + dispute.json());

@@ -67,7 +67,7 @@ public class AmenServiceITest extends TestCase {
 
     final Amen a = amens.get(0);
     a.setReferringAmen(null);
-    service.dispute(a, "FOOO");
+    service.dispute(a, "Foo");
 
   }
 
