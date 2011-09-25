@@ -162,11 +162,11 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public void addStatement(Statement statement) {
-    final String body = statement.json();
+    final String body = new Amen(statement).json();
     log.trace("Body: " + body);
 
     try {
-      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json  ",
+      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
                                                                      body,
                                                                      cookie, csrfToken);
       HttpResponse response = httpclient.execute(httpPost);

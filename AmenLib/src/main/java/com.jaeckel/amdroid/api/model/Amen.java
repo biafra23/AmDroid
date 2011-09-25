@@ -30,6 +30,10 @@ public class Amen {
 
   private Amen referringAmen;
 
+  public Amen(Statement statement) {
+    this.statement = statement;
+    this.kindId = 0;
+  }
 
   public Amen(JSONObject object) {
 
