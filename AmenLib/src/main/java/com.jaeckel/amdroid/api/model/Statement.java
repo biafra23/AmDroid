@@ -62,4 +62,51 @@ public class Statement {
     return new Gson().toJson(this);
   }
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public long getTotalAmenCount() {
+    return total_amen_count;
+  }
+
+  public void setTotalAmenCount(long totalAmenCount) {
+    this.total_amen_count = totalAmenCount;
+  }
+
+  public boolean isAgreeable() {
+    return agreeable;
+  }
+
+  public void setAgreeable(boolean agreeable) {
+    this.agreeable = agreeable;
+  }
+
+  public List<User> getAgreeingNetwork() {
+    return agreeing_network;
+  }
+
+  public void setAgreeingNetwork(List<User> agreeingNetwork) {
+    this.agreeing_network = agreeingNetwork;
+  }
+
+  public Topic getTopic() {
+    return topic;
+  }
+
+  public void setTopic(Topic topic) {
+    this.topic = topic;
+  }
+
+  public Objekt getObjekt() {
+    return objekt;
+  }
+
+  public void setObjekt(Objekt objekt) {
+    this.objekt = objekt;
+  }
 }

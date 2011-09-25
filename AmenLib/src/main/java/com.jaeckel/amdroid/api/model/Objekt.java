@@ -38,4 +38,27 @@ public class Objekt {
     return new Gson().toJson(this);
   }
 
+  public int getKindId() {
+    return kindId;
+  }
+
+  public void setKindId(int kindId) {
+    this.kindId = kindId;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public ObjektKey getKey() {
+    return key;
+  }
+
+  public void setKey(ObjektKey key) {
+    this.key = key;
+  }
 }

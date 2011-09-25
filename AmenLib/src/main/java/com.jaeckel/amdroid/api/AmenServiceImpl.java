@@ -1,6 +1,7 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.User;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -122,40 +123,34 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public boolean dispute(Amen a, String dispute) {
+  public boolean dispute(Amen a, String disputeString) {
 
-    //POST amen.json
-//body:
-//    {"statement":{"objekt":{"name":"Trio","kind_id":0},
-// "topic":{"best":false,"description":"Trio","scope":"Ever"}},"kind_id":2,"referring_amen_id":185566}
+//    try {
 
-
-
-    try {
+      final Dispute dispute = new Dispute(a, "Fnord");
       
-//      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
-//                                                                     "{\"statement\":{\"objekt\":{\"name\":\"Trio\",\"kind_id\":0},\"topic\":{\"best\":false,\"description\":\"Trio\",\"scope\":\"Ever\"}},\"kind_id\":2,\"referring_amen_id\":185566}",
-//                                                                     cookie, csrfToken);
+      log.trace("dispute: " + dispute);
+      log.trace("dispute: " + dispute.json());
 
       HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
-                                                                     a.json(),
+                                                                     dispute.json(),
                                                                      cookie, csrfToken);
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
-
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      String line;
-      while ((line = br.readLine()) != null) {
-
-        log.trace("dispute | " + line);
-      }
-
-      responseEntity.consumeContent();
-
-    } catch (IOException e) {
-
-      throw new RuntimeException("dispute failed", e);
-    }
+//      HttpResponse response = httpclient.execute(httpPost);
+//      HttpEntity responseEntity = response.getEntity();
+//
+//      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+//      String line;
+//      while ((line = br.readLine()) != null) {
+//
+//        log.trace("dispute | " + line);
+//      }
+//
+//      responseEntity.consumeContent();
+//
+//    } catch (IOException e) {
+//
+//      throw new RuntimeException("dispute failed", e);
+//    }
 
     return false;  //To change body of implemented methods use File | Settings | File Templates.
   }
