@@ -88,6 +88,7 @@ public class AmenServiceImpl implements AmenService {
       for (int i = 0; i < amens.length(); i++) {
         Amen current = new Amen(amens.getJSONObject(i));
         log.trace("Parsed Amen: " + current);
+        log.trace("JSONed Amen: " + current.json());
         result.add(current);
       }
 
@@ -128,6 +129,33 @@ public class AmenServiceImpl implements AmenService {
 //    {"statement":{"objekt":{"name":"Trio","kind_id":0},
 // "topic":{"best":false,"description":"Trio","scope":"Ever"}},"kind_id":2,"referring_amen_id":185566}
 
+
+
+    try {
+      
+//      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
+//                                                                     "{\"statement\":{\"objekt\":{\"name\":\"Trio\",\"kind_id\":0},\"topic\":{\"best\":false,\"description\":\"Trio\",\"scope\":\"Ever\"}},\"kind_id\":2,\"referring_amen_id\":185566}",
+//                                                                     cookie, csrfToken);
+
+      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
+                                                                     a.json(),
+                                                                     cookie, csrfToken);
+      HttpResponse response = httpclient.execute(httpPost);
+      HttpEntity responseEntity = response.getEntity();
+
+      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+      String line;
+      while ((line = br.readLine()) != null) {
+
+        log.trace("dispute | " + line);
+      }
+
+      responseEntity.consumeContent();
+
+    } catch (IOException e) {
+
+      throw new RuntimeException("dispute failed", e);
+    }
 
     return false;  //To change body of implemented methods use File | Settings | File Templates.
   }

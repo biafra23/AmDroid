@@ -1,13 +1,12 @@
 package com.jaeckel.amdroid.api.model;
 
 
+import com.google.gson.Gson;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.Date;
@@ -19,7 +18,7 @@ import java.util.Date;
  */
 public class Amen {
 
-  final Logger log = LoggerFactory.getLogger("Amen");
+//  transient final Logger log = LoggerFactory.getLogger("Amen");
 
   private long      id;
   private long      userId;
@@ -129,6 +128,11 @@ public class Amen {
            ", statement=" + statement +
            ", referringAmen=" + referringAmen +
            '}';
+  }
+
+  public String json() {
+
+    return new Gson().toJson(this);
   }
 
   private Date parseIso8601DateNoBind(String dateString) {

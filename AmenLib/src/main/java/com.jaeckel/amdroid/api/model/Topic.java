@@ -1,5 +1,6 @@
 package com.jaeckel.amdroid.api.model;
 
+import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +27,7 @@ public class Topic {
       this.description = topic.getString("description");
       this.scope = topic.getString("scope");
       this.objektsCount = topic.getInt("objekts_count");
-      
+
     } catch (JSONException e) {
       throw new RuntimeException("", e);
     }
@@ -81,6 +82,11 @@ public class Topic {
 
   public void setObjektsCount(int objektsCount) {
     this.objektsCount = objektsCount;
+  }
+
+  public String json() {
+
+    return new Gson().toJson(this);
   }
 
 

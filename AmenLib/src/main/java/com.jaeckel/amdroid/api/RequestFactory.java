@@ -5,6 +5,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.io.UnsupportedEncodingException;
@@ -40,6 +41,27 @@ public class RequestFactory {
       throw new RuntimeException("Unsupported Encoding", e);
     }
 
+    return httpPost;
+  }
+
+  public static HttpUriRequest createJSONPOSTRequest(String serviceUrl, String body, String cookie, String csrfToken) {
+
+    HttpPost httpPost = new HttpPost(serviceUrl);
+
+    httpPost.addHeader("X-CSRF-Token", csrfToken);
+    httpPost.addHeader("Cookie", cookie);
+    httpPost.addHeader("Content-Type", "application/json; charset=UTF-8");
+    httpPost.addHeader("X-Requested-With", "XMLHttpRequest");
+
+    try {
+
+      httpPost.setEntity(new ByteArrayEntity(body.getBytes("UTF8")));
+
+    } catch (UnsupportedEncodingException e) {
+
+      throw new RuntimeException("Unsupported Encoding", e);
+    }
+    
     return httpPost;
   }
 

@@ -52,4 +52,17 @@ public class AmenServiceITest extends TestCase {
     assertEquals("Amen amount wrong", 25, amens.size());
 
   }
+
+  public void testDispute() {
+
+    AmenService service = new AmenServiceImpl();
+
+    service.init("nbotvin@different.name", "foobar23");
+    List<Amen> amens = service.getFeed();
+
+    final Amen a = amens.get(0);
+    a.setReferringAmen(null);
+    service.dispute(a, "FOOO");
+
+  }
 }

@@ -1,5 +1,6 @@
 package com.jaeckel.amdroid.api.model;
 
+import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,7 +38,7 @@ public class Statement {
       }
 
       this.objekt = new Objekt(o.getJSONObject("objekt"));
-      
+
     } catch (JSONException e) {
 
       throw new RuntimeException("Error parsing statement: (" + o.toString() + ")", e);  //To change body of catch statement use File | Settings | File Templates.
@@ -55,4 +56,10 @@ public class Statement {
            ", objekt=" + objekt +
            '}';
   }
+
+  public String json() {
+
+    return new Gson().toJson(this);
+  }
+
 }

@@ -1,5 +1,6 @@
 package com.jaeckel.amdroid.api.model;
 
+import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -32,4 +33,9 @@ public class ObjektKey {
            ", type='" + type + '\'' +
            '}';
   }
+  public String json() {
+
+    return new Gson().toJson(this);
+  }
+
 }

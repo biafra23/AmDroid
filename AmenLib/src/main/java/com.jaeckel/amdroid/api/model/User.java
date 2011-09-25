@@ -1,5 +1,6 @@
 package com.jaeckel.amdroid.api.model;
 
+import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -59,4 +60,10 @@ public class User {
            ", picture='" + picture + '\'' +
            '}';
   }
+
+  public String json() {
+
+    return new Gson().toJson(this);
+  }
+
 }
