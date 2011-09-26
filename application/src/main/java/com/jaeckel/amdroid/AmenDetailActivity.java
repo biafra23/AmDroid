@@ -81,7 +81,9 @@ public class AmenDetailActivity extends Activity {
       agreeing.append(user.getName() + ", ");
     }
     agreeingNetwork.setText(agreeing.toString().replace(", $", ""));
-
+    if (amened(currentAmen)) {
+      amenTakeBackButton.setText("Take Back");
+    }
     amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
@@ -102,6 +104,15 @@ public class AmenDetailActivity extends Activity {
         populateFormWithAmen(false);
       }
     });
+  }
+
+  private boolean amened(Amen currentAmen) {
+    for (User u :currentAmen.getStatement().getAgreeingNetwork()) {
+      if (u.getName().equals(AmdroidApp.getInstance().getMe().getName())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private String format(Date firstPostedAt) {

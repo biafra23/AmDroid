@@ -6,6 +6,7 @@ import android.util.Log;
 import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
+import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
@@ -28,6 +29,7 @@ public class AmdroidApp extends Application {
 
   private        ThumbnailBus                                        bus   = new ThumbnailBus();
   private        SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+  private User me;
 
 
   public AmdroidApp() {
@@ -65,6 +67,7 @@ public class AmdroidApp extends Application {
       service = new AmenServiceImpl();
 
       service.init(username, password);
+      me = service.getMe();
     }
     return service;
   }
@@ -95,4 +98,8 @@ public class AmdroidApp extends Application {
  			goBlooey(ex);
  		}
  	};
+
+  public User getMe() {
+    return me;
+  }
 }
