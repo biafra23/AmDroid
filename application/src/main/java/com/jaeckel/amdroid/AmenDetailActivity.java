@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
-import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -26,11 +25,11 @@ import java.util.Date;
  */
 public class AmenDetailActivity extends Activity {
   public static final String STATEMENT_ID = "statement_id";
+  public static final String AMEN_ID      = "amen_id";
   private AmenService service;
   private static final String TAG = "amdroid/AmenDetailActivity";
-  private Amen      currentAmen;
-  private Statement statement;
-  private Topic     topicWithRankedStatements;
+  private Amen  currentAmen;
+  private Topic topicWithRankedStatements;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -42,23 +41,26 @@ public class AmenDetailActivity extends Activity {
     service = AmdroidApp.getInstance().getService(username, password);
 
     setContentView(R.layout.details);
-    Long id = getIntent().getLongExtra(STATEMENT_ID, -1);
-    statement = service.getStatementForId(id);
-    topicWithRankedStatements = service.getTopicsForId(statement.getTopic().getId());
+    Long id = getIntent().getLongExtra(AMEN_ID, -1);
+    currentAmen = service.getAmenForId(id);
 
+  }
+
+  public void onResume() {
+    super.onResume();
     TextView statementView = (TextView) findViewById(R.id.statement);
-    statementView.setText(statement.toDisplayString());
+    statementView.setText(currentAmen.getStatement().toDisplayString());
 
     TextView userView = (TextView) findViewById(R.id.user);
-    userView.setText(statement.getFirstPoster().getName() + ", " + format(statement.getFirstPostedAt()) );
+    userView.setText(currentAmen.getStatement().getFirstPoster().getName() + ", " + format(currentAmen.getStatement().getFirstPostedAt()));
     TextView amenCount = (TextView) findViewById(R.id.amen_count);
-    amenCount.setText(statement.getTotalAmenCount() + " Amen");
+    amenCount.setText(currentAmen.getStatement().getTotalAmenCount() + " Amen");
 
     TextView agreeingNetwork = (TextView) findViewById(R.id.agreeing_network);
     StringBuilder agreeing = new StringBuilder();
-    for (User user : statement.getAgreeingNetwork()) {
+    for (User user : currentAmen.getStatement().getAgreeingNetwork()) {
 
-      agreeing.append( user.getName() + ", ") ;
+      agreeing.append(user.getName() + ", ");
     }
 
     agreeingNetwork.setText(agreeing.toString().replace(", $", ""));
@@ -69,7 +71,7 @@ public class AmenDetailActivity extends Activity {
         //To change body of implemented methods use File | Settings | File Templates.
         Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
-        service.amen(new Statement(statement.getId()));
+        currentAmen = service.amen(currentAmen.getId());
 
       }
     });
@@ -88,10 +90,6 @@ public class AmenDetailActivity extends Activity {
     SimpleDateFormat fmt = new SimpleDateFormat("dd, MMMMM yyyy");
 
     return fmt.format(firstPostedAt);
-  }
-
-  public void onResume() {
-    super.onResume();
   }
 
   public void onPause() {

@@ -54,7 +54,7 @@ public class AmenServiceITest extends TestCase {
 
     amens = service.getFeed(182126L, 3);
     assertEquals("Amen amount wrong", 3, amens.size());
-    assertEquals("Amen with wrong id", 182125L, amens.get(0).getId());
+    assertEquals("Amen with wrong id", 182125L, (long)amens.get(0).getId());
 
     amens = service.getFeed();
     assertEquals("Amen amount wrong", 25, amens.size());
@@ -155,12 +155,9 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
     service.init("nbotvin@different.name", "foobar23");
 
-    Statement statement = service.getStatementForId(78477L);
-
-    Amen result = service.amen(statement);
+    Amen result = service.amen(187665L);
 
     assertNotNull("Result should not be null", result);
-
     assertEquals("Wrong user", "Nancy Botwin", result.getUser().getName());
     
     List<User> agreeing = result.getStatement().getAgreeingNetwork();

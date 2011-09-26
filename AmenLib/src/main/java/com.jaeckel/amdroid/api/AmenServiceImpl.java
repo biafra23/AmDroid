@@ -124,6 +124,42 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
+  public Amen amen(Long amenId) {
+
+    Amen a = null;
+    String json = "{\"referring_amen_id\":" + amenId + ",\"kind_id\":1}";
+
+
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
+                                                                   json,
+                                                                   cookie, csrfToken);
+
+    try {
+      HttpResponse response = httpclient.execute(httpPost);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+      JSONTokener tokener = new JSONTokener(responseString);
+
+      a = new Amen((JSONObject) tokener.nextValue());
+
+      log.trace("Amening | amen: " + a);
+
+      responseEntity.consumeContent();
+
+    } catch (IOException e) {
+
+      throw new RuntimeException("Amening failed", e);
+
+    } catch (JSONException e) {
+      throw new RuntimeException("Amening failed", e);
+    }
+
+
+    return a;
+  }
+
+  @Override
   public Amen amen(Statement statement) {
 
     Amen a = null;

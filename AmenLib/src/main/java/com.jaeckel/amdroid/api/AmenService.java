@@ -35,6 +35,8 @@ public interface AmenService {
 
   public Amen amen(Statement a);
 
+  public Amen amen(Long amenId);
+
   public boolean dispute(Dispute dispute);
 
   public long takeBack(Amen a);
