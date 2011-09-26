@@ -49,7 +49,7 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public AmenService init(String authName, String authPassword) {
-
+    log.debug("init");
     this.serviceUrl = "https://getamen.com/";
     this.authName = authName;
     this.authPassword = authPassword;
@@ -61,7 +61,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   private void login(String authName, String authPassword) {
-
+    log.debug("login");
     prepareLogin();
     signIn(authName, authPassword);
 
@@ -69,7 +69,7 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public List<Amen> getFeed(long sinceId, int limit) {
-
+    log.debug("getFeed");
     ArrayList<Amen> result = new ArrayList<Amen>();
 
     HashMap<String, String> params = new HashMap<String, String>();
@@ -113,19 +113,20 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public boolean follow(User u) {
-
+    log.debug("follow");
 
     return false;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   @Override
   public boolean unfollow(User u) {
+    log.debug("unfollow");
     return false;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   @Override
   public Amen amen(Long amenId) {
-
+    log.debug("amen(Long)");
     Amen a = null;
     String json = "{\"referring_amen_id\":" + amenId + ",\"kind_id\":1}";
 
@@ -139,6 +140,7 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
+      
       JSONTokener tokener = new JSONTokener(responseString);
 
       a = new Amen((JSONObject) tokener.nextValue());
@@ -161,7 +163,7 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public Amen amen(Statement statement) {
-
+    log.debug("amen(Statement)");
     Amen a = null;
     String json = "{\"referring_amen_id\":" + statement.getId() + ",\"kind_id\":1}";
 
@@ -197,7 +199,7 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public boolean dispute(Dispute dispute) {
-
+    log.debug("dispute");
     try {
 
       log.trace("dispute: " + dispute);
@@ -228,6 +230,7 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public void addStatement(Statement statement) {
+    log.debug("addStatement");
     final String body = new Amen(statement).json();
     log.trace("Body: " + body);
 
@@ -262,9 +265,10 @@ public class AmenServiceImpl implements AmenService {
 
 
   }
+
   @Override
   public Amen getAmenForId(Long id) {
-
+    log.debug("getAmenForId");
     Amen amen;
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/amen/" + id + ".json", null, cookie, csrfToken);
     try {
@@ -290,9 +294,10 @@ public class AmenServiceImpl implements AmenService {
 
     return amen;
   }
+
   @Override
   public Statement getStatementForId(Long id) {
-
+    log.debug("getStatementForId");
     Statement statement;
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/statements/" + id + ".json", null, cookie, csrfToken);
     try {
@@ -321,6 +326,8 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public Topic getTopicsForId(Long id) {
+
+    log.debug("getTopicsForId");
     Topic topic;
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", null, cookie, csrfToken);
@@ -350,17 +357,39 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public long takeBack(Amen a) {
-    return 0;
+  public boolean takeBack(Amen a) {
+    log.debug("takeBack(Amen)");
+    boolean result = false;
+
+    HttpUriRequest httpGet = RequestFactory.createDELETERequest(serviceUrl + "/amen/" + a.getId() + ".json", null, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      if (" ".equals(responseString)) {
+        result = true;
+      }
+
+    } catch (IOException e) {
+      throw new RuntimeException("takeBack  failed", e);
+    }
+
+    return result;
   }
 
   @Override
   public List<Amen> getAmenForUser(User u) {
+    log.debug("getAmenForUser(User)");
     return getUserInfo(u).getRecentAmen();
   }
 
   @Override
   public UserInfo getUserInfo(User u) {
+    log.debug("getUserInfo(User)");
     UserInfo result;
 
     HashMap<String, String> params = new HashMap<String, String>();
@@ -384,9 +413,9 @@ public class AmenServiceImpl implements AmenService {
       responseEntity.consumeContent();
 
     } catch (IOException e) {
-      throw new RuntimeException("getFeed  failed", e);
+      throw new RuntimeException("getUserInfo  failed", e);
     } catch (JSONException e) {
-      throw new RuntimeException("parsing feed  failed", e);
+      throw new RuntimeException("parsing getUserInfo  failed", e);
     }
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
@@ -399,7 +428,7 @@ public class AmenServiceImpl implements AmenService {
     while ((line = br.readLine()) != null) {
 
       builder.append(line);
-      log.trace("getFeed | " + line);
+      log.trace("makeStringFromEntity | " + line);
     }
 
     return builder.toString();
@@ -412,7 +441,7 @@ public class AmenServiceImpl implements AmenService {
 
 
   private void signIn(String authName, String authPassword) {
-
+    log.debug("signIn()");
 
     Map<String, String> params = new HashMap<String, String>();
     params.put("utf-8", "✓");
@@ -445,7 +474,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   private void prepareLogin() {
-
+    log.debug("prepareLogin()");
     HttpGet httpGet = new HttpGet(serviceUrl);
     try {
       HttpResponse response = httpclient.execute(httpGet);
@@ -492,6 +521,8 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public User getMe() {
+
+    log.debug("getMe()");
     User result = null;
 
     HashMap<String, String> params = new HashMap<String, String>();

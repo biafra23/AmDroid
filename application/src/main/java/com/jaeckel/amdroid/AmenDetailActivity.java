@@ -90,7 +90,15 @@ public class AmenDetailActivity extends Activity {
         //To change body of implemented methods use File | Settings | File Templates.
         Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
-        currentAmen = service.amen(currentAmen.getId());
+        if (amened(currentAmen)) {
+
+          service.takeBack(currentAmen);
+
+          currentAmen = service.getAmenForId(currentAmen.getId());
+
+        } else {
+          currentAmen = service.amen(currentAmen.getId());
+        }
         populateFormWithAmen(false);
 
       }
@@ -107,7 +115,7 @@ public class AmenDetailActivity extends Activity {
   }
 
   private boolean amened(Amen currentAmen) {
-    for (User u :currentAmen.getStatement().getAgreeingNetwork()) {
+    for (User u : currentAmen.getStatement().getAgreeingNetwork()) {
       if (u.getName().equals(AmdroidApp.getInstance().getMe().getName())) {
         return true;
       }

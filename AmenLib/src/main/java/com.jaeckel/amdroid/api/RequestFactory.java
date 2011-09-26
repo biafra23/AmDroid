@@ -2,6 +2,7 @@ package com.jaeckel.amdroid.api;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -84,4 +85,24 @@ public class RequestFactory {
     return httpGet;
 
   }
+  
+  public static HttpUriRequest createDELETERequest(String serviceUrl, Map<String, String> params, String cookie, String csrfToken) {
+
+      StringBuilder nameValuePairs = new StringBuilder();
+      nameValuePairs.append("?_=" + new Date().getTime());
+      if (params != null) {
+        for (String key : params.keySet()) {
+          nameValuePairs.append("&")
+                        .append(key)
+                        .append("=")
+                        .append(params.get(key));
+        }
+      }
+      HttpDelete httpDelete = new HttpDelete(serviceUrl + nameValuePairs.toString());
+      httpDelete.addHeader("X-CSRF-Token", csrfToken);
+      httpDelete.addHeader("Cookie", cookie);
+
+      return httpDelete;
+
+    }
 }

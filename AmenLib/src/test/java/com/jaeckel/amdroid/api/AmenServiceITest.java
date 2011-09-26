@@ -54,7 +54,7 @@ public class AmenServiceITest extends TestCase {
 
     amens = service.getFeed(182126L, 3);
     assertEquals("Amen amount wrong", 3, amens.size());
-    assertEquals("Amen with wrong id", 182125L, (long)amens.get(0).getId());
+    assertEquals("Amen with wrong id", 182125L, (long) amens.get(0).getId());
 
     amens = service.getFeed();
     assertEquals("Amen amount wrong", 25, amens.size());
@@ -103,14 +103,15 @@ public class AmenServiceITest extends TestCase {
     service.addStatement(statement);
 
   }
-  public void testGetAmenForId() {
-      AmenService service = new AmenServiceImpl();
-      service.init("nbotvin@different.name", "foobar23");
-  
-      Amen a = service.getAmenForId(187365L);
 
-      assertEquals("Wrong amen", 187365L, (long) a.getId());
-    }
+  public void testGetAmenForId() {
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Amen a = service.getAmenForId(187365L);
+
+    assertEquals("Wrong amen", 187365L, (long) a.getId());
+  }
 
   public void testGetStatementForId() {
     AmenService service = new AmenServiceImpl();
@@ -120,15 +121,16 @@ public class AmenServiceITest extends TestCase {
 
     assertEquals("Wrong amen", 78256L, (long) a.getId());
   }
+
   public void testGetStatementForId78704() {
-     AmenService service = new AmenServiceImpl();
-     service.init("nbotvin@different.name", "foobar23");
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
 
-     Statement a = service.getStatementForId(78704L);
+    Statement a = service.getStatementForId(78704L);
 
-     assertEquals("Wrong statement", 78704L, (long) a.getId());
+    assertEquals("Wrong statement", 78704L, (long) a.getId());
     System.out.println("Statement: " + a);
-   }
+  }
 
   public void testGetStatementForIdWithNullFirstPoster() {
     AmenService service = new AmenServiceImpl();
@@ -154,12 +156,12 @@ public class AmenServiceITest extends TestCase {
 
     AmenService service = new AmenServiceImpl();
     service.init("nbotvin@different.name", "foobar23");
-
-    Amen result = service.amen(187665L);
+  
+    Amen result = service.amen(188381L);
 
     assertNotNull("Result should not be null", result);
     assertEquals("Wrong user", "Nancy Botwin", result.getUser().getName());
-    
+
     List<User> agreeing = result.getStatement().getAgreeingNetwork();
     boolean foundUser = false;
     for (User u : agreeing) {
@@ -168,8 +170,23 @@ public class AmenServiceITest extends TestCase {
       }
     }
     assertTrue("Wrong user", foundUser);
+
+
+  }
+
+  public void testTakeBack() {
+
+    System.out.println("testTakeBack");
+
+    AmenService service = new AmenServiceImpl();
+    service.init("nbotvin@different.name", "foobar23");
+
+    Amen a = service.amen(188381L);
+    System.out.println("Got Back Amen: " + a);
+
+    boolean result = service.takeBack(a);
     
-    
+    assertEquals("Wrong result", true, result);
   }
 
 }

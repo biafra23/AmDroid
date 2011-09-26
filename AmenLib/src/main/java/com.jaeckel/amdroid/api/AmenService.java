@@ -39,7 +39,7 @@ public interface AmenService {
 
   public boolean dispute(Dispute dispute);
 
-  public long takeBack(Amen a);
+  public boolean takeBack(Amen a);
 
   public List<Amen> getAmenForUser(User u);
 
