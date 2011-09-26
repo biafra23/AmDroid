@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -44,7 +45,9 @@ public class AmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
-
+   // Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+    setContentView(R.layout.main);
+    
     progressDialog = ProgressDialog.show(AmenListActivity.this, "",
                                          "Loading. Please wait...", true);
     progressDialog.show();
@@ -53,14 +56,13 @@ public class AmenListActivity extends ListActivity {
     String password = prefs.getString("password", null);
 
     if (username == null || password == null) {
+      progressDialog.hide();
       startActivity(new Intent(this, EditPreferencesActivity.class));
     }
     username = prefs.getString("user_name", null);
     password = prefs.getString("password", null);
 
     service = AmdroidApp.getInstance().getService(username, password);
-
-    setContentView(R.layout.main);
 
     progressDialog.hide();
     refresh();
@@ -69,6 +71,18 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onResume() {
     super.onResume();
+  //  Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+    if (service == null) {
+      Toast.makeText(this, "service was null -> login", Toast.LENGTH_SHORT).show();
+      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+      String username = prefs.getString("user_name", null);
+      String password = prefs.getString("password", null);
+  
+      service = AmdroidApp.getInstance().getService(username, password);
+      
+    }
+
+    
 //    refresh();
   }
 
