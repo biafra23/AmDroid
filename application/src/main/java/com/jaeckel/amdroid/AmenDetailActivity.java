@@ -62,15 +62,19 @@ public class AmenDetailActivity extends Activity {
     amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
     hellNoButton = (Button) findViewById(R.id.hell_no);
 
-    populateFormWithAmen();
+    populateFormWithAmen(true);
 
 
   }
 
-  private void populateFormWithAmen() {
+  private void populateFormWithAmen(boolean updateName) {
 
     statementView.setText(currentAmen.getStatement().toDisplayString());
-    userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
+    //TODO: find a better way to have the original? name here
+    if (updateName) {
+      userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
+    }
+
     amenCount.setText(currentAmen.getStatement().getTotalAmenCount() + " Amen");
     StringBuilder agreeing = new StringBuilder();
     for (User user : currentAmen.getStatement().getAgreeingNetwork()) {
@@ -85,7 +89,7 @@ public class AmenDetailActivity extends Activity {
         Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
         currentAmen = service.amen(currentAmen.getId());
-        populateFormWithAmen();
+        populateFormWithAmen(false);
 
       }
     });
