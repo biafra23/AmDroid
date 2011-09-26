@@ -16,6 +16,7 @@ package com.jaeckel.amdroid.cwac.cache;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.Log;
 import com.jaeckel.amdroid.cwac.bus.AbstractBus;
 import com.jaeckel.amdroid.cwac.task.AsyncTaskEx;
@@ -119,6 +120,10 @@ public class SimpleWebImageCache<B extends AbstractBus, M>
 		@Override
 		protected Void doInBackground(Object... params) {
 			String url=params[1].toString();
+      if (TextUtils.isEmpty(url)) {
+        Log.w(TAG, "Url was empty");
+       return(null); 
+      }
 			File cache=(File)params[2];
 			
 			try {
