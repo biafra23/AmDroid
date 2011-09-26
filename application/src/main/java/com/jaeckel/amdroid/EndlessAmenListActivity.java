@@ -149,9 +149,10 @@ public class EndlessAmenListActivity extends ListActivity {
   }
 
   class EndlessWrapperAdapter extends EndlessAdapter {
-    EndlessWrapperAdapter(List<Amen> list) {
-  			super(EndlessAmenListActivity.this,
-  						new AmenListAdapter(EndlessAmenListActivity.this, android.R.layout.simple_list_item_1, list), R.layout.pending);
+
+    EndlessWrapperAdapter(ThumbnailAdapter thumbnailAdapter) {
+
+  			super(EndlessAmenListActivity.this, thumbnailAdapter, R.layout.pending);
   		}
 
   		@Override
@@ -168,13 +169,14 @@ public class EndlessAmenListActivity extends ListActivity {
 
   		@Override
   		protected void appendCachedData() {
-  			if (getWrappedAdapter().getCount()<75) {
+  			if (getWrappedAdapter().getCount()<1000) {
   				@SuppressWarnings("unchecked")
-          AmenListAdapter a=(AmenListAdapter)getWrappedAdapter();
+          ThumbnailAdapter a=(ThumbnailAdapter)getWrappedAdapter();
+          AmenListAdapter amenListAdapter = (AmenListAdapter) a.getWrappedAdapter();
           
-          List<Amen> amens = service.getFeed(a.getItem(a.getCount()-1).getId(), 20);
+          List<Amen> amens = service.getFeed(amenListAdapter.getItem(amenListAdapter.getCount()-1).getId(), 20);
   				for (Amen amen : amens) { 
-            a.add(amen); 
+            amenListAdapter.add(amen);
           }
   			}
   		}
@@ -203,10 +205,10 @@ public class EndlessAmenListActivity extends ListActivity {
     @Override
     protected void onPostExecute(List<Amen> amens) {
 
-      adapter = new AmenListAdapter(EndlessAmenListActivity.this, android.R.layout.simple_list_item_1, amens);
+//      adapter = new AmenListAdapter(EndlessAmenListActivity.this, android.R.layout.simple_list_item_1, amens);
       thumbs = new ThumbnailAdapter(EndlessAmenListActivity.this, new AmenListAdapter(EndlessAmenListActivity.this, android.R.layout.activity_list_item, amens), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
 
-      endless = new EndlessWrapperAdapter(amens);
+      endless = new EndlessWrapperAdapter(thumbs);
 //      setListAdapter(thumbs);
       setListAdapter(endless);
 

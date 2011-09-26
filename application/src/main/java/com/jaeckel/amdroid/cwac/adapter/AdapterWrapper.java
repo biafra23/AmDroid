@@ -131,7 +131,7 @@ public class AdapterWrapper extends BaseAdapter {
 		* Returns the ListAdapter that is wrapped by the endless
 		* logic.
     */
-	protected ListAdapter getWrappedAdapter() {
+	public ListAdapter getWrappedAdapter() {
 		return(wrapped);
 	}
 }
