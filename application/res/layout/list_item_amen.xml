@@ -24,12 +24,14 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Franz Nase"
+                  android:paddingTop="2dip"
+                  android:paddingBottom="2dip"
                   />
 
         <TextView android:id="@+id/statement"
-                  android:layout_width="wrap_content"
+                  android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
-                  android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse"
+                  android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
                   android:textSize="16dp"
                   android:layout_weight="1"
                 />
