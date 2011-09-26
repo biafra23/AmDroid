@@ -20,7 +20,7 @@ import com.jaeckel.amdroid.thumbnail.ThumbnailAdapter;
 
 import java.util.List;
 
-import static com.jaeckel.amdroid.AmenDetailActivity.STATEMENT_ID;
+import static com.jaeckel.amdroid.AmenDetailActivity.AMEN_ID;
 
 public class AmenListActivity extends ListActivity {
 
@@ -128,7 +128,7 @@ public class AmenListActivity extends ListActivity {
     Log.d(TAG, "Selected Amen: " + amen);
 
     Intent intent = new Intent(this, AmenDetailActivity.class);
-    intent.putExtra(STATEMENT_ID, amen.getStatement().getId());
+    intent.putExtra(AMEN_ID, amen.getId());
     startActivity(intent);
   }
 

@@ -1,5 +1,6 @@
 package com.jaeckel.amdroid;
 
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,8 +29,14 @@ public class AmenDetailActivity extends Activity {
   public static final String AMEN_ID      = "amen_id";
   private AmenService service;
   private static final String TAG = "amdroid/AmenDetailActivity";
-  private Amen  currentAmen;
-  private Topic topicWithRankedStatements;
+  private Amen     currentAmen;
+  private Topic    topicWithRankedStatements;
+  private TextView statementView;
+  private TextView userView;
+  private TextView amenCount;
+  private TextView agreeingNetwork;
+  private Button   amenTakeBackButton;
+  private Button   hellNoButton;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -48,23 +55,29 @@ public class AmenDetailActivity extends Activity {
 
   public void onResume() {
     super.onResume();
-    TextView statementView = (TextView) findViewById(R.id.statement);
+    statementView = (TextView) findViewById(R.id.statement);
+    userView = (TextView) findViewById(R.id.user);
+    amenCount = (TextView) findViewById(R.id.amen_count);
+    agreeingNetwork = (TextView) findViewById(R.id.agreeing_network);
+    amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
+    hellNoButton = (Button) findViewById(R.id.hell_no);
+
+    populateFormWithAmen();
+
+
+  }
+
+  private void populateFormWithAmen() {
+
     statementView.setText(currentAmen.getStatement().toDisplayString());
-
-    TextView userView = (TextView) findViewById(R.id.user);
-    userView.setText(currentAmen.getStatement().getFirstPoster().getName() + ", " + format(currentAmen.getStatement().getFirstPostedAt()));
-    TextView amenCount = (TextView) findViewById(R.id.amen_count);
+    userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
     amenCount.setText(currentAmen.getStatement().getTotalAmenCount() + " Amen");
-
-    TextView agreeingNetwork = (TextView) findViewById(R.id.agreeing_network);
     StringBuilder agreeing = new StringBuilder();
     for (User user : currentAmen.getStatement().getAgreeingNetwork()) {
-
       agreeing.append(user.getName() + ", ");
     }
-
     agreeingNetwork.setText(agreeing.toString().replace(", $", ""));
-    Button amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
+
     amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
@@ -72,18 +85,17 @@ public class AmenDetailActivity extends Activity {
         Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
         currentAmen = service.amen(currentAmen.getId());
+        populateFormWithAmen();
 
       }
     });
-    Button hellNoButton = (Button) findViewById(R.id.hell_no);
+
     hellNoButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        populateFormWithAmen();
       }
     });
-
-
   }
 
   private String format(Date firstPostedAt) {
