@@ -12,10 +12,10 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.cache;
+package com.jaeckel.amdroid.cwac.cache;
 
 import android.util.Log;
-import com.jaeckel.amdroid.task.AsyncTaskEx;
+import com.jaeckel.amdroid.cwac.task.AsyncTaskEx;
 
 import java.io.File;
 import java.util.Collections;

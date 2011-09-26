@@ -12,7 +12,7 @@
 	limitations under the License.
 */		
 
-package com.jaeckel.amdroid.thumbnail;
+package com.jaeckel.amdroid.cwac.thumbnail;
 
 import android.app.Activity;
 import android.util.Log;
@@ -20,8 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.jaeckel.amdroid.adapter.AdapterWrapper;
-import com.jaeckel.amdroid.cache.SimpleWebImageCache;
+import com.jaeckel.amdroid.cwac.adapter.AdapterWrapper;
+import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 
 public class ThumbnailAdapter extends AdapterWrapper {
 	private static final String TAG="ThumbnailAdapter";

@@ -12,34 +12,29 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.bus;
+package com.jaeckel.amdroid.cwac.thumbnail;
 
-import android.os.Bundle;
+import com.jaeckel.amdroid.cwac.bus.AbstractBus;
 
-public class SimpleBus
-	extends AbstractBus<Bundle, String, SimpleBus.IntentMatchStrategy> {
-	public static final String KEY="com.jaeckel.amdroid.bus.SimpleBus.KEY";
-	private static final String TAG="SimpleBus";
+public class ThumbnailBus
+	extends AbstractBus<ThumbnailMessage, String, ThumbnailBus.MatchStrategy> {
+	private static final String TAG="ThumbnailBus";
 	
-	public SimpleBus() {
+	public ThumbnailBus() {
 		super();
 		
-		setStrategy(new IntentMatchStrategy());
+		setStrategy(new MatchStrategy());
 	}
 	
-	public Bundle createMessage(String key) {
-		Bundle message=new Bundle();
-		
-		message.putString(KEY, key);
-		
-		return(message);
+	public ThumbnailMessage createMessage(String key) {
+		return(new ThumbnailMessage(key));
 	}
 	
-	class IntentMatchStrategy
-		implements AbstractBus.Strategy<Bundle, String> {
-		public boolean isMatch(Bundle message, String filter) {
+	class MatchStrategy
+		implements AbstractBus.Strategy<ThumbnailMessage, String> {
+		public boolean isMatch(ThumbnailMessage message, String filter) {
 			return(filter!=null && message!=null &&
-						 filter.equals(message.getString(KEY)));
+						 filter.equals(message.getKey()));
 		}
 	}
 }

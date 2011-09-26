@@ -13,7 +13,7 @@
 	limitations under the License.
 */		
 
-package com.jaeckel.amdroid.task;
+package com.jaeckel.amdroid.cwac.task;
 
 import android.os.Handler;
 import android.os.Message;

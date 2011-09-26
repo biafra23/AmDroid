@@ -6,9 +6,9 @@ import android.util.Log;
 import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
-import com.jaeckel.amdroid.cache.SimpleWebImageCache;
-import com.jaeckel.amdroid.thumbnail.ThumbnailBus;
-import com.jaeckel.amdroid.thumbnail.ThumbnailMessage;
+import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
+import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
+import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
 
 /**
  * User: biafra

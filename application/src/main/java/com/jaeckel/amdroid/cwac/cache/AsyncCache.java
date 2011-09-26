@@ -12,9 +12,9 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.cache;
+package com.jaeckel.amdroid.cwac.cache;
 
-import com.jaeckel.amdroid.bus.AbstractBus;
+import com.jaeckel.amdroid.cwac.bus.AbstractBus;
 
 import java.io.File;
 

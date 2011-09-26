@@ -12,7 +12,7 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.cache;
+package com.jaeckel.amdroid.cwac.cache;
 
 import android.app.Activity;
 import android.graphics.drawable.BitmapDrawable;
@@ -20,8 +20,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import com.jaeckel.amdroid.bus.SimpleBus;
-import com.jaeckel.amdroid.task.AsyncTaskEx;
+import com.jaeckel.amdroid.cwac.bus.SimpleBus;
+import com.jaeckel.amdroid.cwac.task.AsyncTaskEx;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;

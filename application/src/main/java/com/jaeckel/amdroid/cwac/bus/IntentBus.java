@@ -12,7 +12,7 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.bus;
+package com.jaeckel.amdroid.cwac.bus;
 
 import android.content.Intent;
 import android.content.IntentFilter;

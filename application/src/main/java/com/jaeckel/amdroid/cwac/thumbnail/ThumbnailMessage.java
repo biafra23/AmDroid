@@ -12,7 +12,7 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.thumbnail;
+package com.jaeckel.amdroid.cwac.thumbnail;
 
 import android.widget.ImageView;
 

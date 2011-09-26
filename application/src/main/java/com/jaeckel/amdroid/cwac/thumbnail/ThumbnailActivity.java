@@ -13,11 +13,11 @@
 	 limitations under the License.
 */
 	 
-package com.jaeckel.amdroid.thumbnail;
+package com.jaeckel.amdroid.cwac.thumbnail;
 
 import android.app.ListActivity;
 import android.widget.ListAdapter;
-import com.jaeckel.amdroid.cache.SimpleWebImageCache;
+import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 
 abstract public class ThumbnailActivity extends ListActivity {
 	abstract protected int[] getImageIdArray();

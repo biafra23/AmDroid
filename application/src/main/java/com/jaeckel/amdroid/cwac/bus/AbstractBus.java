@@ -12,9 +12,9 @@
 	limitations under the License.
 */
 
-package com.jaeckel.amdroid.bus;
+package com.jaeckel.amdroid.cwac.bus;
 
-import com.jaeckel.amdroid.task.AsyncTaskEx;
+import com.jaeckel.amdroid.cwac.task.AsyncTaskEx;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;

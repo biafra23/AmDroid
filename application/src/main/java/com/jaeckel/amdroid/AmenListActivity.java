@@ -16,7 +16,7 @@ import android.widget.ListView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
-import com.jaeckel.amdroid.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 
 import java.util.List;
 
