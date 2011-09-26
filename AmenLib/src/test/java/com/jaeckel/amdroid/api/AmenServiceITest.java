@@ -1,6 +1,7 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -9,6 +10,8 @@ import com.jaeckel.amdroid.api.model.UserInfo;
 import junit.framework.TestCase;
 
 import java.util.List;
+
+import static com.jaeckel.amdroid.api.model.Objekt.THING;
 
 /**
  * User: biafra
@@ -63,11 +66,10 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
 
     service.init("nbotvin@different.name", "foobar23");
-    List<Amen> amens = service.getFeed(0, 1);
 
-    final Amen a = amens.get(0);
-    a.setReferringAmen(null);
-    service.dispute(a, "Foo");
+    Statement fooMe = service.getStatementForId(78221L);
+
+    service.dispute(new Dispute(fooMe, "Bar"));
 
   }
 
@@ -97,10 +99,18 @@ public class AmenServiceITest extends TestCase {
     AmenService service = new AmenServiceImpl();
     service.init("nbotvin@different.name", "foobar23");
 
-    Statement statement = new Statement(new Objekt("Foo", 2), new Topic("placeholder", true, "Ever"));
+    Statement statement = new Statement(new Objekt("Foo", THING), new Topic("placeholder", true, "Ever"));
     service.addStatement(statement);
 
   }
+  public void testGetAmenForId() {
+      AmenService service = new AmenServiceImpl();
+      service.init("nbotvin@different.name", "foobar23");
+  
+      Amen a = service.getAmenForId(187365L);
+
+      assertEquals("Wrong amen", 187365L, (long) a.getId());
+    }
 
   public void testGetStatementForId() {
     AmenService service = new AmenServiceImpl();
@@ -110,6 +120,15 @@ public class AmenServiceITest extends TestCase {
 
     assertEquals("Wrong amen", 78256L, (long) a.getId());
   }
+  public void testGetStatementForId78704() {
+     AmenService service = new AmenServiceImpl();
+     service.init("nbotvin@different.name", "foobar23");
+
+     Statement a = service.getStatementForId(78704L);
+
+     assertEquals("Wrong statement", 78704L, (long) a.getId());
+    System.out.println("Statement: " + a);
+   }
 
   public void testGetStatementForIdWithNullFirstPoster() {
     AmenService service = new AmenServiceImpl();

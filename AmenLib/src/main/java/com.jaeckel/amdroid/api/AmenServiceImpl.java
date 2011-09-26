@@ -160,11 +160,9 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public boolean dispute(Amen a, String disputeString) {
+  public boolean dispute(Dispute dispute) {
 
     try {
-
-      final Dispute dispute = new Dispute(a, disputeString);
 
       log.trace("dispute: " + dispute);
       log.trace("dispute: " + dispute.json());
@@ -197,6 +195,15 @@ public class AmenServiceImpl implements AmenService {
     final String body = new Amen(statement).json();
     log.trace("Body: " + body);
 
+//thing
+//{"statement":{"objekt":{"name":"Eureka","kind_id":2},"topic":{"best":true,"description":"TV Program","scope":"Ever"}},"kind_id":0}
+//
+// //place
+//{"statement":{"objekt":{"key":["foursquare","4c8243eedc018cfa3c37cd6c"],"name":"Suppe & Mucke","kind_id":1},"topic":{"best":true,"description":"having Suppe and Mucke","scope":"in Berlin"}},"kind_id":0}
+
+//person
+//{"statement":{"objekt":{"key":["freebase","/en/charlie_sheen"],"name":"Charlie Sheen","kind_id":0},"topic":{"best":true,"description":"Actor","scope":"Ever"}},"kind_id":0}
+
     try {
       HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
                                                                      body,
@@ -219,7 +226,34 @@ public class AmenServiceImpl implements AmenService {
 
 
   }
+  @Override
+  public Amen getAmenForId(Long id) {
 
+    Amen amen;
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/amen/" + id + ".json", null, cookie, csrfToken);
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      JSONTokener feedTokener = new JSONTokener(responseString);
+      log.trace("From Server: " + responseString);
+      log.trace("Parsed JSON: " + feedTokener.toString());
+      amen = new Amen((JSONObject) feedTokener.nextValue());
+
+      log.trace("---->>>> Amen: " + amen);
+
+
+      responseEntity.consumeContent();
+
+    } catch (Exception e) {
+      throw new RuntimeException("getAmenForId(" + id + ") failed", e);
+    }
+
+    return amen;
+  }
   @Override
   public Statement getStatementForId(Long id) {
 

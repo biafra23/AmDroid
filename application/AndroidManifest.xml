@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".AmenDetailActivity"/>
         <activity android:name=".DisputeActivity"/>
+        <activity android:name=".MakeStatementActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

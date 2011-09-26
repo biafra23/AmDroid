@@ -12,17 +12,21 @@ import org.json.JSONObject;
  */
 public class Objekt {
 
-  private Integer kindId;
+  public final static Integer PERSON = 0;
+  public final static Integer PLACE  = 1;
+  public final static Integer THING  = 2;
+
+  private Integer   kindId;
   private String    name;
   private ObjektKey key;
 
-  
+
   public Objekt(String name, Integer kindId) {
     this.name = name;
     this.kindId = kindId;
-   
+
   }
-  
+
   public Objekt(JSONObject objekt) {
     try {
       this.kindId = objekt.getInt("kind_id");
@@ -71,4 +75,6 @@ public class Objekt {
   public void setKey(ObjektKey key) {
     this.key = key;
   }
+
+
 }

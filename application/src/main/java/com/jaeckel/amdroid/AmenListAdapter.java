@@ -55,8 +55,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
     String pictureUrl = amen.getUser().getPicture();
-    if (TextUtils.isEmpty(pictureUrl)) {
-      pictureUrl = "https://getamen.com/default-user-images/small8.png";
+    if (!TextUtils.isEmpty(pictureUrl)) {
+      pictureUrl = pictureUrl + "?type=normal";
     }
 
     userImage.setImageResource(R.drawable.placeholder);

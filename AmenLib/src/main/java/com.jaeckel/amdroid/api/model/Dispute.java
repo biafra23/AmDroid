@@ -29,6 +29,21 @@ public class Dispute {
     this.statement.getTopic().setObjektsCount(null);
   }
 
+  public Dispute(Statement statement, String newObjektName) {
+
+    this.referringAmenId = statement.getId();
+
+    this.statement = statement;
+    this.statement.setAgreeingNetwork(null);
+    this.statement.getObjekt().setName(newObjektName);
+    this.statement.getObjekt().setKey(null);
+    this.statement.setTotalAmenCount(null);
+
+//    this.kindId = statement.getKindId();
+    this.statement.getTopic().setId(null);
+    this.statement.getTopic().setObjektsCount(null);
+  }
+
   public int getKindId() {
     return kindId;
   }

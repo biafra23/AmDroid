@@ -106,7 +106,7 @@ public class Amen {
     return kindId;
   }
 
-  public void setKindId(int kindId) {
+  public void setKindId(Integer kindId) {
     this.kindId = kindId;
   }
 

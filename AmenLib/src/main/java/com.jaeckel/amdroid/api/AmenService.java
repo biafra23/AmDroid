@@ -1,6 +1,7 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
@@ -23,7 +24,7 @@ public interface AmenService {
   public String getCookie();
 
   public User getMe();
-  
+
   public List<Amen> getFeed();
 
   public List<Amen> getFeed(long sinceId, int pageSize);
@@ -34,7 +35,7 @@ public interface AmenService {
 
   public Amen amen(Statement a);
 
-  public boolean dispute(Amen a, String dispute);
+  public boolean dispute(Dispute dispute);
 
   public long takeBack(Amen a);
 
@@ -45,6 +46,8 @@ public interface AmenService {
   public void addStatement(Statement statement);
 
   public Statement getStatementForId(Long id);
+
+  public Amen getAmenForId(Long id);
 
   public Topic getTopicsForId(Long id);
 }

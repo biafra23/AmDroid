@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -28,11 +27,12 @@ public class AmenListActivity extends ListActivity {
   private static       String TAG                = "amdroid/AmenListActivity";
   final private static int    PROGRESS_DIALOG_ID = 0;
 
-  private ProgressDialog  progressDialog;
-  private AmenListAdapter adapter;
+  private ProgressDialog   progressDialog;
+  private AmenListAdapter  adapter;
   private ThumbnailAdapter thumbs;
-  private AmenService     service;
-  private static final int[] IMAGE_IDS={R.id.user_image};
+  private AmenService      service;
+  private static final int[] IMAGE_IDS = {R.id.user_image};
+
   /**
    * Called when the activity is first created.
    *
@@ -104,9 +104,15 @@ public class AmenListActivity extends ListActivity {
         return true;
 
       case R.id.refresh:
-        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
         refresh();
 
+        return true;
+
+      case R.id.amen:
+//        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MakeStatementActivity.class);
+        startActivity(intent);
         return true;
     }
 
@@ -142,7 +148,7 @@ public class AmenListActivity extends ListActivity {
 
 //      showDialog() progress
       Log.d(TAG, "Loader executing");
-      List<Amen> amens = service.getFeed();
+      List<Amen> amens = service.getFeed(0, 50);
 
       return amens;
     }
@@ -151,7 +157,7 @@ public class AmenListActivity extends ListActivity {
     protected void onPostExecute(List<Amen> amens) {
 
       adapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.simple_list_item_1, amens);
-      thumbs=new ThumbnailAdapter(AmenListActivity.this, new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+      thumbs = new ThumbnailAdapter(AmenListActivity.this, new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
       setListAdapter(thumbs);
 
       //hide progress
