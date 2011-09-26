@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -25,7 +24,7 @@ import java.util.Date;
  * Time: 10:27 AM
  */
 public class AmenDetailActivity extends Activity {
-  public static final String STATEMENT_ID = "statement_id";
+//  public static final String STATEMENT_ID = "statement_id";
   public static final String AMEN_ID      = "amen_id";
   private AmenService service;
   private static final String TAG = "amdroid/AmenDetailActivity";
@@ -83,19 +82,19 @@ public class AmenDetailActivity extends Activity {
     agreeingNetwork.setText(agreeing.toString().replace(", $", ""));
     if (amened(currentAmen)) {
       amenTakeBackButton.setText("Take Back");
+    } else {
+      amenTakeBackButton.setText("Amen!");
     }
     amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
         //To change body of implemented methods use File | Settings | File Templates.
-        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
         if (amened(currentAmen)) {
-
           service.takeBack(currentAmen);
-
-          currentAmen = service.getAmenForId(currentAmen.getId());
-
+          currentAmen = new Amen(service.getStatementForId(currentAmen.getStatement().getId()));
+          Log.d(TAG, "currentAmen: " + currentAmen);
         } else {
           currentAmen = service.amen(currentAmen.getId());
         }

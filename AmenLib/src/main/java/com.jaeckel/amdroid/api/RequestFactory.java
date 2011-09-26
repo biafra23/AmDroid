@@ -89,7 +89,7 @@ public class RequestFactory {
   public static HttpUriRequest createDELETERequest(String serviceUrl, Map<String, String> params, String cookie, String csrfToken) {
 
       StringBuilder nameValuePairs = new StringBuilder();
-      nameValuePairs.append("?_=" + new Date().getTime());
+//      nameValuePairs.append("?_=" + new Date().getTime());
       if (params != null) {
         for (String key : params.keySet()) {
           nameValuePairs.append("&")

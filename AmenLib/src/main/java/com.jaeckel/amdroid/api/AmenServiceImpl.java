@@ -361,11 +361,16 @@ public class AmenServiceImpl implements AmenService {
     log.debug("takeBack(Amen)");
     boolean result = false;
 
-    HttpUriRequest httpGet = RequestFactory.createDELETERequest(serviceUrl + "/amen/" + a.getId() + ".json", null, cookie, csrfToken);
+    final String url = serviceUrl + "amen/" + a.getStatement().getId() + ".json";
+    log.trace("DELETE " + url);
+    HttpUriRequest httpDelete = RequestFactory.createDELETERequest(url, null,
+                                                                cookie, csrfToken);
 
+    log.trace("httpDelete: " + httpDelete);
+    
     try {
 
-      HttpResponse response = httpclient.execute(httpGet);
+      HttpResponse response = httpclient.execute(httpDelete);
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
