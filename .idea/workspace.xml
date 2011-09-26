@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/res/layout/make_statement.xml" afterPath="$PROJECT_DIR$/application/res/layout/make_statement.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" afterPath="$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,7 +128,7 @@
       <file leaf-file-name="AmenListActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="5" selection-start="4189" selection-end="4189" vertical-scroll-proportion="0.0">
+            <state line="24" column="13" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,10 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenDetailActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="50" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
+            <state line="66" column="0" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.26573426">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,10 +174,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="make_statement.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="make_statement.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/res/layout/make_statement.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="47" selection-start="160" selection-end="160" vertical-scroll-proportion="0.044955045">
+            <state line="3" column="47" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,7 +186,7 @@
       <file leaf-file-name="details.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/res/layout/details.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1007" selection-end="1773" vertical-scroll-proportion="0.0">
+            <state line="33" column="35" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -239,8 +239,8 @@
         <option value="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" />
         <option value="$PROJECT_DIR$/application/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
-        <option value="$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
         <option value="$PROJECT_DIR$/application/res/layout/make_statement.xml" />
+        <option value="$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
       </list>
     </option>
   </component>
@@ -1260,10 +1260,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15918803" sideWeight="0.5779468" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15918803" sideWeight="0.5779468" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39742213" sideWeight="0.49748382" order="4" side_tool="false" content_ui="tabs" />
@@ -1275,7 +1275,7 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15918803" sideWeight="0.41444868" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10897436" sideWeight="0.65589356" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997862" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1388889" sideWeight="0.5826996" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19925214" sideWeight="0.5826996" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41730037" sideWeight="0.3252614" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.41975307" sideWeight="0.6688382" order="12" side_tool="true" content_ui="tabs" x="1920" y="0" width="1440" height="900" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1320,7 +1320,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="amening with update" />
+    <option name="LAST_COMMIT_MESSAGE" value="amening sth..." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1333,7 +1333,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="amenlib" />
     <MESSAGE value="amenlib, test fail" />
     <MESSAGE value="moved test" />
     <MESSAGE value="parsing feed" />
@@ -1358,6 +1357,7 @@
     <MESSAGE value="getAmenForId works" />
     <MESSAGE value="portratit only" />
     <MESSAGE value="amening with update" />
+    <MESSAGE value="amening sth..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1411,34 +1411,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="5" selection-start="4189" selection-end="4189" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="143" column="16" selection-start="4189" selection-end="4189" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="50" selection-start="1912" selection-end="1912" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/DisputeActivity.java">
@@ -1455,17 +1432,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/res/layout/details.xml">
+    <entry file="file://$PROJECT_DIR$/application/res/layout/make_statement.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1007" selection-end="1773" vertical-scroll-proportion="0.0">
+        <state line="3" column="47" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/res/layout/make_statement.xml">
+    <entry file="file://$PROJECT_DIR$/application/res/layout/details.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="47" selection-start="160" selection-end="160" vertical-scroll-proportion="0.044955045">
+        <state line="33" column="35" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.26573426">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

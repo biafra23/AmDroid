@@ -93,6 +93,8 @@ public class AmenDetailActivity extends Activity {
     hellNoButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
+        //TODO: show hellno form here to let user slect different objekt
+
         populateFormWithAmen();
       }
     });
