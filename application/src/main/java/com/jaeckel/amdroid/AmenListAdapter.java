@@ -24,7 +24,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
-    setNotifyOnChange(true);
+//    setNotifyOnChange(true);
   }
 
   public AmenListAdapter(Context context, int resource, int textViewResourceId, List<Amen> objects) {
@@ -50,7 +50,16 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     user.setText(amen.getUser().getName());
 
     TextView statement = (TextView) row.getTag(R.id.statement);
-    statement.setText(amen.getStatement().toDisplayString());
+
+    Amen referingAmen = amen.getReferringAmen();
+    String disputed = " NOT ";
+    if (referingAmen != null) {
+      disputed += referingAmen.getStatement().getObjekt().getName();
+
+    }
+
+    statement.setText(amen.getStatement().toDisplayString() + disputed);
+
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
@@ -61,7 +70,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     userImage.setImageResource(R.drawable.placeholder);
     userImage.setTag(pictureUrl);
-    
+
 //    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
 
     return row;

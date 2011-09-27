@@ -30,8 +30,8 @@ public class AmenListActivity extends ListActivity {
   final private static int    PROGRESS_DIALOG_ID = 0;
   public static final  int    REQUEST_CODE       = 1001;
 
-  private ProgressDialog        progressDialog;
-  private AmenService           service;
+  private ProgressDialog progressDialog;
+  private AmenService    service;
   private static final int[] IMAGE_IDS = {R.id.user_image};
 
   /**
@@ -45,12 +45,15 @@ public class AmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
-    // Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-    setContentView(R.layout.main);
+    Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
 
     progressDialog = ProgressDialog.show(AmenListActivity.this, "",
                                          "Loading. Please wait...", true);
     progressDialog.show();
+    // Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+    setContentView(R.layout.main);
+
+
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String username = prefs.getString("user_name", null);
     String password = prefs.getString("password", null);
@@ -61,8 +64,13 @@ public class AmenListActivity extends ListActivity {
     } else {
       service = AmdroidApp.getInstance().getService(username, password);
     }
+    Log.d(TAG, "progressDialog.hide();");
     progressDialog.hide();
+    Log.d(TAG, "refresh();");
     refresh();
+
+    Log.v(TAG, "onCreate... done.");
+    Toast.makeText(this, "onCreate done", Toast.LENGTH_SHORT).show();
   }
 
   @Override
@@ -71,7 +79,7 @@ public class AmenListActivity extends ListActivity {
     if (requestCode == REQUEST_CODE) {
 
       Toast.makeText(this, "onActivityResult", Toast.LENGTH_SHORT).show();
-      
+
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
       String username = prefs.getString("user_name", null);
       String password = prefs.getString("password", null);
@@ -85,7 +93,7 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onResume() {
     super.onResume();
-    //  Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
     if (service == null) {
       Toast.makeText(this, "service was null -> login", Toast.LENGTH_SHORT).show();
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -98,6 +106,7 @@ public class AmenListActivity extends ListActivity {
 
 
 //    refresh();
+    Toast.makeText(this, "onResume done", Toast.LENGTH_SHORT).show();
   }
 
   private void refresh() {
@@ -172,7 +181,7 @@ public class AmenListActivity extends ListActivity {
 //  			SystemClock.sleep(5000);				// pretend to do work
 
       //ends at 74
-      if (getWrappedAdapter().getCount() < 1000) {
+      if (getWrappedAdapter().getCount() < 10000) {
         return (true);
       }
 
@@ -181,12 +190,13 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void appendCachedData() {
-      if (getWrappedAdapter().getCount() < 1000) {
+      if (getWrappedAdapter().getCount() < 10000) {
         @SuppressWarnings("unchecked")
         ThumbnailAdapter a = (ThumbnailAdapter) getWrappedAdapter();
         AmenListAdapter amenListAdapter = (AmenListAdapter) a.getWrappedAdapter();
 
         List<Amen> amens = service.getFeed(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId(), 20);
+
         for (Amen amen : amens) {
           amenListAdapter.add(amen);
         }

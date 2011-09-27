@@ -28,6 +28,7 @@ public class Amen {
   private Integer   kindId; //normal, amen, dispute
   private Statement statement;
 
+  //Disputed Amen
   private Amen referringAmen;
 
   public Amen(Statement statement) {
