@@ -71,6 +71,13 @@ public class AmdroidApp extends Application {
     }
     return service;
   }
+  public AmenService getService() {
+    if (service == null) {
+      service = new AmenServiceImpl();
+
+    }
+    return service;
+  }
 
   //CWAC
   void goBlooey(Throwable t) {

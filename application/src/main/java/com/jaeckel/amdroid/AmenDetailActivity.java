@@ -2,9 +2,7 @@ package com.jaeckel.amdroid;
 
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -41,10 +39,8 @@ public class AmenDetailActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     Log.v(TAG, "onCreate");
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String username = prefs.getString("user_name", "nbotvin@different.name");
-    String password = prefs.getString("password", "foobar23");
-    service = AmdroidApp.getInstance().getService(username, password);
+
+    service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.details);
     Long id = getIntent().getLongExtra(AMEN_ID, -1);

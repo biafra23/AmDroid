@@ -28,12 +28,13 @@ public class EndlessAmenListActivity extends ListActivity {
 
   private static       String TAG                = "amdroid/AmenListActivity";
   final private static int    PROGRESS_DIALOG_ID = 0;
+  public static final  int    REQUEST_CODE       = 1001;
 
-  private ProgressDialog   progressDialog;
-  private AmenListAdapter  adapter;
-  private ThumbnailAdapter thumbs;
+  private ProgressDialog        progressDialog;
+  private AmenListAdapter       adapter;
+  private ThumbnailAdapter      thumbs;
   private EndlessWrapperAdapter endless;
-  private AmenService      service;
+  private AmenService           service;
   private static final int[] IMAGE_IDS = {R.id.user_image};
 
   /**
@@ -47,9 +48,9 @@ public class EndlessAmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
-   // Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+    // Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
     setContentView(R.layout.main);
-    
+
     progressDialog = ProgressDialog.show(EndlessAmenListActivity.this, "",
                                          "Loading. Please wait...", true);
     progressDialog.show();
@@ -59,32 +60,46 @@ public class EndlessAmenListActivity extends ListActivity {
 
     if (username == null || password == null) {
       progressDialog.hide();
-      startActivity(new Intent(this, EditPreferencesActivity.class));
+      startActivityForResult(new Intent(this, EditPreferencesActivity.class), REQUEST_CODE);
+    } else {
+      service = AmdroidApp.getInstance().getService(username, password);
     }
-    username = prefs.getString("user_name", null);
-    password = prefs.getString("password", null);
-
-    service = AmdroidApp.getInstance().getService(username, password);
-
     progressDialog.hide();
     refresh();
   }
 
   @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent result) {
+
+    if (requestCode == REQUEST_CODE) {
+
+      Toast.makeText(this, "onActivityResult", Toast.LENGTH_SHORT).show();
+      
+      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+      String username = prefs.getString("user_name", null);
+      String password = prefs.getString("password", null);
+
+      service = AmdroidApp.getInstance().getService(username, password);
+
+    }
+
+  }
+
+  @Override
   public void onResume() {
     super.onResume();
-  //  Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+    //  Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
     if (service == null) {
       Toast.makeText(this, "service was null -> login", Toast.LENGTH_SHORT).show();
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
       String username = prefs.getString("user_name", null);
       String password = prefs.getString("password", null);
-  
+
       service = AmdroidApp.getInstance().getService(username, password);
-      
+
     }
 
-    
+
 //    refresh();
   }
 
@@ -152,35 +167,35 @@ public class EndlessAmenListActivity extends ListActivity {
 
     EndlessWrapperAdapter(ThumbnailAdapter thumbnailAdapter) {
 
-  			super(EndlessAmenListActivity.this, thumbnailAdapter, R.layout.pending);
-  		}
+      super(EndlessAmenListActivity.this, thumbnailAdapter, R.layout.pending);
+    }
 
-  		@Override
-  		protected boolean cacheInBackground() throws Exception {
+    @Override
+    protected boolean cacheInBackground() throws Exception {
 //  			SystemClock.sleep(5000);				// pretend to do work
 
-        //ends at 74
-  			if (getWrappedAdapter().getCount()<1000) {
-  				return(true);
-  			}
+      //ends at 74
+      if (getWrappedAdapter().getCount() < 1000) {
+        return (true);
+      }
 
-  			throw new Exception("Gadzooks!");
-  		}
+      throw new Exception("Gadzooks!");
+    }
 
-  		@Override
-  		protected void appendCachedData() {
-  			if (getWrappedAdapter().getCount()<1000) {
-  				@SuppressWarnings("unchecked")
-          ThumbnailAdapter a=(ThumbnailAdapter)getWrappedAdapter();
-          AmenListAdapter amenListAdapter = (AmenListAdapter) a.getWrappedAdapter();
-          
-          List<Amen> amens = service.getFeed(amenListAdapter.getItem(amenListAdapter.getCount()-1).getId(), 20);
-  				for (Amen amen : amens) { 
-            amenListAdapter.add(amen);
-          }
-  			}
-  		}
-  	}
+    @Override
+    protected void appendCachedData() {
+      if (getWrappedAdapter().getCount() < 1000) {
+        @SuppressWarnings("unchecked")
+        ThumbnailAdapter a = (ThumbnailAdapter) getWrappedAdapter();
+        AmenListAdapter amenListAdapter = (AmenListAdapter) a.getWrappedAdapter();
+
+        List<Amen> amens = service.getFeed(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId(), 20);
+        for (Amen amen : amens) {
+          amenListAdapter.add(amen);
+        }
+      }
+    }
+  }
 
   private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
 
