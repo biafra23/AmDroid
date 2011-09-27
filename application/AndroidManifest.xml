@@ -9,25 +9,10 @@
                  android:name=".app.AmdroidApp">
         <activity android:screenOrientation="portrait"
                   android:name=".AmenListActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:screenOrientation="portrait"
-                  android:name=".EndlessAmenListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:screenOrientation="portrait"
-                  android:name=".EndlessAdapterExceptionDemo"
-                  android:label="Endless">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:screenOrientation="portrait" android:name=".WebActivity"/>
         <activity android:screenOrientation="portrait" android:name=".EditPreferencesActivity">

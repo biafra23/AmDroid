@@ -10,7 +10,7 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     }
 
     public void testActivity() {
-        AmenListActivity activity = getActivity();
+      AmenListActivity activity = getActivity();
         assertNotNull(activity);
     }
 }

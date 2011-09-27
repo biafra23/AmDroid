@@ -22,8 +22,6 @@ import java.util.Date;
  * Time: 10:27 AM
  */
 public class AmenDetailActivity extends Activity {
-//  public static final String STATEMENT_ID = "statement_id";
-  public static final String AMEN_ID      = "amen_id";
   private AmenService service;
   private static final String TAG = "amdroid/AmenDetailActivity";
   private Amen     currentAmen;
@@ -43,7 +41,7 @@ public class AmenDetailActivity extends Activity {
     service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.details);
-    Long id = getIntent().getLongExtra(AMEN_ID, -1);
+    Long id = getIntent().getLongExtra(Constants.AMEN_ID, -1);
     currentAmen = service.getAmenForId(id);
 
   }
