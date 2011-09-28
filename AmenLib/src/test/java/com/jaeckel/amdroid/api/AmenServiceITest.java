@@ -149,7 +149,7 @@ public class AmenServiceITest extends TestCase {
 
     assertEquals("Wrong topics", 29020L, topic.getId());
     assertNotNull("Topic has null rankedStatements", topic.getRankedStatements());
-    assertTrue("Topic has no rankedStatements", topic.getRankedStatements().keySet().size() > 0);
+    assertTrue("Topic has no rankedStatements", topic.getRankedStatements().size() > 0);
   }
 
   public void testAmening() {

@@ -2,12 +2,8 @@ package com.jaeckel.amdroid.api.model;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * User: biafra
@@ -16,46 +12,19 @@ import java.util.Map;
  */
 public class Topic {
 
-  private Long id;
-  private Boolean best;
-  private String  description;
-  private String  scope;
-  private Integer objektsCount;
-  private Map<Integer, Statement> rankedStatements;
+  private Long                   id;
+  private Boolean                best;
+  private String                 description;
+  private String                 scope;
+  private Integer                objektsCount;
+  private List<RankedStatements> rankedStatements;
 
   public Topic(String description, Boolean best, String scope) {
     this.description = description;
     this.best = best;
     this.scope = scope;
   }
-  
-  public Topic(JSONObject topic) {
 
-    try {
-
-
-      this.id = topic.getLong("id");
-      this.best = topic.getBoolean("best");
-      this.description = topic.getString("description");
-      this.scope = topic.getString("scope");
-      this.objektsCount = topic.getInt("objekts_count");
-
-      if (topic.has("ranked_statements")) {
-        JSONArray rankedStatementsArray = topic.getJSONArray("ranked_statements");
-        rankedStatements = new HashMap<Integer, Statement>();
-        for(int i = 0; i < rankedStatementsArray.length(); i++) {
-          JSONObject rankedStatement = rankedStatementsArray.getJSONObject(i);
-          Integer rank = rankedStatement.getInt("rank");
-          Statement statement = new Statement(rankedStatement.getJSONObject("statement"));
-          rankedStatements.put(rank, statement);
-          
-        }
-      }
-      
-    } catch (JSONException e) {
-      throw new RuntimeException("", e);
-    }
-  }
 
   @Override
   public String toString() {
@@ -65,6 +34,7 @@ public class Topic {
            ", description='" + description + '\'' +
            ", scope='" + scope + '\'' +
            ", objektsCount=" + objektsCount +
+           ", rankedStatements=" + rankedStatements +
            '}';
   }
 
@@ -108,17 +78,18 @@ public class Topic {
     this.objektsCount = objektsCount;
   }
 
+
+  public List<RankedStatements> getRankedStatements() {
+    return rankedStatements;
+  }
+
+  public void setRankedStatements(List<RankedStatements> rankedStatements) {
+    this.rankedStatements = rankedStatements;
+  }
+
   public String json() {
 
     GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
     return builder.create().toJson(this);
-  }
-
-  public Map<Integer, Statement> getRankedStatements() {
-    return rankedStatements;
-  }
-
-  public void setRankedStatements(Map<Integer, Statement> rankedStatements) {
-    this.rankedStatements = rankedStatements;
   }
 }

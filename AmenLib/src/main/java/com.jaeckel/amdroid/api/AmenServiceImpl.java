@@ -1,6 +1,11 @@
 package com.jaeckel.amdroid.api;
 
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.DateSerializer;
 import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -13,9 +18,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +25,9 @@ import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +50,12 @@ public class AmenServiceImpl implements AmenService {
   private String cookie;
 
   private HttpClient httpclient = new DefaultHttpClient();
+
+  private Gson gson = new GsonBuilder()
+        .registerTypeAdapter(Date.class, new DateSerializer())
+        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        .serializeNulls()
+        .create();
 
   @Override
   public AmenService init(String authName, String authPassword) {
@@ -87,24 +97,11 @@ public class AmenServiceImpl implements AmenService {
 
       final String responseString = makeStringFromEntity(responseEntity);
 
-      JSONTokener feedTokener = new JSONTokener(responseString);
-      log.trace("Parsed JSON: " + feedTokener.toString());
-      JSONArray amens = (JSONArray) feedTokener.nextValue();
-
-      log.trace("Array contains " + amens.length() + " amens");
-      for (int i = 0; i < amens.length(); i++) {
-        Amen current = new Amen(amens.getJSONObject(i));
-        log.trace("Parsed Amen: " + current);
-        log.trace("JSONed Amen: " + current.json());
-        result.add(current);
-      }
-
-      responseEntity.consumeContent();
+      Type collectionType = new TypeToken<List<Amen>>(){}.getType();
+      result = gson.fromJson(responseString, collectionType);
 
     } catch (IOException e) {
       throw new RuntimeException("getFeed  failed", e);
-    } catch (JSONException e) {
-      throw new RuntimeException("parsing feed  failed", e);
     }
 
 
@@ -134,29 +131,19 @@ public class AmenServiceImpl implements AmenService {
     HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
                                                                    json,
                                                                    cookie, csrfToken);
-
     try {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
       
-      JSONTokener tokener = new JSONTokener(responseString);
-
-      a = new Amen((JSONObject) tokener.nextValue());
-
-      log.trace("Amening | amen: " + a);
-
-      responseEntity.consumeContent();
+      a = gson.fromJson(responseString, Amen.class);
 
     } catch (IOException e) {
 
       throw new RuntimeException("Amening failed", e);
 
-    } catch (JSONException e) {
-      throw new RuntimeException("Amening failed", e);
     }
-
 
     return a;
   }
@@ -171,28 +158,18 @@ public class AmenServiceImpl implements AmenService {
     HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
                                                                    json,
                                                                    cookie, csrfToken);
-
     try {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-      JSONTokener tokener = new JSONTokener(responseString);
-
-      a = new Amen((JSONObject) tokener.nextValue());
-
-      log.trace("Amening | amen: " + a);
-
-      responseEntity.consumeContent();
-
+      a = gson.fromJson(responseString, Amen.class);
+      
     } catch (IOException e) {
 
       throw new RuntimeException("Amening failed", e);
 
-    } catch (JSONException e) {
-      throw new RuntimeException("Amening failed", e);
     }
-
 
     return a;
   }
@@ -277,16 +254,7 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-
-      JSONTokener feedTokener = new JSONTokener(responseString);
-      log.trace("From Server: " + responseString);
-      log.trace("Parsed JSON: " + feedTokener.toString());
-      amen = new Amen((JSONObject) feedTokener.nextValue());
-
-      log.trace("---->>>> Amen: " + amen);
-
-
-      responseEntity.consumeContent();
+      amen = gson.fromJson(responseString, Amen.class);
 
     } catch (Exception e) {
       throw new RuntimeException("getAmenForId(" + id + ") failed", e);
@@ -306,16 +274,8 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-
-      JSONTokener feedTokener = new JSONTokener(responseString);
-      log.trace("From Server: " + responseString);
-      log.trace("Parsed JSON: " + feedTokener.toString());
-      statement = new Statement((JSONObject) feedTokener.nextValue());
-
-      log.trace("Statement: " + statement);
-
-
-      responseEntity.consumeContent();
+      
+      statement = gson.fromJson(responseString, Statement.class);
 
     } catch (Exception e) {
       throw new RuntimeException("getAmenForId(" + id + ") failed", e);
@@ -339,15 +299,7 @@ public class AmenServiceImpl implements AmenService {
 
       final String responseString = makeStringFromEntity(responseEntity);
 
-      JSONTokener feedTokener = new JSONTokener(responseString);
-      log.trace("From Server: " + responseString);
-      log.trace("Parsed JSON: " + feedTokener.toString());
-      topic = new Topic((JSONObject) feedTokener.nextValue());
-
-      log.trace("topic: " + topic);
-
-
-      responseEntity.consumeContent();
+      topic = gson.fromJson(responseString, Topic.class);
 
     } catch (Exception e) {
       throw new RuntimeException("getTopicsForId(" + id + ") failed", e);
@@ -407,20 +359,10 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-
-      JSONTokener feedTokener = new JSONTokener(responseString);
-      log.trace("Parsed JSON: " + feedTokener.toString());
-      result = new UserInfo((JSONObject) feedTokener.nextValue());
-
-      log.trace("UserInfo: " + result);
-
-
-      responseEntity.consumeContent();
+      result = gson.fromJson(responseString, UserInfo.class);
 
     } catch (IOException e) {
       throw new RuntimeException("getUserInfo  failed", e);
-    } catch (JSONException e) {
-      throw new RuntimeException("parsing getUserInfo  failed", e);
     }
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.

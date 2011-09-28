@@ -6,8 +6,6 @@ import com.google.gson.GsonBuilder;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,53 +39,6 @@ public class Amen {
   public Amen(Statement statement) {
     this.statement = statement;
     this.kindId = 0;
-  }
-
-  public Amen(JSONObject object) {
-
-//    log.warn("-----> Amen(): " + object);
-
-    try {
-
-      if (object.has("created_at")) {
-        final String created_at = (String) object.get("created_at");
-        Date date = parseIso8601DateJoda(created_at);
-        this.setCreatedAt(date);
-      }
-
-      this.setId(object.getLong("id"));
-
-//      final Object kind_id = object.get("kind_id");
-//      if (object.has("kind_id") && object.getInt("kind_id") != 0) {
-      if (object.has("kind_id")) {
-        final int kind_id1 = object.getInt("kind_id");
-
-        this.setKindId(kind_id1);
-      }
-
-      this.setUserId(object.getLong("user_id"));
-
-      User user = new User(object.getJSONObject("user"));
-      this.setUser(user);
-
-      Statement statement = new Statement(object.getJSONObject("statement"));
-      this.setStatement(statement);
-
-
-      if (object.has("referring_amen")) {
-        final JSONObject referring_amen = object.getJSONObject("referring_amen");
-        Amen ref_amen = new Amen(referring_amen);
-
-//        log.warn("-----> Amen() ref_amen: " + ref_amen);
-//        log.warn("-----> Amen() ref_amen NOT: " + this);
-//            log.warn();
-        this.referringAmen = ref_amen;
-      }
-
-    } catch (JSONException e) {
-//      log.error("-----> Amen(): " + object);
-      throw new RuntimeException("Error parsing Amen", e);
-    }
   }
 
   public Long getId() {
@@ -149,7 +100,8 @@ public class Amen {
   @Override
   public String toString() {
     return "Amen{" +
-           "id=" + id +
+           "log=" + log +
+           ", id=" + id +
            ", userId=" + userId +
            ", user=" + user +
            ", createdAt=" + createdAt +
@@ -204,5 +156,6 @@ public class Amen {
     }
     return null;
   }
+
 }
 

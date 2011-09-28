@@ -2,11 +2,7 @@ package com.jaeckel.amdroid.api.model;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,43 +35,6 @@ public class Statement {
 
   public Statement(Long id) {
     this.id = id;
-  }
-
-  public Statement(JSONObject o) {
-    try {
-      //optional in referring_amen
-      if (o.has("total_amen_count")) {
-        this.id = o.getLong("id");
-        this.totalAmenCount = o.getLong("total_amen_count");
-        this.agreeingNetwork = new ArrayList<User>();
-        JSONArray agreeingNetworkArray = o.getJSONArray("agreeing_network");
-        for (int i = 0; i < agreeingNetworkArray.length(); i++) {
-          agreeingNetwork.add(new User(agreeingNetworkArray.getJSONObject(i)));
-        }
-
-        this.topic = new Topic(o.getJSONObject("topic"));
-      }
-      if (o.has("agreeable")) {
-        this.agreeable = o.getBoolean("agreeable");
-      } else {
-        this.agreeable = false;
-      }
-
-      if (o.has("first_poster") && !o.isNull("first_poster")) {
-
-
-        firstPoster = new User(o.getJSONObject("first_poster"));
-
-      }
-      if (o.has("first_posted_at")) {
-        firstPostedAt = Amen.parseIso8601DateJoda(o.getString("first_posted_at"));
-      }
-//      this.objekt = new Objekt(o.getJSONObject("objekt"));
-
-    } catch (JSONException e) {
-
-      throw new RuntimeException("Error parsing statement: (" + o.toString() + ")", e);  //To change body of catch statement use File | Settings | File Templates.
-    }
   }
 
   @Override

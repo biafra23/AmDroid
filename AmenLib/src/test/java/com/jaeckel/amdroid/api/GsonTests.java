@@ -67,7 +67,7 @@ public class GsonTests extends TestCase {
 
   }
 
-  public void testDeserializeTopic() {
+  public void testDeserializeTopic1() {
 
     String json = "{\"best\":true,\"description\":\"News\",\"scope\":\"This Week\",\"id\":30280,\"amen_count\":2,\"objekts_count\":1,\"ranked_statements\":[{\"rank\":0,\"statement\":{\"id\":81601,\"objekt\":{\"key\":[\"local\",\"58783\"],\"name\":\"The New Markthalle Opening This Weekend\",\"kind_id\":2},\"total_amen_count\":2,\"agreeing_network\":[{\"id\":1,\"name\":\"Florian Weber\",\"picture\":\"https://graph.facebook.com/1050621902/picture\"},{\"id\":72,\"name\":\"Lina Kunimoto\",\"picture\":\"https://graph.facebook.com/536582454/picture\"}],\"agreeable\":true,\"first_poster\":{\"id\":72,\"name\":\"Lina Kunimoto\",\"picture\":\"https://graph.facebook.com/536582454/picture\"},\"first_posted_at\":\"2011-09-28T16:28:20Z\",\"first_amen_id\":197102,\"topic\":{\"best\":true,\"description\":\"News\",\"scope\":\"This Week\",\"id\":30280,\"objekts_count\":1}}}],\"as_sentence\":\"The Best News This Week\"}";
 
@@ -166,5 +166,19 @@ public class GsonTests extends TestCase {
 
     assertEquals("", false, (boolean) statement.isAgreeable());
     assertNotNull("", statement.getAgreeingNetwork());
+  }
+  
+  public void testDeserializeTopic3() {
+
+    String json = "{\"best\":true,\"description\":\"& Fastest Way To Get Some Attention\",\"scope\":\"Ever\",\"id\":30313,\"amen_count\":7,\"objekts_count\":2,\"ranked_statements\":[{\"rank\":0,\"statement\":{\"id\":81700,\"objekt\":{\"key\":[\"local\",\"58856\"],\"name\":\"10 min\\u00fctiger Hustenanfall in der M10 Tram um 20:10h\\u00a0\",\"kind_id\":2},\"total_amen_count\":6,\"agreeing_network\":[{\"id\":3,\"name\":\"Felix \\\"Chief Executive Amenator\\\" Petersen\",\"picture\":\"https://graph.facebook.com/500959222/picture\"},{\"id\":13177,\"name\":\"Gina La\",\"picture\":\"\"},{\"id\":1035,\"name\":\"Jens Fay\",\"picture\":\"https://graph.facebook.com/100000769912124/picture\"},{\"id\":1465,\"name\":\"Janina Gold\",\"picture\":\"https://graph.facebook.com/604996344/picture\"},{\"id\":2106,\"name\":\"Karolina Jakubowski\",\"picture\":\"https://graph.facebook.com/1498755165/picture\"},{\"id\":8709,\"name\":\"Doktor Erika\",\"picture\":\"https://graph.facebook.com/100000180304788/picture\"}],\"agreeable\":true,\"first_poster\":{\"id\":1465,\"name\":\"Janina Gold\",\"picture\":\"https://graph.facebook.com/604996344/picture\"},\"first_posted_at\":\"2011-09-28T18:29:04Z\",\"first_amen_id\":197436,\"topic\":{\"best\":true,\"description\":\"& Fastest Way To Get Some Attention\",\"scope\":\"Ever\",\"id\":30313,\"objekts_count\":2}}},{\"rank\":1,\"statement\":{\"id\":81824,\"objekt\":{\"key\":[\"local\",\"58947\"],\"name\":\"to Fart\",\"kind_id\":2},\"total_amen_count\":1,\"agreeing_network\":[{\"id\":1282,\"name\":\"Victor Pontes\",\"picture\":\"https://graph.facebook.com/581726125/picture\"}],\"agreeable\":true,\"first_poster\":{\"id\":1282,\"name\":\"Victor Pontes\",\"picture\":\"https://graph.facebook.com/581726125/picture\"},\"first_posted_at\":\"2011-09-28T21:09:08Z\",\"first_amen_id\":197812,\"topic\":{\"best\":true,\"description\":\"& Fastest Way To Get Some Attention\",\"scope\":\"Ever\",\"id\":30313,\"objekts_count\":2}}}],\"as_sentence\":\"The Best & Fastest Way To Get Some Attention Ever\"}";
+
+
+
+        Topic topic = gson.fromJson(json, Topic.class);
+
+        System.out.println("Topic: " + topic);
+
+
+
   }
 }

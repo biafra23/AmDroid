@@ -1,8 +1,6 @@
 package com.jaeckel.amdroid.api.model;
 
 import com.google.gson.Gson;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Date;
 import java.util.List;
@@ -44,18 +42,6 @@ public class User {
     this.id = ui.getId();
     this.name = ui.getName();
     this.picture = ui.getPicture();
-  }
-
-  public User(JSONObject object) {
-    try {
-
-      this.id = object.getLong("id");
-      this.name = object.getString("name");
-      this.picture = object.getString("picture");
-
-    } catch (JSONException e) {
-      throw new RuntimeException("Error parsing User", e);
-    }
   }
 
   public long getId() {

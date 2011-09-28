@@ -1,10 +1,5 @@
 package com.jaeckel.amdroid.api.model;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,40 +20,6 @@ public class UserInfo {
   private Integer followingCount;
   private Boolean following;
   private List<Amen> recentAmen;
-
-
-  public UserInfo(JSONObject object) {
-    try {
-
-      this.id = object.getLong("id");
-      this.name = object.getString("name");
-      this.picture = object.getString("picture");
-      this.picture = object.getString("picture");
-      if (object.has("created_at")) {
-        final String created_at = (String) object.get("created_at");
-        Date date = Amen.parseIso8601DateJoda(created_at);
-        this.setCreatedAt(date);
-      }
-      this.createdStatementCount = object.getInt("created_statements_count");
-      this.givenAmenCount = object.getInt("given_amen_count");
-      this.receivedAmenCount = object.getInt("received_amen_count");
-      this.followersCount = object.getInt("followers_count");
-      this.followingCount = object.getInt("following_count");
-      this.following = object.getBoolean("following");
-
-      JSONArray recentAmenArray = object.getJSONArray("recent_amen");
-      recentAmen = new ArrayList<Amen>();
-
-      for(int i = 0; i < recentAmenArray.length(); i++) {
-        
-        Amen amen = new Amen(recentAmenArray.getJSONObject(i));
-        recentAmen.add(amen);
-      }
-      
-    } catch (JSONException e) {
-      throw new RuntimeException("Error parsing UserInfo", e);
-    }
-  }
 
   public Long getId() {
     return id;
