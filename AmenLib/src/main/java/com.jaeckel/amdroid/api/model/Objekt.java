@@ -2,8 +2,8 @@ package com.jaeckel.amdroid.api.model;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import java.util.List;
 
 /**
  * User: biafra
@@ -18,7 +18,8 @@ public class Objekt {
 
   private Integer   kindId;
   private String    name;
-  private ObjektKey key;
+  private List<String> key;
+//  private ObjektKey key;
 
 
   public Objekt(String name, Integer kindId) {
@@ -27,15 +28,15 @@ public class Objekt {
 
   }
 
-  public Objekt(JSONObject objekt) {
-    try {
-      this.kindId = objekt.getInt("kind_id");
-      this.name = objekt.getString("name");
-      this.key = new ObjektKey(objekt.getJSONArray("key"));
-    } catch (JSONException e) {
-      throw new RuntimeException("", e);
-    }
-  }
+//  public Objekt(JSONObject objekt) {
+//    try {
+//      this.kindId = objekt.getInt("kind_id");
+//      this.name = objekt.getString("name");
+//      this.key = new ObjektKey(objekt.getJSONArray("key"));
+//    } catch (JSONException e) {
+//      throw new RuntimeException("", e);
+//    }
+//  }
 
   @Override
   public String toString() {
@@ -68,13 +69,13 @@ public class Objekt {
     this.name = name;
   }
 
-  public ObjektKey getKey() {
-    return key;
-  }
-
-  public void setKey(ObjektKey key) {
-    this.key = key;
-  }
+//  public ObjektKey getKey() {
+//    return key;
+//  }
+//
+//  public void setKey(ObjektKey key) {
+//    this.key = key;
+//  }
 
 
 }

@@ -70,7 +70,7 @@ public class Statement {
       if (o.has("first_posted_at")) {
         firstPostedAt = Amen.parseIso8601DateJoda(o.getString("first_posted_at"));
       }
-      this.objekt = new Objekt(o.getJSONObject("objekt"));
+//      this.objekt = new Objekt(o.getJSONObject("objekt"));
 
     } catch (JSONException e) {
 
@@ -87,6 +87,8 @@ public class Statement {
            ", agreeingNetwork=" + agreeingNetwork +
            ", topic=" + topic +
            ", objekt=" + objekt +
+           ", firstPoster=" + firstPoster +
+           ", firstPostedAt=" + firstPostedAt +
            '}';
   }
 
@@ -156,4 +158,6 @@ public class Statement {
   public void setFirstPostedAt(Date firstPostedAt) {
     this.firstPostedAt = firstPostedAt;
   }
+
+
 }

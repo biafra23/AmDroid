@@ -21,7 +21,7 @@ public class Dispute {
     this.statement = amen.getStatement();
     this.statement.setAgreeingNetwork(null);
     this.statement.getObjekt().setName(newObjektName);
-    this.statement.getObjekt().setKey(null);
+//    this.statement.getObjekt().setKey(null);
     this.statement.setTotalAmenCount(null);
 
     this.kindId = amen.getKindId();
@@ -36,7 +36,7 @@ public class Dispute {
     this.statement = statement;
     this.statement.setAgreeingNetwork(null);
     this.statement.getObjekt().setName(newObjektName);
-    this.statement.getObjekt().setKey(null);
+//    this.statement.getObjekt().setKey(null);
     this.statement.setTotalAmenCount(null);
 
 //    this.kindId = statement.getKindId();
