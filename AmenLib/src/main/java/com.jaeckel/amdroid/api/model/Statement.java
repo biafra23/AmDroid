@@ -52,11 +52,18 @@ public class Statement {
         for (int i = 0; i < agreeingNetworkArray.length(); i++) {
           agreeingNetwork.add(new User(agreeingNetworkArray.getJSONObject(i)));
         }
-        this.agreeable = o.getBoolean("agreeable");
+
         this.topic = new Topic(o.getJSONObject("topic"));
+      }
+      if (o.has("agreeable")) {
+        this.agreeable = o.getBoolean("agreeable");
+      } else {
+        this.agreeable = false;
       }
 
       if (o.has("first_poster") && !o.isNull("first_poster")) {
+
+
         firstPoster = new User(o.getJSONObject("first_poster"));
 
       }
@@ -105,7 +112,7 @@ public class Statement {
     this.totalAmenCount = totalAmenCount;
   }
 
-  public boolean isAgreeable() {
+  public Boolean isAgreeable() {
     return agreeable;
   }
 

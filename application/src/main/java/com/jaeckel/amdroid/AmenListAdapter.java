@@ -47,14 +47,18 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
     TextView user = (TextView) row.getTag(R.id.user);
-    user.setText(amen.getUser().getName());
-
+    String from = amen.getUser().getName();
+    if (amen.hasDispute()) {
+      from = from + " disputes " + amen.disputingUser().getName();
+    }
+    user.setText(from);
     TextView statement = (TextView) row.getTag(R.id.statement);
 
     Amen referingAmen = amen.getReferringAmen();
-    String disputed = " NOT ";
-    if (referingAmen != null) {
-      disputed += referingAmen.getStatement().getObjekt().getName();
+    String disputed ="";
+    if (amen.hasDispute()) {
+      disputed = " NOT ";
+      disputed += amen.disputingObjekt().getName();
 
     }
 

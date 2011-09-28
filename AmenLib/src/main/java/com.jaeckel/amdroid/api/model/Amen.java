@@ -8,6 +8,8 @@ import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.Date;
@@ -19,7 +21,7 @@ import java.util.Date;
  */
 public class Amen {
 
-//  transient final Logger log = LoggerFactory.getLogger("Amen");
+  private transient final Logger log = LoggerFactory.getLogger("Amen");
 
   private Long      id;
   private Long      userId;
@@ -28,8 +30,13 @@ public class Amen {
   private Integer   kindId; //normal, amen, dispute
   private Statement statement;
 
-  //Disputed Amen
+
+  //sometimes disputed Amen
   private Amen referringAmen;
+  
+  public Amen() {
+    
+  }
 
   public Amen(Statement statement) {
     this.statement = statement;
@@ -37,6 +44,8 @@ public class Amen {
   }
 
   public Amen(JSONObject object) {
+
+//    log.warn("-----> Amen(): " + object);
 
     try {
 
@@ -48,8 +57,12 @@ public class Amen {
 
       this.setId(object.getLong("id"));
 
+//      final Object kind_id = object.get("kind_id");
+//      if (object.has("kind_id") && object.getInt("kind_id") != 0) {
       if (object.has("kind_id")) {
-        this.setKindId(object.getInt("kind_id"));
+        final int kind_id1 = object.getInt("kind_id");
+
+        this.setKindId(kind_id1);
       }
 
       this.setUserId(object.getLong("user_id"));
@@ -63,10 +76,16 @@ public class Amen {
 
       if (object.has("referring_amen")) {
         final JSONObject referring_amen = object.getJSONObject("referring_amen");
-        this.referringAmen = new Amen(referring_amen);
+        Amen ref_amen = new Amen(referring_amen);
+
+//        log.warn("-----> Amen() ref_amen: " + ref_amen);
+//        log.warn("-----> Amen() ref_amen NOT: " + this);
+//            log.warn();
+        this.referringAmen = ref_amen;
       }
 
     } catch (JSONException e) {
+//      log.error("-----> Amen(): " + object);
       throw new RuntimeException("Error parsing Amen", e);
     }
   }
@@ -159,6 +178,31 @@ public class Amen {
     DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
     DateTime dt = fmt.parseDateTime(dateString);
     return dt.toDate();
+  }
+
+  public boolean hasDispute() {
+
+    if (referringAmen != null
+        && referringAmen.getStatement() != null
+        && referringAmen.getStatement().isAgreeable() != null
+        && referringAmen.getStatement().isAgreeable()) {
+      return true;
+    }
+    return false;
+  }
+
+  public Objekt disputingObjekt() {
+    if (hasDispute()) {
+      return referringAmen.getStatement().getObjekt();
+    }
+    return null;
+  }
+
+  public User disputingUser() {
+    if (hasDispute()) {
+      return referringAmen.getUser();
+    }
+    return null;
   }
 }
 

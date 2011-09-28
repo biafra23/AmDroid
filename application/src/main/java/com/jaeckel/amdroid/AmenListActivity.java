@@ -76,7 +76,7 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
 
-    if (requestCode == REQUEST_CODE) {
+//    if (requestCode == REQUEST_CODE) {
 
       Toast.makeText(this, "onActivityResult", Toast.LENGTH_SHORT).show();
 
@@ -85,8 +85,8 @@ public class AmenListActivity extends ListActivity {
       String password = prefs.getString("password", null);
 
       service = AmdroidApp.getInstance().getService(username, password);
-
-    }
+      refresh();
+//    }
 
   }
 
@@ -101,7 +101,7 @@ public class AmenListActivity extends ListActivity {
       String password = prefs.getString("password", null);
 
       service = AmdroidApp.getInstance().getService(username, password);
-
+      refresh();
     }
 
 
