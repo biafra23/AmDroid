@@ -31,13 +31,10 @@ public class DateSerializer implements JsonSerializer<Date>, JsonDeserializer<Da
   }
 
   public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-
-//    System.out.println("-------------------> " + json.getAsJsonPrimitive().getAsString());
     String jsonString = json.getAsJsonPrimitive().getAsString();
 
     DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
     DateTime dt = fmt.parseDateTime(jsonString);
-    System.out.println("-------------------> " + dt.toDate().getTime());
     return dt.toDate();
 
   }
