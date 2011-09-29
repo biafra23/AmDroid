@@ -48,20 +48,23 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     TextView user = (TextView) row.getTag(R.id.user);
     String from = amen.getUser().getName();
-    if (amen.hasDispute()) {
-      from = from + " disputes " + amen.disputingUser().getName();
+
+    final boolean disputes = amen.getKindId() == 2;
+    final boolean amens = amen.getKindId() == 1;
+    if (amens) {
+      from = from + " amen'd " + amen.getReferringAmen().getUser().getName();
+    }
+    if (disputes) {
+      from = from + " disputes " + amen.getReferringAmen().getUser().getName();
     }
     user.setText(from);
     TextView statement = (TextView) row.getTag(R.id.statement);
 
-    Amen referingAmen = amen.getReferringAmen();
     String disputed ="";
-    if (amen.hasDispute()) {
+    if (disputes) {
       disputed = " NOT ";
-      disputed += amen.disputingObjekt().getName();
-
+      disputed += amen.getReferringAmen().getStatement().getObjekt().getName();
     }
-
     statement.setText(amen.getStatement().toDisplayString() + disputed);
 
 
