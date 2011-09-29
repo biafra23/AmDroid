@@ -39,8 +39,8 @@ public class AmenServiceITest extends TestCase {
     if ("${tests.username}".equals(username)) {
       System.out.println("Please put username and password in settings.xml. See README ");
     }
-    System.out.println("username: " + username);
-    System.out.println("password: " + password);
+//    System.out.println("username: " + username);
+//    System.out.println("password: " + password);
 
     service = new AmenServiceImpl();
     service.init(username, password);
