@@ -43,8 +43,8 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="android" url="file://$PROJECT_DIR$/application" />
-    <file type="android" url="file://$PROJECT_DIR$/application-it" />
+    <file type="android" url="file://$PROJECT_DIR$/AmDroid" />
+    <file type="android" url="file://$PROJECT_DIR$/AmDroidTest" />
   </component>
   <component name="IdProvider" IDEtalkID="058AAD20AFEB0D6E0325BF28A01B33FB" />
   <component name="JavadocGenerationManager">

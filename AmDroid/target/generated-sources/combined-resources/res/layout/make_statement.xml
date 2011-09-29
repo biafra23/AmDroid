@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+        >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+            >
+        <Button android:id="@+id/amen_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Person"
+                android:layout_weight="1"
+                />
+        <Button android:id="@+id/amen_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place"
+                android:layout_weight="1"
+                />
+        <Button android:id="@+id/amen_thing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thing"
+                android:layout_weight="1"
+                />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/objekt_name"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:inputType="text"
+                  android:singleLine="true"
+                  android:gravity="top"
+                  android:text="Franz Nase"
+                />
+
+        <TextView android:id="@+id/best"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="is the best "
+                />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/topic_name"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:inputType="text"
+                  android:singleLine="true"
+                  android:gravity="top"
+                  android:text="Barber"
+                />
+
+        <EditText android:id="@+id/topic_scope"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:inputType="text"
+                  android:singleLine="true"
+                  android:gravity="top"
+                  android:text="Ever"
+                />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+            >
+        <Button android:id="@+id/amen_take_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amen"
+                android:layout_weight="1"
+                />
+        <Button android:id="@+id/never_mind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Never mind"
+                android:layout_weight="1"
+                />
+    </LinearLayout>
+
+</LinearLayout>

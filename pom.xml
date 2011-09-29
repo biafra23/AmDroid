@@ -10,8 +10,8 @@
     <name>amdroid - Parent</name>
 
     <modules>
-        <module>application</module>
-        <module>application-it</module>
+        <module>AmDroid</module>
+        <module>AmDroidTest</module>
         <module>AmenLib</module>
     </modules>
 

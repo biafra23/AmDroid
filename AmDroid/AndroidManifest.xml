@@ -24,7 +24,6 @@
         <!--<activity android:screenOrientation="portrait" android:name=".AmenDetailActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".DisputeActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".MakeStatementActivity"/>-->
-        <activity android:name=".WebActivity"/>
         <activity android:name=".EditPreferencesActivity"/>
         <activity android:name=".AmenDetailActivity"/>
         <activity android:name=".DisputeActivity"/>

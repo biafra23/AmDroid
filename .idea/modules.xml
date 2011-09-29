@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/application-it/AmDroidTest.iml" filepath="$PROJECT_DIR$/application-it/AmDroidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmenLib/AmenLib.iml" filepath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/application/amdroid.iml" filepath="$PROJECT_DIR$/application/amdroid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/application-it/amdroid-it.iml" filepath="$PROJECT_DIR$/application-it/amdroid-it.iml" />
       <module fileurl="file://$PROJECT_DIR$/amdroid-parent.iml" filepath="$PROJECT_DIR$/amdroid-parent.iml" />
     </modules>
   </component>

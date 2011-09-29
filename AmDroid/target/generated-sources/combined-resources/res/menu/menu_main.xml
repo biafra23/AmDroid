@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/refresh"
+          android:icon="@drawable/ic_menu_backup"
+          android:title="Refresh"/>
+    <item android:id="@+id/preference"
+          android:icon="@drawable/ic_menu_settings"
+          android:title="Prefences"/>
+
+    <item android:id="@+id/amen"
+          android:icon="@drawable/ic_menu_connection"
+          android:title="Amen sth."
+          android:enabled="false"/>
+</menu>
