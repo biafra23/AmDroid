@@ -1,0 +1,21 @@
+tests.username and tests.password need to be configured in your ~/.m2/settings.xml like this:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+...
+   <profiles>
+        <profile>
+            <id>amenlib-properties</id>
+            <properties>
+                <tests.username>email@some.domain</tests.username>
+                <tests.password>mypass</tests.password>
+            </properties>
+        </profile>
+   </profiles>
+...
+   <activeProfiles>
+        <activeProfile>amenlib-properties</activeProfile>
+   </activeProfiles>
+</setting>
+
+
