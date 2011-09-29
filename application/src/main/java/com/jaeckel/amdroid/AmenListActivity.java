@@ -13,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -45,7 +44,7 @@ public class AmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
-    Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+//    Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
 
     progressDialog = ProgressDialog.show(AmenListActivity.this, "",
                                          "Loading. Please wait...", true);
@@ -70,7 +69,7 @@ public class AmenListActivity extends ListActivity {
     refresh();
 
     Log.v(TAG, "onCreate... done.");
-    Toast.makeText(this, "onCreate done", Toast.LENGTH_SHORT).show();
+//    Toast.makeText(this, "onCreate done", Toast.LENGTH_SHORT).show();
   }
 
   @Override
@@ -78,7 +77,7 @@ public class AmenListActivity extends ListActivity {
 
 //    if (requestCode == REQUEST_CODE) {
 
-      Toast.makeText(this, "onActivityResult", Toast.LENGTH_SHORT).show();
+//      Toast.makeText(this, "onActivityResult", Toast.LENGTH_SHORT).show();
 
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
       String username = prefs.getString("user_name", null);
@@ -93,9 +92,9 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onResume() {
     super.onResume();
-    Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
+//    Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
     if (service == null) {
-      Toast.makeText(this, "service was null -> login", Toast.LENGTH_SHORT).show();
+//      Toast.makeText(this, "service was null -> login", Toast.LENGTH_SHORT).show();
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
       String username = prefs.getString("user_name", null);
       String password = prefs.getString("password", null);
@@ -106,7 +105,7 @@ public class AmenListActivity extends ListActivity {
 
 
 //    refresh();
-    Toast.makeText(this, "onResume done", Toast.LENGTH_SHORT).show();
+//    Toast.makeText(this, "onResume done", Toast.LENGTH_SHORT).show();
   }
 
   private void refresh() {
