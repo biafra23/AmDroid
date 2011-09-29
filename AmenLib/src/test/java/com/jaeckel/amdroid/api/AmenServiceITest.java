@@ -9,9 +9,9 @@ import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 import junit.framework.TestCase;
 
+import java.io.IOException;
 import java.util.List;
-
-import static com.jaeckel.amdroid.api.model.Objekt.THING;
+import java.util.Properties;
 
 /**
  * User: biafra
@@ -20,9 +20,27 @@ import static com.jaeckel.amdroid.api.model.Objekt.THING;
  */
 public class AmenServiceITest extends TestCase {
 
+  private String      username;
+  private String      password;
+  private AmenService service;
+
   @Override
   public void setUp() {
+    Properties props = new Properties();
+    try {
+      props.load(this.getClass().getResourceAsStream("test.properties"));
+    } catch (IOException e) {
+      throw new RuntimeException("Properties not loaded", e);
+    }
 
+    username = props.getProperty("integration.tests.username");
+    password = props.getProperty("integration.tests.password");
+
+    System.out.println("username: " + username);
+    System.out.println("password: " + password);
+
+    service = new AmenServiceImpl();
+    service.init(username, password);
   }
 
   @Override
@@ -31,10 +49,6 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testInit() {
-
-    AmenService service = new AmenServiceImpl();
-
-    service.init("nbotvin@different.name", "foobar23");
 
     assertTrue("session cookie null", service.getCookie() != null);
     assertTrue("session cookie too small", service.getCookie().length() > 10);
@@ -46,9 +60,7 @@ public class AmenServiceITest extends TestCase {
 
   public void testGetFeed() {
 
-    AmenService service = new AmenServiceImpl();
 
-    service.init("nbotvin@different.name", "foobar23");
     List<Amen> amens = service.getFeed();
     assertEquals("Amen amount wrong", 25, amens.size());
 
@@ -63,9 +75,6 @@ public class AmenServiceITest extends TestCase {
 
   public void testDispute() {
 
-    AmenService service = new AmenServiceImpl();
-
-    service.init("nbotvin@different.name", "foobar23");
 
     Statement fooMe = service.getStatementForId(78221L);
 
@@ -75,8 +84,6 @@ public class AmenServiceITest extends TestCase {
 
 
   public void testGetUserInfo() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     UserInfo ui = service.getUserInfo(new User(14028L));
 
@@ -85,8 +92,6 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testGetMe() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     User u = service.getMe();
 
@@ -96,17 +101,13 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testAmen() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
-    Statement statement = new Statement(new Objekt("Foo", THING), new Topic("placeholder", true, "Ever"));
+    Statement statement = new Statement(new Objekt("Foo", Objekt.THING), new Topic("placeholder", true, "Ever"));
     service.addStatement(statement);
 
   }
 
   public void testGetAmenForId() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     Amen a = service.getAmenForId(187365L);
 
@@ -114,8 +115,6 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testGetStatementForId() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     Statement a = service.getStatementForId(78256L);
 
@@ -123,8 +122,6 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testGetStatementForId78704() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     Statement a = service.getStatementForId(78704L);
 
@@ -133,8 +130,6 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testGetStatementForIdWithNullFirstPoster() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     Statement a = service.getStatementForId(60814L);
 
@@ -142,8 +137,6 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testGetTopics() {
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     Topic topic = service.getTopicsForId(29020L);
 
@@ -154,9 +147,7 @@ public class AmenServiceITest extends TestCase {
 
   public void testAmening() {
 
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
-  
+
     Amen result = service.amen(188381L);
 
     assertNotNull("Result should not be null", result);
@@ -178,18 +169,14 @@ public class AmenServiceITest extends TestCase {
 
     System.out.println("testTakeBack");
 
-    AmenService service = new AmenServiceImpl();
-    service.init("nbotvin@different.name", "foobar23");
 
     Amen a = service.amen(188381L);
     System.out.println("Got Back Amen: " + a);
 
     boolean result = service.takeBack(a);
-    
+
     assertEquals("Wrong result", true, result);
   }
-
-
 
 
 }

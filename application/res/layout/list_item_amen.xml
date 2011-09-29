@@ -40,7 +40,7 @@
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
                   android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
-                  android:textSize="16dp"
+                  android:textSize="20dip"
                   android:layout_weight="1"
                   android:paddingBottom="3dip"
                 />
