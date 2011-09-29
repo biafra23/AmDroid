@@ -36,6 +36,9 @@ public class AmenServiceITest extends TestCase {
     username = props.getProperty("amenlib.tests.username");
     password = props.getProperty("amenlib.tests.password");
 
+    if ("${tests.username}".equals(username)) {
+      System.out.println("Please put username and password in settings.xml. See README ");
+    }
     System.out.println("username: " + username);
     System.out.println("password: " + password);
 
