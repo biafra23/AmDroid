@@ -13,12 +13,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-<!--
-        <tests.username>nbotvin@different.name</tests.username>
-        <tests.password>foobar23</tests.password>
--->
-
     </properties>
 
     <dependencies>

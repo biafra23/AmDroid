@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" afterPath="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/pom.xml" afterPath="$PROJECT_DIR$/AmenLib/pom.xml" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,10 +139,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenServiceITest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenServiceITest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="80" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.5244755">
+            <state line="28" column="24" selection-start="728" selection-end="729" vertical-scroll-proportion="-12.846154">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,10 +186,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="40" selection-start="3284" selection-end="3284" vertical-scroll-proportion="-27.115385">
+            <state line="14" column="82" selection-start="678" selection-end="678" vertical-scroll-proportion="0.21538462">
               <folding />
             </state>
           </provider>
@@ -222,10 +222,10 @@
         <option value="$PROJECT_DIR$/application/pom.xml" />
         <option value="$USER_HOME$/.m2/settings.xml" />
         <option value="$PROJECT_DIR$/AmenLib/src/test/resources/com/jaeckel/amdroid/api/test.properties" />
-        <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/resources/com/jaeckel/amdroid/api/test.properties" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" />
+        <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
       </list>
     </option>
   </component>
@@ -1418,13 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="40" selection-start="3284" selection-end="3284" vertical-scroll-proportion="-27.115385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/resources/com/jaeckel/amdroid/api/test.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0">
@@ -1462,10 +1455,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="80" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.5244755">
+        <state line="28" column="24" selection-start="728" selection-end="729" vertical-scroll-proportion="-12.846154">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="82" selection-start="678" selection-end="678" vertical-scroll-proportion="0.21538462">
+          <folding />
         </state>
       </provider>
     </entry>
