@@ -33,8 +33,8 @@ public class AmenServiceITest extends TestCase {
       throw new RuntimeException("Properties not loaded", e);
     }
 
-    username = props.getProperty("integration.tests.username");
-    password = props.getProperty("integration.tests.password");
+    username = props.getProperty("amenlib.tests.username");
+    password = props.getProperty("amenlib.tests.password");
 
     System.out.println("username: " + username);
     System.out.println("password: " + password);

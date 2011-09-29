@@ -42,22 +42,6 @@
         </plugins>
   
 
-    <resources>
-        <resource>
-            <directory>src/test/resources</directory>
-            <filtering>true</filtering>
-            <includes>
-                <include>**/test.properties</include>
-            </includes>
-        </resource>
-        <resource>
-            <directory>src/test/resources</directory>
-            <filtering>false</filtering>
-            <excludes>
-                <exclude>**/test.properties</exclude>
-            </excludes>
-        </resource>
-    </resources>
 
     </build>
 
