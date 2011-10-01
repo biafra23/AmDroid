@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Statement;
+import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
 
 import java.util.List;
 
@@ -69,52 +70,53 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       disputed += amen.getReferringAmen().getStatement().getObjekt().getName();
     }
 //    statement.setText(amen.getStatement().toDisplayString() + disputed);
-    StringBuilder statementBuilder = new StringBuilder();
+    StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder();
 
     statementBuilder
-      .append(stmt.getObjekt().getName())
+      .appendBold(stmt.getObjekt().getName())
       .append(" ");
 
     if (stmt.getObjekt().getKindId() == 2) {
       //Thing
-      statementBuilder.append("is the ");
+      statementBuilder.appendOrange("is the ");
       if (stmt.getTopic().isBest()) {
-        statementBuilder.append(" Best ");
+        statementBuilder.appendOrange(" Best ");
       } else {
-        statementBuilder.append(" Worst ");
+        statementBuilder.appendOrange(" Worst ");
       }
       statementBuilder
-        .append(stmt.getTopic().getDescription())
-        .append(" ")
-        .append(stmt.getTopic().getScope());
+        .appendOrange(stmt.getTopic().getDescription())
+        .appendOrange(" ")
+        .appendOrange(stmt.getTopic().getScope());
 
 
     } else if (stmt.getObjekt().getKindId() == 1) {
       //Place
-      statementBuilder.append("is the ");
+      statementBuilder.appendBlue("is the ");
       if (stmt.getTopic().isBest()) {
-        statementBuilder.append(" Best Place for ");
+        statementBuilder.appendBlue(" Best Place for ");
       } else {
-        statementBuilder.append(" Worst Place for ");
+        statementBuilder.appendBlue(" Worst Place for ");
       }
       statementBuilder
-        .append(stmt.getTopic().getDescription())
-        .append(" ")
-        .append(stmt.getTopic().getScope());
+        .appendBlue(stmt.getTopic().getDescription())
+        .appendBlue(" ")
+        .appendBlue(stmt.getTopic().getScope());
 
     } else if (stmt.getObjekt().getKindId() == 0) {
-      statementBuilder.append("is the ");
+      statementBuilder.appendGreen("is the ");
       if (stmt.getTopic().isBest()) {
-        statementBuilder.append(" Best ");
+        statementBuilder.appendGreen(" Best ");
       } else {
-        statementBuilder.append(" Worst ");
+        statementBuilder.appendGreen(" Worst ");
       }
       statementBuilder
-        .append(stmt.getTopic().getDescription())
-        .append(" ")
-        .append(stmt.getTopic().getScope());
+        .appendGreen(stmt.getTopic().getDescription())
+        .appendGreen(" ")
+        .appendGreen(stmt.getTopic().getScope());
 
     }
+    
 
     statementBuilder
       .append(disputed);
