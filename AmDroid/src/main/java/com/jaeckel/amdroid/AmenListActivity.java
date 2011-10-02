@@ -167,9 +167,8 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected boolean cacheInBackground() throws Exception {
-//  			SystemClock.sleep(5000);				// pretend to do work
 
-      //ends at 74
+      
       if (getWrappedAdapter().getCount() < 10000) {
         return (true);
       }

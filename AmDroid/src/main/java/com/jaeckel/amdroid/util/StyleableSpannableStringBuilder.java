@@ -4,8 +4,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
-import android.util.Log;
 
 /**
  * User: biafra
@@ -17,6 +17,13 @@ public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
 
   private static final String TAG = "StyleableSpannableStringBuilder";
 
+  public StyleableSpannableStringBuilder appendWithStyle(ForegroundColorSpan c, CharSequence text) {
+    super.append(text);
+    int startPos = length() - text.length();
+    setSpan(c, startPos, length(), 0);
+    return this;
+  }
+
   public StyleableSpannableStringBuilder appendWithStyle(CharacterStyle c, CharSequence text) {
     super.append(text);
     int startPos = length() - text.length();
@@ -25,24 +32,24 @@ public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
   }
 
   public StyleableSpannableStringBuilder appendBold(CharSequence text) {
-    Log.d(TAG, "appendBold");
+//    Log.d(TAG, "appendBold: " + text);
     return appendWithStyle(new StyleSpan(Typeface.BOLD), text);
   }
+
   public StyleableSpannableStringBuilder appendGreen(CharSequence text) {
-    Log.d(TAG, "appendGreen");
-    return appendWithStyle(new StyleSpan(Color.GREEN), text);
-  }
-  public StyleableSpannableStringBuilder appendOrange(CharSequence text) {
-    Log.d(TAG, "appendOrange");
-    return appendWithStyle(new StyleSpan(Color.RED), text);
-  }
-  public StyleableSpannableStringBuilder appendBlue(CharSequence text) {
-    Log.d(TAG, "appendBlue");
-    return appendWithStyle(new StyleSpan(Color.BLUE), text);
+//    Log.d(TAG, "appendGreen: " + text);
+    return appendWithStyle(new ForegroundColorSpan(Color.GREEN), text);
   }
 
-  public StyleableSpannableStringBuilder appendSuper(CharSequence text) {
-    Log.d(TAG, "appendSuper");
-    return appendWithStyle(new StyleSpan(Color.BLUE), text);
+  public StyleableSpannableStringBuilder appendOrange(CharSequence text) {
+//    Log.d(TAG, "appendOrange: " + text);
+    final ForegroundColorSpan c = new ForegroundColorSpan(Color.RED);
+    return appendWithStyle(c, text);
   }
+
+  public StyleableSpannableStringBuilder appendBlue(CharSequence text) {
+//    Log.d(TAG, "appendBlue: " + text);
+    return appendWithStyle(new ForegroundColorSpan(Color.BLUE), text);
+  }
+
 }

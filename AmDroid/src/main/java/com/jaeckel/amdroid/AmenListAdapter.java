@@ -121,7 +121,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     statementBuilder
       .append(disputed);
 
-    statement.setText(statementBuilder.toString());
+    statement.setText(statementBuilder);
 
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
