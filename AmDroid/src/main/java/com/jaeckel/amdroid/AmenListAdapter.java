@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.model.Amen;
-import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
 
@@ -53,27 +52,17 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     TextView user = (TextView) row.getTag(R.id.user);
     String from = amen.getUser().getName();
 
-    final boolean disputes = amen.getKindId() == 2;
-    final boolean amens = amen.getKindId() == 1;
-    if (amens) {
+    if (amen.isAmen()) {
       from = from + " amen'd " + amen.getReferringAmen().getUser().getName();
     }
-    if (disputes) {
+    if (amen.isDispute()) {
       from = from + " disputes " + amen.getReferringAmen().getUser().getName();
     }
     user.setText(from);
 
     TextView statement = (TextView) row.getTag(R.id.statement);
 
-
-//    statement.setText(amen.getStatement().toDisplayString() + disputed);
-    if (amen.hasDispute()) {
-      styleAmenWithColor(stmt, true, amen.getReferringAmen().getStatement().getObjekt(), statement);
-    } else {
-      styleAmenWithColor(stmt, false, null, statement);
-    }
-
-
+    statement.setText(styleAmenWithColor(amen));
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
@@ -90,7 +79,10 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     return row;
   }
 
-  public static void styleAmenWithColor(Statement stmt, boolean disputes, Objekt disputedObjekt,  TextView statement) {
+  public static CharSequence styleAmenWithColor(Amen amen) {
+    Statement stmt = amen.getStatement();
+
+
     StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder();
 
     statementBuilder
@@ -135,19 +127,17 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         .appendGreen(stmt.getTopic().getDescription())
         .appendGreen(" ")
         .appendGreen(stmt.getTopic().getScope());
+    }
+
+    if (amen.isDispute()) {
+
+      statementBuilder.appendGray(" not ")
+                      .appendGray(amen.getReferringAmen().getStatement().getObjekt().getName());
 
     }
 
-    StyleableSpannableStringBuilder disputed = new StyleableSpannableStringBuilder();
-    if (disputes) {
-      disputed.appendGray(" not ")
-              .appendGray(disputedObjekt.getName());
-    }
 
-    statementBuilder
-      .append(disputed);
-
-    statement.setText(statementBuilder);
+    return statementBuilder;
   }
 
 

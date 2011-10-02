@@ -132,26 +132,22 @@ public class Amen {
     return dt.toDate();
   }
 
-  public boolean hasDispute() {
-
-    if (referringAmen != null
-        && referringAmen.getStatement() != null
-        && referringAmen.getStatement().isAgreeable() != null
-        && referringAmen.getStatement().isAgreeable()) {
-      return true;
-    }
-    return false;
+  public boolean isDispute() {
+    return getKindId() == 2;
+  }
+  public boolean isAmen() {
+    return getKindId() == 1;
   }
 
   public Objekt disputingObjekt() {
-    if (hasDispute()) {
+    if (isDispute()) {
       return referringAmen.getStatement().getObjekt();
     }
     return null;
   }
 
   public User disputingUser() {
-    if (hasDispute()) {
+    if (isDispute()) {
       return referringAmen.getUser();
     }
     return null;

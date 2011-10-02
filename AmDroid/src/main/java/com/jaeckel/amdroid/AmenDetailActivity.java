@@ -62,7 +62,7 @@ public class AmenDetailActivity extends Activity {
 
   private void populateFormWithAmen(boolean updateName) {
 
-    AmenListAdapter.styleAmenWithColor(currentAmen.getStatement(), currentAmen.hasDispute(), currentAmen.getReferringAmen().getStatement().getObjekt(), statementView );
+    AmenListAdapter.styleAmenWithColor(currentAmen);
 
 //    statementView.setText(currentAmen.getStatement().toDisplayString());
     //TODO: find a better way to have the original? name here
