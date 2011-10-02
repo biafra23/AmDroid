@@ -198,8 +198,10 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void onPreExecute() {
       loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                           "Loading Amens. Please wait...", true);
-      Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
+                                                  "Loading Amens. Please wait...", true);
+      if (AmdroidApp.DEVELOPER_MODE) {
+        Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
+      }
       loadingProgressDialog.show();
     }
 
@@ -225,42 +227,48 @@ public class AmenListActivity extends ListActivity {
       setListAdapter(endless);
 
       loadingProgressDialog.hide();
-      Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
+      if (AmdroidApp.DEVELOPER_MODE) {
+        Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
+      }
     }
   }
 
   private class LoginAsyncTask extends AsyncTask<Void, Integer, AmenService> {
 
-      @Override
-      protected void onPreExecute() {
+    @Override
+    protected void onPreExecute() {
+      if (AmdroidApp.DEVELOPER_MODE) {
         Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
-        loginProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                             "Logging in. Please wait...", true);
-        loginProgressDialog.show();
       }
-
-      @Override
-      protected AmenService doInBackground(Void... voids) {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AmenListActivity.this);
-        String username = prefs.getString("user_name", null);
-        String password = prefs.getString("password", null);
-
-        return AmdroidApp.getInstance().getService(username, password);
-      }
-
-      @Override
-      protected void onPostExecute(AmenService service) {
-        Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
-        AmenListActivity.this.service = service;
-        Log.d(TAG, "Service set: " + service);
-
-        loginProgressDialog.hide();
-
-        refresh();
-
-      }
+      loginProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                                "Logging in. Please wait...", true);
+      loginProgressDialog.show();
     }
+
+    @Override
+    protected AmenService doInBackground(Void... voids) {
+
+      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AmenListActivity.this);
+      String username = prefs.getString("user_name", null);
+      String password = prefs.getString("password", null);
+
+      return AmdroidApp.getInstance().getService(username, password);
+    }
+
+    @Override
+    protected void onPostExecute(AmenService service) {
+      if (AmdroidApp.DEVELOPER_MODE) {
+        Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
+      }
+      AmenListActivity.this.service = service;
+      Log.d(TAG, "Service set: " + service);
+
+      loginProgressDialog.hide();
+
+      refresh();
+
+    }
+  }
 
 }
 

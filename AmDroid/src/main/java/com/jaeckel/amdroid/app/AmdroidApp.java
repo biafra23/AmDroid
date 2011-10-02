@@ -20,7 +20,7 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
 public class AmdroidApp extends Application {
 
   //TODO: remove before release
-  public boolean DEVELOPER_MODE = true;
+  public final static boolean DEVELOPER_MODE = false;
 
   public static final String TAG = "amdroid/AmdroidApp";
   private static AmdroidApp instance;
