@@ -62,7 +62,9 @@ public class AmenDetailActivity extends Activity {
 
   private void populateFormWithAmen(boolean updateName) {
 
-    statementView.setText(currentAmen.getStatement().toDisplayString());
+    AmenListAdapter.styleAmenWithColor(currentAmen.getStatement(), currentAmen.hasDispute(), currentAmen.getReferringAmen().getStatement().getObjekt(), statementView );
+
+//    statementView.setText(currentAmen.getStatement().toDisplayString());
     //TODO: find a better way to have the original? name here
     if (updateName) {
       userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));

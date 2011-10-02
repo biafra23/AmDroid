@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
 
@@ -64,12 +65,32 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     TextView statement = (TextView) row.getTag(R.id.statement);
 
-    String disputed = "";
-    if (disputes) {
-      disputed = " NOT ";
-      disputed += amen.getReferringAmen().getStatement().getObjekt().getName();
-    }
+
 //    statement.setText(amen.getStatement().toDisplayString() + disputed);
+    if (amen.hasDispute()) {
+      styleAmenWithColor(stmt, true, amen.getReferringAmen().getStatement().getObjekt(), statement);
+    } else {
+      styleAmenWithColor(stmt, false, null, statement);
+    }
+
+
+
+    ImageView userImage = (ImageView) row.getTag(R.id.user_image);
+
+    String pictureUrl = amen.getUser().getPicture();
+    if (!TextUtils.isEmpty(pictureUrl)) {
+      pictureUrl = pictureUrl + "?type=normal";
+    }
+
+    userImage.setImageResource(R.drawable.placeholder);
+    userImage.setTag(pictureUrl);
+
+//    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
+
+    return row;
+  }
+
+  public static void styleAmenWithColor(Statement stmt, boolean disputes, Objekt disputedObjekt,  TextView statement) {
     StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder();
 
     statementBuilder
@@ -116,27 +137,17 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         .appendGreen(stmt.getTopic().getScope());
 
     }
-    
+
+    StyleableSpannableStringBuilder disputed = new StyleableSpannableStringBuilder();
+    if (disputes) {
+      disputed.appendGray(" not ")
+              .appendGray(disputedObjekt.getName());
+    }
 
     statementBuilder
       .append(disputed);
 
     statement.setText(statementBuilder);
-
-
-    ImageView userImage = (ImageView) row.getTag(R.id.user_image);
-
-    String pictureUrl = amen.getUser().getPicture();
-    if (!TextUtils.isEmpty(pictureUrl)) {
-      pictureUrl = pictureUrl + "?type=normal";
-    }
-
-    userImage.setImageResource(R.drawable.placeholder);
-    userImage.setTag(pictureUrl);
-
-//    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
-
-    return row;
   }
 
 
