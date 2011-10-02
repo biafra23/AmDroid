@@ -3,7 +3,7 @@
 
     <EditTextPreference android:key="user_name"
                         android:title="Username"
-                        android:summary="Your Amen Username"
+                        android:summary="Your Email address"
                         
             />
 
@@ -11,6 +11,7 @@
                         android:title="Password"
                         android:summary="Your Amen password"
                         android:password="true"
+
             />
 
 

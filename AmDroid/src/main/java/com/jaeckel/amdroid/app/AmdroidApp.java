@@ -2,6 +2,7 @@ package com.jaeckel.amdroid.app;
 
 import android.app.AlertDialog;
 import android.app.Application;
+import android.os.StrictMode;
 import android.util.Log;
 import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
@@ -18,6 +19,9 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
  */
 public class AmdroidApp extends Application {
 
+  //TODO: remove before release
+  public boolean DEVELOPER_MODE = true;
+
   public static final String TAG = "amdroid/AmdroidApp";
   private static AmdroidApp instance;
 
@@ -27,8 +31,8 @@ public class AmdroidApp extends Application {
 
   //CWAC
 
-  private        ThumbnailBus                                        bus   = new ThumbnailBus();
-  private        SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+  private ThumbnailBus                                        bus   = new ThumbnailBus();
+  private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
   private User me;
 
 
@@ -41,6 +45,16 @@ public class AmdroidApp extends Application {
 
   @Override
   public void onCreate() {
+    if (DEVELOPER_MODE) {
+      StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                                   .detectDiskReads()
+                                   .detectDiskWrites()
+                                   .detectNetwork()
+                                   .penaltyDropBox()
+                                   .penaltyLog()
+                                   .build());
+    }
+    super.onCreate();
 
     Log.v(TAG, "onCreate");
 
@@ -71,6 +85,7 @@ public class AmdroidApp extends Application {
     }
     return service;
   }
+
   public AmenService getService() {
     if (service == null) {
       service = new AmenServiceImpl();
@@ -81,30 +96,30 @@ public class AmdroidApp extends Application {
 
   //CWAC
   void goBlooey(Throwable t) {
- 		AlertDialog.Builder builder=new AlertDialog.Builder(this);
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
- 		builder
- 			.setTitle(R.string.exception)
- 			.setMessage(t.toString())
- 			.setPositiveButton(R.string.ok, null)
- 			.show();
- 	}
+    builder
+      .setTitle(R.string.exception)
+      .setMessage(t.toString())
+      .setPositiveButton(R.string.ok, null)
+      .show();
+  }
 
- 	ThumbnailBus getBus() {
- 		return(bus);
- 	}
+  ThumbnailBus getBus() {
+    return (bus);
+  }
 
- 	public SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> getCache() {
- 		return(cache);
- 	}
+  public SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> getCache() {
+    return (cache);
+  }
 
- 	private Thread.UncaughtExceptionHandler onBlooey=
- 		new Thread.UncaughtExceptionHandler() {
- 		public void uncaughtException(Thread thread, Throwable ex) {
- 			Log.e(TAG, "Uncaught exception", ex);
- 			goBlooey(ex);
- 		}
- 	};
+  private Thread.UncaughtExceptionHandler onBlooey =
+    new Thread.UncaughtExceptionHandler() {
+      public void uncaughtException(Thread thread, Throwable ex) {
+        Log.e(TAG, "Uncaught exception", ex);
+        goBlooey(ex);
+      }
+    };
 
   public User getMe() {
     return me;

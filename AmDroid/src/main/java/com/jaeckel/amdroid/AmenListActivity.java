@@ -1,18 +1,22 @@
 package com.jaeckel.amdroid;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -29,9 +33,11 @@ public class AmenListActivity extends ListActivity {
   final private static int    PROGRESS_DIALOG_ID = 0;
   public static final  int    REQUEST_CODE       = 1001;
 
-  private ProgressDialog progressDialog;
+  private ProgressDialog loginProgressDialog;
+  private ProgressDialog loadingProgressDialog;
   private AmenService    service;
   private static final int[] IMAGE_IDS = {R.id.user_image};
+  private AmenListAdapter amenListAdapter;
 
   /**
    * Called when the activity is first created.
@@ -44,73 +50,57 @@ public class AmenListActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
-//    Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
 
-    progressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                         "Loading. Please wait...", true);
-    progressDialog.show();
-    // Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
     setContentView(R.layout.main);
-
 
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String username = prefs.getString("user_name", null);
     String password = prefs.getString("password", null);
 
-    if (username == null || password == null) {
-      progressDialog.hide();
-      startActivityForResult(new Intent(this, EditPreferencesActivity.class), REQUEST_CODE);
-    } else {
-      service = AmdroidApp.getInstance().getService(username, password);
-    }
-    Log.d(TAG, "progressDialog.hide();");
-    progressDialog.hide();
-    Log.d(TAG, "refresh();");
-    refresh();
 
-    Log.v(TAG, "onCreate... done.");
-//    Toast.makeText(this, "onCreate done", Toast.LENGTH_SHORT).show();
+    if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+
+      new AlertDialog.Builder(this)
+        .setMessage("Please enter your Amen credentials in the preferences.")
+        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+          public void onClick(DialogInterface dialogInterface, int i) {
+            startActivityForResult(new Intent(AmenListActivity.this, EditPreferencesActivity.class), REQUEST_CODE);
+          }
+        }).create().show();
+
+    } else {
+//      Log.v(TAG, "username: " + username);
+//      Log.v(TAG, "password: " + password);
+
+      LoginAsyncTask task = new LoginAsyncTask();
+      task.execute();
+    }
   }
 
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
 
-//    if (requestCode == REQUEST_CODE) {
-
-//      Toast.makeText(this, "onActivityResult", Toast.LENGTH_SHORT).show();
-
-      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-      String username = prefs.getString("user_name", null);
-      String password = prefs.getString("password", null);
-
-      service = AmdroidApp.getInstance().getService(username, password);
-      refresh();
-//    }
+    refresh();
 
   }
 
   @Override
   public void onResume() {
     super.onResume();
-//    Toast.makeText(this, "onResume", Toast.LENGTH_SHORT).show();
-    if (service == null) {
-//      Toast.makeText(this, "service was null -> login", Toast.LENGTH_SHORT).show();
-      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-      String username = prefs.getString("user_name", null);
-      String password = prefs.getString("password", null);
 
-      service = AmdroidApp.getInstance().getService(username, password);
-      refresh();
-    }
+//    if (amenListAdapter == null || amenListAdapter.getCount() == 0) {
+//      Log.d(TAG, "refresh();");
+//      refresh();
+//    }
 
-
-//    refresh();
-//    Toast.makeText(this, "onResume done", Toast.LENGTH_SHORT).show();
   }
 
   private void refresh() {
-    LoaderAsyncTask loader = new LoaderAsyncTask();
-    loader.execute();
+    if (service != null) {
+      LoaderAsyncTask loader = new LoaderAsyncTask();
+      loader.execute();
+    }
   }
 
 
@@ -207,16 +197,17 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPreExecute() {
-      progressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                           "Loading. Please wait...", true);
-
-      progressDialog.show();
+      loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                           "Loading Amens. Please wait...", true);
+      Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
+      loadingProgressDialog.show();
     }
 
     @Override
     protected List<Amen> doInBackground(Void... voids) {
 
 //      showDialog() progress
+
       Log.d(TAG, "Loader executing");
       List<Amen> amens = service.getFeed(0, 20);
 
@@ -226,22 +217,50 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void onPostExecute(List<Amen> amens) {
 
-//      adapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.simple_list_item_1, amens);
-      ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+      amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
+      ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
 
       EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
-//      setListAdapter(thumbs);
+
       setListAdapter(endless);
 
-      //hide progress
-      progressDialog.hide();
-
-//      for (Amen a : amens) {
-//        Log.d(TAG, "Amen: " + a);
-//      }
-
+      loadingProgressDialog.hide();
+      Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
     }
   }
+
+  private class LoginAsyncTask extends AsyncTask<Void, Integer, AmenService> {
+
+      @Override
+      protected void onPreExecute() {
+        Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
+        loginProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                             "Logging in. Please wait...", true);
+        loginProgressDialog.show();
+      }
+
+      @Override
+      protected AmenService doInBackground(Void... voids) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AmenListActivity.this);
+        String username = prefs.getString("user_name", null);
+        String password = prefs.getString("password", null);
+
+        return AmdroidApp.getInstance().getService(username, password);
+      }
+
+      @Override
+      protected void onPostExecute(AmenService service) {
+        Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
+        AmenListActivity.this.service = service;
+        Log.d(TAG, "Service set: " + service);
+
+        loginProgressDialog.hide();
+
+        refresh();
+
+      }
+    }
 
 }
 
