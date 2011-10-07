@@ -19,24 +19,17 @@ public class Objekt {
   private Integer   kindId;
   private String    name;
   private List<String> key;
-//  private ObjektKey key;
+  private String category;
+  private String defaultDescription;
+  private List<String> possibleDescriptions;
+  private String defaultScope;
 
-
+  
   public Objekt(String name, Integer kindId) {
     this.name = name;
     this.kindId = kindId;
 
   }
-
-//  public Objekt(JSONObject objekt) {
-//    try {
-//      this.kindId = objekt.getInt("kind_id");
-//      this.name = objekt.getString("name");
-//      this.key = new ObjektKey(objekt.getJSONArray("key"));
-//    } catch (JSONException e) {
-//      throw new RuntimeException("", e);
-//    }
-//  }
 
   @Override
   public String toString() {
@@ -44,6 +37,10 @@ public class Objekt {
            "kindId=" + kindId +
            ", name='" + name + '\'' +
            ", key=" + key +
+           ", category='" + category + '\'' +
+           ", defaultDescription='" + defaultDescription + '\'' +
+           ", possibleDescriptions=" + possibleDescriptions +
+           ", defaultScope='" + defaultScope + '\'' +
            '}';
   }
 
@@ -69,13 +66,43 @@ public class Objekt {
     this.name = name;
   }
 
-//  public ObjektKey getKey() {
-//    return key;
-//  }
-//
-//  public void setKey(ObjektKey key) {
-//    this.key = key;
-//  }
+  public String getDefaultDescription() {
+    return defaultDescription;
+  }
 
+  public void setDefaultDescription(String defaultDescription) {
+    this.defaultDescription = defaultDescription;
+  }
 
+  public String getDefaultScope() {
+    return defaultScope;
+  }
+
+  public void setDefaultScope(String defaultScope) {
+    this.defaultScope = defaultScope;
+  }
+
+  public List<String> getKey() {
+    return key;
+  }
+
+  public void setKey(List<String> key) {
+    this.key = key;
+  }
+
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+  public List<String> getPossibleDescriptions() {
+    return possibleDescriptions;
+  }
+
+  public void setPossibleDescriptions(List<String> possibleDescriptions) {
+    this.possibleDescriptions = possibleDescriptions;
+  }
 }

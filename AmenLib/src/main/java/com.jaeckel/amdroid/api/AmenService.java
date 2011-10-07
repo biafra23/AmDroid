@@ -2,6 +2,7 @@ package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Dispute;
+import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
@@ -41,9 +42,9 @@ public interface AmenService {
 
   public boolean takeBack(Amen a);
 
-  public List<Amen> getAmenForUser(User u);
+  public List<Amen> getAmenForUser(Long userId);
 
-  public UserInfo getUserInfo(User u);
+  public UserInfo getUserInfo(Long id);
 
   public void addStatement(Statement statement);
 
@@ -52,4 +53,10 @@ public interface AmenService {
   public Amen getAmenForId(Long id);
 
   public Topic getTopicsForId(Long id);
+
+  public List<User> followers(Long id);
+  
+  public List<User> following(Long id);
+  
+  public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon);
 }

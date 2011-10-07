@@ -88,7 +88,7 @@ public class AmenServiceITest extends TestCase {
 
   public void testGetUserInfo() {
 
-    UserInfo ui = service.getUserInfo(new User(14028L));
+    UserInfo ui = service.getUserInfo(14028L);
 
     assertEquals("Wrong user for id", 14028L, (long) ui.getId());
 
@@ -181,5 +181,62 @@ public class AmenServiceITest extends TestCase {
     assertEquals("Wrong result", true, result);
   }
 
+  public void testFollowers() {
+    System.out.println("testFollowers");
 
+
+    List<User> followers = service.followers(12665L);
+    System.out.println("Got Back " + followers.size() + " Followers: " + followers);
+
+  }
+
+  public void testFollowing() {
+    System.out.println("testFollowing");
+
+    List<User> following = service.following(12665L);
+    System.out.println("Got Back " + following.size() + " Following: " + following);
+
+  }
+
+  public void testGetObjektsForThing() {
+    // https://getamen.com/objekts?q=a&kind_id=2
+    System.out.println("testGetObjektsForThing");
+
+    final String amadeus = "amadeus";
+    List<Objekt> result = service.objektsForQuery(amadeus, Objekt.THING, null, null);
+
+    assertNotNull(result);
+    for (Objekt o : result) {
+      assertTrue("", o.getName().toLowerCase().contains(amadeus.toLowerCase()));
+    }
+    boolean foundMozart = false;
+    for (Objekt o : result) {
+      if ("Wolfgang Amadeus Mozart".equals(o.getName())) {
+
+        foundMozart = true;
+        break;
+      }
+    }
+
+    assertTrue("Wolfgang Amadeus Mozart not found", foundMozart);
+
+  }
+
+  public void testGetObjektsForPlace() {
+    // https://getamen.com/objekts.json?kind_id=1&lat=52.5172056&lng=13.4667432
+    System.out.println("testGetObjektsForPlace");
+    List<Objekt> result = service.objektsForQuery("a", Objekt.PLACE, 52.5172056, 13.4667432);
+
+    assertNotNull(result);
+
+  }
+
+  public void testGetObjektsForPerson() {
+    // https://getamen.com/objekts?q=a&kind_id=0
+    System.out.println("testGetObjektsForPerson");
+    List<Objekt> result = service.objektsForQuery("a", Objekt.PERSON, null, null);
+
+    assertNotNull(result);
+
+  }
 }

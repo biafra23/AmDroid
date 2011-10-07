@@ -2,6 +2,7 @@ package com.jaeckel.amdroid;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -102,9 +103,13 @@ public class AmenDetailActivity extends Activity {
     hellNoButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
-        //TODO: show hellno form here to let user slect different objekt
+        //TODO: show hellno form here to let user select different objekt
+
 
         populateFormWithAmen(false);
+
+        Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
+        startActivity(intent);
       }
     });
   }

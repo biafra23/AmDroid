@@ -4,12 +4,14 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jaeckel.amdroid.api.model.DateSerializer;
+import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import junit.framework.TestCase;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * User: biafra
@@ -40,7 +42,7 @@ public class GsonTests extends TestCase {
   public void testDeserializeUser() {
 
     System.out.println("testDeserializeUser");
-    
+
     String json = "{id=1465, name='Janina Gold', picture='https://graph.facebook.com/604996344/picture'}";
     User user = gson.fromJson(json, User.class);
 
@@ -167,18 +169,27 @@ public class GsonTests extends TestCase {
     assertEquals("", false, (boolean) statement.isAgreeable());
     assertNotNull("", statement.getAgreeingNetwork());
   }
-  
+
   public void testDeserializeTopic3() {
 
     String json = "{\"best\":true,\"description\":\"& Fastest Way To Get Some Attention\",\"scope\":\"Ever\",\"id\":30313,\"amen_count\":7,\"objekts_count\":2,\"ranked_statements\":[{\"rank\":0,\"statement\":{\"id\":81700,\"objekt\":{\"key\":[\"local\",\"58856\"],\"name\":\"10 min\\u00fctiger Hustenanfall in der M10 Tram um 20:10h\\u00a0\",\"kind_id\":2},\"total_amen_count\":6,\"agreeing_network\":[{\"id\":3,\"name\":\"Felix \\\"Chief Executive Amenator\\\" Petersen\",\"picture\":\"https://graph.facebook.com/500959222/picture\"},{\"id\":13177,\"name\":\"Gina La\",\"picture\":\"\"},{\"id\":1035,\"name\":\"Jens Fay\",\"picture\":\"https://graph.facebook.com/100000769912124/picture\"},{\"id\":1465,\"name\":\"Janina Gold\",\"picture\":\"https://graph.facebook.com/604996344/picture\"},{\"id\":2106,\"name\":\"Karolina Jakubowski\",\"picture\":\"https://graph.facebook.com/1498755165/picture\"},{\"id\":8709,\"name\":\"Doktor Erika\",\"picture\":\"https://graph.facebook.com/100000180304788/picture\"}],\"agreeable\":true,\"first_poster\":{\"id\":1465,\"name\":\"Janina Gold\",\"picture\":\"https://graph.facebook.com/604996344/picture\"},\"first_posted_at\":\"2011-09-28T18:29:04Z\",\"first_amen_id\":197436,\"topic\":{\"best\":true,\"description\":\"& Fastest Way To Get Some Attention\",\"scope\":\"Ever\",\"id\":30313,\"objekts_count\":2}}},{\"rank\":1,\"statement\":{\"id\":81824,\"objekt\":{\"key\":[\"local\",\"58947\"],\"name\":\"to Fart\",\"kind_id\":2},\"total_amen_count\":1,\"agreeing_network\":[{\"id\":1282,\"name\":\"Victor Pontes\",\"picture\":\"https://graph.facebook.com/581726125/picture\"}],\"agreeable\":true,\"first_poster\":{\"id\":1282,\"name\":\"Victor Pontes\",\"picture\":\"https://graph.facebook.com/581726125/picture\"},\"first_posted_at\":\"2011-09-28T21:09:08Z\",\"first_amen_id\":197812,\"topic\":{\"best\":true,\"description\":\"& Fastest Way To Get Some Attention\",\"scope\":\"Ever\",\"id\":30313,\"objekts_count\":2}}}],\"as_sentence\":\"The Best & Fastest Way To Get Some Attention Ever\"}";
 
 
+    Topic topic = gson.fromJson(json, Topic.class);
 
-        Topic topic = gson.fromJson(json, Topic.class);
-
-        System.out.println("Topic: " + topic);
-
+    System.out.println("Topic: " + topic);
 
 
   }
+
+  public void testDeserializeObjekts() {
+    String json = "[{\"name\":\"Kelvin\",\"category\":\"Unit Of Temperature\",\"key\":[\"freebase\",\"/en/kelvin\"],\"possible_descriptions\":[\"Unit Of Temperature\",\"Invention\",\"Unit\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Unit Of Temperature\",\"default_scope\":\"Ever\"},{\"name\":\"François K\",\"category\":\"Musical Artist\",\"key\":[\"freebase\",\"/en/francois_kevorkian\"],\"possible_descriptions\":[\"Musical Artist\",\"Record Producer\",\"Recording Engineer\",\"Musician\",\"Person\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Musical Artist\",\"default_scope\":\"Ever\"},{\"name\":\"Kavita Krishnamurthy\",\"category\":\"Singer\",\"key\":[\"freebase\",\"/en/kavita_krishnamurthy\"],\"possible_descriptions\":[\"Singer\",\"Film actor\",\"Musical Artist\",\"Person\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Singer\",\"default_scope\":\"Ever\"},{\"name\":\"Sascha Konietzko\",\"category\":\"Record Producer\",\"key\":[\"freebase\",\"/en/sascha_konietzko\"],\"possible_descriptions\":[\"Record Producer\",\"Musical Artist\",\"Composer\",\"Recording Engineer\",\"Lyricist\",\"Songwriter\",\"Musician\",\"Film music contributor\",\"Person\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Record Producer\",\"default_scope\":\"Ever\"},{\"name\":\"Superchick\",\"category\":\"Band\",\"key\":[\"freebase\",\"/en/superchick\"],\"possible_descriptions\":[\"Band\",\"Musical Group\",\"Musical Artist\",\"Film director\",\"Person\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Band\",\"default_scope\":\"Ever\"},{\"name\":\"Kylie Minogue\",\"category\":\"Singer\",\"key\":[\"freebase\",\"/en/kylie_minogue\"],\"possible_descriptions\":[\"Singer\",\"Singer-songwriter\",\"Fashion Designer\",\"Actor\",\"Philanthropist\",\"Musical Artist\",\"TV Actor\",\"Film actor\",\"Author\",\"Award Winner\",\"Celebrity\",\"Public figure with medical condition\",\"Musician\",\"Person\",\"Botox Accident\",\"Candypop Singer\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Singer\",\"default_scope\":\"Ever\"},{\"name\":\"Kai Tracid\",\"category\":\"Musical Artist\",\"key\":[\"freebase\",\"/en/kai_tracid\"],\"possible_descriptions\":[\"Musical Artist\",\"Musician\",\"Person\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Musical Artist\",\"default_scope\":\"Ever\"},{\"name\":\"K\",\"category\":\"Band\",\"key\":[\"freebase\",\"/en/k_1983\"],\"possible_descriptions\":[\"Band\",\"Singer\",\"Musical Group\",\"Musical Artist\",\"Musician\",\"Person\"],\"possible_scopes\":[\"Ever\",\"This Year\"],\"default_best\":true,\"default_description\":\"Band\",\"default_scope\":\"Ever\"}]";
+
+
+    List<Objekt> objekts = (List<Objekt>) gson.fromJson(json, Objekt.class);
+
+    System.out.println("objekts: " + objekts);
+  }
+
+
 }

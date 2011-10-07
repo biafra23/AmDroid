@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.DateSerializer;
 import com.jaeckel.amdroid.api.model.Dispute;
+import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
@@ -18,7 +19,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONTokener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -52,10 +53,10 @@ public class AmenServiceImpl implements AmenService {
   private HttpClient httpclient = new DefaultHttpClient();
 
   private Gson gson = new GsonBuilder()
-        .registerTypeAdapter(Date.class, new DateSerializer())
-        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-        .serializeNulls()
-        .create();
+    .registerTypeAdapter(Date.class, new DateSerializer())
+    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+    .serializeNulls()
+    .create();
 
   @Override
   public AmenService init(String authName, String authPassword) {
@@ -97,7 +98,8 @@ public class AmenServiceImpl implements AmenService {
 
       final String responseString = makeStringFromEntity(responseEntity);
 
-      Type collectionType = new TypeToken<List<Amen>>(){}.getType();
+      Type collectionType = new TypeToken<List<Amen>>() {
+      }.getType();
       result = gson.fromJson(responseString, collectionType);
 
     } catch (IOException e) {
@@ -136,7 +138,7 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-      
+
       a = gson.fromJson(responseString, Amen.class);
 
     } catch (IOException e) {
@@ -164,7 +166,7 @@ public class AmenServiceImpl implements AmenService {
 
       final String responseString = makeStringFromEntity(responseEntity);
       a = gson.fromJson(responseString, Amen.class);
-      
+
     } catch (IOException e) {
 
       throw new RuntimeException("Amening failed", e);
@@ -274,7 +276,7 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-      
+
       statement = gson.fromJson(responseString, Statement.class);
 
     } catch (Exception e) {
@@ -316,10 +318,10 @@ public class AmenServiceImpl implements AmenService {
     final String url = serviceUrl + "amen/" + a.getStatement().getId() + ".json";
     log.trace("DELETE " + url);
     HttpUriRequest httpDelete = RequestFactory.createDELETERequest(url, null,
-                                                                cookie, csrfToken);
+                                                                   cookie, csrfToken);
 
     log.trace("httpDelete: " + httpDelete);
-    
+
     try {
 
       HttpResponse response = httpclient.execute(httpDelete);
@@ -339,19 +341,19 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public List<Amen> getAmenForUser(User u) {
+  public List<Amen> getAmenForUser(Long userId) {
     log.debug("getAmenForUser(User)");
-    return getUserInfo(u).getRecentAmen();
+    return getUserInfo(userId).getRecentAmen();
   }
 
   @Override
-  public UserInfo getUserInfo(User u) {
+  public UserInfo getUserInfo(Long userId) {
     log.debug("getUserInfo(User)");
     UserInfo result;
 
     HashMap<String, String> params = new HashMap<String, String>();
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + u.getId() + ".json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + userId + ".json", params, cookie, csrfToken);
 
     try {
 
@@ -498,7 +500,7 @@ public class AmenServiceImpl implements AmenService {
             responseEntity.consumeContent();
 
             log.trace("my id: " + idString);
-            UserInfo me = getUserInfo(new User(idString));
+            UserInfo me = getUserInfo(Long.valueOf(idString));
             result = new User(me);
 
             break;
@@ -515,6 +517,99 @@ public class AmenServiceImpl implements AmenService {
     } catch (IOException e) {
       throw new RuntimeException("getMe  failed", e);
 
+    }
+
+    return result;
+  }
+
+  public List<User> followers(Long id) {
+
+    List<User> result = new ArrayList<User>();
+    log.debug("followers()");
+    HashMap<String, String> params = new HashMap<String, String>();
+//    params.put("limit", "" + 40);
+    params.put("last_user_id", "" + 11181);
+    //https://getamen.com/users/12665/followers.json
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/followers.json", params, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      Type collectionType = new TypeToken<Collection<User>>() {
+      }.getType();
+      result = gson.fromJson(responseString, collectionType);
+
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
+    return result;
+  }
+
+  public List<User> following(Long id) {
+
+    List<User> result = new ArrayList<User>();
+    log.debug("followers()");
+    HashMap<String, String> params = new HashMap<String, String>();
+    //    params.put("limit", "" + 40);
+//        params.put("last_user_id", "" + 11181);
+    //https://getamen.com/users/12665/followers.json
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/following.json", params, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      Type collectionType = new TypeToken<Collection<User>>() {
+      }.getType();
+      result = gson.fromJson(responseString, collectionType);
+
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
+    return result;
+  }
+
+  public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) {
+    List<Objekt> result = null;
+    log.debug("followers()");
+    HashMap<String, String> params = new HashMap<String, String>();
+    if (query != null) {
+      params.put("q", query.toString());
+    }
+
+    params.put("kind_id", "" + kindId);
+    if (lat != null) {
+      params.put("lat", "" + lat);
+    }
+    if (lon != null) {
+      params.put("lng", "" + lon);
+    }
+
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/objekts.json", params, cookie, csrfToken);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpGet);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      Type collectionType = new TypeToken<Collection<Objekt>>() {
+      }.getType();
+      result = gson.fromJson(responseString, collectionType);
+
+    } catch (Exception e) {
+      throw new RuntimeException(e);
     }
 
     return result;
