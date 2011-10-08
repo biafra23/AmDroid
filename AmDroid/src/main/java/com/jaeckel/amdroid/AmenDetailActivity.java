@@ -43,9 +43,10 @@ public class AmenDetailActivity extends Activity {
     service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.details);
-    Long id = getIntent().getLongExtra(Constants.AMEN_ID, -1);
-    currentAmen = service.getAmenForId(id);
-
+    
+    Intent startingIntent = getIntent();
+    currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
+  
   }
 
   public void onResume() {

@@ -43,7 +43,6 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     textView.setOnItemClickListener(this);
 
     Intent startingIntent = getIntent();
-
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
 
     Log.d(TAG, "Current Amen from intent: " + currentAmen);

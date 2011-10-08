@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
@@ -76,6 +78,8 @@ public class AmenListActivity extends ListActivity {
       LoginAsyncTask task = new LoginAsyncTask();
       task.execute();
     }
+
+    registerForContextMenu(getListView());
   }
 
   @Override
@@ -154,8 +158,50 @@ public class AmenListActivity extends ListActivity {
     Log.d(TAG, "Selected Amen: " + amen);
 
     Intent intent = new Intent(this, AmenDetailActivity.class);
-    intent.putExtra(AMEN_ID, amen.getId());
+    intent.putExtra(Constants.EXTRA_AMEN, amen);
     startActivity(intent);
+  }
+
+
+  @Override
+  public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+    super.onCreateContextMenu(menu, v, menuInfo);
+    Log.d(TAG, "onCreateContextMenu");
+
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.amen_item_menu, menu);
+  }
+
+  @Override
+  public boolean onContextItemSelected(MenuItem item) {
+    AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+    Amen amen = (Amen) this.getListAdapter().getItem(info.position);
+
+    switch (item.getItemId()) {
+      case R.id.open_item: {
+        Log.d(TAG, "R.id.open_item");
+        Intent intent = new Intent(this, AmenDetailActivity.class);
+        intent.putExtra(Constants.EXTRA_AMEN, amen);
+        startActivity(intent);
+        return true;
+      }
+      case R.id.amen_item: {
+        Log.d(TAG, "R.id.amen_item");
+        service.amen(amen.getId());
+        Toast.makeText(this, "Amen'd " + amen.getStatement().getObjekt().getName(), Toast.LENGTH_SHORT).show();
+        return true;
+      }
+      case R.id.dispute_item: {
+        Log.d(TAG, "R.id.dispute_item");
+        Intent intent = new Intent(this, DisputeActivity.class);
+        intent.putExtra(Constants.EXTRA_AMEN, amen);
+        startActivity(intent);
+        return true;
+      }
+
+      default:
+        return super.onContextItemSelected(item);
+    }
   }
 
   class EndlessWrapperAdapter extends EndlessAdapter {
@@ -168,7 +214,7 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected boolean cacheInBackground() throws Exception {
 
-      
+
       if (getWrappedAdapter().getCount() < 10000) {
         return (true);
       }
@@ -191,6 +237,7 @@ public class AmenListActivity extends ListActivity {
       }
     }
   }
+
 
   private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
 
