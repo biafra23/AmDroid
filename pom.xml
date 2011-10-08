@@ -49,7 +49,7 @@
                             <platform>7</platform>
                         </sdk>
                         <deleteConflictingFiles>true</deleteConflictingFiles>
-                        <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                        <undeployBeforeDeploy>false</undeployBeforeDeploy>
                     </configuration>
                 </plugin>
                 <plugin>

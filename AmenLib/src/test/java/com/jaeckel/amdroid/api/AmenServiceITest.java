@@ -143,7 +143,7 @@ public class AmenServiceITest extends TestCase {
 
     Topic topic = service.getTopicsForId(29020L);
 
-    assertEquals("Wrong topics", 29020L, topic.getId());
+    assertEquals("Wrong topics", (Long)29020L, topic.getId());
     assertNotNull("Topic has null rankedStatements", topic.getRankedStatements());
     assertTrue("Topic has no rankedStatements", topic.getRankedStatements().size() > 0);
   }

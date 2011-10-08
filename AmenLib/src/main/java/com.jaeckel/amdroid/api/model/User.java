@@ -155,8 +155,49 @@ public class User implements Parcelable {
     this.recentAmen = recentAmen;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
 
-  /*
+    User user = (User) o;
+
+    if (createdAt != null ? !createdAt.equals(user.createdAt) : user.createdAt != null) return false;
+    if (createdStatementsCount != null ? !createdStatementsCount.equals(user.createdStatementsCount) : user.createdStatementsCount != null)
+      return false;
+    if (followersCount != null ? !followersCount.equals(user.followersCount) : user.followersCount != null)
+      return false;
+    if (following != null ? !following.equals(user.following) : user.following != null) return false;
+    if (followingCount != null ? !followingCount.equals(user.followingCount) : user.followingCount != null)
+      return false;
+    if (givenAmenCount != null ? !givenAmenCount.equals(user.givenAmenCount) : user.givenAmenCount != null)
+      return false;
+    if (id != null ? !id.equals(user.id) : user.id != null) return false;
+    if (name != null ? !name.equals(user.name) : user.name != null) return false;
+    if (picture != null ? !picture.equals(user.picture) : user.picture != null) return false;
+    if (receivedAmenCount != null ? !receivedAmenCount.equals(user.receivedAmenCount) : user.receivedAmenCount != null)
+      return false;
+    if (recentAmen != null ? !recentAmen.equals(user.recentAmen) : user.recentAmen != null) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (picture != null ? picture.hashCode() : 0);
+    result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
+    result = 31 * result + (createdStatementsCount != null ? createdStatementsCount.hashCode() : 0);
+    result = 31 * result + (givenAmenCount != null ? givenAmenCount.hashCode() : 0);
+    result = 31 * result + (receivedAmenCount != null ? receivedAmenCount.hashCode() : 0);
+    result = 31 * result + (followersCount != null ? followersCount.hashCode() : 0);
+    result = 31 * result + (followingCount != null ? followingCount.hashCode() : 0);
+    result = 31 * result + (following != null ? following.hashCode() : 0);
+    result = 31 * result + (recentAmen != null ? recentAmen.hashCode() : 0);
+    return result;
+  }
+/*
   *
   *   PARCEL STUFF
   *
@@ -185,68 +226,31 @@ public class User implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    dest.writeLong(id);
+    dest.writeValue(id);
     dest.writeString(name);
     dest.writeString(picture);
+    dest.writeValue(createdAt);
+    dest.writeValue(createdStatementsCount);
+    dest.writeValue(givenAmenCount);
+    dest.writeValue(receivedAmenCount);
+    dest.writeValue(followersCount);
+    dest.writeValue(followingCount);
+    dest.writeValue(following);
 
-    if (createdAt != null) {
-      dest.writeLong(createdAt.getTime() / 1000);
-    } else {
-      dest.writeLong(0L);
-    }
-
-    if (createdStatementsCount == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(createdStatementsCount);
-    }
-    if (givenAmenCount == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(givenAmenCount);
-    }
-
-    if (receivedAmenCount == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(receivedAmenCount);
-    }
-
-    if (followersCount == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(followersCount);
-    }
-
-    if (followingCount == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(followingCount);
-    }
-    if (following == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(following ? 0 : 1);
-    }
-   
   }
 
   private void readFromParcel(Parcel in) {
-    id = in.readLong();
+    final ClassLoader cl = getClass().getClassLoader();
+
+    id = (Long) in.readValue(cl);
     name = in.readString();
     picture = in.readString();
-
-    Long createdAtLong = in.readLong();
-    if (createdAtLong == 0L) {
-      createdAt = null;
-    } else {
-      createdAt = new Date(createdAtLong);
-    }
-
-    createdStatementsCount = in.readInt();
-    givenAmenCount = in.readInt();
-    followersCount = in.readInt();
-    followingCount = in.readInt();
-    following = in.readInt() == 0;
+    createdAt = (Date) in.readValue(cl);
+    createdStatementsCount = (Integer)in.readValue(cl);
+    givenAmenCount = (Integer)in.readValue(cl);
+    receivedAmenCount = (Integer)in.readValue(cl);
+    followersCount = (Integer)in.readValue(cl);
+    followingCount = (Integer)in.readValue(cl);
+    following = (Boolean)in.readValue(cl);
   }
 }

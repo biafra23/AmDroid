@@ -111,11 +111,44 @@ public class Objekt implements Parcelable {
     this.possibleDescriptions = possibleDescriptions;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Objekt objekt = (Objekt) o;
+
+    if (category != null ? !category.equals(objekt.category) : objekt.category != null) return false;
+    if (defaultDescription != null ? !defaultDescription.equals(objekt.defaultDescription) : objekt.defaultDescription != null)
+      return false;
+    if (defaultScope != null ? !defaultScope.equals(objekt.defaultScope) : objekt.defaultScope != null) return false;
+    if (key != null ? !key.equals(objekt.key) : objekt.key != null) return false;
+    if (kindId != null ? !kindId.equals(objekt.kindId) : objekt.kindId != null) return false;
+    if (name != null ? !name.equals(objekt.name) : objekt.name != null) return false;
+    if (possibleDescriptions != null ? !possibleDescriptions.equals(objekt.possibleDescriptions) : objekt.possibleDescriptions != null)
+      return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = kindId != null ? kindId.hashCode() : 0;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (key != null ? key.hashCode() : 0);
+    result = 31 * result + (category != null ? category.hashCode() : 0);
+    result = 31 * result + (defaultDescription != null ? defaultDescription.hashCode() : 0);
+    result = 31 * result + (possibleDescriptions != null ? possibleDescriptions.hashCode() : 0);
+    result = 31 * result + (defaultScope != null ? defaultScope.hashCode() : 0);
+    return result;
+  }
+
+
   /*
-   *
-   *   PARCEL STUFF
-   *   
-   */
+  *
+  *   PARCEL STUFF
+  *
+  */
 
   @Override
   public int describeContents() {
@@ -139,16 +172,9 @@ public class Objekt implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    if (kindId == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(kindId);
-    }
-    if (name == null) {
-      dest.writeString("");
-    } else {
-      dest.writeString(name);
-    }
+
+    dest.writeValue(kindId);
+    dest.writeString(name);
     dest.writeList(key);
     dest.writeString(category);
     dest.writeString(defaultDescription);
@@ -157,12 +183,14 @@ public class Objekt implements Parcelable {
   }
 
   private void readFromParcel(Parcel in) {
-    kindId = in.readInt();
+    final ClassLoader cl = getClass().getClassLoader();
+
+    kindId = (Integer)in.readValue(cl);
     name = in.readString();
-    key = in.readArrayList(ClassLoader.getSystemClassLoader());
+    key = in.readArrayList(cl);
     category = in.readString();
     defaultDescription = in.readString();
-    possibleDescriptions = in.readArrayList(ClassLoader.getSystemClassLoader());
+    possibleDescriptions = in.readArrayList(cl);
     defaultScope = in.readString();
   }
 }

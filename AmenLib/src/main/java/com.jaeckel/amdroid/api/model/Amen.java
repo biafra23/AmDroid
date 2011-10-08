@@ -28,7 +28,7 @@ public class Amen implements Parcelable {
   private Long      userId;
   private User      user;
   private Date      createdAt;
-  private Integer   kindId; //normal, amen, dispute
+  private Integer   kindId; //normal, amen, dispute ??
   private Statement statement;
   //sometimes disputed Amen
   private Amen      referringAmen;
@@ -40,6 +40,7 @@ public class Amen implements Parcelable {
   }
 
   public Amen(Statement statement) {
+
     this.statement = statement;
     this.kindId = 0;
   }
@@ -155,11 +156,45 @@ public class Amen implements Parcelable {
     }
     return null;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Amen amen = (Amen) o;
+
+    if (createdAt != null ? !createdAt.equals(amen.createdAt) : amen.createdAt != null) return false;
+    if (id != null ? !id.equals(amen.id) : amen.id != null) return false;
+    if (kindId != null ? !kindId.equals(amen.kindId) : amen.kindId != null) return false;
+    if (log != null ? !log.equals(amen.log) : amen.log != null) return false;
+    if (referringAmen != null ? !referringAmen.equals(amen.referringAmen) : amen.referringAmen != null) return false;
+    if (statement != null ? !statement.equals(amen.statement) : amen.statement != null) return false;
+    if (user != null ? !user.equals(amen.user) : amen.user != null) return false;
+    if (userId != null ? !userId.equals(amen.userId) : amen.userId != null) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = log != null ? log.hashCode() : 0;
+    result = 31 * result + (id != null ? id.hashCode() : 0);
+    result = 31 * result + (userId != null ? userId.hashCode() : 0);
+    result = 31 * result + (user != null ? user.hashCode() : 0);
+    result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
+    result = 31 * result + (kindId != null ? kindId.hashCode() : 0);
+    result = 31 * result + (statement != null ? statement.hashCode() : 0);
+    result = 31 * result + (referringAmen != null ? referringAmen.hashCode() : 0);
+    return result;
+  }
+
+
   /*
-   *
-   *   PARCEL STUFF
-   *
-   */
+  *
+  *   PARCEL STUFF
+  *
+  */
 
   public static final Parcelable.Creator<Amen> CREATOR = new Creator<Amen>() {
 
@@ -189,62 +224,29 @@ public class Amen implements Parcelable {
       throw new RuntimeException("Parcel must not be null");
 
     }
-    if (id == null) {
-      dest.writeLong(0L);
-    } else {
-      dest.writeLong(id);
-    }
-    if (userId == null) {
-      dest.writeLong(0);
-    } else {
-      dest.writeLong(userId);
-    }
-
+    dest.writeValue(id);
+    dest.writeValue(userId);
     dest.writeParcelable(user, flags);
-    if (kindId == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(kindId);
-    }
-
-    if (createdAt != null) {
-      final Long createdAtLong = createdAt.getTime();
-      Log.d(TAG, "readFromParcel. createdAtLong:" + createdAtLong / 1000);
-
-      dest.writeLong(createdAtLong / 1000);
-    } else {
-      dest.writeLong(0L);
-    }
+    dest.writeValue(kindId);
+    dest.writeValue(createdAt);
     dest.writeParcelable(statement, flags);
-//    dest.writeParcelable(referringAmen, flags);
+    dest.writeParcelable(referringAmen, flags);
+
     Log.d(TAG, "writeToParcel. done.‚");
 
   }
 
   private void readFromParcel(Parcel in) {
-    Log.d(TAG, "readFromParcel");
-    id = in.readLong();
-    Log.d(TAG, "readFromParcel. id:" + id);
-    userId = in.readLong();
-    Log.d(TAG, "readFromParcel. userId:" + userId);
-    user = in.readParcelable(getClass().getClassLoader());
-    Log.d(TAG, "readFromParcel. user:" + user);
-    kindId = in.readInt();
-    Log.d(TAG, "readFromParcel. kindId:" + kindId);
-    Long createdAtLong = in.readLong();
+    final ClassLoader cl = getClass().getClassLoader();
 
-    Log.d(TAG, "readFromParcel. createdAtLong:" + createdAtLong);
+    id = (Long) in.readValue(cl);
+    userId = (Long) in.readValue(cl);
+    user = in.readParcelable(cl);
+    kindId = (Integer) in.readValue(cl);
+    createdAt = (Date) in.readValue(cl);
+    statement = in.readParcelable(cl);
+    referringAmen = in.readParcelable(cl);
 
-    if (createdAtLong == -1) {
-      createdAt = null;
-    } else {
-      createdAt = new Date(createdAtLong);
-    }
-    Log.d(TAG, "readFromParcel. before statement.");
-    statement = in.readParcelable(getClass().getClassLoader());
-//    referringAmen = in.readParcelable(getClass().getClassLoader());
-
-    Log.d(TAG, "readFromParcel. done.");
   }
 }
 

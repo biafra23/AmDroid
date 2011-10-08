@@ -24,10 +24,10 @@ public class Statement implements Parcelable {
   private Objekt     objekt;
   private User       firstPoster;
   private Date       firstPostedAt;
+
   private static final String TAG = "Statement";
 
   public Statement() {
-
   }
 
   public Statement(Objekt o, Topic t) {
@@ -36,9 +36,8 @@ public class Statement implements Parcelable {
   }
 
   public String toDisplayString() {
-
-    return objekt.getName() + " is " + (topic.isBest() ? "the Best " : "the Worst ") + (objekt.getKindId() == 1 ? " Place for " : "") + topic.getDescription() + " " + topic.getScope();
-
+    return objekt.getName() + " is " + (topic.isBest() ? "the Best " : "the Worst ")
+           + (objekt.getKindId() == 1 ? " Place for " : "") + topic.getDescription() + " " + topic.getScope();
   }
 
   @Override
@@ -122,7 +121,42 @@ public class Statement implements Parcelable {
     this.firstPostedAt = firstPostedAt;
   }
 
-/*
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Statement statement = (Statement) o;
+
+    if (agreeable != null ? !agreeable.equals(statement.agreeable) : statement.agreeable != null) return false;
+    if (agreeingNetwork != null ? !agreeingNetwork.equals(statement.agreeingNetwork) : statement.agreeingNetwork != null)
+      return false;
+    if (firstPostedAt != null ? !firstPostedAt.equals(statement.firstPostedAt) : statement.firstPostedAt != null)
+      return false;
+    if (firstPoster != null ? !firstPoster.equals(statement.firstPoster) : statement.firstPoster != null) return false;
+    if (id != null ? !id.equals(statement.id) : statement.id != null) return false;
+    if (objekt != null ? !objekt.equals(statement.objekt) : statement.objekt != null) return false;
+    if (topic != null ? !topic.equals(statement.topic) : statement.topic != null) return false;
+    if (totalAmenCount != null ? !totalAmenCount.equals(statement.totalAmenCount) : statement.totalAmenCount != null)
+      return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (totalAmenCount != null ? totalAmenCount.hashCode() : 0);
+    result = 31 * result + (agreeable != null ? agreeable.hashCode() : 0);
+    result = 31 * result + (agreeingNetwork != null ? agreeingNetwork.hashCode() : 0);
+    result = 31 * result + (topic != null ? topic.hashCode() : 0);
+    result = 31 * result + (objekt != null ? objekt.hashCode() : 0);
+    result = 31 * result + (firstPoster != null ? firstPoster.hashCode() : 0);
+    result = 31 * result + (firstPostedAt != null ? firstPostedAt.hashCode() : 0);
+    return result;
+  }
+
+  /*
   *
   *   PARCEL STUFF
   *
@@ -141,7 +175,7 @@ public class Statement implements Parcelable {
   };
 
   private Statement(Parcel in) {
-    Log.d(TAG, "Statement: parcel: " + in);
+    Log.d(TAG, "Statement() parcel: " + in);
 
     readFromParcel(in);
   }
@@ -155,49 +189,28 @@ public class Statement implements Parcelable {
   @Override
   public void writeToParcel(Parcel dest, int flags) {
     Log.d(TAG, "writeToParcel");
-    dest.writeLong(id);
-    
-    if (totalAmenCount == null) {
-      dest.writeLong(0);
-    } else {
-      dest.writeLong(totalAmenCount);
-    }
-    if (agreeable == null) {
-      dest.writeInt(0);
-    } else {
-      dest.writeInt(agreeable ? 0 : 1);
-    }
-
-//    dest.writeList(agreeingNetwork);
+    dest.writeValue(id);
+    dest.writeValue(totalAmenCount);
+    dest.writeValue(agreeable);
+    dest.writeList(agreeingNetwork);
     dest.writeParcelable(topic, flags);
     dest.writeParcelable(objekt, flags);
     dest.writeParcelable(firstPoster, flags);
-
-    if (firstPostedAt != null) {
-      dest.writeLong(firstPostedAt.getTime());
-    } else {
-      dest.writeLong(-1L);
-    }
+    dest.writeValue(firstPostedAt);
     Log.d(TAG, "writeToParcel. done.");
   }
 
   private void readFromParcel(Parcel in) {
+    final ClassLoader cl = getClass().getClassLoader();
     Log.d(TAG, "readFromParcel");
-    id = in.readLong();
-    totalAmenCount = in.readLong();
-    agreeable = in.readInt() == 0;
-
-//    agreeingNetwork = in.readArrayList(getClass().getClassLoader());
-    topic = in.readParcelable(getClass().getClassLoader());
-    objekt = in.readParcelable(getClass().getClassLoader());
-    firstPoster = in.readParcelable(getClass().getClassLoader());
-
-    Long firstPostedAtLong = in.readLong();
-    if (firstPostedAtLong == -1) {
-      firstPostedAt = null;
-    } else {
-      firstPostedAt = new Date(firstPostedAtLong);
-    }
+    id = (Long) in.readValue(cl);
+    totalAmenCount = (Long) in.readValue(cl);
+    agreeable = (Boolean) in.readValue(cl);
+    agreeingNetwork = in.readArrayList(cl);
+    topic = in.readParcelable(cl);
+    objekt = in.readParcelable(cl);
+    firstPoster = in.readParcelable(cl);
+    firstPostedAt = (Date) in.readValue(cl);
 
     Log.d(TAG, "readFromParcel. done.");
 
