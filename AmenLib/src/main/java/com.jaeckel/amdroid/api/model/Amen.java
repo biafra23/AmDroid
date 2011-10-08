@@ -169,7 +169,7 @@ public class Amen implements Parcelable {
   }
 
   public boolean isDispute() {
-    return getKindId() == AmenService.AMEN_KIND_AMEN;
+    return getKindId() == AmenService.AMEN_KIND_DISPUTE;
   }
 
   public boolean isAmen() {

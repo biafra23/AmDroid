@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
@@ -88,7 +89,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       .appendBold(stmt.getObjekt().getName())
       .append(" ");
 
-    if (stmt.getObjekt().getKindId() == 2) {
+    if (stmt.getObjekt().getKindId() == AmenService.OBJEKT_KIND_THING) {
       //Thing
       statementBuilder.appendOrange("is the ");
       if (stmt.getTopic().isBest()) {
@@ -102,7 +103,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         .appendOrange(stmt.getTopic().getScope());
 
 
-    } else if (stmt.getObjekt().getKindId() == 1) {
+    } else if (stmt.getObjekt().getKindId() == AmenService.OBJEKT_KIND_PLACE) {
       //Place
       statementBuilder.appendBlue("is the ");
       if (stmt.getTopic().isBest()) {
@@ -115,7 +116,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         .appendBlue(" ")
         .appendBlue(stmt.getTopic().getScope());
 
-    } else if (stmt.getObjekt().getKindId() == 0) {
+    } else if (stmt.getObjekt().getKindId() == AmenService.OBJEKT_KIND_PERSON) {
       statementBuilder.appendGreen("is the ");
       if (stmt.getTopic().isBest()) {
         statementBuilder.appendGreen(" Best ");

@@ -90,7 +90,7 @@ public class AmenDetailActivity extends Activity {
 //        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
         if (amened(currentAmen)) {
-          service.takeBack(currentAmen);
+          service.takeBack(currentAmen.getStatement().getId());
           currentAmen = new Amen(service.getStatementForId(currentAmen.getStatement().getId()));
           Log.d(TAG, "currentAmen: " + currentAmen);
         } else {
