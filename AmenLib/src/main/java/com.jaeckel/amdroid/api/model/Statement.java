@@ -2,6 +2,7 @@ package com.jaeckel.amdroid.api.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
@@ -23,6 +24,11 @@ public class Statement implements Parcelable {
   private Objekt     objekt;
   private User       firstPoster;
   private Date       firstPostedAt;
+  private static final String TAG = "Statement";
+
+  public Statement() {
+
+  }
 
   public Statement(Objekt o, Topic t) {
     this.topic = t;
@@ -33,10 +39,6 @@ public class Statement implements Parcelable {
 
     return objekt.getName() + " is " + (topic.isBest() ? "the Best " : "the Worst ") + (objekt.getKindId() == 1 ? " Place for " : "") + topic.getDescription() + " " + topic.getScope();
 
-  }
-
-  public Statement(Long id) {
-    this.id = id;
   }
 
   @Override
@@ -133,11 +135,14 @@ public class Statement implements Parcelable {
     }
 
     public Statement createFromParcel(Parcel source) {
+      Log.d(TAG, "createFromParcel: " + source);
       return new Statement(source);
     }
   };
 
   private Statement(Parcel in) {
+    Log.d(TAG, "Statement: parcel: " + in);
+
     readFromParcel(in);
   }
 
@@ -149,36 +154,43 @@ public class Statement implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
+    Log.d(TAG, "writeToParcel");
     dest.writeLong(id);
-    dest.writeLong(totalAmenCount);
+    
+    if (totalAmenCount == null) {
+      dest.writeLong(0);
+    } else {
+      dest.writeLong(totalAmenCount);
+    }
     if (agreeable == null) {
       dest.writeInt(0);
     } else {
       dest.writeInt(agreeable ? 0 : 1);
     }
 
-    dest.writeList(agreeingNetwork);
-    dest.writeParcelable(topic, 0);
-    dest.writeParcelable(objekt, 0);
-    dest.writeParcelable(firstPoster, 0);
+//    dest.writeList(agreeingNetwork);
+    dest.writeParcelable(topic, flags);
+    dest.writeParcelable(objekt, flags);
+    dest.writeParcelable(firstPoster, flags);
 
     if (firstPostedAt != null) {
       dest.writeLong(firstPostedAt.getTime());
     } else {
       dest.writeLong(-1L);
     }
-
+    Log.d(TAG, "writeToParcel. done.");
   }
 
   private void readFromParcel(Parcel in) {
+    Log.d(TAG, "readFromParcel");
     id = in.readLong();
     totalAmenCount = in.readLong();
     agreeable = in.readInt() == 0;
 
-    agreeingNetwork = in.readArrayList(getClass().getClassLoader());
-    topic = in.readArrayList(getClass().getClassLoader());
-    objekt = in.readArrayList(getClass().getClassLoader());
-    firstPoster = in.readArrayList(getClass().getClassLoader());
+//    agreeingNetwork = in.readArrayList(getClass().getClassLoader());
+    topic = in.readParcelable(getClass().getClassLoader());
+    objekt = in.readParcelable(getClass().getClassLoader());
+    firstPoster = in.readParcelable(getClass().getClassLoader());
 
     Long firstPostedAtLong = in.readLong();
     if (firstPostedAtLong == -1) {
@@ -186,5 +198,8 @@ public class Statement implements Parcelable {
     } else {
       firstPostedAt = new Date(firstPostedAtLong);
     }
+
+    Log.d(TAG, "readFromParcel. done.");
+
   }
 }

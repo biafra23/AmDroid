@@ -14,6 +14,9 @@ public class RankedStatements implements Parcelable {
   private Integer   rank;
   private Statement statement;
 
+  public RankedStatements() {
+  }
+
   public Integer getRank() {
     return rank;
   }
@@ -74,7 +77,7 @@ public class RankedStatements implements Parcelable {
 
   private void readFromParcel(Parcel in) {
     rank = in.readInt();
-    statement = in.readParcelable(getClass().getClassLoader());
+    statement = in.readParcelable( getClass().getClassLoader());
 
   }
 

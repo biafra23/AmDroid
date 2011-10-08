@@ -3,6 +3,7 @@ package com.jaeckel.amdroid.api.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 import org.joda.time.DateTime;
@@ -29,10 +30,10 @@ public class Amen implements Parcelable {
   private Date      createdAt;
   private Integer   kindId; //normal, amen, dispute
   private Statement statement;
-
-
   //sometimes disputed Amen
-  private Amen referringAmen;
+  private Amen      referringAmen;
+
+  private static final String TAG = "Amen";
 
   public Amen() {
 
@@ -183,34 +184,67 @@ public class Amen implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    dest.writeLong(id);
-    dest.writeLong(userId);
-    dest.writeParcelable(user, 0);
-    dest.writeInt(kindId);
-    if (createdAt != null) {
-      dest.writeLong(createdAt.getTime());
-    } else {
-      dest.writeLong(-1L);
+    Log.d(TAG, "writeToParcel");
+    if (dest == null) {
+      throw new RuntimeException("Parcel must not be null");
+
     }
-    dest.writeParcelable(statement, 0);
-    dest.writeParcelable(referringAmen, 0);
+    if (id == null) {
+      dest.writeLong(0L);
+    } else {
+      dest.writeLong(id);
+    }
+    if (userId == null) {
+      dest.writeLong(0);
+    } else {
+      dest.writeLong(userId);
+    }
+
+    dest.writeParcelable(user, flags);
+    if (kindId == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(kindId);
+    }
+
+    if (createdAt != null) {
+      final Long createdAtLong = createdAt.getTime();
+      Log.d(TAG, "readFromParcel. createdAtLong:" + createdAtLong / 1000);
+
+      dest.writeLong(createdAtLong / 1000);
+    } else {
+      dest.writeLong(0L);
+    }
+    dest.writeParcelable(statement, flags);
+//    dest.writeParcelable(referringAmen, flags);
+    Log.d(TAG, "writeToParcel. done.‚");
 
   }
 
   private void readFromParcel(Parcel in) {
+    Log.d(TAG, "readFromParcel");
     id = in.readLong();
+    Log.d(TAG, "readFromParcel. id:" + id);
     userId = in.readLong();
+    Log.d(TAG, "readFromParcel. userId:" + userId);
     user = in.readParcelable(getClass().getClassLoader());
+    Log.d(TAG, "readFromParcel. user:" + user);
     kindId = in.readInt();
-    long createdAtLong = in.readLong();
+    Log.d(TAG, "readFromParcel. kindId:" + kindId);
+    Long createdAtLong = in.readLong();
+
+    Log.d(TAG, "readFromParcel. createdAtLong:" + createdAtLong);
+
     if (createdAtLong == -1) {
       createdAt = null;
     } else {
       createdAt = new Date(createdAtLong);
     }
+    Log.d(TAG, "readFromParcel. before statement.");
     statement = in.readParcelable(getClass().getClassLoader());
-    referringAmen = in.readParcelable(getClass().getClassLoader());
+//    referringAmen = in.readParcelable(getClass().getClassLoader());
 
+    Log.d(TAG, "readFromParcel. done.");
   }
 }
 

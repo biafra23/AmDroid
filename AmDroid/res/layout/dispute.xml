@@ -8,14 +8,14 @@
             android:id="@+id/disputed_statement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hell No!"/>
+            android:textSize="20dip"
+            android:text="Hell No! The Best Name For A Spacecraft Ever is:"/>
 
     <com.jaeckel.amdroid.ObjektAutoCompleteTextView
             android:id="@+id/autocomplete_objekt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-
             android:completionThreshold="1"
             />
 
@@ -26,7 +26,7 @@
                   >
         <Button android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Amen"
+                android:text="Amen."
                 android:layout_weight="1"
                 />
         <Button android:layout_width="fill_parent"

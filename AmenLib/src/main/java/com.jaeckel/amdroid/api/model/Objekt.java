@@ -119,7 +119,7 @@ public class Objekt implements Parcelable {
 
   @Override
   public int describeContents() {
-    return 0;  //To change body of implemented methods use File | Settings | File Templates.
+    return 0;
   }
 
   public static final Parcelable.Creator<Objekt> CREATOR = new Creator<Objekt>() {
@@ -139,8 +139,16 @@ public class Objekt implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    dest.writeInt(kindId);
-    dest.writeString(name);
+    if (kindId == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(kindId);
+    }
+    if (name == null) {
+      dest.writeString("");
+    } else {
+      dest.writeString(name);
+    }
     dest.writeList(key);
     dest.writeString(category);
     dest.writeString(defaultDescription);

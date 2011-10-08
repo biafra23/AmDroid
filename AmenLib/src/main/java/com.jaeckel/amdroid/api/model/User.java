@@ -29,7 +29,6 @@ public class User implements Parcelable {
 
 
   public User() {
-
   }
 
   public User(Long id) {
@@ -189,11 +188,13 @@ public class User implements Parcelable {
     dest.writeLong(id);
     dest.writeString(name);
     dest.writeString(picture);
+
     if (createdAt != null) {
-      dest.writeLong(createdAt.getTime());
+      dest.writeLong(createdAt.getTime() / 1000);
     } else {
-      dest.writeLong(-1L);
+      dest.writeLong(0L);
     }
+
     if (createdStatementsCount == null) {
       dest.writeInt(0);
     } else {
@@ -234,8 +235,9 @@ public class User implements Parcelable {
     id = in.readLong();
     name = in.readString();
     picture = in.readString();
+
     Long createdAtLong = in.readLong();
-    if (createdAtLong == -1) {
+    if (createdAtLong == 0L) {
       createdAt = null;
     } else {
       createdAt = new Date(createdAtLong);

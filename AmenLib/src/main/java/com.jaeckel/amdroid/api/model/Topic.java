@@ -22,6 +22,11 @@ public class Topic implements Parcelable {
   private Integer                objektsCount;
   private List<RankedStatements> rankedStatements;
 
+  private static final String TAG = "Topic" ;
+
+  public Topic() {
+  }
+
   public Topic(String description, Boolean best, String scope) {
     this.description = description;
     this.best = best;
@@ -147,19 +152,11 @@ public class Topic implements Parcelable {
 
     private void readFromParcel(Parcel in) {
       id = in.readLong();
-      totalAmenCount = in.readLong();
-      agreeable = in.readInt() == 0;
-
-      agreeingNetwork = in.readArrayList(getClass().getClassLoader());
-      topic = in.readArrayList(getClass().getClassLoader());
-      objekt = in.readArrayList(getClass().getClassLoader());
-      firstPoster = in.readArrayList(getClass().getClassLoader());
-
-      Long firstPostedAtLong = in.readLong();
-      if (firstPostedAtLong == -1) {
-        firstPostedAt = null;
-      } else {
-        firstPostedAt = new Date(firstPostedAtLong);
-      }
+      best = in.readInt() == 0;
+      description = in.readString();
+      scope = in.readString();
+      objektsCount = in.readInt();
+      rankedStatements = in.readArrayList(getClass().getClassLoader());
+      
     }
 }

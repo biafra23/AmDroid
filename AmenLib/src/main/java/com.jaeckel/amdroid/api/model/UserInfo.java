@@ -21,6 +21,9 @@ public class UserInfo {
   private Boolean following;
   private List<Amen> recentAmen;
 
+  public UserInfo() {
+  }
+
   public Long getId() {
     return id;
   }

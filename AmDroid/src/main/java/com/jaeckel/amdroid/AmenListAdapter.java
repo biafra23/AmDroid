@@ -82,7 +82,6 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
   public static CharSequence styleAmenWithColor(Amen amen) {
     Statement stmt = amen.getStatement();
 
-
     StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder();
 
     statementBuilder
