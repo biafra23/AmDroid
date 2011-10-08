@@ -1,5 +1,7 @@
 package com.jaeckel.amdroid.api.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
@@ -10,21 +12,24 @@ import java.util.List;
  * Date: 9/24/11
  * Time: 2:17 AM
  */
-public class Objekt {
+public class Objekt implements Parcelable {
 
   public final static Integer PERSON = 0;
   public final static Integer PLACE  = 1;
   public final static Integer THING  = 2;
 
-  private Integer   kindId;
-  private String    name;
+  private Integer      kindId;
+  private String       name;
   private List<String> key;
-  private String category;
-  private String defaultDescription;
+  private String       category;
+  private String       defaultDescription;
   private List<String> possibleDescriptions;
-  private String defaultScope;
+  private String       defaultScope;
 
-  
+  public Objekt() {
+
+  }
+
   public Objekt(String name, Integer kindId) {
     this.name = name;
     this.kindId = kindId;
@@ -104,5 +109,52 @@ public class Objekt {
 
   public void setPossibleDescriptions(List<String> possibleDescriptions) {
     this.possibleDescriptions = possibleDescriptions;
+  }
+
+  /*
+   *
+   *   PARCEL STUFF
+   *   
+   */
+
+  @Override
+  public int describeContents() {
+    return 0;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  public static final Parcelable.Creator<Objekt> CREATOR = new Creator<Objekt>() {
+
+    public Objekt[] newArray(int size) {
+      return new Objekt[size];
+    }
+
+    public Objekt createFromParcel(Parcel source) {
+      return new Objekt(source);
+    }
+  };
+
+  private Objekt(Parcel in) {
+    readFromParcel(in);
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    dest.writeInt(kindId);
+    dest.writeString(name);
+    dest.writeList(key);
+    dest.writeString(category);
+    dest.writeString(defaultDescription);
+    dest.writeList(possibleDescriptions);
+    dest.writeString(defaultScope);
+  }
+
+  private void readFromParcel(Parcel in) {
+    kindId = in.readInt();
+    name = in.readString();
+    key = in.readArrayList(ClassLoader.getSystemClassLoader());
+    category = in.readString();
+    defaultDescription = in.readString();
+    possibleDescriptions = in.readArrayList(ClassLoader.getSystemClassLoader());
+    defaultScope = in.readString();
   }
 }

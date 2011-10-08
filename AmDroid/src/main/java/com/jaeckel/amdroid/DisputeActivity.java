@@ -1,37 +1,46 @@
 package com.jaeckel.amdroid;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import com.jaeckel.amdroid.api.AmenService;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Objekt;
-import com.jaeckel.amdroid.app.AmdroidApp;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * User: biafra
  * Date: 9/25/11
  * Time: 12:59 PM
  */
-public class DisputeActivity extends Activity {
+public class DisputeActivity extends Activity implements AdapterView.OnItemClickListener {
 
-  private AmenService service;
+  private static final String TAG = "DisputeActivity";
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.dispute);
 
-    service = AmdroidApp.getInstance().getService();
-    List<Objekt> objekts = service.objektsForQuery("amen", Objekt.THING, null, null);
-    for (Objekt o : objekts) {
-      System.out.println("o: " + o);
-    }
-    ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_country);
-
-    ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, objekts);
+    ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
+    ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, new ArrayList<Objekt>());
     textView.setAdapter(adapter);
+    textView.setOnItemClickListener(this);
+
+    Intent startingIntent = getIntent();
+
+    Amen currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
+    
+    Log.d(TAG, "Current Amen from intent: " + currentAmen );
+    
+  }
 
 
+  public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    Log.d(TAG, "onItemClick: adapterView: " + adapterView + " view: " + view + ", i: " + i + " l: " +l);
+    
   }
 }

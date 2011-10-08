@@ -34,6 +34,7 @@ public class AmenDetailActivity extends Activity {
   private Button   amenTakeBackButton;
   private Button   hellNoButton;
 
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
@@ -109,6 +110,7 @@ public class AmenDetailActivity extends Activity {
         populateFormWithAmen(false);
 
         Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
+        intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
         startActivity(intent);
       }
     });

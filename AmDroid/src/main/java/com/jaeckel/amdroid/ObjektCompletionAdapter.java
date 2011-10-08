@@ -25,36 +25,11 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
   private LayoutInflater inflater;
   private static final String TAG = "ObjektCompletionAdapter";
 
-//  public ObjektCompletionAdapter(Context context, int textViewResourceId) {
-//    super(context, textViewResourceId);
-//    inflater = LayoutInflater.from(context);
-//  }
-//
-//  public ObjektCompletionAdapter(Context context, int resource, int textViewResourceId) {
-//    super(context, resource, textViewResourceId);
-//    inflater = LayoutInflater.from(context);
-//  }
-//
-//  public ObjektCompletionAdapter(Context context, int textViewResourceId, Objekt[] objects) {
-//    super(context, textViewResourceId, objects);
-//    inflater = LayoutInflater.from(context);
-//  }
-//
-//  public ObjektCompletionAdapter(Context context, int resource, int textViewResourceId, Objekt[] objects) {
-//    super(context, resource, textViewResourceId, objects);
-//    inflater = LayoutInflater.from(context);
-//  }
 
   public ObjektCompletionAdapter(Context context, int textViewResourceId, List<Objekt> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
   }
-
-//  public ObjektCompletionAdapter(Context context, int resource, int textViewResourceId, List<Objekt> objects) {
-//    super(context, resource, textViewResourceId, objects);
-//    inflater = LayoutInflater.from(context);
-//  }
-
   @Override
   public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -88,28 +63,6 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
         return o.getName();
       }
 
-//      @Override
-//      protected FilterResults performFiltering(CharSequence constraint) {
-//        if (constraint != null) {
-//          ArrayList<Objekt> tmpAllData = mAllData;
-//          ArrayList<Objekt> tmpDataShown = mDataShown;
-//
-//          tmpDataShown.clear();
-//          for (int i = 0; i < tmpAllData.size();
-//               i++) {
-//            if (tmpAllData.get(i).get(Country.NAME).toLowerCase().startsWith(constraint.toString().toLowerCase())) {
-//              tmpDataShown.add(tmpAllData.get(i));
-//            }
-//          }
-//
-//          FilterResults filterResults = new FilterResults();
-//          filterResults.values = tmpDataShown;
-//          filterResults.count = tmpDataShown.size();
-//          return filterResults;
-//        } else {
-//          return new FilterResults();
-//        }
-//      }
 
       @Override
       protected FilterResults performFiltering(CharSequence charSequence) {
@@ -135,7 +88,7 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
         if (results != null && results.count > 0) {
 
-          Log.d(TAG, "Results changed. ");
+          Log.d(TAG, "publishResults: Results changed. ");
 
           ObjektCompletionAdapter.this.clear();
           List<Objekt> list = (List<Objekt>) results.values;

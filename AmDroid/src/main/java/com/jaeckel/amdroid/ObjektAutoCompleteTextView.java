@@ -28,4 +28,5 @@ public class ObjektAutoCompleteTextView extends AutoCompleteTextView {
 
     return ((Objekt)selectedItem).getName();
   }
+
 }

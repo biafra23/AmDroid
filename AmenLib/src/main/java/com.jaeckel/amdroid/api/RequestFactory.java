@@ -10,6 +10,7 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -75,7 +76,7 @@ public class RequestFactory {
         nameValuePairs.append("&")
                       .append(key)
                       .append("=")
-                      .append(params.get(key));
+                      .append(URLEncoder.encode(params.get(key)));
       }
     }
     HttpGet httpGet = new HttpGet(serviceUrl + nameValuePairs.toString());
@@ -95,7 +96,7 @@ public class RequestFactory {
           nameValuePairs.append("&")
                         .append(key)
                         .append("=")
-                        .append(params.get(key));
+                        .append(URLEncoder.encode(params.get(key)));
         }
       }
       HttpDelete httpDelete = new HttpDelete(serviceUrl + nameValuePairs.toString());

@@ -1,5 +1,7 @@
 package com.jaeckel.amdroid.api.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.google.gson.Gson;
 
 import java.util.Date;
@@ -10,19 +12,19 @@ import java.util.List;
  * Date: 9/23/11
  * Time: 8:37 PM
  */
-public class User {
+public class User implements Parcelable {
 
 
-  private Long    id;
-  private String  name;
-  private String  picture;
-  private Date    createdAt;
-  private Integer createdStatementsCount;
-  private Integer givenAmenCount;
-  private Integer receivedAmenCount;
-  private Integer followersCount;
-  private Integer followingCount;
-  private Boolean following;
+  private Long       id;
+  private String     name;
+  private String     picture;
+  private Date       createdAt;
+  private Integer    createdStatementsCount;
+  private Integer    givenAmenCount;
+  private Integer    receivedAmenCount;
+  private Integer    followersCount;
+  private Integer    followingCount;
+  private Boolean    following;
   private List<Amen> recentAmen;
 
 
@@ -152,5 +154,97 @@ public class User {
 
   public void setRecentAmen(List<Amen> recentAmen) {
     this.recentAmen = recentAmen;
+  }
+
+
+  /*
+  *
+  *   PARCEL STUFF
+  *
+  */
+
+  public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+
+    public User[] newArray(int size) {
+      return new User[size];
+    }
+
+    public User createFromParcel(Parcel source) {
+      return new User(source);
+    }
+  };
+
+  private User(Parcel in) {
+    readFromParcel(in);
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    dest.writeLong(id);
+    dest.writeString(name);
+    dest.writeString(picture);
+    if (createdAt != null) {
+      dest.writeLong(createdAt.getTime());
+    } else {
+      dest.writeLong(-1L);
+    }
+    if (createdStatementsCount == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(createdStatementsCount);
+    }
+    if (givenAmenCount == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(givenAmenCount);
+    }
+
+    if (receivedAmenCount == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(receivedAmenCount);
+    }
+
+    if (followersCount == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(followersCount);
+    }
+
+    if (followingCount == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(followingCount);
+    }
+    if (following == null) {
+      dest.writeInt(0);
+    } else {
+      dest.writeInt(following ? 0 : 1);
+    }
+   
+  }
+
+  private void readFromParcel(Parcel in) {
+    id = in.readLong();
+    name = in.readString();
+    picture = in.readString();
+    Long createdAtLong = in.readLong();
+    if (createdAtLong == -1) {
+      createdAt = null;
+    } else {
+      createdAt = new Date(createdAtLong);
+    }
+
+    createdStatementsCount = in.readInt();
+    givenAmenCount = in.readInt();
+    followersCount = in.readInt();
+    followingCount = in.readInt();
+    following = in.readInt() == 0;
   }
 }
