@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
-import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -38,7 +37,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     setContentView(R.layout.dispute);
 
-    ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
+    final ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
     ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, new ArrayList<Objekt>());
     textView.setAdapter(adapter);
     textView.setOnItemClickListener(this);
@@ -57,7 +56,12 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
       public void onClick(View view) {
 
-        service.dispute(new Amen(currentAmen, newObjektName));
+        if (newObjektName == null) {
+          newObjektName = new Objekt();
+          newObjektName.setName(textView.getText().toString());
+        }
+        service.dispute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
+
         finish();
       }
     });
@@ -78,7 +82,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     Log.d(TAG, "onItemClick: adapterView: " + adapterView + " view: " + view + ", i: " + i + " l: " + l);
     Log.d(TAG, "onItemClick: Item: " + adapterView.getAdapter().getItem(i));
     newObjektName = (Objekt)adapterView.getAdapter().getItem(i);
-
+    Log.d(TAG, "-----> newObjektName: "+ newObjektName);
   }
 
   public static CharSequence styleDisputedStatementWithColor(Statement stmt) {

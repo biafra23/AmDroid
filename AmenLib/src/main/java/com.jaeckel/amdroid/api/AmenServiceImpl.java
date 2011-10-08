@@ -96,7 +96,9 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
-
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("getFeed produced error: " + responseString);
+      }
       Type collectionType = new TypeToken<List<Amen>>() {
       }.getType();
       result = gson.fromJson(responseString, collectionType);
@@ -137,6 +139,9 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("amen produced error: " + responseString);
+      }
 
       a = gson.fromJson(responseString, Amen.class);
 
@@ -164,6 +169,9 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("amen produced error: " + responseString);
+      }
       a = gson.fromJson(responseString, Amen.class);
 
     } catch (IOException e) {
@@ -192,12 +200,14 @@ public class AmenServiceImpl implements AmenService {
       final String responseString = makeStringFromEntity(responseEntity);
 
       log.trace("dispute: responseString: " + responseString);
-
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("dispute produced error: " + responseString);
+      }
       Amen a = gson.fromJson(responseString, Amen.class);
 
       if (a != null && a.getKindId() == AMEN_KIND_DISPUTE) {
 
-        final boolean sameObjekt = a.getStatement().getObjekt().getName().equals( dispute.getStatement().getObjekt().getName());
+        final boolean sameObjekt = a.getStatement().getObjekt().getName().equals(dispute.getStatement().getObjekt().getName());
 
         if (sameObjekt) {
           return a.getId();
@@ -265,6 +275,9 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("getAmenForId produced error: " + responseString);
+      }
       amen = gson.fromJson(responseString, Amen.class);
 
     } catch (Exception e) {

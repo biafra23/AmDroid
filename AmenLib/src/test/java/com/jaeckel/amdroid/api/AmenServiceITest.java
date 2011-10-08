@@ -92,6 +92,22 @@ public class AmenServiceITest extends TestCase {
 
   }
 
+  public void testDispute2() {
+
+
+    Statement fooMe = service.getStatementForId(87702L);
+
+    final Objekt objekt = new Objekt("Zur Fetten Ecke", AmenService.OBJEKT_KIND_THING);
+
+    final Amen bar = new Amen(fooMe, objekt, 216522L);
+
+    Long amenId = service.dispute(bar);
+
+    assertNotNull(amenId);
+    service.takeBack(amenId);
+
+
+  }
 
   public void testGetUserInfo() {
 
