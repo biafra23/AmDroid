@@ -1,7 +1,6 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
-import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -18,6 +17,14 @@ import java.util.List;
 public interface AmenService {
 
   public AmenService init(String username, String password);
+
+  public final int AMEN_KIND_STATEMENT = 0;
+  public final int AMEN_KIND_AMEN      = 1;
+  public final int AMEN_KIND_DISPUTE   = 2;
+
+  public final static Integer OBJEKT_KIND_PERSON = 0;
+  public final static Integer OBJEKT_KIND_PLACE  = 1;
+  public final static Integer OBJEKT_KIND_THING  = 2;
 
 
   public String getCsrfToken();
@@ -38,7 +45,7 @@ public interface AmenService {
 
   public Amen amen(Long amenId);
 
-  public boolean dispute(Dispute dispute);
+  public boolean dispute(Amen dispute);
 
   public boolean takeBack(Amen a);
 
@@ -55,8 +62,8 @@ public interface AmenService {
   public Topic getTopicsForId(Long id);
 
   public List<User> followers(Long id);
-  
+
   public List<User> following(Long id);
-  
+
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon);
 }

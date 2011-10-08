@@ -14,10 +14,6 @@ import java.util.List;
  */
 public class Objekt implements Parcelable {
 
-  public final static Integer PERSON = 0;
-  public final static Integer PLACE  = 1;
-  public final static Integer THING  = 2;
-
   private Integer      kindId;
   private String       name;
   private List<String> key;

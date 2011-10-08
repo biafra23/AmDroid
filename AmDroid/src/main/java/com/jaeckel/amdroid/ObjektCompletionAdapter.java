@@ -73,7 +73,7 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
         AmenService service = AmdroidApp.getInstance().getService();
 
-        List<Objekt> values = service.objektsForQuery(charSequence, Objekt.THING, null, null);
+        List<Objekt> values = service.objektsForQuery(charSequence, Objekt.OBJEKT_KIND_THING, null, null);
 
 
         results.values = values;

@@ -1,7 +1,6 @@
 package com.jaeckel.amdroid.api;
 
 import com.jaeckel.amdroid.api.model.Amen;
-import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -81,7 +80,11 @@ public class AmenServiceITest extends TestCase {
 
     Statement fooMe = service.getStatementForId(78221L);
 
-    service.dispute(new Dispute(fooMe, "Bar"));
+    final Objekt objekt = new Objekt("Bar", AmenService.OBJEKT_KIND_THING);
+
+    final Amen bar = new Amen(fooMe, objekt, 185874L);
+    
+    service.dispute(bar);
 
   }
 
@@ -105,7 +108,7 @@ public class AmenServiceITest extends TestCase {
 
   public void testAmen() {
 
-    Statement statement = new Statement(new Objekt("Foo", Objekt.THING), new Topic("placeholder", true, "Ever"));
+    Statement statement = new Statement(new Objekt("Foo", AmenService.OBJEKT_KIND_THING), new Topic("placeholder", true, "Ever"));
     service.addStatement(statement);
 
   }
@@ -203,7 +206,7 @@ public class AmenServiceITest extends TestCase {
     System.out.println("testGetObjektsForThing");
 
     final String amadeus = "amadeus";
-    List<Objekt> result = service.objektsForQuery(amadeus, Objekt.THING, null, null);
+    List<Objekt> result = service.objektsForQuery(amadeus, AmenService.OBJEKT_KIND_THING, null, null);
 
     assertNotNull(result);
     for (Objekt o : result) {
@@ -225,7 +228,7 @@ public class AmenServiceITest extends TestCase {
   public void testGetObjektsForPlace() {
     // https://getamen.com/objekts.json?kind_id=1&lat=52.5172056&lng=13.4667432
     System.out.println("testGetObjektsForPlace");
-    List<Objekt> result = service.objektsForQuery("a", Objekt.PLACE, 52.5172056, 13.4667432);
+    List<Objekt> result = service.objektsForQuery("a", AmenService.OBJEKT_KIND_PLACE, 52.5172056, 13.4667432);
 
     assertNotNull(result);
 
@@ -234,7 +237,7 @@ public class AmenServiceITest extends TestCase {
   public void testGetObjektsForPerson() {
     // https://getamen.com/objekts?q=a&kind_id=0
     System.out.println("testGetObjektsForPerson");
-    List<Objekt> result = service.objektsForQuery("a", Objekt.PERSON, null, null);
+    List<Objekt> result = service.objektsForQuery("a", AmenService.OBJEKT_KIND_PERSON, null, null);
 
     assertNotNull(result);
 

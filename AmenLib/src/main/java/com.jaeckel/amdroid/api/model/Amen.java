@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
+import com.jaeckel.amdroid.api.AmenService;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
@@ -24,6 +25,7 @@ public class Amen implements Parcelable {
 
   private transient final Logger log = LoggerFactory.getLogger("Amen");
 
+
   private Long      id;
   private Long      userId;
   private User      user;
@@ -32,11 +34,42 @@ public class Amen implements Parcelable {
   private Statement statement;
   //sometimes disputed Amen
   private Amen      referringAmen;
+  private Long      referringAmenId;
 
   private static final String TAG = "Amen";
 
   public Amen() {
 
+  }
+
+  public Amen(Amen amen, Objekt objekt) {
+
+    this.kindId = AmenService.AMEN_KIND_DISPUTE;
+    this.referringAmenId = amen.getId();
+
+    this.statement = amen.getStatement();
+    this.statement.setAgreeingNetwork(null);
+    this.statement.setObjekt(objekt);
+//    this.statement.getObjekt().setKey(null);
+    this.statement.setTotalAmenCount(null);
+
+
+    this.statement.getTopic().setId(null);
+    this.statement.getTopic().setObjektsCount(null);
+  }
+
+  public Amen(Statement statement, Objekt objekt, Long referringAmenId) {
+
+    this.kindId = AmenService.AMEN_KIND_DISPUTE;
+    this.referringAmenId = referringAmenId;
+
+    this.statement = statement;
+    this.statement.setAgreeingNetwork(null);
+    this.statement.setObjekt(objekt);
+    //    this.statement.getObjekt().setKey(null);
+    this.statement.setTotalAmenCount(null);
+    this.statement.getTopic().setId(null);
+    this.statement.getTopic().setObjektsCount(null);
   }
 
   public Amen(Statement statement) {
@@ -136,11 +169,11 @@ public class Amen implements Parcelable {
   }
 
   public boolean isDispute() {
-    return getKindId() == 2;
+    return getKindId() == AmenService.AMEN_KIND_AMEN;
   }
 
   public boolean isAmen() {
-    return getKindId() == 1;
+    return getKindId() == AmenService.AMEN_KIND_AMEN;
   }
 
   public Objekt disputingObjekt() {
@@ -231,6 +264,7 @@ public class Amen implements Parcelable {
     dest.writeValue(createdAt);
     dest.writeParcelable(statement, flags);
     dest.writeParcelable(referringAmen, flags);
+    dest.writeValue(referringAmenId);
 
     Log.d(TAG, "writeToParcel. done.‚");
 
@@ -246,7 +280,16 @@ public class Amen implements Parcelable {
     createdAt = (Date) in.readValue(cl);
     statement = in.readParcelable(cl);
     referringAmen = in.readParcelable(cl);
+    referringAmenId = (Long) in.readValue(cl);
 
+  }
+
+  public Long getReferringAmenId() {
+    return referringAmenId;
+  }
+
+  public void setReferringAmenId(Long referringAmenId) {
+    this.referringAmenId = referringAmenId;
   }
 }
 

@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.DateSerializer;
-import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -177,7 +176,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public boolean dispute(Dispute dispute) {
+  public boolean dispute(Amen dispute) {
     log.debug("dispute");
     try {
 

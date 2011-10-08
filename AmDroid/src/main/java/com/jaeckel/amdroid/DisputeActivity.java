@@ -57,13 +57,14 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
       public void onClick(View view) {
 
-        service.dispute(new Dispute(currentAmen, newObjektName));
+        service.dispute(new Amen(currentAmen, newObjektName));
+        finish();
       }
     });
 
 
     Button neverMindButton = (Button) findViewById(R.id.dispute_never_mind);
-    disputeButton.setOnClickListener(new View.OnClickListener() {
+    neverMindButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
         finish();

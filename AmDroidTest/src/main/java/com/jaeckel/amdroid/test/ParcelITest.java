@@ -108,7 +108,7 @@ public class ParcelITest extends AndroidTestCase {
     statement.setAgreeable(true);
     statement.setTotalAmenCount(1001L);
     statement.setFirstPostedAt(new Date());
-    statement.setObjekt(new Objekt("Foo", Objekt.THING));
+    statement.setObjekt(new Objekt("Foo", Objekt.OBJEKT_KIND_THING));
     statement.setTopic(new Topic("Beschreibung", true, "Eva"));
 
     Parcel parcel = Parcel.obtain();
