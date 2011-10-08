@@ -19,17 +19,18 @@
             android:completionThreshold="1"
             />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="horizontal"
-                  android:layout_width="fill_parent"
+    <LinearLayout android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
-                  >
-        <Button android:layout_width="fill_parent"
+                  android:orientation="horizontal"
+            >
+        <Button android:id="@+id/dispute_amen"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Amen."
                 android:layout_weight="1"
                 />
-        <Button android:layout_width="fill_parent"
+        <Button android:id="@+id/dispute_never_mind"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Never mind"
                 android:layout_weight="1"

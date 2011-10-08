@@ -1,15 +1,20 @@
 package com.jaeckel.amdroid;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
+import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Dispute;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
+import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
 
 import java.util.ArrayList;
@@ -22,9 +27,14 @@ import java.util.ArrayList;
 public class DisputeActivity extends Activity implements AdapterView.OnItemClickListener {
 
   private static final String TAG = "DisputeActivity";
+  private AmenService service;
+  private Objekt newObjektName;
+  private Amen currentAmen;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.dispute);
 
@@ -35,12 +45,30 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     Intent startingIntent = getIntent();
 
-    Amen currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
+    currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
 
     Log.d(TAG, "Current Amen from intent: " + currentAmen);
 
     TextView disputedStatement = (TextView) findViewById(R.id.disputed_statement);
     disputedStatement.setText(styleDisputedStatementWithColor(currentAmen.getStatement()));
+
+    Button disputeButton = (Button) findViewById(R.id.dispute_amen);
+    disputeButton.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+
+        service.dispute(new Dispute(currentAmen, newObjektName));
+      }
+    });
+
+
+    Button neverMindButton = (Button) findViewById(R.id.dispute_never_mind);
+    disputeButton.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+        finish();
+      }
+    });
 
   }
 
@@ -48,6 +76,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
   public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
     Log.d(TAG, "onItemClick: adapterView: " + adapterView + " view: " + view + ", i: " + i + " l: " + l);
     Log.d(TAG, "onItemClick: Item: " + adapterView.getAdapter().getItem(i));
+    newObjektName = (Objekt)adapterView.getAdapter().getItem(i);
 
   }
 
@@ -60,7 +89,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     if (stmt.getObjekt().getKindId() == 2) {
       //Thing
-      
+
       if (stmt.getTopic().isBest()) {
         statementBuilder.appendOrange("The Best ");
       } else {
