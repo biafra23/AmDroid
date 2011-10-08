@@ -176,12 +176,12 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public boolean dispute(Amen dispute) {
+  public Long dispute(Amen dispute) {
     log.debug("dispute");
     try {
 
-      log.trace("dispute: " + dispute);
-      log.trace("dispute: " + dispute.json());
+      log.trace("       dispute: " + dispute);
+      log.trace("dispute.json(): " + dispute.json());
 
       HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
                                                                      dispute.json(),
@@ -189,21 +189,31 @@ public class AmenServiceImpl implements AmenService {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      String line;
-      while ((line = br.readLine()) != null) {
+      final String responseString = makeStringFromEntity(responseEntity);
 
-        log.trace("dispute | " + line);
+      log.trace("dispute: responseString: " + responseString);
+
+      Amen a = gson.fromJson(responseString, Amen.class);
+
+      if (a != null && a.getKindId() == AMEN_KIND_DISPUTE) {
+
+        final boolean sameObjekt = a.getStatement().getObjekt().getName().equals( dispute.getStatement().getObjekt().getName());
+
+        if (sameObjekt) {
+          return a.getId();
+        } else {
+          log.trace("Not the same Objekt");
+        }
+
+      } else {
+        return null;
       }
-
-      responseEntity.consumeContent();
 
     } catch (IOException e) {
 
       throw new RuntimeException("dispute failed", e);
     }
-
-    return false;  //To change body of implemented methods use File | Settings | File Templates.
+    return null;
   }
 
   @Override
@@ -310,11 +320,11 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public boolean takeBack(Amen a) {
-    log.debug("takeBack(Amen)");
+  public boolean takeBack(Long statementId) {
+    log.debug("takeBack(): statementId: " + statementId);
     boolean result = false;
 
-    final String url = serviceUrl + "amen/" + a.getStatement().getId() + ".json";
+    final String url = serviceUrl + "amen/" + statementId + ".json";
     log.trace("DELETE " + url);
     HttpUriRequest httpDelete = RequestFactory.createDELETERequest(url, null,
                                                                    cookie, csrfToken);

@@ -84,7 +84,11 @@ public class AmenServiceITest extends TestCase {
 
     final Amen bar = new Amen(fooMe, objekt, 185874L);
     
-    service.dispute(bar);
+    Long amenId = service.dispute(bar);
+
+    assertNotNull(amenId);
+    service.takeBack(amenId);
+    
 
   }
 
@@ -179,7 +183,7 @@ public class AmenServiceITest extends TestCase {
     Amen a = service.amen(188381L);
     System.out.println("Got Back Amen: " + a);
 
-    boolean result = service.takeBack(a);
+    boolean result = service.takeBack(a.getStatement().getId());
 
     assertEquals("Wrong result", true, result);
   }

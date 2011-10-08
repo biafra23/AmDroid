@@ -110,7 +110,7 @@ public class Amen implements Parcelable {
     this.createdAt = createdAt;
   }
 
-  public int getKindId() {
+  public Integer getKindId() {
     return kindId;
   }
 

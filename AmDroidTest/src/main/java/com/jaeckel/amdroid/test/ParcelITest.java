@@ -3,6 +3,7 @@ package com.jaeckel.amdroid.test;
 import android.os.Parcel;
 import android.test.AndroidTestCase;
 import android.util.Log;
+import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
@@ -108,7 +109,7 @@ public class ParcelITest extends AndroidTestCase {
     statement.setAgreeable(true);
     statement.setTotalAmenCount(1001L);
     statement.setFirstPostedAt(new Date());
-    statement.setObjekt(new Objekt("Foo", Objekt.OBJEKT_KIND_THING));
+    statement.setObjekt(new Objekt("Foo", AmenService.OBJEKT_KIND_THING));
     statement.setTopic(new Topic("Beschreibung", true, "Eva"));
 
     Parcel parcel = Parcel.obtain();

@@ -45,9 +45,9 @@ public interface AmenService {
 
   public Amen amen(Long amenId);
 
-  public boolean dispute(Amen dispute);
+  public Long dispute(Amen dispute);
 
-  public boolean takeBack(Amen a);
+  public boolean takeBack(Long statementId);
 
   public List<Amen> getAmenForUser(Long userId);
 
