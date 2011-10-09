@@ -3,36 +3,41 @@ package com.jaeckel.amdroid.api;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.DateSerializer;
 import com.jaeckel.amdroid.api.model.Objekt;
+import com.jaeckel.amdroid.api.model.ServerError;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.params.ClientPNames;
+import org.apache.http.client.params.CookiePolicy;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.CoreProtocolPNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * User: biafra
@@ -42,12 +47,12 @@ import java.util.regex.Pattern;
 public class AmenServiceImpl implements AmenService {
 
   final Logger log = LoggerFactory.getLogger("Amen");
-  private String authName;
-  private String authPassword;
-  private String serviceUrl;
-
-  private String csrfToken;
-  private String cookie;
+  private String      authName;
+  private String      authPassword;
+  private String      serviceUrl;
+  private User        me;
+  private ServerError lastError;
+  private String      authToken;
 
   private HttpClient httpclient = new DefaultHttpClient();
 
@@ -64,31 +69,74 @@ public class AmenServiceImpl implements AmenService {
     this.authName = authName;
     this.authPassword = authPassword;
 
+    httpclient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
+    httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amen./1.0 HttpClient/4.1.2 Android");
+
 //    this.httpclient = WebClientDevWrapper.wrapClient(httpclient);
 
-    login(authName, authPassword);
+    User result = authenticate(authName, authPassword);
+    if (result == null) {
+      log.error("authentication failed");
+    } else {
+      me = result;
+    }
     return this;
   }
 
-  private void login(String authName, String authPassword) {
-    log.debug("login");
-    prepareLogin();
-    signIn(authName, authPassword);
+  private User authenticate(String authName, String authPassword) {
 
+    User user;
+    String authJSON = "{\"password\":\"" + authPassword + "\",\"email\":\"" + authName + "\"}";
+
+    log.trace("authJSON: " + authJSON);
+
+    HttpPost httpPost = new HttpPost(serviceUrl + "authentication.json");
+//    httpPost.setHeader("Accept", "application/json");
+    httpPost.setHeader("Content-Type", "application/json");
+
+    try {
+
+      httpPost.setEntity(new ByteArrayEntity(authJSON.getBytes("UTF8")));
+
+
+      HttpResponse response = httpclient.execute(httpPost);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+      if (responseString.startsWith("{\"error\"")) {
+        //TODO: rethink this! will cause trouble in multi threaded environment. What would Buddha recommend? An Exception?
+        lastError = gson.fromJson(responseString, ServerError.class);
+        throw new RuntimeException("Authentication failed");
+      }
+      user = gson.fromJson(responseString, User.class);
+      authToken = user.getAuthToken();
+
+    } catch (UnsupportedEncodingException e) {
+
+      throw new RuntimeException("Unsupported Encoding", e);
+    } catch (ClientProtocolException e) {
+
+      throw new RuntimeException("Exception while authenticating", e);
+    } catch (IOException e) {
+
+      throw new RuntimeException("Exception while authenticating", e);
+    }
+    return user;
   }
+
 
   @Override
   public List<Amen> getFeed(long sinceId, int limit) {
     log.debug("getFeed");
     ArrayList<Amen> result = new ArrayList<Amen>();
 
-    HashMap<String, String> params = new HashMap<String, String>();
+    HashMap<String, String> params = createAuthenticatedParams();
     if (sinceId > 0) {
       params.put("last_amen_id", "" + sinceId);
     }
     params.put("limit", "" + limit);
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen.json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen.json", params);
 
     try {
 
@@ -126,14 +174,12 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public Amen amen(Long amenId) {
-    log.debug("amen(Long)");
+    log.debug("amen(" + amenId + ")");
     Amen a = null;
-    String json = "{\"referring_amen_id\":" + amenId + ",\"kind_id\":1}";
+    String json = "{\"referring_amen_id\":" + amenId + ",\"kind_id\":1, \"auth_token\":\"" + authToken + "\"}";
 
 
-    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
-                                                                   json,
-                                                                   cookie, csrfToken);
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", json);
     try {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
@@ -158,12 +204,10 @@ public class AmenServiceImpl implements AmenService {
   public Amen amen(Statement statement) {
     log.debug("amen(Statement)");
     Amen a = null;
-    String json = "{\"referring_amen_id\":" + statement.getId() + ",\"kind_id\":1}";
+    String json = "{\"referring_amen_id\":" + statement.getId() + ",\"kind_id\":1, \"auth_token\":\"" + authToken + "\"}";
 
 
-    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
-                                                                   json,
-                                                                   cookie, csrfToken);
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", json);
     try {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
@@ -191,9 +235,7 @@ public class AmenServiceImpl implements AmenService {
       log.trace("       dispute: " + dispute);
       log.trace("dispute.json(): " + dispute.json());
 
-      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
-                                                                     dispute.json(),
-                                                                     cookie, csrfToken);
+      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", addAuthTokenToJSON(dispute, authToken));
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
@@ -229,22 +271,11 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public void addStatement(Statement statement) {
     log.debug("addStatement");
-    final String body = new Amen(statement).json();
+    final String body = addAuthTokenToJSON(new Amen(statement), authToken);
     log.trace("Body: " + body);
 
-//thing
-//{"statement":{"objekt":{"name":"Eureka","kind_id":2},"topic":{"best":true,"description":"TV Program","scope":"Ever"}},"kind_id":0}
-//
-// //place
-//{"statement":{"objekt":{"key":["foursquare","4c8243eedc018cfa3c37cd6c"],"name":"Suppe & Mucke","kind_id":1},"topic":{"best":true,"description":"having Suppe and Mucke","scope":"in Berlin"}},"kind_id":0}
-
-//person
-//{"statement":{"objekt":{"key":["freebase","/en/charlie_sheen"],"name":"Charlie Sheen","kind_id":0},"topic":{"best":true,"description":"Actor","scope":"Ever"}},"kind_id":0}
-
     try {
-      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json",
-                                                                     body,
-                                                                     cookie, csrfToken);
+      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", body);
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
@@ -268,7 +299,8 @@ public class AmenServiceImpl implements AmenService {
   public Amen getAmenForId(Long id) {
     log.debug("getAmenForId");
     Amen amen;
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/amen/" + id + ".json", null, cookie, csrfToken);
+    HashMap<String, String> params = createAuthenticatedParams();
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/amen/" + id + ".json", params);
     try {
 
       HttpResponse response = httpclient.execute(httpGet);
@@ -291,7 +323,8 @@ public class AmenServiceImpl implements AmenService {
   public Statement getStatementForId(Long id) {
     log.debug("getStatementForId");
     Statement statement;
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/statements/" + id + ".json", null, cookie, csrfToken);
+    HashMap<String, String> params = createAuthenticatedParams();
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/statements/" + id + ".json", params);
     try {
 
       HttpResponse response = httpclient.execute(httpGet);
@@ -313,8 +346,8 @@ public class AmenServiceImpl implements AmenService {
 
     log.debug("getTopicsForId");
     Topic topic;
-
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", null, cookie, csrfToken);
+    HashMap<String, String> params = createAuthenticatedParams();
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", params);
 
     try {
 
@@ -336,11 +369,11 @@ public class AmenServiceImpl implements AmenService {
   public boolean takeBack(Long statementId) {
     log.debug("takeBack(): statementId: " + statementId);
     boolean result = false;
+    HashMap<String, String> params = createAuthenticatedParams();
 
     final String url = serviceUrl + "amen/" + statementId + ".json";
     log.trace("DELETE " + url);
-    HttpUriRequest httpDelete = RequestFactory.createDELETERequest(url, null,
-                                                                   cookie, csrfToken);
+    HttpUriRequest httpDelete = RequestFactory.createDELETERequest(url, params);
 
     log.trace("httpDelete: " + httpDelete);
 
@@ -362,6 +395,12 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
+  private HashMap<String, String> createAuthenticatedParams() {
+    HashMap<String, String> params = new HashMap<String, String>();
+    params.put("auth_token", authToken);
+    return params;
+  }
+
   @Override
   public List<Amen> getAmenForUser(Long userId) {
     log.debug("getAmenForUser(User)");
@@ -373,9 +412,9 @@ public class AmenServiceImpl implements AmenService {
     log.debug("getUserInfo(User)");
     UserInfo result;
 
-    HashMap<String, String> params = new HashMap<String, String>();
+    HashMap<String, String> params = createAuthenticatedParams();
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + userId + ".json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + userId + ".json", params);
 
     try {
 
@@ -410,149 +449,31 @@ public class AmenServiceImpl implements AmenService {
     return getFeed(0, 25);
   }
 
-
-  private void signIn(String authName, String authPassword) {
-    log.debug("signIn()");
-
-    Map<String, String> params = new HashMap<String, String>();
-    params.put("utf-8", "✓");
-    params.put("authenticity_token", csrfToken);
-    params.put("user[remember_me]", "" + 1);
-    params.put("user[email]", authName);
-    params.put("user[password]", authPassword);
-    params.put("commit", "Sign in");
-
-    try {
-
-      HttpUriRequest httpPost = RequestFactory.createPOSTRequest(serviceUrl + "sign-in", params, cookie, csrfToken);
-
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
-
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      String line;
-      while ((line = br.readLine()) != null) {
-
-        log.trace("signIn | " + line);
-      }
-
-      responseEntity.consumeContent();
-
-    } catch (IOException e) {
-
-      throw new RuntimeException("sign in failed", e);
-    }
-  }
-
-  private void prepareLogin() {
-    log.debug("prepareLogin()");
-    HttpGet httpGet = new HttpGet(serviceUrl);
-    try {
-      HttpResponse response = httpclient.execute(httpGet);
-
-      Header cookieHeader = response.getFirstHeader("Set-Cookie");
-      cookie = extractCookie(cookieHeader.getValue());
-      log.trace("cookie: " + cookie);
-      final HttpEntity responseEntity = response.getEntity();
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      String line;
-      while ((line = br.readLine()) != null) {
-        //System.out.println (line);
-        if (line.matches(".*name=\"csrf-token\".*")) {
-
-          line = line.replaceFirst(".*content=\"", "");
-          line = line.replaceFirst("\" name.*", "");
-          log.trace(line);
-
-          csrfToken = line;
-
-          responseEntity.consumeContent();
-          break;
-        }
-      }
-
-    } catch (IOException e) {
-      throw new RuntimeException("initial connection failed", e);
-    }
-  }
-
   private String extractCookie(String value) {
 
     int semicolonIndex = value.indexOf(";");
     return value.substring(0, semicolonIndex);
   }
 
-  public String getCsrfToken() {
-    return csrfToken;
-  }
 
-  public String getCookie() {
-    return cookie;
-  }
 
   @Override
   public User getMe() {
 
-    log.debug("getMe()");
-    User result = null;
+    log.trace("getMe()");
+    return me;
 
-    HashMap<String, String> params = new HashMap<String, String>();
-
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/feed", params, cookie, csrfToken);
-
-    try {
-
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
-
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      String line;
-      while ((line = br.readLine()) != null) {
-
-//        log.trace("getMe | " + line);
-        if (line.matches(".*window.loggedInUser.*")) {
-
-          String patternStr = ".*\"id\":(\\d+),.*";
-          Pattern pattern = Pattern.compile(patternStr);
-          Matcher matcher = pattern.matcher(line);
-          boolean matchFound = matcher.find();
-          if (matchFound) {
-            String idString = matcher.group(1);
-
-            responseEntity.consumeContent();
-
-            log.trace("my id: " + idString);
-            UserInfo me = getUserInfo(Long.valueOf(idString));
-            result = new User(me);
-
-            break;
-          }
-
-
-        }
-      }
-      if (result == null) {
-        responseEntity.consumeContent();
-      }
-
-
-    } catch (IOException e) {
-      throw new RuntimeException("getMe  failed", e);
-
-    }
-
-    return result;
   }
 
   public List<User> followers(Long id) {
 
     List<User> result = new ArrayList<User>();
     log.debug("followers()");
-    HashMap<String, String> params = new HashMap<String, String>();
+    HashMap<String, String> params = createAuthenticatedParams();
 //    params.put("limit", "" + 40);
     params.put("last_user_id", "" + 11181);
     //https://getamen.com/users/12665/followers.json
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/followers.json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/followers.json", params);
 
     try {
 
@@ -576,11 +497,11 @@ public class AmenServiceImpl implements AmenService {
 
     List<User> result = new ArrayList<User>();
     log.debug("followers()");
-    HashMap<String, String> params = new HashMap<String, String>();
+    HashMap<String, String> params = createAuthenticatedParams();
     //    params.put("limit", "" + 40);
 //        params.put("last_user_id", "" + 11181);
     //https://getamen.com/users/12665/followers.json
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/following.json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/following.json", params);
 
     try {
 
@@ -603,7 +524,7 @@ public class AmenServiceImpl implements AmenService {
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) {
     List<Objekt> result = null;
     log.debug("followers()");
-    HashMap<String, String> params = new HashMap<String, String>();
+    HashMap<String, String> params = createAuthenticatedParams();
     if (query != null) {
       params.put("q", query.toString());
     }
@@ -617,7 +538,7 @@ public class AmenServiceImpl implements AmenService {
     }
 
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/objekts.json", params, cookie, csrfToken);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/objekts.json", params);
 
     try {
 
@@ -635,6 +556,19 @@ public class AmenServiceImpl implements AmenService {
     }
 
     return result;
+  }
+
+  public static String addAuthTokenToJSON(Amen amen, String authToken) {
+
+    Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+
+    JsonElement element = gson.toJsonTree(amen);
+
+    JsonObject object = element.getAsJsonObject();
+
+    object.addProperty("auth_token", authToken);
+
+    return object.toString();
   }
 }
 

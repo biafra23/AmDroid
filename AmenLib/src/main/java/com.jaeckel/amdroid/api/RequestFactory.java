@@ -1,19 +1,14 @@
 package com.jaeckel.amdroid.api;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.message.BasicNameValuePair;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,35 +18,10 @@ import java.util.Map;
  */
 public class RequestFactory {
 
-  public static HttpUriRequest createPOSTRequest(String serviceUrl, Map<String, String> params, String cookie, String csrfToken) {
-
-
-    HttpPost httpPost = new HttpPost(serviceUrl);
-
-    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
-    for (String key : params.keySet()) {
-      nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
-    }
-    httpPost.addHeader("X-CSRF-Token", csrfToken);
-    httpPost.addHeader("Cookie", cookie);
-
-    try {
-
-      httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-    } catch (UnsupportedEncodingException e) {
-      throw new RuntimeException("Unsupported Encoding", e);
-    }
-
-    return httpPost;
-  }
-
-  public static HttpUriRequest createJSONPOSTRequest(String serviceUrl, String body, String cookie, String csrfToken) {
+  public static HttpUriRequest createJSONPOSTRequest(String serviceUrl, String body) {
 
     HttpPost httpPost = new HttpPost(serviceUrl);
 
-    httpPost.addHeader("X-CSRF-Token", csrfToken);
-    httpPost.addHeader("Cookie", cookie);
     httpPost.addHeader("Content-Type", "application/json; charset=UTF-8");
     httpPost.addHeader("X-Requested-With", "XMLHttpRequest");
 
@@ -67,10 +37,17 @@ public class RequestFactory {
     return httpPost;
   }
 
-  public static HttpUriRequest createGETRequest(String serviceUrl, Map<String, String> params, String cookie, String csrfToken) {
+  public static HttpUriRequest createGETRequest(String serviceUrl, Map<String, String> params) {
 
+    String queryString = createQueryString(params, true);
+    HttpGet httpGet = new HttpGet(serviceUrl + queryString);
+    return httpGet;
+
+  }
+
+  private static String createQueryString(Map<String, String> params, boolean addTimeStamp) {
     StringBuilder nameValuePairs = new StringBuilder();
-    nameValuePairs.append("?_=" + new Date().getTime());
+    nameValuePairs.append("?");
     if (params != null) {
       for (String key : params.keySet()) {
         nameValuePairs.append("&")
@@ -79,31 +56,19 @@ public class RequestFactory {
                       .append(URLEncoder.encode(params.get(key)));
       }
     }
-    HttpGet httpGet = new HttpGet(serviceUrl + nameValuePairs.toString());
-    httpGet.addHeader("X-CSRF-Token", csrfToken);
-    httpGet.addHeader("Cookie", cookie);
+    if (addTimeStamp) {
+      nameValuePairs.append("&_=" + new Date().getTime());
+    }
+    return nameValuePairs.toString();
+  }
 
-    return httpGet;
+  public static HttpUriRequest createDELETERequest(String serviceUrl, Map<String, String> params) {
+
+    String queryString = createQueryString(params, false);
+
+    HttpDelete httpDelete = new HttpDelete(serviceUrl + queryString);
+
+    return httpDelete;
 
   }
-  
-  public static HttpUriRequest createDELETERequest(String serviceUrl, Map<String, String> params, String cookie, String csrfToken) {
-
-      StringBuilder nameValuePairs = new StringBuilder();
-//      nameValuePairs.append("?_=" + new Date().getTime());
-      if (params != null) {
-        for (String key : params.keySet()) {
-          nameValuePairs.append("&")
-                        .append(key)
-                        .append("=")
-                        .append(URLEncoder.encode(params.get(key)));
-        }
-      }
-      HttpDelete httpDelete = new HttpDelete(serviceUrl + nameValuePairs.toString());
-      httpDelete.addHeader("X-CSRF-Token", csrfToken);
-      httpDelete.addHeader("Cookie", cookie);
-
-      return httpDelete;
-
-    }
 }

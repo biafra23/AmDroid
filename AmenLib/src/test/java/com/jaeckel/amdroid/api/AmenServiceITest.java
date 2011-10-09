@@ -50,16 +50,6 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testInit() {
-
-    assertTrue("session cookie null", service.getCookie() != null);
-    assertTrue("session cookie too small", service.getCookie().length() > 10);
-
-    assertTrue("session csrf token null", service.getCsrfToken() != null);
-    assertTrue("session csrf token small", service.getCsrfToken().length() > 10);
-
-  }
-
   public void testGetFeed() {
 
 

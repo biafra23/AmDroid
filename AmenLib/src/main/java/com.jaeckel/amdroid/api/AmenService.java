@@ -27,10 +27,6 @@ public interface AmenService {
   public final static Integer OBJEKT_KIND_THING  = 2;
 
 
-  public String getCsrfToken();
-
-  public String getCookie();
-
   public User getMe();
 
   public List<Amen> getFeed();
