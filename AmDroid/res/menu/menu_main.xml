@@ -12,5 +12,5 @@
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_menu_connection"
           android:title="Amen sth."
-          android:enabled="false"/>
+            />
 </menu>

@@ -27,8 +27,6 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 
 import java.util.List;
 
-import static com.jaeckel.amdroid.Constants.AMEN_ID;
-
 public class AmenListActivity extends ListActivity {
 
   private static       String TAG                = "amdroid/AmenListActivity";
@@ -185,12 +183,12 @@ public class AmenListActivity extends ListActivity {
         startActivity(intent);
         return true;
       }
-      case R.id.amen_item: {
-        Log.d(TAG, "R.id.amen_item");
-        service.amen(amen.getId());
-        Toast.makeText(this, "Amen'd " + amen.getStatement().getObjekt().getName(), Toast.LENGTH_SHORT).show();
-        return true;
-      }
+//      case R.id.amen_item: {
+//        Log.d(TAG, "R.id.amen_item");
+//        service.amen(amen.getId());
+//        Toast.makeText(this, "Amen'd " + amen.getStatement().getObjekt().getName(), Toast.LENGTH_SHORT).show();
+//        return true;
+//      }
       case R.id.dispute_item: {
         Log.d(TAG, "R.id.dispute_item");
         Intent intent = new Intent(this, DisputeActivity.class);
