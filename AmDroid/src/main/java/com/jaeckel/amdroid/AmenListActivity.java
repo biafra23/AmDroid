@@ -139,7 +139,7 @@ public class AmenListActivity extends ListActivity {
 
       case R.id.amen:
 //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MakeStatementActivity.class);
+        Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
         startActivity(intent);
         return true;
     }

@@ -34,6 +34,7 @@
                   android:text="Franz Nase"
                   android:paddingTop="2dip"
                   android:paddingBottom="2dip"
+
                 />
 
         <TextView android:id="@+id/statement"

@@ -2,6 +2,7 @@ package com.jaeckel.amdroid;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,7 +49,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     Log.d(TAG, "Current Amen from intent: " + currentAmen);
 
     TextView disputedStatement = (TextView) findViewById(R.id.disputed_statement);
-    disputedStatement.setText(styleDisputedStatementWithColor(currentAmen.getStatement()));
+    disputedStatement.setText(styleDisputedStatementWithColor(currentAmen.getStatement(), this));
 
     Button disputeButton = (Button) findViewById(R.id.dispute_amen);
     disputeButton.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +85,9 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     Log.d(TAG, "-----> newObjektName: "+ newObjektName);
   }
 
-  public static CharSequence styleDisputedStatementWithColor(Statement stmt) {
+  public static CharSequence styleDisputedStatementWithColor(Statement stmt, Context context) {
 
-    StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder();
+    StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder(context);
 
     statementBuilder
       .append("Hell No! ");

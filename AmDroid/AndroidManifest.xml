@@ -28,6 +28,7 @@
         <activity android:name=".AmenDetailActivity"/>
         <activity android:name=".DisputeActivity"/>
         <activity android:name=".MakeStatementActivity"/>
+        <activity android:name=".ChooseStatementTypeActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

@@ -65,7 +65,7 @@ public class AmenDetailActivity extends Activity {
 
   private void populateFormWithAmen(boolean updateName) {
 
-    statementView.setText(AmenListAdapter.styleAmenWithColor(currentAmen));
+    statementView.setText(AmenListAdapter.styleAmenWithColor(currentAmen, this));
 
 //    statementView.setText(currentAmen.getStatement().toDisplayString());
     //TODO: find a better way to have the original? name here

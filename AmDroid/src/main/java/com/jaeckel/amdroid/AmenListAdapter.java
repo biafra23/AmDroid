@@ -63,7 +63,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     TextView statement = (TextView) row.getTag(R.id.statement);
 
-    statement.setText(styleAmenWithColor(amen));
+    statement.setText(styleAmenWithColor(amen, getContext()));
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
@@ -80,10 +80,10 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     return row;
   }
 
-  public static CharSequence styleAmenWithColor(Amen amen) {
+  public static CharSequence styleAmenWithColor(Amen amen, Context context) {
     Statement stmt = amen.getStatement();
 
-    StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder();
+    StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder(context);
 
     statementBuilder
       .appendBold(stmt.getObjekt().getName())

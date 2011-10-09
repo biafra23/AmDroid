@@ -7,4 +7,8 @@
     <string name="open_item">Open Detail View</string>
     <string name="amen_item">Amen this</string>
     <string name="dispute_item">Dispute this</string>
+
+    <color name="orange">#ffD08000</color>
+    <color name="blue">#ff0080D0</color>
+    <color name="green">#ffC0D000</color>
 </resources>

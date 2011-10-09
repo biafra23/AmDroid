@@ -1,11 +1,13 @@
 package com.jaeckel.amdroid.util;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import com.jaeckel.amdroid.R;
 
 /**
  * User: biafra
@@ -14,8 +16,14 @@ import android.text.style.StyleSpan;
  */
 public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
 
+  private Context context;
 
   private static final String TAG = "StyleableSpannableStringBuilder";
+
+  public StyleableSpannableStringBuilder(Context context) {
+    this.context = context;
+  }
+
 
   public StyleableSpannableStringBuilder appendWithStyle(ForegroundColorSpan c, CharSequence text) {
     super.append(text);
@@ -38,18 +46,21 @@ public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
 
   public StyleableSpannableStringBuilder appendGreen(CharSequence text) {
 //    Log.d(TAG, "appendGreen: " + text);
-    return appendWithStyle(new ForegroundColorSpan(Color.GREEN), text);
+//    return appendWithStyle(new ForegroundColorSpan(Color.GREEN), text);
+    return appendWithStyle(new ForegroundColorSpan(context.getResources().getColor(R.color.green)), text);
   }
 
   public StyleableSpannableStringBuilder appendOrange(CharSequence text) {
 //    Log.d(TAG, "appendOrange: " + text);
-    final ForegroundColorSpan c = new ForegroundColorSpan(Color.RED);
+//    final ForegroundColorSpan c = new ForegroundColorSpan(Color.RED);
+    final ForegroundColorSpan c = new ForegroundColorSpan(context.getResources().getColor(R.color.orange));
     return appendWithStyle(c, text);
   }
 
   public StyleableSpannableStringBuilder appendBlue(CharSequence text) {
 //    Log.d(TAG, "appendBlue: " + text);
-    return appendWithStyle(new ForegroundColorSpan(Color.BLUE), text);
+//    return appendWithStyle(new ForegroundColorSpan(Color.BLUE), text);
+    return appendWithStyle(new ForegroundColorSpan(context.getResources().getColor(R.color.blue)), text);
   }
 
   public StyleableSpannableStringBuilder appendLightGray(CharSequence text) {

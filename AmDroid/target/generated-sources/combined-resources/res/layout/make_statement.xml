@@ -31,7 +31,8 @@
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+                  android:layout_height="wrap_content"
+            >
 
         <EditText android:id="@+id/objekt_name"
                   android:layout_height="wrap_content"
@@ -40,17 +41,28 @@
                   android:singleLine="true"
                   android:gravity="top"
                   android:text="Franz Nase"
+                  android:background="@drawable/rounded_edges_orange"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="18dip"
+                  android:paddingRight="5dip"
                 />
 
         <TextView android:id="@+id/best"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="is the best "
+                  android:background="@drawable/rounded_edges_orange"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="18dip"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+                  android:layout_height="wrap_content"
+
+            >
 
         <EditText android:id="@+id/topic_name"
                   android:layout_height="wrap_content"
@@ -59,6 +71,10 @@
                   android:singleLine="true"
                   android:gravity="top"
                   android:text="Barber"
+                  android:background="@drawable/rounded_edges_orange"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="18dip"
                 />
 
         <EditText android:id="@+id/topic_scope"
@@ -68,6 +84,10 @@
                   android:singleLine="true"
                   android:gravity="top"
                   android:text="Ever"
+                  android:background="@drawable/rounded_edges_orange"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="18dip"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -78,15 +98,15 @@
         <Button android:id="@+id/amen_take_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Amen"
+                android:text="Amen."
                 android:layout_weight="1"
                 />
-        <Button android:id="@+id/never_mind"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Never mind"
-                android:layout_weight="1"
-                />
+        <!--<Button android:id="@+id/never_mind"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Never mind"-->
+                <!--android:layout_weight="1"-->
+                <!--/>-->
     </LinearLayout>
 
 </LinearLayout>
