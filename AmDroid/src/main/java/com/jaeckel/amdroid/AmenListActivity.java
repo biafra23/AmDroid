@@ -24,6 +24,7 @@ import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 
 import java.util.List;
 

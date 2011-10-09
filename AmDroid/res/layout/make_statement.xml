@@ -4,37 +4,16 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical"
+              android:padding="3dp"
         >
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="horizontal"
-            >
-        <Button android:id="@+id/amen_person"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Person"
-                android:layout_weight="1"
-                />
-        <Button android:id="@+id/amen_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Place"
-                android:layout_weight="1"
-                />
-        <Button android:id="@+id/amen_thing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thing"
-                android:layout_weight="1"
-                />
-    </LinearLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:padding="3dp"
             >
 
-        <EditText android:id="@+id/objekt_name"
+        <TextView android:id="@+id/objekt_name"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
                   android:inputType="text"
@@ -44,27 +23,55 @@
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="18dip"
-                  android:paddingRight="5dip"
+                  android:textSize="32dp"
+                  android:paddingRight="5dp"
+                  android:padding="3dp"
                 />
-
-        <TextView android:id="@+id/best"
+        <TextView android:id="@+id/is"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="is the best "
-                  android:background="@drawable/rounded_edges_orange"
+                  android:text="is "
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="18dip"
+                  android:textSize="32dp"
+                  android:padding="3dp"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  android:padding="3dp"
+            >
+
+
+        <TextView android:id="@+id/best"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="the Best"
+                  android:background="@drawable/rounded_edges_orange"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="32dp"
+                  android:padding="3dp"
+                />
+        <TextView android:id="@+id/best_place"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Place for"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="32dp"
+                  android:padding="3dp"
+                />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:padding="3dp"
 
             >
 
-        <EditText android:id="@+id/topic_name"
+        <TextView android:id="@+id/topic_name"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
                   android:inputType="text"
@@ -74,10 +81,28 @@
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="18dip"
+                  android:textSize="32dp"
+                  android:padding="3dp"
                 />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:padding="3dp"
 
-        <EditText android:id="@+id/topic_scope"
+            >
+        <!--<TextView android:id="@+id/topic_place_scope"-->
+                  <!--android:layout_height="wrap_content"-->
+                  <!--android:layout_width="wrap_content"-->
+                  <!--android:inputType="text"-->
+                  <!--android:singleLine="true"-->
+                  <!--android:gravity="top"-->
+                  <!--android:text="in"-->
+                  <!--android:textColor="#FFFFFF"-->
+                  <!--android:textStyle="bold"-->
+                  <!--android:textSize="32dp"-->
+                <!--/>-->
+        <TextView android:id="@+id/topic_scope"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
                   android:inputType="text"
@@ -87,7 +112,7 @@
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="18dip"
+                  android:textSize="32dp"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -102,11 +127,11 @@
                 android:layout_weight="1"
                 />
         <!--<Button android:id="@+id/never_mind"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Never mind"-->
-                <!--android:layout_weight="1"-->
-                <!--/>-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Never mind"-->
+        <!--android:layout_weight="1"-->
+        <!--/>-->
     </LinearLayout>
 
 </LinearLayout>

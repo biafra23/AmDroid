@@ -6,19 +6,22 @@
         >
     <TextView
             android:id="@+id/completion_item_name"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000">
+            android:textSize="20dp"
+            android:background="@drawable/rounded_edges_blue"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="Android"
+            >
     </TextView>
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/default_description"
-              android:layout_width="fill_parent"
+    <TextView android:id="@+id/default_description"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-
-              android:textSize="13sp"
-              android:textColor="#000">
+              android:text="default description"
+              android:textSize="13dp"
+            >
     </TextView>
 
 </LinearLayout>

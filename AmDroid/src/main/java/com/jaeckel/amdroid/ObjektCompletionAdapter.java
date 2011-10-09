@@ -37,11 +37,11 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
     Objekt objekt = getItem(position);
     if (row == null) {
       row = inflater.inflate(R.layout.dispute_list_item_objekt, parent, false);
-      row.setTag(R.id.completion_item, row.findViewById(R.id.completion_item));
+      row.setTag(R.id.completion_item_name, row.findViewById(R.id.completion_item_name));
 
     }
 
-    TextView textView = (TextView) row.findViewById(R.id.completion_item);
+    TextView textView = (TextView) row.findViewById(R.id.completion_item_name);
     textView.setText(objekt.getName());
     
     TextView description = (TextView) row.findViewById(R.id.default_description);

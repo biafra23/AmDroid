@@ -4,22 +4,22 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical"
-              android:padding="5dip"
+              android:padding="5dp"
         >
 
     <TextView android:id="@+id/header"
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:text="I have a strong opinion about a "
-              android:textSize="30dip"
-              android:padding="5dip"
-              android:layout_margin="3dip"
+              android:textSize="30dp"
+              android:padding="5dp"
+              android:layout_margin="3dp"
             />
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
-                  android:padding="5dip"
+                  android:padding="5dp"
             >
         <TextView android:id="@+id/type_person"
                   android:layout_height="wrap_content"
@@ -28,9 +28,9 @@
                   android:background="@drawable/rounded_edges_green"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="40dip"
-                  android:padding="4dip"
-                  android:layout_margin="3dip"
+                  android:textSize="40dp"
+                  android:padding="4dp"
+                  android:layout_margin="3dp"
                 />
         <TextView android:id="@+id/objekt_name"
                   android:layout_height="wrap_content"
@@ -38,9 +38,9 @@
                   android:text="e.g. Actor, Friend Waiter or Doctor"
                   android:textColor="#FFFFFF"
                   android:textStyle="normal"
-                  android:textSize="10dip"
-                  android:padding="4dip"
-                  android:layout_margin="3dip"
+                  android:textSize="12dp"
+                  android:padding="4dp"
+                  android:layout_margin="3dp"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -66,16 +66,16 @@
                   android:text="e.g. Restaurant, Cafe, Park or Neighborhood"
                   android:textColor="#FFFFFF"
                   android:textStyle="normal"
-                  android:textSize="10dip"
-                  android:padding="4dip"
-                  android:layout_margin="3dip"
+                  android:textSize="12dp"
+                  android:padding="4dp"
+                  android:layout_margin="3dp"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
-                  android:padding="5dip"
+                  android:padding="5dp"
             >
         <TextView android:id="@+id/type_thing"
                   android:layout_height="wrap_content"
@@ -84,9 +84,9 @@
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="40dip"
-                  android:padding="4dip"
-                  android:layout_margin="3dip"
+                  android:textSize="40dp"
+                  android:padding="4dp"
+                  android:layout_margin="3dp"
                 />
         <TextView android:id="@+id/objekt_name"
                   android:layout_height="wrap_content"
@@ -94,9 +94,9 @@
                   android:text="e.g. Song, Movie Idea or Experience"
                   android:textColor="#FFFFFF"
                   android:textStyle="normal"
-                  android:textSize="10dip"
-                  android:padding="4dip"
-                  android:layout_margin="3dip"
+                  android:textSize="12dp"
+                  android:padding="4dp"
+                  android:layout_margin="3dp"
                 />
     </LinearLayout>
 </LinearLayout>

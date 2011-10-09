@@ -27,8 +27,11 @@
         <activity android:name=".EditPreferencesActivity"/>
         <activity android:name=".AmenDetailActivity"/>
         <activity android:name=".DisputeActivity"/>
-        <activity android:name=".MakeStatementActivity"/>
-        <activity android:name=".ChooseStatementTypeActivity"/>
+        <activity android:name=".statement.MakeStatementActivity"/>
+        <activity android:name=".statement.ChooseStatementTypeActivity"/>
+        <activity android:name=".statement.ChooseObjektActivity"/>
+        <activity android:name=".statement.ChooseScopeActivity"/>
+        <activity android:name=".statement.ChooseTopicActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
