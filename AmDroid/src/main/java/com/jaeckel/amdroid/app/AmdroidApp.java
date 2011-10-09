@@ -2,6 +2,8 @@ package com.jaeckel.amdroid.app;
 
 import android.app.AlertDialog;
 import android.app.Application;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.StrictMode;
 import android.util.Log;
 import com.jaeckel.amdroid.R;
@@ -19,7 +21,7 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
  */
 public class AmdroidApp extends Application {
 
-  //TODO: remove before release
+  //TODO: set to false before release
   public final static boolean DEVELOPER_MODE = false;
 
   public static final String TAG = "amdroid/AmdroidApp";
@@ -28,6 +30,9 @@ public class AmdroidApp extends Application {
   //  public final static
   private String      authCookie;
   private AmenService service;
+
+  private Location currentLocation;
+  private LocationManager locationManager;
 
   //CWAC
 
@@ -58,6 +63,32 @@ public class AmdroidApp extends Application {
 
     Log.v(TAG, "onCreate");
 
+//    Location bestResult;
+//    long bestAccuracy = 0;
+//    long bestTime = 0;
+//    long minTime = 0;
+//    locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+//    List<String> matchingProviders = locationManager.getAllProviders();
+//    for (String provider: matchingProviders) {
+//      Location location = locationManager.getLastKnownLocation(provider);
+//      if (location != null) {
+//        float accuracy = location.getAccuracy();
+//        long time = location.getTime();
+//
+//        if ((time > minTime && accuracy < bestAccuracy)) {
+//          bestResult = location;
+//          bestAccuracy = accuracy;
+//          bestTime = time;
+//        }
+//        else if (time < minTime &&
+//                 bestAccuracy == Float.MAX_VALUE && time > bestTime){
+//          bestResult = location;
+//          bestTime = time;
+//        }
+//      }
+//    }
+//
+//    currentLocation = bestResult;
 
   }
 
