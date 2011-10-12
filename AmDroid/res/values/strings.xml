@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello amdroid!</string>
-    <string name="app_name">amdroid</string>
+    <string name="hello">Hello Opinionator!</string>
+    <string name="app_name">Opinionator</string>
     <string name="exception">Exception</string>
     <string name="ok">OK</string>
     <string name="open_item">Open Detail View</string>
