@@ -41,12 +41,16 @@ public class MakeStatementActivity extends Activity {
   Boolean currentBest;
 
   private Drawable backgroundDrawable;
-  private static final int REQUEST_CODE_OBJEKT = 10101;
-  private static final int REQUEST_CODE_TOPIC  = 10102;
+
+  public static final int REQUEST_CODE_OBJEKT = 10101;
+  public static final int REQUEST_CODE_TOPIC  = 10102;
+  public static final int REQUEST_CODE_SCOPE  = 10103;
+
   private static final String TAG = "MakeStatementActivity";
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    Log.v(TAG, "onCreate");
 
     currentBest = true;
     currentObjekt = new Objekt();
@@ -75,7 +79,11 @@ public class MakeStatementActivity extends Activity {
       currentTopic.setBest(true);
       currentTopic.setDescription("Playground");
       currentTopic.setScope("in Berlin");
+
     }
+
+    currentTopicScope = currentTopic.getScope();
+    currentBest = currentTopic.isBest();
 
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String username = prefs.getString("user_name", null);
@@ -98,7 +106,7 @@ public class MakeStatementActivity extends Activity {
   @Override
   public void onResume() {
     super.onResume();
-
+    Log.v(TAG, "onResume");
     objektView = (TextView) findViewById(R.id.objekt_name);
     objektView.setBackgroundDrawable(backgroundDrawable);
     objektView.setText(currentObjekt.getName());
@@ -119,18 +127,22 @@ public class MakeStatementActivity extends Activity {
 
     bestView = (TextView) findViewById(R.id.best);
     bestView.setBackgroundDrawable(backgroundDrawable);
-    if (currentTopic.isBest()) {
+    if (currentBest) {
       bestView.setText("the Best");
+      currentBest = true;
     } else {
       bestView.setText("the Worst");
+      currentBest = false;
     }
 
     bestView.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
         if (bestView.getText().equals("the Best")) {
           bestView.setText("the Worst");
+          currentBest = false;
         } else {
           bestView.setText("the Best");
+          currentBest = false;
         }
       }
     });
@@ -141,7 +153,10 @@ public class MakeStatementActivity extends Activity {
     topicView.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
         Intent intent = new Intent(MakeStatementActivity.this, ChooseTopicActivity.class);
-        startActivity(intent);
+        intent.putExtra(Constants.EXTRA_OBJEKT, currentObjekt);
+        intent.putExtra(Constants.EXTRA_TOPIC, currentTopic);
+        intent.putExtra(Constants.EXTRA_OBJEKT_KIND, objektKind);
+        startActivityForResult(intent, REQUEST_CODE_TOPIC);
       }
     });
     //    topicPlaceScopeView = (TextView) findViewById(R.id.topic_place_scope);
@@ -155,19 +170,44 @@ public class MakeStatementActivity extends Activity {
       public void onClick(View view) {
         Intent intent = new Intent(MakeStatementActivity.this, ChooseScopeActivity.class);
         intent.putExtra(Constants.EXTRA_TOPIC, currentTopic);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE_SCOPE);
       }
     });
     // repopulate textview values
   }
 
-  protected void onActivityResult (int requestCode, int resultCode, Intent data) {
-    if (requestCode == REQUEST_CODE_OBJEKT) {
-      // receive the new currentObjekt
-      Log.d(TAG, "received objekt");
-    } else if (requestCode == REQUEST_CODE_TOPIC) {
-      // receive the new currentTopic
-      Log.d(TAG, "received topic");
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    Log.v(TAG, "onActivityResult");
+    if (resultCode == RESULT_OK) {
+      Log.v(TAG, "onActivityResult | resultCode: RESULT_OK");
+
+      if (requestCode == REQUEST_CODE_OBJEKT) {
+        // receive the new currentObjekt
+        Log.v(TAG, "onActivityResult | requestCode: REQUEST_CODE_OBJEKT");
+
+        final Objekt objekt = data.getParcelableExtra(Constants.EXTRA_OBJEKT);
+        if (objekt != null) {
+          currentObjekt = objekt;
+          currentTopic = new Topic(objekt.getDefaultDescription(), currentBest, currentTopicScope);
+
+        } else {
+          Log.v(TAG, "onActivityResult | objekt: " + objekt);
+        }
+
+      } else if (requestCode == REQUEST_CODE_TOPIC) {
+        // receive the new currentTopic
+        Log.v(TAG, "onActivityResult | requestCode: REQUEST_CODE_TOPIC");
+        final Topic topic = data.getParcelableExtra(Constants.EXTRA_TOPIC);
+        if (topic != null) {
+          currentTopic = topic;
+        } else { 
+          Log.v(TAG, "topic was null");
+        }
+      }
+
+    } else if (resultCode == RESULT_CANCELED) {
+      Log.v(TAG, "onActivityResult | resultCode: RESULT_CANCELED");
     }
   }
 }

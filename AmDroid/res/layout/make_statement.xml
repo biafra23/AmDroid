@@ -9,17 +9,14 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
+                  android:layout_height="fill_parent"
                   android:padding="3dp"
             >
 
         <TextView android:id="@+id/objekt_name"
-                  android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
-                  android:inputType="text"
-                  android:singleLine="true"
-                  android:gravity="top"
-                  android:text="Franz Nase"
+                  android:layout_height="wrap_content"
+                  android:text="Franz Nasenbär Schubi Doo"
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
@@ -27,57 +24,61 @@
                   android:paddingRight="5dp"
                   android:padding="3dp"
                 />
-        <TextView android:id="@+id/is"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="is "
-                  android:textColor="#FFFFFF"
-                  android:textStyle="bold"
-                  android:textSize="32dp"
-                  android:padding="3dp"
-                />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:padding="3dp"
+                  android:layout_weight="1"
             >
+        <TextView android:id="@+id/is"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="is"
+                  android:textColor="#FFFFFF"
+                  android:textStyle="bold"
+                  android:textSize="30dp"
+                  android:padding="3dp"
+                  android:layout_weight="1"
+                />
 
 
         <TextView android:id="@+id/best"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="the Best"
+                  android:text="the Worst"
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="32dp"
-                  android:padding="3dp"
+                  android:textSize="30dp"
+                  android:padding="1dp"
+                  android:layout_weight="1"
                 />
+
         <TextView android:id="@+id/best_place"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Place for"
+
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
-                  android:textSize="32dp"
-                  android:padding="3dp"
+                  android:textSize="30dp"
+                  android:padding="1dp"
+                  android:layout_weight="1"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:padding="3dp"
-
+                  android:layout_weight="1"
             >
 
         <TextView android:id="@+id/topic_name"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
-                  android:inputType="text"
-                  android:singleLine="true"
                   android:gravity="top"
-                  android:text="Barber"
+                  android:text="Barber with talent in mind"
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
@@ -89,36 +90,38 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:padding="3dp"
+                  android:layout_weight="1"
 
             >
         <!--<TextView android:id="@+id/topic_place_scope"-->
-                  <!--android:layout_height="wrap_content"-->
-                  <!--android:layout_width="wrap_content"-->
-                  <!--android:inputType="text"-->
-                  <!--android:singleLine="true"-->
-                  <!--android:gravity="top"-->
-                  <!--android:text="in"-->
-                  <!--android:textColor="#FFFFFF"-->
-                  <!--android:textStyle="bold"-->
-                  <!--android:textSize="32dp"-->
-                <!--/>-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:inputType="text"-->
+        <!--android:singleLine="true"-->
+        <!--android:gravity="top"-->
+        <!--android:text="in"-->
+        <!--android:textColor="#FFFFFF"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textSize="32dp"-->
+        <!--/>-->
         <TextView android:id="@+id/topic_scope"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
                   android:inputType="text"
-                  android:singleLine="true"
                   android:gravity="top"
                   android:text="Ever"
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
                   android:textSize="32dp"
+                  android:layout_weight="1"
                 />
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
+                  android:layout_weight="1"
             >
         <Button android:id="@+id/amen_take_back"
                 android:layout_width="wrap_content"

@@ -22,9 +22,9 @@ public interface AmenService {
   public final int AMEN_KIND_AMEN      = 1;
   public final int AMEN_KIND_DISPUTE   = 2;
 
-  public final static Integer OBJEKT_KIND_PERSON = 0;
-  public final static Integer OBJEKT_KIND_PLACE  = 1;
-  public final static Integer OBJEKT_KIND_THING  = 2;
+  public final static int OBJEKT_KIND_PERSON = 0;
+  public final static int OBJEKT_KIND_PLACE  = 1;
+  public final static int OBJEKT_KIND_THING  = 2;
 
 
   public User getMe();
