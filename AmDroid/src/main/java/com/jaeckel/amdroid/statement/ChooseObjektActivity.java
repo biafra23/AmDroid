@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,11 +45,15 @@ public class ChooseObjektActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+
     service = AmdroidApp.getInstance().getService();
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);
     currentObjektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);
 
     setContentView(R.layout.choose_objekt);
+
+
+    
     if (currentObjektKind == AmenService.OBJEKT_KIND_PERSON) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_green);
     }
@@ -61,6 +67,26 @@ public class ChooseObjektActivity extends ListActivity {
 
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentObjekt.getName());
+    objektEditText.addTextChangedListener(new TextWatcher() {
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+      }
+
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
+
+      public void afterTextChanged(Editable editable) {
+        Log.v(TAG, "afterTextChanged: editable: " + editable);
+        List<Objekt> objekts = service.objektsForQuery(editable.toString(), currentObjektKind, null, null);
+        for (Objekt o : objekts) {
+          Log.d(TAG, "o: " + o);
+        }
+
+        adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, objekts);
+        setListAdapter(adapter);
+
+      }
+    });
 
     List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, null, null);
     for (Objekt o : objekts) {
@@ -69,6 +95,9 @@ public class ChooseObjektActivity extends ListActivity {
 
     adapter = new ObjektAdapter(this, R.layout.list_item_objekt, objekts);
     setListAdapter(adapter);
+
+    getListView().setDivider(null);
+    getListView().setDividerHeight(0);
 
 
   }
@@ -97,6 +126,7 @@ public class ChooseObjektActivity extends ListActivity {
     public ObjektAdapter(Context context, int textViewResourceId, List<Objekt> objects) {
       super(context, textViewResourceId, objects);
       inflater = LayoutInflater.from(context);
+      setNotifyOnChange(true);
     }
 
     @Override

@@ -169,7 +169,9 @@ public class MakeStatementActivity extends Activity {
     scopeView.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
         Intent intent = new Intent(MakeStatementActivity.this, ChooseScopeActivity.class);
+        intent.putExtra(Constants.EXTRA_OBJEKT, currentObjekt);
         intent.putExtra(Constants.EXTRA_TOPIC, currentTopic);
+        intent.putExtra(Constants.EXTRA_OBJEKT_KIND, objektKind);
         startActivityForResult(intent, REQUEST_CODE_SCOPE);
       }
     });
@@ -201,6 +203,9 @@ public class MakeStatementActivity extends Activity {
         final Topic topic = data.getParcelableExtra(Constants.EXTRA_TOPIC);
         if (topic != null) {
           currentTopic = topic;
+          currentBest = topic.isBest();
+          currentTopicScope = topic.getScope();
+          
         } else { 
           Log.v(TAG, "topic was null");
         }

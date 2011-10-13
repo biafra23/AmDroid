@@ -59,7 +59,6 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Place for"
-
                   android:textColor="#FFFFFF"
                   android:textStyle="bold"
                   android:textSize="30dp"
@@ -77,7 +76,6 @@
         <TextView android:id="@+id/topic_name"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
-                  android:gravity="top"
                   android:text="Barber with talent in mind"
                   android:background="@drawable/rounded_edges_orange"
                   android:textColor="#FFFFFF"

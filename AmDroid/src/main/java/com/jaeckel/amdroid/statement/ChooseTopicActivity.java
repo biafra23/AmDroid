@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +44,8 @@ public class ChooseTopicActivity extends ListActivity {
   private TopicAdapter adapter;
   private Drawable     backgroundDrawable;
   private List<Topic>  topics;
+  public  Boolean      currentTopicBest;
+  public  String       currentTopicScope;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -55,6 +59,25 @@ public class ChooseTopicActivity extends ListActivity {
 
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentTopic.getDescription());
+    objektEditText.addTextChangedListener(new TextWatcher() {
+      
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+      public void afterTextChanged(Editable editable) {
+        List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
+        if (topicDescriptions != null && topicDescriptions.size() > 0) {
+          topics = new ArrayList<Topic>();
+          topics.add(new Topic(editable.toString(), currentTopicBest, currentTopicScope));
+          for (String description : topicDescriptions) {
+            topics.add(new Topic(description, currentTopicBest, currentTopicScope));
+          }
+        }
+
+        adapter = new TopicAdapter(ChooseTopicActivity.this, R.layout.list_item_objekt, topics);
+        setListAdapter(adapter);
+
+      }
+    });
 
     topics = new ArrayList<Topic>();
     Boolean currentTopicBest = true;
@@ -106,9 +129,11 @@ public class ChooseTopicActivity extends ListActivity {
       }
     }
 
-
     adapter = new TopicAdapter(this, R.layout.list_item_objekt, topics);
     setListAdapter(adapter);
+
+    getListView().setDivider(null);
+    getListView().setDividerHeight(0);
 
 
   }
