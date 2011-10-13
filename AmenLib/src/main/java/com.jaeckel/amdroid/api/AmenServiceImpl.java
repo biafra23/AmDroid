@@ -88,7 +88,7 @@ public class AmenServiceImpl implements AmenService {
     User user;
     String authJSON = "{\"password\":\"" + authPassword + "\",\"email\":\"" + authName + "\"}";
 
-    log.trace("authJSON: " + authJSON);
+//    log.trace("authJSON: " + authJSON);
 
     HttpPost httpPost = new HttpPost(serviceUrl + "authentication.json");
 //    httpPost.setHeader("Accept", "application/json");
@@ -523,12 +523,11 @@ public class AmenServiceImpl implements AmenService {
 
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) {
     List<Objekt> result = null;
-    log.debug("followers()");
+    log.debug("objektsForQuery()");
     HashMap<String, String> params = createAuthenticatedParams();
     if (query != null) {
       params.put("q", query.toString());
     }
-
     params.put("kind_id", "" + kindId);
     if (lat != null) {
       params.put("lat", "" + lat);
