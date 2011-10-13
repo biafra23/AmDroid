@@ -64,6 +64,7 @@ public class MakeStatementActivity extends Activity {
     if (objektKind == AmenService.OBJEKT_KIND_PERSON) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_green);
       currentObjekt.setName("Karl Marx");
+      currentObjekt.setKindId(AmenService.OBJEKT_KIND_PERSON);
       currentTopic.setBest(true);
       currentTopic.setDescription("Author");
       currentTopic.setScope("Ever");
@@ -71,6 +72,7 @@ public class MakeStatementActivity extends Activity {
     if (objektKind == AmenService.OBJEKT_KIND_THING) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_orange);
       currentObjekt.setName("Android");
+      currentObjekt.setKindId(AmenService.OBJEKT_KIND_THING);
       currentTopic.setBest(true);
       currentTopic.setDescription("Operating System");
       currentTopic.setScope("So far");
@@ -78,6 +80,7 @@ public class MakeStatementActivity extends Activity {
     if (objektKind == AmenService.OBJEKT_KIND_PLACE) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_blue);
       currentObjekt.setName("Drachenspielplatz");
+      currentObjekt.setKindId(AmenService.OBJEKT_KIND_PLACE);
       currentTopic.setBest(true);
       currentTopic.setDescription("Playground");
       currentTopic.setScope("in Berlin");
