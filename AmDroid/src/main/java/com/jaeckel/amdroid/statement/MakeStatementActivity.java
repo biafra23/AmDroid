@@ -103,10 +103,7 @@ public class MakeStatementActivity extends Activity {
     service = AmdroidApp.getInstance().getService(username, password);
 
     setContentView(R.layout.make_statement);
-
-
   }
-
 
   @Override
   public void onResume() {
