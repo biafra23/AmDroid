@@ -42,7 +42,7 @@ public class MakeStatementActivity extends Activity {
   String  currentTopicScope;
   Boolean currentBest;
 
-  private Drawable backgroundDrawable;
+//  private Drawable backgroundDrawable;
 
   public static final int REQUEST_CODE_OBJEKT = 10101;
   public static final int REQUEST_CODE_TOPIC  = 10102;
@@ -62,7 +62,7 @@ public class MakeStatementActivity extends Activity {
     objektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);
 
     if (objektKind == AmenService.OBJEKT_KIND_PERSON) {
-      backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_green);
+//      backgroundDrawable = createBackgroundDrawable(objektKind);
       currentObjekt.setName("Karl Marx");
       currentObjekt.setKindId(AmenService.OBJEKT_KIND_PERSON);
       currentTopic.setBest(true);
@@ -70,7 +70,7 @@ public class MakeStatementActivity extends Activity {
       currentTopic.setScope("Ever");
     }
     if (objektKind == AmenService.OBJEKT_KIND_THING) {
-      backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_orange);
+//      backgroundDrawable = createBackgroundDrawable(objektKind);
       currentObjekt.setName("Android");
       currentObjekt.setKindId(AmenService.OBJEKT_KIND_THING);
       currentTopic.setBest(true);
@@ -78,7 +78,7 @@ public class MakeStatementActivity extends Activity {
       currentTopic.setScope("So far");
     }
     if (objektKind == AmenService.OBJEKT_KIND_PLACE) {
-      backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_blue);
+//      backgroundDrawable = createBackgroundDrawable(objektKind);
       currentObjekt.setName("Drachenspielplatz");
       currentObjekt.setKindId(AmenService.OBJEKT_KIND_PLACE);
       currentTopic.setBest(true);
@@ -110,7 +110,7 @@ public class MakeStatementActivity extends Activity {
     super.onResume();
     Log.d(TAG, "onResume");
     objektView = (TextView) findViewById(R.id.objekt_name);
-    objektView.setBackgroundDrawable(backgroundDrawable);
+    objektView.setBackgroundDrawable(createBackgroundDrawable(objektKind));
     objektView.setText(currentObjekt.getName());
 
     objektView.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,7 @@ public class MakeStatementActivity extends Activity {
     }
 
     bestView = (TextView) findViewById(R.id.best);
-    bestView.setBackgroundDrawable(backgroundDrawable);
+    bestView.setBackgroundDrawable(createBackgroundDrawable(objektKind));
     if (currentBest) {
       bestView.setText("the Best");
     } else {
@@ -148,7 +148,7 @@ public class MakeStatementActivity extends Activity {
     });
 
     topicView = (TextView) findViewById(R.id.topic_name);
-    topicView.setBackgroundDrawable(backgroundDrawable);
+    topicView.setBackgroundDrawable(createBackgroundDrawable(objektKind));
     topicView.setText(currentTopic.getDescription());
     topicView.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
@@ -164,7 +164,7 @@ public class MakeStatementActivity extends Activity {
     //      topicPlaceScopeView.setText("");
     //    }
     scopeView = (TextView) findViewById(R.id.topic_scope);
-    scopeView.setBackgroundDrawable(backgroundDrawable);
+    scopeView.setBackgroundDrawable(createBackgroundDrawable(objektKind));
     scopeView.setText(currentTopic.getScope());
     scopeView.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
@@ -219,8 +219,8 @@ public class MakeStatementActivity extends Activity {
           currentTopic = topic;
 //          currentBest = topic.isBest();
 //          currentTopicScope = topic.getScope();
-          
-        } else { 
+
+        } else {
           Log.d(TAG, "topic was null");
         }
       }
@@ -228,5 +228,18 @@ public class MakeStatementActivity extends Activity {
     } else if (resultCode == RESULT_CANCELED) {
       Log.d(TAG, "onActivityResult | resultCode: RESULT_CANCELED");
     }
+  }
+
+  private Drawable createBackgroundDrawable(int kind) {
+    Drawable result;
+    if (kind == AmenService.OBJEKT_KIND_PERSON) {
+      result = getResources().getDrawable(R.drawable.rounded_edges_green);
+    } else if (kind == AmenService.OBJEKT_KIND_PLACE) {
+      result = getResources().getDrawable(R.drawable.rounded_edges_blue);
+    } else {
+      result = getResources().getDrawable(R.drawable.rounded_edges_orange);
+    }
+
+    return result;
   }
 }
