@@ -1,10 +1,13 @@
 package com.jaeckel.amdroid.api;
 
+
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -17,6 +20,8 @@ import java.util.Map;
  * Time: 12:52 AM
  */
 public class RequestFactory {
+
+  final static Logger log = LoggerFactory.getLogger("Amen");
 
   public static HttpUriRequest createJSONPOSTRequest(String serviceUrl, String body) {
 
@@ -39,8 +44,9 @@ public class RequestFactory {
 
   public static HttpUriRequest createGETRequest(String serviceUrl, Map<String, String> params) {
 
-    String queryString = createQueryString(params, true);
+    String queryString = createQueryString(params, false);
     HttpGet httpGet = new HttpGet(serviceUrl + queryString);
+    log.debug("createGETRequest: " + httpGet.getURI());
     return httpGet;
 
   }

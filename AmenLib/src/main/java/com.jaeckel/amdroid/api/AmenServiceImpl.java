@@ -456,7 +456,6 @@ public class AmenServiceImpl implements AmenService {
   }
 
 
-
   @Override
   public User getMe() {
 
@@ -523,7 +522,9 @@ public class AmenServiceImpl implements AmenService {
 
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) {
     List<Objekt> result = null;
-    log.debug("objektsForQuery()");
+
+    log.debug("objektsForQuery() lat: " + lat + " lon: " + lon);
+
     HashMap<String, String> params = createAuthenticatedParams();
     if (query != null) {
       params.put("q", query.toString());
@@ -531,6 +532,7 @@ public class AmenServiceImpl implements AmenService {
     params.put("kind_id", "" + kindId);
     if (lat != null) {
       params.put("lat", "" + lat);
+
     }
     if (lon != null) {
       params.put("lng", "" + lon);

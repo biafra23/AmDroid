@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,12 +43,16 @@ public class ChooseObjektActivity extends ListActivity {
   private EditText      objektEditText;
   private ObjektAdapter adapter;
   private Drawable      backgroundDrawable;
+  private Double longitude = null;
+  private Double latitude  = null;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
 
-    service = AmdroidApp.getInstance().getService();
+    final AmdroidApp app = AmdroidApp.getInstance();
+
+    service = app.getService();
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);
     currentObjektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);
 
@@ -65,18 +70,37 @@ public class ChooseObjektActivity extends ListActivity {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_blue);
     }
 
+    if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
+      if (app == null) {
+        Log.v(TAG, "app == null");
+      }
+      final Location lastLocation = app.getLastLocation();
+      if (lastLocation != null) {
+        longitude = lastLocation.getLongitude();
+        latitude = lastLocation.getLatitude();
+      }
+      Log.v(TAG, "lastLocation: " + lastLocation);
+      Log.v(TAG, "   longitude: " + longitude);
+      Log.v(TAG, "    latitude: " + latitude);
+    }
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentObjekt.getName());
     objektEditText.addTextChangedListener(new TextWatcher() {
-      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
+
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
+
       public void afterTextChanged(Editable editable) {
 
         //TODO: when a String does not yield any result, adding more characters will not fix that. Stop searching then
 
         Log.d(TAG, "afterTextChanged:          editable: " + editable);
         Log.d(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
-        List<Objekt> objektsForQuery = service.objektsForQuery(editable.toString(), currentObjektKind, null, null);
+
+        List<Objekt> objektsForQuery = service.objektsForQuery(editable.toString(), currentObjektKind, latitude, longitude);
+
         ArrayList<Objekt> objekts = new ArrayList<Objekt>(objektsForQuery);
         for (Objekt o : objekts) {
           Log.d(TAG, "o: " + o);
@@ -91,7 +115,8 @@ public class ChooseObjektActivity extends ListActivity {
       }
     });
 
-    List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, null, null);
+//    List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, latitude, longitude);
+    List<Objekt> objekts = service.objektsForQuery(null, currentObjektKind, latitude, longitude);
     if (!objektInList(currentObjekt.getName(), objekts)) {
       objekts.add(0, currentObjekt);
     }
