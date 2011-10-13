@@ -67,15 +67,14 @@ public class ChooseTopicActivity extends ListActivity {
 
       public void afterTextChanged(Editable editable) {
         List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
+        topics = new ArrayList<Topic>();
         if (topicDescriptions != null && topicDescriptions.size() > 0) {
-          topics = new ArrayList<Topic>();
-
           for (String description : topicDescriptions) {
             topics.add(new Topic(description, currentTopic.isBest(), currentTopic.getScope()));
           }
-          if (!topicInList(editable.toString(), topics)) {
-            topics.add(0, new Topic(editable.toString(), currentTopic.isBest(), currentTopic.getScope()));
-          }
+        }
+        if (!topicInList(editable.toString(), topics)) {
+          topics.add(0, new Topic(editable.toString(), currentTopic.isBest(), currentTopic.getScope()));
         }
 
         adapter = new TopicAdapter(ChooseTopicActivity.this, R.layout.list_item_objekt, topics);
