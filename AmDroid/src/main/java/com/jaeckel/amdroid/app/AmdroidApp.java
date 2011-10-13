@@ -1,12 +1,11 @@
 package com.jaeckel.amdroid.app;
 
-import android.app.AlertDialog;
 import android.app.Application;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
-import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
 import com.jaeckel.amdroid.api.model.User;
@@ -31,7 +30,7 @@ public class AmdroidApp extends Application {
   private String      authCookie;
   private AmenService service;
 
-  private Location currentLocation;
+  private Location        currentLocation;
   private LocationManager locationManager;
 
   //CWAC
@@ -40,13 +39,14 @@ public class AmdroidApp extends Application {
   private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
   private User me;
 
+  private Handler handler;
 
-  public AmdroidApp() {
-
-    Thread.setDefaultUncaughtExceptionHandler(onBlooey);
-
-
-  }
+//  public AmdroidApp() {
+//
+//    Thread.setDefaultUncaughtExceptionHandler(onBlooey);
+//
+//
+//  }
 
   @Override
   public void onCreate() {
@@ -60,6 +60,8 @@ public class AmdroidApp extends Application {
                                    .build());
     }
     super.onCreate();
+
+    handler = new Handler();
 
     Log.v(TAG, "onCreate");
 
@@ -126,15 +128,16 @@ public class AmdroidApp extends Application {
   }
 
   //CWAC
-  void goBlooey(Throwable t) {
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-    builder
-      .setTitle(R.string.exception)
-      .setMessage(t.toString())
-      .setPositiveButton(R.string.ok, null)
-      .show();
-  }
+//  void goBlooey(Throwable t) {
+//
+//    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//    Log.e(TAG, "Creating dialog");
+//    builder
+//      .setTitle(R.string.exception)
+//      .setMessage(t.getMessage())
+//      .setPositiveButton(R.string.ok, null)
+//      .show();
+//  }
 
   ThumbnailBus getBus() {
     return (bus);
@@ -144,13 +147,25 @@ public class AmdroidApp extends Application {
     return (cache);
   }
 
-  private Thread.UncaughtExceptionHandler onBlooey =
-    new Thread.UncaughtExceptionHandler() {
-      public void uncaughtException(Thread thread, Throwable ex) {
-        Log.e(TAG, "Uncaught exception", ex);
-        goBlooey(ex);
-      }
-    };
+//  private Thread.UncaughtExceptionHandler onBlooey =
+//    new Thread.UncaughtExceptionHandler() {
+//      public void uncaughtException(Thread thread, final Throwable ex) {
+//        Log.e(TAG, "Uncaught exception", ex);
+//
+//        handler.post(new Runnable() {
+//          public void run() {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(AmdroidApp.this);
+//            Log.e(TAG, "Creating dialog");
+//            builder
+//              .setTitle(R.string.exception)
+//              .setMessage(ex.getMessage())
+//              .setPositiveButton(R.string.ok, null)
+//              .show();
+//            Log.e(TAG, "Created dialog");
+//          }
+//        });
+//      }
+//    };
 
   public User getMe() {
     return me;
