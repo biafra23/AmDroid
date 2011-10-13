@@ -131,10 +131,8 @@ public class MakeStatementActivity extends Activity {
     bestView.setBackgroundDrawable(backgroundDrawable);
     if (currentBest) {
       bestView.setText("the Best");
-      currentBest = true;
     } else {
       bestView.setText("the Worst");
-      currentBest = false;
     }
 
     bestView.setOnClickListener(new View.OnClickListener() {
@@ -161,7 +159,7 @@ public class MakeStatementActivity extends Activity {
         startActivityForResult(intent, REQUEST_CODE_TOPIC);
       }
     });
-    //    topicPlaceScopeView = (TextView) findViewById(R.id.topic_place_scope);
+    //    topicPlaceScopeView = (TextView) findViewById(R.id.topic_place_sco           pe);
     //    if (objektKind != AmenService.OBJEKT_KIND_PLACE) {
     //      topicPlaceScopeView.setText("");
     //    }
@@ -214,14 +212,15 @@ public class MakeStatementActivity extends Activity {
           Log.v(TAG, "onActivityResult | objekt: " + objekt);
         }
 
-      } else if (requestCode == REQUEST_CODE_TOPIC) {
+      } else if (requestCode == REQUEST_CODE_TOPIC || requestCode == REQUEST_CODE_SCOPE) {
         // receive the new currentTopic
         Log.v(TAG, "onActivityResult | requestCode: REQUEST_CODE_TOPIC");
         final Topic topic = data.getParcelableExtra(Constants.EXTRA_TOPIC);
         if (topic != null) {
+          Log.v(TAG, "onActivityResult | topic: " + topic);
           currentTopic = topic;
-          currentBest = topic.isBest();
-          currentTopicScope = topic.getScope();
+//          currentBest = topic.isBest();
+//          currentTopicScope = topic.getScope();
           
         } else { 
           Log.v(TAG, "topic was null");

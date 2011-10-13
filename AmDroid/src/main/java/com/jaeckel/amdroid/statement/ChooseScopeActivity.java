@@ -47,6 +47,7 @@ public class ChooseScopeActivity extends ListActivity {
   private List<Topic>  topics;
   public  Boolean      currentTopicBest;
   public  String       currentTopicScope;
+  public  String       currentTopicDescription;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -55,8 +56,11 @@ public class ChooseScopeActivity extends ListActivity {
     currentTopic = (Topic) getIntent().getParcelableExtra(Constants.EXTRA_TOPIC);
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);
     currentObjektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);
+    
+    //neccessary? isn't currentTopic enough?
     currentTopicBest = currentTopic.isBest();
     currentTopicScope = currentTopic.getScope();
+    currentTopicDescription = currentTopic.getDescription();
 
     setContentView(R.layout.choose_scope);
 
@@ -72,7 +76,11 @@ public class ChooseScopeActivity extends ListActivity {
 
       public void afterTextChanged(Editable editable) {
         topics = new ArrayList<Topic>();
-        topics.add(new Topic(editable.toString(), currentTopicBest, currentTopicScope));
+        topics.add(new Topic(currentTopicDescription, currentTopicBest, editable.toString()));
+        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
+        topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
+        topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
+        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
         adapter = new ScopeAdapter(ChooseScopeActivity.this, R.layout.list_item_scope, topics);
         setListAdapter(adapter);
       }
@@ -80,13 +88,11 @@ public class ChooseScopeActivity extends ListActivity {
 
     List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
     topics = new ArrayList<Topic>();
-    topics.add(new Topic(currentTopic.getDescription(), currentTopicBest, currentTopic.getScope()));
-    if (topicDescriptions != null && topicDescriptions.size() > 0) {
-
-      for (String description : topicDescriptions) {
-        topics.add(new Topic(description, currentTopicBest, currentTopicScope));
-      }
-    }
+    topics.add(currentTopic);
+    topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
+    topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
+    topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
+    topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
 
     adapter = new ScopeAdapter(ChooseScopeActivity.this, R.layout.list_item_scope, topics);
     setListAdapter(adapter);
