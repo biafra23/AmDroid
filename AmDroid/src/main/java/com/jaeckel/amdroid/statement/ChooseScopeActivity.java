@@ -72,7 +72,7 @@ public class ChooseScopeActivity extends ListActivity {
       public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
       public void afterTextChanged(Editable editable) {
-        Log.v(TAG, "afterTextChanged()");
+        Log.d(TAG, "afterTextChanged()");
         topics = new ArrayList<Topic>();
         topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
         topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
@@ -84,7 +84,7 @@ public class ChooseScopeActivity extends ListActivity {
         
         } else {
 
-          Log.v(TAG, "Scope " + editable.toString() + " already in list: " + topics);
+          Log.d(TAG, "Scope " + editable.toString() + " already in list: " + topics);
         }
         adapter = new ScopeAdapter(ChooseScopeActivity.this, R.layout.list_item_scope, topics);
         setListAdapter(adapter);
@@ -131,7 +131,7 @@ public class ChooseScopeActivity extends ListActivity {
 
     Topic topic = (Topic) getListAdapter().getItem(position);
 
-    Log.v(TAG, "onListItemClick | Selected Topic: " + topic);
+    Log.d(TAG, "onListItemClick | Selected Topic: " + topic);
 
     Intent intent = new Intent();
     intent.putExtra(Constants.EXTRA_TOPIC, topic);

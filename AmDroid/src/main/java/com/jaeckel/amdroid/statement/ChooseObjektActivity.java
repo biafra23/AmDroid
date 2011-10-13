@@ -74,8 +74,8 @@ public class ChooseObjektActivity extends ListActivity {
 
         //TODO: when a String does not yield any result, adding more characters will not fix that. Stop searching then
 
-        Log.v(TAG, "afterTextChanged:          editable: " + editable);
-        Log.v(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
+        Log.d(TAG, "afterTextChanged:          editable: " + editable);
+        Log.d(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
         List<Objekt> objektsForQuery = service.objektsForQuery(editable.toString(), currentObjektKind, null, null);
         ArrayList<Objekt> objekts = new ArrayList<Objekt>(objektsForQuery);
         for (Objekt o : objekts) {
@@ -127,7 +127,7 @@ public class ChooseObjektActivity extends ListActivity {
 
     Objekt objekt = (Objekt) getListAdapter().getItem(position);
 
-    Log.v(TAG, "onListItemClick | Selected Objekt: " + objekt);
+    Log.d(TAG, "onListItemClick | Selected Objekt: " + objekt);
 
     Intent intent = new Intent();
     intent.putExtra(Constants.EXTRA_OBJEKT, objekt);

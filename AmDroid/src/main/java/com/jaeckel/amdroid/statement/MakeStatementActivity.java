@@ -52,7 +52,7 @@ public class MakeStatementActivity extends Activity {
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    Log.v(TAG, "onCreate");
+    Log.d(TAG, "onCreate");
 
     currentBest = true;
     currentObjekt = new Objekt();
@@ -108,7 +108,7 @@ public class MakeStatementActivity extends Activity {
   @Override
   public void onResume() {
     super.onResume();
-    Log.v(TAG, "onResume");
+    Log.d(TAG, "onResume");
     objektView = (TextView) findViewById(R.id.objekt_name);
     objektView.setBackgroundDrawable(backgroundDrawable);
     objektView.setText(currentObjekt.getName());
@@ -181,12 +181,9 @@ public class MakeStatementActivity extends Activity {
     amenTakeBack.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
-
-
         final Statement statement = new Statement(currentObjekt, currentTopic);
-        Log.v(TAG, "Making Statement: " + statement);
+        Log.d(TAG, "Making Statement: " + statement);
         service.addStatement(statement);
-      
       }
     });
 
@@ -195,16 +192,16 @@ public class MakeStatementActivity extends Activity {
 
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-    Log.v(TAG, "onActivityResult");
+    Log.d(TAG, "onActivityResult");
     if (resultCode == RESULT_OK) {
-      Log.v(TAG, "onActivityResult | resultCode: RESULT_OK");
+      Log.d(TAG, "onActivityResult | resultCode: RESULT_OK");
 
       if (requestCode == REQUEST_CODE_OBJEKT) {
         // receive the new currentObjekt
-        Log.v(TAG, "onActivityResult | requestCode: REQUEST_CODE_OBJEKT");
+        Log.d(TAG, "onActivityResult | requestCode: REQUEST_CODE_OBJEKT");
 
         final Objekt objekt = data.getParcelableExtra(Constants.EXTRA_OBJEKT);
-        Log.v(TAG, "onActivityResult | objekt: " + objekt);
+        Log.d(TAG, "onActivityResult | objekt: " + objekt);
         if (objekt != null) {
 
           currentObjekt = objekt;
@@ -215,21 +212,21 @@ public class MakeStatementActivity extends Activity {
 
       } else if (requestCode == REQUEST_CODE_TOPIC || requestCode == REQUEST_CODE_SCOPE) {
         // receive the new currentTopic
-        Log.v(TAG, "onActivityResult | requestCode: REQUEST_CODE_TOPIC");
+        Log.d(TAG, "onActivityResult | requestCode: REQUEST_CODE_TOPIC");
         final Topic topic = data.getParcelableExtra(Constants.EXTRA_TOPIC);
         if (topic != null) {
-          Log.v(TAG, "onActivityResult | topic: " + topic);
+          Log.d(TAG, "onActivityResult | topic: " + topic);
           currentTopic = topic;
 //          currentBest = topic.isBest();
 //          currentTopicScope = topic.getScope();
           
         } else { 
-          Log.v(TAG, "topic was null");
+          Log.d(TAG, "topic was null");
         }
       }
 
     } else if (resultCode == RESULT_CANCELED) {
-      Log.v(TAG, "onActivityResult | resultCode: RESULT_CANCELED");
+      Log.d(TAG, "onActivityResult | resultCode: RESULT_CANCELED");
     }
   }
 }

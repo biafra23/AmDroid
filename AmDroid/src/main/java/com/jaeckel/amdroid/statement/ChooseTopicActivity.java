@@ -163,7 +163,7 @@ public class ChooseTopicActivity extends ListActivity {
 
     Topic topic = (Topic) getListAdapter().getItem(position);
 
-    Log.v(TAG, "onListItemClick | Selected Topic: " + topic);
+    Log.d(TAG, "onListItemClick | Selected Topic: " + topic);
 
     Intent intent = new Intent();
     intent.putExtra(Constants.EXTRA_TOPIC, topic);

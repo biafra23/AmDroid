@@ -38,7 +38,7 @@ public class AmenDetailActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    Log.v(TAG, "onCreate");
+    Log.d(TAG, "onCreate");
 
     service = AmdroidApp.getInstance().getService();
 
