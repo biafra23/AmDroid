@@ -44,8 +44,6 @@ public class ChooseTopicActivity extends ListActivity {
   private TopicAdapter adapter;
   private Drawable     backgroundDrawable;
   private List<Topic>  topics;
-  public  Boolean      currentTopicBest;
-  public  String       currentTopicScope;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -71,21 +69,18 @@ public class ChooseTopicActivity extends ListActivity {
         List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
         if (topicDescriptions != null && topicDescriptions.size() > 0) {
           topics = new ArrayList<Topic>();
-          topics.add(new Topic(editable.toString(), currentTopicBest, currentTopicScope));
+
           for (String description : topicDescriptions) {
-            topics.add(new Topic(description, currentTopicBest, currentTopicScope));
+            topics.add(new Topic(description, currentTopic.isBest(), currentTopic.getScope()));
           }
           if (!topicInList(editable.toString(), topics)) {
-            topics.add(0, new Topic(editable.toString(), currentTopicBest, currentTopicScope));
+            topics.add(0, new Topic(editable.toString(), currentTopic.isBest(), currentTopic.getScope()));
           }
         }
 
         adapter = new TopicAdapter(ChooseTopicActivity.this, R.layout.list_item_objekt, topics);
         setListAdapter(adapter);
-
       }
-
-
     });
 
     topics = new ArrayList<Topic>();
