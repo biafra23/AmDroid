@@ -60,9 +60,13 @@ public class ChooseTopicActivity extends ListActivity {
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentTopic.getDescription());
     objektEditText.addTextChangedListener(new TextWatcher() {
-      
-      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
+
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
+
       public void afterTextChanged(Editable editable) {
         List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
         if (topicDescriptions != null && topicDescriptions.size() > 0) {
@@ -71,12 +75,17 @@ public class ChooseTopicActivity extends ListActivity {
           for (String description : topicDescriptions) {
             topics.add(new Topic(description, currentTopicBest, currentTopicScope));
           }
+          if (!topicInList(editable.toString(), topics)) {
+            topics.add(0, new Topic(editable.toString(), currentTopicBest, currentTopicScope));
+          }
         }
 
         adapter = new TopicAdapter(ChooseTopicActivity.this, R.layout.list_item_objekt, topics);
         setListAdapter(adapter);
 
       }
+
+
     });
 
     topics = new ArrayList<Topic>();
@@ -118,15 +127,17 @@ public class ChooseTopicActivity extends ListActivity {
         topics.add(new Topic("Ego Booster", currentTopicBest, currentTopicScope));
         break;
       }
-
     }
 
     List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
+    topics = new ArrayList<Topic>();
     if (topicDescriptions != null && topicDescriptions.size() > 0) {
-      topics = new ArrayList<Topic>();
       for (String description : topicDescriptions) {
         topics.add(new Topic(description, currentTopicBest, currentTopicScope));
       }
+    }
+    if (!topicInList(currentTopic.getDescription(), topics)) {
+      topics.add(0, currentTopic);
     }
 
     adapter = new TopicAdapter(this, R.layout.list_item_objekt, topics);
@@ -135,7 +146,21 @@ public class ChooseTopicActivity extends ListActivity {
     getListView().setDivider(null);
     getListView().setDividerHeight(0);
 
+  }
 
+  private boolean topicInList(String description, List<Topic> topics) {
+    if (topics == null) {
+      return false;
+    }
+    if (topics.size() == 0) {
+      return false;
+    }
+    for (Topic o : topics) {
+      if (description.equalsIgnoreCase(o.getDescription())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   @Override

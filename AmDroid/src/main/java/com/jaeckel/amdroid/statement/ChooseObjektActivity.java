@@ -68,13 +68,8 @@ public class ChooseObjektActivity extends ListActivity {
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentObjekt.getName());
     objektEditText.addTextChangedListener(new TextWatcher() {
-      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-      }
-
-      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-      }
-
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
       public void afterTextChanged(Editable editable) {
 
         //TODO: when a String does not yield any result, adding more characters will not fix that. Stop searching then
@@ -86,7 +81,10 @@ public class ChooseObjektActivity extends ListActivity {
         for (Objekt o : objekts) {
           Log.d(TAG, "o: " + o);
         }
-        objekts.add(0, new Objekt(editable.toString(), currentObjektKind));
+        if (!objektInList(editable.toString(), objekts)) {
+          objekts.add(0, new Objekt(editable.toString(), currentObjektKind));
+        }
+
         adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, objekts);
         setListAdapter(adapter);
 
@@ -94,7 +92,7 @@ public class ChooseObjektActivity extends ListActivity {
     });
 
     List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, null, null);
-    if (objektNotInList(currentObjekt, objekts)) {
+    if (!objektInList(currentObjekt.getName(), objekts)) {
       objekts.add(0, currentObjekt);
     }
     for (Objekt o : objekts) {
@@ -107,10 +105,9 @@ public class ChooseObjektActivity extends ListActivity {
     getListView().setDivider(null);
     getListView().setDividerHeight(0);
 
-
   }
 
-  private boolean objektNotInList(Objekt currentObjekt, List<Objekt> objekts) {
+  private boolean objektInList(String name, List<Objekt> objekts) {
     if (objekts == null) {
       return false;
     }
@@ -118,8 +115,8 @@ public class ChooseObjektActivity extends ListActivity {
       return false;
     }
     for (Objekt o : objekts) {
-      if (currentObjekt.getName().equalsIgnoreCase(o.getName())) {
-          return true;
+      if (name.equalsIgnoreCase(o.getName())) {
+        return true;
       }
     }
     return false;

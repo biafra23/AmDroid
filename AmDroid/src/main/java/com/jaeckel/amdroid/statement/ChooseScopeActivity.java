@@ -41,7 +41,7 @@ public class ChooseScopeActivity extends ListActivity {
   private Objekt       currentObjekt;
   private int          currentObjektKind;
   private AmenService  service;
-  private EditText     objektEditText;
+  private EditText scopeEditText;
   private ScopeAdapter adapter;
   private Drawable     backgroundDrawable;
   private List<Topic>  topics;
@@ -56,7 +56,7 @@ public class ChooseScopeActivity extends ListActivity {
     currentTopic = (Topic) getIntent().getParcelableExtra(Constants.EXTRA_TOPIC);
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);
     currentObjektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);
-    
+
     //neccessary? isn't currentTopic enough?
     currentTopicBest = currentTopic.isBest();
     currentTopicScope = currentTopic.getScope();
@@ -64,23 +64,28 @@ public class ChooseScopeActivity extends ListActivity {
 
     setContentView(R.layout.choose_scope);
 
-    objektEditText = (EditText) findViewById(R.id.scope);
-    objektEditText.setText(currentTopic.getScope());
-    objektEditText.addTextChangedListener(new TextWatcher() {
+    scopeEditText = (EditText) findViewById(R.id.scope);
+    scopeEditText.setText(currentTopic.getScope());
+    scopeEditText.addTextChangedListener(new TextWatcher() {
 
-      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-      }
-
-      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-      }
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
       public void afterTextChanged(Editable editable) {
+        Log.v(TAG, "afterTextChanged()");
         topics = new ArrayList<Topic>();
-        topics.add(new Topic(currentTopicDescription, currentTopicBest, editable.toString()));
         topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
         topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
         topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
         topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
+        if (!scopeInList(editable.toString(), topics)) {
+
+          topics.add(0, new Topic(currentTopicDescription, currentTopicBest, editable.toString()));
+        
+        } else {
+
+          Log.v(TAG, "Scope " + editable.toString() + " already in list: " + topics);
+        }
         adapter = new ScopeAdapter(ChooseScopeActivity.this, R.layout.list_item_scope, topics);
         setListAdapter(adapter);
       }
@@ -88,15 +93,36 @@ public class ChooseScopeActivity extends ListActivity {
 
     List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
     topics = new ArrayList<Topic>();
-    topics.add(currentTopic);
+
     topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
     topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
     topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
     topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
+    if (!scopeInList(currentTopic.getScope(), topics)) {
+      topics.add(0, currentTopic);
+    }
 
     adapter = new ScopeAdapter(ChooseScopeActivity.this, R.layout.list_item_scope, topics);
     setListAdapter(adapter);
 
+    getListView().setDivider(null);
+    getListView().setDividerHeight(0);
+
+  }
+
+  private boolean scopeInList(String scope, List<Topic> topics) {
+    if (topics == null) {
+      return false;
+    }
+    if (topics.size() == 0) {
+      return false;
+    }
+    for (Topic o : topics) {
+      if (scope.equalsIgnoreCase(o.getScope())) {
+        return true;
+      }
+    }
+    return false;
   }
 
 
