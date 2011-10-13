@@ -101,14 +101,6 @@ public class AmdroidApp extends Application {
     return instance;
   }
 
-  public String getAuthCookie() {
-    return authCookie;
-  }
-
-  public void setAuthCookie(String authCookie) {
-    this.authCookie = authCookie;
-  }
-
   public AmenService getService(String username, String password) {
     if (service == null) {
       service = new AmenServiceImpl();
