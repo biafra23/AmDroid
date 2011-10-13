@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import com.jaeckel.amdroid.Constants;
 import com.jaeckel.amdroid.EditPreferencesActivity;
 import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Objekt;
+import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
 
@@ -176,6 +178,21 @@ public class MakeStatementActivity extends Activity {
       }
     });
     // repopulate textview values
+
+    Button amenTakeBack = (Button) findViewById(R.id.amen_take_back);
+    amenTakeBack.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+
+
+        final Statement statement = new Statement(currentObjekt, currentTopic);
+        Log.v(TAG, "Making Statement: " + statement);
+        service.addStatement(statement);
+      
+      }
+    });
+
+
   }
 
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
