@@ -23,6 +23,7 @@ import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.app.AmdroidApp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,7 +54,6 @@ public class ChooseObjektActivity extends ListActivity {
     setContentView(R.layout.choose_objekt);
 
 
-    
     if (currentObjektKind == AmenService.OBJEKT_KIND_PERSON) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_green);
     }
@@ -76,12 +76,17 @@ public class ChooseObjektActivity extends ListActivity {
       }
 
       public void afterTextChanged(Editable editable) {
-        Log.v(TAG, "afterTextChanged: editable: " + editable);
-        List<Objekt> objekts = service.objektsForQuery(editable.toString(), currentObjektKind, null, null);
+
+        //TODO: when a String does not yield any result, adding more characters will not fix that. Stop searching then
+
+        Log.v(TAG, "afterTextChanged:          editable: " + editable);
+        Log.v(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
+        List<Objekt> objektsForQuery = service.objektsForQuery(editable.toString(), currentObjektKind, null, null);
+        ArrayList<Objekt> objekts = new ArrayList<Objekt>(objektsForQuery);
         for (Objekt o : objekts) {
           Log.d(TAG, "o: " + o);
         }
-
+        objekts.add(0, new Objekt(editable.toString(), currentObjektKind));
         adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, objekts);
         setListAdapter(adapter);
 
@@ -89,6 +94,9 @@ public class ChooseObjektActivity extends ListActivity {
     });
 
     List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, null, null);
+    if (objektNotInList(currentObjekt, objekts)) {
+      objekts.add(0, currentObjekt);
+    }
     for (Objekt o : objekts) {
       Log.d(TAG, "o: " + o);
     }
@@ -102,6 +110,21 @@ public class ChooseObjektActivity extends ListActivity {
 
   }
 
+  private boolean objektNotInList(Objekt currentObjekt, List<Objekt> objekts) {
+    if (objekts == null) {
+      return false;
+    }
+    if (objekts.size() == 0) {
+      return false;
+    }
+    for (Objekt o : objekts) {
+      if (currentObjekt.getName().equalsIgnoreCase(o.getName())) {
+          return true;
+      }
+    }
+    return false;
+  }
+
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
@@ -111,6 +134,7 @@ public class ChooseObjektActivity extends ListActivity {
 
     Intent intent = new Intent();
     intent.putExtra(Constants.EXTRA_OBJEKT, objekt);
+
     setResult(RESULT_OK, intent);
     finish();
   }

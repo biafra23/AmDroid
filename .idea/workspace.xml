@@ -8,13 +8,16 @@
     <option name="targetHashString" value="android-8" />
     <option name="theme" value="Theme" />
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="REQUEST_CODE_OBJEKT" />
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" line="220" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="with scope">
+    <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
@@ -120,15 +123,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ChooseScopeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -138,10 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="13" selection-start="882" selection-end="882" vertical-scroll-proportion="0.0">
+            <state line="105" column="0" selection-start="3671" selection-end="3671" vertical-scroll-proportion="0.5268924">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ChooseObjektActivity#0" expanded="true" />
@@ -162,14 +156,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MakeStatementActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MakeStatementActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="29" selection-start="7057" selection-end="7057" vertical-scroll-proportion="0.52191234">
+            <state line="212" column="11" selection-start="7322" selection-end="7322" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#MakeStatementActivity#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statement.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Statement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="9" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Objekt.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Objekt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="9" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -210,15 +222,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroidTest/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="19" selection-start="574" selection-end="574" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -241,7 +244,6 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/make_statement.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/choose_scope.xml" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -250,6 +252,7 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseTopicActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java" />
       </list>
     </option>
   </component>
@@ -483,6 +486,48 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmenLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.jaeckel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1838,7 +1883,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23717949" sideWeight="0.67901236" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36182335" sideWeight="0.3172338" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.38081673" sideWeight="0.9984" order="12" side_tool="false" content_ui="tabs" x="-1600" y="0" width="1600" height="1024" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.38081673" sideWeight="0.9984" order="12" side_tool="false" content_ui="tabs" x="-1600" y="11" width="1600" height="1008" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1927,20 +1972,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ObjektAutoCompleteTextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ObjektCompletionAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="36" selection-start="448" selection-end="448" vertical-scroll-proportion="0.0">
@@ -1980,16 +2011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="20" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="13" selection-start="882" selection-end="882" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#ChooseObjektActivity#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2038,12 +2059,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Statement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="9" selection-start="700" selection-end="700" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="29" selection-start="7057" selection-end="7057" vertical-scroll-proportion="0.52191234">
+        <state line="212" column="11" selection-start="7322" selection-end="7322" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#MakeStatementActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Objekt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="9" selection-start="584" selection-end="584" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="0" selection-start="3671" selection-end="3671" vertical-scroll-proportion="0.5268924">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ChooseObjektActivity#0" expanded="true" />
           </folding>
         </state>
       </provider>

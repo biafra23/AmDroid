@@ -204,12 +204,13 @@ public class MakeStatementActivity extends Activity {
         Log.v(TAG, "onActivityResult | requestCode: REQUEST_CODE_OBJEKT");
 
         final Objekt objekt = data.getParcelableExtra(Constants.EXTRA_OBJEKT);
+        Log.v(TAG, "onActivityResult | objekt: " + objekt);
         if (objekt != null) {
-          currentObjekt = objekt;
-          currentTopic = new Topic(objekt.getDefaultDescription(), currentBest, currentTopicScope);
 
-        } else {
-          Log.v(TAG, "onActivityResult | objekt: " + objekt);
+          currentObjekt = objekt;
+          if (objekt.getDefaultDescription() != null) {
+            currentTopic = new Topic(objekt.getDefaultDescription(), currentBest, currentTopicScope);
+          }
         }
 
       } else if (requestCode == REQUEST_CODE_TOPIC || requestCode == REQUEST_CODE_SCOPE) {
