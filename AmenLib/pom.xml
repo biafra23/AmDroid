@@ -9,7 +9,7 @@
     <artifactId>amenlib</artifactId>
 
     <packaging>jar</packaging>
-    <name>Opinionator - Lib</name>
+    <name>Amenoid - Lib</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

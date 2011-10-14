@@ -350,6 +350,7 @@ public class AmenListActivity extends ListActivity {
         if (firstAmen.equals(amen)) {
 
           break;
+
         } else {
           Log.v(TAG, "Adding amen: " + amen.getId() + " name: " + amen.getStatement().getObjekt().getName());
           amenListAdapter.insert(amen, 0);

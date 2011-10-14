@@ -7,7 +7,7 @@
     <artifactId>amdroid-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Opinionator - Parent</name>
+    <name>Amenoid - Parent</name>
 
     <modules>
         <module>AmDroid</module>

@@ -127,12 +127,18 @@ public class AmenServiceImpl implements AmenService {
 
   @Override
   public List<Amen> getFeed(long sinceId, int limit) {
+    return getFeed(0, sinceId, limit);
+  }
+  public List<Amen> getFeed(long beforeId, long sinceId, int limit) {
     log.debug("getFeed");
     ArrayList<Amen> result = new ArrayList<Amen>();
 
     HashMap<String, String> params = createAuthenticatedParams();
     if (sinceId > 0) {
       params.put("last_amen_id", "" + sinceId);
+    }
+    if (sinceId > 0) {
+      params.put("first_amen_id", "" + beforeId);
     }
     params.put("limit", "" + limit);
 

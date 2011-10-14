@@ -32,6 +32,7 @@ public interface AmenService {
   public List<Amen> getFeed();
 
   public List<Amen> getFeed(long sinceId, int pageSize);
+  public List<Amen> getFeed(long beforeId, long sinceId, int pageSize);
 
   public boolean follow(User u);
 
