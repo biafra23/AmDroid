@@ -12,4 +12,7 @@ public class Constants {
   public static final String EXTRA_OBJEKT_KIND = "objekt_kind";
   public static final String EXTRA_TOPIC       = "topic";
   public static final String EXTRA_OBJEKT      = "objekt";
+  
+  public static final String PREFS_LAST_AMENS = "last_amens";
+  public static final String PREFS_LAST_NEW_AMENS = "last_new_amens";
 }

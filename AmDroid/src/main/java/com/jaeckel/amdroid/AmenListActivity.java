@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -20,15 +19,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.DateSerializer;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amdroid.widget.PullToRefreshListView;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AmenListActivity extends ListActivity {
@@ -41,7 +47,13 @@ public class AmenListActivity extends ListActivity {
   private ProgressDialog loadingProgressDialog;
   private AmenService    service;
   private static final int[] IMAGE_IDS = {R.id.user_image};
-  private AmenListAdapter amenListAdapter;
+  private AmenListAdapter   amenListAdapter;
+  private SharedPreferences prefs;
+  private Gson gson = new GsonBuilder()
+    .registerTypeAdapter(Date.class, new DateSerializer())
+    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+    .serializeNulls()
+    .create();
 
   /**
    * Called when the activity is first created.
@@ -57,7 +69,7 @@ public class AmenListActivity extends ListActivity {
 
     setContentView(R.layout.main);
 
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String username = prefs.getString("user_name", null);
     String password = prefs.getString("password", null);
 
@@ -112,6 +124,8 @@ public class AmenListActivity extends ListActivity {
   }
 
   private void refresh() {
+
+
     if (service != null) {
       LoaderAsyncTask loader = new LoaderAsyncTask();
       loader.execute();
@@ -277,11 +291,30 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected List<Amen> doInBackground(Void... voids) {
 
-//      showDialog() progress
+      List<Amen> amens;
+      String newAmensJSON = prefs.getString(Constants.PREFS_LAST_NEW_AMENS, null);
+      String amensJSON = prefs.getString(Constants.PREFS_LAST_AMENS, null);
 
-      Log.d(TAG, "Loader executing");
-      List<Amen> amens = service.getFeed(0, 20);
+      if (amensJSON != null && !"[]".equals(amensJSON)) {
 
+        Log.v(TAG, "Found amens in prefs: " + amensJSON);
+
+        Type collectionType = new TypeToken<List<Amen>>() {
+        }.getType();
+        amens = gson.fromJson(amensJSON, collectionType);
+
+      } else {
+
+        Log.d(TAG, "Loader executing");
+        amens = service.getFeed(0, 20);
+
+        SharedPreferences.Editor editor = prefs.edit();
+        amensJSON = gson.toJson(amens);
+        Log.v(TAG, "amensJSON: " + amensJSON);
+        editor.putString(Constants.PREFS_LAST_AMENS, amensJSON);
+        editor.commit();
+
+      }
       return amens;
     }
 
@@ -348,7 +381,9 @@ public class AmenListActivity extends ListActivity {
 
       for (int i = 0; i < amenListAdapter.getCount(); i++) {
         oldAmens.add(amenListAdapter.getItem(i));
-        Log.v(TAG, "amenListAdapter: " + amenListAdapter.getItem(i).getId() + ": " + amenListAdapter.getItem(i).getStatement().toDisplayString());
+        Log.v(TAG, "amenListAdapter: "
+                   + amenListAdapter.getItem(i).getId() + ": "
+                   + amenListAdapter.getItem(i).getStatement().toDisplayString());
       }
 
 
@@ -364,6 +399,11 @@ public class AmenListActivity extends ListActivity {
 
       } while (filteredAmens.size() == pageSize);
 
+      SharedPreferences.Editor editor = prefs.edit();
+      String newAmensJSON = gson.toJson(newAmens);
+      Log.v(TAG, "newAmensJSON: " + newAmensJSON);
+      editor.putString(Constants.PREFS_LAST_NEW_AMENS, newAmensJSON);
+      editor.commit();
       return newAmens;
     }
 
@@ -404,5 +444,6 @@ public class AmenListActivity extends ListActivity {
       super.onPostExecute(result);
     }
   }
+
 }
 
