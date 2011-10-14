@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -205,6 +206,16 @@ public class AmenListActivity extends ListActivity {
         Intent intent = new Intent(this, DisputeActivity.class);
         intent.putExtra(Constants.EXTRA_AMEN, amen);
         startActivity(intent);
+        return true;
+      }
+      case R.id.share_item: {
+        Log.d(TAG, "R.id.share_item");
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "#getamen https://getamen.com/statements/" + amen.getStatement().getId());
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
+
         return true;
       }
 
