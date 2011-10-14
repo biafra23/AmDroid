@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.DateSerializer;
+import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
@@ -88,9 +89,15 @@ public class AmenListActivity extends ListActivity {
     } else {
 //      Log.v(TAG, "username: " + username);
 //      Log.v(TAG, "password: " + password);
-
-      LoginAsyncTask task = new LoginAsyncTask();
-      task.execute();
+      final String authToken = readAuthTokenFromPrefs();
+      final User me = readMeFromPrefs();
+      if (authToken != null && me != null) {
+        service = AmdroidApp.getInstance().getService().init(authToken, me);
+        refresh();
+      } else {
+        LoginAsyncTask task = new LoginAsyncTask();
+        task.execute();
+      }
     }
 
     registerForContextMenu(getListView());
@@ -104,6 +111,7 @@ public class AmenListActivity extends ListActivity {
       }
     });
   }
+
 
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
@@ -360,7 +368,10 @@ public class AmenListActivity extends ListActivity {
       String username = prefs.getString("user_name", null);
       String password = prefs.getString("password", null);
 
-      return AmdroidApp.getInstance().getService(username, password);
+      final AmenService amenService = AmdroidApp.getInstance().getService(username, password);
+      saveAuthTokenToPrefs(amenService.getAuthToken());
+      saveMeToPrefs(amenService.getMe());
+      return amenService;
     }
 
     @Override
@@ -457,5 +468,31 @@ public class AmenListActivity extends ListActivity {
     editor.commit();
   }
 
+  private void saveAuthTokenToPrefs(String authToken) {
+    SharedPreferences.Editor editor = prefs.edit();
+    editor.putString(Constants.PREFS_AUTH_TOKEN, authToken);
+    editor.commit();
+  }
+
+  private String readAuthTokenFromPrefs() {
+    return prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
+  }
+
+  private void saveMeToPrefs(User me) {
+    SharedPreferences.Editor editor = prefs.edit();
+    String meString = gson.toJson(me);
+    editor.putString(Constants.PREFS_ME, meString);
+    editor.commit();
+  }
+
+  private User readMeFromPrefs() {
+    final String prefsString = prefs.getString(Constants.PREFS_ME, null);
+    User u = null;
+    if (prefsString != null) {
+      u = gson.fromJson(prefsString, User.class);
+    }
+
+    return u;
+  }
 }
 
