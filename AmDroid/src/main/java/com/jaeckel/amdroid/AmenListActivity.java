@@ -210,9 +210,11 @@ public class AmenListActivity extends ListActivity {
       }
       case R.id.share_item: {
         Log.d(TAG, "R.id.share_item");
+        String amenText = amen.getStatement().toDisplayString();
+          
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "#getamen https://getamen.com/statements/" + amen.getStatement().getId());
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + amen.getStatement().getId());
         startActivity(Intent.createChooser(sharingIntent, "Share using"));
 
 
