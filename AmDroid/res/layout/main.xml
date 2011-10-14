@@ -5,12 +5,13 @@
               android:layout_height="fill_parent"
         >
 
-    <ListView android:id="@android:id/list"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:layout_weight="100"
-              android:dividerHeight="1dp"
-              android:scrollbarStyle="outsideOverlay"
-              android:headerDividersEnabled="false"
+    <com.jaeckel.amdroid.widget.PullToRefreshListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="100"
+            android:dividerHeight="1dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:headerDividersEnabled="false"
             />
 </LinearLayout>

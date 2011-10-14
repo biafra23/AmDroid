@@ -25,6 +25,7 @@ import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amdroid.widget.PullToRefreshListView;
 
 import java.util.List;
 
@@ -79,6 +80,15 @@ public class AmenListActivity extends ListActivity {
     }
 
     registerForContextMenu(getListView());
+
+    ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+      @Override
+      public void onRefresh() {
+        Log.v(TAG, "onRefresh()");
+        // Do work to refresh the list here.
+        new GetDataTask().execute();
+      }
+    });
   }
 
   @Override
@@ -152,7 +162,7 @@ public class AmenListActivity extends ListActivity {
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    Amen amen = (Amen) getListAdapter().getItem(position);
+    Amen amen = (Amen) getListAdapter().getItem(position - 1);
 
     Log.d(TAG, "Selected Amen: " + amen);
 
@@ -315,5 +325,42 @@ public class AmenListActivity extends ListActivity {
     }
   }
 
+  private class GetDataTask extends AsyncTask<Void, Void, List<Amen>> {
+
+    @Override
+    protected List<Amen> doInBackground(Void... voids) {
+      Log.v(TAG, "doInBackground");
+
+      List<Amen> amens = service.getFeed(0, 20);
+
+      return amens;
+    }
+
+    @Override
+    protected void onPostExecute(List<Amen> result) {
+      Log.v(TAG, "onPostExecute");
+
+      Amen lastAmen = amenListAdapter.getItem(amenListAdapter.getCount() - 1);
+      Amen firstAmen = amenListAdapter.getItem(0);
+      Log.v(TAG, "firstAmen: " + firstAmen.getId() + " name: " + firstAmen.getStatement().getObjekt().getName());
+      Log.v(TAG, "lastAmen: " + lastAmen.getId() + " name: " + lastAmen.getStatement().getObjekt().getName());
+
+      for (Amen amen : result) {
+        Log.v(TAG, "result -> amen: " + amen.getId() + " name: " + amen.getStatement().getObjekt().getName());
+        if (firstAmen.equals(amen)) {
+
+          break;
+        } else {
+          Log.v(TAG, "Adding amen: " + amen.getId() + " name: " + amen.getStatement().getObjekt().getName());
+          amenListAdapter.insert(amen, 0);
+          amenListAdapter.notifyDataSetChanged();
+        }
+
+      }
+      // Call onRefreshComplete when the list has been refreshed.
+      ((PullToRefreshListView) getListView()).onRefreshComplete();
+      super.onPostExecute(result);
+    }
+  }
 }
 
