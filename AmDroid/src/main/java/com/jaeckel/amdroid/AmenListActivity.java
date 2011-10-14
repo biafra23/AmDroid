@@ -28,6 +28,7 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amdroid.widget.PullToRefreshListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AmenListActivity extends ListActivity {
@@ -211,7 +212,7 @@ public class AmenListActivity extends ListActivity {
       case R.id.share_item: {
         Log.d(TAG, "R.id.share_item");
         String amenText = amen.getStatement().toDisplayString();
-          
+
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + amen.getStatement().getId());
@@ -343,34 +344,61 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected List<Amen> doInBackground(Void... voids) {
       Log.v(TAG, "doInBackground");
+      List<Amen> oldAmens = new ArrayList<Amen>();
 
-      List<Amen> amens = service.getFeed(0, 20);
+      for (int i = 0; i < amenListAdapter.getCount(); i++) {
+        oldAmens.add(amenListAdapter.getItem(i));
+        Log.v(TAG, "amenListAdapter: " + amenListAdapter.getItem(i).getId() + ": " + amenListAdapter.getItem(i).getStatement().toDisplayString());
+      }
 
-      return amens;
+
+      List<Amen> filteredAmens;
+      List<Amen> newAmens = new ArrayList<Amen>();
+
+      final int pageSize = 20;
+      do {
+        List<Amen> amens = service.getFeed(0, pageSize);
+
+        filteredAmens = filterNewAmens(oldAmens, amens);
+        newAmens.addAll(filteredAmens);
+
+      } while (filteredAmens.size() == pageSize);
+
+      return newAmens;
+    }
+
+    private List<Amen> filterNewAmens(List<Amen> oldAmens, List<Amen> amens) {
+
+      ArrayList<Amen> result = new ArrayList<Amen>();
+
+      for (Amen amen : amens) {
+        boolean foundAmen = false;
+        for (Amen oldAmen : oldAmens) {
+          if (amen.getId().equals(oldAmen.getId())) {
+
+            foundAmen = true;
+          }
+        }
+        if (!foundAmen) {
+          Log.v(TAG, "new results -> amen: " + amen.getId() + ": " + amen.getStatement().toDisplayString());
+          result.add(amen);
+        }
+      }
+      return result;
     }
 
     @Override
     protected void onPostExecute(List<Amen> result) {
       Log.v(TAG, "onPostExecute");
+      if (result.size() > 0) {
 
-      Amen lastAmen = amenListAdapter.getItem(amenListAdapter.getCount() - 1);
-      Amen firstAmen = amenListAdapter.getItem(0);
-      Log.v(TAG, "firstAmen: " + firstAmen.getId() + " name: " + firstAmen.getStatement().getObjekt().getName());
-      Log.v(TAG, "lastAmen: " + lastAmen.getId() + " name: " + lastAmen.getStatement().getObjekt().getName());
-
-      for (Amen amen : result) {
-        Log.v(TAG, "result -> amen: " + amen.getId() + " name: " + amen.getStatement().getObjekt().getName());
-        if (firstAmen.equals(amen)) {
-
-          break;
-
-        } else {
-          Log.v(TAG, "Adding amen: " + amen.getId() + " name: " + amen.getStatement().getObjekt().getName());
-          amenListAdapter.insert(amen, 0);
-          amenListAdapter.notifyDataSetChanged();
+        for (int i = result.size() - 1; i >= 0; i--) {
+          Log.v(TAG, "new results -> amen: " + result.get(i).getId() + " name: " + result.get(i).getStatement().getObjekt().getName());
+          amenListAdapter.insert(result.get(i), 0);
         }
-
+        amenListAdapter.notifyDataSetChanged();
       }
+
       // Call onRefreshComplete when the list has been refreshed.
       ((PullToRefreshListView) getListView()).onRefreshComplete();
       super.onPostExecute(result);
