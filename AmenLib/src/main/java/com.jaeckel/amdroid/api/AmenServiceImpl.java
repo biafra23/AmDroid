@@ -83,6 +83,16 @@ public class AmenServiceImpl implements AmenService {
     return this;
   }
 
+  @Override
+  public AmenService init(String authToken, User me) {
+
+    this.serviceUrl = "https://getamen.com/";
+    this.me = me;
+    this.authToken = authToken;
+    return this;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+
   private User authenticate(String authName, String authPassword) {
 
     User user;
@@ -563,6 +573,11 @@ public class AmenServiceImpl implements AmenService {
     }
 
     return result;
+  }
+
+  @Override
+  public String getAuthToken() {
+    return authToken;
   }
 
   public static String addAuthTokenToJSON(Amen amen, String authToken) {

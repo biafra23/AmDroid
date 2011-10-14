@@ -56,10 +56,17 @@ public class RequestFactory {
     nameValuePairs.append("?");
     if (params != null) {
       for (String key : params.keySet()) {
-        nameValuePairs.append("&")
-                      .append(key)
-                      .append("=")
-                      .append(URLEncoder.encode(params.get(key)));
+        final String value = params.get(key);
+        if (value == null) {
+
+          log.error("Value for key " + key + " was null");
+
+        } else {
+          nameValuePairs.append("&")
+                        .append(key)
+                        .append("=")
+                        .append(URLEncoder.encode(value));
+        }
       }
     }
     if (addTimeStamp) {

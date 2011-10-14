@@ -17,6 +17,7 @@ import java.util.List;
 public interface AmenService {
 
   public AmenService init(String username, String password);
+  public AmenService init(String authToken, User me);
 
   public final int AMEN_KIND_STATEMENT = 0;
   public final int AMEN_KIND_AMEN      = 1;
@@ -63,4 +64,6 @@ public interface AmenService {
   public List<User> following(Long id);
 
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon);
+
+  public String getAuthToken();
 }
