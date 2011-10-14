@@ -22,19 +22,23 @@ import java.util.Date;
  */
 public class DateSerializer implements JsonSerializer<Date>, JsonDeserializer<Date>, InstanceCreator<Date> {
 
+  DateTimeFormatter parser = ISODateTimeFormat.dateTimeParser();
+  DateTimeFormatter formatter = ISODateTimeFormat.dateTime();
+
   public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
-    return new JsonPrimitive("2011-10-26T07:30:34Z");
+    DateTime dateTime = new DateTime(src);
+    return new JsonPrimitive(formatter.print(dateTime));
   }
 
   public Date createInstance(Type type) {
     return new Date();
   }
 
-  public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-    String jsonString = json.getAsJsonPrimitive().getAsString();
+  public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+    throws JsonParseException {
 
-    DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
-    DateTime dt = fmt.parseDateTime(jsonString);
+    String jsonString = json.getAsJsonPrimitive().getAsString();
+    DateTime dt = parser.parseDateTime(jsonString);
     return dt.toDate();
 
   }
