@@ -291,28 +291,34 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected List<Amen> doInBackground(Void... voids) {
 
-      List<Amen> amens;
+      List<Amen> amens = new ArrayList<Amen>();
+
       String newAmensJSON = prefs.getString(Constants.PREFS_LAST_NEW_AMENS, null);
+
       String amensJSON = prefs.getString(Constants.PREFS_LAST_AMENS, null);
 
       if (amensJSON != null && !"[]".equals(amensJSON)) {
 
-        Log.v(TAG, "Found amens in prefs: " + amensJSON);
-
         Type collectionType = new TypeToken<List<Amen>>() {
         }.getType();
-        amens = gson.fromJson(amensJSON, collectionType);
+
+        if (newAmensJSON != null && !"[]".equals(newAmensJSON)) {
+          Log.v(TAG, "Found new amens in prefs: " + newAmensJSON);
+          List<Amen> newAmens = gson.fromJson(newAmensJSON, collectionType);
+          amens.addAll(newAmens);
+        }
+        Log.v(TAG, "Found amens in prefs: " + amensJSON);
+
+        final List<Amen> amenList = gson.fromJson(amensJSON, collectionType);
+        amens.addAll(amenList);
+
 
       } else {
-
+        // no cached AMens found. Load from network
         Log.d(TAG, "Loader executing");
         amens = service.getFeed(0, 20);
 
-        SharedPreferences.Editor editor = prefs.edit();
-        amensJSON = gson.toJson(amens);
-        Log.v(TAG, "amensJSON: " + amensJSON);
-        editor.putString(Constants.PREFS_LAST_AMENS, amensJSON);
-        editor.commit();
+        saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS);
 
       }
       return amens;
@@ -386,6 +392,7 @@ public class AmenListActivity extends ListActivity {
                    + amenListAdapter.getItem(i).getStatement().toDisplayString());
       }
 
+      saveAmensToPrefs(oldAmens, Constants.PREFS_LAST_AMENS);
 
       List<Amen> filteredAmens;
       List<Amen> newAmens = new ArrayList<Amen>();
@@ -399,13 +406,10 @@ public class AmenListActivity extends ListActivity {
 
       } while (filteredAmens.size() == pageSize);
 
-      SharedPreferences.Editor editor = prefs.edit();
-      String newAmensJSON = gson.toJson(newAmens);
-      Log.v(TAG, "newAmensJSON: " + newAmensJSON);
-      editor.putString(Constants.PREFS_LAST_NEW_AMENS, newAmensJSON);
-      editor.commit();
+      saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS);
       return newAmens;
     }
+
 
     private List<Amen> filterNewAmens(List<Amen> oldAmens, List<Amen> amens) {
 
@@ -443,6 +447,14 @@ public class AmenListActivity extends ListActivity {
       ((PullToRefreshListView) getListView()).onRefreshComplete();
       super.onPostExecute(result);
     }
+  }
+
+  private void saveAmensToPrefs(List<Amen> newAmens, String prefsKey) {
+    SharedPreferences.Editor editor = prefs.edit();
+    String newAmensJSON = gson.toJson(newAmens);
+    Log.v(TAG, "prefsKey: " + prefsKey + ": " + newAmensJSON);
+    editor.putString(prefsKey, newAmensJSON);
+    editor.commit();
   }
 
 }

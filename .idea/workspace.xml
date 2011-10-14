@@ -9,15 +9,15 @@
     <option name="theme" value="Theme" />
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="amensJSON" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Found amens in prefs" />
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" line="220" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="fixed pull to refresh">
+    <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/DateSerializer.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/DateSerializer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -195,7 +195,7 @@
       <file leaf-file-name="AmenListActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="297" column="0" selection-start="9160" selection-end="9433" vertical-scroll-proportion="0.20088626">
+            <state line="309" column="57" selection-start="9638" selection-end="9638" vertical-scroll-proportion="0.5096012">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#onCreate#0;class#AmenListActivity#0" expanded="true" />
@@ -1752,7 +1752,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="caching amens in prefs." />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Fixing&quot; date serializer" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1765,7 +1765,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="almost there...&#10;" />
     <MESSAGE value="sometimes it works :-)" />
     <MESSAGE value="with scope" />
     <MESSAGE value="objekt, topic and scope selection almost done" />
@@ -1790,6 +1789,7 @@
     <MESSAGE value="fixed pull to refresh" />
     <MESSAGE value="new version" />
     <MESSAGE value="caching amens in prefs." />
+    <MESSAGE value="&quot;Fixing&quot; date serializer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1906,7 +1906,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="297" column="0" selection-start="9160" selection-end="9433" vertical-scroll-proportion="0.20088626">
+        <state line="309" column="57" selection-start="9638" selection-end="9638" vertical-scroll-proportion="0.5096012">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#onCreate#0;class#AmenListActivity#0" expanded="true" />
