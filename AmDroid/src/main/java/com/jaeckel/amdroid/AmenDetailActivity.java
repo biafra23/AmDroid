@@ -1,38 +1,44 @@
 package com.jaeckel.amdroid;
 
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * User: biafra
  * Date: 9/25/11
  * Time: 10:27 AM
  */
-public class AmenDetailActivity extends Activity {
-  private AmenService service;
+public class AmenDetailActivity extends ListActivity {
+
   private static final String TAG = "amdroid/AmenDetailActivity";
-  private Amen     currentAmen;
-  private Topic    topicWithRankedStatements;
-  private TextView statementView;
-  private TextView userView;
-  private TextView amenCount;
-  private TextView agreeingNetwork;
-  private Button   amenTakeBackButton;
-  private Button   hellNoButton;
+  private Amen             currentAmen;
+  private Topic            topicWithRankedStatements;
+  private TextView         statementView;
+  private TextView         userView;
+  private TextView         amenCount;
+  private Button           amenTakeBackButton;
+  private Button           hellNoButton;
+  private UserListAdapter  adapter;
+  private ThumbnailAdapter thumbs;
+  private AmenService      service;
+  private static final int[] IMAGE_IDS = {R.id.user_image};
 
 
   public void onCreate(Bundle savedInstanceState) {
@@ -43,10 +49,21 @@ public class AmenDetailActivity extends Activity {
     service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.details);
-    
+
+    ListView list = (ListView) findViewById(android.R.id.list);
+    View header =  getLayoutInflater().inflate(R.layout.details_header, null, false);
+    list.addHeaderView(header);
+
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
+    final List<User> users = currentAmen.getStatement().getAgreeingNetwork();
+//    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
+    thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+    setListAdapter(thumbs);
 
+
+
+    
   }
 
   public void onResume() {
@@ -54,7 +71,6 @@ public class AmenDetailActivity extends Activity {
     statementView = (TextView) findViewById(R.id.statement);
     userView = (TextView) findViewById(R.id.user);
     amenCount = (TextView) findViewById(R.id.amen_count);
-    agreeingNetwork = (TextView) findViewById(R.id.agreeing_network);
     amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
     hellNoButton = (Button) findViewById(R.id.hell_no);
 
@@ -78,7 +94,6 @@ public class AmenDetailActivity extends Activity {
     for (User user : currentAmen.getStatement().getAgreeingNetwork()) {
       agreeing.append(user.getName() + ", ");
     }
-    agreeingNetwork.setText(agreeing.toString().replace(", $", ""));
     if (amened(currentAmen)) {
       amenTakeBackButton.setText("Take Back");
     } else {
