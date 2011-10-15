@@ -31,6 +31,7 @@
         <activity android:name=".statement.ChooseObjektActivity"/>
         <activity android:name=".statement.ChooseScopeActivity"/>
         <activity android:name=".statement.ChooseTopicActivity"/>
+        <activity android:name=".UserDetailActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

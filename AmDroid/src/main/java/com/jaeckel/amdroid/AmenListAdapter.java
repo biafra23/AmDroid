@@ -30,12 +30,6 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 //    setNotifyOnChange(true);
   }
 
-//  public AmenListAdapter(Context context, int resource, int textViewResourceId, List<Amen> objects) {
-//    super(context, resource, textViewResourceId, objects);
-//    inflater = LayoutInflater.from(context);
-//    setNotifyOnChange(true);
-//  }
-
   @Override
   public View getView(final int position, View convertView, ViewGroup parent) {
     View row = convertView;

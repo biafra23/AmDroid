@@ -12,6 +12,10 @@
     <color name="orange">#ffD08000</color>
     <color name="blue">#ff0080D0</color>
     <color name="green">#ffC0D000</color>
+    <color name="grey">#818181</color>
+    <color name="light_grey">#b1b1b1</color>
+    <color name="dark_grey">#515151</color>
+
 
     <!-- Pull to refresh -->
     <string name="pull_to_refresh_pull_label">Pull to refresh...</string>
