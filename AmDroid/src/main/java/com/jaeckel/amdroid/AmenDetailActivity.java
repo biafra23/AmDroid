@@ -46,7 +46,7 @@ public class AmenDetailActivity extends Activity {
     
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
-  
+
   }
 
   public void onResume() {
@@ -127,7 +127,7 @@ public class AmenDetailActivity extends Activity {
   }
 
   private String format(Date firstPostedAt) {
-    SimpleDateFormat fmt = new SimpleDateFormat("dd, MMMMM yyyy");
+    SimpleDateFormat fmt = new SimpleDateFormat("dd, MMMMM yyyy - HH:mm");
 
     return fmt.format(firstPostedAt);
   }
