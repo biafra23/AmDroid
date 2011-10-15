@@ -141,7 +141,7 @@ public class AmenDetailActivity extends ListActivity {
     return false;
   }
 
-  private String format(Date firstPostedAt) {
+  public static String format(Date firstPostedAt) {
     SimpleDateFormat fmt = new SimpleDateFormat("dd, MMMMM yyyy - HH:mm");
 
     return fmt.format(firstPostedAt);

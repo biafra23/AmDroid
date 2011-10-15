@@ -4,22 +4,38 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="wrap_content"
-                  android:layout_height="fill_parent"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
                   android:orientation="vertical"
 
             >
 
+        <TextView android:id="@+id/date"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="15. October 2011 - 10:31"
+                  android:textSize="15dp"
+                  android:layout_weight="1"
+                  android:paddingBottom="3dp"
+                />
 
         <TextView android:id="@+id/statement"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
                   android:textSize="20dp"
                   android:layout_weight="1"
                   android:paddingBottom="3dp"
                 />
 
+        <TextView android:id="@+id/amen_count"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="10 Amen"
+                  android:textSize="15dp"
+                  android:layout_weight="1"
+                  android:paddingBottom="3dp"
+                />
 
     </LinearLayout>
 </LinearLayout>

@@ -51,9 +51,9 @@ public class UserDetailActivity extends ListActivity {
 
     setListAdapter(adapter);
 
-    TextView userName = (TextView)findViewById(R.id.name);
+    TextView userName = (TextView) findViewById(R.id.name);
     userName.setText(currentUser.getName());
-    
+
     TextView follow = (TextView) findViewById(R.id.follow);
     if (currentUser.getFollowing() != null && currentUser.getFollowing()) {
       follow.setBackgroundColor(Color.CYAN);
@@ -62,16 +62,26 @@ public class UserDetailActivity extends ListActivity {
       follow.setBackgroundColor(Color.GRAY);
     }
 
-    TextView followers =  (TextView)findViewById(R.id.followers);
+    TextView followers = (TextView) findViewById(R.id.followers);
     followers.setText(currentUser.getFollowersCount() + " Followers");
-    
-    TextView following =  (TextView)findViewById(R.id.following);
+
+    TextView following = (TextView) findViewById(R.id.following);
     following.setText(currentUser.getFollowingCount() + " Following");
 
 
   }
 
+  @Override
+  protected void onListItemClick(ListView l, View v, int position, long id) {
 
+    Amen amen = (Amen) getListAdapter().getItem(position - 1);
+
+    Log.d(TAG, "Selected Amen: " + amen);
+
+    Intent intent = new Intent(this, AmenDetailActivity.class);
+    intent.putExtra(Constants.EXTRA_AMEN, amen);
+    startActivity(intent);
+  }
 
 
 }
