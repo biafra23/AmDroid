@@ -21,7 +21,7 @@
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
                   android:padding="3dp"
-                  android:background="@drawable/rounded_edges_orange"
+                  android:background="@drawable/scale_bar"
             >
         <TextView
                 android:id="@+id/amen_count"

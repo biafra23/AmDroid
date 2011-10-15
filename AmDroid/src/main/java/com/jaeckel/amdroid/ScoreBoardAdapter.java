@@ -48,6 +48,7 @@ public class ScoreBoardAdapter extends ArrayAdapter<RankedStatements> {
     countView.setText(statement.getStatement().getTotalAmenCount() + " Amen");
 
     LinearLayout bar = (LinearLayout) row.findViewById(R.id.bar);
+//    Drawable scaleBar =
 //    bar.setBackgroundDrawable();
 
     return row;

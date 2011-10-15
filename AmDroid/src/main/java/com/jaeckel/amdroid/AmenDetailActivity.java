@@ -57,9 +57,6 @@ public class AmenDetailActivity extends ListActivity {
     list.addHeaderView(header);
 
 
-
-
-
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
     if (currentAmen == null) {
