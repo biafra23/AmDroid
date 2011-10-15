@@ -52,18 +52,18 @@ public class UserDetailActivity extends ListActivity {
 
     new UserInfoTask().execute(currentUser.getId());
 
-
     TextView userName = (TextView) findViewById(R.id.name);
     userName.setText(currentUser.getName());
     final TextView follow = (TextView) findViewById(R.id.follow);
 
+    follow.setText("Following?");
     follow.setBackgroundColor(Color.GRAY);
 
     TextView followers = (TextView) findViewById(R.id.followers);
-    followers.setText("0 Followers");
+    followers.setText("? Followers");
 
     TextView following = (TextView) findViewById(R.id.following);
-    following.setText("0 Following");
+    following.setText("? Following");
 
     adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);

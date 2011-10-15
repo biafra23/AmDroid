@@ -2,14 +2,18 @@ package com.jaeckel.amdroid;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
+import com.jaeckel.amdroid.api.model.RankedStatements;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
+
+import java.util.ArrayList;
 
 /**
  * User: biafra
@@ -44,10 +48,9 @@ public class ScoreBoardActivity extends ListActivity {
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
 
-    // update neccessary?
-    currentTopic = service.getTopicsForId(currentTopic.getId(), null);
+    new TopicStatementsTask().execute(currentTopic.getId());
 
-    adapter = new ScoreBoardAdapter(this, android.R.layout.simple_list_item_1, currentTopic.getRankedStatements());
+    adapter = new ScoreBoardAdapter(this, android.R.layout.simple_list_item_1, new ArrayList<RankedStatements>());
 
     setListAdapter(adapter);
 
@@ -60,7 +63,7 @@ public class ScoreBoardActivity extends ListActivity {
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    
+
 //    RankedStatements statement = (RankedStatements) getListAdapter().getItem(position - 1);
 //
 //    Log.d(TAG, "Selected Statement: " + statement);
@@ -70,4 +73,23 @@ public class ScoreBoardActivity extends ListActivity {
 //    intent.putExtra(Constants.EXTRA_STATEMENT, statement.getStatement());
 //    startActivity(intent);
   }
+
+  //
+  // TopicStatementsTask
+  //
+  private class TopicStatementsTask extends AsyncTask<Long, Integer, Topic> {
+
+    protected Topic doInBackground(Long... topicId) {
+      return service.getTopicsForId(currentTopic.getId(), null);
+    }
+
+    protected void onPostExecute(final Topic topic) {
+
+      adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
+      setListAdapter(adapter);
+
+    }
+  }
+
+
 }
