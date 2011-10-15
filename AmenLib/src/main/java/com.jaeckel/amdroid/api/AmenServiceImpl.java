@@ -66,15 +66,14 @@ public class AmenServiceImpl implements AmenService {
   public AmenServiceImpl() {
     HttpParams params = new BasicHttpParams();
     params.setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
-    params.setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.1.2 Android");
+    params.setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
 
     final SchemeRegistry schemeRegistry = new SchemeRegistry();
     Scheme scheme = new Scheme("https",  SSLSocketFactory.getSocketFactory(), 443);
     schemeRegistry.register(scheme);
 
     httpclient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
-    httpclient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
-    httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amen./1.0 HttpClient/4.1.2 Android");
+
   }
 
   private Gson gson = new GsonBuilder()
