@@ -20,7 +20,9 @@ public class Objekt implements Parcelable {
   private String       category;
   private String       defaultDescription;
   private List<String> possibleDescriptions;
+  private List<String> possibleScopes;
   private String       defaultScope;
+
 
   public Objekt() {
 
@@ -41,6 +43,7 @@ public class Objekt implements Parcelable {
            ", category='" + category + '\'' +
            ", defaultDescription='" + defaultDescription + '\'' +
            ", possibleDescriptions=" + possibleDescriptions +
+           ", possibleScopes=" + possibleScopes +
            ", defaultScope='" + defaultScope + '\'' +
            '}';
   }
@@ -107,38 +110,6 @@ public class Objekt implements Parcelable {
     this.possibleDescriptions = possibleDescriptions;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    Objekt objekt = (Objekt) o;
-
-    if (category != null ? !category.equals(objekt.category) : objekt.category != null) return false;
-    if (defaultDescription != null ? !defaultDescription.equals(objekt.defaultDescription) : objekt.defaultDescription != null)
-      return false;
-    if (defaultScope != null ? !defaultScope.equals(objekt.defaultScope) : objekt.defaultScope != null) return false;
-    if (key != null ? !key.equals(objekt.key) : objekt.key != null) return false;
-    if (kindId != null ? !kindId.equals(objekt.kindId) : objekt.kindId != null) return false;
-    if (name != null ? !name.equals(objekt.name) : objekt.name != null) return false;
-    if (possibleDescriptions != null ? !possibleDescriptions.equals(objekt.possibleDescriptions) : objekt.possibleDescriptions != null)
-      return false;
-
-    return true;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = kindId != null ? kindId.hashCode() : 0;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
-    result = 31 * result + (key != null ? key.hashCode() : 0);
-    result = 31 * result + (category != null ? category.hashCode() : 0);
-    result = 31 * result + (defaultDescription != null ? defaultDescription.hashCode() : 0);
-    result = 31 * result + (possibleDescriptions != null ? possibleDescriptions.hashCode() : 0);
-    result = 31 * result + (defaultScope != null ? defaultScope.hashCode() : 0);
-    return result;
-  }
-
 
   /*
   *
@@ -175,6 +146,7 @@ public class Objekt implements Parcelable {
     dest.writeString(category);
     dest.writeString(defaultDescription);
     dest.writeList(possibleDescriptions);
+    dest.writeList(possibleScopes);
     dest.writeString(defaultScope);
   }
 
@@ -187,6 +159,50 @@ public class Objekt implements Parcelable {
     category = in.readString();
     defaultDescription = in.readString();
     possibleDescriptions = in.readArrayList(cl);
+    possibleScopes = in.readArrayList(cl);
     defaultScope = in.readString();
+  }
+
+  public List<String> getPossibleScopes() {
+    return possibleScopes;
+  }
+
+  public void setPossibleScopes(List<String> possibleScopes) {
+    this.possibleScopes = possibleScopes;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Objekt objekt = (Objekt) o;
+
+    if (category != null ? !category.equals(objekt.category) : objekt.category != null) return false;
+    if (defaultDescription != null ? !defaultDescription.equals(objekt.defaultDescription) : objekt.defaultDescription != null)
+      return false;
+    if (defaultScope != null ? !defaultScope.equals(objekt.defaultScope) : objekt.defaultScope != null) return false;
+    if (key != null ? !key.equals(objekt.key) : objekt.key != null) return false;
+    if (kindId != null ? !kindId.equals(objekt.kindId) : objekt.kindId != null) return false;
+    if (name != null ? !name.equals(objekt.name) : objekt.name != null) return false;
+    if (possibleDescriptions != null ? !possibleDescriptions.equals(objekt.possibleDescriptions) : objekt.possibleDescriptions != null)
+      return false;
+    if (possibleScopes != null ? !possibleScopes.equals(objekt.possibleScopes) : objekt.possibleScopes != null)
+      return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = kindId != null ? kindId.hashCode() : 0;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (key != null ? key.hashCode() : 0);
+    result = 31 * result + (category != null ? category.hashCode() : 0);
+    result = 31 * result + (defaultDescription != null ? defaultDescription.hashCode() : 0);
+    result = 31 * result + (possibleDescriptions != null ? possibleDescriptions.hashCode() : 0);
+    result = 31 * result + (possibleScopes != null ? possibleScopes.hashCode() : 0);
+    result = 31 * result + (defaultScope != null ? defaultScope.hashCode() : 0);
+    return result;
   }
 }

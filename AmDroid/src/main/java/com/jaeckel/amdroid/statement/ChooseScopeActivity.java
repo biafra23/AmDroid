@@ -41,13 +41,14 @@ public class ChooseScopeActivity extends ListActivity {
   private Objekt       currentObjekt;
   private int          currentObjektKind;
   private AmenService  service;
-  private EditText scopeEditText;
+  private EditText     scopeEditText;
   private ScopeAdapter adapter;
   private Drawable     backgroundDrawable;
   private List<Topic>  topics;
   public  Boolean      currentTopicBest;
   public  String       currentTopicScope;
   public  String       currentTopicDescription;
+  private List<String> possibleScopes;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -62,26 +63,34 @@ public class ChooseScopeActivity extends ListActivity {
     currentTopicScope = currentTopic.getScope();
     currentTopicDescription = currentTopic.getDescription();
 
+    possibleScopes = currentObjekt.getPossibleScopes();
+
     setContentView(R.layout.choose_scope);
 
     scopeEditText = (EditText) findViewById(R.id.scope);
     scopeEditText.setText(currentTopic.getScope());
     scopeEditText.addTextChangedListener(new TextWatcher() {
 
-      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+      public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
+
+      public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+      }
 
       public void afterTextChanged(Editable editable) {
         Log.d(TAG, "afterTextChanged()");
         topics = new ArrayList<Topic>();
-        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
-        topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
-        topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
-        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
+        for (String possibleScope : possibleScopes) {
+          topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
+        }
+//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
+//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
+//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
+//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
         if (!scopeInList(editable.toString(), topics)) {
 
           topics.add(0, new Topic(currentTopicDescription, currentTopicBest, editable.toString()));
-        
+
         } else {
 
           Log.d(TAG, "Scope " + editable.toString() + " already in list: " + topics);
@@ -93,11 +102,9 @@ public class ChooseScopeActivity extends ListActivity {
 
     List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
     topics = new ArrayList<Topic>();
-
-    topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
-    topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
-    topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
-    topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
+    for (String possibleScope : possibleScopes) {
+      topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
+    }
     if (!scopeInList(currentTopic.getScope(), topics)) {
       topics.add(0, currentTopic);
     }
