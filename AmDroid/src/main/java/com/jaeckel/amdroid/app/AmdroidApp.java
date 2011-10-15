@@ -52,7 +52,7 @@ public class AmdroidApp extends Application {
 
   private ThumbnailBus                                        bus   = new ThumbnailBus();
   private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
-  private User me;
+  
 
   private Handler handler;
 
@@ -111,7 +111,7 @@ public class AmdroidApp extends Application {
 
       service = new AmenServiceImpl();
       service.init(username, password);
-      me = service.getMe();
+
 
     }
     return service;
@@ -165,9 +165,6 @@ public class AmdroidApp extends Application {
 //      }
 //    };
 
-  public User getMe() {
-    return me;
-  }
 
 
   public Location getLastLocation() {

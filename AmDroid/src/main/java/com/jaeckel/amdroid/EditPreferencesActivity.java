@@ -79,7 +79,7 @@ public class EditPreferencesActivity extends PreferenceActivity {
 
     Log.d(TAG, "onStop");
 
-    if (AmdroidApp.getInstance().getMe() == null) {
+    if (AmdroidApp.getInstance().getService().getMe() == null) {
       Intent restart = new Intent(this, AmenListActivity.class);
 
       startActivity(restart);

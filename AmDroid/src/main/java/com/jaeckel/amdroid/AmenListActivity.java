@@ -93,7 +93,7 @@ public class AmenListActivity extends ListActivity {
       final User me = readMeFromPrefs();
       if (authToken != null && me != null) {
         service = AmdroidApp.getInstance().getService().init(authToken, me);
-        refresh();
+        refreshWithCache();
       } else {
         LoginAsyncTask task = new LoginAsyncTask();
         task.execute();
@@ -116,7 +116,7 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
 
-    refresh();
+    refreshWithCache();
 
   }
 
@@ -136,6 +136,14 @@ public class AmenListActivity extends ListActivity {
 
     if (service != null) {
       LoaderAsyncTask loader = new LoaderAsyncTask();
+      loader.execute();
+    }
+  }
+  private void refreshWithCache() {
+
+
+    if (service != null) {
+      CachedLoaderAsyncTask loader = new CachedLoaderAsyncTask();
       loader.execute();
     }
   }
@@ -283,18 +291,11 @@ public class AmenListActivity extends ListActivity {
     }
   }
 
+  //
+  // CachedLoaderAsyncTask
+  //
+  private class CachedLoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
 
-  private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
-
-    @Override
-    protected void onPreExecute() {
-      loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                                  "Loading Amens. Please wait...", true);
-      if (AmdroidApp.DEVELOPER_MODE) {
-        Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
-      }
-      loadingProgressDialog.show();
-    }
 
     @Override
     protected List<Amen> doInBackground(Void... voids) {
@@ -320,7 +321,6 @@ public class AmenListActivity extends ListActivity {
         final List<Amen> amenList = gson.fromJson(amensJSON, collectionType);
         amens.addAll(amenList);
 
-
       } else {
         // no cached AMens found. Load from network
         Log.d(TAG, "Loader executing");
@@ -330,6 +330,14 @@ public class AmenListActivity extends ListActivity {
 
       }
       return amens;
+    }
+
+    @Override
+    protected void onPreExecute() {
+      loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                                  "Loading Amens. Please wait...", true);
+
+//      loadingProgressDialog.show();
     }
 
     @Override
@@ -343,11 +351,52 @@ public class AmenListActivity extends ListActivity {
       setListAdapter(endless);
 
       loadingProgressDialog.hide();
-      if (AmdroidApp.DEVELOPER_MODE) {
-        Toast.makeText(AmenListActivity.this, "LoaderAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
-      }
+
     }
   }
+
+  //
+  // LoaderAsyncTask
+  //
+  private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
+
+    @Override
+    protected List<Amen> doInBackground(Void... voids) {
+
+      Log.d(TAG, "Loader executing");
+
+      List<Amen> amens = service.getFeed(0, 20);
+
+      saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS);
+
+      return amens;
+    }
+
+    @Override
+    protected void onPreExecute() {
+      loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
+                                                  "Loading Amen from Server...", true);
+//      loadingProgressDialog.show();
+    }
+
+    @Override
+    protected void onPostExecute(List<Amen> amens) {
+
+      amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
+      ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+
+      EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
+
+      setListAdapter(endless);
+
+      loadingProgressDialog.hide();
+
+    }
+  }
+
+  //
+  // LoginAsyncTask
+  //
 
   private class LoginAsyncTask extends AsyncTask<Void, Integer, AmenService> {
 
@@ -460,9 +509,13 @@ public class AmenListActivity extends ListActivity {
     }
   }
 
-  private void saveAmensToPrefs(List<Amen> newAmens, String prefsKey) {
+  private void saveAmensToPrefs(List<Amen> amens, String prefsKey) {
     SharedPreferences.Editor editor = prefs.edit();
-    String newAmensJSON = gson.toJson(newAmens);
+
+//    if (amens.size() < maxSave || maxSave == 0) {
+//      maxSave = amens.size();
+//    }
+    String newAmensJSON = gson.toJson(amens);
     Log.v(TAG, "prefsKey: " + prefsKey + ": " + newAmensJSON);
     editor.putString(prefsKey, newAmensJSON);
     editor.commit();

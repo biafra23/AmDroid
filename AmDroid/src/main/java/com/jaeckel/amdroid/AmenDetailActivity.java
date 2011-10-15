@@ -119,7 +119,7 @@ public class AmenDetailActivity extends Activity {
 
   private boolean amened(Amen currentAmen) {
     for (User u : currentAmen.getStatement().getAgreeingNetwork()) {
-      if (u.getName().equals(AmdroidApp.getInstance().getMe().getName())) {
+      if (u.getName().equals(AmdroidApp.getInstance().getService().getMe().getName())) {
         return true;
       }
     }
