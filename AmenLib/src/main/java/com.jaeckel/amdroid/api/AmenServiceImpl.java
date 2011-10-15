@@ -22,9 +22,15 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.params.ClientPNames;
 import org.apache.http.client.params.CookiePolicy;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.CoreProtocolPNames;
+import org.apache.http.params.HttpParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,7 +61,21 @@ public class AmenServiceImpl implements AmenService {
   private ServerError lastError;
   private String      authToken;
 
-  private HttpClient httpclient = new DefaultHttpClient();
+  private HttpClient httpclient;
+
+  public AmenServiceImpl() {
+    HttpParams params = new BasicHttpParams();
+    params.setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
+    params.setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.1.2 Android");
+
+    final SchemeRegistry schemeRegistry = new SchemeRegistry();
+    Scheme scheme = new Scheme("https",  SSLSocketFactory.getSocketFactory(), 443);
+    schemeRegistry.register(scheme);
+
+    httpclient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
+    httpclient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
+    httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amen./1.0 HttpClient/4.1.2 Android");
+  }
 
   private Gson gson = new GsonBuilder()
     .registerTypeAdapter(Date.class, new DateSerializer())
@@ -69,11 +89,6 @@ public class AmenServiceImpl implements AmenService {
     this.serviceUrl = "https://getamen.com/";
     this.authName = authName;
     this.authPassword = authPassword;
-
-    httpclient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
-    httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amen./1.0 HttpClient/4.1.2 Android");
-
-//    this.httpclient = WebClientDevWrapper.wrapClient(httpclient);
 
     User result = authenticate(authName, authPassword);
     if (result == null) {
