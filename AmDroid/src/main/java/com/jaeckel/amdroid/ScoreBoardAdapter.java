@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.model.RankedStatements;
 
@@ -46,6 +47,8 @@ public class ScoreBoardAdapter extends ArrayAdapter<RankedStatements> {
     TextView countView = (TextView) row.getTag(R.id.amen_count);
     countView.setText(statement.getStatement().getTotalAmenCount() + " Amen");
 
+    LinearLayout bar = (LinearLayout) row.findViewById(R.id.bar);
+//    bar.setBackgroundDrawable();
 
     return row;
   }
