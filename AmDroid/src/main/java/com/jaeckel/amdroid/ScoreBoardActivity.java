@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
-import com.jaeckel.amdroid.api.model.RankedStatements;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
 
