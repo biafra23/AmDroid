@@ -96,10 +96,15 @@ public class UserDetailActivity extends ListActivity {
       return amen;
     }
 
+    @Override
+    protected void onPreExecute() {
+    }
+
     protected void onPostExecute(List<Amen> result) {
 
       adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
       setListAdapter(adapter);
+
     }
   }
 

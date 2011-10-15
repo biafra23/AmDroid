@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
@@ -32,7 +33,8 @@ public class ScoreBoardActivity extends ListActivity {
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
+    
+    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
     Log.d(TAG, "onCreate");
 
@@ -47,6 +49,8 @@ public class ScoreBoardActivity extends ListActivity {
     Intent startingIntent = getIntent();
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
+    
+    Log.d(TAG, "currentTopic: " + currentTopic);
 
     new TopicStatementsTask().execute(currentTopic.getId());
 
@@ -55,7 +59,7 @@ public class ScoreBoardActivity extends ListActivity {
     setListAdapter(adapter);
 
     TextView description = (TextView) findViewById(R.id.description_scope);
-    description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " is");
+    description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
 
   }
 
@@ -81,6 +85,10 @@ public class ScoreBoardActivity extends ListActivity {
 
     protected Topic doInBackground(Long... topicId) {
       return service.getTopicsForId(currentTopic.getId(), null);
+    }
+
+    @Override
+    protected void onPreExecute() {
     }
 
     protected void onPostExecute(final Topic topic) {
