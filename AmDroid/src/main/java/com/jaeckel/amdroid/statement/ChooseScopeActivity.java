@@ -102,8 +102,18 @@ public class ChooseScopeActivity extends ListActivity {
 
     List<String> topicDescriptions = currentObjekt.getPossibleDescriptions();
     topics = new ArrayList<Topic>();
-    for (String possibleScope : possibleScopes) {
-      topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
+    if (possibleScopes != null && possibleScopes.size() > 0) {
+
+      for (String possibleScope : possibleScopes) {
+        topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
+      }
+      
+    } else {
+
+      topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
+      topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
+      topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
+      topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
     }
     if (!scopeInList(currentTopic.getScope(), topics)) {
       topics.add(0, currentTopic);
