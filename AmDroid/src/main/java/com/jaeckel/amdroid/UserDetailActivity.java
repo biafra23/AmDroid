@@ -72,13 +72,16 @@ public class UserDetailActivity extends ListActivity {
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    Amen amen = (Amen) getListAdapter().getItem(position - 1);
+    Log.d(TAG, "Selected position: " + position);
+    if (position > 0) {
+      Amen amen = (Amen) getListAdapter().getItem(position - 1);
 
-    Log.d(TAG, "Selected Amen: " + amen);
+      Log.d(TAG, "Selected Amen: " + amen);
 
-    Intent intent = new Intent(this, AmenDetailActivity.class);
-    intent.putExtra(Constants.EXTRA_AMEN, amen);
-    startActivity(intent);
+      Intent intent = new Intent(this, AmenDetailActivity.class);
+      intent.putExtra(Constants.EXTRA_AMEN, amen);
+      startActivity(intent);
+    }
   }
 
   //

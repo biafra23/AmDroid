@@ -195,13 +195,16 @@ public class AmenListActivity extends ListActivity {
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    Amen amen = (Amen) getListAdapter().getItem(position - 1);
+    if (position > 0) {
 
-    Log.d(TAG, "Selected Amen: " + amen);
+      Amen amen = (Amen) getListAdapter().getItem(position - 1);
 
-    Intent intent = new Intent(this, AmenDetailActivity.class);
-    intent.putExtra(Constants.EXTRA_AMEN, amen);
-    startActivity(intent);
+      Log.d(TAG, "Selected Amen: " + amen);
+
+      Intent intent = new Intent(this, AmenDetailActivity.class);
+      intent.putExtra(Constants.EXTRA_AMEN, amen);
+      startActivity(intent);
+    }
   }
 
 
