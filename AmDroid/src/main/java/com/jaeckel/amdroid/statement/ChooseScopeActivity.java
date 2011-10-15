@@ -80,13 +80,18 @@ public class ChooseScopeActivity extends ListActivity {
       public void afterTextChanged(Editable editable) {
         Log.d(TAG, "afterTextChanged()");
         topics = new ArrayList<Topic>();
-        for (String possibleScope : possibleScopes) {
-          topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
+        if (possibleScopes != null && possibleScopes.size() > 0) {
+
+          for (String possibleScope : possibleScopes) {
+            topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
+          }
+
+        } else {
+          topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
+          topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
+          topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
+          topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
         }
-//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));
-//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "So far"));
-//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "This Year"));
-//        topics.add(new Topic(currentTopicDescription, currentTopicBest, "Today"));
         if (!scopeInList(editable.toString(), topics)) {
 
           topics.add(0, new Topic(currentTopicDescription, currentTopicBest, editable.toString()));
@@ -107,7 +112,7 @@ public class ChooseScopeActivity extends ListActivity {
       for (String possibleScope : possibleScopes) {
         topics.add(new Topic(currentTopicDescription, currentTopicBest, possibleScope));
       }
-      
+
     } else {
 
       topics.add(new Topic(currentTopicDescription, currentTopicBest, "Ever"));

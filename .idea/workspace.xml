@@ -12,7 +12,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" line="220" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="use possible scopes for places">
+    <list default="true" id="9a898cfd-bdef-4a8d-9e9e-fb00ff388c61" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java" />
     </list>
@@ -268,7 +268,7 @@
       <file leaf-file-name="ChooseScopeActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="6" selection-start="4001" selection-end="4001" vertical-scroll-proportion="0.42231077">
+            <state line="88" column="0" selection-start="2979" selection-end="2979" vertical-scroll-proportion="0.6441718">
               <folding />
             </state>
           </provider>
@@ -1819,7 +1819,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="use possible scopes for places" />
+    <option name="LAST_COMMIT_MESSAGE" value="possible scopes fix for default amen" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1832,7 +1832,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="add custom topic anyway" />
     <MESSAGE value="do not log the password anymore" />
     <MESSAGE value="amen places done" />
     <MESSAGE value="broken layout fixed in place statements" />
@@ -1857,6 +1856,7 @@
     <MESSAGE value="user detail leads to amen detail. User details still incomplete" />
     <MESSAGE value="follow and unfollow" />
     <MESSAGE value="use possible scopes for places" />
+    <MESSAGE value="possible scopes fix for default amen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1985,7 +1985,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseScopeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="6" selection-start="4001" selection-end="4001" vertical-scroll-proportion="0.42231077">
+        <state line="88" column="0" selection-start="2979" selection-end="2979" vertical-scroll-proportion="0.6441718">
           <folding />
         </state>
       </provider>
