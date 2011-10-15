@@ -8,6 +8,7 @@
     <string name="amen_item">Amen this</string>
     <string name="dispute_item">Dispute this</string>
     <string name="share_item">Share this</string>
+    <string name="scoreboard_for_item">Scoreboard</string>
 
     <color name="orange">#ffD08000</color>
     <color name="blue">#ff0080D0</color>

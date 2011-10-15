@@ -139,6 +139,7 @@ public class AmenListActivity extends ListActivity {
       loader.execute();
     }
   }
+
   private void refreshWithCache() {
 
 
@@ -248,6 +249,15 @@ public class AmenListActivity extends ListActivity {
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + amen.getStatement().getId());
         startActivity(Intent.createChooser(sharingIntent, "Share using"));
 
+
+        return true;
+      }
+      case R.id.scoreboard_for_item: {
+        Log.d(TAG, "R.id.scoreboard_for_item");
+
+        Intent intent = new Intent(this, ScoreBoardActivity.class);
+        intent.putExtra(Constants.EXTRA_TOPIC, amen.getStatement().getTopic());
+        startActivity(intent);
 
         return true;
       }

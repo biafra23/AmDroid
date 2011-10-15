@@ -32,6 +32,7 @@
         <activity android:name=".statement.ChooseScopeActivity"/>
         <activity android:name=".statement.ChooseTopicActivity"/>
         <activity android:name=".UserDetailActivity"/>
+        <activity android:name=".ScoreBoardActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

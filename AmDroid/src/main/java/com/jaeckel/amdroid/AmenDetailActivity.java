@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
+import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
@@ -29,6 +30,7 @@ public class AmenDetailActivity extends ListActivity {
 
   private static final String TAG = "amdroid/AmenDetailActivity";
   private Amen             currentAmen;
+  private Statement        currentStatement;
   private Topic            topicWithRankedStatements;
   private TextView         statementView;
   private TextView         userView;
@@ -51,19 +53,24 @@ public class AmenDetailActivity extends ListActivity {
     setContentView(R.layout.details);
 
     ListView list = (ListView) findViewById(android.R.id.list);
-    View header =  getLayoutInflater().inflate(R.layout.details_header, null, false);
+    View header = getLayoutInflater().inflate(R.layout.details_header, null, false);
     list.addHeaderView(header);
 
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
-    final List<User> users = currentAmen.getStatement().getAgreeingNetwork();
+    if (currentAmen == null) {
+      currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
+    } else {
+      currentStatement = currentAmen.getStatement();
+    }
+
+
+    final List<User> users = currentStatement.getAgreeingNetwork();
 //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
     thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
     setListAdapter(thumbs);
 
 
-
-    
   }
 
   public void onResume() {

@@ -18,4 +18,5 @@ public class Constants {
   public static final String PREFS_AUTH_TOKEN     = "auth_token";
   public static final String PREFS_ME             = "me";
   public static final String EXTRA_USER           = "user";
+  public static final String EXTRA_STATEMENT      = "statement";
 }

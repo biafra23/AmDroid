@@ -55,9 +55,9 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
     user.setText(from);
 
-    TextView statement = (TextView) row.getTag(R.id.statement);
+    TextView statementView = (TextView) row.getTag(R.id.statement);
 
-    statement.setText(styleAmenWithColor(amen, getContext()));
+    statementView.setText(styleAmenWithColor(amen, getContext()));
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
@@ -74,8 +74,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     return row;
   }
 
-  public static CharSequence styleAmenWithColor(Amen amen, Context context) {
-    Statement stmt = amen.getStatement();
+  public static CharSequence styleAmenWithColor(Statement stmt, boolean isDispute, String disputingName, Context context) {
 
     StyleableSpannableStringBuilder statementBuilder = new StyleableSpannableStringBuilder(context);
 
@@ -123,15 +122,23 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         .appendGreen(stmt.getTopic().getScope());
     }
 
-    if (amen.isDispute()) {
+    if (isDispute) {
 
       statementBuilder.appendGray(" not ")
-                      .appendGray(amen.getReferringAmen().getStatement().getObjekt().getName());
+                      .appendGray(disputingName);
 
     }
 
-
     return statementBuilder;
+  }
+
+  public static CharSequence styleAmenWithColor(Amen amen, Context context) {
+
+    Statement stmt = amen.getStatement();
+    boolean isDispute = amen.isDispute();
+    String disputingName = amen.getReferringAmen().getStatement().getObjekt().getName();
+
+    return styleAmenWithColor(stmt, isDispute, disputingName, context);
   }
 
 

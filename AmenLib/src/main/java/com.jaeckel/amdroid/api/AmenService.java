@@ -57,7 +57,7 @@ public interface AmenService {
 
   public Amen getAmenForId(Long id);
 
-  public Topic getTopicsForId(Long id);
+  public Topic getTopicsForId(Long id, Long includeStatementId);
 
   public List<User> followers(Long id);
 

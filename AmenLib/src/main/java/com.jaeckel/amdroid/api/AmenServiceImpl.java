@@ -410,11 +410,15 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Topic getTopicsForId(Long id) {
+  public Topic getTopicsForId(Long id, Long includeStatementId) {
 
     log.debug("getTopicsForId");
     Topic topic;
     HashMap<String, String> params = createAuthenticatedParams();
+    if (includeStatementId != null) {
+      params.put("include_statement_id", "" + includeStatementId);
+    }
+
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", params);
 
     try {
