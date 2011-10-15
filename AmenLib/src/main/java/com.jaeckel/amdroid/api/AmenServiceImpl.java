@@ -38,6 +38,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * User: biafra
@@ -139,6 +140,7 @@ public class AmenServiceImpl implements AmenService {
   public List<Amen> getFeed(long sinceId, int limit) {
     return getFeed(0, sinceId, limit);
   }
+
   public List<Amen> getFeed(long beforeId, long sinceId, int limit) {
     log.debug("getFeed");
     ArrayList<Amen> result = new ArrayList<Amen>();
@@ -178,14 +180,64 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public boolean follow(User u) {
     log.debug("follow");
+    boolean result = false;
+    log.debug("User(" + u + ")");
 
-    return false;  //To change body of implemented methods use File | Settings | File Templates.
+    String json = "{\"user_id\":" + u.getId() + ",\"kind_id\":1, \"auth_token\":\"" + authToken + "\"}";
+
+
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "follows.json", json);
+    try {
+      HttpResponse response = httpclient.execute(httpPost);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("follow produced error: " + responseString);
+      }
+
+      if (" ".equals(responseString)) {
+        result = true;
+      }
+
+
+    } catch (IOException e) {
+
+      throw new RuntimeException("Amening failed", e);
+
+    }
+    return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   @Override
   public boolean unfollow(User u) {
+
     log.debug("unfollow");
-    return false;  //To change body of implemented methods use File | Settings | File Templates.
+    boolean result = false;
+
+    Map<String, String> params = createAuthenticatedParams();
+
+    HttpUriRequest httpDelete = RequestFactory.createDELETERequest(serviceUrl + "follows/" + u.getId() + ".json", params);
+
+
+    log.trace("httpDelete: " + httpDelete);
+
+    try {
+
+      HttpResponse response = httpclient.execute(httpDelete);
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      if (" ".equals(responseString)) {
+        result = true;
+      }
+
+    } catch (IOException e) {
+      throw new RuntimeException("takeBack  failed", e);
+    }
+
+    return result;
   }
 
   @Override

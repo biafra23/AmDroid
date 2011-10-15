@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.User;
+import com.jaeckel.amdroid.api.model.UserInfo;
 import com.jaeckel.amdroid.app.AmdroidApp;
 
 import java.util.List;
@@ -44,6 +45,9 @@ public class UserDetailActivity extends ListActivity {
     Intent startingIntent = getIntent();
 
     currentUser = startingIntent.getParcelableExtra(Constants.EXTRA_USER);
+    final UserInfo userInfo = service.getUserInfo(currentUser.getId());
+
+    Log.d(TAG, "======> currentUser: " + currentUser);
 
     List<Amen> amen = service.getAmenForUser(currentUser.getId());
 
@@ -52,21 +56,34 @@ public class UserDetailActivity extends ListActivity {
     setListAdapter(adapter);
 
     TextView userName = (TextView) findViewById(R.id.name);
-    userName.setText(currentUser.getName());
+    userName.setText(userInfo.getName());
 
-    TextView follow = (TextView) findViewById(R.id.follow);
-    if (currentUser.getFollowing() != null && currentUser.getFollowing()) {
+    final TextView follow = (TextView) findViewById(R.id.follow);
+
+    if (userInfo.getFollowing() != null && userInfo.getFollowing()) {
       follow.setBackgroundColor(Color.CYAN);
       follow.setText("Following");
     } else {
       follow.setBackgroundColor(Color.GRAY);
     }
+    
+    follow.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        if (userInfo.getFollowing()) {
+          service.unfollow(currentUser);
+          follow.setBackgroundColor(Color.GRAY);
+        } else {
+          service.follow(currentUser);
+          follow.setBackgroundColor(Color.CYAN);
+        }
+      }
+    });
 
     TextView followers = (TextView) findViewById(R.id.followers);
-    followers.setText(currentUser.getFollowersCount() + " Followers");
+    followers.setText(userInfo.getFollowersCount() + " Followers");
 
     TextView following = (TextView) findViewById(R.id.following);
-    following.setText(currentUser.getFollowingCount() + " Following");
+    following.setText(userInfo.getFollowingCount() + " Following");
 
 
   }

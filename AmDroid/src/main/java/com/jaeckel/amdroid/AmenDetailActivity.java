@@ -156,8 +156,7 @@ public class AmenDetailActivity extends ListActivity {
 
     User user = (User) getListAdapter().getItem(position - 1);
 
-    Log.d(TAG, "Selected User: " + user);
-
+    Log.d(TAG, "======> Selected User: " + user);
     Intent intent = new Intent(this, UserDetailActivity.class);
     intent.putExtra(Constants.EXTRA_USER, user);
     startActivity(intent);
