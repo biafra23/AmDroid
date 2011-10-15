@@ -56,6 +56,10 @@ public class AmenDetailActivity extends ListActivity {
     View header = getLayoutInflater().inflate(R.layout.details_header, null, false);
     list.addHeaderView(header);
 
+
+
+
+
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
     if (currentAmen == null) {
@@ -64,6 +68,14 @@ public class AmenDetailActivity extends ListActivity {
       currentStatement = currentAmen.getStatement();
     }
 
+    header.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        Intent intent = new Intent(AmenDetailActivity.this, ScoreBoardActivity.class);
+        intent.putExtra(Constants.EXTRA_TOPIC, currentStatement.getTopic());
+        startActivity(intent);
+
+      }
+    });
 
     final List<User> users = currentStatement.getAgreeingNetwork();
 //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);

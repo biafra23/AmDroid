@@ -42,6 +42,7 @@ public class UserDetailActivity extends ListActivity {
     View header = getLayoutInflater().inflate(R.layout.user_header, null, false);
     list.addHeaderView(header);
 
+
     Intent startingIntent = getIntent();
 
     currentUser = startingIntent.getParcelableExtra(Constants.EXTRA_USER);

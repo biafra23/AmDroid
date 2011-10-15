@@ -136,8 +136,10 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     Statement stmt = amen.getStatement();
     boolean isDispute = amen.isDispute();
-    String disputingName = amen.getReferringAmen().getStatement().getObjekt().getName();
-
+    String disputingName = null;
+    if (isDispute) {
+      disputingName = amen.getReferringAmen().getStatement().getObjekt().getName();
+    }
     return styleAmenWithColor(stmt, isDispute, disputingName, context);
   }
 
