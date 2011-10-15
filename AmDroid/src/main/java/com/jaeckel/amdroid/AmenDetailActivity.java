@@ -69,6 +69,7 @@ public class AmenDetailActivity extends ListActivity {
       public void onClick(View view) {
         Intent intent = new Intent(AmenDetailActivity.this, ScoreBoardActivity.class);
         intent.putExtra(Constants.EXTRA_TOPIC, currentStatement.getTopic());
+        intent.putExtra(Constants.EXTRA_OBJEKT_KIND, currentStatement.getObjekt().getKindId());
         startActivity(intent);
 
       }

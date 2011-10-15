@@ -33,7 +33,7 @@ public class ScoreBoardActivity extends ListActivity {
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    
+
     requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
     Log.d(TAG, "onCreate");
@@ -49,7 +49,11 @@ public class ScoreBoardActivity extends ListActivity {
     Intent startingIntent = getIntent();
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
-    
+    int currentObjectKind = startingIntent.getIntExtra(Constants.EXTRA_OBJEKT_KIND, 0);
+    String placeFor = "";
+    if (currentObjectKind == AmenService.OBJEKT_KIND_PLACE) {
+      placeFor = "Place for ";
+    }
     Log.d(TAG, "currentTopic: " + currentTopic);
 
     new TopicStatementsTask().execute(currentTopic.getId());
@@ -59,7 +63,7 @@ public class ScoreBoardActivity extends ListActivity {
     setListAdapter(adapter);
 
     TextView description = (TextView) findViewById(R.id.description_scope);
-    description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
+    description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + placeFor + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
 
   }
 
@@ -92,6 +96,15 @@ public class ScoreBoardActivity extends ListActivity {
     }
 
     protected void onPostExecute(final Topic topic) {
+
+//      if (topic.getRankedStatements() != null
+//          && topic.getRankedStatements().size() > 0
+//          && topic.getRankedStatements().get(0).getStatement().getObjekt().getKindId() == AmenService.OBJEKT_KIND_PLACE
+//        ) {
+//
+//        TextView description = (TextView) findViewById(R.id.description_scope);
+//        description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + " Place for " + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
+//      }
 
       adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
       setListAdapter(adapter);
