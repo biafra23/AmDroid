@@ -453,6 +453,10 @@ public class AmenListActivity extends ListActivity {
     }
   }
 
+  //
+  // GetDataTask
+  //
+
   private class GetDataTask extends AsyncTask<Void, Void, List<Amen>> {
 
     @Override

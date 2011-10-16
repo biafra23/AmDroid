@@ -3,12 +3,14 @@ package com.jaeckel.amdroid;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Statement;
@@ -123,11 +125,13 @@ public class AmenDetailActivity extends ListActivity {
 //        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
 
         if (amened(currentAmen)) {
-          service.takeBack(currentAmen.getStatement().getId());
-          currentAmen = new Amen(service.getStatementForId(currentAmen.getStatement().getId()));
-          Log.d(TAG, "currentAmen: " + currentAmen);
+
+          new TakeBackTask().execute(currentAmen.getStatement().getId());
+
         } else {
-          currentAmen = service.amen(currentAmen.getId());
+
+          new AmenTask().execute(currentAmen.getId());
+          
         }
         populateFormWithAmen(false);
 
@@ -178,4 +182,54 @@ public class AmenDetailActivity extends ListActivity {
     intent.putExtra(Constants.EXTRA_USER, user);
     startActivity(intent);
   }
+
+
+  //
+  // TakeBackTask
+  //
+  private class TakeBackTask extends AsyncTask<Long, Integer, Amen> {
+
+    protected Amen doInBackground(Long... amenId) {
+
+      service.takeBack(amenId[0]);
+      Amen amen = new Amen(service.getStatementForId(amenId[0]));
+
+      return amen;
+    }
+
+    @Override
+    protected void onPreExecute() {
+    }
+
+    protected void onPostExecute(Amen result) {
+
+      currentAmen = result;
+      populateFormWithAmen(false);
+      Toast.makeText(AmenDetailActivity.this, "Taken Back.", Toast.LENGTH_SHORT).show();
+    }
+  }
+
+  //
+  // AmenTask
+  //
+  private class AmenTask extends AsyncTask<Long, Integer, Amen> {
+
+    protected Amen doInBackground(Long... amenId) {
+
+      currentAmen = service.amen(amenId[0]);
+
+      return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+    }
+
+    protected void onPostExecute(Amen result) {
+
+      populateFormWithAmen(false);
+      Toast.makeText(AmenDetailActivity.this, "Amen.", Toast.LENGTH_SHORT).show();
+    }
+  }
+
 }
