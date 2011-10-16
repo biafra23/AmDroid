@@ -7,7 +7,7 @@
           android:title="Refresh"/>
     <item android:id="@+id/preference"
           android:icon="@drawable/ic_menu_settings"
-          android:title="Prefences"/>
+          android:title="Preferences"/>
 
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_menu_connection"
