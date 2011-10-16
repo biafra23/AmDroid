@@ -142,6 +142,7 @@ public class AmdroidApp extends Application {
   }
 
   public SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> getCache() {
+
     return (cache);
   }
 

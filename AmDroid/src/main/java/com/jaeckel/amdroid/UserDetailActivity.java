@@ -3,10 +3,12 @@ package com.jaeckel.amdroid;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
@@ -14,6 +16,9 @@ import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
+import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
+import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +35,7 @@ public class UserDetailActivity extends ListActivity {
   private User        currentUser;
   private AmenService service;
   private AmenAdapter adapter;
-
+  private Drawable    userImage;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -67,6 +72,20 @@ public class UserDetailActivity extends ListActivity {
 
     adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);
+
+    final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
+
+    Log.d(TAG, "userImage status: " + cache.getStatus(currentUser.getPicture()));
+
+    String key = currentUser.getPicture();
+    if (key != null) {
+      key += "?type=normal";
+    }
+    userImage = cache.get(key);
+
+    Log.d(TAG, "userImage: " + userImage);
+
+
   }
 
   @Override
@@ -117,6 +136,18 @@ public class UserDetailActivity extends ListActivity {
 
       final UserInfo userInfo = service.getUserInfo(currentUser.getId());
 
+//      Log.d(TAG, "userInfo: " + userInfo);
+//      Log.d(TAG, "userInfo.getPicture(): " + userInfo.getPicture() + "?type=normal");
+//
+//      final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
+//
+//      Log.d(TAG, "userImage status: " + cache.getStatus(userInfo.getPicture()));
+//
+//      userImage = cache.get(userInfo.getPicture() + "?type=normal");
+//
+//      Log.d(TAG, "userImage: " + userImage);
+
+
       return userInfo;
     }
 
@@ -151,6 +182,8 @@ public class UserDetailActivity extends ListActivity {
       TextView following = (TextView) findViewById(R.id.following);
       following.setText(userInfo.getFollowingCount() + " Following");
 
+      ImageView userImageView = (ImageView) findViewById(R.id.user_image);
+      userImageView.setImageDrawable(userImage);
 
     }
   }
