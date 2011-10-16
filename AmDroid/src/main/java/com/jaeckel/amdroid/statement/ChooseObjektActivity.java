@@ -23,6 +23,7 @@ import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.util.ObjektsForQueryTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import java.util.List;
  * Date: 10/9/11
  * Time: 10:54 PM
  */
-public class ChooseObjektActivity extends ListActivity {
+public class ChooseObjektActivity extends ListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler {
 
   private static final String TAG = "ChooseObjektActivity";
 
@@ -45,6 +46,8 @@ public class ChooseObjektActivity extends ListActivity {
   private Drawable      backgroundDrawable;
   private Double longitude = null;
   private Double latitude  = null;
+
+  private ObjektsForQueryTask queryTask;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -97,32 +100,30 @@ public class ChooseObjektActivity extends ListActivity {
         Log.d(TAG, "afterTextChanged:          editable: " + editable);
         Log.d(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
 
-        List<Objekt> objektsForQuery = service.objektsForQuery(editable.toString(), currentObjektKind, latitude, longitude);
 
-        ArrayList<Objekt> objekts = new ArrayList<Objekt>(objektsForQuery);
-        for (Objekt o : objekts) {
-          Log.d(TAG, "o: " + o);
+        if (queryTask != null) {
+          queryTask.cancel(true);
         }
-        if (!objektInList(editable.toString(), objekts)) {
-          objekts.add(0, new Objekt(editable.toString(), currentObjektKind));
-        }
+        queryTask = new ObjektsForQueryTask(service, ChooseObjektActivity.this);
+        ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(editable.toString(), currentObjektKind, latitude, longitude);
+        queryTask.execute(query);
 
-        adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, objekts);
-        setListAdapter(adapter);
 
       }
     });
 
-//    List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, latitude, longitude);
-    List<Objekt> objekts = service.objektsForQuery(null, currentObjektKind, latitude, longitude);
-    if (!objektInList(currentObjekt.getName(), objekts)) {
-      objekts.add(0, currentObjekt);
-    }
-    for (Objekt o : objekts) {
-      Log.d(TAG, "o: " + o);
-    }
+    final ObjektsForQueryTask queryTask = new ObjektsForQueryTask(service, ChooseObjektActivity.this);
+    ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(null, currentObjektKind, latitude, longitude);
+    queryTask.execute(query);
 
-    adapter = new ObjektAdapter(this, R.layout.list_item_objekt, objekts);
+//    List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, latitude, longitude);
+//    List<Objekt> objekts = service.objektsForQuery(null, currentObjektKind, latitude, longitude);
+//    if (!objektInList(currentObjekt.getName(), objekts)) {
+//      objekts.add(0, currentObjekt);
+//    }
+
+
+    adapter = new ObjektAdapter(this, R.layout.list_item_objekt, new ArrayList<Objekt>());
     setListAdapter(adapter);
 
     getListView().setDivider(null);
@@ -157,6 +158,13 @@ public class ChooseObjektActivity extends ListActivity {
 
     setResult(RESULT_OK, intent);
     finish();
+  }
+
+  public void handleObjektsResult(List<Objekt> result) {
+    
+    adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, result);
+    setListAdapter(adapter);
+
   }
 
 
