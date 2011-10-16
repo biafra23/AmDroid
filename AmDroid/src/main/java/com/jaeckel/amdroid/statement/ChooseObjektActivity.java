@@ -107,6 +107,7 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
       Log.v(TAG, "   longitude: " + longitude);
       Log.v(TAG, "    latitude: " + latitude);
     }
+
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentObjekt.getName());
     objektEditText.addTextChangedListener(new TextWatcher() {

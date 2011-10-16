@@ -32,7 +32,7 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
   protected List<Objekt> doInBackground(ObjektsForQueryTask.ObjektQuery... objektQueries) {
     ObjektsForQueryTask.ObjektQuery oq = objektQueries[0];
 
-    List<Objekt> values = service.objektsForQuery(oq.charSequence, oq.kind, null, null);
+    List<Objekt> values = service.objektsForQuery(oq.charSequence, oq.kind, oq.lat, oq.lon);
 
     if (!isCancelled()) {
       ArrayList<Objekt> objekts = new ArrayList<Objekt>(values);
