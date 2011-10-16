@@ -4,12 +4,14 @@ package com.jaeckel.amdroid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Objekt;
@@ -28,8 +30,8 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
   private static final String TAG = "DisputeActivity";
   private AmenService service;
-  private Objekt newObjektName;
-  private Amen currentAmen;
+  private Objekt      newObjektName;
+  private Amen        currentAmen;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -60,7 +62,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
           newObjektName = new Objekt();
           newObjektName.setName(textView.getText().toString());
         }
-        service.dispute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
+        new DisputeTask().execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
 
         finish();
       }
@@ -81,8 +83,8 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
   public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
     Log.d(TAG, "onItemClick: adapterView: " + adapterView + " view: " + view + ", i: " + i + " l: " + l);
     Log.d(TAG, "onItemClick: Item: " + adapterView.getAdapter().getItem(i));
-    newObjektName = (Objekt)adapterView.getAdapter().getItem(i);
-    Log.d(TAG, "-----> newObjektName: "+ newObjektName);
+    newObjektName = (Objekt) adapterView.getAdapter().getItem(i);
+    Log.d(TAG, "-----> newObjektName: " + newObjektName);
   }
 
   public static CharSequence styleDisputedStatementWithColor(Statement stmt, Context context) {
@@ -138,5 +140,22 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     return statementBuilder;
   }
 
+  class DisputeTask extends AsyncTask<Amen, Integer, Long> {
+
+
+    @Override
+    protected Long doInBackground(Amen... amens) {
+      for (Amen amen : amens) {
+        service.dispute(amen);
+      }
+
+      return null;
+    }
+
+    @Override
+    protected void onPostExecute(Long result) {
+        Toast.makeText(DisputeActivity.this, "Disputed", Toast.LENGTH_SHORT ).show();
+    }
+  }
 
 }
