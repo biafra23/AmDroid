@@ -71,9 +71,7 @@ public class ChooseObjektActivity extends ListActivity {
     }
 
     if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
-      if (app == null) {
-        Log.v(TAG, "app == null");
-      }
+
       final Location lastLocation = app.getLastLocation();
       if (lastLocation != null) {
         longitude = lastLocation.getLongitude();
