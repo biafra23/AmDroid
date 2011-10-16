@@ -44,6 +44,8 @@ public class AmenListActivity extends ListActivity {
   final private static int    PROGRESS_DIALOG_ID = 0;
   public static final  int    REQUEST_CODE       = 1001;
 
+  final int pageSize = 20;
+
   private ProgressDialog loginProgressDialog;
   private ProgressDialog loadingProgressDialog;
   private AmenService    service;
@@ -470,14 +472,14 @@ public class AmenListActivity extends ListActivity {
       List<Amen> filteredAmens;
       List<Amen> newAmens = new ArrayList<Amen>();
 
-      final int pageSize = 20;
-      do {
+//      do {
         List<Amen> amens = service.getFeed(0, pageSize);
 
         filteredAmens = filterNewAmens(oldAmens, amens);
         newAmens.addAll(filteredAmens);
 
-      } while (filteredAmens.size() == pageSize);
+//      } while (filteredAmens.size() == pageSize);
+
 
       saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS);
       return newAmens;
@@ -507,6 +509,11 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void onPostExecute(List<Amen> result) {
       Log.v(TAG, "onPostExecute");
+
+      if (result.size() == pageSize) {
+        // clear adapter
+        amenListAdapter.clear();
+      }
       if (result.size() > 0) {
 
         for (int i = result.size() - 1; i >= 0; i--) {

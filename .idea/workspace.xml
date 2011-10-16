@@ -12,10 +12,9 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" line="220" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="addded objekt-kind to intent for headline">
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="user detail page with picture from webcache">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/app/AmdroidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/app/AmdroidApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -289,11 +288,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="43" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.65317917">
+            <state line="77" column="43" selection-start="2502" selection-end="2502" vertical-scroll-proportion="-17.384615">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmenListActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="25" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.68941504">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#onCreate#0;class#AmenListActivity#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -371,15 +382,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_header.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/user_header.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -415,11 +417,11 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardAdapter.java" />
         <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/app/AmdroidApp.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
       </list>
     </option>
   </component>
@@ -2053,7 +2055,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24145299" sideWeight="0.72839504" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35992402" sideWeight="0.3172338" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
-      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5688509" sideWeight="0.9984" order="12" side_tool="false" content_ui="tabs" x="-1560" y="22" width="1600" height="1024" />
+      <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5688509" sideWeight="0.9984" order="12" side_tool="false" content_ui="tabs" x="-1560" y="146" width="1600" height="874" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2095,7 +2097,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="addded objekt-kind to intent for headline" />
+    <option name="LAST_COMMIT_MESSAGE" value="user detail page with picture from webcache" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2109,7 +2111,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="caching also pulled amens" />
     <MESSAGE value="creating service with authToken" />
     <MESSAGE value="saving and retrieving authToken and user  from prefs and using it to authenticate connection to getamen" />
     <MESSAGE value="refresh with or without cache" />
@@ -2134,6 +2135,7 @@
     <MESSAGE value="more asynchronous data loading" />
     <MESSAGE value="scoreboard headline with scope" />
     <MESSAGE value="addded objekt-kind to intent for headline" />
+    <MESSAGE value="user detail page with picture from webcache" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2143,13 +2145,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/drawable-hdpi/rounded_edges_orange.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="23" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_score.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="58" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
@@ -2262,8 +2257,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="43" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.65317917">
+        <state line="77" column="43" selection-start="2502" selection-end="2502" vertical-scroll-proportion="-17.384615">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="25" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.68941504">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#onCreate#0;class#AmenListActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
