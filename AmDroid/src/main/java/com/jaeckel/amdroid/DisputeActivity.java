@@ -61,6 +61,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
         if (newObjektName == null) {
           newObjektName = new Objekt();
           newObjektName.setName(textView.getText().toString());
+          newObjektName.setKindId(currentAmen.getStatement().getObjekt().getKindId());
         }
         new DisputeTask().execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
 
