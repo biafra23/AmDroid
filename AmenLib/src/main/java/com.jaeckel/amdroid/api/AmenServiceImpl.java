@@ -545,7 +545,6 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public User getMe() {
 
-    log.trace("getMe()");
     return me;
 
   }
