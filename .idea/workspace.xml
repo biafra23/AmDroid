@@ -1958,7 +1958,7 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="using lat/lon for search if kind == PLACE" />
+    <option name="LAST_COMMIT_MESSAGE" value="nice typo" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1972,7 +1972,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="ScoreBoard via Context Menu implemented" />
     <MESSAGE value="Sdisplaying statement from scoreboard disabled" />
     <MESSAGE value="NPE fix: disputingName only needed if isDispute" />
     <MESSAGE value="go to scoreboard from AmenDetailActivity (need feedback and to load in the background)" />
@@ -1997,6 +1996,7 @@
     <MESSAGE value="fixed bug in free text dispute (kindId was missing)" />
     <MESSAGE value="reorganizing ChooseObjektActivity" />
     <MESSAGE value="using lat/lon for search if kind == PLACE" />
+    <MESSAGE value="nice typo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

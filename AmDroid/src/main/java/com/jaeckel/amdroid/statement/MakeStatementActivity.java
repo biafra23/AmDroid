@@ -171,7 +171,7 @@ public class MakeStatementActivity extends Activity {
     amenTakeBack.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
-        
+
         currentTopic.setBest(currentBest);
         final Statement statement = new Statement(currentObjekt, currentTopic);
 
@@ -258,6 +258,7 @@ public class MakeStatementActivity extends Activity {
     protected void onPostExecute(Void result) {
 
       Toast.makeText(MakeStatementActivity.this, "Amen.", Toast.LENGTH_LONG).show();
+      finish();
     }
   }
 
