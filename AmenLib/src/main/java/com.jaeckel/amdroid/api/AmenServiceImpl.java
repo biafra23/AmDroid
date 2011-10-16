@@ -69,7 +69,7 @@ public class AmenServiceImpl implements AmenService {
     params.setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
 
     final SchemeRegistry schemeRegistry = new SchemeRegistry();
-    Scheme scheme = new Scheme("https",  SSLSocketFactory.getSocketFactory(), 443);
+    Scheme scheme = new Scheme("https", SSLSocketFactory.getSocketFactory(), 443);
     schemeRegistry.register(scheme);
 
     httpclient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
@@ -523,6 +523,11 @@ public class AmenServiceImpl implements AmenService {
     String line;
     while ((line = br.readLine()) != null) {
 
+      if ("<!DOCTYPE html>".equals(line)) {
+          //no JSON => Server error
+
+          return "{\"error\"";
+      }
       builder.append(line);
       log.trace("makeStringFromEntity | " + line);
     }

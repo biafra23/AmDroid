@@ -46,6 +46,8 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
   private Drawable      backgroundDrawable;
   private Double longitude = null;
   private Double latitude  = null;
+  private TextView headerDefaultDescription;
+  private TextView headerCompletionItemName;
 
   private ObjektsForQueryTask queryTask;
 
@@ -61,6 +63,25 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
 
     setContentView(R.layout.choose_objekt);
 
+    ListView list = (ListView) findViewById(android.R.id.list);
+    View header = getLayoutInflater().inflate(R.layout.choose_objekt_header, null, false);
+    header.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View view) {
+        Objekt objekt = new Objekt(objektEditText.getText() +"", currentObjektKind);
+
+        Log.d(TAG, "new Objekt: " + objekt);
+
+        Intent intent = new Intent();
+        intent.putExtra(Constants.EXTRA_OBJEKT, objekt);
+
+        setResult(RESULT_OK, intent);
+        finish();
+      }
+    });
+    list.addHeaderView(header);
+
+    headerDefaultDescription = (TextView) findViewById(R.id.header_default_description);
+    headerCompletionItemName = (TextView) findViewById(R.id.header_completion_item_name);
 
     if (currentObjektKind == AmenService.OBJEKT_KIND_PERSON) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_green);
@@ -72,6 +93,8 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
     if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
       backgroundDrawable = getResources().getDrawable(R.drawable.rounded_edges_blue);
     }
+
+    headerCompletionItemName.setBackgroundDrawable(backgroundDrawable);
 
     if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
 
@@ -100,6 +123,8 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
         Log.d(TAG, "afterTextChanged:          editable: " + editable);
         Log.d(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
 
+        headerCompletionItemName.setText(editable.toString());
+        headerDefaultDescription.setText("");
 
         if (queryTask != null) {
           queryTask.cancel(true);
@@ -122,6 +147,8 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
 //      objekts.add(0, currentObjekt);
 //    }
 
+    headerCompletionItemName.setText(currentObjekt.getName());
+    headerDefaultDescription.setText(currentObjekt.getDefaultDescription());
 
     adapter = new ObjektAdapter(this, R.layout.list_item_objekt, new ArrayList<Objekt>());
     setListAdapter(adapter);
@@ -149,19 +176,22 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    Objekt objekt = (Objekt) getListAdapter().getItem(position);
+    if (position > 0) {
 
-    Log.d(TAG, "onListItemClick | Selected Objekt: " + objekt);
+      Objekt objekt = (Objekt) getListAdapter().getItem(position - 1);
 
-    Intent intent = new Intent();
-    intent.putExtra(Constants.EXTRA_OBJEKT, objekt);
+      Log.d(TAG, "onListItemClick | Selected Objekt: " + objekt);
 
-    setResult(RESULT_OK, intent);
-    finish();
+      Intent intent = new Intent();
+      intent.putExtra(Constants.EXTRA_OBJEKT, objekt);
+
+      setResult(RESULT_OK, intent);
+      finish();
+    }
   }
 
   public void handleObjektsResult(List<Objekt> result) {
-    
+
     adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, result);
     setListAdapter(adapter);
 

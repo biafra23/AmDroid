@@ -31,7 +31,7 @@ public class RequestFactory {
     httpPost.addHeader("X-Requested-With", "XMLHttpRequest");
 
     try {
-
+      log.trace("createJSONPOSTRequest -> Body: " + body);
       httpPost.setEntity(new ByteArrayEntity(body.getBytes("UTF8")));
 
     } catch (UnsupportedEncodingException e) {

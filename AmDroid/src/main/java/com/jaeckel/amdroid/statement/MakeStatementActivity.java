@@ -132,7 +132,7 @@ public class MakeStatementActivity extends Activity {
           currentBest = false;
         } else {
           bestView.setText("the Best");
-          currentBest = false;
+          currentBest = true;
         }
       }
     });
@@ -171,6 +171,8 @@ public class MakeStatementActivity extends Activity {
     amenTakeBack.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
+        
+        currentTopic.setBest(currentBest);
         final Statement statement = new Statement(currentObjekt, currentTopic);
 
         new MakeStatementTask().execute(statement);

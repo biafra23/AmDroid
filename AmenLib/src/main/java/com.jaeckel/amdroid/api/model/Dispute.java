@@ -14,50 +14,6 @@ public class Dispute {
   private Long      referringAmenId;
   private Statement statement;
 
-//  public Dispute(Amen amen, String newObjektName) {
-//
-//    this.referringAmenId = amen.getId();
-//
-//    this.statement = amen.getStatement();
-//    this.statement.setAgreeingNetwork(null);
-//    this.statement.getObjekt().setName(newObjektName);
-////    this.statement.getObjekt().setKey(null);
-//    this.statement.setTotalAmenCount(null);
-//
-//    this.kindId = amen.getKindId();
-//    this.statement.getTopic().setId(null);
-//    this.statement.getTopic().setObjektsCount(null);
-//  }
-
-//  public Dispute(Amen amen, Objekt objekt) {
-//
-//    this.referringAmenId = amen.getId();
-//
-//    this.statement = amen.getStatement();
-//    this.statement.setAgreeingNetwork(null);
-//    this.statement.setObjekt(objekt);
-////    this.statement.getObjekt().setKey(null);
-//    this.statement.setTotalAmenCount(null);
-//
-//    this.kindId = amen.getKindId();
-//    this.statement.getTopic().setId(null);
-//    this.statement.getTopic().setObjektsCount(null);
-//  }
-
-//  public Dispute(Statement statement, String newObjektName) {
-//
-//    this.referringAmenId = statement.getId();
-//
-//    this.statement = statement;
-//    this.statement.setAgreeingNetwork(null);
-//    this.statement.getObjekt().setName(newObjektName);
-////    this.statement.getObjekt().setKey(null);
-//    this.statement.setTotalAmenCount(null);
-//
-////    this.kindId = statement.getKindId();
-//    this.statement.getTopic().setId(null);
-//    this.statement.getTopic().setObjektsCount(null);
-//  }
 
   public int getKindId() {
     return kindId;

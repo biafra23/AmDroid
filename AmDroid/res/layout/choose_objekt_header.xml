@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+        >
+    <TextView
+            android:id="@+id/header_completion_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:background="@drawable/rounded_edges_blue"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="Gesucht wurde"
+            >
+    </TextView>
+
+    <TextView android:id="@+id/header_default_description"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="default description"
+              android:textSize="13dp"
+            >
+    </TextView>
+</LinearLayout>
