@@ -62,7 +62,12 @@ public class AmenDetailActivity extends ListActivity {
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
     if (currentAmen == null) {
+
       currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
+
+      // start downloading statement again to get the first_amen_id
+      new GetStatementTask().execute(currentStatement.getId());
+
     } else {
       currentStatement = currentAmen.getStatement();
     }
@@ -85,7 +90,7 @@ public class AmenDetailActivity extends ListActivity {
     Intent resultIntent = new Intent();
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
-    
+
   }
 
   public void onResume() {
@@ -101,46 +106,43 @@ public class AmenDetailActivity extends ListActivity {
 
   }
 
+
   private void populateFormWithAmen(boolean updateName) {
 
-    statementView.setText(AmenListAdapter.styleAmenWithColor(currentAmen, this));
+    if (currentAmen == null) {
+      Log.d(TAG, "currentAmen: " + currentAmen);
+      Log.d(TAG, "currentStatement: " + currentStatement);
+      statementView.setText(AmenListAdapter.styleAmenWithColor(currentStatement, false, null, this));
+    } else {
+      statementView.setText(AmenListAdapter.styleAmenWithColor(currentAmen, this));
+    }
+
 
 //    statementView.setText(currentAmen.getStatement().toDisplayString());
     //TODO: find a better way to have the original? name here
     if (updateName) {
-      userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
+      if (currentAmen != null) {
+        userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
+      } else {
+        userView.setText(currentStatement.getFirstPoster().getName() + ", " + format(currentStatement.getFirstPostedAt()));
+      }
+
     }
 
-    amenCount.setText(currentAmen.getStatement().getTotalAmenCount() + " Amen");
+    amenCount.setText(currentStatement.getTotalAmenCount() + " Amen");
     StringBuilder agreeing = new StringBuilder();
-    for (User user : currentAmen.getStatement().getAgreeingNetwork()) {
+    for (User user : currentStatement.getAgreeingNetwork()) {
       agreeing.append(user.getName() + ", ");
     }
-    if (amened(currentAmen)) {
+    if (amened(currentStatement)) {
       amenTakeBackButton.setText("Take Back");
     } else {
       amenTakeBackButton.setText("Amen!");
     }
-    amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
+    if (currentAmen != null && currentAmen.getId() != null) {
 
-      public void onClick(View view) {
-        //To change body of implemented methods use File | Settings | File Templates.
-//        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
-
-        if (amened(currentAmen)) {
-
-          Log.d(TAG, "Back taking: " + currentAmen);
-          new TakeBackTask().execute(currentAmen.getStatement().getId());
-
-        } else {
-          Log.d(TAG, "amening: " + currentAmen);
-          new AmenTask().execute(currentAmen.getId());
-
-        }
-        populateFormWithAmen(false);
-
-      }
-    });
+      setAmenButtonListener();
+    }
 
     hellNoButton.setOnClickListener(new View.OnClickListener() {
 
@@ -157,8 +159,32 @@ public class AmenDetailActivity extends ListActivity {
     });
   }
 
-  private boolean amened(Amen currentAmen) {
-    for (User u : currentAmen.getStatement().getAgreeingNetwork()) {
+  private void setAmenButtonListener() {
+
+    amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+        //To change body of implemented methods use File | Settings | File Templates.
+//        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
+
+        if (amened(currentStatement)) {
+
+          Log.d(TAG, "Back taking: " + currentAmen);
+          new AmenDetailActivity.TakeBackTask().execute(currentStatement.getId());
+
+        } else {
+          Log.d(TAG, "amening: " + currentAmen);
+          new AmenDetailActivity.AmenTask().execute(currentAmen.getId());
+
+        }
+        populateFormWithAmen(false);
+
+      }
+    });
+  }
+
+  private boolean amened(Statement currentStatement) {
+    for (User u : currentStatement.getAgreeingNetwork()) {
       if (u.getName().equals(AmdroidApp.getInstance().getService().getMe().getName())) {
         return true;
       }
@@ -272,4 +298,49 @@ public class AmenDetailActivity extends ListActivity {
     }
   }
 
+
+  //
+  // AmenTask
+  //
+  private class GetStatementTask extends AsyncTask<Long, Integer, Statement> {
+
+    protected Statement doInBackground(Long... statementIds) {
+      try {
+        lastError = null;
+        Statement statement = service.getStatementForId(statementIds[0]);
+        Log.d(TAG, "Statement returned from statement(): " + statement);
+        return statement;
+      } catch (RuntimeException e) {
+        lastError = e.getMessage();
+        e.printStackTrace();
+      }
+      return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+    }
+
+    protected void onPostExecute(Statement result) {
+
+      if (lastError != null) {
+        Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
+        lastError = null;
+      } else {
+        currentAmen = new Amen(result);
+        currentAmen.setId(result.getFirstAmenId());
+        setAmenButtonListener();
+//        Toast.makeText(AmenDetailActivity.this, "setId on currentAmen", Toast.LENGTH_SHORT).show();
+        currentStatement = result;
+        populateFormWithAmen(false);
+
+        // amen button freischalten
+
+        final List<User> users = currentStatement.getAgreeingNetwork();
+        //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        setListAdapter(thumbs);
+      }
+    }
+  }
 }

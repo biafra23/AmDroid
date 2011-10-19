@@ -50,7 +50,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     if (amen.isAmen()) {
       from = from + " amen'd " + amen.getReferringAmen().getUser().getName();
     }
-    if (amen.isDispute()) {
+    if (amen.isDispute() && amen.getReferringAmen() != null) {
       from = from + " disputes " + amen.getReferringAmen().getUser().getName();
     }
     user.setText(from);
@@ -122,7 +122,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         .appendGreen(stmt.getTopic().getScope());
     }
 
-    if (isDispute) {
+    if (isDispute && disputingName != null) {
 
       statementBuilder.appendGray(" not ")
                       .appendGray(disputingName);
@@ -137,7 +137,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     Statement stmt = amen.getStatement();
     boolean isDispute = amen.isDispute();
     String disputingName = null;
-    if (isDispute) {
+    if (isDispute && amen.getReferringAmen() != null) {
       disputingName = amen.getReferringAmen().getStatement().getObjekt().getName();
     }
     return styleAmenWithColor(stmt, isDispute, disputingName, context);

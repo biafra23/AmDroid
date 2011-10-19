@@ -72,14 +72,14 @@ public class ScoreBoardActivity extends ListActivity {
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
 
-//    RankedStatements statement = (RankedStatements) getListAdapter().getItem(position - 1);
-//
-//    Log.d(TAG, "Selected Statement: " + statement);
-//
-//    //TODO: make AmenDetailActivity show statements as well
-//    Intent intent = new Intent(this, AmenDetailActivity.class);
-//    intent.putExtra(Constants.EXTRA_STATEMENT, statement.getStatement());
-//    startActivity(intent);
+    RankedStatements statement = (RankedStatements) getListAdapter().getItem(position - 1);
+
+    Log.d(TAG, "Selected Statement: " + statement);
+
+    //TODO: make AmenDetailActivity show statements as well
+    Intent intent = new Intent(this, AmenDetailActivity.class);
+    intent.putExtra(Constants.EXTRA_STATEMENT, statement.getStatement());
+    startActivity(intent);
   }
 
   //

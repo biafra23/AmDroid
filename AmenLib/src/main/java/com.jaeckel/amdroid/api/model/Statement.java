@@ -24,6 +24,7 @@ public class Statement implements Parcelable {
   private Objekt     objekt;
   private User       firstPoster;
   private Date       firstPostedAt;
+  private Long       firstAmenId;
 
   private static final String TAG = "Statement";
 
@@ -41,6 +42,43 @@ public class Statement implements Parcelable {
   }
 
   @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Statement statement = (Statement) o;
+
+    if (agreeable != null ? !agreeable.equals(statement.agreeable) : statement.agreeable != null) return false;
+    if (agreeingNetwork != null ? !agreeingNetwork.equals(statement.agreeingNetwork) : statement.agreeingNetwork != null)
+      return false;
+    if (firstAmenId != null ? !firstAmenId.equals(statement.firstAmenId) : statement.firstAmenId != null) return false;
+    if (firstPostedAt != null ? !firstPostedAt.equals(statement.firstPostedAt) : statement.firstPostedAt != null)
+      return false;
+    if (firstPoster != null ? !firstPoster.equals(statement.firstPoster) : statement.firstPoster != null) return false;
+    if (id != null ? !id.equals(statement.id) : statement.id != null) return false;
+    if (objekt != null ? !objekt.equals(statement.objekt) : statement.objekt != null) return false;
+    if (topic != null ? !topic.equals(statement.topic) : statement.topic != null) return false;
+    if (totalAmenCount != null ? !totalAmenCount.equals(statement.totalAmenCount) : statement.totalAmenCount != null)
+      return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (totalAmenCount != null ? totalAmenCount.hashCode() : 0);
+    result = 31 * result + (agreeable != null ? agreeable.hashCode() : 0);
+    result = 31 * result + (agreeingNetwork != null ? agreeingNetwork.hashCode() : 0);
+    result = 31 * result + (topic != null ? topic.hashCode() : 0);
+    result = 31 * result + (objekt != null ? objekt.hashCode() : 0);
+    result = 31 * result + (firstPoster != null ? firstPoster.hashCode() : 0);
+    result = 31 * result + (firstPostedAt != null ? firstPostedAt.hashCode() : 0);
+    result = 31 * result + (firstAmenId != null ? firstAmenId.hashCode() : 0);
+    return result;
+  }
+
+  @Override
   public String toString() {
     return "Statement{" +
            "id=" + id +
@@ -51,6 +89,7 @@ public class Statement implements Parcelable {
            ", objekt=" + objekt +
            ", firstPoster=" + firstPoster +
            ", firstPostedAt=" + firstPostedAt +
+           ", firstAmenId=" + firstAmenId +
            '}';
   }
 
@@ -121,41 +160,6 @@ public class Statement implements Parcelable {
     this.firstPostedAt = firstPostedAt;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    Statement statement = (Statement) o;
-
-    if (agreeable != null ? !agreeable.equals(statement.agreeable) : statement.agreeable != null) return false;
-    if (agreeingNetwork != null ? !agreeingNetwork.equals(statement.agreeingNetwork) : statement.agreeingNetwork != null)
-      return false;
-    if (firstPostedAt != null ? !firstPostedAt.equals(statement.firstPostedAt) : statement.firstPostedAt != null)
-      return false;
-    if (firstPoster != null ? !firstPoster.equals(statement.firstPoster) : statement.firstPoster != null) return false;
-    if (id != null ? !id.equals(statement.id) : statement.id != null) return false;
-    if (objekt != null ? !objekt.equals(statement.objekt) : statement.objekt != null) return false;
-    if (topic != null ? !topic.equals(statement.topic) : statement.topic != null) return false;
-    if (totalAmenCount != null ? !totalAmenCount.equals(statement.totalAmenCount) : statement.totalAmenCount != null)
-      return false;
-
-    return true;
-  }
-
-  @Override
-  public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (totalAmenCount != null ? totalAmenCount.hashCode() : 0);
-    result = 31 * result + (agreeable != null ? agreeable.hashCode() : 0);
-    result = 31 * result + (agreeingNetwork != null ? agreeingNetwork.hashCode() : 0);
-    result = 31 * result + (topic != null ? topic.hashCode() : 0);
-    result = 31 * result + (objekt != null ? objekt.hashCode() : 0);
-    result = 31 * result + (firstPoster != null ? firstPoster.hashCode() : 0);
-    result = 31 * result + (firstPostedAt != null ? firstPostedAt.hashCode() : 0);
-    return result;
-  }
-
   /*
   *
   *   PARCEL STUFF
@@ -197,6 +201,7 @@ public class Statement implements Parcelable {
     dest.writeParcelable(objekt, flags);
     dest.writeParcelable(firstPoster, flags);
     dest.writeValue(firstPostedAt);
+    dest.writeValue(firstAmenId);
     Log.d(TAG, "writeToParcel. done.");
   }
 
@@ -211,8 +216,18 @@ public class Statement implements Parcelable {
     objekt = in.readParcelable(cl);
     firstPoster = in.readParcelable(cl);
     firstPostedAt = (Date) in.readValue(cl);
-
+    firstAmenId = (Long) in.readValue(cl);
     Log.d(TAG, "readFromParcel. done.");
 
   }
+
+  public Long getFirstAmenId() {
+    return firstAmenId;
+  }
+
+  public void setFirstAmenId(Long firstAmenId) {
+    this.firstAmenId = firstAmenId;
+  }
+
+
 }

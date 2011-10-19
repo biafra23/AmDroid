@@ -53,10 +53,12 @@ import java.util.Map;
  */
 public class AmenServiceImpl implements AmenService {
 
-  final Logger log = LoggerFactory.getLogger("Amen");
-  private String      authName;
-  private String      authPassword;
-  private String      serviceUrl;
+  private final static Logger log        = LoggerFactory.getLogger("Amen");
+  private final static String serviceUrl = "https://getamen.com/";
+  
+  private String authName;
+  private String authPassword;
+
   private User        me;
   private ServerError lastError;
   private String      authToken;
@@ -85,7 +87,7 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public AmenService init(String authName, String authPassword) {
     log.debug("init");
-    this.serviceUrl = "https://getamen.com/";
+
     this.authName = authName;
     this.authPassword = authPassword;
 
@@ -101,7 +103,6 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public AmenService init(String authToken, User me) {
 
-    this.serviceUrl = "https://getamen.com/";
     this.me = me;
     this.authToken = authToken;
     return this;  //To change body of implemented methods use File | Settings | File Templates.
@@ -524,11 +525,11 @@ public class AmenServiceImpl implements AmenService {
     while ((line = br.readLine()) != null) {
 
       log.trace("makeStringFromEntity | " + line);
-      
+
       if ("<!DOCTYPE html>".equals(line)) {
-          //no JSON => Server error
-          log.error("Received HTML!");
-          return "{\"error\": \"Server error\"}";
+        //no JSON => Server error
+        log.error("Received HTML!");
+        return "{\"error\": \"Server error\"}";
       }
       builder.append(line);
 

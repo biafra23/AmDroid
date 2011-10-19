@@ -70,6 +70,9 @@ public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
 
   public StyleableSpannableStringBuilder appendGray(CharSequence text) {
 //    Log.d(TAG, "appendBlue: " + text);
-    return appendWithStyle(new ForegroundColorSpan(Color.GRAY), text);
+    if (text != null) {
+      return appendWithStyle(new ForegroundColorSpan(Color.GRAY), text);
+    }
+    return null;
   }
 }
