@@ -121,7 +121,7 @@ public class AmenDetailActivity extends ListActivity {
 //    statementView.setText(currentAmen.getStatement().toDisplayString());
     //TODO: find a better way to have the original? name here
     if (updateName) {
-      if (currentAmen != null) {
+      if (currentAmen != null && currentAmen.getUser() != null) {
         userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
       } else {
         userView.setText(currentStatement.getFirstPoster().getName() + ", " + format(currentStatement.getFirstPostedAt()));
