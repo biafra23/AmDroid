@@ -42,8 +42,8 @@ public class AmenDetailActivity extends ListActivity {
   private UserListAdapter  adapter;
   private ThumbnailAdapter thumbs;
   private AmenService      service;
-  private static final int[] IMAGE_IDS = {R.id.user_image};
-
+  private static final int[]  IMAGE_IDS = {R.id.user_image};
+  private              String lastError = null;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -82,7 +82,10 @@ public class AmenDetailActivity extends ListActivity {
     thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
     setListAdapter(thumbs);
 
-
+    Intent resultIntent = new Intent();
+    resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
+    setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
+    
   }
 
   public void onResume() {
@@ -126,12 +129,13 @@ public class AmenDetailActivity extends ListActivity {
 
         if (amened(currentAmen)) {
 
+          Log.d(TAG, "Back taking: " + currentAmen);
           new TakeBackTask().execute(currentAmen.getStatement().getId());
 
         } else {
-
+          Log.d(TAG, "amening: " + currentAmen);
           new AmenTask().execute(currentAmen.getId());
-          
+
         }
         populateFormWithAmen(false);
 
@@ -189,35 +193,18 @@ public class AmenDetailActivity extends ListActivity {
   //
   private class TakeBackTask extends AsyncTask<Long, Integer, Amen> {
 
-    protected Amen doInBackground(Long... amenId) {
+    protected Amen doInBackground(Long... statementId) {
+      try {
+        service.takeBack(statementId[0]);
+        Amen amen = new Amen(service.getStatementForId(statementId[0]));
 
-      service.takeBack(amenId[0]);
-      Amen amen = new Amen(service.getStatementForId(amenId[0]));
-
-      return amen;
-    }
-
-    @Override
-    protected void onPreExecute() {
-    }
-
-    protected void onPostExecute(Amen result) {
-
-      currentAmen = result;
-      populateFormWithAmen(false);
-      Toast.makeText(AmenDetailActivity.this, "Taken Back.", Toast.LENGTH_SHORT).show();
-    }
-  }
-
-  //
-  // AmenTask
-  //
-  private class AmenTask extends AsyncTask<Long, Integer, Amen> {
-
-    protected Amen doInBackground(Long... amenId) {
-
-      currentAmen = service.amen(amenId[0]);
-
+        amen.setId(currentAmen.getId());
+        Log.d(TAG, "Amen returned from amen(): " + amen);
+        return amen;
+      } catch (RuntimeException e) {
+        lastError = e.getMessage();
+        e.printStackTrace();
+      }
       return null;
     }
 
@@ -227,8 +214,61 @@ public class AmenDetailActivity extends ListActivity {
 
     protected void onPostExecute(Amen result) {
 
-      populateFormWithAmen(false);
-      Toast.makeText(AmenDetailActivity.this, "Amen.", Toast.LENGTH_SHORT).show();
+      if (lastError != null) {
+        Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
+        lastError = null;
+      } else {
+        currentAmen = result;
+        currentStatement = currentAmen.getStatement();
+        populateFormWithAmen(false);
+        Toast.makeText(AmenDetailActivity.this, "Taken Back.", Toast.LENGTH_SHORT).show();
+
+        final List<User> users = currentStatement.getAgreeingNetwork();
+        //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        setListAdapter(thumbs);
+      }
+    }
+  }
+
+  //
+  // AmenTask
+  //
+  private class AmenTask extends AsyncTask<Long, Integer, Amen> {
+
+    protected Amen doInBackground(Long... amenId) {
+      try {
+        lastError = null;
+        Amen amen = service.amen(amenId[0]);
+        Log.d(TAG, "Amen returned from amen(): " + amen);
+        return amen;
+      } catch (RuntimeException e) {
+        lastError = e.getMessage();
+        e.printStackTrace();
+      }
+      return null;
+    }
+
+    @Override
+    protected void onPreExecute() {
+    }
+
+    protected void onPostExecute(Amen result) {
+
+      if (lastError != null) {
+        Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
+        lastError = null;
+      } else {
+        currentAmen = result;
+        currentStatement = currentAmen.getStatement();
+        populateFormWithAmen(false);
+        Toast.makeText(AmenDetailActivity.this, "Amen'd.", Toast.LENGTH_SHORT).show();
+
+        final List<User> users = currentStatement.getAgreeingNetwork();
+        //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        setListAdapter(thumbs);
+      }
     }
   }
 

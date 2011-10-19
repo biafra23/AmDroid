@@ -523,13 +523,15 @@ public class AmenServiceImpl implements AmenService {
     String line;
     while ((line = br.readLine()) != null) {
 
+      log.trace("makeStringFromEntity | " + line);
+      
       if ("<!DOCTYPE html>".equals(line)) {
           //no JSON => Server error
-
-          return "{\"error\"";
+          log.error("Received HTML!");
+          return "{\"error\": \"Server error\"}";
       }
       builder.append(line);
-      log.trace("makeStringFromEntity | " + line);
+
     }
 
     return builder.toString();

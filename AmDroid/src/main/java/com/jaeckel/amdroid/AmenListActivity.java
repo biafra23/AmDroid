@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.DateSerializer;
+import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.endless.EndlessAdapter;
@@ -40,9 +41,10 @@ import java.util.List;
 
 public class AmenListActivity extends ListActivity {
 
-  private static       String TAG                = "amdroid/AmenListActivity";
-  final private static int    PROGRESS_DIALOG_ID = 0;
-  public static final  int    REQUEST_CODE       = 1001;
+  private static       String TAG                       = "amdroid/AmenListActivity";
+  final private static int    PROGRESS_DIALOG_ID        = 0;
+  public static final  int    REQUEST_CODE_PREFERENCES  = 1001;
+  public static final  int    REQUEST_CODE_AMEN_DETAILS = 1002;
 
   final int pageSize = 20;
 
@@ -84,7 +86,7 @@ public class AmenListActivity extends ListActivity {
         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
           public void onClick(DialogInterface dialogInterface, int i) {
-            startActivityForResult(new Intent(AmenListActivity.this, EditPreferencesActivity.class), REQUEST_CODE);
+            startActivityForResult(new Intent(AmenListActivity.this, EditPreferencesActivity.class), REQUEST_CODE_PREFERENCES);
           }
         }).create().show();
 
@@ -118,8 +120,25 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
 
-    refreshWithCache();
 
+    if (requestCode == REQUEST_CODE_AMEN_DETAILS) {
+      // receive the new currentObjekt
+      Log.d(TAG, "onActivityResult | requestCode: REQUEST_CODE_AMEN_DETAILS");
+
+      final Long statementId = result.getLongExtra(Constants.EXTRA_STATEMENT_ID, 0L);
+
+      Log.d(TAG, "onActivityResult | statementId: " + statementId);
+
+      refreshAmenWithStatementId(statementId);
+
+    }
+//    refreshWithCache();
+
+  }
+
+  private void refreshAmenWithStatementId(Long statementId) {
+
+    new AmenRefreshTask().execute(statementId);
   }
 
   @Override
@@ -205,7 +224,7 @@ public class AmenListActivity extends ListActivity {
 
       Intent intent = new Intent(this, AmenDetailActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
-      startActivity(intent);
+      startActivityForResult(intent, REQUEST_CODE_AMEN_DETAILS);
     }
   }
 
@@ -223,7 +242,6 @@ public class AmenListActivity extends ListActivity {
   public boolean onContextItemSelected(MenuItem item) {
     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
     Amen amen = (Amen) this.getListAdapter().getItem(info.position - 1);
-
     switch (item.getItemId()) {
       case R.id.open_item: {
         Log.d(TAG, "R.id.open_item");
@@ -477,10 +495,10 @@ public class AmenListActivity extends ListActivity {
       List<Amen> newAmens = new ArrayList<Amen>();
 
 //      do {
-        List<Amen> amens = service.getFeed(0, pageSize);
+      List<Amen> amens = service.getFeed(0, pageSize);
 
-        filteredAmens = filterNewAmens(oldAmens, amens);
-        newAmens.addAll(filteredAmens);
+      filteredAmens = filterNewAmens(oldAmens, amens);
+      newAmens.addAll(filteredAmens);
 
 //      } while (filteredAmens.size() == pageSize);
 
@@ -570,6 +588,50 @@ public class AmenListActivity extends ListActivity {
     }
 
     return u;
+  }
+
+  private class AmenRefreshTask extends AsyncTask<Long, Integer, Amen> {
+
+
+    @Override
+    protected Amen doInBackground(Long... statementIds) {
+      //1. find statement in adapter
+
+      //2. reload statement froms server
+
+      //3. update statement in Adapter
+
+      Amen result = null;
+      for (Long statementId : statementIds) {
+
+
+        for (int i = 0; i < amenListAdapter.getCount(); i++) {
+
+          Amen amen = amenListAdapter.getItem(i);
+
+          if (amen.getStatement().getId().longValue() == statementId.longValue()) {
+
+            Log.d(TAG, "Reloading Statement: " + amen.getStatement().getId());
+
+            Statement statement = service.getStatementForId(amen.getStatement().getId());
+            if (statement != null) {
+              Log.d(TAG, "Found Statement: " + statement);
+
+              amen.setStatement(statement);
+            }
+
+          }
+
+        }
+
+      }
+      return result;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    protected void onPostExecute(Amen result) {
+
+    }
   }
 }
 
