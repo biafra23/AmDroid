@@ -91,6 +91,7 @@ public class AmenDetailActivity extends ListActivity {
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
 
+
   }
 
   public void onResume() {
@@ -99,8 +100,9 @@ public class AmenDetailActivity extends ListActivity {
     userView = (TextView) findViewById(R.id.user);
     amenCount = (TextView) findViewById(R.id.amen_count);
     amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
+    amenTakeBackButton.setEnabled(false);
     hellNoButton = (Button) findViewById(R.id.hell_no);
-
+    hellNoButton.setEnabled(false);
     populateFormWithAmen(true);
 
 
@@ -144,23 +146,12 @@ public class AmenDetailActivity extends ListActivity {
       setAmenButtonListener();
     }
 
-    hellNoButton.setOnClickListener(new View.OnClickListener() {
 
-      public void onClick(View view) {
-        //TODO: show hellno form here to let user select different objekt
-
-
-        populateFormWithAmen(false);
-
-        Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
-        intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
-        startActivity(intent);
-      }
-    });
   }
 
   private void setAmenButtonListener() {
 
+    amenTakeBackButton.setEnabled(true);
     amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
@@ -179,6 +170,21 @@ public class AmenDetailActivity extends ListActivity {
         }
         populateFormWithAmen(false);
 
+      }
+    });
+
+    hellNoButton.setEnabled(true);
+    hellNoButton.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+        //TODO: show hellno form here to let user select different objekt
+
+
+        populateFormWithAmen(false);
+
+        Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
+        intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
+        startActivity(intent);
       }
     });
   }
