@@ -301,7 +301,7 @@ public class AmenListActivity extends ListActivity {
     protected boolean cacheInBackground() throws Exception {
 
 
-      if (getWrappedAdapter().getCount() < 10000) {
+      if (getWrappedAdapter().getCount() < 1000) {
         return (true);
       }
 
@@ -310,18 +310,37 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void appendCachedData() {
-      if (getWrappedAdapter().getCount() < 10000) {
-        @SuppressWarnings("unchecked")
-        ThumbnailAdapter a = (ThumbnailAdapter) getWrappedAdapter();
-        AmenListAdapter amenListAdapter = (AmenListAdapter) a.getWrappedAdapter();
+      if (getWrappedAdapter().getCount() < 1000) {
 
-        List<Amen> amens = service.getFeed(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId(), 20);
+        new EndlessLoaderAsyncTask().execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
 
-        for (Amen amen : amens) {
-          amenListAdapter.add(amen);
-        }
       }
     }
+  }
+
+  //
+  //
+  //
+
+  private class EndlessLoaderAsyncTask extends AsyncTask<Long, Integer, List<Amen>> {
+
+    @Override
+    protected List<Amen> doInBackground(Long... longs) {
+      Long lastAmenId = longs[0];
+      Log.d(TAG, "Running on Thread: " + Thread.currentThread().getName());
+      List<Amen> amens = service.getFeed(lastAmenId, 20);
+      return amens;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    protected void onPostExecute(List<Amen> amens) {
+
+      for (Amen amen : amens) {
+        amenListAdapter.add(amen);
+      }
+    }
+
+
   }
 
   //
