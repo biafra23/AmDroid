@@ -64,7 +64,7 @@ public class ScoreBoardActivity extends ListActivity {
     setListAdapter(adapter);
 
     TextView description = (TextView) findViewById(R.id.description_scope);
-    description.setText(currentTopic.toDisplayString(currentObjectKind == AmenService.OBJEKT_KIND_PLACE));
+    description.setText(currentTopic.getAsSentence());
 
   }
 
@@ -132,9 +132,7 @@ public class ScoreBoardActivity extends ListActivity {
 
       case R.id.share:
 
-        boolean isPlace = false;
-
-        String amenText = currentTopic.toDisplayString(isPlace);
+        String amenText = currentTopic.getAsSentence();
 
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");

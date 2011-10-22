@@ -12,17 +12,12 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amdroid/api/AmenServiceITest.java" line="220" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="more menues (DetailView)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_menu_bookmarks.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_menu_contacts.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_menu_share.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_user_detail.xml" />
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="scoreboard sharing via menu.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
@@ -254,10 +249,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="0" selection-start="4048" selection-end="4048" vertical-scroll-proportion="0.64035964">
+            <state line="66" column="41" selection-start="2000" selection-end="2000" vertical-scroll-proportion="-12.5">
               <folding />
             </state>
           </provider>
@@ -266,7 +261,34 @@
       <file leaf-file-name="Topic.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="26" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="32" selection-start="180" selection-end="180" vertical-scroll-proportion="0.044955045">
               <folding />
             </state>
           </provider>
@@ -275,7 +297,7 @@
       <file leaf-file-name="AmenDetailActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="382" column="24" selection-start="12243" selection-end="12243" vertical-scroll-proportion="0.0">
+            <state line="34" column="13" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -284,7 +306,7 @@
       <file leaf-file-name="AmenListActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="13" selection-start="1468" selection-end="1468" vertical-scroll-proportion="338.65384">
+            <state line="42" column="13" selection-start="1468" selection-end="1468" vertical-scroll-proportion="-2.3076923">
               <folding>
                 <element signature="docComment;method#onCreate#0;class#AmenListActivity#0" expanded="true" />
               </folding>
@@ -301,37 +323,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_detail.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="7" selection-start="0" selection-end="660" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="menu_user_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_user_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="0" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu_scoreboard.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="246" selection-end="375" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ic_menu_share.png" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_menu_share.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -354,8 +351,6 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/util/StyleableSpannableStringBuilder.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListAdapter.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" />
-        <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/util/ObjektsForQueryTask.java" />
@@ -364,8 +359,10 @@
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_user_detail.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
-        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java" />
+        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java" />
+        <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -498,76 +495,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="amdroid-parent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Android 2.1-update1 Platform (1) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Android 2.1-update1 Platform (1) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Android 2.1-update1 Platform (1) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="os" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2030,7 +1957,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="more menues (DetailView)" />
+    <option name="LAST_COMMIT_MESSAGE" value="scoreboard sharing via menu." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2044,7 +1971,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="addded objekt-kind to intent for headline" />
     <MESSAGE value="user detail page with picture from webcache" />
     <MESSAGE value="clear adapter when there is pageSize many new Amens" />
     <MESSAGE value="feedback when making statement and making it in the background" />
@@ -2069,6 +1995,7 @@
     <MESSAGE value="amen and hellno button become enabled when they can be used" />
     <MESSAGE value="delayed search" />
     <MESSAGE value="more menues (DetailView)" />
+    <MESSAGE value="scoreboard sharing via menu." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2078,21 +2005,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_menu_scoreboard.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_menu_settings.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/drawable-hdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Dispute.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="13" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
@@ -2136,18 +2048,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="13" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="13" selection-start="1468" selection-end="1468" vertical-scroll-proportion="338.65384">
+        <state line="42" column="13" selection-start="1468" selection-end="1468" vertical-scroll-proportion="-2.3076923">
           <folding>
             <element signature="docComment;method#onCreate#0;class#AmenListActivity#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0">
+        <state line="34" column="13" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2159,23 +2078,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="382" column="24" selection-start="12243" selection-end="12243" vertical-scroll-proportion="0.0">
+        <state line="66" column="41" selection-start="2000" selection-end="2000" vertical-scroll-proportion="-12.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/model/Topic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ScoreBoardActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="0" selection-start="4048" selection-end="4048" vertical-scroll-proportion="0.64035964">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="26" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="32" selection-start="180" selection-end="180" vertical-scroll-proportion="0.044955045">
           <folding />
         </state>
       </provider>
