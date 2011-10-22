@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,6 +21,7 @@ import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -349,4 +353,39 @@ public class AmenDetailActivity extends ListActivity {
       }
     }
   }
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+     super.onCreateOptionsMenu(menu);
+
+     MenuInflater inflater = getMenuInflater();
+     inflater.inflate(R.menu.menu_detail, menu);
+     return true;
+   }
+
+   public boolean onOptionsItemSelected(MenuItem item) {
+     super.onOptionsItemSelected(item);
+
+     switch (item.getItemId()) {
+
+       case R.id.timeline:
+ //        Toast.makeText(this, "Prefereces", Toast.LENGTH_SHORT).show();
+         startActivity(new Intent(this, AmenListActivity.class));
+
+         return true;
+
+       case R.id.scoreboard:
+ //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+
+         return true;
+
+       case R.id.amen:
+ //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+         Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
+         startActivity(intent);
+         return true;
+     }
+
+     return false;
+   }
+
 }
