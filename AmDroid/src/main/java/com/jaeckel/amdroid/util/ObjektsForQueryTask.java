@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQuery, Integer, List<Objekt>> {
-  
+
   private static final String TAG = "ObjektsForQueryTask";
 
   ReturnedObjektsHandler handler;
@@ -30,8 +30,16 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
 
   @Override
   protected List<Objekt> doInBackground(ObjektsForQueryTask.ObjektQuery... objektQueries) {
-    ObjektsForQueryTask.ObjektQuery oq = objektQueries[0];
 
+
+    ObjektsForQueryTask.ObjektQuery oq = objektQueries[0];
+    if (oq.delay  > 0) {
+      try {
+        Thread.sleep(oq.delay);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
     List<Objekt> values = service.objektsForQuery(oq.charSequence, oq.kind, oq.lat, oq.lon);
 
     if (!isCancelled()) {
@@ -49,7 +57,7 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
 
   @Override
   protected void onCancelled() {
-    Log.d(TAG, "-------------> onCancelled <-------------");
+    Log.d(TAG, "-------------> onCancelled() <-------------");
 
   }
 
@@ -79,6 +87,7 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
     int          kind;
     Double       lat;
     Double       lon;
+    long      delay;
 
 
     public ObjektQuery(CharSequence charSequence, int kind, Double lat, Double lon) {
@@ -86,6 +95,15 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
       this.kind = kind;
       this.lat = lat;
       this.lon = lon;
+      this.delay = 0;
+    }
+
+    public ObjektQuery(CharSequence charSequence, int kind, Double lat, Double lon, long delay) {
+      this.charSequence = charSequence;
+      this.kind = kind;
+      this.lat = lat;
+      this.lon = lon;
+      this.delay = delay;
     }
   }
 

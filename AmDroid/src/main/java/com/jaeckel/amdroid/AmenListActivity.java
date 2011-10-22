@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -59,6 +60,7 @@ public class AmenListActivity extends ListActivity {
     .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
     .serializeNulls()
     .create();
+  private EndlessLoaderAsyncTask endlessTask;
 
   /**
    * Called when the activity is first created.
@@ -312,8 +314,17 @@ public class AmenListActivity extends ListActivity {
     protected void appendCachedData() {
       if (getWrappedAdapter().getCount() < 1000) {
 
-        new EndlessLoaderAsyncTask().execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
+        if (endlessTask != null) {
+          AsyncTask.Status status = endlessTask.getStatus();
+          if (status == AsyncTask.Status.FINISHED) {
+            endlessTask = new EndlessLoaderAsyncTask();
+            endlessTask.execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
+          }
+        } else {
+          endlessTask = new EndlessLoaderAsyncTask();
+          endlessTask.execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
 
+        }
       }
     }
   }
@@ -326,18 +337,31 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected List<Amen> doInBackground(Long... longs) {
+
       Long lastAmenId = longs[0];
       Log.d(TAG, "Running on Thread: " + Thread.currentThread().getName());
-      List<Amen> amens = service.getFeed(lastAmenId, 20);
-      return amens;  //To change body of implemented methods use File | Settings | File Templates.
+      Log.d(TAG, "       lastAmenId: " + lastAmenId);
+
+      if (!isCancelled()) {
+        List<Amen> amens = service.getFeed(lastAmenId, 20);
+        return amens;  //To change body of implemented methods use File | Settings | File Templates.
+      }
+
+      return null;
     }
 
     @Override
     protected void onPostExecute(List<Amen> amens) {
-
+      Log.d(TAG, "onPostExecute() Running on Thread: " + Thread.currentThread().getName());
       for (Amen amen : amens) {
+//        Log.d(TAG, "Adding amen: " + amen);
         amenListAdapter.add(amen);
       }
+    }
+
+    @Override
+    protected void onCancelled() {
+      Log.d(TAG, "cancelled");
     }
 
 
@@ -652,5 +676,13 @@ public class AmenListActivity extends ListActivity {
 
     }
   }
+  
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    Log.i(TAG, "onConfigurationChanged(): " + newConfig);
+//    setContentView(R.layout.myLayout);
+  }
+  
 }
 

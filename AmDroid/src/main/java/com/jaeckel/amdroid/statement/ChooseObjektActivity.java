@@ -67,7 +67,7 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
     View header = getLayoutInflater().inflate(R.layout.choose_objekt_header, null, false);
     header.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
-        Objekt objekt = new Objekt(objektEditText.getText() +"", currentObjektKind);
+        Objekt objekt = new Objekt(objektEditText.getText() + "", currentObjektKind);
 
         Log.d(TAG, "new Objekt: " + objekt);
 
@@ -111,19 +111,34 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
     objektEditText = (EditText) findViewById(R.id.objekt);
     objektEditText.setText(currentObjekt.getName());
     objektEditText.addTextChangedListener(new TextWatcher() {
+
+      boolean isDelete = false;
+      CharSequence before;
+      CharSequence after;
+      long delay;
+
       public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        before = charSequence;
       }
 
       public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        after = charSequence;
       }
 
       public void afterTextChanged(Editable editable) {
+        delay = 0;
 
         //TODO: when a String does not yield any result, adding more characters will not fix that. Stop searching then
 
         Log.d(TAG, "afterTextChanged:          editable: " + editable);
         Log.d(TAG, "afterTextChanged: currentObjektKind: " + currentObjektKind);
 
+
+        if (after.length() < before.length()) {
+          isDelete = true;
+          delay = 300;
+        }
+        Log.d(TAG, "before: " + before + " after: " + after + " delete?: " + isDelete);
         headerCompletionItemName.setText(editable.toString());
         headerDefaultDescription.setText("");
 
@@ -131,7 +146,8 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
           queryTask.cancel(true);
         }
         queryTask = new ObjektsForQueryTask(service, ChooseObjektActivity.this);
-        ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(editable.toString(), currentObjektKind, latitude, longitude);
+
+        ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(editable.toString(), currentObjektKind, latitude, longitude, delay);
         queryTask.execute(query);
 
 
