@@ -7,6 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -19,6 +22,7 @@ import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -188,4 +192,28 @@ public class UserDetailActivity extends ListActivity {
     }
   }
 
+  public boolean onCreateOptionsMenu(Menu menu) {
+       super.onCreateOptionsMenu(menu);
+
+       MenuInflater inflater = getMenuInflater();
+       inflater.inflate(R.menu.menu_user_detail, menu);
+       return true;
+     }
+
+     public boolean onOptionsItemSelected(MenuItem item) {
+       super.onOptionsItemSelected(item);
+
+       switch (item.getItemId()) {
+
+         case R.id.timeline:
+           startActivity(new Intent(this, AmenListActivity.class));
+           return true;
+
+         case R.id.amen:
+           startActivity(new Intent(this, ChooseStatementTypeActivity.class));
+           return true;
+       }
+
+       return false;
+     }
 }

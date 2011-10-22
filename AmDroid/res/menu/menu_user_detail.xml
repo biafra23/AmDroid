@@ -6,14 +6,7 @@
           android:icon="@drawable/ic_menu_timeline"
           android:title="Timeline"
             />
-    <item android:id="@+id/scoreboard"
-          android:icon="@drawable/ic_menu_scoreboard"
-          android:title="Scoreboard"
-            />
-    <item android:id="@+id/share"
-          android:icon="@drawable/ic_menu_share"
-          android:title="Share"
-            />
+
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_menu_amen"
           android:title="Amen sth."

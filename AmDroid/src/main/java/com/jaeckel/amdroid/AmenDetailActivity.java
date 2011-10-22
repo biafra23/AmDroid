@@ -78,10 +78,7 @@ public class AmenDetailActivity extends ListActivity {
 
     header.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
-        Intent intent = new Intent(AmenDetailActivity.this, ScoreBoardActivity.class);
-        intent.putExtra(Constants.EXTRA_TOPIC, currentStatement.getTopic());
-        intent.putExtra(Constants.EXTRA_OBJEKT_KIND, currentStatement.getObjekt().getKindId());
-        startActivity(intent);
+        startScoreBoardActivity();
 
       }
     });
@@ -96,6 +93,13 @@ public class AmenDetailActivity extends ListActivity {
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
 
 
+  }
+
+  private void startScoreBoardActivity() {
+    Intent intent = new Intent(this, ScoreBoardActivity.class);
+    intent.putExtra(Constants.EXTRA_TOPIC, currentStatement.getTopic());
+    intent.putExtra(Constants.EXTRA_OBJEKT_KIND, currentStatement.getObjekt().getKindId());
+    startActivity(intent);
   }
 
   public void onResume() {
@@ -355,37 +359,43 @@ public class AmenDetailActivity extends ListActivity {
   }
 
   public boolean onCreateOptionsMenu(Menu menu) {
-     super.onCreateOptionsMenu(menu);
+    super.onCreateOptionsMenu(menu);
 
-     MenuInflater inflater = getMenuInflater();
-     inflater.inflate(R.menu.menu_detail, menu);
-     return true;
-   }
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_detail, menu);
+    return true;
+  }
 
-   public boolean onOptionsItemSelected(MenuItem item) {
-     super.onOptionsItemSelected(item);
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
 
-     switch (item.getItemId()) {
+    switch (item.getItemId()) {
 
-       case R.id.timeline:
- //        Toast.makeText(this, "Prefereces", Toast.LENGTH_SHORT).show();
-         startActivity(new Intent(this, AmenListActivity.class));
+      case R.id.timeline: {
+        startActivity(new Intent(this, AmenListActivity.class));
+        return true;
+      }
 
-         return true;
+      case R.id.scoreboard: {
+        startScoreBoardActivity();
+        return true;
+      }
+      case R.id.share: {
+        String amenText = currentAmen.getStatement().toDisplayString();
 
-       case R.id.scoreboard:
- //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + currentAmen.getStatement().getId());
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
 
-         return true;
+        return true;
+      }
+      case R.id.amen:
+        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
+        return true;
+    }
 
-       case R.id.amen:
- //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
-         Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
-         startActivity(intent);
-         return true;
-     }
-
-     return false;
-   }
+    return false;
+  }
 
 }

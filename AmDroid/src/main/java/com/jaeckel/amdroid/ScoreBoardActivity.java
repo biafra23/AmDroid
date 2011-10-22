@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
@@ -13,6 +16,7 @@ import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.RankedStatements;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 
 import java.util.ArrayList;
 
@@ -50,10 +54,7 @@ public class ScoreBoardActivity extends ListActivity {
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
     int currentObjectKind = startingIntent.getIntExtra(Constants.EXTRA_OBJEKT_KIND, 0);
-    String placeFor = "";
-    if (currentObjectKind == AmenService.OBJEKT_KIND_PLACE) {
-      placeFor = "Place for ";
-    }
+
     Log.d(TAG, "currentTopic: " + currentTopic);
 
     new TopicStatementsTask().execute(currentTopic.getId());
@@ -63,7 +64,7 @@ public class ScoreBoardActivity extends ListActivity {
     setListAdapter(adapter);
 
     TextView description = (TextView) findViewById(R.id.description_scope);
-    description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + placeFor + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
+    description.setText(currentTopic.toDisplayString(currentObjectKind == AmenService.OBJEKT_KIND_PLACE));
 
   }
 
@@ -112,5 +113,41 @@ public class ScoreBoardActivity extends ListActivity {
     }
   }
 
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
 
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_scoreboard, menu);
+    return true;
+  }
+
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    switch (item.getItemId()) {
+
+      case R.id.timeline:
+        startActivity(new Intent(this, AmenListActivity.class));
+        return true;
+
+      case R.id.share:
+
+        boolean isPlace = false;
+
+        String amenText = currentTopic.toDisplayString(isPlace);
+
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + "... #getamen https://getamen.com/topics/" + currentTopic.getId());
+        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
+        return true;
+
+      case R.id.amen:
+        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
+        return true;
+    }
+
+    return false;
+  }
 }

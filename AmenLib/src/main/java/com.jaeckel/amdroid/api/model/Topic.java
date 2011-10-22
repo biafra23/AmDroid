@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
+import com.jaeckel.amdroid.api.AmenService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +33,14 @@ public class Topic implements Parcelable {
     this.scope = scope;
   }
 
-
+public String toDisplayString(boolean isPlace) {
+  
+  String placeFor = "";
+  if (isPlace) {
+    placeFor = "Place for ";
+  }
+  return "The " + (isBest() ? "Best " : "Worst ") + placeFor + getDescription() + " " + getScope() + " is";
+}
   @Override
   public String toString() {
     return "Topic{" +
