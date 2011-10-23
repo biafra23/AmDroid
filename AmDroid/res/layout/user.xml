@@ -7,13 +7,14 @@
     <ListView android:id="@android:id/list"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:visibility="visible"
+              android:visibility="gone"
             />
-    <ProgressBar
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+    <ProgressBar android:id="@+id/progress_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             style="@android:style/Widget.ProgressBar.Large"
             android:layout_marginRight="5dp"
+            android:visibility="visible"
             />
 
 

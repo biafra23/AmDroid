@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Amen;
@@ -42,6 +43,8 @@ public class UserDetailActivity extends ListActivity {
   private AmenService service;
   private AmenAdapter adapter;
   private Drawable    userImage;
+  private ListView    list;
+  private ProgressBar progressBar;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -52,7 +55,9 @@ public class UserDetailActivity extends ListActivity {
 
     setContentView(R.layout.user);
 
-    ListView list = (ListView) findViewById(android.R.id.list);
+    progressBar = (ProgressBar) findViewById(R.id.progress_listview);
+    
+    list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.user_header, null, false);
     list.addHeaderView(header);
 
@@ -137,7 +142,8 @@ public class UserDetailActivity extends ListActivity {
       if (result != null) {
         adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
         setListAdapter(adapter);
-
+        progressBar.setVisibility(View.GONE);
+        list.setVisibility(View.VISIBLE);
       }
 
     }

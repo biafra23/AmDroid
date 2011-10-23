@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.RankedStatements;
@@ -44,6 +45,10 @@ public class ScoreBoardActivity extends ListActivity {
   private AlertDialog.Builder errorDialog;
   private Handler             handler;
 
+  private ProgressBar progressBar;
+
+  private ListView list;
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
@@ -57,9 +62,11 @@ public class ScoreBoardActivity extends ListActivity {
 
     service = AmdroidApp.getInstance().getService();
 
-    setContentView(R.layout.user);
+    setContentView(R.layout.score_board);
 
-    ListView list = (ListView) findViewById(android.R.id.list);
+    progressBar = (ProgressBar) findViewById(R.id.progress_listview);
+    
+    list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.score_header, null, false);
     list.addHeaderView(header);
 
@@ -148,7 +155,8 @@ public class ScoreBoardActivity extends ListActivity {
         description.setText(currentTopic.getAsSentence());
         adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
         setListAdapter(adapter);
-
+        progressBar.setVisibility(View.GONE);
+        list.setVisibility(View.VISIBLE);
       }
 
       setProgressBarIndeterminateVisibility(false);
