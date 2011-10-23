@@ -4,7 +4,6 @@ package com.jaeckel.amdroid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +16,7 @@ import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.util.AmenLibTask;
 import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
           newObjektName.setName(textView.getText().toString());
           newObjektName.setKindId(currentAmen.getStatement().getObjekt().getKindId());
         }
-        new DisputeTask().execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
+        new DisputeTask(DisputeActivity.this).execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
 
         finish();
       }
@@ -141,11 +141,14 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     return statementBuilder;
   }
 
-  class DisputeTask extends AsyncTask<Amen, Integer, Long> {
+  class DisputeTask extends AmenLibTask<Amen, Integer, Long> {
 
+    public DisputeTask(Context context) {
+      super(context);
+    }
 
     @Override
-    protected Long doInBackground(Amen... amens) {
+    protected Long wrappedDoInBackground(Amen... amens) {
       for (Amen amen : amens) {
         service.dispute(amen);
       }
@@ -155,7 +158,10 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     @Override
     protected void onPostExecute(Long result) {
-        Toast.makeText(DisputeActivity.this, "Disputed", Toast.LENGTH_SHORT ).show();
+      super.onPostExecute(result);
+      if (result != null) {
+        Toast.makeText(DisputeActivity.this, "Disputed", Toast.LENGTH_SHORT).show();
+      }
     }
   }
 
