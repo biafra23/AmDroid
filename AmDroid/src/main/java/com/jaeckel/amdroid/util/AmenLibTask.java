@@ -31,7 +31,10 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
 
     } catch (Exception e) {
       lastException = e;
-      //e.printStackTrace();
+      Log.d(TAG, "---------------------------------------");
+      e.printStackTrace();
+      Log.d(TAG, "---------------------------------------");
+
     }
     return null;
   }
@@ -39,8 +42,8 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
   protected abstract Result wrappedDoInBackground(Params... params);
 
   protected void onPostExecute(Result result) {
-    if (lastException != null) {
 
+    if (lastException != null) {
 
       Log.e(TAG, "ERROR occured");
       lastException.printStackTrace();
@@ -55,15 +58,17 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
       new AlertDialog.Builder(context)
         .setTitle(title)
         .setMessage(message)
-        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+        .setPositiveButton(R.string.dismiss, new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialogInterface, int i) {
             Log.e(TAG, "OK clicked");
           }
         })
         .show();
 
+      Log.e(TAG, "Dialog shown!");
     }
 
     lastException = null;
+    Log.e(TAG, "lastException reset!");
   }
 }

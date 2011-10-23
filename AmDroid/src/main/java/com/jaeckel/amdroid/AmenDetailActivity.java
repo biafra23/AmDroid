@@ -256,10 +256,9 @@ public class AmenDetailActivity extends ListActivity {
 
     protected void onPostExecute(Amen result) {
 
-      if (lastError != null) {
-        Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
-        lastError = null;
-      } else {
+      super.onPostExecute(result);
+      if (result != null) {
+
         currentAmen = result;
         currentStatement = currentAmen.getStatement();
         populateFormWithAmen(false);
@@ -271,6 +270,7 @@ public class AmenDetailActivity extends ListActivity {
         setListAdapter(thumbs);
       }
     }
+
   }
 
   //
@@ -281,18 +281,11 @@ public class AmenDetailActivity extends ListActivity {
     public AmenTask(Context context) {
       super(context);
     }
-    
+
     protected Amen wrappedDoInBackground(Long... amenId) {
-      try {
-        lastError = null;
-        Amen amen = service.amen(amenId[0]);
-        Log.d(TAG, "Amen returned from amen(): " + amen);
-        return amen;
-      } catch (RuntimeException e) {
-        lastError = e.getMessage();
-        e.printStackTrace();
-      }
-      return null;
+      Amen amen = service.amen(amenId[0]);
+      Log.d(TAG, "Amen returned from amen(): " + amen);
+      return amen;
     }
 
     @Override
@@ -300,13 +293,10 @@ public class AmenDetailActivity extends ListActivity {
     }
 
     protected void onPostExecute(Amen result) {
-      
-      super.onPostExecute(result);
 
-      if (lastError != null) {
-        Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
-        lastError = null;
-      } else {
+      super.onPostExecute(result);
+      if (result != null) {
+
         currentAmen = result;
         currentStatement = currentAmen.getStatement();
         populateFormWithAmen(false);
@@ -316,6 +306,7 @@ public class AmenDetailActivity extends ListActivity {
         //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
         thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
         setListAdapter(thumbs);
+
       }
     }
   }
@@ -329,17 +320,13 @@ public class AmenDetailActivity extends ListActivity {
     public GetStatementTask(Context context) {
       super(context);
     }
+
     protected Statement wrappedDoInBackground(Long... statementIds) {
-      try {
-        lastError = null;
-        Statement statement = service.getStatementForId(statementIds[0]);
-        Log.d(TAG, "Statement returned from statement(): " + statement);
-        return statement;
-      } catch (RuntimeException e) {
-        lastError = e.getMessage();
-        e.printStackTrace();
-      }
-      return null;
+
+      Statement statement = service.getStatementForId(statementIds[0]);
+      Log.d(TAG, "Statement returned from statement(): " + statement);
+      return statement;
+
     }
 
     @Override
@@ -349,10 +336,7 @@ public class AmenDetailActivity extends ListActivity {
     protected void onPostExecute(Statement result) {
       super.onPostExecute(result);
 
-      if (lastError != null) {
-        Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
-        lastError = null;
-      } else {
+      if (result != null) {
         currentAmen = new Amen(result);
         currentAmen.setId(result.getFirstAmenId());
         setAmenButtonListener();

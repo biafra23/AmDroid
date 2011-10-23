@@ -1,6 +1,5 @@
 package com.jaeckel.amdroid;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

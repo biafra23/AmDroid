@@ -5,6 +5,7 @@
     <string name="network_exception">Network error</string>
     <string name="exception">Exception</string>
     <string name="ok">OK</string>
+    <string name="dismiss">Dismiss</string>
     <string name="open_item">Open Detail View</string>
     <string name="amen_item">Amen this</string>
     <string name="dispute_item">Dispute this</string>
