@@ -7,6 +7,7 @@ import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.api.model.UserInfo;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -57,7 +58,7 @@ public interface AmenService {
 
   public Amen getAmenForId(Long id);
 
-  public Topic getTopicsForId(Long id, Long includeStatementId);
+  public Topic getTopicsForId(Long id, Long includeStatementId) throws IOException;
 
   public List<User> followers(Long id);
 

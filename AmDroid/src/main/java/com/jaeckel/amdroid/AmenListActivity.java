@@ -3,6 +3,7 @@ package com.jaeckel.amdroid;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +34,7 @@ import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amdroid.util.AmenLibTask;
 import com.jaeckel.amdroid.widget.PullToRefreshListView;
 
 import java.lang.reflect.Type;
@@ -42,7 +44,7 @@ import java.util.List;
 
 public class AmenListActivity extends ListActivity {
 
-  private static       String TAG                       = "amdroid/AmenListActivity";
+  private static       String TAG                       = "AmenListActivity";
   final private static int    PROGRESS_DIALOG_ID        = 0;
   public static final  int    REQUEST_CODE_PREFERENCES  = 1001;
   public static final  int    REQUEST_CODE_AMEN_DETAILS = 1002;
@@ -113,7 +115,7 @@ public class AmenListActivity extends ListActivity {
       public void onRefresh() {
         Log.v(TAG, "onRefresh()");
         // Do work to refresh the list here.
-        new GetDataTask().execute();
+        new GetDataTask(AmenListActivity.this).execute();
       }
     });
   }
@@ -140,7 +142,7 @@ public class AmenListActivity extends ListActivity {
 
   private void refreshAmenWithStatementId(Long statementId) {
 
-    new AmenRefreshTask().execute(statementId);
+    new AmenRefreshTask(this).execute(statementId);
   }
 
   @Override
@@ -158,7 +160,7 @@ public class AmenListActivity extends ListActivity {
 
 
     if (service != null) {
-      LoaderAsyncTask loader = new LoaderAsyncTask();
+      LoaderAsyncTask loader = new LoaderAsyncTask(this);
       loader.execute();
     }
   }
@@ -167,7 +169,7 @@ public class AmenListActivity extends ListActivity {
 
 
     if (service != null) {
-      CachedLoaderAsyncTask loader = new CachedLoaderAsyncTask();
+      CachedLoaderAsyncTask loader = new CachedLoaderAsyncTask(this);
       loader.execute();
     }
   }
@@ -317,11 +319,11 @@ public class AmenListActivity extends ListActivity {
         if (endlessTask != null) {
           AsyncTask.Status status = endlessTask.getStatus();
           if (status == AsyncTask.Status.FINISHED) {
-            endlessTask = new EndlessLoaderAsyncTask();
+            endlessTask = new EndlessLoaderAsyncTask(AmenListActivity.this);
             endlessTask.execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
           }
         } else {
-          endlessTask = new EndlessLoaderAsyncTask();
+          endlessTask = new EndlessLoaderAsyncTask(AmenListActivity.this);
           endlessTask.execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
 
         }
@@ -333,10 +335,14 @@ public class AmenListActivity extends ListActivity {
   //
   //
 
-  private class EndlessLoaderAsyncTask extends AsyncTask<Long, Integer, List<Amen>> {
+  private class EndlessLoaderAsyncTask extends AmenLibTask<Long, Integer, List<Amen>> {
+
+    public EndlessLoaderAsyncTask(Context context) {
+      super(context);
+    }
 
     @Override
-    protected List<Amen> doInBackground(Long... longs) {
+    protected List<Amen> wrappedDoInBackground(Long... longs) {
 
       Long lastAmenId = longs[0];
       Log.d(TAG, "Running on Thread: " + Thread.currentThread().getName());
@@ -352,6 +358,8 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPostExecute(List<Amen> amens) {
+      super.onPostExecute(amens);
+
       Log.d(TAG, "onPostExecute() Running on Thread: " + Thread.currentThread().getName());
       for (Amen amen : amens) {
 //        Log.d(TAG, "Adding amen: " + amen);
@@ -370,11 +378,14 @@ public class AmenListActivity extends ListActivity {
   //
   // CachedLoaderAsyncTask
   //
-  private class CachedLoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
+  private class CachedLoaderAsyncTask extends AmenLibTask<Void, Integer, List<Amen>> {
 
+    public CachedLoaderAsyncTask(Context context) {
+      super(context);
+    }
 
     @Override
-    protected List<Amen> doInBackground(Void... voids) {
+    protected List<Amen> wrappedDoInBackground(Void... voids) {
 
       List<Amen> amens = new ArrayList<Amen>();
 
@@ -434,10 +445,14 @@ public class AmenListActivity extends ListActivity {
   //
   // LoaderAsyncTask
   //
-  private class LoaderAsyncTask extends AsyncTask<Void, Integer, List<Amen>> {
+  private class LoaderAsyncTask extends AmenLibTask<Void, Integer, List<Amen>> {
+
+    public LoaderAsyncTask(Context context) {
+      super(context);
+    }
 
     @Override
-    protected List<Amen> doInBackground(Void... voids) {
+    protected List<Amen> wrappedDoInBackground(Void... voids) {
 
       Log.d(TAG, "Loader executing");
 
@@ -458,15 +473,20 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void onPostExecute(List<Amen> amens) {
 
-      amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
-      ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+      super.onPostExecute(amens);
+      if (amens != null) {
 
-      EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
 
-      setListAdapter(endless);
+        amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
+        ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+
+        EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
+
+        setListAdapter(endless);
+
+      }
 
       loadingProgressDialog.hide();
-
     }
   }
 
@@ -501,6 +521,8 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPostExecute(AmenService service) {
+      super.onPostExecute(service);
+
       if (AmdroidApp.DEVELOPER_MODE) {
         Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
       }
@@ -518,10 +540,14 @@ public class AmenListActivity extends ListActivity {
   // GetDataTask
   //
 
-  private class GetDataTask extends AsyncTask<Void, Void, List<Amen>> {
+  private class GetDataTask extends AmenLibTask<Void, Void, List<Amen>> {
+
+    public GetDataTask(Context context) {
+      super(context);
+    }
 
     @Override
-    protected List<Amen> doInBackground(Void... voids) {
+    protected List<Amen> wrappedDoInBackground(Void... voids) {
       Log.v(TAG, "doInBackground");
       List<Amen> oldAmens = new ArrayList<Amen>();
 
@@ -573,24 +599,27 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPostExecute(List<Amen> result) {
-      Log.v(TAG, "onPostExecute");
-
-      if (result.size() == pageSize) {
-        // clear adapter
-        amenListAdapter.clear();
-      }
-      if (result.size() > 0) {
-
-        for (int i = result.size() - 1; i >= 0; i--) {
-          Log.v(TAG, "new results -> amen: " + result.get(i).getId() + " name: " + result.get(i).getStatement().getObjekt().getName());
-          amenListAdapter.insert(result.get(i), 0);
-        }
-        amenListAdapter.notifyDataSetChanged();
-      }
-
-      // Call onRefreshComplete when the list has been refreshed.
-      ((PullToRefreshListView) getListView()).onRefreshComplete();
       super.onPostExecute(result);
+      Log.v(TAG, "onPostExecute");
+      if (result != null) {
+
+
+        if (result.size() == pageSize) {
+          // clear adapter
+          amenListAdapter.clear();
+        }
+        if (result.size() > 0) {
+
+          for (int i = result.size() - 1; i >= 0; i--) {
+            Log.v(TAG, "new results -> amen: " + result.get(i).getId() + " name: " + result.get(i).getStatement().getObjekt().getName());
+            amenListAdapter.insert(result.get(i), 0);
+          }
+          amenListAdapter.notifyDataSetChanged();
+        }
+
+        // Call onRefreshComplete when the list has been refreshed.
+        ((PullToRefreshListView) getListView()).onRefreshComplete();
+      }
     }
   }
 
@@ -633,11 +662,14 @@ public class AmenListActivity extends ListActivity {
     return u;
   }
 
-  private class AmenRefreshTask extends AsyncTask<Long, Integer, Amen> {
+  private class AmenRefreshTask extends AmenLibTask<Long, Integer, Amen> {
 
+    public AmenRefreshTask(Context context) {
+      super(context);
+    }
 
     @Override
-    protected Amen doInBackground(Long... statementIds) {
+    protected Amen wrappedDoInBackground(Long... statementIds) {
       //1. find statement in adapter
 
       //2. reload statement froms server
@@ -673,16 +705,16 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPostExecute(Amen result) {
-
+      super.onPostExecute(result);
     }
   }
-  
+
   @Override
   public void onConfigurationChanged(Configuration newConfig) {
     super.onConfigurationChanged(newConfig);
     Log.i(TAG, "onConfigurationChanged(): " + newConfig);
 //    setContentView(R.layout.myLayout);
   }
-  
+
 }
 

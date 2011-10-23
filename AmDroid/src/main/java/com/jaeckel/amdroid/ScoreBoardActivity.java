@@ -1,9 +1,13 @@
 package com.jaeckel.amdroid;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,7 +21,9 @@ import com.jaeckel.amdroid.api.model.RankedStatements;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amdroid.util.AmenLibTask;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -33,12 +39,19 @@ public class ScoreBoardActivity extends ListActivity {
   private AmenService       service;
   private ScoreBoardAdapter adapter;
   private Topic             currentTopic;
+  private TextView          description;
 
+  private AlertDialog.Builder errorDialog;
+  private Handler             handler;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+    handler = new Handler();
+    errorDialog = new AlertDialog.Builder(this);
+
     requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+    setProgressBarIndeterminateVisibility(true);
 
     Log.d(TAG, "onCreate");
 
@@ -57,15 +70,18 @@ public class ScoreBoardActivity extends ListActivity {
 
     Log.d(TAG, "currentTopic: " + currentTopic);
 
-    new TopicStatementsTask().execute(currentTopic.getId());
+    new TopicStatementsTask(this).execute(currentTopic.getId());
 
     adapter = new ScoreBoardAdapter(this, android.R.layout.simple_list_item_1, new ArrayList<RankedStatements>());
 
     setListAdapter(adapter);
 
-    TextView description = (TextView) findViewById(R.id.description_scope);
-    description.setText(currentTopic.getAsSentence());
-
+    description = (TextView) findViewById(R.id.description_scope);
+    if (TextUtils.isEmpty(currentTopic.getAsSentence())) {
+      description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
+    } else {
+      description.setText(currentTopic.getAsSentence());
+    }
   }
 
 
@@ -86,10 +102,38 @@ public class ScoreBoardActivity extends ListActivity {
   //
   // TopicStatementsTask
   //
-  private class TopicStatementsTask extends AsyncTask<Long, Integer, Topic> {
+  private class TopicStatementsTask extends AmenLibTask<Long, Integer, Topic> {
 
-    protected Topic doInBackground(Long... topicId) {
-      return service.getTopicsForId(currentTopic.getId(), null);
+    public TopicStatementsTask(Context context) {
+      super(context);
+    }
+
+    protected Topic wrappedDoInBackground(Long... topicId) {
+      try {
+        return service.getTopicsForId(currentTopic.getId(), null);
+
+      } catch (final IOException e) {
+
+        handler.post(new Runnable() {
+          public void run() {
+
+            Log.e(TAG, "Creating dialog");
+            errorDialog
+              .setTitle(R.string.exception)
+              .setMessage(e.getMessage())
+              .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                  Log.d(TAG, "OK clicked");
+                }
+              })
+              .show();
+            Log.e(TAG, "Created dialog");
+          }
+        });
+
+        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+      }
+      return null;
     }
 
     @Override
@@ -97,18 +141,17 @@ public class ScoreBoardActivity extends ListActivity {
     }
 
     protected void onPostExecute(final Topic topic) {
+      super.onPostExecute(topic);
 
-//      if (topic.getRankedStatements() != null
-//          && topic.getRankedStatements().size() > 0
-//          && topic.getRankedStatements().get(0).getStatement().getObjekt().getKindId() == AmenService.OBJEKT_KIND_PLACE
-//        ) {
-//
-//        TextView description = (TextView) findViewById(R.id.description_scope);
-//        description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + " Place for " + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
-//      }
+      if (topic != null) {
+        currentTopic = topic;
+        description.setText(currentTopic.getAsSentence());
+        adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
+        setListAdapter(adapter);
 
-      adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
-      setListAdapter(adapter);
+      }
+
+      setProgressBarIndeterminateVisibility(false);
 
     }
   }

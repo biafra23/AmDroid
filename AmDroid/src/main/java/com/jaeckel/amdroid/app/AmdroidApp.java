@@ -1,9 +1,11 @@
 package com.jaeckel.amdroid.app;
 
+import android.app.AlertDialog;
 import android.app.Application;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Criteria;
@@ -13,9 +15,9 @@ import android.location.LocationManager;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
+import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.AmenServiceImpl;
-import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
@@ -32,7 +34,7 @@ public class AmdroidApp extends Application {
   //TODO: set to false before release
   public final static boolean DEVELOPER_MODE = false;
 
-  public static final String TAG                           = "amdroid/AmdroidApp";
+  public static final String TAG                           = "AmdroidApp";
   protected static    String SINGLE_LOCATION_UPDATE_ACTION = "com.jaeckel.amen.SINGLE_LOCATION_UPDATE_ACTION";
 
   private static AmdroidApp instance;
@@ -52,12 +54,13 @@ public class AmdroidApp extends Application {
 
   private ThumbnailBus                                        bus   = new ThumbnailBus();
   private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
-  
 
-  private Handler handler;
+
+  private Handler handler = new Handler();
+  private AlertDialog.Builder builder;
 
   public AmdroidApp() {
-
+    super();
 //    Thread.setDefaultUncaughtExceptionHandler(onBlooey);
 //    this.context = context;
 
@@ -75,8 +78,11 @@ public class AmdroidApp extends Application {
                                    .build());
     }
     super.onCreate();
-    
+
+
     instance = this;
+    builder = new AlertDialog.Builder(this);
+
 //    handler = new Handler();
     Log.v(TAG, "onCreate");
 
@@ -146,26 +152,35 @@ public class AmdroidApp extends Application {
     return (cache);
   }
 
-//  private Thread.UncaughtExceptionHandler onBlooey =
-//    new Thread.UncaughtExceptionHandler() {
-//      public void uncaughtException(Thread thread, final Throwable ex) {
-//        Log.e(TAG, "Uncaught exception", ex);
-//
-//        handler.post(new Runnable() {
-//          public void run() {
-//            AlertDialog.Builder builder = new AlertDialog.Builder(AmdroidApp.this);
-//            Log.e(TAG, "Creating dialog");
-//            builder
-//              .setTitle(R.string.exception)
-//              .setMessage(ex.getMessage())
-//              .setPositiveButton(R.string.ok, null)
-//              .show();
-//            Log.e(TAG, "Created dialog");
-//          }
-//        });
-//      }
-//    };
+  private Thread.UncaughtExceptionHandler onBlooey =
 
+    new Thread.UncaughtExceptionHandler() {
+
+      public void uncaughtException(Thread thread, final Throwable ex) {
+        Log.e(TAG, "Uncaught exception", ex);
+        ex.printStackTrace();
+        if (ex.getCause() != null) {
+          Log.e(TAG, "CAUSE", ex.getCause());
+          ex.getCause().printStackTrace();
+        }
+        handler.post(new Runnable() {
+          public void run() {
+
+            Log.e(TAG, "Creating dialog");
+            builder
+              .setTitle(R.string.exception)
+              .setMessage(ex.getMessage())
+              .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                  Log.d(TAG, "OK clicked");
+                }
+              })
+              .show();
+            Log.e(TAG, "Created dialog");
+          }
+        });
+      }
+    };
 
 
   public Location getLastLocation() {

@@ -1,16 +1,17 @@
 package com.jaeckel.amdroid;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amdroid.util.AmenLibTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class UserDetailActivity extends ListActivity {
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     Log.d(TAG, "onCreate");
 
     service = AmdroidApp.getInstance().getService();
@@ -57,9 +60,9 @@ public class UserDetailActivity extends ListActivity {
 
     currentUser = startingIntent.getParcelableExtra(Constants.EXTRA_USER);
 
-    new AmenForUserTask().execute(currentUser.getId());
+    new AmenForUserTask(this).execute(currentUser.getId());
 
-    new UserInfoTask().execute(currentUser.getId());
+    new UserInfoTask(this).execute(currentUser.getId());
 
     TextView userName = (TextView) findViewById(R.id.name);
     userName.setText(currentUser.getName());
@@ -110,9 +113,13 @@ public class UserDetailActivity extends ListActivity {
   //
   // AmenForUserTask
   //
-  private class AmenForUserTask extends AsyncTask<Long, Integer, List<Amen>> {
+  private class AmenForUserTask extends AmenLibTask<Long, Integer, List<Amen>> {
 
-    protected List<Amen> doInBackground(Long... urls) {
+    public AmenForUserTask(Context context) {
+      super(context);
+    }
+
+    protected List<Amen> wrappedDoInBackground(Long... urls) {
 
       List<Amen> amen = service.getAmenForUser(currentUser.getId());
 
@@ -125,8 +132,13 @@ public class UserDetailActivity extends ListActivity {
 
     protected void onPostExecute(List<Amen> result) {
 
-      adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
-      setListAdapter(adapter);
+      super.onPostExecute(result);
+
+      if (result != null) {
+        adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
+        setListAdapter(adapter);
+
+      }
 
     }
   }
@@ -134,86 +146,81 @@ public class UserDetailActivity extends ListActivity {
   //
   // UserInfoTask
   //
-  private class UserInfoTask extends AsyncTask<Long, Integer, UserInfo> {
+  private class UserInfoTask extends AmenLibTask<Long, Integer, UserInfo> {
 
-    protected UserInfo doInBackground(Long... urls) {
+    public UserInfoTask(Context context) {
+      super(context);
+    }
+
+    protected UserInfo wrappedDoInBackground(Long... urls) {
 
       final UserInfo userInfo = service.getUserInfo(currentUser.getId());
-
-//      Log.d(TAG, "userInfo: " + userInfo);
-//      Log.d(TAG, "userInfo.getPicture(): " + userInfo.getPicture() + "?type=normal");
-//
-//      final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
-//
-//      Log.d(TAG, "userImage status: " + cache.getStatus(userInfo.getPicture()));
-//
-//      userImage = cache.get(userInfo.getPicture() + "?type=normal");
-//
-//      Log.d(TAG, "userImage: " + userImage);
-
 
       return userInfo;
     }
 
     protected void onPostExecute(final UserInfo userInfo) {
+      super.onPostExecute(userInfo);
+      if (userInfo != null) {
 
-      TextView userName = (TextView) findViewById(R.id.name);
-      userName.setText(userInfo.getName());
-      final TextView follow = (TextView) findViewById(R.id.follow);
+        TextView userName = (TextView) findViewById(R.id.name);
+        userName.setText(userInfo.getName());
+        final TextView follow = (TextView) findViewById(R.id.follow);
 
-      if (userInfo.getFollowing() != null && userInfo.getFollowing()) {
-        follow.setBackgroundColor(Color.CYAN);
-        follow.setText("Following");
-      } else {
-        follow.setBackgroundColor(Color.GRAY);
-      }
-
-      follow.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View view) {
-          if (userInfo.getFollowing()) {
-            service.unfollow(currentUser);
-            follow.setBackgroundColor(Color.GRAY);
-          } else {
-            service.follow(currentUser);
-            follow.setBackgroundColor(Color.CYAN);
-          }
+        if (userInfo.getFollowing() != null && userInfo.getFollowing()) {
+          follow.setBackgroundColor(Color.CYAN);
+          follow.setText("Following");
+        } else {
+          follow.setBackgroundColor(Color.GRAY);
         }
-      });
 
-      TextView followers = (TextView) findViewById(R.id.followers);
-      followers.setText(userInfo.getFollowersCount() + " Followers");
+        follow.setOnClickListener(new View.OnClickListener() {
+          public void onClick(View view) {
+            if (userInfo.getFollowing()) {
+              service.unfollow(currentUser);
+              follow.setBackgroundColor(Color.GRAY);
+            } else {
+              service.follow(currentUser);
+              follow.setBackgroundColor(Color.CYAN);
+            }
+          }
+        });
 
-      TextView following = (TextView) findViewById(R.id.following);
-      following.setText(userInfo.getFollowingCount() + " Following");
+        TextView followers = (TextView) findViewById(R.id.followers);
+        followers.setText(userInfo.getFollowersCount() + " Followers");
 
-      ImageView userImageView = (ImageView) findViewById(R.id.user_image);
-      userImageView.setImageDrawable(userImage);
+        TextView following = (TextView) findViewById(R.id.following);
+        following.setText(userInfo.getFollowingCount() + " Following");
+
+        ImageView userImageView = (ImageView) findViewById(R.id.user_image);
+        userImageView.setImageDrawable(userImage);
+      }
 
     }
   }
 
   public boolean onCreateOptionsMenu(Menu menu) {
-       super.onCreateOptionsMenu(menu);
+    super.onCreateOptionsMenu(menu);
 
-       MenuInflater inflater = getMenuInflater();
-       inflater.inflate(R.menu.menu_user_detail, menu);
-       return true;
-     }
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_user_detail, menu);
+    return true;
+  }
 
-     public boolean onOptionsItemSelected(MenuItem item) {
-       super.onOptionsItemSelected(item);
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
 
-       switch (item.getItemId()) {
+    switch (item.getItemId()) {
 
-         case R.id.timeline:
-           startActivity(new Intent(this, AmenListActivity.class));
-           return true;
+      case R.id.timeline:
+        startActivity(new Intent(this, AmenListActivity.class));
+        return true;
 
-         case R.id.amen:
-           startActivity(new Intent(this, ChooseStatementTypeActivity.class));
-           return true;
-       }
+      case R.id.amen:
+        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
+        return true;
+    }
 
-       return false;
-     }
+    return false;
+  }
 }

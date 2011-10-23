@@ -1,9 +1,9 @@
 package com.jaeckel.amdroid.statement;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +17,7 @@ import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.util.AmenLibTask;
 
 /**
  * User: biafra
@@ -175,7 +176,7 @@ public class MakeStatementActivity extends Activity {
         currentTopic.setBest(currentBest);
         final Statement statement = new Statement(currentObjekt, currentTopic);
 
-        new MakeStatementTask().execute(statement);
+        new MakeStatementTask(MakeStatementActivity.this).execute(statement);
 
       }
     });
@@ -239,9 +240,12 @@ public class MakeStatementActivity extends Activity {
   //
   // MakeStatementTask
   //
-  private class MakeStatementTask extends AsyncTask<Statement, Integer, Void> {
+  private class MakeStatementTask extends AmenLibTask<Statement, Integer, Void> {
 
-    protected Void doInBackground(Statement... statements) {
+    public MakeStatementTask(Context context) {
+      super(context);
+    }
+    protected Void wrappedDoInBackground(Statement... statements) {
 
       for (Statement statement : statements) {
         service.addStatement(statement);
@@ -256,9 +260,11 @@ public class MakeStatementActivity extends Activity {
     }
 
     protected void onPostExecute(Void result) {
-
-      Toast.makeText(MakeStatementActivity.this, "Amen.", Toast.LENGTH_LONG).show();
-      finish();
+      super.onPostExecute(result);
+      if (result != null) {
+        Toast.makeText(MakeStatementActivity.this, "Amen.", Toast.LENGTH_LONG).show();
+        finish();
+      }
     }
   }
 

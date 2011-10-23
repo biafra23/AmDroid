@@ -1,6 +1,6 @@
 package com.jaeckel.amdroid.util;
 
-import android.os.AsyncTask;
+import android.content.Context;
 import android.util.Log;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Objekt;
@@ -14,14 +14,26 @@ import java.util.List;
  * Time: 2:50 PM
  */
 
-public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQuery, Integer, List<Objekt>> {
+public class ObjektsForQueryTask extends AmenLibTask<ObjektsForQueryTask.ObjektQuery, Integer, List<Objekt>> {
 
   private static final String TAG = "ObjektsForQueryTask";
 
   ReturnedObjektsHandler handler;
   AmenService            service;
 
+  /**
+   * @param service
+   * @param handler needs to be a context! If its not use ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler, Context context)
+   */
   public ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler) {
+    super((Context) handler);
+    this.handler = handler;
+    this.service = service;
+
+  }
+
+  public ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler, Context context) {
+    super(context);
     this.handler = handler;
     this.service = service;
 
@@ -29,11 +41,11 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
 
 
   @Override
-  protected List<Objekt> doInBackground(ObjektsForQueryTask.ObjektQuery... objektQueries) {
+  protected List<Objekt> wrappedDoInBackground(ObjektsForQueryTask.ObjektQuery... objektQueries) {
 
 
     ObjektsForQueryTask.ObjektQuery oq = objektQueries[0];
-    if (oq.delay  > 0) {
+    if (oq.delay > 0) {
       try {
         Thread.sleep(oq.delay);
       } catch (InterruptedException e) {
@@ -63,7 +75,11 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
 
   @Override
   protected void onPostExecute(List<Objekt> results) {
-    handler.handleObjektsResult(results);
+    super.onPostExecute(results);
+    if (results != null) {
+      handler.handleObjektsResult(results);
+    }
+
   }
 
   private boolean objektInList(String name, List<Objekt> objekts) {
@@ -87,7 +103,7 @@ public class ObjektsForQueryTask extends AsyncTask<ObjektsForQueryTask.ObjektQue
     int          kind;
     Double       lat;
     Double       lon;
-    long      delay;
+    long         delay;
 
 
     public ObjektQuery(CharSequence charSequence, int kind, Double lat, Double lon) {

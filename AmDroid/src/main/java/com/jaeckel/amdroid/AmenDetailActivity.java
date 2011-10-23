@@ -2,6 +2,7 @@ package com.jaeckel.amdroid;
 
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amdroid.util.AmenLibTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -70,7 +72,7 @@ public class AmenDetailActivity extends ListActivity {
       currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
 
       // start downloading statement again to get the first_amen_id
-      new GetStatementTask().execute(currentStatement.getId());
+      new GetStatementTask(this).execute(currentStatement.getId());
 
     } else {
       currentStatement = currentAmen.getStatement();
@@ -173,7 +175,7 @@ public class AmenDetailActivity extends ListActivity {
 
         } else {
           Log.d(TAG, "amening: " + currentAmen);
-          new AmenDetailActivity.AmenTask().execute(currentAmen.getId());
+          new AmenDetailActivity.AmenTask(AmenDetailActivity.this).execute(currentAmen.getId());
 
         }
         populateFormWithAmen(false);
@@ -274,9 +276,13 @@ public class AmenDetailActivity extends ListActivity {
   //
   // AmenTask
   //
-  private class AmenTask extends AsyncTask<Long, Integer, Amen> {
+  private class AmenTask extends AmenLibTask<Long, Integer, Amen> {
 
-    protected Amen doInBackground(Long... amenId) {
+    public AmenTask(Context context) {
+      super(context);
+    }
+    
+    protected Amen wrappedDoInBackground(Long... amenId) {
       try {
         lastError = null;
         Amen amen = service.amen(amenId[0]);
@@ -294,6 +300,8 @@ public class AmenDetailActivity extends ListActivity {
     }
 
     protected void onPostExecute(Amen result) {
+      
+      super.onPostExecute(result);
 
       if (lastError != null) {
         Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();
@@ -316,9 +324,12 @@ public class AmenDetailActivity extends ListActivity {
   //
   // AmenTask
   //
-  private class GetStatementTask extends AsyncTask<Long, Integer, Statement> {
+  private class GetStatementTask extends AmenLibTask<Long, Integer, Statement> {
 
-    protected Statement doInBackground(Long... statementIds) {
+    public GetStatementTask(Context context) {
+      super(context);
+    }
+    protected Statement wrappedDoInBackground(Long... statementIds) {
       try {
         lastError = null;
         Statement statement = service.getStatementForId(statementIds[0]);
@@ -336,6 +347,7 @@ public class AmenDetailActivity extends ListActivity {
     }
 
     protected void onPostExecute(Statement result) {
+      super.onPostExecute(result);
 
       if (lastError != null) {
         Toast.makeText(AmenDetailActivity.this, lastError, Toast.LENGTH_SHORT).show();

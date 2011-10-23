@@ -425,7 +425,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Topic getTopicsForId(Long id, Long includeStatementId) {
+  public Topic getTopicsForId(Long id, Long includeStatementId)  throws IOException {
 
     log.debug("getTopicsForId");
     Topic topic;
@@ -436,7 +436,7 @@ public class AmenServiceImpl implements AmenService {
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", params);
 
-    try {
+//    try {
 
       HttpResponse response = httpclient.execute(httpGet);
       HttpEntity responseEntity = response.getEntity();
@@ -445,9 +445,9 @@ public class AmenServiceImpl implements AmenService {
 
       topic = gson.fromJson(responseString, Topic.class);
 
-    } catch (Exception e) {
-      throw new RuntimeException("getTopicsForId(" + id + ") failed", e);
-    }
+//    } catch (Exception e) {
+//      throw new RuntimeException("getTopicsForId(" + id + ") failed", e);
+//    }
 
     return topic;
   }
