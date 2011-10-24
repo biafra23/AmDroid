@@ -28,6 +28,7 @@ public class EditPreferencesActivity extends PreferenceActivity {
     super.onCreate(savedInstanceState);
 
     addPreferencesFromResource(R.xml.preferences);
+    setTitle("Amenoid/Preferences");
 
 
   }

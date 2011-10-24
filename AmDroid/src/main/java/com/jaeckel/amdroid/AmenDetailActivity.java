@@ -62,6 +62,7 @@ public class AmenDetailActivity extends ListActivity {
     cache = AmdroidApp.getInstance().getCache();
 
     setContentView(R.layout.details);
+    setTitle("Amenoid/Amendetails");
 
     ListView list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.details_header, null, false);

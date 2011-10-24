@@ -55,6 +55,7 @@ public class MakeStatementActivity extends Activity {
     Log.d(TAG, "onCreate");
 
     service = AmdroidApp.getInstance().getService();
+    setTitle("Amenoid/Make A Statement");
 
     currentBest = true;
     currentObjekt = new Objekt();

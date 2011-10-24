@@ -66,6 +66,7 @@ public class ChooseScopeActivity extends ListActivity {
     possibleScopes = currentObjekt.getPossibleScopes();
 
     setContentView(R.layout.choose_scope);
+    setTitle("Amenoid/Choose Statement Scope");
 
     scopeEditText = (EditText) findViewById(R.id.scope);
     scopeEditText.setText(currentTopic.getScope());

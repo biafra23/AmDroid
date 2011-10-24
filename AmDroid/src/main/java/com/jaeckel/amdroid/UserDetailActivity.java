@@ -54,6 +54,7 @@ public class UserDetailActivity extends ListActivity {
     service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.user);
+    setTitle("Amenoid/Userdetails");
 
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
     

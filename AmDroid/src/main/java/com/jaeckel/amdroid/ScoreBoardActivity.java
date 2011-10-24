@@ -63,7 +63,7 @@ public class ScoreBoardActivity extends ListActivity {
     service = AmdroidApp.getInstance().getService();
 
     setContentView(R.layout.score_board);
-
+    setTitle("Amenoid/Scorecard");
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
     
     list = (ListView) findViewById(android.R.id.list);

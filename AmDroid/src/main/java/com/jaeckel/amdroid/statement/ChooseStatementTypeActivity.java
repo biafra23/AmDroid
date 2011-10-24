@@ -18,6 +18,7 @@ public class ChooseStatementTypeActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.choose_type);
+    setTitle("Amenoid/Choose Statement Type");
 
     TextView person = (TextView) findViewById(R.id.type_person);
     person.setOnClickListener(new View.OnClickListener() {
