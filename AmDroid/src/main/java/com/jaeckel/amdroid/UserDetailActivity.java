@@ -58,7 +58,7 @@ public class UserDetailActivity extends ListActivity {
     setTitle("Amenoid/Userdetails");
 
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
-    
+
     list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.user_header, null, false);
     list.addHeaderView(header);
@@ -86,23 +86,6 @@ public class UserDetailActivity extends ListActivity {
 
     adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);
-
-    final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
-
-    Log.d(TAG, "userImage status: " + cache.getStatus(currentUser.getPicture()));
-
-    
-    String key = currentUser.getPhoto();
-    if (TextUtils.isEmpty(key)) {
-      key = currentUser.getPicture();
-    }
-
-    if (key != null) {
-      key += "?type=normal";
-    }
-    userImage = cache.get(key);
-
-    Log.d(TAG, "userImage: " + userImage);
 
 
   }
@@ -169,6 +152,17 @@ public class UserDetailActivity extends ListActivity {
 
       final UserInfo userInfo = service.getUserInfo(currentUser.getId());
 
+      final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
+
+      String key = userInfo.getPhoto();
+      if (TextUtils.isEmpty(key)) {
+        key = userInfo.getPicture();
+        if (key != null) {
+          key += "?type=normal";
+        }
+      }
+
+      userImage = cache.get(key);
       return userInfo;
     }
 
@@ -204,6 +198,7 @@ public class UserDetailActivity extends ListActivity {
 
         TextView following = (TextView) findViewById(R.id.following);
         following.setText(userInfo.getFollowingCount() + " Following");
+
 
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
         userImageView.setImageDrawable(userImage);
