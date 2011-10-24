@@ -63,6 +63,7 @@ public class AmenListActivity extends ListActivity {
     .serializeNulls()
     .create();
   private EndlessLoaderAsyncTask endlessTask;
+  private int feedType = AmenService.FEED_TYPE_FOLLOWING;
 
   /**
    * Called when the activity is first created.
@@ -77,6 +78,16 @@ public class AmenListActivity extends ListActivity {
     Log.v(TAG, "onCreate");
 
     setContentView(R.layout.main);
+
+    feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+
+    String title = "";
+    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
+      title = "Following";
+    } else {
+      title = "New & Interesting";
+    }
+    setTitle("Timeline: " + title);
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String username = prefs.getString("user_name", null);
@@ -195,17 +206,27 @@ public class AmenListActivity extends ListActivity {
     switch (item.getItemId()) {
 
       case R.id.preference:
-//        Toast.makeText(this, "Prefereces", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, EditPreferencesActivity.class));
 
         return true;
 
       case R.id.refresh:
-//        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
         refresh();
 
         return true;
+      case R.id.following: {
+        Intent intent = new Intent(this, AmenListActivity.class);
+        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+        startActivity(intent);
+        return true;
+      }
+      case R.id.interesting: {
+        Intent intent = new Intent(this, AmenListActivity.class);
+        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_INTERESTING);
+        startActivity(intent);
 
+        return true;
+      }
       case R.id.amen:
 //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
@@ -349,7 +370,7 @@ public class AmenListActivity extends ListActivity {
       Log.d(TAG, "       lastAmenId: " + lastAmenId);
 
       if (!isCancelled()) {
-        List<Amen> amens = service.getFeed(lastAmenId, 20);
+        List<Amen> amens = service.getFeed(lastAmenId, 20, feedType);
         return amens;  //To change body of implemented methods use File | Settings | File Templates.
       }
 
@@ -411,7 +432,7 @@ public class AmenListActivity extends ListActivity {
       } else {
         // no cached AMens found. Load from network
         Log.d(TAG, "Loader executing");
-        amens = service.getFeed(0, 20);
+        amens = service.getFeed(0, 20, feedType);
 
         saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS);
 
@@ -456,7 +477,7 @@ public class AmenListActivity extends ListActivity {
 
       Log.d(TAG, "Loader executing");
 
-      List<Amen> amens = service.getFeed(0, 20);
+      List<Amen> amens = service.getFeed(0, 20, feedType);
 
       saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS);
 
@@ -564,7 +585,7 @@ public class AmenListActivity extends ListActivity {
       List<Amen> newAmens = new ArrayList<Amen>();
 
 //      do {
-      List<Amen> amens = service.getFeed(0, pageSize);
+      List<Amen> amens = service.getFeed(0, pageSize, feedType);
 
       filteredAmens = filterNewAmens(oldAmens, amens);
       newAmens.addAll(filteredAmens);

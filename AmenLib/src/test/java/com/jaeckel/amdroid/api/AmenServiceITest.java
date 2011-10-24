@@ -152,7 +152,7 @@ public class AmenServiceITest extends TestCase {
     assertEquals("Wrong statement", 60814L, (long) a.getId());
   }
 
-  public void testGetTopics() {
+  public void testGetTopics() throws IOException {
 
     Topic topic = service.getTopicsForId(29020L, null);
 

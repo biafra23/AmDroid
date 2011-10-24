@@ -20,4 +20,5 @@ public class Constants {
   public static final String EXTRA_USER           = "user";
   public static final String EXTRA_STATEMENT      = "statement";
   public static final String EXTRA_STATEMENT_ID   = "statement_id";
+  public static final String EXTRA_FEED_TYPE      = "feed_type";
 }

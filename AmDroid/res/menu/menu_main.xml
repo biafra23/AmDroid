@@ -5,6 +5,15 @@
     <item android:id="@+id/refresh"
           android:icon="@drawable/ic_menu_refresh"
           android:title="Refresh"/>
+
+    <item android:id="@+id/interesting"
+          android:icon="@drawable/ic_menu_foto"
+          android:title="New &amp; Interesting"/>
+
+    <item android:id="@+id/following"
+          android:icon="@drawable/ic_menu_following"
+          android:title="Following"/>
+
     <item android:id="@+id/preference"
           android:icon="@drawable/ic_menu_settings"
           android:title="Preferences"/>

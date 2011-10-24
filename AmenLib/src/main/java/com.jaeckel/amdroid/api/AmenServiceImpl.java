@@ -55,7 +55,7 @@ public class AmenServiceImpl implements AmenService {
 
   private final static Logger log        = LoggerFactory.getLogger("Amen");
   private final static String serviceUrl = "https://getamen.com/";
-  
+
   private String authName;
   private String authPassword;
 
@@ -150,13 +150,16 @@ public class AmenServiceImpl implements AmenService {
     return user;
   }
 
-
-  @Override
-  public List<Amen> getFeed(long sinceId, int limit) {
-    return getFeed(0, sinceId, limit);
+  public List<Amen> getFeed(int type) {
+    return getFeed(0, 25, type);
   }
 
-  public List<Amen> getFeed(long beforeId, long sinceId, int limit) {
+  @Override
+  public List<Amen> getFeed(long sinceId, int limit, int type) {
+    return getFeed(0, sinceId, limit, type);
+  }
+
+  public List<Amen> getFeed(long beforeId, long sinceId, int limit, int type) {
     log.debug("getFeed");
     ArrayList<Amen> result = new ArrayList<Amen>();
 
@@ -169,7 +172,11 @@ public class AmenServiceImpl implements AmenService {
     }
     params.put("limit", "" + limit);
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen.json", params);
+    String interesting = "";
+    if (type == FEED_TYPE_INTERESTING) {
+      interesting = "/interesting/";
+    }
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen" + interesting + ".json", params);
 
     try {
 
@@ -425,7 +432,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Topic getTopicsForId(Long id, Long includeStatementId)  throws IOException {
+  public Topic getTopicsForId(Long id, Long includeStatementId) throws IOException {
 
     log.debug("getTopicsForId");
     Topic topic;
@@ -438,12 +445,12 @@ public class AmenServiceImpl implements AmenService {
 
 //    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      topic = gson.fromJson(responseString, Topic.class);
+    topic = gson.fromJson(responseString, Topic.class);
 
 //    } catch (Exception e) {
 //      throw new RuntimeException("getTopicsForId(" + id + ") failed", e);
@@ -538,10 +545,6 @@ public class AmenServiceImpl implements AmenService {
     return builder.toString();
   }
 
-
-  public List<Amen> getFeed() {
-    return getFeed(0, 25);
-  }
 
   private String extractCookie(String value) {
 

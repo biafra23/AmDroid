@@ -28,13 +28,15 @@ public interface AmenService {
   public final static int OBJEKT_KIND_PLACE  = 1;
   public final static int OBJEKT_KIND_THING  = 2;
 
+  public final static int FEED_TYPE_FOLLOWING = 0;
+  public final static int FEED_TYPE_INTERESTING = 1;
 
   public User getMe();
 
-  public List<Amen> getFeed();
+  public List<Amen> getFeed(int type);
 
-  public List<Amen> getFeed(long sinceId, int pageSize);
-  public List<Amen> getFeed(long beforeId, long sinceId, int pageSize);
+  public List<Amen> getFeed(long sinceId, int pageSize, int type);
+  public List<Amen> getFeed(long beforeId, long sinceId, int pageSize, int type);
 
   public boolean follow(User u);
 

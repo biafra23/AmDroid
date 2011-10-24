@@ -21,6 +21,7 @@ import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.api.model.User;
 import com.jaeckel.amdroid.app.AmdroidApp;
+import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amdroid.util.AmenLibTask;
@@ -50,6 +51,7 @@ public class AmenDetailActivity extends ListActivity {
   private AmenService      service;
   private static final int[]  IMAGE_IDS = {R.id.user_image};
   private              String lastError = null;
+  private SimpleWebImageCache cache;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -57,6 +59,7 @@ public class AmenDetailActivity extends ListActivity {
     Log.d(TAG, "onCreate");
 
     service = AmdroidApp.getInstance().getService();
+    cache = AmdroidApp.getInstance().getCache();
 
     setContentView(R.layout.details);
 
@@ -87,7 +90,7 @@ public class AmenDetailActivity extends ListActivity {
 
     final List<User> users = currentStatement.getAgreeingNetwork();
 //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
-    thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+    thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
     setListAdapter(thumbs);
 
     Intent resultIntent = new Intent();
@@ -165,8 +168,8 @@ public class AmenDetailActivity extends ListActivity {
     amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
-        //To change body of implemented methods use File | Settings | File Templates.
-//        Toast.makeText(AmenDetailActivity.this, "Amening...", Toast.LENGTH_SHORT).show();
+
+        amenTakeBackButton.setEnabled(false);
 
         if (amened(currentStatement)) {
 
@@ -201,7 +204,7 @@ public class AmenDetailActivity extends ListActivity {
 
   private boolean amened(Statement currentStatement) {
     for (User u : currentStatement.getAgreeingNetwork()) {
-      if (u.getName().equals(AmdroidApp.getInstance().getService().getMe().getName())) {
+      if (u.getName().equals(service.getMe().getName())) {
         return true;
       }
     }
@@ -252,6 +255,7 @@ public class AmenDetailActivity extends ListActivity {
 
     @Override
     protected void onPreExecute() {
+      amenTakeBackButton.setEnabled(false);
     }
 
     protected void onPostExecute(Amen result) {
@@ -266,9 +270,11 @@ public class AmenDetailActivity extends ListActivity {
 
         final List<User> users = currentStatement.getAgreeingNetwork();
         //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
-        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
       }
+      amenTakeBackButton.setEnabled(true);
+
     }
 
   }
@@ -290,6 +296,7 @@ public class AmenDetailActivity extends ListActivity {
 
     @Override
     protected void onPreExecute() {
+      amenTakeBackButton.setEnabled(false);
     }
 
     protected void onPostExecute(Amen result) {
@@ -304,10 +311,11 @@ public class AmenDetailActivity extends ListActivity {
 
         final List<User> users = currentStatement.getAgreeingNetwork();
         //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
-        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
 
       }
+      amenTakeBackButton.setEnabled(true);
     }
   }
 
@@ -348,7 +356,7 @@ public class AmenDetailActivity extends ListActivity {
 
         final List<User> users = currentStatement.getAgreeingNetwork();
         //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
-        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
       }
     }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,6 +32,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
   private AmenService service;
   private Objekt      newObjektName;
   private Amen        currentAmen;
+  private Button      disputeButton;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -52,19 +54,27 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     TextView disputedStatement = (TextView) findViewById(R.id.disputed_statement);
     disputedStatement.setText(styleDisputedStatementWithColor(currentAmen.getStatement(), this));
 
-    Button disputeButton = (Button) findViewById(R.id.dispute_amen);
+    disputeButton = (Button) findViewById(R.id.dispute_amen);
     disputeButton.setOnClickListener(new View.OnClickListener() {
 
       public void onClick(View view) {
+        if (!TextUtils.isEmpty(textView.getText().toString())) {
 
-        if (newObjektName == null) {
-          newObjektName = new Objekt();
-          newObjektName.setName(textView.getText().toString());
-          newObjektName.setKindId(currentAmen.getStatement().getObjekt().getKindId());
+          disputeButton.setEnabled(false);
+
+          if (newObjektName == null) {
+            newObjektName = new Objekt();
+            newObjektName.setName(textView.getText().toString());
+            newObjektName.setKindId(currentAmen.getStatement().getObjekt().getKindId());
+          }
+          new DisputeTask(DisputeActivity.this).execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
+
+          finish();
+        } else {
+
+          Toast.makeText(DisputeActivity.this, "Empty dispute ignored", Toast.LENGTH_SHORT).show();
+          disputeButton.setEnabled(true);
         }
-        new DisputeTask(DisputeActivity.this).execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
-
-        finish();
       }
     });
 
@@ -156,11 +166,17 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     }
 
     @Override
+    public void onPreExecute() {
+
+    }
+
+    @Override
     protected void onPostExecute(Long result) {
       super.onPostExecute(result);
       if (result != null) {
         Toast.makeText(DisputeActivity.this, "Disputed", Toast.LENGTH_SHORT).show();
       }
+      disputeButton.setEnabled(true);
     }
   }
 
