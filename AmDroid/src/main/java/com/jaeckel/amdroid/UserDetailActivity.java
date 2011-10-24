@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -90,7 +91,12 @@ public class UserDetailActivity extends ListActivity {
 
     Log.d(TAG, "userImage status: " + cache.getStatus(currentUser.getPicture()));
 
-    String key = currentUser.getPicture();
+    
+    String key = currentUser.getPhoto();
+    if (TextUtils.isEmpty(key)) {
+      key = currentUser.getPicture();
+    }
+
     if (key != null) {
       key += "?type=normal";
     }

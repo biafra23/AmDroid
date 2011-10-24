@@ -45,7 +45,12 @@ public class UserListAdapter extends ArrayAdapter<User> {
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
-    String pictureUrl = user.getPicture();
+    String pictureUrl;
+    if (TextUtils.isEmpty(user.getPhoto())) {
+      pictureUrl = user.getPicture();
+    } else {
+      pictureUrl = user.getPhoto();
+    }
     if (!TextUtils.isEmpty(pictureUrl)) {
       pictureUrl = pictureUrl + "?type=normal";
     }

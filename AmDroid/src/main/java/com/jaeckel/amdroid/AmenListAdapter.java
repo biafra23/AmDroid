@@ -61,7 +61,13 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
-    String pictureUrl = amen.getUser().getPicture();
+    String pictureUrl;
+    if (TextUtils.isEmpty(amen.getUser().getPhoto())) {
+      pictureUrl = amen.getUser().getPicture();
+    } else {
+      pictureUrl = amen.getUser().getPhoto();
+    }
+
     if (!TextUtils.isEmpty(pictureUrl)) {
       pictureUrl = pictureUrl + "?type=normal";
     }
