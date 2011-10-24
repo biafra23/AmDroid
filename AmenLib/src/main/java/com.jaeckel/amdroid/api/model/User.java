@@ -18,6 +18,7 @@ public class User implements Parcelable {
   private Long       id;
   private String     name;
   private String     picture;
+  private String     photo;
   private Date       createdAt;
   private Integer    createdStatementsCount;
   private Integer    givenAmenCount;
@@ -76,6 +77,7 @@ public class User implements Parcelable {
            "id=" + id +
            ", name='" + name + '\'' +
            ", picture='" + picture + '\'' +
+           ", photo='" + photo + '\'' +
            ", createdAt=" + createdAt +
            ", createdStatementsCount=" + createdStatementsCount +
            ", givenAmenCount=" + givenAmenCount +
@@ -224,6 +226,14 @@ public class User implements Parcelable {
     this.authToken = authToken;
   }
 
+  public String getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(String photo) {
+    this.photo = photo;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -244,6 +254,7 @@ public class User implements Parcelable {
       return false;
     if (id != null ? !id.equals(user.id) : user.id != null) return false;
     if (name != null ? !name.equals(user.name) : user.name != null) return false;
+    if (photo != null ? !photo.equals(user.photo) : user.photo != null) return false;
     if (picture != null ? !picture.equals(user.picture) : user.picture != null) return false;
     if (receivedAmenCount != null ? !receivedAmenCount.equals(user.receivedAmenCount) : user.receivedAmenCount != null)
       return false;
@@ -257,6 +268,7 @@ public class User implements Parcelable {
     int result = id != null ? id.hashCode() : 0;
     result = 31 * result + (name != null ? name.hashCode() : 0);
     result = 31 * result + (picture != null ? picture.hashCode() : 0);
+    result = 31 * result + (photo != null ? photo.hashCode() : 0);
     result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
     result = 31 * result + (createdStatementsCount != null ? createdStatementsCount.hashCode() : 0);
     result = 31 * result + (givenAmenCount != null ? givenAmenCount.hashCode() : 0);
@@ -268,6 +280,4 @@ public class User implements Parcelable {
     result = 31 * result + (authToken != null ? authToken.hashCode() : 0);
     return result;
   }
-
-
 }
