@@ -132,7 +132,8 @@ public class UserInfo {
   }
 
   public String getPhoto() {
-    return photo;
+    return picture;
+//    return photo;
   }
 
   public void setPhoto(String photo) {
