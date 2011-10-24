@@ -4,7 +4,7 @@
     <EditTextPreference android:key="user_name"
                         android:title="Username"
                         android:summary="Your Email address"
-                        
+                        android:inputType="textEmailAddress"
             />
 
     <EditTextPreference android:key="password"
