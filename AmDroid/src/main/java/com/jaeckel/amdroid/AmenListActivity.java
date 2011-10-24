@@ -87,7 +87,7 @@ public class AmenListActivity extends ListActivity {
     } else {
       title = "New & Interesting";
     }
-    setTitle("Timeline: " + title);
+    setTitle("Amenoid/Timeline: " + title);
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String username = prefs.getString("user_name", null);

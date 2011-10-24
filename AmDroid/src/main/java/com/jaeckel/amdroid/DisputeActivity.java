@@ -41,6 +41,8 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     setContentView(R.layout.dispute);
 
+    setTitle("Amenoid/Dispute");
+
     final ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
     ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, new ArrayList<Objekt>());
     textView.setAdapter(adapter);
