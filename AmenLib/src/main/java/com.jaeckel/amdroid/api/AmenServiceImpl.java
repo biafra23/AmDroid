@@ -174,7 +174,7 @@ public class AmenServiceImpl implements AmenService {
 
     String interesting = "";
     if (type == FEED_TYPE_INTERESTING) {
-      interesting = "/interesting/";
+      interesting = "/interesting";
     }
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen" + interesting + ".json", params);
 

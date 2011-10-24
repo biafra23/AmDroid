@@ -410,9 +410,9 @@ public class AmenListActivity extends ListActivity {
 
       List<Amen> amens = new ArrayList<Amen>();
 
-      String newAmensJSON = prefs.getString(Constants.PREFS_LAST_NEW_AMENS, null);
+      String newAmensJSON = prefs.getString(Constants.PREFS_LAST_NEW_AMENS + ":" + feedType, null);
 
-      String amensJSON = prefs.getString(Constants.PREFS_LAST_AMENS, null);
+      String amensJSON = prefs.getString(Constants.PREFS_LAST_AMENS + ":" + feedType, null);
 
       if (amensJSON != null && !"[]".equals(amensJSON)) {
 
@@ -434,7 +434,7 @@ public class AmenListActivity extends ListActivity {
         Log.d(TAG, "Loader executing");
         amens = service.getFeed(0, 20, feedType);
 
-        saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS);
+        saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":" + feedType);
 
       }
       return amens;
@@ -479,7 +479,7 @@ public class AmenListActivity extends ListActivity {
 
       List<Amen> amens = service.getFeed(0, 20, feedType);
 
-      saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS);
+      saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":" + feedType);
 
       return amens;
     }
@@ -579,7 +579,7 @@ public class AmenListActivity extends ListActivity {
                    + amenListAdapter.getItem(i).getStatement().toDisplayString());
       }
 
-      saveAmensToPrefs(oldAmens, Constants.PREFS_LAST_AMENS);
+      saveAmensToPrefs(oldAmens, Constants.PREFS_LAST_AMENS + ":" + feedType);
 
       List<Amen> filteredAmens;
       List<Amen> newAmens = new ArrayList<Amen>();
@@ -593,7 +593,7 @@ public class AmenListActivity extends ListActivity {
 //      } while (filteredAmens.size() == pageSize);
 
 
-      saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS);
+      saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS + ":" + feedType);
       return newAmens;
     }
 
