@@ -2,6 +2,7 @@ package com.jaeckel.amdroid;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,16 +46,14 @@ public class UserListAdapter extends ArrayAdapter<User> {
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
-    String pictureUrl;
-    if (TextUtils.isEmpty(user.getPhoto())) {
+    String pictureUrl = user.getPhoto();
+    if (TextUtils.isEmpty(pictureUrl)) {
       pictureUrl = user.getPicture();
-    } else {
-      pictureUrl = user.getPhoto();
+      if (!TextUtils.isEmpty(pictureUrl)) {
+        pictureUrl = pictureUrl + "?type=normal";
+      }
     }
-    if (!TextUtils.isEmpty(pictureUrl)) {
-      pictureUrl = pictureUrl + "?type=normal";
-    }
-
+    Log.d("UserListAdapter", "pictureUrl: " + pictureUrl);
     userImage.setImageResource(R.drawable.placeholder);
     userImage.setTag(pictureUrl);
 

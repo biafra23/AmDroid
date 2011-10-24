@@ -153,16 +153,15 @@ public class UserDetailActivity extends ListActivity {
       final UserInfo userInfo = service.getUserInfo(currentUser.getId());
 
       final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
-
-      String key = userInfo.getPhoto();
-      if (TextUtils.isEmpty(key)) {
-        key = userInfo.getPicture();
-        if (key != null) {
-          key += "?type=normal";
+      String pictureUrl = userInfo.getPhoto();
+      if (TextUtils.isEmpty(pictureUrl)) {
+        pictureUrl = userInfo.getPicture();
+        if (pictureUrl != null) {
+          pictureUrl += "?type=normal";
         }
       }
-
-      userImage = cache.get(key);
+      Log.d("UserDetailActivity", "pictureUrl: " + pictureUrl);
+      userImage = cache.get(pictureUrl);
       return userInfo;
     }
 

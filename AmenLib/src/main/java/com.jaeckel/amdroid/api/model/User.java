@@ -199,6 +199,7 @@ public class User implements Parcelable {
     dest.writeValue(followingCount);
     dest.writeValue(following);
     dest.writeString(authToken);
+    dest.writeString(photo);
 
   }
 
@@ -216,6 +217,7 @@ public class User implements Parcelable {
     followingCount = (Integer)in.readValue(cl);
     following = (Boolean)in.readValue(cl);
     authToken = in.readString();
+    photo = in.readString();
   }
 
   public String getAuthToken() {

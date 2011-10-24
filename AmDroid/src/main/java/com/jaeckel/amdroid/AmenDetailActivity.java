@@ -62,7 +62,7 @@ public class AmenDetailActivity extends ListActivity {
     cache = AmdroidApp.getInstance().getCache();
 
     setContentView(R.layout.details);
-    setTitle("Amenoid/Amendetails");
+    setTitle("Amendetails");
 
     ListView list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.details_header, null, false);
@@ -91,6 +91,9 @@ public class AmenDetailActivity extends ListActivity {
 
     final List<User> users = currentStatement.getAgreeingNetwork();
 //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
+//    for (User u : users) {
+//      Log.d(TAG, "AgreeingNetwork: " + u);
+//    }
     thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
     setListAdapter(thumbs);
 
