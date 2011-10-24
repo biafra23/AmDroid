@@ -229,7 +229,8 @@ public class User implements Parcelable {
   }
 
   public String getPhoto() {
-    return photo;
+    return picture;
+//    return photo;
   }
 
   public void setPhoto(String photo) {

@@ -29,11 +29,11 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
     try {
       return wrappedDoInBackground(params);
 
-    } catch (Exception e) {
+    } catch (Error e) {
       lastException = e;
-      Log.d(TAG, "---------------------------------------");
-      e.printStackTrace();
-      Log.d(TAG, "---------------------------------------");
+//      Log.d(TAG, "---------------------------------------");
+//      e.printStackTrace();
+//      Log.d(TAG, "---------------------------------------");
 
     }
     return null;
@@ -48,11 +48,14 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
       Log.e(TAG, "ERROR occured");
       lastException.printStackTrace();
 
-      int title = R.string.network_exception;
+      String title = "Exception";
       String message = lastException.getMessage();
-
       if (lastException.getCause() != null) {
         message = lastException.getCause().getMessage();
+      }
+      if (lastException instanceof OutOfMemoryError) {
+        title = "Error";
+        message = "OutOfMemoryError";
       }
 
       new AlertDialog.Builder(context)
