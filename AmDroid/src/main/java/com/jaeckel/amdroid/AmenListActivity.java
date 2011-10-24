@@ -197,6 +197,15 @@ public class AmenListActivity extends ListActivity {
 
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_main, menu);
+    MenuItem following = menu.findItem(R.id.following_menu);
+    MenuItem interesting = menu.findItem(R.id.interesting);
+    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
+      interesting.setVisible(true);
+      following.setVisible(false);
+    } else {
+      interesting.setVisible(false);
+      following.setVisible(true);
+    }
     return true;
   }
 
@@ -214,7 +223,7 @@ public class AmenListActivity extends ListActivity {
         refresh();
 
         return true;
-      case R.id.following: {
+      case R.id.following_menu: {
         Intent intent = new Intent(this, AmenListActivity.class);
         intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
         startActivity(intent);

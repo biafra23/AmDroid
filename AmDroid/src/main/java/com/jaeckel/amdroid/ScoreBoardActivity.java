@@ -35,7 +35,7 @@ import java.util.ArrayList;
 public class ScoreBoardActivity extends ListActivity {
 
 
-  private static String TAG = "amdroid/ScoreBoardActivity";
+  private static String TAG = "ScoreBoardActivity";
 
   private AmenService       service;
   private ScoreBoardAdapter adapter;

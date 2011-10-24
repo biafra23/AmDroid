@@ -8,11 +8,15 @@
 
     <item android:id="@+id/interesting"
           android:icon="@drawable/ic_menu_foto"
-          android:title="New &amp; Interesting"/>
+          android:title="New &amp; Interesting"
+          android:visible="true"
+            />
 
-    <item android:id="@+id/following"
+    <item android:id="@+id/following_menu"
           android:icon="@drawable/ic_menu_following"
-          android:title="Following"/>
+          android:title="Following"
+          android:visible="true"
+            />
 
     <item android:id="@+id/preference"
           android:icon="@drawable/ic_menu_settings"

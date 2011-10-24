@@ -8,7 +8,7 @@
             />
     <item android:id="@+id/scoreboard"
           android:icon="@drawable/ic_menu_scoreboard"
-          android:title="Scoreboard"
+          android:title="Scorecard"
             />
     <item android:id="@+id/share"
           android:icon="@drawable/ic_menu_share"

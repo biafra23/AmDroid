@@ -11,7 +11,7 @@
 
     <groupId>com.jaeckel</groupId>
     <artifactId>Amenoid</artifactId>
-    <version>1.0-SNAPSHOT7</version>
+    <version>1.0-SNAPSHOT9</version>
     <packaging>apk</packaging>
     <name>Amenoid - Application</name>
 
