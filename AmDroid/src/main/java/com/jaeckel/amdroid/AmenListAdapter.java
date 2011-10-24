@@ -2,6 +2,7 @@ package com.jaeckel.amdroid;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,17 +62,14 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
 
-    String pictureUrl;
-    if (TextUtils.isEmpty(amen.getUser().getPhoto())) {
+    String pictureUrl = amen.getUser().getPhoto();
+    if (TextUtils.isEmpty(pictureUrl)) {
       pictureUrl = amen.getUser().getPicture();
-    } else {
-      pictureUrl = amen.getUser().getPhoto();
+      if (!TextUtils.isEmpty(pictureUrl)) {
+        pictureUrl = pictureUrl + "?type=normal";
+      }
     }
-
-    if (!TextUtils.isEmpty(pictureUrl)) {
-      pictureUrl = pictureUrl + "?type=normal";
-    }
-
+    Log.d("AmenListAdapter", "pictureUrl: " + pictureUrl);
     userImage.setImageResource(R.drawable.placeholder);
     userImage.setTag(pictureUrl);
 

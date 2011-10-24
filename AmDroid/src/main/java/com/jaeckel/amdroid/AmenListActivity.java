@@ -390,10 +390,12 @@ public class AmenListActivity extends ListActivity {
     protected void onPostExecute(List<Amen> amens) {
       super.onPostExecute(amens);
 
-      Log.d(TAG, "onPostExecute() Running on Thread: " + Thread.currentThread().getName());
-      for (Amen amen : amens) {
+      if (amens != null) {
+        Log.d(TAG, "onPostExecute() Running on Thread: " + Thread.currentThread().getName());
+        for (Amen amen : amens) {
 //        Log.d(TAG, "Adding amen: " + amen);
-        amenListAdapter.add(amen);
+          amenListAdapter.add(amen);
+        }
       }
     }
 
@@ -460,13 +462,15 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void onPostExecute(List<Amen> amens) {
 
-      amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
-      ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+      if (amens != null) {
+        amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
+        ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
 
-      EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
+        EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
 
-      setListAdapter(endless);
+        setListAdapter(endless);
 
+      }
       loadingProgressDialog.hide();
 
     }
@@ -502,10 +506,9 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPostExecute(List<Amen> amens) {
-
       super.onPostExecute(amens);
-      if (amens != null) {
 
+      if (amens != null) {
 
         amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
         ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
@@ -630,10 +633,9 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void onPostExecute(List<Amen> result) {
       super.onPostExecute(result);
+
       Log.v(TAG, "onPostExecute");
       if (result != null) {
-
-
         if (result.size() == pageSize) {
           // clear adapter
           amenListAdapter.clear();
