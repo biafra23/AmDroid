@@ -5,6 +5,7 @@ import android.util.Log;
 import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Objekt;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class ObjektsForQueryTask extends AmenLibTask<ObjektsForQueryTask.ObjektQ
 
 
   @Override
-  protected List<Objekt> wrappedDoInBackground(ObjektsForQueryTask.ObjektQuery... objektQueries) {
+  protected List<Objekt> wrappedDoInBackground(ObjektsForQueryTask.ObjektQuery... objektQueries)  throws IOException {
 
 
     ObjektsForQueryTask.ObjektQuery oq = objektQueries[0];

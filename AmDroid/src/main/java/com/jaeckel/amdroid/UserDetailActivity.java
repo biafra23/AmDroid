@@ -28,6 +28,7 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amdroid.util.AmenLibTask;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,7 +115,7 @@ public class UserDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected List<Amen> wrappedDoInBackground(Long... urls) {
+    protected List<Amen> wrappedDoInBackground(Long... urls) throws IOException {
 
       List<Amen> amen = service.getAmenForUser(currentUser.getId());
 
@@ -152,7 +153,7 @@ public class UserDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected UserInfo wrappedDoInBackground(Long... urls) {
+    protected UserInfo wrappedDoInBackground(Long... urls) throws IOException {
 
       final UserInfo userInfo = service.getUserInfo(currentUser.getId());
 
@@ -187,10 +188,13 @@ public class UserDetailActivity extends ListActivity {
         follow.setOnClickListener(new View.OnClickListener() {
           public void onClick(View view) {
             if (userInfo.getFollowing()) {
-              service.unfollow(currentUser);
+              new UnFollowTask(UserDetailActivity.this).execute(currentUser);
+
+//              service.unfollow(currentUser);
               follow.setBackgroundColor(Color.GRAY);
             } else {
-              service.follow(currentUser);
+              new FollowTask(UserDetailActivity.this).execute(currentUser);
+//              service.follow(currentUser);
               follow.setBackgroundColor(Color.CYAN);
             }
           }
@@ -207,6 +211,53 @@ public class UserDetailActivity extends ListActivity {
         userImageView.setImageDrawable(userImage);
       }
 
+    }
+  }
+
+  //
+  // FollowTask
+  //
+  private class FollowTask extends AmenLibTask<User, Integer, Boolean> {
+
+    public FollowTask(Context context) {
+      super(context);
+    }
+
+    protected Boolean wrappedDoInBackground(User... urls) throws IOException {
+
+      return service.follow(currentUser);
+    }
+
+    protected void wrappedOnPostExecute(final Boolean success) {
+
+      if (success != null && success) {
+        final TextView follow = (TextView) findViewById(R.id.follow);
+        follow.setBackgroundColor(Color.CYAN);
+      }
+
+    }
+  }
+
+  //
+  // UnFollowTask
+  //
+  private class UnFollowTask extends AmenLibTask<User, Integer, Boolean> {
+
+    public UnFollowTask(Context context) {
+      super(context);
+    }
+
+    protected Boolean wrappedDoInBackground(User... urls) throws IOException {
+
+      return service.unfollow(currentUser);
+    }
+
+    protected void wrappedOnPostExecute(final Boolean success) {
+
+      if (success != null && success) {
+        final TextView follow = (TextView) findViewById(R.id.follow);
+        follow.setBackgroundColor(Color.GRAY);
+      }
     }
   }
 

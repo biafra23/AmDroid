@@ -37,6 +37,7 @@ import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amdroid.util.AmenLibTask;
 import com.jaeckel.amdroid.widget.PullToRefreshListView;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Date;
@@ -372,7 +373,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected List<Amen> wrappedDoInBackground(Long... longs) {
+    protected List<Amen> wrappedDoInBackground(Long... longs) throws IOException {
 
       Long lastAmenId = longs[0];
       Log.d(TAG, "Running on Thread: " + Thread.currentThread().getName());
@@ -415,7 +416,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected List<Amen> wrappedDoInBackground(Void... voids) {
+    protected List<Amen> wrappedDoInBackground(Void... voids) throws IOException {
 
       List<Amen> amens = new ArrayList<Amen>();
 
@@ -484,7 +485,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected List<Amen> wrappedDoInBackground(Void... voids) {
+    protected List<Amen> wrappedDoInBackground(Void... voids)  throws IOException  {
 
       Log.d(TAG, "Loader executing");
 
@@ -579,7 +580,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected List<Amen> wrappedDoInBackground(Void... voids) {
+    protected List<Amen> wrappedDoInBackground(Void... voids)  throws IOException {
       Log.v(TAG, "doInBackground");
       List<Amen> oldAmens = new ArrayList<Amen>();
 
@@ -698,7 +699,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected Amen wrappedDoInBackground(Long... statementIds) {
+    protected Amen wrappedDoInBackground(Long... statementIds)  throws IOException {
       //1. find statement in adapter
 
       //2. reload statement froms server

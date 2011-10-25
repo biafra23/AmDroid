@@ -13,6 +13,7 @@ import com.jaeckel.amdroid.api.AmenService;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.app.AmdroidApp;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -73,7 +74,12 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
         AmenService service = AmdroidApp.getInstance().getService();
 
-        List<Objekt> values = service.objektsForQuery(charSequence, AmenService.OBJEKT_KIND_THING, null, null);
+        List<Objekt> values = null;
+        try {
+          values = service.objektsForQuery(charSequence, AmenService.OBJEKT_KIND_THING, null, null);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
 
 
         results.values = values;

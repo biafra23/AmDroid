@@ -19,6 +19,7 @@ import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.util.AmenLibTask;
 import com.jaeckel.amdroid.util.StyleableSpannableStringBuilder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -159,7 +160,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     }
 
     @Override
-    protected Long wrappedDoInBackground(Amen... amens) {
+    protected Long wrappedDoInBackground(Amen... amens) throws IOException {
       for (Amen amen : amens) {
         service.dispute(amen);
       }

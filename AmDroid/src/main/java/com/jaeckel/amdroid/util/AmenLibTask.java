@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import com.jaeckel.amdroid.R;
 
+import java.io.IOException;
 import java.net.UnknownHostException;
 
 /**
@@ -39,7 +40,8 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
     return null;
   }
 
-  protected abstract Result wrappedDoInBackground(Params... params);
+  protected abstract Result wrappedDoInBackground(Params... params) throws IOException;
+
   protected abstract void wrappedOnPostExecute(Result result);
 
   final protected void onPostExecute(Result result) {
