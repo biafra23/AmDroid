@@ -17,9 +17,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="    using checked exceptions everywhere">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/app/AmdroidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/app/AmdroidApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -185,10 +183,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="259" column="7" selection-start="7546" selection-end="7546" vertical-scroll-proportion="-25.384615">
+            <state line="137" column="39" selection-start="4096" selection-end="4096" vertical-scroll-proportion="0.7719298">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#UserDetailActivity#0" expanded="true" />
@@ -232,7 +230,7 @@
       <file leaf-file-name="DisputeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/DisputeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="74" selection-start="5201" selection-end="5201" vertical-scroll-proportion="0.0">
+            <state line="88" column="8" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -265,10 +263,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenDetailActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="36" selection-start="6268" selection-end="6268" vertical-scroll-proportion="0.43756244">
+            <state line="187" column="36" selection-start="6268" selection-end="6268" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -298,13 +296,13 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/ObjektCompletionAdapter.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/util/AmenLibTask.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amdroid/api/AmenServiceImpl.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/DisputeActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/util/ObjektsForQueryTask.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/statement/MakeStatementActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/app/AmdroidApp.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java" />
       </list>
     </option>
   </component>
@@ -1949,6 +1947,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44" sideWeight="0.49786323" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5099602" sideWeight="0.49748382" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41714287" sideWeight="0.6703357" order="10" side_tool="true" content_ui="tabs" />
@@ -1959,14 +1958,13 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16720085" sideWeight="0.7695238" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15010683" sideWeight="0.6409524" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2863248" sideWeight="0.6409524" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2863248" sideWeight="0.56" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35904762" sideWeight="0.3172338" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.5688509" sideWeight="0.9984" order="12" side_tool="true" content_ui="tabs" x="0" y="22" width="1440" height="878" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="213" y="129" width="919" height="477" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16666667" sideWeight="0.5588889" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44031832" sideWeight="0.49786323" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -2121,29 +2119,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="7" selection-start="7546" selection-end="7546" vertical-scroll-proportion="-25.384615">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#UserDetailActivity#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="701" column="83" selection-start="21018" selection-end="21018" vertical-scroll-proportion="-4.6153846">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/DisputeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="74" selection-start="5201" selection-end="5201" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2170,8 +2151,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/AmenDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="36" selection-start="6268" selection-end="6268" vertical-scroll-proportion="0.43756244">
+        <state line="187" column="36" selection-start="6268" selection-end="6268" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/DisputeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="8" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amdroid/UserDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="39" selection-start="4096" selection-end="4096" vertical-scroll-proportion="0.7719298">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#UserDetailActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

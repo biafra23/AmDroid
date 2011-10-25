@@ -132,15 +132,10 @@ public class UserDetailActivity extends ListActivity {
         adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
         setListAdapter(adapter);
 
-        list.setVisibility(View.VISIBLE);
-      } else {
-
-        progressBar.setVisibility(View.GONE);
-
-        finish();
       }
 
-
+      progressBar.setVisibility(View.GONE);
+      list.setVisibility(View.VISIBLE);
     }
   }
 
