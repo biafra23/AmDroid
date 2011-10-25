@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import com.jaeckel.amdroid.R;
 
+import java.net.UnknownHostException;
+
 /**
  * User: biafra
  * Date: 10/23/11
@@ -28,7 +30,7 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
 
     try {
       return wrappedDoInBackground(params);
-
+      
     } catch (Throwable e) {
 
       lastException = e;
@@ -53,6 +55,10 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
       if (lastException instanceof OutOfMemoryError) {
         title = "Error";
         message = "OutOfMemoryError";
+      }
+      if (lastException instanceof UnknownHostException) {
+        title = "Unknown  Host";
+        message = lastException.getMessage();
       }
 
       new AlertDialog.Builder(context)
