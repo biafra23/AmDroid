@@ -16,6 +16,7 @@
               android:textSize="25dp"
               android:text="Trio is the Worst Trio Ever. Amen. http://git.io/amenoid "
               android:autoLink="all"
+              android:textColorLink="#7777FF"
             />
 
     <TextView android:id="@+id/user"
