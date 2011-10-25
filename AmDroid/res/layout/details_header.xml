@@ -14,7 +14,9 @@
 
               android:focusable="false"
               android:textSize="25dp"
-              android:text="Trio is the Worst Trio Ever. Amen. "/>
+              android:text="Trio is the Worst Trio Ever. Amen. http://git.io/amenoid "
+              android:autoLink="all"
+            />
 
     <TextView android:id="@+id/user"
               android:layout_width="wrap_content"
