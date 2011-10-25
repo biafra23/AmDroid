@@ -114,15 +114,15 @@ public class AmenListActivity extends ListActivity {
         service = AmdroidApp.getInstance().getService().init(authToken, me);
         refreshWithCache();
       } else {
-        LoginAsyncTask task = new LoginAsyncTask();
-        task.execute();
+         new LoginAsyncTask(this).execute();
+
       }
     }
 
     registerForContextMenu(getListView());
 
     ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-      @Override
+
       public void onRefresh() {
         Log.v(TAG, "onRefresh()");
         // Do work to refresh the list here.
@@ -362,7 +362,7 @@ public class AmenListActivity extends ListActivity {
   }
 
   //
-  //
+  // EndlessLoaderAsyncTask
   //
 
   private class EndlessLoaderAsyncTask extends AmenLibTask<Long, Integer, List<Amen>> {
@@ -388,10 +388,8 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void wrappedOnPostExecute(List<Amen> amens) {
-      super.onPostExecute(amens);
 
       if (amens != null) {
-        Log.d(TAG, "onPostExecute() Running on Thread: " + Thread.currentThread().getName());
         for (Amen amen : amens) {
 //        Log.d(TAG, "Adding amen: " + amen);
           amenListAdapter.add(amen);
@@ -526,8 +524,12 @@ public class AmenListActivity extends ListActivity {
   // LoginAsyncTask
   //
 
-  private class LoginAsyncTask extends AsyncTask<Void, Integer, AmenService> {
+  private class LoginAsyncTask extends AmenLibTask<Void, Integer, AmenService> {
 
+    public LoginAsyncTask(Context context) {
+      super(context);
+    }
+    
     @Override
     protected void onPreExecute() {
       if (AmdroidApp.DEVELOPER_MODE) {
@@ -539,7 +541,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected AmenService doInBackground(Void... voids) {
+    protected AmenService wrappedDoInBackground(Void... voids) {
 
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AmenListActivity.this);
       String username = prefs.getString("user_name", null);
@@ -552,18 +554,16 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected void onPostExecute(AmenService service) {
-      super.onPostExecute(service);
+    protected void wrappedOnPostExecute(AmenService service) {
 
-      if (AmdroidApp.DEVELOPER_MODE) {
-        Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPostExecute", Toast.LENGTH_SHORT).show();
+      if (service != null) {
+
+        AmenListActivity.this.service = service;
+        
+        loginProgressDialog.hide();
+
+        refresh();
       }
-      AmenListActivity.this.service = service;
-      Log.d(TAG, "Service set: " + service);
-
-      loginProgressDialog.hide();
-
-      refresh();
 
     }
   }
@@ -631,9 +631,7 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void wrappedOnPostExecute(List<Amen> result) {
-      super.onPostExecute(result);
 
-      Log.v(TAG, "onPostExecute");
       if (result != null) {
         if (result.size() == pageSize) {
           // clear adapter
