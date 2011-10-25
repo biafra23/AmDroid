@@ -18,6 +18,7 @@ import java.util.List;
 public interface AmenService {
 
   public AmenService init(String username, String password);
+
   public AmenService init(String authToken, User me);
 
   public final int AMEN_KIND_STATEMENT = 0;
@@ -28,45 +29,48 @@ public interface AmenService {
   public final static int OBJEKT_KIND_PLACE  = 1;
   public final static int OBJEKT_KIND_THING  = 2;
 
-  public final static int FEED_TYPE_FOLLOWING = 0;
+  public final static int FEED_TYPE_FOLLOWING   = 0;
   public final static int FEED_TYPE_INTERESTING = 1;
 
   public User getMe();
 
-  public List<Amen> getFeed(int type);
+  public String getAuthToken();
 
-  public List<Amen> getFeed(long sinceId, int pageSize, int type);
-  public List<Amen> getFeed(long beforeId, long sinceId, int pageSize, int type);
+  public List<Amen> getFeed(int type) throws IOException;
 
-  public boolean follow(User u);
+  public List<Amen> getFeed(long sinceId, int pageSize, int type) throws IOException;
 
-  public boolean unfollow(User u);
+  public List<Amen> getFeed(long beforeId, long sinceId, int pageSize, int type) throws IOException;
 
-  public Amen amen(Statement a);
+  public boolean follow(User u) throws IOException;
 
-  public Amen amen(Long amenId);
+  public boolean unfollow(User u) throws IOException;
 
-  public Long dispute(Amen dispute);
+  public Amen amen(Statement a) throws IOException;
 
-  public boolean takeBack(Long statementId);
+  public Amen amen(Long amenId) throws IOException;
 
-  public List<Amen> getAmenForUser(Long userId);
+  public Long dispute(Amen dispute) throws IOException;
 
-  public UserInfo getUserInfo(Long id);
+  public boolean takeBack(Long statementId) throws IOException;
 
-  public void addStatement(Statement statement);
+  public List<Amen> getAmenForUser(Long userId) throws IOException;
 
-  public Statement getStatementForId(Long id);
+  public UserInfo getUserInfo(Long id) throws IOException;
 
-  public Amen getAmenForId(Long id);
+  public void addStatement(Statement statement) throws IOException;
+
+  public Statement getStatementForId(Long id) throws IOException;
+
+  public Amen getAmenForId(Long id) throws IOException;
 
   public Topic getTopicsForId(Long id, Long includeStatementId) throws IOException;
 
-  public List<User> followers(Long id);
+  public List<User> followers(Long id) throws IOException;
 
-  public List<User> following(Long id);
+  public List<User> following(Long id) throws IOException;
 
-  public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon);
+  public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) throws IOException;
 
-  public String getAuthToken();
+
 }

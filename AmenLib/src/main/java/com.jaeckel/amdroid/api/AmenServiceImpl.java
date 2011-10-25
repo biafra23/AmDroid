@@ -109,7 +109,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
 
-  private User authenticate(String authName, String authPassword) {
+  private User authenticate(String authName, String authPassword) throws IOException {
 
     User user;
     String authJSON = "{\"password\":\"" + authPassword + "\",\"email\":\"" + authName + "\"}";
@@ -145,7 +145,7 @@ public class AmenServiceImpl implements AmenService {
       throw new RuntimeException("Exception while authenticating", e);
     } catch (IOException e) {
 
-      throw new RuntimeException("Exception while authenticating", e);
+      throw new IOException(e);
     }
     return user;
   }
@@ -159,7 +159,7 @@ public class AmenServiceImpl implements AmenService {
     return getFeed(0, sinceId, limit, type);
   }
 
-  public List<Amen> getFeed(long beforeId, long sinceId, int limit, int type) {
+  public List<Amen> getFeed(long beforeId, long sinceId, int limit, int type) throws IOException {
     log.debug("getFeed");
     ArrayList<Amen> result = new ArrayList<Amen>();
 
@@ -178,61 +178,50 @@ public class AmenServiceImpl implements AmenService {
     }
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen" + interesting + ".json", params);
 
-    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
-      if (responseString.startsWith("{\"error\":")) {
-        throw new RuntimeException("getFeed produced error: " + responseString);
-      }
-      Type collectionType = new TypeToken<List<Amen>>() {
-      }.getType();
-      result = gson.fromJson(responseString, collectionType);
-
-    } catch (IOException e) {
-      throw new RuntimeException("getFeed  failed", e);
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("getFeed produced error: " + responseString);
     }
+    Type collectionType = new TypeToken<List<Amen>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
 
 
     return result;
   }
 
   @Override
-  public boolean follow(User u) {
+  public boolean follow(User u) throws IOException {
+
     log.debug("follow");
     boolean result = false;
-    log.debug("User(" + u + ")");
 
     String json = "{\"user_id\":" + u.getId() + ",\"kind_id\":1, \"auth_token\":\"" + authToken + "\"}";
 
-
     HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "follows.json", json);
-    try {
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
-      if (responseString.startsWith("{\"error\":")) {
-        throw new RuntimeException("follow produced error: " + responseString);
-      }
+    HttpResponse response = httpclient.execute(httpPost);
+    HttpEntity responseEntity = response.getEntity();
 
-      if (" ".equals(responseString)) {
-        result = true;
-      }
-
-
-    } catch (IOException e) {
-
-      throw new RuntimeException("Amening failed", e);
-
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("follow produced error: " + responseString);
     }
+
+    if (" ".equals(responseString)) {
+      result = true;
+    }
+
+
     return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   @Override
-  public boolean unfollow(User u) {
+  public boolean unfollow(User u) throws IOException {
 
     log.debug("unfollow");
     boolean result = false;
@@ -241,192 +230,147 @@ public class AmenServiceImpl implements AmenService {
 
     HttpUriRequest httpDelete = RequestFactory.createDELETERequest(serviceUrl + "follows/" + u.getId() + ".json", params);
 
+    HttpResponse response = httpclient.execute(httpDelete);
+    HttpEntity responseEntity = response.getEntity();
 
-    log.trace("httpDelete: " + httpDelete);
+    final String responseString = makeStringFromEntity(responseEntity);
 
-    try {
-
-      HttpResponse response = httpclient.execute(httpDelete);
-      HttpEntity responseEntity = response.getEntity();
-
-      final String responseString = makeStringFromEntity(responseEntity);
-
-      if (" ".equals(responseString)) {
-        result = true;
-      }
-
-    } catch (IOException e) {
-      throw new RuntimeException("takeBack  failed", e);
+    if (" ".equals(responseString)) {
+      result = true;
     }
 
     return result;
   }
 
   @Override
-  public Amen amen(Long amenId) {
+  public Amen amen(Long amenId) throws IOException {
     log.debug("amen(" + amenId + ")");
     Amen a = null;
     String json = "{\"referring_amen_id\":" + amenId + ",\"kind_id\":1, \"auth_token\":\"" + authToken + "\"}";
 
 
     HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", json);
-    try {
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpPost);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
-      if (responseString.startsWith("{\"error\":")) {
-        throw new RuntimeException("amen produced error: " + responseString);
-      }
-
-      a = gson.fromJson(responseString, Amen.class);
-
-    } catch (IOException e) {
-
-      throw new RuntimeException("Amening failed", e);
-
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("amen produced error: " + responseString);
     }
+
+    a = gson.fromJson(responseString, Amen.class);
+
 
     return a;
   }
 
   @Override
-  public Amen amen(Statement statement) {
+  public Amen amen(Statement statement) throws IOException {
     log.debug("amen(Statement)");
+
     Amen a = null;
     String json = "{\"referring_amen_id\":" + statement.getId() + ",\"kind_id\":1, \"auth_token\":\"" + authToken + "\"}";
 
 
     HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", json);
-    try {
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
-      if (responseString.startsWith("{\"error\":")) {
-        throw new RuntimeException("amen produced error: " + responseString);
-      }
-      a = gson.fromJson(responseString, Amen.class);
+    HttpResponse response = httpclient.execute(httpPost);
+    HttpEntity responseEntity = response.getEntity();
 
-    } catch (IOException e) {
-
-      throw new RuntimeException("Amening failed", e);
-
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("amen produced error: " + responseString);
     }
+    a = gson.fromJson(responseString, Amen.class);
+
 
     return a;
   }
 
   @Override
-  public Long dispute(Amen dispute) {
-    log.debug("dispute");
-    try {
+  public Long dispute(Amen dispute) throws IOException {
 
-      log.trace("       dispute: " + dispute);
-      log.trace("dispute.json(): " + dispute.json());
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", addAuthTokenToJSON(dispute, authToken));
+    HttpResponse response = httpclient.execute(httpPost);
+    HttpEntity responseEntity = response.getEntity();
 
-      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", addAuthTokenToJSON(dispute, authToken));
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      final String responseString = makeStringFromEntity(responseEntity);
-
-      log.trace("dispute: responseString: " + responseString);
-      if (responseString.startsWith("{\"error\":")) {
-        throw new RuntimeException("dispute produced error: " + responseString);
-      }
-      Amen a = gson.fromJson(responseString, Amen.class);
-
-      if (a != null && a.getKindId() == AMEN_KIND_DISPUTE) {
-
-        final boolean sameObjekt = a.getStatement().getObjekt().getName().equals(dispute.getStatement().getObjekt().getName());
-
-        if (sameObjekt) {
-          return a.getId();
-        } else {
-          log.trace("Not the same Objekt");
-        }
-
-      } else {
-        return null;
-      }
-
-    } catch (IOException e) {
-
-      throw new RuntimeException("dispute failed", e);
+    log.trace("dispute: responseString: " + responseString);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("dispute produced error: " + responseString);
     }
+    Amen a = gson.fromJson(responseString, Amen.class);
+
+    if (a != null && a.getKindId() == AMEN_KIND_DISPUTE) {
+
+      final boolean sameObjekt = a.getStatement().getObjekt().getName().equals(dispute.getStatement().getObjekt().getName());
+
+      if (sameObjekt) {
+        return a.getId();
+      } else {
+        log.trace("Not the same Objekt");
+      }
+
+    } else {
+      return null;
+    }
+
+
     return null;
   }
 
   @Override
-  public void addStatement(Statement statement) {
-    log.debug("addStatement");
+  public void addStatement(Statement statement) throws IOException {
+
     final String body = addAuthTokenToJSON(new Amen(statement), authToken);
-    log.trace("Body: " + body);
 
-    try {
-      HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", body);
-      HttpResponse response = httpclient.execute(httpPost);
-      HttpEntity responseEntity = response.getEntity();
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", body);
+    HttpResponse response = httpclient.execute(httpPost);
+    HttpEntity responseEntity = response.getEntity();
 
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      String line;
-      while ((line = br.readLine()) != null) {
-        log.trace("addStatement | " + line);
-      }
-
-      responseEntity.consumeContent();
-
-    } catch (IOException e) {
-
-      throw new RuntimeException("addStatement failed", e);
+    BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+    String line;
+    while ((line = br.readLine()) != null) {
+      log.trace("addStatement | " + line);
     }
 
+    responseEntity.consumeContent();
 
   }
 
   @Override
-  public Amen getAmenForId(Long id) {
-    log.debug("getAmenForId");
+  public Amen getAmenForId(Long id) throws IOException {
+
     Amen amen;
     HashMap<String, String> params = createAuthenticatedParams();
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/amen/" + id + ".json", params);
-    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
-      if (responseString.startsWith("{\"error\":")) {
-        throw new RuntimeException("getAmenForId produced error: " + responseString);
-      }
-      amen = gson.fromJson(responseString, Amen.class);
-
-    } catch (Exception e) {
-      throw new RuntimeException("getAmenForId(" + id + ") failed", e);
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
+    amen = gson.fromJson(responseString, Amen.class);
 
     return amen;
   }
 
   @Override
-  public Statement getStatementForId(Long id) {
+  public Statement getStatementForId(Long id) throws IOException {
     log.debug("getStatementForId");
     Statement statement;
     HashMap<String, String> params = createAuthenticatedParams();
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/statements/" + id + ".json", params);
-    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      statement = gson.fromJson(responseString, Statement.class);
-
-    } catch (Exception e) {
-      throw new RuntimeException("getAmenForId(" + id + ") failed", e);
-    }
+    statement = gson.fromJson(responseString, Statement.class);
 
     return statement;
   }
@@ -443,8 +387,6 @@ public class AmenServiceImpl implements AmenService {
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/topics/" + id + ".json", params);
 
-//    try {
-
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
@@ -452,15 +394,12 @@ public class AmenServiceImpl implements AmenService {
 
     topic = gson.fromJson(responseString, Topic.class);
 
-//    } catch (Exception e) {
-//      throw new RuntimeException("getTopicsForId(" + id + ") failed", e);
-//    }
 
     return topic;
   }
 
   @Override
-  public boolean takeBack(Long statementId) {
+  public boolean takeBack(Long statementId) throws IOException {
     log.debug("takeBack(): statementId: " + statementId);
     boolean result = false;
     HashMap<String, String> params = createAuthenticatedParams();
@@ -471,19 +410,13 @@ public class AmenServiceImpl implements AmenService {
 
     log.trace("httpDelete: " + httpDelete);
 
-    try {
+    HttpResponse response = httpclient.execute(httpDelete);
+    HttpEntity responseEntity = response.getEntity();
 
-      HttpResponse response = httpclient.execute(httpDelete);
-      HttpEntity responseEntity = response.getEntity();
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      final String responseString = makeStringFromEntity(responseEntity);
-
-      if (" ".equals(responseString)) {
-        result = true;
-      }
-
-    } catch (IOException e) {
-      throw new RuntimeException("takeBack  failed", e);
+    if (" ".equals(responseString)) {
+      result = true;
     }
 
     return result;
@@ -496,13 +429,13 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public List<Amen> getAmenForUser(Long userId) {
+  public List<Amen> getAmenForUser(Long userId) throws IOException {
     log.debug("getAmenForUser(User)");
     return getUserInfo(userId).getRecentAmen();
   }
 
   @Override
-  public UserInfo getUserInfo(Long userId) {
+  public UserInfo getUserInfo(Long userId) throws IOException {
     log.debug("getUserInfo(User)");
     UserInfo result;
 
@@ -510,17 +443,12 @@ public class AmenServiceImpl implements AmenService {
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + userId + ".json", params);
 
-    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
-      result = gson.fromJson(responseString, UserInfo.class);
-
-    } catch (IOException e) {
-      throw new RuntimeException("getUserInfo  failed", e);
-    }
+    final String responseString = makeStringFromEntity(responseEntity);
+    result = gson.fromJson(responseString, UserInfo.class);
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
@@ -560,7 +488,7 @@ public class AmenServiceImpl implements AmenService {
 
   }
 
-  public List<User> followers(Long id) {
+  public List<User> followers(Long id) throws IOException {
 
     List<User> result = new ArrayList<User>();
     log.debug("followers()");
@@ -570,25 +498,20 @@ public class AmenServiceImpl implements AmenService {
     //https://getamen.com/users/12665/followers.json
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/followers.json", params);
 
-    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      Type collectionType = new TypeToken<Collection<User>>() {
-      }.getType();
-      result = gson.fromJson(responseString, collectionType);
-
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
+    Type collectionType = new TypeToken<Collection<User>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
 
     return result;
   }
 
-  public List<User> following(Long id) {
+  public List<User> following(Long id) throws IOException {
 
     List<User> result = new ArrayList<User>();
     log.debug("followers()");
@@ -598,25 +521,21 @@ public class AmenServiceImpl implements AmenService {
     //https://getamen.com/users/12665/followers.json
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + id + "/following.json", params);
 
-    try {
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      Type collectionType = new TypeToken<Collection<User>>() {
-      }.getType();
-      result = gson.fromJson(responseString, collectionType);
+    Type collectionType = new TypeToken<Collection<User>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
 
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
 
     return result;
   }
 
-  public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) {
+  public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) throws IOException {
     List<Objekt> result = null;
 
     log.debug("objektsForQuery() lat: " + lat + " lon: " + lon);
@@ -634,23 +553,15 @@ public class AmenServiceImpl implements AmenService {
       params.put("lng", "" + lon);
     }
 
-
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/objekts.json", params);
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-    try {
+    final String responseString = makeStringFromEntity(responseEntity);
 
-      HttpResponse response = httpclient.execute(httpGet);
-      HttpEntity responseEntity = response.getEntity();
-
-      final String responseString = makeStringFromEntity(responseEntity);
-
-      Type collectionType = new TypeToken<Collection<Objekt>>() {
-      }.getType();
-      result = gson.fromJson(responseString, collectionType);
-
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
+    Type collectionType = new TypeToken<Collection<Objekt>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
 
     return result;
   }
