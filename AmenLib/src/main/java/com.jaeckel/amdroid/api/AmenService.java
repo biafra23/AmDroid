@@ -17,10 +17,6 @@ import java.util.List;
  */
 public interface AmenService {
 
-  public AmenService init(String username, String password);
-
-  public AmenService init(String authToken, User me);
-
   public final int AMEN_KIND_STATEMENT = 0;
   public final int AMEN_KIND_AMEN      = 1;
   public final int AMEN_KIND_DISPUTE   = 2;
@@ -35,6 +31,10 @@ public interface AmenService {
   public User getMe();
 
   public String getAuthToken();
+
+  public AmenService init(String username, String password) throws IOException;
+
+  public AmenService init(String authToken, User me);
 
   public List<Amen> getFeed(int type) throws IOException;
 

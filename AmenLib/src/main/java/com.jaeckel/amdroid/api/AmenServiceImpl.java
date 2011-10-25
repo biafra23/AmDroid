@@ -85,7 +85,7 @@ public class AmenServiceImpl implements AmenService {
     .create();
 
   @Override
-  public AmenService init(String authName, String authPassword) {
+  public AmenService init(String authName, String authPassword)  throws IOException {
     log.debug("init");
 
     this.authName = authName;
@@ -150,12 +150,12 @@ public class AmenServiceImpl implements AmenService {
     return user;
   }
 
-  public List<Amen> getFeed(int type) {
+  public List<Amen> getFeed(int type)  throws IOException {
     return getFeed(0, 25, type);
   }
 
   @Override
-  public List<Amen> getFeed(long sinceId, int limit, int type) {
+  public List<Amen> getFeed(long sinceId, int limit, int type) throws IOException {
     return getFeed(0, sinceId, limit, type);
   }
 
@@ -553,7 +553,7 @@ public class AmenServiceImpl implements AmenService {
       params.put("lng", "" + lon);
     }
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/objekts.json", params);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "objekts.json", params);
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 

@@ -24,7 +24,7 @@ public class AmenServiceITest extends TestCase {
   private AmenService service;
 
   @Override
-  public void setUp() {
+  public void setUp() throws IOException {
     Properties props = new Properties();
     try {
       props.load(this.getClass().getResourceAsStream("test.properties"));
@@ -50,22 +50,22 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testGetFeed() {
+  public void testGetFeed() throws IOException {
 
 
-    List<Amen> amens = service.getFeed();
+    List<Amen> amens = service.getFeed(AmenService.FEED_TYPE_FOLLOWING);
     assertEquals("Amen amount wrong", 25, amens.size());
 
-    amens = service.getFeed(182126L, 3);
+    amens = service.getFeed(182126L, 3, AmenService.FEED_TYPE_FOLLOWING);
     assertEquals("Amen amount wrong", 3, amens.size());
     assertEquals("Amen with wrong id", 182125L, (long) amens.get(0).getId());
 
-    amens = service.getFeed();
+    amens = service.getFeed(AmenService.FEED_TYPE_FOLLOWING);
     assertEquals("Amen amount wrong", 25, amens.size());
 
   }
 
-  public void testDispute() {
+  public void testDispute() throws IOException {
 
 
     Statement fooMe = service.getStatementForId(78221L);
@@ -82,7 +82,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testDispute2() {
+  public void testDispute2() throws IOException {
 
 
     Statement fooMe = service.getStatementForId(87702L);
@@ -99,7 +99,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testGetUserInfo() {
+  public void testGetUserInfo() throws IOException {
 
     UserInfo ui = service.getUserInfo(14028L);
 
@@ -116,28 +116,28 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testAmen() {
+  public void testAmen() throws IOException {
 
     Statement statement = new Statement(new Objekt("Foo", AmenService.OBJEKT_KIND_THING), new Topic("placeholder", true, "Ever"));
     service.addStatement(statement);
 
   }
 
-  public void testGetAmenForId() {
+  public void testGetAmenForId() throws IOException {
 
     Amen a = service.getAmenForId(187365L);
 
     assertEquals("Wrong amen", 187365L, (long) a.getId());
   }
 
-  public void testGetStatementForId() {
+  public void testGetStatementForId() throws IOException {
 
     Statement a = service.getStatementForId(78256L);
 
     assertEquals("Wrong amen", 78256L, (long) a.getId());
   }
 
-  public void testGetStatementForId78704() {
+  public void testGetStatementForId78704() throws IOException {
 
     Statement a = service.getStatementForId(78704L);
 
@@ -145,7 +145,7 @@ public class AmenServiceITest extends TestCase {
     System.out.println("Statement: " + a);
   }
 
-  public void testGetStatementForIdWithNullFirstPoster() {
+  public void testGetStatementForIdWithNullFirstPoster() throws IOException {
 
     Statement a = service.getStatementForId(60814L);
 
@@ -161,7 +161,7 @@ public class AmenServiceITest extends TestCase {
     assertTrue("Topic has no rankedStatements", topic.getRankedStatements().size() > 0);
   }
 
-  public void testAmening() {
+  public void testAmening() throws IOException {
 
 
     Amen result = service.amen(188381L);
@@ -181,7 +181,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testTakeBack() {
+  public void testTakeBack() throws IOException {
 
     System.out.println("testTakeBack");
 
@@ -194,7 +194,7 @@ public class AmenServiceITest extends TestCase {
     assertEquals("Wrong result", true, result);
   }
 
-  public void testFollowers() {
+  public void testFollowers() throws IOException {
     System.out.println("testFollowers");
 
 
@@ -203,7 +203,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testFollowing() {
+  public void testFollowing() throws IOException {
     System.out.println("testFollowing");
 
     List<User> following = service.following(12665L);
@@ -211,7 +211,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testGetObjektsForThing() {
+  public void testGetObjektsForThing() throws IOException {
     // https://getamen.com/objekts?q=a&kind_id=2
     System.out.println("testGetObjektsForThing");
 
@@ -235,7 +235,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testGetObjektsForPlace() {
+  public void testGetObjektsForPlace() throws IOException {
     // https://getamen.com/objekts.json?kind_id=1&lat=52.5172056&lng=13.4667432
     System.out.println("testGetObjektsForPlace");
     List<Objekt> result = service.objektsForQuery("a", AmenService.OBJEKT_KIND_PLACE, 52.5172056, 13.4667432);
@@ -244,7 +244,7 @@ public class AmenServiceITest extends TestCase {
 
   }
 
-  public void testGetObjektsForPerson() {
+  public void testGetObjektsForPerson() throws IOException {
     // https://getamen.com/objekts?q=a&kind_id=0
     System.out.println("testGetObjektsForPerson");
     List<Objekt> result = service.objektsForQuery("a", AmenService.OBJEKT_KIND_PERSON, null, null);
