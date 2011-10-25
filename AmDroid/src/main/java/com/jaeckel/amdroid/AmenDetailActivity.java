@@ -4,7 +4,6 @@ package com.jaeckel.amdroid;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,6 +25,7 @@ import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amdroid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amdroid.util.AmenLibTask;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -178,7 +178,7 @@ public class AmenDetailActivity extends ListActivity {
         if (amened(currentStatement)) {
 
           Log.d(TAG, "Back taking: " + currentAmen);
-          new AmenDetailActivity.TakeBackTask().execute(currentStatement.getId());
+          new AmenDetailActivity.TakeBackTask(AmenDetailActivity.this).execute(currentStatement.getId());
 
         } else {
           Log.d(TAG, "amening: " + currentAmen);
@@ -240,9 +240,13 @@ public class AmenDetailActivity extends ListActivity {
   //
   // TakeBackTask
   //
-  private class TakeBackTask extends AsyncTask<Long, Integer, Amen> {
+  private class TakeBackTask extends AmenLibTask<Long, Integer, Amen> {
 
-    protected Amen doInBackground(Long... statementId) {
+    public TakeBackTask(Context context) {
+      super(context);
+    }
+
+    protected Amen wrappedDoInBackground(Long... statementId) throws IOException {
       try {
         service.takeBack(statementId[0]);
         Amen amen = new Amen(service.getStatementForId(statementId[0]));
@@ -262,7 +266,7 @@ public class AmenDetailActivity extends ListActivity {
       amenTakeBackButton.setEnabled(false);
     }
 
-    protected void onPostExecute(Amen result) {
+    protected void wrappedOnPostExecute(Amen result) {
 
       super.onPostExecute(result);
       if (result != null) {
@@ -292,7 +296,7 @@ public class AmenDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected Amen wrappedDoInBackground(Long... amenId) {
+    protected Amen wrappedDoInBackground(Long... amenId) throws IOException {
       Amen amen = service.amen(amenId[0]);
       Log.d(TAG, "Amen returned from amen(): " + amen);
       return amen;
@@ -331,7 +335,7 @@ public class AmenDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected Statement wrappedDoInBackground(Long... statementIds) {
+    protected Statement wrappedDoInBackground(Long... statementIds) throws IOException {
 
       Statement statement = service.getStatementForId(statementIds[0]);
       Log.d(TAG, "Statement returned from statement(): " + statement);

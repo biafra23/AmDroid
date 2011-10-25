@@ -19,6 +19,8 @@ import com.jaeckel.amdroid.api.model.Topic;
 import com.jaeckel.amdroid.app.AmdroidApp;
 import com.jaeckel.amdroid.util.AmenLibTask;
 
+import java.io.IOException;
+
 /**
  * User: biafra
  * Date: 9/25/11
@@ -246,7 +248,7 @@ public class MakeStatementActivity extends Activity {
     public MakeStatementTask(Context context) {
       super(context);
     }
-    protected Void wrappedDoInBackground(Statement... statements) {
+    protected Void wrappedDoInBackground(Statement... statements) throws IOException {
 
       for (Statement statement : statements) {
         service.addStatement(statement);

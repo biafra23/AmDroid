@@ -22,6 +22,7 @@ import com.jaeckel.amdroid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amdroid.cwac.thumbnail.ThumbnailMessage;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -116,7 +117,11 @@ public class AmdroidApp extends Application {
     if (service == null) {
 
       service = new AmenServiceImpl();
-      service.init(username, password);
+      try {
+        service.init(username, password);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
 
 
     }
