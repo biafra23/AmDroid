@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jaeckel.amdroid"
-          android:versionCode="9"
-          android:versionName="1.0-SNAPSHOT9">
+          android:versionCode="10"
+          android:versionName="1.0-SNAPSHOT10">
     <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="8"/>
 
     <application android:icon="@drawable/ic_launcher"

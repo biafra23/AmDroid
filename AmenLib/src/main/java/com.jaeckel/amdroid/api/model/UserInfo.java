@@ -9,17 +9,17 @@ import java.util.List;
  * Time: 4:06 AM
  */
 public class UserInfo {
-  private Long    id;
-  private String  name;
-  private String  picture;
-  private String  photo;
-  private Date    createdAt;
-  private Integer createdStatementCount;
-  private Integer givenAmenCount;
-  private Integer receivedAmenCount;
-  private Integer followersCount;
-  private Integer followingCount;
-  private Boolean following;
+  private Long       id;
+  private String     name;
+  private String     picture;
+  private String     photo;
+  private Date       createdAt;
+  private Integer    createdStatementCount;
+  private Integer    givenAmenCount;
+  private Integer    receivedAmenCount;
+  private Integer    followersCount;
+  private Integer    followingCount;
+  private Boolean    following;
   private List<Amen> recentAmen;
 
   public UserInfo() {
@@ -132,8 +132,14 @@ public class UserInfo {
   }
 
   public String getPhoto() {
-    return picture;
-//    return photo;
+    if (photo != null) {
+      if (photo.endsWith("_normal.jpg")) {
+        return photo.replace("_normal.jpg", "_small.jpg");
+      } else {
+        return photo.replace(".jpg", "_small.jpg");
+      }
+    }
+    return photo;
   }
 
   public void setPhoto(String photo) {

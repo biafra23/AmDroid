@@ -24,28 +24,25 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
   }
 
   @Override
-  protected Result doInBackground(Params... params) {
+  final protected Result doInBackground(Params... params) {
 
     try {
       return wrappedDoInBackground(params);
 
-    } catch (Error e) {
-      lastException = e;
-//      Log.d(TAG, "---------------------------------------");
-//      e.printStackTrace();
-//      Log.d(TAG, "---------------------------------------");
+    } catch (Throwable e) {
 
+      lastException = e;
+      Log.e(TAG, "ERROR occured: ", e );
     }
     return null;
   }
 
   protected abstract Result wrappedDoInBackground(Params... params);
+  protected abstract void wrappedOnPostExecute(Result result);
 
-  protected void onPostExecute(Result result) {
+  final protected void onPostExecute(Result result) {
 
     if (lastException != null) {
-
-      Log.e(TAG, "ERROR occured");
       lastException.printStackTrace();
 
       String title = "Exception";
@@ -71,7 +68,13 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
       Log.e(TAG, "Dialog shown!");
     }
 
+    wrappedOnPostExecute(result);
+
     lastException = null;
     Log.e(TAG, "lastException reset!");
+
+
   }
+
+
 }

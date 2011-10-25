@@ -125,9 +125,7 @@ public class UserDetailActivity extends ListActivity {
     protected void onPreExecute() {
     }
 
-    protected void onPostExecute(List<Amen> result) {
-
-      super.onPostExecute(result);
+    protected void wrappedOnPostExecute(List<Amen> result) {
 
       if (result != null) {
         adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
@@ -165,8 +163,8 @@ public class UserDetailActivity extends ListActivity {
       return userInfo;
     }
 
-    protected void onPostExecute(final UserInfo userInfo) {
-      super.onPostExecute(userInfo);
+    protected void wrappedOnPostExecute(final UserInfo userInfo) {
+
       if (userInfo != null) {
 
         TextView userName = (TextView) findViewById(R.id.name);

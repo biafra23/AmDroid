@@ -74,8 +74,7 @@ public class ObjektsForQueryTask extends AmenLibTask<ObjektsForQueryTask.ObjektQ
   }
 
   @Override
-  protected void onPostExecute(List<Objekt> results) {
-    super.onPostExecute(results);
+  protected void wrappedOnPostExecute(List<Objekt> results) {
     if (results != null) {
       handler.handleObjektsResult(results);
     }

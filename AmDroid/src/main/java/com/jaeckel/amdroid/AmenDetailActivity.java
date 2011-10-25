@@ -303,9 +303,7 @@ public class AmenDetailActivity extends ListActivity {
       amenTakeBackButton.setEnabled(false);
     }
 
-    protected void onPostExecute(Amen result) {
-
-      super.onPostExecute(result);
+    protected void wrappedOnPostExecute(Amen result) {
       if (result != null) {
 
         currentAmen = result;
@@ -345,8 +343,7 @@ public class AmenDetailActivity extends ListActivity {
     protected void onPreExecute() {
     }
 
-    protected void onPostExecute(Statement result) {
-      super.onPostExecute(result);
+    protected void wrappedOnPostExecute(Statement result) {
 
       if (result != null) {
         currentAmen = new Amen(result);

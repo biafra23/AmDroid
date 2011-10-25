@@ -260,8 +260,7 @@ public class MakeStatementActivity extends Activity {
     protected void onPreExecute() {
     }
 
-    protected void onPostExecute(Void result) {
-      super.onPostExecute(result);
+    protected void wrappedOnPostExecute(Void result) {
       if (result != null) {
         Toast.makeText(MakeStatementActivity.this, "Amen.", Toast.LENGTH_LONG).show();
         finish();

@@ -147,8 +147,7 @@ public class ScoreBoardActivity extends ListActivity {
     protected void onPreExecute() {
     }
 
-    protected void onPostExecute(final Topic topic) {
-      super.onPostExecute(topic);
+    protected void wrappedOnPostExecute(final Topic topic) {
 
       if (topic != null) {
         currentTopic = topic;

@@ -173,8 +173,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     }
 
     @Override
-    protected void onPostExecute(Long result) {
-      super.onPostExecute(result);
+    protected void wrappedOnPostExecute(Long result) {
       if (result != null) {
         Toast.makeText(DisputeActivity.this, "Disputed", Toast.LENGTH_SHORT).show();
       }

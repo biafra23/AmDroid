@@ -387,7 +387,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected void onPostExecute(List<Amen> amens) {
+    protected void wrappedOnPostExecute(List<Amen> amens) {
       super.onPostExecute(amens);
 
       if (amens != null) {
@@ -460,7 +460,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected void onPostExecute(List<Amen> amens) {
+    protected void wrappedOnPostExecute(List<Amen> amens) {
 
       if (amens != null) {
         amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
@@ -505,8 +505,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected void onPostExecute(List<Amen> amens) {
-      super.onPostExecute(amens);
+    protected void wrappedOnPostExecute(List<Amen> amens) {
 
       if (amens != null) {
 
@@ -631,7 +630,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected void onPostExecute(List<Amen> result) {
+    protected void wrappedOnPostExecute(List<Amen> result) {
       super.onPostExecute(result);
 
       Log.v(TAG, "onPostExecute");
@@ -736,8 +735,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected void onPostExecute(Amen result) {
-      super.onPostExecute(result);
+    protected void wrappedOnPostExecute(Amen result) {
     }
   }
 

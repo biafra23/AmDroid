@@ -210,12 +210,12 @@ public class User implements Parcelable {
     name = in.readString();
     picture = in.readString();
     createdAt = (Date) in.readValue(cl);
-    createdStatementsCount = (Integer)in.readValue(cl);
-    givenAmenCount = (Integer)in.readValue(cl);
-    receivedAmenCount = (Integer)in.readValue(cl);
-    followersCount = (Integer)in.readValue(cl);
-    followingCount = (Integer)in.readValue(cl);
-    following = (Boolean)in.readValue(cl);
+    createdStatementsCount = (Integer) in.readValue(cl);
+    givenAmenCount = (Integer) in.readValue(cl);
+    receivedAmenCount = (Integer) in.readValue(cl);
+    followersCount = (Integer) in.readValue(cl);
+    followingCount = (Integer) in.readValue(cl);
+    following = (Boolean) in.readValue(cl);
     authToken = in.readString();
     photo = in.readString();
   }
@@ -229,8 +229,10 @@ public class User implements Parcelable {
   }
 
   public String getPhoto() {
-    return picture;
-//    return photo;
+    if (photo != null) {
+      return photo.replace(".jpg", "_small.jpg");
+    }
+    return photo;
   }
 
   public void setPhoto(String photo) {
