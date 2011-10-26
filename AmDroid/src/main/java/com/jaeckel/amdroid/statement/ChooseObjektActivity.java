@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -65,12 +66,17 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
     setTitle("Amenoid/Choose Statement Objekt");
 
     ListView list = (ListView) findViewById(android.R.id.list);
-    View header = getLayoutInflater().inflate(R.layout.choose_objekt_header, null, false);
+    final View header = getLayoutInflater().inflate(R.layout.choose_objekt_header, null, false);
     header.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
-        Objekt objekt = new Objekt(objektEditText.getText() + "", currentObjektKind);
 
-        Log.d(TAG, "new Objekt: " + objekt);
+        Objekt objekt = currentObjekt;
+
+        if (!TextUtils.isEmpty(objektEditText.getText())) {
+          objekt = new Objekt(objektEditText.getText() + "", currentObjektKind);
+        }
+
+        Log.d(TAG, "using object: " + objekt);
 
         Intent intent = new Intent();
         intent.putExtra(Constants.EXTRA_OBJEKT, objekt);
@@ -110,7 +116,7 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
     }
 
     objektEditText = (EditText) findViewById(R.id.objekt);
-    objektEditText.setText(currentObjekt.getName());
+    objektEditText.setHint(currentObjekt.getName());
     objektEditText.addTextChangedListener(new TextWatcher() {
 
       boolean isDelete = false;

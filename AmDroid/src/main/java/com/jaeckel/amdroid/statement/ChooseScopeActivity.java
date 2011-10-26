@@ -69,7 +69,7 @@ public class ChooseScopeActivity extends ListActivity {
     setTitle("Amenoid/Choose Statement Scope");
 
     scopeEditText = (EditText) findViewById(R.id.scope);
-    scopeEditText.setText(currentTopic.getScope());
+    scopeEditText.setHint(currentTopic.getScope());
     scopeEditText.addTextChangedListener(new TextWatcher() {
 
       public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

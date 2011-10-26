@@ -56,7 +56,7 @@ public class ChooseTopicActivity extends ListActivity {
     setContentView(R.layout.choose_objekt);
     setTitle("Amenoid/Choose Topic");
     objektEditText = (EditText) findViewById(R.id.objekt);
-    objektEditText.setText(currentTopic.getDescription());
+    objektEditText.setHint(currentTopic.getDescription());
     objektEditText.addTextChangedListener(new TextWatcher() {
 
       public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

@@ -1,6 +1,7 @@
 package com.jaeckel.amdroid;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,10 +24,16 @@ import java.util.List;
 public class AmenListAdapter extends ArrayAdapter<Amen> {
 
   private LayoutInflater inflater;
+  private Typeface bold;
+  private Typeface semi;
+  private Typeface medium;
 
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
+//     bold = Typeface.createFromAsset(context.getAssets(), "fonts/MYRIADAB.TTF");
+//     medium = Typeface.createFromAsset(context.getAssets(), "fonts/MYRIADAM.TTF");
+//     semi = Typeface.createFromAsset(context.getAssets(), "fonts/MYRIADAS.TTF");
 //    setNotifyOnChange(true);
   }
 
@@ -45,6 +52,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
     TextView user = (TextView) row.getTag(R.id.user);
+//    user.setTypeface(semi);
+
     String from = amen.getUser().getName();
 
     if (amen.isAmen()) {
@@ -56,7 +65,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     user.setText(from);
 
     TextView statementView = (TextView) row.getTag(R.id.statement);
-
+//    statementView.setTypeface(bold);
     statementView.setText(styleAmenWithColor(amen, getContext()));
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
