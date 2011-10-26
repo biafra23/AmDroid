@@ -560,11 +560,11 @@ public class AmenListActivity extends ListActivity {
       if (service != null) {
 
         AmenListActivity.this.service = service;
-        
-        loginProgressDialog.hide();
 
         refresh();
       }
+
+      loginProgressDialog.hide();
 
     }
   }
