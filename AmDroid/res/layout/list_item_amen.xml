@@ -44,6 +44,7 @@
                   android:textSize="20dp"
                   android:layout_weight="1"
                   android:paddingBottom="3dp"
+                  android:shadowColor="@color/dark_grey"
                 />
 
 

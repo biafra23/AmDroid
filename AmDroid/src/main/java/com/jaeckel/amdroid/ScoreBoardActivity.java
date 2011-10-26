@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -55,9 +54,6 @@ public class ScoreBoardActivity extends ListActivity {
     handler = new Handler();
     errorDialog = new AlertDialog.Builder(this);
 
-    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-    setProgressBarIndeterminateVisibility(true);
-
     Log.d(TAG, "onCreate");
 
     service = AmdroidApp.getInstance().getService();
@@ -65,7 +61,7 @@ public class ScoreBoardActivity extends ListActivity {
     setContentView(R.layout.score_board);
     setTitle("Amenoid/Scorecard");
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
-    
+
     list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.score_header, null, false);
     list.addHeaderView(header);
@@ -154,11 +150,11 @@ public class ScoreBoardActivity extends ListActivity {
         description.setText(currentTopic.getAsSentence());
         adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
         setListAdapter(adapter);
-        progressBar.setVisibility(View.GONE);
-        list.setVisibility(View.VISIBLE);
+
       }
 
-      setProgressBarIndeterminateVisibility(false);
+      progressBar.setVisibility(View.GONE);
+      list.setVisibility(View.VISIBLE);
 
     }
   }
