@@ -208,7 +208,7 @@ public class AmenDetailActivity extends ListActivity {
 
   private boolean amened(Statement currentStatement) {
     for (User u : currentStatement.getAgreeingNetwork()) {
-      if (u.getName().equals(service.getMe().getName())) {
+      if (u.getId() == service.getMe().getId()) {
         return true;
       }
     }
