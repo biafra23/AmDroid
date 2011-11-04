@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.jaeckel.amdroid.Constants;
 import com.jaeckel.amdroid.R;
 import com.jaeckel.amdroid.api.AmenService;
+import com.jaeckel.amdroid.api.model.Amen;
 import com.jaeckel.amdroid.api.model.Objekt;
 import com.jaeckel.amdroid.api.model.Statement;
 import com.jaeckel.amdroid.api.model.Topic;
@@ -243,12 +244,15 @@ public class MakeStatementActivity extends Activity {
   //
   // MakeStatementTask
   //
-  private class MakeStatementTask extends AmenLibTask<Statement, Integer, Void> {
+  private class MakeStatementTask extends AmenLibTask<Statement, Integer, Amen> {
 
     public MakeStatementTask(Context context) {
       super(context);
     }
-    protected Void wrappedDoInBackground(Statement... statements) throws IOException {
+
+    protected Amen wrappedDoInBackground(Statement... statements) throws IOException {
+
+      Amen result = null;
 
       for (Statement statement : statements) {
 
@@ -259,18 +263,18 @@ public class MakeStatementActivity extends Activity {
         statement.getObjekt().setPossibleDescriptions(null);
         statement.getObjekt().setPossibleScopes(null);
 
-        service.addStatement(statement);
+        result = service.addStatement(statement);
       }
 
 
-      return null;
+      return result;
     }
 
     @Override
     protected void onPreExecute() {
     }
 
-    protected void wrappedOnPostExecute(Void result) {
+    protected void wrappedOnPostExecute(Amen result) {
       if (result != null) {
         Toast.makeText(MakeStatementActivity.this, "Amen.", Toast.LENGTH_LONG).show();
         finish();

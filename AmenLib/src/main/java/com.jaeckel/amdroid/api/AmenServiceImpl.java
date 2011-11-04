@@ -85,7 +85,7 @@ public class AmenServiceImpl implements AmenService {
     .create();
 
   @Override
-  public AmenService init(String authName, String authPassword)  throws IOException {
+  public AmenService init(String authName, String authPassword) throws IOException {
     log.debug("init");
 
     this.authName = authName;
@@ -150,7 +150,7 @@ public class AmenServiceImpl implements AmenService {
     return user;
   }
 
-  public List<Amen> getFeed(int type)  throws IOException {
+  public List<Amen> getFeed(int type) throws IOException {
     return getFeed(0, 25, type);
   }
 
@@ -321,7 +321,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public void addStatement(Statement statement) throws IOException {
+  public Amen addStatement(Statement statement) throws IOException {
 
     final String body = addAuthTokenToJSON(new Amen(statement), authToken);
 
@@ -329,14 +329,12 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-    String line;
-    while ((line = br.readLine()) != null) {
-      log.trace("addStatement returned: | " + line);
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException(responseString);
     }
 
-    responseEntity.consumeContent();
-
+    return gson.fromJson(responseString, Amen.class);
   }
 
   @Override

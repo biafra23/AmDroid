@@ -58,7 +58,7 @@ public interface AmenService {
 
   public UserInfo getUserInfo(Long id) throws IOException;
 
-  public void addStatement(Statement statement) throws IOException;
+  public Amen addStatement(Statement statement) throws IOException;
 
   public Statement getStatementForId(Long id) throws IOException;
 
