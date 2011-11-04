@@ -251,6 +251,14 @@ public class MakeStatementActivity extends Activity {
     protected Void wrappedDoInBackground(Statement... statements) throws IOException {
 
       for (Statement statement : statements) {
+
+        // clean up statement
+        statement.getObjekt().setCategory(null);
+        statement.getObjekt().setDefaultDescription(null);
+        statement.getObjekt().setDefaultScope(null);
+        statement.getObjekt().setPossibleDescriptions(null);
+        statement.getObjekt().setPossibleScopes(null);
+
         service.addStatement(statement);
       }
 
