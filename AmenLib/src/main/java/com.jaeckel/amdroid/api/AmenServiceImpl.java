@@ -332,7 +332,7 @@ public class AmenServiceImpl implements AmenService {
     BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
     String line;
     while ((line = br.readLine()) != null) {
-      log.trace("addStatement | " + line);
+      log.trace("addStatement returned: | " + line);
     }
 
     responseEntity.consumeContent();
