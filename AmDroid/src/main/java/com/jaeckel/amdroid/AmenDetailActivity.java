@@ -142,7 +142,7 @@ public class AmenDetailActivity extends ListActivity {
     if (updateName) {
       if (currentAmen != null && currentAmen.getUser() != null) {
         userView.setText(currentAmen.getUser().getName() + ", " + format(currentAmen.getCreatedAt()));
-      } else {
+      } else if (currentStatement.getFirstPoster() != null) {
         userView.setText(currentStatement.getFirstPoster().getName() + ", " + format(currentStatement.getFirstPostedAt()));
       }
 
@@ -268,7 +268,6 @@ public class AmenDetailActivity extends ListActivity {
 
     protected void wrappedOnPostExecute(Amen result) {
 
-      super.onPostExecute(result);
       if (result != null) {
 
         currentAmen = result;
