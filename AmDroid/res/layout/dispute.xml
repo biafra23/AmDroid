@@ -11,7 +11,7 @@
             android:textSize="20dip"
             android:text="Hell No! The Best Name For A Spacecraft Ever is:"/>
 
-    <com.jaeckel.amdroid.ObjektAutoCompleteTextView
+    <com.jaeckel.amenoid.ObjektAutoCompleteTextView
             android:id="@+id/autocomplete_objekt"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
