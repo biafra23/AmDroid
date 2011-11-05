@@ -6,7 +6,7 @@ import com.jaeckel.amdroid.AmenListActivity;
 public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
 
     public AmenListActivityTest() {
-        super("com.jaeckel.amdroid", AmenListActivity.class);
+        super("com.jaeckel.amenoid", AmenListActivity.class);
     }
 
     public void testActivity() {
