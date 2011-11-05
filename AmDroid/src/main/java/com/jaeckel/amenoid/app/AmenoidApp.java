@@ -243,7 +243,7 @@ public class AmenoidApp extends Application {
     if (locationListener != null && (bestTime < minTime || bestAccuracy > minDistance)) {
       IntentFilter locIntentFilter = new IntentFilter(SINGLE_LOCATION_UPDATE_ACTION);
       this.registerReceiver(singleUpdateReceiver, locIntentFilter);
-      locationManager.requestSingleUpdate(criteria, singleUpatePI);
+      locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10*60*1000, 50.0F, singleUpatePI);
     }
 
     return bestResult;
