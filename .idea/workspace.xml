@@ -17,7 +17,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/GsonTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2364,7 +2363,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="amdroid -&gt; amenoid" />
+    <option name="LAST_COMMIT_MESSAGE" value="make Android üre API 9 compatible" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2378,7 +2377,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="autoLink in detail view" />
     <MESSAGE value="wrapped onPostExceute" />
     <MESSAGE value="more wrappers" />
     <MESSAGE value="more detailed exception handling" />
@@ -2403,6 +2401,7 @@
     <MESSAGE value="activatiing the about activity" />
     <MESSAGE value="going ALPHA1" />
     <MESSAGE value="amdroid -&gt; amenoid" />
+    <MESSAGE value="make Android üre API 9 compatible" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
