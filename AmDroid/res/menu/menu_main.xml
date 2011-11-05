@@ -26,4 +26,8 @@
           android:icon="@drawable/ic_menu_amen"
           android:title="Amen sth."
             />
+    <item android:id="@+id/about"
+          android:icon="@drawable/ic_menu_about"
+          android:title="About"
+            />
 </menu>
