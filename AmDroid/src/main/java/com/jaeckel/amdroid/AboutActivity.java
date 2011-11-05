@@ -17,8 +17,10 @@ public class AboutActivity extends Activity {
 
     setContentView(R.layout.about);
 
-    TextView about = (TextView) findViewById(R.id.about);
+    TextView versionTextView = (TextView) findViewById(R.id.version);
+    TextView authorTextView = (TextView) findViewById(R.id.version);
 
+    setTitle("About Amenoid");
 
     String myPackageName = this.getPackageName();
 
@@ -35,7 +37,9 @@ public class AboutActivity extends Activity {
       e.printStackTrace();
     }
 
-    about.setText("Version: \n" + versionName + "("+ versionCode +")" +
-                  "Author: Dirk Jäckel <dirk@jaeckel.com>\n");
+    versionTextView.setText("Version: " + versionName + "(" + versionCode + ")");
+    authorTextView.setText("Author: Dirk Jäckel <dirk@jaeckel.com>\n");
+
+
   }
 }

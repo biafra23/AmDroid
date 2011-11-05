@@ -115,7 +115,7 @@ public class AmenListActivity extends ListActivity {
         service = AmdroidApp.getInstance().getService().init(authToken, me);
         refreshWithCache();
       } else {
-         new LoginAsyncTask(this).execute();
+        new LoginAsyncTask(this).execute();
 
       }
     }
@@ -237,11 +237,17 @@ public class AmenListActivity extends ListActivity {
 
         return true;
       }
-      case R.id.amen:
+      case R.id.amen: {
 //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
         startActivity(intent);
         return true;
+      }
+      case R.id.about_menu_item: {
+        Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+      }
     }
 
     return false;
@@ -485,7 +491,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected List<Amen> wrappedDoInBackground(Void... voids)  throws IOException  {
+    protected List<Amen> wrappedDoInBackground(Void... voids) throws IOException {
 
       Log.d(TAG, "Loader executing");
 
@@ -530,7 +536,7 @@ public class AmenListActivity extends ListActivity {
     public LoginAsyncTask(Context context) {
       super(context);
     }
-    
+
     @Override
     protected void onPreExecute() {
       if (AmdroidApp.DEVELOPER_MODE) {
@@ -580,7 +586,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected List<Amen> wrappedDoInBackground(Void... voids)  throws IOException {
+    protected List<Amen> wrappedDoInBackground(Void... voids) throws IOException {
       Log.v(TAG, "doInBackground");
       List<Amen> oldAmens = new ArrayList<Amen>();
 
@@ -699,7 +705,7 @@ public class AmenListActivity extends ListActivity {
     }
 
     @Override
-    protected Amen wrappedDoInBackground(Long... statementIds)  throws IOException {
+    protected Amen wrappedDoInBackground(Long... statementIds) throws IOException {
       //1. find statement in adapter
 
       //2. reload statement froms server
