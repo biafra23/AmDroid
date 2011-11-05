@@ -21,7 +21,7 @@ import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.api.model.UserInfo;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
@@ -39,7 +39,7 @@ import java.util.List;
  */
 public class UserDetailActivity extends ListActivity {
 
-  private static String TAG = "amdroid/UserDetailActivity";
+  private static String TAG = "UserDetailActivity";
 
   private User        currentUser;
   private AmenService service;
@@ -53,7 +53,7 @@ public class UserDetailActivity extends ListActivity {
     requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     Log.d(TAG, "onCreate");
 
-    service = AmdroidApp.getInstance().getService();
+    service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.user);
     setTitle("Amenoid/Userdetails");
@@ -152,7 +152,7 @@ public class UserDetailActivity extends ListActivity {
 
       final UserInfo userInfo = service.getUserInfo(currentUser.getId());
 
-      final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmdroidApp.getInstance().getCache();
+      final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmenoidApp.getInstance().getCache();
       String pictureUrl = userInfo.getPhoto();
       if (TextUtils.isEmpty(pictureUrl)) {
         pictureUrl = userInfo.getPicture();

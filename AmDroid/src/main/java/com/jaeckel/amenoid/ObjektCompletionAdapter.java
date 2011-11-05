@@ -11,7 +11,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 
 import java.io.IOException;
 import java.util.List;
@@ -72,7 +72,7 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
         FilterResults results = new FilterResults();
 
-        AmenService service = AmdroidApp.getInstance().getService();
+        AmenService service = AmenoidApp.getInstance().getService();
 
         List<Objekt> values = null;
         try {

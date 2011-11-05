@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 
 /**
  * User: biafra
@@ -80,7 +80,7 @@ public class EditPreferencesActivity extends PreferenceActivity {
 
     Log.d(TAG, "onStop");
 
-    if (AmdroidApp.getInstance().getService().getMe() == null) {
+    if (AmenoidApp.getInstance().getService().getMe() == null) {
       Intent restart = new Intent(this, AmenListActivity.class);
 
       startActivity(restart);

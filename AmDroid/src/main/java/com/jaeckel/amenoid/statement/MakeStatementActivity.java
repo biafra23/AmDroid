@@ -17,7 +17,7 @@ import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class MakeStatementActivity extends Activity {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate");
 
-    service = AmdroidApp.getInstance().getService();
+    service = AmenoidApp.getInstance().getService();
     setTitle("Amenoid/Make A Statement");
 
     currentBest = true;

@@ -19,7 +19,7 @@ import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
@@ -37,7 +37,7 @@ import java.util.List;
  */
 public class AmenDetailActivity extends ListActivity {
 
-  private static final String TAG = "amdroid/AmenDetailActivity";
+  private static final String TAG = "AmenDetailActivity";
   private Amen             currentAmen;
   private Statement   currentStatement;
   private Topic       topicWithRankedStatements;
@@ -58,8 +58,8 @@ public class AmenDetailActivity extends ListActivity {
 
     Log.d(TAG, "onCreate");
 
-    service = AmdroidApp.getInstance().getService();
-    cache = AmdroidApp.getInstance().getCache();
+    service = AmenoidApp.getInstance().getService();
+    cache = AmenoidApp.getInstance().getCache();
 
     setContentView(R.layout.details);
     setTitle("Amendetails");

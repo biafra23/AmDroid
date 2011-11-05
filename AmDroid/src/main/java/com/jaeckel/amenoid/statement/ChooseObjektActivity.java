@@ -23,7 +23,7 @@ import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.ObjektsForQueryTask;
 
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
     super.onCreate(savedInstanceState);
 
 
-    final AmdroidApp app = AmdroidApp.getInstance();
+    final AmenoidApp app = AmenoidApp.getInstance();
 
     service = app.getService();
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);

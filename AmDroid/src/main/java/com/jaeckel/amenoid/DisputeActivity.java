@@ -15,7 +15,7 @@ import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
 import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
 
@@ -38,7 +38,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    service = AmdroidApp.getInstance().getService();
+    service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.dispute);
 

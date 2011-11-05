@@ -30,7 +30,7 @@ import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
@@ -112,7 +112,7 @@ public class AmenListActivity extends ListActivity {
       final String authToken = readAuthTokenFromPrefs();
       final User me = readMeFromPrefs();
       if (authToken != null && me != null) {
-        service = AmdroidApp.getInstance().getService().init(authToken, me);
+        service = AmenoidApp.getInstance().getService().init(authToken, me);
         refreshWithCache();
       } else {
         new LoginAsyncTask(this).execute();
@@ -469,7 +469,7 @@ public class AmenListActivity extends ListActivity {
 
       if (amens != null) {
         amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
-        ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
         EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
 
@@ -515,7 +515,7 @@ public class AmenListActivity extends ListActivity {
       if (amens != null) {
 
         amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
-        ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmdroidApp.getInstance().getCache(), IMAGE_IDS);
+        ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
         EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
 
@@ -539,7 +539,7 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPreExecute() {
-      if (AmdroidApp.DEVELOPER_MODE) {
+      if (AmenoidApp.DEVELOPER_MODE) {
         Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
       }
       loginProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
@@ -554,7 +554,7 @@ public class AmenListActivity extends ListActivity {
       String username = prefs.getString("user_name", null);
       String password = prefs.getString("password", null);
 
-      final AmenService amenService = AmdroidApp.getInstance().getService(username, password);
+      final AmenService amenService = AmenoidApp.getInstance().getService(username, password);
       saveAuthTokenToPrefs(amenService.getAuthToken());
       saveMeToPrefs(amenService.getMe());
       return amenService;

@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.RankedStatements;
 import com.jaeckel.amenoid.api.model.Topic;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
@@ -56,7 +56,7 @@ public class ScoreBoardActivity extends ListActivity {
 
     Log.d(TAG, "onCreate");
 
-    service = AmdroidApp.getInstance().getService();
+    service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.score_board);
     setTitle("Amenoid/Scorecard");

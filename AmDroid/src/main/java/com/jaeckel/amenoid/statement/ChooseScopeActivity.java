@@ -22,7 +22,7 @@ import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Topic;
-import com.jaeckel.amenoid.app.AmdroidApp;
+import com.jaeckel.amenoid.app.AmenoidApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,8 @@ public class ChooseScopeActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    service = AmdroidApp.getInstance().getService();
+
+    service = AmenoidApp.getInstance().getService();
     currentTopic = (Topic) getIntent().getParcelableExtra(Constants.EXTRA_TOPIC);
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);
     currentObjektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);
