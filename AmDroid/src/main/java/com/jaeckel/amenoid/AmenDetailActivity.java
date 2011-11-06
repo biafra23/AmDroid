@@ -4,6 +4,7 @@ package com.jaeckel.amenoid;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -52,6 +53,8 @@ public class AmenDetailActivity extends ListActivity {
   private static final int[]  IMAGE_IDS = {R.id.user_image};
   private              String lastError = null;
   private SimpleWebImageCache cache;
+  private Typeface amenTypeThin;
+  private Typeface amenTypeBold;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -63,6 +66,9 @@ public class AmenDetailActivity extends ListActivity {
 
     setContentView(R.layout.details);
     setTitle("Amendetails");
+
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
 
     ListView list = (ListView) findViewById(android.R.id.list);
     View header = getLayoutInflater().inflate(R.layout.details_header, null, false);
@@ -114,11 +120,16 @@ public class AmenDetailActivity extends ListActivity {
   public void onResume() {
     super.onResume();
     statementView = (TextView) findViewById(R.id.statement);
+    statementView.setTypeface(amenTypeBold);
     userView = (TextView) findViewById(R.id.user);
+    userView.setTypeface(amenTypeThin);
     amenCount = (TextView) findViewById(R.id.amen_count);
+    amenCount.setTypeface(amenTypeThin);
     amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
+    amenTakeBackButton.setTypeface(amenTypeBold);
     amenTakeBackButton.setEnabled(false);
     hellNoButton = (Button) findViewById(R.id.hell_no);
+    hellNoButton.setTypeface(amenTypeBold);
     hellNoButton.setEnabled(false);
     populateFormWithAmen(true);
 

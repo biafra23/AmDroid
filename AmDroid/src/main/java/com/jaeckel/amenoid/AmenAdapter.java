@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
 
 import java.util.List;
@@ -22,11 +24,15 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
 
 
   private LayoutInflater inflater;
+  private Typeface       amenTypeThin;
+  private Typeface       amenTypeBold;
 
   public AmenAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
     //    setNotifyOnChange(true);
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
   }
 
   @Override
@@ -45,12 +51,15 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
 
     TextView statement = (TextView) row.getTag(R.id.statement);
     statement.setText(styleAmenWithColor(amen, getContext()));
+    statement.setTypeface(amenTypeBold);
 
 
     TextView dateView = (TextView) row.getTag(R.id.date);
+    dateView.setTypeface(amenTypeThin);
     dateView.setText(AmenDetailActivity.format(amen.getCreatedAt()));
 
     TextView amenCountView = (TextView) row.getTag(R.id.amen_count);
+    amenCountView.setTypeface(amenTypeThin);
     amenCountView.setText(amen.getStatement().getAgreeingNetwork().size() + " Amen");
 
 

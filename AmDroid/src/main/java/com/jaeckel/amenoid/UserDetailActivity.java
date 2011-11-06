@@ -79,7 +79,7 @@ public class UserDetailActivity extends ListActivity {
     new UserInfoTask(this).execute(currentUser.getId());
 
     TextView userName = (TextView) findViewById(R.id.name);
-    userName.setTypeface(amenTypeThin);
+    userName.setTypeface(amenTypeBold);
     userName.setText(currentUser.getName());
     final TextView follow = (TextView) findViewById(R.id.follow);
 

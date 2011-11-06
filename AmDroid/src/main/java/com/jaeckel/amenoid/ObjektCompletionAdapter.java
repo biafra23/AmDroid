@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +26,16 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
   private LayoutInflater inflater;
   private static final String TAG = "ObjektCompletionAdapter";
+  private Typeface amenTypeBold;
+  private Typeface amenTypeThin;
+
 
 
   public ObjektCompletionAdapter(Context context, int textViewResourceId, List<Objekt> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
   }
   @Override
   public View getView(final int position, View convertView, ViewGroup parent) {
@@ -44,8 +50,10 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
     TextView textView = (TextView) row.findViewById(R.id.completion_item_name);
     textView.setText(objekt.getName());
-    
+    textView.setTypeface(amenTypeBold);
+
     TextView description = (TextView) row.findViewById(R.id.default_description);
+    description.setTypeface(amenTypeThin);
     description.setText(objekt.getDefaultDescription());
     
     return row;
