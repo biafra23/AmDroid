@@ -24,15 +24,14 @@ import java.util.List;
 public class AmenListAdapter extends ArrayAdapter<Amen> {
 
   private LayoutInflater inflater;
-  private Typeface bold;
-  private Typeface semi;
-  private Typeface medium;
+  private Typeface amenTypeThin;
+  private Typeface amenTypeBold;
 
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
-     bold = Typeface.createFromAsset(context.getAssets(), "fonts/RobotoBold.ttf");
-     semi = Typeface.createFromAsset(context.getAssets(), "fonts/RobotoRegular.ttf");
+     amenTypeThin = Typeface.createFromAsset(context.getAssets(), "fonts/AmenTypeThin.ttf");
+     amenTypeBold = Typeface.createFromAsset(context.getAssets(), "fonts/AmenTypeBold.ttf");
 //    setNotifyOnChange(true);
   }
 
@@ -51,7 +50,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
     TextView user = (TextView) row.getTag(R.id.user);
-    user.setTypeface(semi);
+    user.setTypeface(amenTypeThin);
 
     String from = amen.getUser().getName();
 
@@ -64,7 +63,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     user.setText(from);
 
     TextView statementView = (TextView) row.getTag(R.id.statement);
-    statementView.setTypeface(bold);
+    statementView.setTypeface(amenTypeBold);
     statementView.setText(styleAmenWithColor(amen, getContext()));
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);

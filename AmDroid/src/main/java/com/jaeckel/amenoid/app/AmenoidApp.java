@@ -15,6 +15,7 @@ import android.location.LocationManager;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
+import android.widget.Toast;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.AmenServiceImpl;
@@ -202,7 +203,7 @@ public class AmenoidApp extends Application {
    * Returns the most accurate and timely previously detected location.
    * Where the last result is beyond the specified maximum distance or
    * latency a one-off location update is returned via the {@link LocationListener}
-   * specified in {@link setChangedLocationListener}.
+   * specified in {@link }.
    *
    * @param minDistance Minimum distance before we require a location update.
    * @param minTime     Minimum time required between location updates.
@@ -253,15 +254,18 @@ public class AmenoidApp extends Application {
    * This {@link BroadcastReceiver} listens for a single location
    * update before unregistering itself.
    * The oneshot location update is returned via the {@link LocationListener}
-   * specified in {@link setChangedLocationListener}.
+   * specified in {@link }.
    */
   protected BroadcastReceiver singleUpdateReceiver = new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
+
       context.unregisterReceiver(singleUpdateReceiver);
 
       String key = LocationManager.KEY_LOCATION_CHANGED;
       Location location = (Location) intent.getExtras().get(key);
+
+      Toast.makeText(AmenoidApp.this, "Receve Location update: " + location, Toast.LENGTH_LONG).show();
 
       if (locationListener != null && location != null)
         locationListener.onLocationChanged(location);
