@@ -54,7 +54,7 @@ public interface AmenService {
 
   public boolean takeBack(Long statementId) throws IOException;
 
-  public List<Amen> getAmenForUser(Long userId) throws IOException;
+  public List<Amen> getAmenForUser(Long userId, Long lastAmenId) throws IOException;
 
   public UserInfo getUserInfo(Long id) throws IOException;
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,6 +25,7 @@ import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.api.model.UserInfo;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
+import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
@@ -50,6 +52,8 @@ public class UserDetailActivity extends ListActivity {
   private ProgressBar progressBar;
   private Typeface    amenTypeThin;
   private Typeface    amenTypeBold;
+  private EndlessLoaderAsyncTask endlessTask;
+
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -127,7 +131,7 @@ public class UserDetailActivity extends ListActivity {
 
     protected List<Amen> wrappedDoInBackground(Long... urls) throws IOException {
 
-      List<Amen> amen = service.getAmenForUser(currentUser.getId());
+      List<Amen> amen = service.getAmenForUser(currentUser.getId(), 0L);
 
       return amen;
     }
@@ -140,7 +144,11 @@ public class UserDetailActivity extends ListActivity {
 
       if (result != null) {
         adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
-        setListAdapter(adapter);
+
+        EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
+
+        setListAdapter(endless);
+//        setListAdapter(adapter);
 
       }
 
@@ -289,5 +297,86 @@ public class UserDetailActivity extends ListActivity {
     }
 
     return false;
+  }
+
+  class EndlessWrapperAdapter extends EndlessAdapter {
+
+    EndlessWrapperAdapter(AmenAdapter amenAdapter) {
+
+      super(UserDetailActivity.this, amenAdapter, R.layout.pending);
+    }
+
+    @Override
+    protected boolean cacheInBackground() throws Exception {
+
+
+      if (getWrappedAdapter().getCount() < 1000) {
+        return (true);
+      }
+
+      throw new Exception("Gadzooks!");
+    }
+
+    @Override
+    protected void appendCachedData() {
+      if (getWrappedAdapter().getCount() < 1000) {
+
+        if (endlessTask != null) {
+          AsyncTask.Status status = endlessTask.getStatus();
+          if (status == AsyncTask.Status.FINISHED) {
+            endlessTask = new EndlessLoaderAsyncTask(UserDetailActivity.this);
+            endlessTask.execute(adapter.getItem(adapter.getCount() - 1).getId());
+          }
+        } else {
+          endlessTask = new EndlessLoaderAsyncTask(UserDetailActivity.this);
+          endlessTask.execute(adapter.getItem(adapter.getCount() - 1).getId());
+
+        }
+      }
+    }
+  }
+
+  //
+  // EndlessLoaderAsyncTask
+  //
+
+  private class EndlessLoaderAsyncTask extends AmenLibTask<Long, Integer, List<Amen>> {
+
+    public EndlessLoaderAsyncTask(Context context) {
+      super(context);
+    }
+
+    @Override
+    protected List<Amen> wrappedDoInBackground(Long... longs) throws IOException {
+
+      Long lastAmenId = longs[0];
+      Log.d(TAG, "Running on Thread: " + Thread.currentThread().getName());
+      Log.d(TAG, "       lastAmenId: " + lastAmenId);
+
+      if (!isCancelled()) {
+        List<Amen> amens = service.getAmenForUser(currentUser.getId(), lastAmenId);
+        return amens;  //To change body of implemented methods use File | Settings | File Templates.
+      }
+
+      return null;
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(List<Amen> amens) {
+
+      if (amens != null) {
+        for (Amen amen : amens) {
+//        Log.d(TAG, "Adding amen: " + amen);
+          adapter.add(amen);
+        }
+      }
+    }
+
+    @Override
+    protected void onCancelled() {
+      Log.d(TAG, "cancelled");
+    }
+
+
   }
 }

@@ -59,7 +59,7 @@ public class AmenServiceImpl implements AmenService {
   private String authName;
   private String authPassword;
 
-  private User me;
+  private User        me;
   private ServerError lastError;
   private String      authToken;
 
@@ -427,9 +427,38 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public List<Amen> getAmenForUser(Long userId) throws IOException {
+  public List<Amen> getAmenForUser(Long userId, Long lastAmenId) throws IOException {
+
     log.debug("getAmenForUser(User)");
-    return getUserInfo(userId).getRecentAmen();
+    if (lastAmenId == null) {
+      return getUserInfo(userId).getRecentAmen();
+    }
+
+    log.debug("getFeed");
+    ArrayList<Amen> result;
+
+    HashMap<String, String> params = createAuthenticatedParams();
+    if (lastAmenId > 0) {
+      params.put("last_amen_id", "" + lastAmenId);
+    }
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "users/" +userId + "/amen.json", params);
+
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("getAmenForUser produced error: " + responseString);
+    }
+    Type collectionType = new TypeToken<List<Amen>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
+
+
+    return result;
+
+
   }
 
   @Override
