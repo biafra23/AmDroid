@@ -44,15 +44,16 @@ public class UserDetailActivity extends ListActivity {
 
   private static String TAG = "UserDetailActivity";
 
-  private User        currentUser;
-  private AmenService service;
-  private AmenAdapter adapter;
-  private Drawable    userImage;
-  private ListView    list;
-  private ProgressBar progressBar;
-  private Typeface    amenTypeThin;
-  private Typeface    amenTypeBold;
+  private User                   currentUser;
+  private AmenService            service;
+  private AmenAdapter            adapter;
+  private Drawable               userImage;
+  private ListView               list;
+  private ProgressBar            progressBar;
+  private Typeface               amenTypeThin;
+  private Typeface               amenTypeBold;
   private EndlessLoaderAsyncTask endlessTask;
+  private boolean stopAppending = false;
 
 
   public void onCreate(Bundle savedInstanceState) {
@@ -308,13 +309,7 @@ public class UserDetailActivity extends ListActivity {
 
     @Override
     protected boolean cacheInBackground() throws Exception {
-
-
-      if (getWrappedAdapter().getCount() < 1000) {
-        return (true);
-      }
-
-      throw new Exception("Gadzooks!");
+      return !stopAppending;
     }
 
     @Override
@@ -369,7 +364,13 @@ public class UserDetailActivity extends ListActivity {
 //        Log.d(TAG, "Adding amen: " + amen);
           adapter.add(amen);
         }
+        Log.d(TAG, "Amens.size: " + amens.size());
+
+        if (amens.size() == 0) {
+          stopAppending = true;
+        }
       }
+
     }
 
     @Override
