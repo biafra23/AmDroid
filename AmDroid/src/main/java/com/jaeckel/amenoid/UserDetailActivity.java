@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -47,11 +48,16 @@ public class UserDetailActivity extends ListActivity {
   private Drawable    userImage;
   private ListView    list;
   private ProgressBar progressBar;
+  private Typeface    amenTypeThin;
+  private Typeface    amenTypeBold;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     Log.d(TAG, "onCreate");
+
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
 
     service = AmenoidApp.getInstance().getService();
 
@@ -73,16 +79,20 @@ public class UserDetailActivity extends ListActivity {
     new UserInfoTask(this).execute(currentUser.getId());
 
     TextView userName = (TextView) findViewById(R.id.name);
+    userName.setTypeface(amenTypeThin);
     userName.setText(currentUser.getName());
     final TextView follow = (TextView) findViewById(R.id.follow);
 
     follow.setText("Following?");
+    follow.setTypeface(amenTypeThin);
     follow.setBackgroundColor(Color.GRAY);
 
     TextView followers = (TextView) findViewById(R.id.followers);
+    followers.setTypeface(amenTypeThin);
     followers.setText("? Followers");
 
     TextView following = (TextView) findViewById(R.id.following);
+    following.setTypeface(amenTypeThin);
     following.setText("? Following");
 
     adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());

@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.jaeckel.amenoid.api.model.RankedStatements;
+import com.jaeckel.amenoid.app.AmenoidApp;
 
 import java.util.List;
 
@@ -19,10 +21,14 @@ import java.util.List;
 public class ScoreBoardAdapter extends ArrayAdapter<RankedStatements> {
 
   private LayoutInflater inflater;
+  private Typeface amenTypeThin;
+  private Typeface amenTypeBold;
 
   public ScoreBoardAdapter(Context context, int textViewResourceId, List<RankedStatements> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
   }
 
 //  public ScoreBoardAdapter(Context context, int resource, int textViewResourceId, List<Statement> objects) {
@@ -42,6 +48,7 @@ public class ScoreBoardAdapter extends ArrayAdapter<RankedStatements> {
     }
 
     TextView nameView = (TextView) row.getTag(R.id.objekt_name);
+    nameView.setTypeface(amenTypeBold);
     nameView.setText(statement.getStatement().getObjekt().getName());
 
     TextView countView = (TextView) row.getTag(R.id.amen_count);

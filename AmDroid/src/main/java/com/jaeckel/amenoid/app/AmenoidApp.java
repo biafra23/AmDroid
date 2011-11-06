@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -56,7 +57,8 @@ public class AmenoidApp extends Application {
 
   private ThumbnailBus                                        bus   = new ThumbnailBus();
   private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
-
+  private Typeface amenTypeThin;
+  private Typeface amenTypeBold;
 
   private Handler handler = new Handler();
   private AlertDialog.Builder builder;
@@ -80,6 +82,9 @@ public class AmenoidApp extends Application {
                                    .build());
     }
     super.onCreate();
+
+    amenTypeThin = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeThin.ttf");
+    amenTypeBold = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeBold.ttf");
 
 
     instance = this;
@@ -244,7 +249,7 @@ public class AmenoidApp extends Application {
     if (locationListener != null && (bestTime < minTime || bestAccuracy > minDistance)) {
       IntentFilter locIntentFilter = new IntentFilter(SINGLE_LOCATION_UPDATE_ACTION);
       this.registerReceiver(singleUpdateReceiver, locIntentFilter);
-      locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10*60*1000, 50.0F, singleUpatePI);
+      locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10 * 60 * 1000, 50.0F, singleUpatePI);
     }
 
     return bestResult;
@@ -288,4 +293,10 @@ public class AmenoidApp extends Application {
     locationManager.removeUpdates(singleUpatePI);
   }
 
+  public Typeface getAmenTypeThin() {
+    return amenTypeThin;
+  }
+  public Typeface getAmenTypeBold() {
+    return amenTypeBold;
+  }
 }

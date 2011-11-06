@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
 
 import java.util.List;
@@ -30,8 +31,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
-     amenTypeThin = Typeface.createFromAsset(context.getAssets(), "fonts/AmenTypeThin.ttf");
-     amenTypeBold = Typeface.createFromAsset(context.getAssets(), "fonts/AmenTypeBold.ttf");
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
 //    setNotifyOnChange(true);
   }
 

@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -36,7 +37,7 @@ public class ScoreBoardActivity extends ListActivity {
 
   private static String TAG = "ScoreBoardActivity";
 
-  private AmenService service;
+  private AmenService       service;
   private ScoreBoardAdapter adapter;
   private Topic             currentTopic;
   private TextView          description;
@@ -46,10 +47,16 @@ public class ScoreBoardActivity extends ListActivity {
 
   private ProgressBar progressBar;
 
-  private ListView list;
+  private Typeface    amenTypeThin;
+  private Typeface    amenTypeBold;
+
+  private ListView    list;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
 
     handler = new Handler();
     errorDialog = new AlertDialog.Builder(this);
@@ -80,6 +87,8 @@ public class ScoreBoardActivity extends ListActivity {
     setListAdapter(adapter);
 
     description = (TextView) findViewById(R.id.description_scope);
+    description.setTypeface(amenTypeBold);
+
     if (TextUtils.isEmpty(currentTopic.getAsSentence())) {
       description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
     } else {
