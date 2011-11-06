@@ -65,6 +65,7 @@ public class AmenListActivity extends ListActivity {
     .create();
   private EndlessLoaderAsyncTask endlessTask;
   private int feedType = AmenService.FEED_TYPE_FOLLOWING;
+  private boolean stopAppending = false;
 
   /**
    * Called when the activity is first created.
@@ -341,17 +342,12 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected boolean cacheInBackground() throws Exception {
 
-
-      if (getWrappedAdapter().getCount() < 1000) {
-        return (true);
-      }
-
-      throw new Exception("Gadzooks!");
+      return !stopAppending;
     }
 
     @Override
     protected void appendCachedData() {
-      if (getWrappedAdapter().getCount() < 1000) {
+      if (!stopAppending) {
 
         if (endlessTask != null) {
           AsyncTask.Status status = endlessTask.getStatus();
@@ -400,6 +396,9 @@ public class AmenListActivity extends ListActivity {
         for (Amen amen : amens) {
 //        Log.d(TAG, "Adding amen: " + amen);
           amenListAdapter.add(amen);
+        }
+        if (amens.size() == 0) {
+          stopAppending = true;
         }
       }
     }
@@ -485,6 +484,8 @@ public class AmenListActivity extends ListActivity {
   // LoaderAsyncTask
   //
   private class LoaderAsyncTask extends AmenLibTask<Void, Integer, List<Amen>> {
+
+    private boolean stopAppending = false;
 
     public LoaderAsyncTask(Context context) {
       super(context);
