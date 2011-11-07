@@ -52,8 +52,6 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
   final int pageSize = 20;
 
-  private ProgressDialog loginProgressDialog;
-  private ProgressDialog loadingProgressDialog;
   private AmenService    service;
   private static final int[] IMAGE_IDS = {R.id.user_image};
   private AmenListAdapter   amenListAdapter;
@@ -66,6 +64,9 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
   private EndlessLoaderAsyncTask endlessTask;
   private int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
   private boolean stopAppending = false;
+
+  //there must be only one. so we can cancel it
+  private LoginAsyncTask loginTask;
 
   /**
    * Called when the activity is first created.
@@ -132,7 +133,11 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
         service = AmenoidApp.getInstance().getService().init(authToken, me);
         refreshWithCache();
       } else {
-        new LoginAsyncTask(this).execute();
+        if (loginTask != null) {
+          loginTask.cancel(true);
+        }
+        loginTask = new LoginAsyncTask(this);
+        loginTask.execute();
 
       }
     }
@@ -426,6 +431,8 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
   //
   private class CachedLoaderAsyncTask extends AmenLibTask<Void, Integer, List<Amen>> {
 
+    private ProgressDialog cachedLoadingProgressDialog;
+
     public CachedLoaderAsyncTask(Context context) {
       super(context);
     }
@@ -467,15 +474,16 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
     @Override
     protected void onPreExecute() {
-      loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
+      cachedLoadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
                                                   "Loading Amens. Please wait...", true);
 
-//      loadingProgressDialog.show();
+      cachedLoadingProgressDialog.show();
+
     }
 
     @Override
     protected void wrappedOnPostExecute(List<Amen> amens) {
-
+      Log.d(TAG, "wrappedOnPostExecute");
       if (amens != null) {
         amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
         ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
@@ -485,7 +493,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
         setListAdapter(endless);
 
       }
-      loadingProgressDialog.hide();
+      cachedLoadingProgressDialog.hide();
 
     }
   }
@@ -496,6 +504,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
   private class LoaderAsyncTask extends AmenLibTask<Void, Integer, List<Amen>> {
 
     private boolean stopAppending = false;
+    private ProgressDialog loadingProgressDialog;
 
     public LoaderAsyncTask(Context context) {
       super(context);
@@ -517,7 +526,8 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
     protected void onPreExecute() {
       loadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
                                                   "Loading Amen from Server...", true);
-//      loadingProgressDialog.show();
+      loadingProgressDialog.show();
+
     }
 
     @Override
@@ -536,6 +546,14 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
       loadingProgressDialog.hide();
     }
+
+    @Override
+    protected void onCancelled() {
+      Log.d(TAG, "loadingProgressDialog cancelled");
+      if (loadingProgressDialog != null) {
+        loadingProgressDialog.hide();
+      }
+    }
   }
 
   //
@@ -543,6 +561,8 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
   //
 
   private class LoginAsyncTask extends AmenLibTask<Void, Integer, AmenService> {
+
+    private ProgressDialog loginProgressDialog;
 
     public LoginAsyncTask(Context context) {
       super(context);
@@ -574,15 +594,25 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
     @Override
     protected void wrappedOnPostExecute(AmenService service) {
 
+      Log.d(TAG, "wrappedOnPostExecute()");
+
       if (service != null) {
 
         AmenListActivity.this.service = service;
 
         refresh();
       }
+      if (loginProgressDialog != null) {
+        loginProgressDialog.hide();
+      }
+    }
 
-      loginProgressDialog.hide();
-
+    @Override
+    protected void onCancelled() {
+      Log.d(TAG, "cancelled");
+      if (loginProgressDialog != null) {
+        loginProgressDialog.hide();
+      }
     }
   }
 
@@ -753,6 +783,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
     @Override
     protected void wrappedOnPostExecute(Amen result) {
     }
+
   }
 
   @Override
@@ -769,7 +800,11 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
     if (s.equals(Constants.PREFS_USER_NAME) || s.equals(Constants.PREFS_PASSWORD)) {
 
       if (!TextUtils.isEmpty(prefs.getString(Constants.PREFS_PASSWORD, null))) {
-        new LoginAsyncTask(this).execute();
+        if (loginTask != null) {
+          loginTask.cancel(true);
+        }
+        loginTask = new LoginAsyncTask(this);
+        loginTask.execute();
       }
       SharedPreferences.Editor editor = prefs.edit();
       editor.remove(Constants.PREFS_AUTH_TOKEN);
