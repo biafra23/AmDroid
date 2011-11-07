@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AmenListActivity extends ListActivity {
+public class AmenListActivity extends ListActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
   private static       String TAG                       = "AmenListActivity";
   final private static int    PROGRESS_DIALOG_ID        = 0;
@@ -64,7 +64,7 @@ public class AmenListActivity extends ListActivity {
     .serializeNulls()
     .create();
   private EndlessLoaderAsyncTask endlessTask;
-  private int feedType = AmenService.FEED_TYPE_FOLLOWING;
+  private int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
   private boolean stopAppending = false;
 
   /**
@@ -92,10 +92,26 @@ public class AmenListActivity extends ListActivity {
     setTitle("Amenoid/Timeline: " + title);
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String username = prefs.getString("user_name", null);
-    String password = prefs.getString("password", null);
+    prefs.registerOnSharedPreferenceChangeListener(this);
+    String username = prefs.getString(Constants.PREFS_USER_NAME, null);
+    String password = prefs.getString(Constants.PREFS_PASSWORD, null);
+    String authtoken = prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
 
+    redirectOnMissingCredentials(username, password);
 
+    registerForContextMenu(getListView());
+
+    ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+
+      public void onRefresh() {
+        Log.v(TAG, "onRefresh()");
+        // Do work to refresh the list here.
+        new GetDataTask(AmenListActivity.this).execute();
+      }
+    });
+  }
+
+  private void redirectOnMissingCredentials(String username, String password) {
     if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
 
       new AlertDialog.Builder(this)
@@ -120,17 +136,6 @@ public class AmenListActivity extends ListActivity {
 
       }
     }
-
-    registerForContextMenu(getListView());
-
-    ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-
-      public void onRefresh() {
-        Log.v(TAG, "onRefresh()");
-        // Do work to refresh the list here.
-        new GetDataTask(AmenListActivity.this).execute();
-      }
-    });
   }
 
 
@@ -161,6 +166,11 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onResume() {
     super.onResume();
+
+    String username = prefs.getString(Constants.PREFS_USER_NAME, null);
+    String password = prefs.getString(Constants.PREFS_PASSWORD, null);
+    String authtoken = prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
+    redirectOnMissingCredentials(username, password);
 
 //    if (amenListAdapter == null || amenListAdapter.getCount() == 0) {
 //      Log.d(TAG, "refresh();");
@@ -552,8 +562,8 @@ public class AmenListActivity extends ListActivity {
     protected AmenService wrappedDoInBackground(Void... voids) {
 
       SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AmenListActivity.this);
-      String username = prefs.getString("user_name", null);
-      String password = prefs.getString("password", null);
+      String username = prefs.getString(Constants.PREFS_USER_NAME, null);
+      String password = prefs.getString(Constants.PREFS_PASSWORD, null);
 
       final AmenService amenService = AmenoidApp.getInstance().getService(username, password);
       saveAuthTokenToPrefs(amenService.getAuthToken());
@@ -752,5 +762,19 @@ public class AmenListActivity extends ListActivity {
 //    setContentView(R.layout.myLayout);
   }
 
+
+  public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+    Log.d(TAG, "Preferences changed!: " + s);
+
+    if (s.equals(Constants.PREFS_USER_NAME) || s.equals(Constants.PREFS_PASSWORD)) {
+
+      if (!TextUtils.isEmpty(prefs.getString(Constants.PREFS_PASSWORD, null))) {
+        new LoginAsyncTask(this).execute();
+      }
+      SharedPreferences.Editor editor = prefs.edit();
+      editor.remove(Constants.PREFS_AUTH_TOKEN);
+
+    }
+  }
 }
 

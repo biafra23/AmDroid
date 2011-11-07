@@ -17,8 +17,11 @@ public class Constants {
   public static final String PREFS_LAST_NEW_AMENS = "last_new_amens";
   public static final String PREFS_AUTH_TOKEN     = "auth_token";
   public static final String PREFS_ME             = "me";
+  public static final String PREFS_USER_NAME      = "user_name";
+  public static final String PREFS_PASSWORD       = "password";
   public static final String EXTRA_USER           = "user";
   public static final String EXTRA_STATEMENT      = "statement";
   public static final String EXTRA_STATEMENT_ID   = "statement_id";
   public static final String EXTRA_FEED_TYPE      = "feed_type";
+
 }

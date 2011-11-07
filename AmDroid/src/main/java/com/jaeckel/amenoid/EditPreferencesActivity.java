@@ -1,6 +1,5 @@
 package com.jaeckel.amenoid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.util.Log;
@@ -8,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import com.jaeckel.amenoid.app.AmenoidApp;
 
 /**
  * User: biafra
@@ -29,7 +27,7 @@ public class EditPreferencesActivity extends PreferenceActivity {
 
     addPreferencesFromResource(R.xml.preferences);
     setTitle("Preferences");
-
+    Log.d(TAG, "onCreate()");
 
   }
 
@@ -74,19 +72,18 @@ public class EditPreferencesActivity extends PreferenceActivity {
 
   }
 
-  @Override
-  protected void onStop() {
-    super.onStop();
-
-    Log.d(TAG, "onStop");
-
-    if (AmenoidApp.getInstance().getService().getMe() == null) {
-      Intent restart = new Intent(this, AmenListActivity.class);
-
-      startActivity(restart);
-    }
-
-
-  }
-
+//  @Override
+//  protected void onStop() {
+//    super.onStop();
+//
+//    Log.d(TAG, "onStop");
+//
+//    if (AmenoidApp.getInstance().getService().getMe() == null) {
+//      Intent restart = new Intent(this, AmenListActivity.class);
+//
+//      startActivity(restart);
+//    }
+//
+//
+//  }
 }

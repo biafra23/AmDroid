@@ -70,9 +70,9 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
           public void onClick(DialogInterface dialogInterface, int i) {
             Log.e(TAG, "OK clicked");
           }
-        }).setNegativeButton("Exit Amenoid", new DialogInterface.OnClickListener() {
+        }).setNegativeButton("Crash", new DialogInterface.OnClickListener() {
         public void onClick(DialogInterface dialogInterface, int i) {
-          System.exit(1);
+          throw new RuntimeException(lastException);
         }
       })
         .show();

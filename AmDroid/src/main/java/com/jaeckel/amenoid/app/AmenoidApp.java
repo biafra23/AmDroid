@@ -3,11 +3,13 @@ package com.jaeckel.amenoid.app;
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
@@ -15,14 +17,17 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
+import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.AmenServiceImpl;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.util.AmenLibTask;
 
 import java.io.IOException;
 import java.util.List;
@@ -63,6 +68,8 @@ public class AmenoidApp extends Application {
   private Handler handler = new Handler();
   private AlertDialog.Builder builder;
 
+  private SharedPreferences prefs;
+
   public AmenoidApp() {
     super();
 //    Thread.setDefaultUncaughtExceptionHandler(onBlooey);
@@ -82,6 +89,7 @@ public class AmenoidApp extends Application {
                                    .build());
     }
     super.onCreate();
+
 
     amenTypeThin = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeThin.ttf");
     amenTypeBold = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeBold.ttf");
@@ -296,7 +304,12 @@ public class AmenoidApp extends Application {
   public Typeface getAmenTypeThin() {
     return amenTypeThin;
   }
+
   public Typeface getAmenTypeBold() {
     return amenTypeBold;
   }
+
+
+
+
 }
