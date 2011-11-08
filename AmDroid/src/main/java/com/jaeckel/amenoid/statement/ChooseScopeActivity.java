@@ -17,12 +17,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.jaeckel.amenoid.AmenAndroidService;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Topic;
+import com.jaeckel.amenoid.app.AmenoidApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class ChooseScopeActivity extends ListActivity {
   private Topic       currentTopic;
   private Objekt      currentObjekt;
   private int          currentObjektKind;
-  private AmenAndroidService service;
+  private AmenService service;
   private EditText     scopeEditText;
   private ScopeAdapter adapter;
   private Drawable     backgroundDrawable;
@@ -54,11 +54,7 @@ public class ChooseScopeActivity extends ListActivity {
     super.onCreate(savedInstanceState);
 
 
-    service = new AmenAndroidService();
-    service.bin
-
-    getApplicationContext()
-            .bindService();
+    service = AmenoidApp.getInstance().getService();
     currentTopic = (Topic) getIntent().getParcelableExtra(Constants.EXTRA_TOPIC);
     currentObjekt = (Objekt) getIntent().getParcelableExtra(Constants.EXTRA_OBJEKT);
     currentObjektKind = getIntent().getIntExtra(Constants.EXTRA_OBJEKT_KIND, AmenService.OBJEKT_KIND_THING);

@@ -52,7 +52,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
   final int pageSize = 20;
 
-  private AmenService    service;
+  private AmenService service;
   private static final int[] IMAGE_IDS = {R.id.user_image};
   private AmenListAdapter   amenListAdapter;
   private SharedPreferences prefs;
@@ -67,6 +67,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
   //there must be only one. so we can cancel it
   private LoginAsyncTask loginTask;
+  private boolean        resetAccount;
 
   /**
    * Called when the activity is first created.
@@ -100,6 +101,24 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
     redirectOnMissingCredentials(username, password);
 
+    if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+
+//      Log.v(TAG, "username: " + username);
+//      Log.v(TAG, "password: " + password);
+      final String authToken = readAuthTokenFromPrefs();
+      final User me = readMeFromPrefs();
+
+      if (!TextUtils.isEmpty(authToken) &&  me != null) {
+        service = AmenoidApp.getInstance().getService().init(authToken, me);
+        refreshWithCache();
+      } else {
+        if (loginTask != null) {
+          loginTask.cancel(true);
+        }
+        loginTask = new LoginAsyncTask(this);
+        loginTask.execute();
+      }
+    }
     registerForContextMenu(getListView());
 
     ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
@@ -123,23 +142,6 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
             startActivityForResult(new Intent(AmenListActivity.this, EditPreferencesActivity.class), REQUEST_CODE_PREFERENCES);
           }
         }).create().show();
-
-    } else {
-//      Log.v(TAG, "username: " + username);
-//      Log.v(TAG, "password: " + password);
-      final String authToken = readAuthTokenFromPrefs();
-      final User me = readMeFromPrefs();
-      if (authToken != null && me != null) {
-        service = AmenoidApp.getInstance().getService().init(authToken, me);
-        refreshWithCache();
-      } else {
-        if (loginTask != null) {
-          loginTask.cancel(true);
-        }
-        loginTask = new LoginAsyncTask(this);
-        loginTask.execute();
-
-      }
     }
   }
 
@@ -172,10 +174,16 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
   public void onResume() {
     super.onResume();
 
+
+    if (resetAccount) {
+      cleanPrefs(prefs);
+    }
     String username = prefs.getString(Constants.PREFS_USER_NAME, null);
     String password = prefs.getString(Constants.PREFS_PASSWORD, null);
     String authtoken = prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
     redirectOnMissingCredentials(username, password);
+
+    Toast.makeText(this, "Authtoken: " + authtoken, Toast.LENGTH_SHORT).show();
 
 //    if (amenListAdapter == null || amenListAdapter.getCount() == 0) {
 //      Log.d(TAG, "refresh();");
@@ -475,7 +483,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
     @Override
     protected void onPreExecute() {
       cachedLoadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
-                                                  "Loading Amens. Please wait...", true);
+                                                        "Loading Amens. Please wait...", true);
 
       cachedLoadingProgressDialog.show();
 
@@ -581,7 +589,7 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
     @Override
     protected AmenService wrappedDoInBackground(Void... voids) {
 
-      SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(AmenListActivity.this);
+
       String username = prefs.getString(Constants.PREFS_USER_NAME, null);
       String password = prefs.getString(Constants.PREFS_PASSWORD, null);
 
@@ -795,20 +803,44 @@ public class AmenListActivity extends ListActivity implements SharedPreferences.
 
 
   public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-    Log.d(TAG, "Preferences changed!: " + s);
+
+//    Log.d(TAG, "Preferences changed!: " + s);
+
+//    Toast.makeText(this, "Preferences change detected", Toast.LENGTH_SHORT).show();
 
     if (s.equals(Constants.PREFS_USER_NAME) || s.equals(Constants.PREFS_PASSWORD)) {
+      Toast.makeText(this, "Removing auth_token", Toast.LENGTH_SHORT).show();
 
-      if (!TextUtils.isEmpty(prefs.getString(Constants.PREFS_PASSWORD, null))) {
-        if (loginTask != null) {
-          loginTask.cancel(true);
-        }
-        loginTask = new LoginAsyncTask(this);
-        loginTask.execute();
+      resetAccount = true;
+
+
+    }
+  }
+
+  private void cleanPrefs(SharedPreferences prefs) {
+
+    SharedPreferences.Editor editor = prefs.edit();
+    editor.remove(Constants.PREFS_AUTH_TOKEN)
+          .remove(Constants.PREFS_LAST_AMENS + ":" + AmenService.FEED_TYPE_FOLLOWING)
+          .remove(Constants.PREFS_LAST_AMENS + ":" + AmenService.FEED_TYPE_INTERESTING)
+          .remove(Constants.PREFS_LAST_NEW_AMENS + ":" + AmenService.FEED_TYPE_FOLLOWING)
+          .remove(Constants.PREFS_LAST_NEW_AMENS + ":" + AmenService.FEED_TYPE_INTERESTING);
+    Toast.makeText(this, "onSharedPreferenceChanged.commit()", Toast.LENGTH_SHORT).show();
+    editor.commit();
+
+    String authKey = prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
+    if (authKey != null) {
+      Toast.makeText(this, "authKey should be null", Toast.LENGTH_SHORT).show();
+//      } else {
+//        Toast.makeText(this, "authKey == " + authKey, Toast.LENGTH_SHORT).show();
+    }
+
+    if (!TextUtils.isEmpty(prefs.getString(Constants.PREFS_PASSWORD, null))) {
+      if (loginTask != null) {
+        loginTask.cancel(true);
       }
-      SharedPreferences.Editor editor = prefs.edit();
-      editor.remove(Constants.PREFS_AUTH_TOKEN);
-
+      loginTask = new LoginAsyncTask(this);
+      loginTask.execute();
     }
   }
 }

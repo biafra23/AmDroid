@@ -56,7 +56,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-classic:0.9.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-android:1.6.1-RC1" level="project" />
-    <orderEntry type="library" name="Maven: com.jaeckel:amdroid:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="AmDroid" />
+    <orderEntry type="library" name="Maven: com.jayway.android.robotium:robotium-solo:2.5" level="project" />
   </component>
 </module>
 
