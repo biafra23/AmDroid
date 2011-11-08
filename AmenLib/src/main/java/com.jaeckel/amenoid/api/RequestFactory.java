@@ -47,7 +47,7 @@ public class RequestFactory {
 
     String queryString = createQueryString(params, false);
     HttpGet httpGet = new HttpGet(serviceUrl + queryString);
-    log.debug("createGETRequest: " + httpGet.getURI());
+    log.trace("createGETRequest: " + httpGet.getURI());
     return httpGet;
 
   }
