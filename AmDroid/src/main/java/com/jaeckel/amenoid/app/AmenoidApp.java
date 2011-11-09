@@ -125,7 +125,7 @@ public class AmenoidApp extends Application {
   public AmenService
   getService(String username, String password) {
 
-    if (service == null) {
+    if (service == null || service.getAuthToken() == null) {
 
       service = new AmenServiceImpl();
       try {

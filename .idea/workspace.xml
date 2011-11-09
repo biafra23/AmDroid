@@ -12,10 +12,10 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="220" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing auth token from AmenLib Session when signing out">
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="less toasts">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -198,10 +198,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AmenListActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenListActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="86" selection-start="3975" selection-end="3975" vertical-scroll-proportion="0.54083204">
+            <state line="107" column="87" selection-start="3976" selection-end="3976" vertical-scroll-proportion="-13.5">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -221,7 +221,7 @@
       <file leaf-file-name="SettingsActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="38" selection-start="4521" selection-end="4553" vertical-scroll-proportion="0.0">
+            <state line="170" column="69" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -238,10 +238,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenoidApp.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenoidApp.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="2" selection-start="3977" selection-end="3977" vertical-scroll-proportion="0.0">
+            <state line="133" column="28" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.6">
               <folding />
             </state>
           </provider>
@@ -318,11 +318,11 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/about.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenService.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
       </list>
     </option>
   </component>
@@ -2026,7 +2026,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing auth token from AmenLib Session when signing out" />
+    <option name="LAST_COMMIT_MESSAGE" value="less toasts" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2040,7 +2040,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="more npe proof" />
     <MESSAGE value="more precise log stetment" />
     <MESSAGE value="recognize my statements by userid, not by name. The name can change while the app is running" />
     <MESSAGE value="checking result for addStatement. returning amen or throwing exception" />
@@ -2065,6 +2064,7 @@
     <MESSAGE value="login process refactoring" />
     <MESSAGE value="empty lists should not crash" />
     <MESSAGE value="removing auth token from AmenLib Session when signing out" />
+    <MESSAGE value="less toasts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2132,13 +2132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="2" selection-start="3977" selection-end="3977" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="600" column="29" selection-start="19045" selection-end="19060" vertical-scroll-proportion="-24.807692">
@@ -2153,15 +2146,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="38" selection-start="4521" selection-end="4553" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="3" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
@@ -2171,10 +2155,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="86" selection-start="3975" selection-end="3975" vertical-scroll-proportion="0.54083204">
+        <state line="107" column="87" selection-start="3976" selection-end="3976" vertical-scroll-proportion="-13.5">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="170" column="69" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="28" selection-start="4240" selection-end="4240" vertical-scroll-proportion="0.6">
+          <folding />
         </state>
       </provider>
     </entry>

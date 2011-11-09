@@ -105,7 +105,7 @@ public class AmenListActivity extends ListActivity {
 
     } else {
       enterCredentialsDialog = new AlertDialog.Builder(this)
-        .setMessage("Please enter your Amen credentials in the preferences and sign in")
+        .setMessage("Please enter your Amen credentials in the preferences and sign in!")
         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
           public void onClick(DialogInterface dialogInterface, int i) {
