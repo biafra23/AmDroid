@@ -54,8 +54,8 @@ import java.util.Map;
 public class AmenServiceImpl implements AmenService {
 
   private final static Logger log        = LoggerFactory.getLogger("Amen");
-//  private final static String serviceUrl = "https://getamen.com/";
-  private final static String serviceUrl = "https://staging.getamen.com/";
+  private final static String serviceUrl = "https://getamen.com/";
+//  private final static String serviceUrl = "https://staging.getamen.com/";
 
   private String authName;
   private String authPassword;

@@ -16,6 +16,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.InvalidCredentialsException;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
@@ -126,7 +127,7 @@ public class SettingsActivity extends Activity {
       signInButton.setOnClickListener(new SignInOnClickListener());
       passwordField.setEnabled(true);
       emailField.setEnabled(true);
-      
+
       service = AmenoidApp.getInstance().getService();
       if (service != null) {
         service.removeAuthToken();
@@ -142,7 +143,8 @@ public class SettingsActivity extends Activity {
 
   private class LoginAsyncTask extends AmenLibTask<Void, Integer, AmenService> {
 
-    private ProgressDialog loginProgressDialog;
+    private ProgressDialog              loginProgressDialog;
+    private InvalidCredentialsException loginFailed;
 
     public LoginAsyncTask(Context context) {
       super(context);
@@ -167,16 +169,20 @@ public class SettingsActivity extends Activity {
 
       String username = prefs.getString(Constants.PREFS_USER_NAME, null);
       String password = prefs.getString(Constants.PREFS_PASSWORD, null);
+      AmenService amenService = null;
+      try {
 
-      final AmenService amenService = AmenoidApp.getInstance().getService(username, password);
+        amenService = AmenoidApp.getInstance().getService(username, password);
 
-      SharedPreferences.Editor editor = prefs.edit();
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Constants.PREFS_AUTH_TOKEN, amenService.getAuthToken());
+        editor.putString(Constants.PREFS_ME, gson.toJson(amenService.getMe()));
+        editor.commit();
 
-      editor.putString(Constants.PREFS_AUTH_TOKEN, amenService.getAuthToken());
-      editor.putString(Constants.PREFS_ME, gson.toJson(amenService.getMe()));
+      } catch (InvalidCredentialsException e) {
 
-      editor.commit();
-
+        loginFailed = e;
+      }
 
       return amenService;
     }
@@ -190,11 +196,11 @@ public class SettingsActivity extends Activity {
         loginProgressDialog.hide();
         loginProgressDialog = null;
       }
-
-//      if (service != null) {
-//        finish();
-//      }
-//      Toast.makeText(SettingsActivity.this, "LoginAsyncTask.wrappedOnPostExecute(): AmenListActivity.setShouldRefresh(true)", Toast.LENGTH_SHORT).show();
+      if (service == null) {
+        if (loginFailed != null) {
+          Toast.makeText(SettingsActivity.this, loginFailed.getMessage(), Toast.LENGTH_LONG).show();
+        }
+      }
       AmenListActivity.setShouldRefresh(true);
       //go back automatically after successful login
       if (service != null && service.getAuthToken() != null) {
