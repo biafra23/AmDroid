@@ -126,6 +126,12 @@ public class SettingsActivity extends Activity {
       signInButton.setOnClickListener(new SignInOnClickListener());
       passwordField.setEnabled(true);
       emailField.setEnabled(true);
+      
+      service = AmenoidApp.getInstance().getService();
+      if (service != null) {
+        service.removeAuthToken();
+      }
+      AmenListActivity.setShouldRefresh(true);
     }
   }
 
@@ -185,7 +191,10 @@ public class SettingsActivity extends Activity {
 //      if (service != null) {
 //        finish();
 //      }
-
+//      Toast.makeText(SettingsActivity.this, "LoginAsyncTask.wrappedOnPostExecute(): AmenListActivity.setShouldRefresh(true)", Toast.LENGTH_SHORT).show();
+      AmenListActivity.setShouldRefresh(true);
+      //go back automatically after successful login
+      finish();
     }
 
     @Override

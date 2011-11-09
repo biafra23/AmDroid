@@ -597,7 +597,10 @@ public class AmenServiceImpl implements AmenService {
   public String getAuthToken() {
     return authToken;
   }
-
+  @Override
+  public void removeAuthToken() {
+    authToken = null;
+  }
   public static String addAuthTokenToJSON(Amen amen, String authToken) {
 
     Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
@@ -610,5 +613,7 @@ public class AmenServiceImpl implements AmenService {
 
     return object.toString();
   }
+
+
 }
 

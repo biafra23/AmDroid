@@ -72,5 +72,7 @@ public interface AmenService {
 
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) throws IOException;
 
+  //sign out
+  public void removeAuthToken();
 
 }

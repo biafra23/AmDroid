@@ -65,6 +65,7 @@ public class AmenListActivity extends ListActivity {
   private int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
   private boolean stopAppending = false;
   private AlertDialog enterCredentialsDialog;
+  private static boolean shouldRefresh = false;
 
   /**
    * Called when the activity is first created.
@@ -176,23 +177,28 @@ public class AmenListActivity extends ListActivity {
         enterCredentialsDialog.hide();
       }
     }
-
-    refreshWithCache();
-
+    if (shouldRefresh) {
+      refresh();
+      shouldRefresh = false;
+    }
   }
 
   private void refresh() {
 
+    service = AmenoidApp.getInstance().getService();
 
     if (service != null) {
       LoaderAsyncTask loader = new LoaderAsyncTask(this);
       loader.execute();
+    } else {
+      Log.e(TAG, "Service still " + service);
     }
+
   }
 
   private void refreshWithCache() {
 
-
+    service = AmenoidApp.getInstance().getService();
     if (service != null) {
       CachedLoaderAsyncTask loader = new CachedLoaderAsyncTask(this);
       loader.execute();
@@ -842,5 +848,13 @@ public class AmenListActivity extends ListActivity {
 //      loginTask.execute();
 //    }
 //  }
+
+  public boolean isShouldRefresh() {
+    return shouldRefresh;
+  }
+
+  public static void setShouldRefresh(boolean shouldRefresh) {
+    AmenListActivity.shouldRefresh = shouldRefresh;
+  }
 }
 
