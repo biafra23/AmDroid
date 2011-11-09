@@ -20,7 +20,7 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
 
   private Throwable lastException = null;
   private Context context;
-  private static String TAG = "AmenLibTask";
+  protected static String TAG = "AmenLibTask";
 
   public AmenLibTask(Context context) {
     this.context = context;

@@ -40,6 +40,7 @@
         <activity android:name="com.jaeckel.amenoid.UserDetailActivity"/>
         <activity android:name="com.jaeckel.amenoid.ScoreBoardActivity"/>
         <activity android:name="com.jaeckel.amenoid.AboutActivity"/>
+        <activity android:name=".SettingsActivity"/>
         <service android:name=".AmenAndroidService"
                 />
     </application>

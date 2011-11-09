@@ -2,12 +2,17 @@ package com.jaeckel.amenoid.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
+import android.util.Log;
+import android.widget.TextView;
 import com.jaeckel.amenoid.AmenListActivity;
 import com.jayway.android.robotium.solo.Solo;
+
+import java.util.ArrayList;
 
 public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
 
   Solo solo;
+  private static final String TAG = "AmenListActivityTest";
 
   public AmenListActivityTest() {
     super("com.jaeckel.amenoid", AmenListActivity.class);
@@ -23,10 +28,23 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
   }
 
   @Smoke
-    public void testEnterCredentials() throws Exception {
+  public void testEnterCredentials() throws Exception {
     solo.clickOnButton("Ok");
 
+    ArrayList<TextView> views = solo.clickInList(0);
+    for (TextView textView : views) {
+      Log.d(TAG, "textView: " + textView);
+      Log.d(TAG, "textView: " + textView.getText());
     }
+//    solo.enterText();
+//    solo.enterText("d@eu.ro");
+    solo.clickOnButton(0);
+
+    solo.clickInList(1);
+    solo.enterText(0, "foobar23");
+    solo.clickOnButton(0);
+
+  }
 
 //  @Smoke
 //  public void testAddNote() throws Exception {
