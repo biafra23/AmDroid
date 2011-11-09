@@ -64,7 +64,7 @@ public class AmenListActivity extends ListActivity {
   private EndlessLoaderAsyncTask endlessTask;
   private int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
   private boolean stopAppending = false;
-  private AlertDialog    enterCredentialsDialog;
+  private AlertDialog enterCredentialsDialog;
 
   /**
    * Called when the activity is first created.
@@ -95,7 +95,7 @@ public class AmenListActivity extends ListActivity {
     final String authToken = readAuthTokenFromPrefs();
     final User me = readMeFromPrefs();
 
-    Toast.makeText(this, "authToken: "+ authToken, Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
 
     if (!TextUtils.isEmpty(authToken) && me != null) {
 
@@ -362,17 +362,19 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected void appendCachedData() {
       if (!stopAppending) {
-
-        if (endlessTask != null) {
-          AsyncTask.Status status = endlessTask.getStatus();
-          if (status == AsyncTask.Status.FINISHED) {
+        if (amenListAdapter.getCount() > 0) {
+          final Long lastId = amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId();
+          if (endlessTask != null) {
+            AsyncTask.Status status = endlessTask.getStatus();
+            if (status == AsyncTask.Status.FINISHED) {
+              endlessTask = new EndlessLoaderAsyncTask(AmenListActivity.this);
+              endlessTask.execute(lastId);
+            }
+          } else {
             endlessTask = new EndlessLoaderAsyncTask(AmenListActivity.this);
-            endlessTask.execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
-          }
-        } else {
-          endlessTask = new EndlessLoaderAsyncTask(AmenListActivity.this);
-          endlessTask.execute(amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId());
+            endlessTask.execute(lastId);
 
+          }
         }
       }
     }

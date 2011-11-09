@@ -38,7 +38,7 @@ public class AboutActivity extends Activity {
     }
 
     versionTextView.setText("Version: " + versionName + " (" + versionCode + ")");
-    authorTextView.setText("Author: Dirk Jaeckel <amemoid@dirk.jaeckel.name>\n");
+    authorTextView.setText("Author: Dirk Jaeckel <amenoid@dirk.jaeckel.name>\n");
 
 
   }
