@@ -110,7 +110,8 @@ public class UserDetailActivity extends ListActivity {
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
     Log.d(TAG, "Selected position: " + position);
-    if (position > 0) {
+    if (position > 0 && position < getListAdapter().getCount()) {
+
       Amen amen = (Amen) getListAdapter().getItem(position - 1);
 
       Log.d(TAG, "Selected Amen: " + amen);

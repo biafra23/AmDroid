@@ -317,6 +317,8 @@ public class AmenListActivity extends ListActivity {
   @Override
   public boolean onContextItemSelected(MenuItem item) {
     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+
     Amen amen = (Amen) this.getListAdapter().getItem(info.position - 1);
     switch (item.getItemId()) {
       case R.id.open_item: {
