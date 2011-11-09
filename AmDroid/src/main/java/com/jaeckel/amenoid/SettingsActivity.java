@@ -150,6 +150,8 @@ public class SettingsActivity extends Activity {
 
     @Override
     protected void onPreExecute() {
+      Log.d(TAG, "onPreExecute()");
+
       if (AmenoidApp.DEVELOPER_MODE) {
         Toast.makeText(SettingsActivity.this, "LoginAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
       }
@@ -161,6 +163,7 @@ public class SettingsActivity extends Activity {
     @Override
     protected AmenService wrappedDoInBackground(Void... voids) {
 
+      Log.d(TAG, "wrappedDoInBackground()");
 
       String username = prefs.getString(Constants.PREFS_USER_NAME, null);
       String password = prefs.getString(Constants.PREFS_PASSWORD, null);
@@ -194,7 +197,10 @@ public class SettingsActivity extends Activity {
 //      Toast.makeText(SettingsActivity.this, "LoginAsyncTask.wrappedOnPostExecute(): AmenListActivity.setShouldRefresh(true)", Toast.LENGTH_SHORT).show();
       AmenListActivity.setShouldRefresh(true);
       //go back automatically after successful login
-      finish();
+      if (service != null && service.getAuthToken() != null) {
+        finish();
+      }
+
     }
 
     @Override

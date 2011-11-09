@@ -95,9 +95,9 @@ public class AmenListActivity extends ListActivity {
 
     final String authToken = readAuthTokenFromPrefs();
     final User me = readMeFromPrefs();
-
-    Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
-
+    if (AmenoidApp.DEVELOPER_MODE) {
+      Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
+    }
     if (!TextUtils.isEmpty(authToken) && me != null) {
 
       service = AmenoidApp.getInstance().getService().init(authToken, me);
@@ -105,7 +105,7 @@ public class AmenListActivity extends ListActivity {
 
     } else {
       enterCredentialsDialog = new AlertDialog.Builder(this)
-        .setMessage("Please enter your Amen credentials in the preferences.")
+        .setMessage("Please enter your Amen credentials in the preferences and sign in")
         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
           public void onClick(DialogInterface dialogInterface, int i) {
@@ -203,7 +203,9 @@ public class AmenListActivity extends ListActivity {
       CachedLoaderAsyncTask loader = new CachedLoaderAsyncTask(this);
       loader.execute();
     } else {
-      Toast.makeText(this, "refreshWithCache() AmenLibService was null", Toast.LENGTH_SHORT).show();
+      if (AmenoidApp.DEVELOPER_MODE) {
+        Toast.makeText(this, "refreshWithCache() AmenLibService was null", Toast.LENGTH_SHORT).show();
+      }
     }
   }
 
@@ -265,7 +267,9 @@ public class AmenListActivity extends ListActivity {
         return true;
       }
       case R.id.about_menu_item: {
-        Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+        if (AmenoidApp.DEVELOPER_MODE) {
+          Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+        }
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
       }
