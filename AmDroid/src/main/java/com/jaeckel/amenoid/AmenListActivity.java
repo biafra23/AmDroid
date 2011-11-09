@@ -99,19 +99,11 @@ public class AmenListActivity extends ListActivity {
       Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
     }
     if (!TextUtils.isEmpty(authToken) && me != null) {
-
-      service = AmenoidApp.getInstance().getService().init(authToken, me);
-      refreshWithCache();
+        service = AmenoidApp.getInstance().getService().init(authToken, me);
+        refreshWithCache();
 
     } else {
-      enterCredentialsDialog = new AlertDialog.Builder(this)
-        .setMessage("Please enter your Amen credentials in the preferences and sign in!")
-        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-          public void onClick(DialogInterface dialogInterface, int i) {
-            startActivityForResult(new Intent(AmenListActivity.this, SettingsActivity.class), REQUEST_CODE_PREFERENCES);
-          }
-        }).create();
+      enterCredentialsDialog = createEnterCredentialsDialog();
       enterCredentialsDialog.show();
     }
 
@@ -125,6 +117,17 @@ public class AmenListActivity extends ListActivity {
         new GetDataTask(AmenListActivity.this).execute();
       }
     });
+  }
+
+  private AlertDialog createEnterCredentialsDialog() {
+    return new AlertDialog.Builder(this)
+      .setMessage("Please enter your Amen credentials in the preferences and sign in!")
+      .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+        public void onClick(DialogInterface dialogInterface, int i) {
+          startActivityForResult(new Intent(AmenListActivity.this, SettingsActivity.class), REQUEST_CODE_PREFERENCES);
+        }
+      }).create();
   }
 
 //  private void redirectOnMissingCredentials(String username, String password) {
@@ -171,12 +174,19 @@ public class AmenListActivity extends ListActivity {
   public void onResume() {
     super.onResume();
 
-    String authtoken = prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
-    if (enterCredentialsDialog != null) {
-      if (!TextUtils.isEmpty(authtoken)) {
-        enterCredentialsDialog.hide();
-      }
+    service = AmenoidApp.getInstance().getService();
+
+    String authtoken = service.getAuthToken();
+
+    if (enterCredentialsDialog == null && TextUtils.isEmpty(authtoken)) {
+
+      enterCredentialsDialog = createEnterCredentialsDialog();
+      enterCredentialsDialog.show();
+
+    } else if (enterCredentialsDialog != null && !TextUtils.isEmpty(authtoken)) {
+      enterCredentialsDialog.hide();
     }
+
     if (shouldRefresh) {
       refresh();
       shouldRefresh = false;
