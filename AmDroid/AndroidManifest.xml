@@ -48,8 +48,11 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="getamen.com" android:scheme="http"/>
-                <data android:host="getamen.com" android:scheme="https"/>
+                <!--<data android:host="getamen.com" android:scheme="http"/>-->
+                <data android:host="getamen.com" android:scheme="https" android:pathPrefix="/topics"/>
+                <data android:host="getamen.com" android:scheme="https" android:pathPrefix="/users"/>
+                <data android:host="getamen.com" android:scheme="http" android:pathPrefix="/topics"/>
+                <data android:host="getamen.com" android:scheme="http" android:pathPrefix="/users"/>
             </intent-filter>
         </activity>
 
