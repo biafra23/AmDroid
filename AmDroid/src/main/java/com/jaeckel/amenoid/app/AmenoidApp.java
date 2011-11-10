@@ -111,7 +111,7 @@ public class AmenoidApp extends Application {
 
     lastLocation = getLastBestLocation(100, 100);
 
-    Log.i(TAG, "lastLocation: " + lastLocation);
+    Log.d(TAG, "lastLocation: " + lastLocation);
 
   }
 
@@ -201,7 +201,7 @@ public class AmenoidApp extends Application {
 
   public Location getLastLocation() {
     lastLocation = getLastBestLocation(100, 100);
-    Log.i(TAG, "getLastLocation: " + lastLocation);
+    Log.d(TAG, "getLastLocation: " + lastLocation);
     return lastLocation;
   }
 

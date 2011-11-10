@@ -11,7 +11,7 @@
 
     <groupId>com.jaeckel</groupId>
     <artifactId>amenoid</artifactId>
-    <version>1.0-ALPHA2</version>
+    <version>1.0-ALPHA3</version>
     <packaging>apk</packaging>
     <name>Amenoid - Application</name>
 
@@ -51,6 +51,7 @@
             <id>release</id>
             <build>
                 <plugins>
+<!--
                     <plugin>
                         <groupId>com.pyx4me</groupId>
                         <artifactId>proguard-maven-plugin</artifactId>
@@ -84,6 +85,7 @@
                             </dependency>
                         </dependencies>
                     </plugin>
+-->
                     <plugin>
                         <artifactId>maven-jarsigner-plugin</artifactId>
                         <executions>

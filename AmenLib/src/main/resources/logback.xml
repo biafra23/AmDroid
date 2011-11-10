@@ -8,7 +8,7 @@
     <logger name="org.apache.http.client" level="DEBUG"/>
     <logger name="httpclient.wire" level="DEBUG"/>
     <logger name="httpclient.wire.header" level="DEBUG"/>
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

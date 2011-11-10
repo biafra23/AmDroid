@@ -818,7 +818,7 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onConfigurationChanged(Configuration newConfig) {
     super.onConfigurationChanged(newConfig);
-    Log.i(TAG, "onConfigurationChanged(): " + newConfig);
+    Log.d(TAG, "onConfigurationChanged(): " + newConfig);
 //    setContentView(R.layout.myLayout);
   }
 
