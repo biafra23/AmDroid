@@ -13,7 +13,6 @@ import com.jaeckel.amenoid.api.model.ServerError;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.api.model.UserInfo;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -432,7 +431,7 @@ public class AmenServiceImpl implements AmenService {
 
     log.debug("getAmenForUser(User)");
     if (lastAmenId == null) {
-      return getUserInfo(userId).getRecentAmen();
+      return getUserForId(userId).getRecentAmen();
     }
 
     log.debug("getFeed");
@@ -463,9 +462,9 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public UserInfo getUserInfo(Long userId) throws IOException {
+  public User getUserForId(Long userId) throws IOException {
     log.debug("getUserInfo(User)");
-    UserInfo result;
+    User result;
 
     HashMap<String, String> params = createAuthenticatedParams();
 
@@ -476,7 +475,7 @@ public class AmenServiceImpl implements AmenService {
     HttpEntity responseEntity = response.getEntity();
 
     final String responseString = makeStringFromEntity(responseEntity);
-    result = gson.fromJson(responseString, UserInfo.class);
+    result = gson.fromJson(responseString, User.class);
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
   }

@@ -5,7 +5,6 @@ import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.api.model.UserInfo;
 
 import java.io.IOException;
 import java.util.List;
@@ -56,7 +55,7 @@ public interface AmenService {
 
   public List<Amen> getAmenForUser(Long userId, Long lastAmenId) throws IOException;
 
-  public UserInfo getUserInfo(Long id) throws IOException;
+  public User getUserForId(Long id) throws IOException;
 
   public Amen addStatement(Statement statement) throws IOException;
 

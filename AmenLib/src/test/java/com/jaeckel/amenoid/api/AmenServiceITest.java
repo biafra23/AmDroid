@@ -5,7 +5,6 @@ import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.api.model.UserInfo;
 import junit.framework.TestCase;
 
 import java.io.IOException;
@@ -101,7 +100,7 @@ public class AmenServiceITest extends TestCase {
 
   public void testGetUserInfo() throws IOException {
 
-    UserInfo ui = service.getUserInfo(14028L);
+    User ui = service.getUserForId(14028L);
 
     assertEquals("Wrong user for id", 14028L, (long) ui.getId());
 

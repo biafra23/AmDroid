@@ -19,10 +19,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.api.model.UserInfo;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
@@ -78,14 +78,25 @@ public class UserDetailActivity extends ListActivity {
     Intent startingIntent = getIntent();
 
     currentUser = startingIntent.getParcelableExtra(Constants.EXTRA_USER);
-
-    new AmenForUserTask(this).execute(currentUser.getId());
-
-    new UserInfoTask(this).execute(currentUser.getId());
+    if (currentUser != null) {
+      new AmenForUserTask(this).execute(currentUser.getId());
+      new UserInfoTask(this).execute(currentUser.getId());
+    } else {
+      Long currentUserId = startingIntent.getLongExtra(Constants.EXTRA_USER_ID, -1L);
+      if (currentUserId != -1L) {
+        new AmenForUserTask(this).execute(currentUserId);
+        new UserInfoTask(this).execute(currentUserId);
+      } else {
+        Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
+      }
+    }
 
     TextView userName = (TextView) findViewById(R.id.name);
     userName.setTypeface(amenTypeBold);
-    userName.setText(currentUser.getName());
+    if (currentUser != null) {
+      userName.setText(currentUser.getName());
+
+    }
     final TextView follow = (TextView) findViewById(R.id.follow);
 
     follow.setText("Following?");
@@ -131,9 +142,9 @@ public class UserDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected List<Amen> wrappedDoInBackground(Long... urls) throws IOException {
+    protected List<Amen> wrappedDoInBackground(Long... ids) throws IOException {
 
-      List<Amen> amen = service.getAmenForUser(currentUser.getId(), 0L);
+      List<Amen> amen = service.getAmenForUser(ids[0], 0L);
 
       return amen;
     }
@@ -162,38 +173,40 @@ public class UserDetailActivity extends ListActivity {
   //
   // UserInfoTask
   //
-  private class UserInfoTask extends AmenLibTask<Long, Integer, UserInfo> {
+  private class UserInfoTask extends AmenLibTask<Long, Integer, User> {
 
     public UserInfoTask(Context context) {
       super(context);
     }
 
-    protected UserInfo wrappedDoInBackground(Long... urls) throws IOException {
+    protected User wrappedDoInBackground(Long... ids) throws IOException {
 
-      final UserInfo userInfo = service.getUserInfo(currentUser.getId());
+      final User user = service.getUserForId(ids[0]);
 
       final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmenoidApp.getInstance().getCache();
-      String pictureUrl = userInfo.getPhoto();
+      String pictureUrl = user.getPhoto();
       if (TextUtils.isEmpty(pictureUrl)) {
-        pictureUrl = userInfo.getPicture();
+        pictureUrl = user.getPicture();
         if (pictureUrl != null) {
           pictureUrl += "?type=normal";
         }
       }
       Log.d("UserDetailActivity", "pictureUrl: " + pictureUrl);
       userImage = cache.get(pictureUrl);
-      return userInfo;
+      currentUser = user;
+
+      return user;
     }
 
-    protected void wrappedOnPostExecute(final UserInfo userInfo) {
+    protected void wrappedOnPostExecute(final User user) {
 
-      if (userInfo != null) {
+      if (user != null) {
 
         TextView userName = (TextView) findViewById(R.id.name);
-        userName.setText(userInfo.getName());
+        userName.setText(user.getName());
         final TextView follow = (TextView) findViewById(R.id.follow);
 
-        if (userInfo.getFollowing() != null && userInfo.getFollowing()) {
+        if (user.getFollowing() != null && user.getFollowing()) {
           follow.setBackgroundColor(Color.CYAN);
           follow.setText("Following");
         } else {
@@ -202,13 +215,13 @@ public class UserDetailActivity extends ListActivity {
 
         follow.setOnClickListener(new View.OnClickListener() {
           public void onClick(View view) {
-            if (userInfo.getFollowing()) {
-              new UnFollowTask(UserDetailActivity.this).execute(currentUser);
+            if (user.getFollowing()) {
+              new UnFollowTask(UserDetailActivity.this).execute(user);
 
 //              service.unfollow(currentUser);
               follow.setBackgroundColor(Color.GRAY);
             } else {
-              new FollowTask(UserDetailActivity.this).execute(currentUser);
+              new FollowTask(UserDetailActivity.this).execute(user);
 //              service.follow(currentUser);
               follow.setBackgroundColor(Color.CYAN);
             }
@@ -216,10 +229,10 @@ public class UserDetailActivity extends ListActivity {
         });
 
         TextView followers = (TextView) findViewById(R.id.followers);
-        followers.setText(userInfo.getFollowersCount() + " Followers");
+        followers.setText(user.getFollowersCount() + " Followers");
 
         TextView following = (TextView) findViewById(R.id.following);
-        following.setText(userInfo.getFollowingCount() + " Following");
+        following.setText(user.getFollowingCount() + " Following");
 
 
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
@@ -350,10 +363,11 @@ public class UserDetailActivity extends ListActivity {
       Log.d(TAG, "       lastAmenId: " + lastAmenId);
 
       if (!isCancelled()) {
-        List<Amen> amens = service.getAmenForUser(currentUser.getId(), lastAmenId);
-        return amens;  //To change body of implemented methods use File | Settings | File Templates.
+        if (currentUser != null) {
+          List<Amen> amens = service.getAmenForUser(currentUser.getId(), lastAmenId);
+          return amens;  //To change body of implemented methods use File | Settings | File Templates.
+        }
       }
-
       return null;
     }
 

@@ -47,10 +47,10 @@ public class ScoreBoardActivity extends ListActivity {
 
   private ProgressBar progressBar;
 
-  private Typeface    amenTypeThin;
-  private Typeface    amenTypeBold;
+  private Typeface amenTypeThin;
+  private Typeface amenTypeBold;
 
-  private ListView    list;
+  private ListView list;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -76,11 +76,17 @@ public class ScoreBoardActivity extends ListActivity {
     Intent startingIntent = getIntent();
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
+    Long currentTopicId = startingIntent.getLongExtra(Constants.EXTRA_TOPIC_ID, -1L);
     int currentObjectKind = startingIntent.getIntExtra(Constants.EXTRA_OBJEKT_KIND, 0);
 
     Log.d(TAG, "currentTopic: " + currentTopic);
+    if (currentTopic != null) {
+      new TopicStatementsTask(this).execute(currentTopic.getId());
+    } else {
+      new TopicStatementsTask(this).execute(currentTopicId);
 
-    new TopicStatementsTask(this).execute(currentTopic.getId());
+    }
+
 
     adapter = new ScoreBoardAdapter(this, android.R.layout.simple_list_item_1, new ArrayList<RankedStatements>());
 
@@ -88,11 +94,12 @@ public class ScoreBoardActivity extends ListActivity {
 
     description = (TextView) findViewById(R.id.description_scope);
     description.setTypeface(amenTypeBold);
-
-    if (TextUtils.isEmpty(currentTopic.getAsSentence())) {
-      description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
-    } else {
-      description.setText(currentTopic.getAsSentence());
+    if (currentTopic != null) {
+      if (TextUtils.isEmpty(currentTopic.getAsSentence())) {
+        description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
+      } else {
+        description.setText(currentTopic.getAsSentence());
+      }
     }
   }
 
@@ -122,7 +129,7 @@ public class ScoreBoardActivity extends ListActivity {
 
     protected Topic wrappedDoInBackground(Long... topicId) {
       try {
-        return service.getTopicsForId(currentTopic.getId(), null);
+        return service.getTopicsForId(topicId[0], null);
 
       } catch (final IOException e) {
 

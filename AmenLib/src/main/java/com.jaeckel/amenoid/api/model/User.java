@@ -41,12 +41,6 @@ public class User implements Parcelable {
     this.id = Long.valueOf(id);
   }
 
-  public User(UserInfo ui) {
-    this.id = ui.getId();
-    this.name = ui.getName();
-    this.picture = ui.getPicture();
-  }
-
   public long getId() {
     return id;
   }
