@@ -15,14 +15,16 @@
         <activity android:name=".AmenListActivity"
                   android:configChanges="orientation"
                 >
-        <!--<activity android:name=".AmenListActivity"-->
-                  <!--android:configChanges="orientation"-->
-                  <!--android:theme="@android:style/Theme.Light"-->
-                <!-->-->
+            <!--<activity android:name=".AmenListActivity"-->
+            <!--android:configChanges="orientation"-->
+            <!--android:theme="@android:style/Theme.Light"-->
+            <!-->-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+
         </activity>
         <!--<activity android:screenOrientation="portrait" android:name=".WebActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".EditPreferencesActivity"/>-->
@@ -41,11 +43,24 @@
         <activity android:name=".ScoreBoardActivity"/>
         <activity android:name=".AboutActivity"/>
         <activity android:name=".SettingsActivity"/>
+        <activity android:name=".UrlResolver">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="getamen.com" android:scheme="http"/>
+                <data android:host="getamen.com" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+
         <service android:name=".AmenAndroidService"
                 />
+
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+
 </manifest>
 
