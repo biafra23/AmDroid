@@ -73,5 +73,10 @@ public interface AmenService {
 
   //sign out
   public void removeAuthToken();
+  
+  //Subject Cards
+  
+  public List<Amen> getAmenForObjekt(Long objId) throws IOException;
+  
 
 }

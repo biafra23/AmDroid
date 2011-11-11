@@ -251,4 +251,16 @@ public class AmenServiceITest extends TestCase {
     assertNotNull(result);
 
   }
+
+  public void testGetAmenForObjekt() throws IOException {
+    System.out.println("testGetAmenForObjekt");
+    List<Amen> result = service.getAmenForObjekt(97282L);
+
+    assertNotNull(result);
+  
+    for(Amen a : result) {
+      System.out.println("a: " + a);
+    }
+  }
+
 }

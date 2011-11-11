@@ -601,6 +601,31 @@ public class AmenServiceImpl implements AmenService {
   public void removeAuthToken() {
     authToken = null;
   }
+
+  @Override
+  public List<Amen> getAmenForObjekt(Long objektId) throws IOException {
+
+    List<Amen> result;
+ //   https://getamen.com/things/97282
+    log.debug("AmenForObjekt() if: " + objektId);
+
+        HashMap<String, String> params = createAuthenticatedParams();
+
+
+        HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "things/" + objektId + ".json", params);
+        HttpResponse response = httpclient.execute(httpGet);
+        HttpEntity responseEntity = response.getEntity();
+
+        final String responseString = makeStringFromEntity(responseEntity);
+
+        Type collectionType = new TypeToken<Collection<Amen>>() {
+        }.getType();
+        result = gson.fromJson(responseString, collectionType);
+
+    
+    return result;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
   public static String addAuthTokenToJSON(Amen amen, String authToken) {
 
     Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
