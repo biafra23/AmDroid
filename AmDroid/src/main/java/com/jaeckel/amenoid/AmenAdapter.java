@@ -117,8 +117,17 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
 
     if (amen.isDispute()) {
 
-      statementBuilder.appendGray(" not ")
-                      .appendGray(amen.getReferringAmen().getStatement().getObjekt().getName());
+      if (amen.getReferringAmen() != null
+          && amen.getReferringAmen().getStatement() != null
+          && amen.getReferringAmen().getStatement().getObjekt() != null
+          && amen.getReferringAmen().getStatement().getObjekt().getName() != null) {
+
+        final String objektName = amen.getReferringAmen().getStatement().getObjekt().getName();
+        statementBuilder.appendGray(" not ")
+                        .appendGray(objektName);
+
+      }
+
 
     }
 
