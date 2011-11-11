@@ -2,6 +2,7 @@ package com.jaeckel.amenoid;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
   private LayoutInflater inflater;
   private Typeface       amenTypeThin;
   private Typeface       amenTypeBold;
+  private static final String TAG = "AmenAdapter";
 
   public AmenAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
@@ -116,7 +118,16 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
     }
 
     if (amen.isDispute()) {
-
+      if (amen.getReferringAmen() == null) {
+        Log.e(TAG, "amen.getReferringAmen() == null");
+        Log.e(TAG, "amen: " + amen);
+      } else if (amen.getReferringAmen().getStatement() == null) {
+        Log.d(TAG, "amen.getReferringAmen().getStatement() == null");
+      } else if (amen.getReferringAmen() == null) {
+        Log.d(TAG, "amen.getReferringAmen().getStatement().getObjekt() == null");
+      } else if (amen.getReferringAmen().getStatement().getObjekt().getName() == null) {
+        Log.d(TAG, "amen.getReferringAmen().getStatement().getObjekt().getName() == null");
+      }
       if (amen.getReferringAmen() != null
           && amen.getReferringAmen().getStatement() != null
           && amen.getReferringAmen().getStatement().getObjekt() != null

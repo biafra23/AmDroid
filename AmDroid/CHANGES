@@ -1,3 +1,8 @@
 1.0-ALPHA3
 
+new:
   - Register for https://getamen.com/users and /topics urls. Let Amenoid handle those urls found in EMails oder elsewhere
+
+bug fix:
+  - Better dispute detection
+
