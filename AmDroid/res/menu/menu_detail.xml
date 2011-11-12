@@ -10,6 +10,10 @@
           android:icon="@drawable/ic_menu_scoreboard"
           android:title="Scorecard"
             />
+    <item android:id="@+id/subject_page"
+          android:icon="@drawable/ic_menu_subject_page"
+          android:title="Subject Page"
+            />
     <item android:id="@+id/share"
           android:icon="@drawable/ic_menu_share"
           android:title="Share"

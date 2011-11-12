@@ -363,6 +363,15 @@ public class AmenListActivity extends ListActivity {
         return true;
       }
 
+      case R.id.subject_page: {
+        Log.d(TAG, "R.id.subject_page");
+
+        Intent intent = new Intent(this, SubjectPageActivity.class);
+        intent.putExtra(Constants.EXTRA_OBJEKT_ID, amen.getStatement().getObjekt().getId());
+        startActivity(intent);
+
+        return true;
+      }
       default:
         return super.onContextItemSelected(item);
     }

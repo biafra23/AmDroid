@@ -9,6 +9,8 @@
           android:title="@string/dispute_item"/>
     <item android:id="@+id/scoreboard_for_item"
              android:title="@string/scoreboard_for_item"/>
+    <item android:id="@+id/subject_page"
+              android:title="@string/subject_page"/>
     <item android:id="@+id/share_item"
           android:title="@string/share_item"/>
 </menu>

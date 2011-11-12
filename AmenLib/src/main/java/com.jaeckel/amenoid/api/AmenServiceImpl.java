@@ -612,7 +612,7 @@ public class AmenServiceImpl implements AmenService {
         HashMap<String, String> params = createAuthenticatedParams();
 
 
-        HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "things/" + objektId + ".json", params);
+        HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "o/" + objektId + "/amens.json", params);
         HttpResponse response = httpclient.execute(httpGet);
         HttpEntity responseEntity = response.getEntity();
 

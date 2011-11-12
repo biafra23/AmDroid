@@ -40,8 +40,8 @@ public class AmenDetailActivity extends ListActivity {
 
   private static final String TAG = "AmenDetailActivity";
   private Amen             currentAmen;
-  private Statement   currentStatement;
-  private Topic       topicWithRankedStatements;
+  private Statement        currentStatement;
+  private Topic            topicWithRankedStatements;
   private TextView         statementView;
   private TextView         userView;
   private TextView         amenCount;
@@ -49,12 +49,12 @@ public class AmenDetailActivity extends ListActivity {
   private Button           hellNoButton;
   private UserListAdapter  adapter;
   private ThumbnailAdapter thumbs;
-  private AmenService service;
+  private AmenService      service;
   private static final int[]  IMAGE_IDS = {R.id.user_image};
   private              String lastError = null;
   private SimpleWebImageCache cache;
-  private Typeface amenTypeThin;
-  private Typeface amenTypeBold;
+  private Typeface            amenTypeThin;
+  private Typeface            amenTypeBold;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -412,8 +412,17 @@ public class AmenDetailActivity extends ListActivity {
       case R.id.amen:
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));
         return true;
-    }
 
+      case R.id.subject_page: {
+        Intent intent = new Intent(this, SubjectPageActivity.class);
+        
+        Toast.makeText(this, "id: " + currentAmen.getStatement().getObjekt().getId(), Toast.LENGTH_SHORT).show();
+
+        intent.putExtra(Constants.EXTRA_OBJEKT_ID, currentAmen.getStatement().getObjekt().getId());
+        startActivity(intent);
+        return true;
+      }
+    }
     return false;
   }
 

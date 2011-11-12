@@ -55,6 +55,7 @@
                 <data android:host="getamen.com" android:scheme="http" android:pathPrefix="/users"/>
             </intent-filter>
         </activity>
+        <activity android:name=".SubjectPageActivity"/>
 
         <service android:name=".AmenAndroidService"
                 />
