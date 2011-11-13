@@ -75,7 +75,6 @@ public class AmenDetailActivity extends ListActivity {
     list.addHeaderView(header);
 
 
-
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
     if (currentAmen == null) {
@@ -133,6 +132,11 @@ public class AmenDetailActivity extends ListActivity {
     hellNoButton.setTypeface(amenTypeBold);
     hellNoButton.setEnabled(false);
     populateFormWithAmen(true);
+
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+      amenTakeBackButton.setEnabled(false);
+      hellNoButton.setEnabled(false);
+    }
 
 
   }
@@ -221,7 +225,7 @@ public class AmenDetailActivity extends ListActivity {
 
   private boolean amened(Statement currentStatement) {
     for (User u : currentStatement.getAgreeingNetwork()) {
-      if (service.getMe() != null && u.getId() == service.getMe().getId()) {
+      if (AmenoidApp.getInstance().isSignedIn() && service.getMe() != null && u.getId() == service.getMe().getId()) {
         return true;
       }
     }
@@ -389,6 +393,11 @@ public class AmenDetailActivity extends ListActivity {
 
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_detail, menu);
+
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+      MenuItem amenSth = menu.findItem(R.id.amen);
+      amenSth.setEnabled(false);
+    }
     return true;
   }
 

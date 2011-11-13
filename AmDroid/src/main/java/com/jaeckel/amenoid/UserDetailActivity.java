@@ -54,7 +54,9 @@ public class UserDetailActivity extends ListActivity {
   private Typeface               amenTypeBold;
   private EndlessLoaderAsyncTask endlessTask;
   private boolean stopAppending = false;
-
+  private MenuItem followMenu;
+  private MenuItem unfollowMenu;
+  private boolean meIsFollowing = false;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -214,8 +216,12 @@ public class UserDetailActivity extends ListActivity {
         if (user.getFollowing() != null && user.getFollowing()) {
           follow.setBackgroundColor(Color.CYAN);
           follow.setText("Following");
+          meIsFollowing = true;
+
         } else {
           follow.setBackgroundColor(Color.GRAY);
+          meIsFollowing = false;
+
         }
 
         follow.setOnClickListener(new View.OnClickListener() {
@@ -299,6 +305,28 @@ public class UserDetailActivity extends ListActivity {
 
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_user_detail, menu);
+    followMenu = menu.findItem(R.id.follow);
+    unfollowMenu = menu.findItem(R.id.unfollow);
+
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+      MenuItem amenSth = menu.findItem(R.id.amen);
+      amenSth.setEnabled(false);
+
+      followMenu.setEnabled(false);
+      unfollowMenu.setEnabled(false);
+
+      followMenu.setVisible(!meIsFollowing);
+      unfollowMenu.setVisible(meIsFollowing);
+
+    } else {
+
+      followMenu.setEnabled(true);
+      unfollowMenu.setEnabled(true);
+
+      unfollowMenu.setVisible(meIsFollowing);
+      followMenu.setVisible(!meIsFollowing);
+
+    }
     return true;
   }
 

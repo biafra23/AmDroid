@@ -16,24 +16,28 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
+import com.jaeckel.amenoid.api.AmenHttpClient;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.AmenServiceImpl;
+import com.jaeckel.amenoid.api.model.DateSerializer;
+import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
-import com.jaeckel.amenoid.api.AmenHttpClient;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -74,13 +78,16 @@ public class AmenoidApp extends Application {
 
   private SharedPreferences prefs;
   private DefaultHttpClient amenHttpClient;
+  private Gson gson = new GsonBuilder()
+    .registerTypeAdapter(Date.class, new DateSerializer())
+    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+    .serializeNulls()
+    .create();
 
   public AmenoidApp() {
     super();
-//    Thread.setDefaultUncaughtExceptionHandler(onBlooey);
-//    this.context = context;
-
   }
+
 
   @Override
   public void onCreate() {
@@ -95,44 +102,10 @@ public class AmenoidApp extends Application {
     }
     super.onCreate();
 
-    Log.i(TAG, "-------------------------------- - - - - - -- - -  -----------------");
-    // Instantiate the custom HttpClient
-    InputStream in = getResources().openRawResource(R.raw.amenkeystore);
-    amenHttpClient = new AmenHttpClient(in, "mysecret");
-    HttpGet get = new HttpGet("https://getamen.com/amen/popular.json");
-    // Execute the GET call and obtain the response
-    HttpResponse getResponse = null;
-    try {
-      getResponse = amenHttpClient.execute(get);
-
-      HttpEntity responseEntity = getResponse.getEntity();
-
-      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-      StringBuilder builder = new StringBuilder();
-      String line;
-      while ((line = br.readLine()) != null) {
-
-        Log.i(TAG, "makeStringFromEntity | " + line);
-
-        if ("<!DOCTYPE html>".equals(line)) {
-          //no JSON => Server error
-          Log.i(TAG, "Received HTML!");
-        }
-        builder.append(line);
-
-      }
-
-      Log.d(TAG, builder.toString());
-
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    Log.i(TAG, "-------------------------------- - - - - - -- - -  -----------------");
+    prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
     amenTypeThin = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeThin.ttf");
     amenTypeBold = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeBold.ttf");
-
 
     instance = this;
     builder = new AlertDialog.Builder(this);
@@ -153,9 +126,44 @@ public class AmenoidApp extends Application {
     singleUpatePI = PendingIntent.getBroadcast(this, 0, updateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
     lastLocation = getLastBestLocation(100, 100);
-
     Log.d(TAG, "lastLocation: " + lastLocation);
 
+
+    final String authToken = readAuthTokenFromPrefs(prefs);
+    final User me = readMeFromPrefs(prefs);
+    if (authToken != null && me != null) {
+
+      InputStream in = getResources().openRawResource(R.raw.amenkeystore);
+      amenHttpClient = new AmenHttpClient(in, "mysecret");
+
+      service = new AmenServiceImpl(amenHttpClient);
+      service.init(authToken, me);
+    }
+
+
+
+  }
+
+  private String readAuthTokenFromPrefs(SharedPreferences preferences) {
+    return preferences.getString(Constants.PREFS_AUTH_TOKEN, null);
+  }
+
+  private User readMeFromPrefs(SharedPreferences preferences) {
+    final String prefsString = preferences.getString(Constants.PREFS_ME, null);
+    User u = null;
+    if (prefsString != null) {
+      u = gson.fromJson(prefsString, User.class);
+    }
+
+    return u;
+  }
+
+  public boolean isSignedIn() {
+
+    if (service != null && !TextUtils.isEmpty(service.getAuthToken())) {
+      return true;
+    }
+    return false;
   }
 
   public static AmenoidApp getInstance() {
@@ -165,8 +173,7 @@ public class AmenoidApp extends Application {
     return instance;
   }
 
-  public AmenService
-  getService(String username, String password) {
+  public AmenService getService(String username, String password) {
 
     if (service == null || service.getAuthToken() == null) {
 
@@ -186,7 +193,7 @@ public class AmenoidApp extends Application {
     if (service == null) {
 
       service = new AmenServiceImpl(amenHttpClient);
-        // auto einlogen wenn authoken vorhanden
+      // auto einlogen wenn authoken vorhanden
 
 //      prefs =
 //      String authtoken = prefs.getString(Amen)
@@ -353,8 +360,6 @@ public class AmenoidApp extends Application {
   public Typeface getAmenTypeBold() {
     return amenTypeBold;
   }
-
-
 
 
 }

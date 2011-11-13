@@ -3,7 +3,7 @@
 - NEW: Popular Feed included
 - BUGFIX: Empty User details page should not crash anymore
 - BUGFIX: Improved Android 1.6 and 2.1 compatibility
-
+- NEW: UserDetailPage improved
 
 1.0-ALPHA3
 - NEW: Register for https://getamen.com/users and /topics urls. Let Amenoid handle those urls found in EMails oder elsewhere

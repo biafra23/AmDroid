@@ -180,6 +180,10 @@ public class ScoreBoardActivity extends ListActivity {
 
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_scoreboard, menu);
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+      MenuItem amenSth = menu.findItem(R.id.amen);
+      amenSth.setEnabled(false);
+    }
     return true;
   }
 

@@ -11,7 +11,6 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -64,7 +63,7 @@ public class AmenListActivity extends ListActivity {
   private EndlessLoaderAsyncTask endlessTask;
   private int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
   private boolean stopAppending = false;
-  private AlertDialog enterCredentialsDialog;
+//  private AlertDialog enterCredentialsDialog;
   private static boolean shouldRefresh = false;
 
   /**
@@ -81,8 +80,23 @@ public class AmenListActivity extends ListActivity {
 
     setContentView(R.layout.main);
 
+
+    prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
     // default feedType is following
     feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+
+
+    final String authToken = readAuthTokenFromPrefs();
+    final User me = readMeFromPrefs();
+    if (AmenoidApp.DEVELOPER_MODE) {
+      Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
+    }
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+      feedType = AmenService.FEED_TYPE_RECENT;
+    }
+    refreshWithCache();
+
 
     String title = "";
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
@@ -94,23 +108,6 @@ public class AmenListActivity extends ListActivity {
     }
     setTitle("Amenoid/Timeline: " + title);
 
-    prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-
-
-    final String authToken = readAuthTokenFromPrefs();
-    final User me = readMeFromPrefs();
-    if (AmenoidApp.DEVELOPER_MODE) {
-      Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
-    }
-    if (!TextUtils.isEmpty(authToken) && me != null) {
-      service = AmenoidApp.getInstance().getService().init(authToken, me);
-      refreshWithCache();
-
-    } else {
-      enterCredentialsDialog = createEnterCredentialsDialog();
-      enterCredentialsDialog.show();
-    }
 
     registerForContextMenu(getListView());
 
@@ -185,14 +182,14 @@ public class AmenListActivity extends ListActivity {
 
     String authtoken = service.getAuthToken();
 
-    if (enterCredentialsDialog == null && TextUtils.isEmpty(authtoken)) {
-
-      enterCredentialsDialog = createEnterCredentialsDialog();
-      enterCredentialsDialog.show();
-
-    } else if (enterCredentialsDialog != null && !TextUtils.isEmpty(authtoken)) {
-      enterCredentialsDialog.hide();
-    }
+//    if (enterCredentialsDialog == null && TextUtils.isEmpty(authtoken)) {
+//
+//      enterCredentialsDialog = createEnterCredentialsDialog();
+//      enterCredentialsDialog.show();
+//
+//    } else if (enterCredentialsDialog != null && !TextUtils.isEmpty(authtoken)) {
+//      enterCredentialsDialog.hide();
+//    }
 
     if (shouldRefresh) {
       refresh();
@@ -256,6 +253,10 @@ public class AmenListActivity extends ListActivity {
       following.setVisible(true);
       popular.setVisible(false);
 
+    }
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+      MenuItem amenSth = menu.findItem(R.id.amen);
+      amenSth.setEnabled(false);
     }
     return true;
   }

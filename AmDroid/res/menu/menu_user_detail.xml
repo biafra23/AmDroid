@@ -6,9 +6,18 @@
           android:icon="@drawable/ic_menu_timeline"
           android:title="Timeline"
             />
-
+    <item android:id="@+id/follow"
+          android:icon="@drawable/ic_menu_follow"
+          android:title="Follow"
+            />
+    <item android:id="@+id/unfollow"
+          android:icon="@drawable/ic_menu_unfollow"
+          android:title="UnFollow"
+            />
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_menu_amen"
           android:title="Amen sth."
             />
+
+
 </menu>
