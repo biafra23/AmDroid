@@ -1,10 +1,8 @@
 package com.jaeckel.amenoid;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -42,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//public class AmenListActivity extends FragmentActivity {
 public class AmenListActivity extends ListActivity {
 
   private static       String TAG                       = "AmenListActivity";
@@ -61,10 +60,11 @@ public class AmenListActivity extends ListActivity {
     .serializeNulls()
     .create();
   private EndlessLoaderAsyncTask endlessTask;
-  private int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
-  private boolean stopAppending = false;
-//  private AlertDialog enterCredentialsDialog;
+  private        int     feedType      = AmenService.FEED_TYPE_FOLLOWING;
+  private        boolean stopAppending = false;
+  //  private AlertDialog enterCredentialsDialog;
   private static boolean shouldRefresh = false;
+
 
   /**
    * Called when the activity is first created.
@@ -80,21 +80,21 @@ public class AmenListActivity extends ListActivity {
 
     setContentView(R.layout.main);
 
-
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
     // default feedType is following
     feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
 
+    if (!AmenoidApp.getInstance().isSignedIn() && feedType == AmenService.FEED_TYPE_FOLLOWING) {
+      feedType = AmenService.FEED_TYPE_RECENT;
+    }
 
     final String authToken = readAuthTokenFromPrefs();
     final User me = readMeFromPrefs();
     if (AmenoidApp.DEVELOPER_MODE) {
       Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
     }
-    if (!AmenoidApp.getInstance().isSignedIn()) {
-      feedType = AmenService.FEED_TYPE_RECENT;
-    }
+
     refreshWithCache();
 
 
@@ -123,16 +123,16 @@ public class AmenListActivity extends ListActivity {
 //    }
   }
 
-  private AlertDialog createEnterCredentialsDialog() {
-    return new AlertDialog.Builder(this)
-      .setMessage("Please enter your Amen credentials and sign in!")
-      .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-        public void onClick(DialogInterface dialogInterface, int i) {
-          startActivityForResult(new Intent(AmenListActivity.this, SettingsActivity.class), REQUEST_CODE_PREFERENCES);
-        }
-      }).create();
-  }
+//  private AlertDialog createEnterCredentialsDialog() {
+//    return new AlertDialog.Builder(this)
+//      .setMessage("Please enter your Amen credentials and sign in!")
+//      .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//
+//        public void onClick(DialogInterface dialogInterface, int i) {
+//          startActivityForResult(new Intent(AmenListActivity.this, SettingsActivity.class), REQUEST_CODE_PREFERENCES);
+//        }
+//      }).create();
+//  }
 
 //  private void redirectOnMissingCredentials(String username, String password) {
 //    if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
@@ -178,18 +178,14 @@ public class AmenListActivity extends ListActivity {
   public void onResume() {
     super.onResume();
 
-    service = AmenoidApp.getInstance().getService();
+    if (AmenoidApp.getInstance().isSignedIn()) {
+      // signed in
 
-    String authtoken = service.getAuthToken();
+    } else {
+      //not signed in
 
-//    if (enterCredentialsDialog == null && TextUtils.isEmpty(authtoken)) {
-//
-//      enterCredentialsDialog = createEnterCredentialsDialog();
-//      enterCredentialsDialog.show();
-//
-//    } else if (enterCredentialsDialog != null && !TextUtils.isEmpty(authtoken)) {
-//      enterCredentialsDialog.hide();
-//    }
+    }
+
 
     if (shouldRefresh) {
       refresh();
@@ -229,15 +225,14 @@ public class AmenListActivity extends ListActivity {
     super.onPause();
   }
 
-
-  public boolean onCreateOptionsMenu(Menu menu) {
-    super.onCreateOptionsMenu(menu);
-
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.menu_main, menu);
+  public boolean onPrepareOptionsMenu(Menu menu) {
+    Log.d(TAG, "onPrepareOptionsMenu");
     MenuItem following = menu.findItem(R.id.following_menu);
     MenuItem recent = menu.findItem(R.id.recent_menu);
     MenuItem popular = menu.findItem(R.id.popular_menu);
+    MenuItem amenSth = menu.findItem(R.id.amen);
+    MenuItem signInOut = menu.findItem(R.id.signin);
+
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
       recent.setVisible(true);
       following.setVisible(false);
@@ -255,9 +250,27 @@ public class AmenListActivity extends ListActivity {
 
     }
     if (!AmenoidApp.getInstance().isSignedIn()) {
-      MenuItem amenSth = menu.findItem(R.id.amen);
+
       amenSth.setEnabled(false);
+      following.setEnabled(false);
+      signInOut.setTitle("Sign in");
+    } else {
+      amenSth.setEnabled(true);
+      following.setEnabled(true);
+      signInOut.setTitle("Sign out");
     }
+
+    return true;
+  }
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+    Log.d(TAG, "onCreateOptionsMenu");
+
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_main, menu);
+
+
     return true;
   }
 
@@ -537,6 +550,7 @@ public class AmenListActivity extends ListActivity {
 
     @Override
     protected void onPreExecute() {
+
       cachedLoadingProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
                                                         "Loading Amens. Please wait...", true);
 
@@ -556,10 +570,20 @@ public class AmenListActivity extends ListActivity {
         setListAdapter(endless);
 
       }
-      cachedLoadingProgressDialog.hide();
 
+      Log.v(TAG, "hasWindowFocus(): " + hasWindowFocus());
+
+      cachedLoadingProgressDialog.hide();
+    }
+
+    @Override
+    protected void onCancelled() {
+      if (hasWindowFocus() && cachedLoadingProgressDialog != null) {
+        cachedLoadingProgressDialog.hide();
+      }
     }
   }
+
 
   //
   // LoaderAsyncTask
@@ -907,4 +931,5 @@ public class AmenListActivity extends ListActivity {
     AmenListActivity.shouldRefresh = shouldRefresh;
   }
 }
+
 

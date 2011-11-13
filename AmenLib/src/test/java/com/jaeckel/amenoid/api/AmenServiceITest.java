@@ -6,8 +6,10 @@ import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 import junit.framework.TestCase;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
@@ -18,9 +20,10 @@ import java.util.Properties;
  */
 public class AmenServiceITest extends TestCase {
 
-  private String      username;
-  private String      password;
-  private AmenService service;
+  private String            username;
+  private String            password;
+  private AmenService       service;
+  private DefaultHttpClient amenHttpClient;
 
   @Override
   public void setUp() throws IOException {
@@ -40,7 +43,10 @@ public class AmenServiceITest extends TestCase {
 //    System.out.println("username: " + username);
 //    System.out.println("password: " + password);
 
-    service = new AmenServiceImpl();
+    InputStream in = ClassLoader.getSystemResourceAsStream("amenkeystore");
+    amenHttpClient = new AmenHttpClient(in, "mysecret", "JKS");
+
+    service = new AmenServiceImpl(amenHttpClient);
     service.init(username, password);
   }
 
@@ -72,12 +78,12 @@ public class AmenServiceITest extends TestCase {
     final Objekt objekt = new Objekt("Bar", AmenService.OBJEKT_KIND_THING);
 
     final Amen bar = new Amen(fooMe, objekt, 185874L);
-    
+
     Long amenId = service.dispute(bar);
 
     assertNotNull(amenId);
     service.takeBack(amenId);
-    
+
 
   }
 
@@ -155,7 +161,7 @@ public class AmenServiceITest extends TestCase {
 
     Topic topic = service.getTopicsForId(29020L, null);
 
-    assertEquals("Wrong topics", (Long)29020L, topic.getId());
+    assertEquals("Wrong topics", (Long) 29020L, topic.getId());
     assertNotNull("Topic has null rankedStatements", topic.getRankedStatements());
     assertTrue("Topic has no rankedStatements", topic.getRankedStatements().size() > 0);
   }
@@ -257,8 +263,8 @@ public class AmenServiceITest extends TestCase {
     List<Amen> result = service.getAmenForObjekt(97282L);
 
     assertNotNull(result);
-  
-    for(Amen a : result) {
+
+    for (Amen a : result) {
       System.out.println("a: " + a);
     }
   }

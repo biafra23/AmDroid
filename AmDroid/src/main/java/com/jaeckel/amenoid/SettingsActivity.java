@@ -47,7 +47,7 @@ public class SettingsActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.settings);
-    setTitle("Amenoid/Preferences");
+    setTitle("Amenoid/Signing in");
 
     prefs = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
 
@@ -58,7 +58,6 @@ public class SettingsActivity extends Activity {
     passwordField = (EditText) findViewById(R.id.password_field);
     String password = prefs.getString(Constants.PREFS_PASSWORD, "");
     passwordField.setText(password);
-
 
   }
 
@@ -145,6 +144,7 @@ public class SettingsActivity extends Activity {
 
     private ProgressDialog              loginProgressDialog;
     private InvalidCredentialsException loginFailed;
+    private final static String TAG = "LoginAsyncTask";
 
     public LoginAsyncTask(Context context) {
       super(context);
@@ -183,7 +183,7 @@ public class SettingsActivity extends Activity {
 
         loginFailed = e;
       }
-
+      Log.d(TAG, "wrappedDoInBackground()");
       return amenService;
     }
 
@@ -197,9 +197,12 @@ public class SettingsActivity extends Activity {
         loginProgressDialog = null;
       }
       if (service == null) {
+        Log.e(TAG, "wrappedOnPostExecute() service: " + service);
         if (loginFailed != null) {
           Toast.makeText(SettingsActivity.this, loginFailed.getMessage(), Toast.LENGTH_LONG).show();
         }
+      } else {
+        Log.e(TAG, "wrappedOnPostExecute() service.getAuthToken(): " + service.getAuthToken());
       }
       AmenListActivity.setShouldRefresh(true);
       //go back automatically after successful login

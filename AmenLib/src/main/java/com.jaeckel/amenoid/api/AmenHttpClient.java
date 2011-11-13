@@ -21,13 +21,14 @@ import java.security.KeyStore;
  */
 public class AmenHttpClient extends DefaultHttpClient {
 
-  final InputStream keyStoreStream;
-  final String      keyStorePassword;
+  final   InputStream keyStoreStream;
+  final   String      keyStorePassword;
+  private String      keyStoreType;
 
-  public AmenHttpClient(InputStream keyStoreStream, String keyStorePassword) {
+  public AmenHttpClient(InputStream keyStoreStream, String keyStorePassword, String keyStoreType) {
     this.keyStoreStream = keyStoreStream;
     this.keyStorePassword = keyStorePassword;
-
+    this.keyStoreType = keyStoreType;
   }
 
   @Override
@@ -43,7 +44,8 @@ public class AmenHttpClient extends DefaultHttpClient {
   private SSLSocketFactory newSslSocketFactory() {
     try {
       // Get an instance of the Bouncy Castle KeyStore format
-      KeyStore trusted = KeyStore.getInstance("BKS");
+//      KeyStore trusted = KeyStore.getInstance("BKS");
+      KeyStore trusted = KeyStore.getInstance(keyStoreType);
       // Get the raw resource, which contains the keystore with
       // your trusted certificates (root and any intermediate certs)
 //      InputStream in = context.getResources().openRawResource(R.raw.amenkeystore);
@@ -62,7 +64,7 @@ public class AmenHttpClient extends DefaultHttpClient {
 //      sf.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
 //      final X509HostnameVerifier delegate = sf.getHostnameVerifier();
 //      if (!(delegate instanceof MyVerifier)) {
-        sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
+      sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
 //      }
 
       return sf;
