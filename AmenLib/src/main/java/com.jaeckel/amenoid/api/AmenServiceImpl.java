@@ -173,8 +173,10 @@ public class AmenServiceImpl implements AmenService {
     params.put("limit", "" + limit);
 
     String interesting = "";
-    if (type == FEED_TYPE_INTERESTING) {
+    if (type == FEED_TYPE_RECENT) {
       interesting = "/recent";
+    } else if (type == FEED_TYPE_POPULAR) {
+      interesting = "/popular";
     }
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "amen" + interesting + ".json", params);
 

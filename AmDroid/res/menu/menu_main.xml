@@ -6,8 +6,13 @@
           android:icon="@drawable/ic_menu_refresh"
           android:title="Refresh"/>
 
-    <item android:id="@+id/interesting"
-          android:icon="@drawable/ic_menu_foto"
+    <item android:id="@+id/popular_menu"
+          android:icon="@drawable/ic_menu_popular"
+          android:title="Popular"
+          android:visible="true"
+            />
+    <item android:id="@+id/recent_menu"
+          android:icon="@drawable/ic_menu_clock"
           android:title="New"
           android:visible="true"
             />
@@ -15,7 +20,7 @@
     <item android:id="@+id/following_menu"
           android:icon="@drawable/ic_menu_following"
           android:title="Following"
-          android:visible="true"
+          android:visible="false"
             />
 
     <item android:id="@+id/preference"

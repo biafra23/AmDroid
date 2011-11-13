@@ -156,6 +156,9 @@ public class UserDetailActivity extends ListActivity {
     protected void wrappedOnPostExecute(List<Amen> result) {
 
       if (result != null) {
+        if (result.size() == 0) {
+          stopAppending = true;
+        }
         adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
 
         EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
@@ -163,6 +166,8 @@ public class UserDetailActivity extends ListActivity {
         setListAdapter(endless);
 //        setListAdapter(adapter);
 
+      } else {
+        stopAppending = true;
       }
 
       progressBar.setVisibility(View.GONE);
@@ -326,9 +331,10 @@ public class UserDetailActivity extends ListActivity {
       return !stopAppending;
     }
 
+
     @Override
     protected void appendCachedData() {
-      if (getWrappedAdapter().getCount() < 1000) {
+      if (!stopAppending && adapter.getCount() > 0) {
 
         if (endlessTask != null) {
           AsyncTask.Status status = endlessTask.getStatus();
@@ -343,6 +349,8 @@ public class UserDetailActivity extends ListActivity {
         }
       }
     }
+
+
   }
 
   //
@@ -380,10 +388,12 @@ public class UserDetailActivity extends ListActivity {
           adapter.add(amen);
         }
         Log.d(TAG, "Amens.size: " + amens.size());
+      } else {
+        Log.d(TAG, "Amens: " + amens);
+      }
 
-        if (amens.size() == 0) {
-          stopAppending = true;
-        }
+      if (amens == null || amens.size() == 0) {
+        stopAppending = true;
       }
 
     }

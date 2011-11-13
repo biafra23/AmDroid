@@ -1,8 +1,7 @@
 1.0-ALPHA4
 
-new:
-  - Subject Pages
-
+- NEW: Subject Pages (Preview)
+- BUGFIX: Empty User details page should not crash anymore
 
 
 1.0-ALPHA3

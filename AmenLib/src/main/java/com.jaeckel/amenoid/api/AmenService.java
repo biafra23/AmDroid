@@ -25,7 +25,8 @@ public interface AmenService {
   public final static int OBJEKT_KIND_THING  = 2;
 
   public final static int FEED_TYPE_FOLLOWING   = 0;
-  public final static int FEED_TYPE_INTERESTING = 1;
+  public final static int FEED_TYPE_RECENT = 1;
+  public final static int FEED_TYPE_POPULAR = 2;
 
   public User getMe();
 

@@ -81,13 +81,16 @@ public class AmenListActivity extends ListActivity {
 
     setContentView(R.layout.main);
 
+    // default feedType is following
     feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
 
     String title = "";
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
       title = "Following";
-    } else {
-      title = "New & Interesting";
+    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
+      title = "New";
+    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
+      title = "Popular";
     }
     setTitle("Amenoid/Timeline: " + title);
 
@@ -99,8 +102,8 @@ public class AmenListActivity extends ListActivity {
       Toast.makeText(this, "authToken: " + authToken, Toast.LENGTH_SHORT).show();
     }
     if (!TextUtils.isEmpty(authToken) && me != null) {
-        service = AmenoidApp.getInstance().getService().init(authToken, me);
-        refreshWithCache();
+      service = AmenoidApp.getInstance().getService().init(authToken, me);
+      refreshWithCache();
 
     } else {
       enterCredentialsDialog = createEnterCredentialsDialog();
@@ -109,14 +112,16 @@ public class AmenListActivity extends ListActivity {
 
     registerForContextMenu(getListView());
 
-    ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+//    if (feedType != AmenService.FEED_TYPE_POPULAR) {
+      ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
 
-      public void onRefresh() {
-        Log.v(TAG, "onRefresh()");
-        // Do work to refresh the list here.
-        new GetDataTask(AmenListActivity.this).execute();
-      }
-    });
+        public void onRefresh() {
+          Log.v(TAG, "onRefresh()");
+          // Do work to refresh the list here.
+          new GetDataTask(AmenListActivity.this).execute();
+        }
+      });
+//    }
   }
 
   private AlertDialog createEnterCredentialsDialog() {
@@ -232,13 +237,23 @@ public class AmenListActivity extends ListActivity {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.menu_main, menu);
     MenuItem following = menu.findItem(R.id.following_menu);
-    MenuItem interesting = menu.findItem(R.id.interesting);
+    MenuItem recent = menu.findItem(R.id.recent_menu);
+    MenuItem popular = menu.findItem(R.id.popular_menu);
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
-      interesting.setVisible(true);
+      recent.setVisible(true);
       following.setVisible(false);
-    } else {
-      interesting.setVisible(false);
+      popular.setVisible(true);
+
+    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
+      recent.setVisible(false);
       following.setVisible(true);
+      popular.setVisible(true);
+
+    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
+      recent.setVisible(true);
+      following.setVisible(true);
+      popular.setVisible(false);
+
     }
     return true;
   }
@@ -263,9 +278,16 @@ public class AmenListActivity extends ListActivity {
         startActivity(intent);
         return true;
       }
-      case R.id.interesting: {
+      case R.id.recent_menu: {
         Intent intent = new Intent(this, AmenListActivity.class);
-        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_INTERESTING);
+        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_RECENT);
+        startActivity(intent);
+
+        return true;
+      }
+      case R.id.popular_menu: {
+        Intent intent = new Intent(this, AmenListActivity.class);
+        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_POPULAR);
         startActivity(intent);
 
         return true;
@@ -387,12 +409,12 @@ public class AmenListActivity extends ListActivity {
     @Override
     protected boolean cacheInBackground() throws Exception {
 
-      return !stopAppending;
+      return !stopAppending && (feedType != AmenService.FEED_TYPE_POPULAR);
     }
 
     @Override
     protected void appendCachedData() {
-      if (!stopAppending) {
+      if (!stopAppending && (feedType != AmenService.FEED_TYPE_POPULAR)) {
         if (amenListAdapter.getCount() > 0) {
           final Long lastId = amenListAdapter.getItem(amenListAdapter.getCount() - 1).getId();
           if (endlessTask != null) {
@@ -719,7 +741,7 @@ public class AmenListActivity extends ListActivity {
     protected void wrappedOnPostExecute(List<Amen> result) {
 
       if (result != null) {
-        if (result.size() == pageSize) {
+        if (result.size() == pageSize || feedType == AmenService.FEED_TYPE_POPULAR) {
           // clear adapter
           amenListAdapter.clear();
         }

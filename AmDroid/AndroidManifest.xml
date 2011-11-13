@@ -3,7 +3,7 @@
           package="com.jaeckel.amenoid"
           android:versionCode="18"
           android:versionName="1.0-ALPHA4">
-    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="8"/>
+    <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="8"/>
 
     <application android:icon="@drawable/ic_launcher"
                  android:label="@string/app_name"
