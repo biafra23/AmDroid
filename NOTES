@@ -1,0 +1,6 @@
+For Milestone Compatibility:
+
+keytool -importcert -v -trustcacerts -file "GeoTrust_Primary_CA.pem" -alias GeoTrustSSLCA -keystore "AmDroid/res/raw/AmenKeystore.bks" -provider org.bouncycastle.jce.provider.BouncyCastleProvider -providerpath "~/lib//bcprov-jdk16-145.jar" -storetype BKS -storepass mysecret
+
+
+

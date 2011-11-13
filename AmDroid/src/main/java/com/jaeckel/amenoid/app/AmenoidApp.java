@@ -24,8 +24,16 @@ import com.jaeckel.amenoid.api.AmenServiceImpl;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.api.AmenHttpClient;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 /**
@@ -65,6 +73,7 @@ public class AmenoidApp extends Application {
   private AlertDialog.Builder builder;
 
   private SharedPreferences prefs;
+  private DefaultHttpClient amenHttpClient;
 
   public AmenoidApp() {
     super();
@@ -86,6 +95,40 @@ public class AmenoidApp extends Application {
     }
     super.onCreate();
 
+    Log.i(TAG, "-------------------------------- - - - - - -- - -  -----------------");
+    // Instantiate the custom HttpClient
+    InputStream in = getResources().openRawResource(R.raw.amenkeystore);
+    amenHttpClient = new AmenHttpClient(in, "mysecret");
+    HttpGet get = new HttpGet("https://getamen.com/amen/popular.json");
+    // Execute the GET call and obtain the response
+    HttpResponse getResponse = null;
+    try {
+      getResponse = amenHttpClient.execute(get);
+
+      HttpEntity responseEntity = getResponse.getEntity();
+
+      BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+      StringBuilder builder = new StringBuilder();
+      String line;
+      while ((line = br.readLine()) != null) {
+
+        Log.i(TAG, "makeStringFromEntity | " + line);
+
+        if ("<!DOCTYPE html>".equals(line)) {
+          //no JSON => Server error
+          Log.i(TAG, "Received HTML!");
+        }
+        builder.append(line);
+
+      }
+
+      Log.d(TAG, builder.toString());
+
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    Log.i(TAG, "-------------------------------- - - - - - -- - -  -----------------");
 
     amenTypeThin = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeThin.ttf");
     amenTypeBold = Typeface.createFromAsset(getAssets(), "fonts/AmenTypeBold.ttf");
@@ -127,7 +170,7 @@ public class AmenoidApp extends Application {
 
     if (service == null || service.getAuthToken() == null) {
 
-      service = new AmenServiceImpl();
+      service = new AmenServiceImpl(amenHttpClient);
       try {
         service.init(username, password);
       } catch (IOException e) {
@@ -141,8 +184,13 @@ public class AmenoidApp extends Application {
 
   public AmenService getService() {
     if (service == null) {
-      service = new AmenServiceImpl();
 
+      service = new AmenServiceImpl(amenHttpClient);
+        // auto einlogen wenn authoken vorhanden
+
+//      prefs =
+//      String authtoken = prefs.getString(Amen)
+//      service.init(authtoken, me);
     }
     return service;
   }

@@ -75,6 +75,7 @@ public class AmenDetailActivity extends ListActivity {
     list.addHeaderView(header);
 
 
+
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
     if (currentAmen == null) {
@@ -178,48 +179,49 @@ public class AmenDetailActivity extends ListActivity {
   }
 
   private void setAmenButtonListener() {
+    if (service.getMe() != null) {
+      amenTakeBackButton.setEnabled(true);
+      amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
 
-    amenTakeBackButton.setEnabled(true);
-    amenTakeBackButton.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View view) {
 
-      public void onClick(View view) {
+          amenTakeBackButton.setEnabled(false);
 
-        amenTakeBackButton.setEnabled(false);
+          if (amened(currentStatement)) {
 
-        if (amened(currentStatement)) {
+            Log.d(TAG, "Back taking: " + currentAmen);
+            new AmenDetailActivity.TakeBackTask(AmenDetailActivity.this).execute(currentStatement.getId());
 
-          Log.d(TAG, "Back taking: " + currentAmen);
-          new AmenDetailActivity.TakeBackTask(AmenDetailActivity.this).execute(currentStatement.getId());
+          } else {
+            Log.d(TAG, "amening: " + currentAmen);
+            new AmenDetailActivity.AmenTask(AmenDetailActivity.this).execute(currentAmen.getId());
 
-        } else {
-          Log.d(TAG, "amening: " + currentAmen);
-          new AmenDetailActivity.AmenTask(AmenDetailActivity.this).execute(currentAmen.getId());
+          }
+          populateFormWithAmen(false);
 
         }
-        populateFormWithAmen(false);
+      });
 
-      }
-    });
+      hellNoButton.setEnabled(true);
+      hellNoButton.setOnClickListener(new View.OnClickListener() {
 
-    hellNoButton.setEnabled(true);
-    hellNoButton.setOnClickListener(new View.OnClickListener() {
-
-      public void onClick(View view) {
-        //TODO: show hellno form here to let user select different objekt
+        public void onClick(View view) {
+          //TODO: show hellno form here to let user select different objekt
 
 
-        populateFormWithAmen(false);
+          populateFormWithAmen(false);
 
-        Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
-        intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
-        startActivity(intent);
-      }
-    });
+          Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
+          intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
+          startActivity(intent);
+        }
+      });
+    }
   }
 
   private boolean amened(Statement currentStatement) {
     for (User u : currentStatement.getAgreeingNetwork()) {
-      if (u.getId() == service.getMe().getId()) {
+      if (service.getMe() != null && u.getId() == service.getMe().getId()) {
         return true;
       }
     }
@@ -291,7 +293,9 @@ public class AmenDetailActivity extends ListActivity {
         thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
       }
-      amenTakeBackButton.setEnabled(true);
+      if (service.getMe() != null) {
+        amenTakeBackButton.setEnabled(true);
+      }
 
     }
 
@@ -331,7 +335,10 @@ public class AmenDetailActivity extends ListActivity {
         setListAdapter(thumbs);
 
       }
-      amenTakeBackButton.setEnabled(true);
+      if (service.getMe() != null) {
+        amenTakeBackButton.setEnabled(true);
+
+      }
     }
   }
 
@@ -415,7 +422,7 @@ public class AmenDetailActivity extends ListActivity {
 
       case R.id.subject_page: {
         Intent intent = new Intent(this, SubjectPageActivity.class);
-        
+
         Toast.makeText(this, "id: " + currentAmen.getStatement().getObjekt().getId(), Toast.LENGTH_SHORT).show();
 
         intent.putExtra(Constants.EXTRA_OBJEKT_ID, currentAmen.getStatement().getObjekt().getId());

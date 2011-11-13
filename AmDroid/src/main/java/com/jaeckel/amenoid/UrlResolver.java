@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ public class UrlResolver extends Activity {
     // check if this intent is started via custom scheme link
     if (Intent.ACTION_VIEW.equals(intent.getAction())) {
       Uri uri = intent.getData();
-      Toast.makeText(this, "uri: " + uri, Toast.LENGTH_LONG).show();
+//      Toast.makeText(this, "uri: " + uri, Toast.LENGTH_LONG).show();
       // may be some test here with your custom uri
       List<String> pathSegments = uri.getPathSegments();
       if ("users".equalsIgnoreCase(pathSegments.get(0))) {
@@ -37,15 +36,15 @@ public class UrlResolver extends Activity {
       }
       if ("topics".equalsIgnoreCase(pathSegments.get(0))) {
 
-              Long id = Long.valueOf(pathSegments.get(1));
+        Long id = Long.valueOf(pathSegments.get(1));
 
-              Intent startScoreboard = new Intent(this, ScoreBoardActivity.class);
-              startScoreboard.putExtra(Constants.EXTRA_TOPIC_ID, id);
+        Intent startScoreboard = new Intent(this, ScoreBoardActivity.class);
+        startScoreboard.putExtra(Constants.EXTRA_TOPIC_ID, id);
 
-              startActivity(startScoreboard);
+        startActivity(startScoreboard);
 
-              finish();
-            }
+        finish();
+      }
 
     }
 

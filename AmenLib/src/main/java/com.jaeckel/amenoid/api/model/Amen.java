@@ -153,20 +153,20 @@ public class Amen implements Parcelable {
     return builder.create().toJson(this);
   }
 
-  private Date parseIso8601DateNoBind(String dateString) {
-    try {
-      return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(dateString).toGregorianCalendar().getTime();
-    } catch (DatatypeConfigurationException e) {
-      throw new RuntimeException("Error converting timestamp", e);
-    }
-  }
+//  private Date parseIso8601DateNoBind(String dateString) {
+//    try {
+//      return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(dateString).toGregorianCalendar().getTime();
+//    } catch (DatatypeConfigurationException e) {
+//      throw new RuntimeException("Error converting timestamp", e);
+//    }
+//  }
 
-  public static Date parseIso8601DateJoda(String dateString) {
-    //2011-09-24T22:23:26Z
-    DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
-    DateTime dt = fmt.parseDateTime(dateString);
-    return dt.toDate();
-  }
+//  public static Date parseIso8601DateJoda(String dateString) {
+//    //2011-09-24T22:23:26Z
+//    DateTimeFormatter fmt = ISODateTimeFormat.dateTimeParser();
+//    DateTime dt = fmt.parseDateTime(dateString);
+//    return dt.toDate();
+//  }
 
   public boolean isDispute() {
     return getKindId() == AmenService.AMEN_KIND_DISPUTE && referringAmen != null;

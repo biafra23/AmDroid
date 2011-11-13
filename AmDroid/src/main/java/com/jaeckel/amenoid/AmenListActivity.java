@@ -96,6 +96,8 @@ public class AmenListActivity extends ListActivity {
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
+
+
     final String authToken = readAuthTokenFromPrefs();
     final User me = readMeFromPrefs();
     if (AmenoidApp.DEVELOPER_MODE) {
@@ -113,20 +115,20 @@ public class AmenListActivity extends ListActivity {
     registerForContextMenu(getListView());
 
 //    if (feedType != AmenService.FEED_TYPE_POPULAR) {
-      ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+    ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
 
-        public void onRefresh() {
-          Log.v(TAG, "onRefresh()");
-          // Do work to refresh the list here.
-          new GetDataTask(AmenListActivity.this).execute();
-        }
-      });
+      public void onRefresh() {
+        Log.v(TAG, "onRefresh()");
+        // Do work to refresh the list here.
+        new GetDataTask(AmenListActivity.this).execute();
+      }
+    });
 //    }
   }
 
   private AlertDialog createEnterCredentialsDialog() {
     return new AlertDialog.Builder(this)
-      .setMessage("Please enter your Amen credentials in the preferences and sign in!")
+      .setMessage("Please enter your Amen credentials and sign in!")
       .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -263,7 +265,7 @@ public class AmenListActivity extends ListActivity {
 
     switch (item.getItemId()) {
 
-      case R.id.preference:
+      case R.id.signin:
         startActivity(new Intent(this, SettingsActivity.class));
 
         return true;

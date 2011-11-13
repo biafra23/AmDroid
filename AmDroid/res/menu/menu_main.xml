@@ -2,6 +2,12 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/signin"
+             android:icon="@drawable/ic_menu_sign_in"
+             android:title="Sign In"
+             android:visible="true"
+            />
+
     <item android:id="@+id/refresh"
           android:icon="@drawable/ic_menu_refresh"
           android:title="Refresh"/>
@@ -23,9 +29,7 @@
           android:visible="false"
             />
 
-    <item android:id="@+id/preference"
-          android:icon="@drawable/ic_menu_settings"
-          android:title="Preferences"/>
+
 
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_menu_amen"
@@ -35,4 +39,7 @@
           android:icon="@drawable/ic_menu_about"
           android:title="About"
             />
+    <!--<item android:id="@+id/preference"-->
+          <!--android:icon="@drawable/ic_menu_settings"-->
+          <!--android:title="Preferences"/>-->
 </menu>

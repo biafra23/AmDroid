@@ -19,17 +19,8 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.params.ClientPNames;
-import org.apache.http.client.params.CookiePolicy;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.CoreProtocolPNames;
-import org.apache.http.params.HttpParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,16 +56,19 @@ public class AmenServiceImpl implements AmenService {
 
   private HttpClient httpclient;
 
-  public AmenServiceImpl() {
-    HttpParams params = new BasicHttpParams();
-    params.setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
-    params.setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
+  public AmenServiceImpl(HttpClient httpClient) {
+//    HttpParams params = new BasicHttpParams();
+//    params.setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
+//    params.setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
+//
+//    final SchemeRegistry schemeRegistry = new SchemeRegistry();
+//    Scheme scheme = new Scheme("https", SSLSocketFactory.getSocketFactory(), 443);
+//    schemeRegistry.register(scheme);
+//
+//    httpclient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
+    this.httpclient = httpClient;
 
-    final SchemeRegistry schemeRegistry = new SchemeRegistry();
-    Scheme scheme = new Scheme("https", SSLSocketFactory.getSocketFactory(), 443);
-    schemeRegistry.register(scheme);
-
-    httpclient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
+    this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
 
   }
 
@@ -143,9 +137,6 @@ public class AmenServiceImpl implements AmenService {
     } catch (ClientProtocolException e) {
 
       throw new RuntimeException("Exception while authenticating", e);
-    } catch (IOException e) {
-
-      throw new IOException(e);
     }
     return user;
   }
@@ -444,7 +435,7 @@ public class AmenServiceImpl implements AmenService {
       params.put("last_amen_id", "" + lastAmenId);
     }
 
-    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "users/" +userId + "/amen.json", params);
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "users/" + userId + "/amen.json", params);
 
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
@@ -599,6 +590,7 @@ public class AmenServiceImpl implements AmenService {
   public String getAuthToken() {
     return authToken;
   }
+
   @Override
   public void removeAuthToken() {
     authToken = null;
@@ -608,23 +600,23 @@ public class AmenServiceImpl implements AmenService {
   public List<Amen> getAmenForObjekt(Long objektId) throws IOException {
 
     List<Amen> result;
- //   https://getamen.com/things/97282
+    //   https://getamen.com/things/97282
     log.debug("AmenForObjekt() if: " + objektId);
 
-        HashMap<String, String> params = createAuthenticatedParams();
+    HashMap<String, String> params = createAuthenticatedParams();
 
 
-        HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "o/" + objektId + "/amens.json", params);
-        HttpResponse response = httpclient.execute(httpGet);
-        HttpEntity responseEntity = response.getEntity();
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "o/" + objektId + "/amens.json", params);
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
 
-        final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = makeStringFromEntity(responseEntity);
 
-        Type collectionType = new TypeToken<Collection<Amen>>() {
-        }.getType();
-        result = gson.fromJson(responseString, collectionType);
+    Type collectionType = new TypeToken<Collection<Amen>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
 
-    
+
     return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
