@@ -131,17 +131,28 @@ public class AmenoidApp extends Application {
 
     final String authToken = readAuthTokenFromPrefs(prefs);
     final User me = readMeFromPrefs(prefs);
-    if (authToken != null && me != null) {
 
-      initializeAmenService(authToken, me);
+    final String username = prefs.getString(Constants.PREFS_USER_NAME, null);
+    final String password = prefs.getString(Constants.PREFS_PASSWORD, null);
+
+    if (authToken != null && me != null) {
+      Log.d(TAG, "configureAmenService: " + lastLocation);
+      configureAmenService();
+      service.init(authToken, me);
+
+    } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+
+      getService(username, password);
+
     } else {
+
       getService();
     }
 
 
   }
 
-  private void initializeAmenService(String authToken, User me) {
+  private void configureAmenService() {
     InputStream in = getResources().openRawResource(R.raw.amenkeystore);
     amenHttpClient = new AmenHttpClient(in, "mysecret", "BKS");
 
@@ -170,7 +181,7 @@ public class AmenoidApp extends Application {
       return true;
     }
     Log.v(TAG, "isSignedIn -> " + false);
-    
+
     Log.v(TAG, "service: " + service);
     if (service != null) {
       Log.v(TAG, "service.getAuthToken(): " + service.getAuthToken());
@@ -188,12 +199,15 @@ public class AmenoidApp extends Application {
   }
 
   public AmenService getService(String username, String password) {
+//    Log.d(TAG, "getService(" + username + ", " + password + ")");
 
     if (service == null || TextUtils.isEmpty(service.getAuthToken())) {
       Log.d(TAG, "service was null || no authToken");
-      service = new AmenServiceImpl(amenHttpClient);
+      configureAmenService();
       try {
+
         service.init(username, password);
+
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -208,7 +222,7 @@ public class AmenoidApp extends Application {
 
       final String authToken = readAuthTokenFromPrefs(prefs);
       final User me = readMeFromPrefs(prefs);
-      initializeAmenService(authToken, me);
+      configureAmenService();
 
       if (!TextUtils.isEmpty(authToken) && me != null) {
         service.init(authToken, me);
