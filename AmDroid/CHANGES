@@ -1,4 +1,7 @@
-1.0-ALPHA4
+Version 1.0-ALPHA5
+- BUGFIX: Crash in Timeline
+
+Version 1.0-ALPHA4
 - NEW: Most Features available without Account
 - NEW: Subject Pages (Preview)
 - NEW: Popular Feed included
@@ -6,7 +9,7 @@
 - BUGFIX: Improved Android 1.6 and 2.1 compatibility
 - NEW: UserDetailPage improved
 
-1.0-ALPHA3
+Version 1.0-ALPHA3
 - NEW: Register for https://getamen.com/users and /topics urls. Let Amenoid handle those urls found in EMails oder elsewhere
 - BUGFIX: Better dispute detection
 

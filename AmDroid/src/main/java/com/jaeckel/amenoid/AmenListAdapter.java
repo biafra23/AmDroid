@@ -55,7 +55,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     String from = amen.getUser().getName();
 
-    if (amen.isAmen()) {
+    if (amen.isAmen() && amen.getReferringAmen() != null) {
       from = from + " amen'd " + amen.getReferringAmen().getUser().getName();
     }
     if (amen.isDispute() && amen.getReferringAmen() != null) {
