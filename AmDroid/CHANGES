@@ -1,5 +1,7 @@
 Version 1.0-ALPHA5
 - BUGFIX: Crash in Timeline
+- BUGFIX: Should crash less, when in Background
+- NEW: show createdAt date as delta
 
 Version 1.0-ALPHA4
 - NEW: Most Features available without Account
