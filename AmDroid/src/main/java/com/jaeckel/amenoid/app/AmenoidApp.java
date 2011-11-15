@@ -177,16 +177,16 @@ public class AmenoidApp extends Application {
   public boolean isSignedIn() {
 
     if (service != null && !TextUtils.isEmpty(service.getAuthToken())) {
-      Log.v(TAG, "isSignedIn -> " + true);
+//      Log.v(TAG, "isSignedIn -> " + true);
       return true;
     }
-    Log.v(TAG, "isSignedIn -> " + false);
+//    Log.v(TAG, "isSignedIn -> " + false);
 
-    Log.v(TAG, "service: " + service);
-    if (service != null) {
-      Log.v(TAG, "service.getAuthToken(): " + service.getAuthToken());
-
-    }
+//    Log.v(TAG, "service: " + service);
+//    if (service != null) {
+//      Log.v(TAG, "service.getAuthToken(): " + service.getAuthToken());
+//
+//    }
 
     return false;
   }
