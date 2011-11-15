@@ -155,7 +155,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
   class DisputeTask extends AmenLibTask<Amen, Integer, Long> {
 
-    public DisputeTask(Context context) {
+    public DisputeTask(Activity context) {
       super(context);
     }
 

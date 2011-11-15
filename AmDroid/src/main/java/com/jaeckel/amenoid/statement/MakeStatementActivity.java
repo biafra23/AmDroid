@@ -1,7 +1,6 @@
 package com.jaeckel.amenoid.statement;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -252,7 +251,7 @@ public class MakeStatementActivity extends Activity {
   //
   private class MakeStatementTask extends AmenLibTask<Statement, Integer, Amen> {
 
-    public MakeStatementTask(Context context) {
+    public MakeStatementTask(Activity context) {
       super(context);
     }
 

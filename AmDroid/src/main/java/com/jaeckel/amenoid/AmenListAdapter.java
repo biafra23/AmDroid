@@ -25,8 +25,8 @@ import java.util.List;
 public class AmenListAdapter extends ArrayAdapter<Amen> {
 
   private LayoutInflater inflater;
-  private Typeface amenTypeThin;
-  private Typeface amenTypeBold;
+  private Typeface       amenTypeThin;
+  private Typeface       amenTypeBold;
 
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
@@ -47,6 +47,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       row.setTag(R.id.user, row.findViewById(R.id.user));
       row.setTag(R.id.statement, row.findViewById(R.id.statement));
       row.setTag(R.id.user_image, row.findViewById(R.id.user_image));
+      row.setTag(R.id.since, row.findViewById(R.id.since));
 
     }
 
@@ -80,9 +81,46 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     userImage.setImageResource(R.drawable.placeholder);
     userImage.setTag(pictureUrl);
 
+    long now = System.currentTimeMillis();
+    if (amen.getCreatedAt() != null) {
+      long createdAtDate = amen.getCreatedAt().getTime();
+
+      long since = now - createdAtDate;
+
+      since = since / 1000;
+
+//      Log.d("AmenListAdapter", "since: " + since);
+
+      TextView sinceView = (TextView) row.findViewById(R.id.since);
+
+      sinceView.setText(renderShortDeltaT(since));
+    }
+
+
 //    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
 
     return row;
+  }
+
+  private CharSequence renderShortDeltaT(long since) {
+
+    if (since < 60) {
+      return since + "s";
+
+    } else if (since < 60 * 60) {
+      return (since / 60) + "m";
+
+    } else if (since < 60 * 60 * 60) {
+      return (since / 60 / 60) + "h";
+
+    } else if (since < 60 * 60 * 60 * 24) {
+      return (since / 60 / 60 / 24) + "h";
+
+    } else if (since < 60 * 60 * 60 * 24 * 7) {
+      return (since / 60 / 60 / 24 / 7) + "w";
+    }
+
+    return "";
   }
 
   public static CharSequence styleAmenWithColor(Statement stmt, boolean isDispute, String disputingName, Context context) {

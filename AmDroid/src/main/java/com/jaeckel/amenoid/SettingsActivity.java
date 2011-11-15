@@ -146,7 +146,7 @@ public class SettingsActivity extends Activity {
     private InvalidCredentialsException loginFailed;
     private final static String TAG = "LoginAsyncTask";
 
-    public LoginAsyncTask(Context context) {
+    public LoginAsyncTask(Activity context) {
       super(context);
     }
 

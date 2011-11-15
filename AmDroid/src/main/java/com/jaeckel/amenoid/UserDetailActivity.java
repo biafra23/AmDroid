@@ -1,7 +1,7 @@
 package com.jaeckel.amenoid;
 
+import android.app.Activity;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -59,7 +59,9 @@ public class UserDetailActivity extends ListActivity {
   private boolean meIsFollowing = false;
 
   public void onCreate(Bundle savedInstanceState) {
+
     super.onCreate(savedInstanceState);
+
     requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     Log.d(TAG, "onCreate");
 
@@ -140,9 +142,11 @@ public class UserDetailActivity extends ListActivity {
   // AmenForUserTask
   //
   private class AmenForUserTask extends AmenLibTask<Long, Integer, List<Amen>> {
+    Activity context;
 
-    public AmenForUserTask(Context context) {
+    public AmenForUserTask(Activity context) {
       super(context);
+      this.context = context;
     }
 
     protected List<Amen> wrappedDoInBackground(Long... ids) throws IOException {
@@ -157,33 +161,34 @@ public class UserDetailActivity extends ListActivity {
     }
 
     protected void wrappedOnPostExecute(List<Amen> result) {
+      if (context.hasWindowFocus())
+        if (result != null) {
+          if (result.size() == 0) {
+            stopAppending = true;
+          }
+          adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
 
-      if (result != null) {
-        if (result.size() == 0) {
-          stopAppending = true;
-        }
-        adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
+          EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
 
-        EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
-
-        setListAdapter(endless);
+          setListAdapter(endless);
 //        setListAdapter(adapter);
 
-      } else {
-        stopAppending = true;
-      }
+        } else {
+          stopAppending = true;
+        }
 
       progressBar.setVisibility(View.GONE);
       list.setVisibility(View.VISIBLE);
     }
   }
 
+
   //
-  // UserInfoTask
-  //
+// UserInfoTask
+//
   private class UserInfoTask extends AmenLibTask<Long, Integer, User> {
 
-    public UserInfoTask(Context context) {
+    public UserInfoTask(Activity context) {
       super(context);
     }
 
@@ -255,11 +260,11 @@ public class UserDetailActivity extends ListActivity {
   }
 
   //
-  // FollowTask
-  //
+// FollowTask
+//
   private class FollowTask extends AmenLibTask<User, Integer, Boolean> {
 
-    public FollowTask(Context context) {
+    public FollowTask(Activity context) {
       super(context);
     }
 
@@ -279,11 +284,11 @@ public class UserDetailActivity extends ListActivity {
   }
 
   //
-  // UnFollowTask
-  //
+// UnFollowTask
+//
   private class UnFollowTask extends AmenLibTask<User, Integer, Boolean> {
 
-    public UnFollowTask(Context context) {
+    public UnFollowTask(Activity context) {
       super(context);
     }
 
@@ -299,6 +304,7 @@ public class UserDetailActivity extends ListActivity {
         follow.setBackgroundColor(Color.GRAY);
       }
     }
+
   }
 
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -348,6 +354,7 @@ public class UserDetailActivity extends ListActivity {
     return false;
   }
 
+
   class EndlessWrapperAdapter extends EndlessAdapter {
 
     EndlessWrapperAdapter(AmenAdapter amenAdapter) {
@@ -382,13 +389,14 @@ public class UserDetailActivity extends ListActivity {
 
   }
 
-  //
-  // EndlessLoaderAsyncTask
-  //
+//
+// EndlessLoaderAsyncTask
+//
 
   private class EndlessLoaderAsyncTask extends AmenLibTask<Long, Integer, List<Amen>> {
+    Activity context;
 
-    public EndlessLoaderAsyncTask(Context context) {
+    public EndlessLoaderAsyncTask(Activity context) {
       super(context);
     }
 

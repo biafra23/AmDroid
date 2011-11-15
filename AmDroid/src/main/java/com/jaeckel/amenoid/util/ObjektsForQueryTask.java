@@ -1,6 +1,6 @@
 package com.jaeckel.amenoid.util;
 
-import android.content.Context;
+import android.app.Activity;
 import android.util.Log;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
@@ -27,13 +27,13 @@ public class ObjektsForQueryTask extends AmenLibTask<ObjektsForQueryTask.ObjektQ
    * @param handler needs to be a context! If its not use ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler, Context context)
    */
   public ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler) {
-    super((Context) handler);
+    super((Activity) handler);
     this.handler = handler;
     this.service = service;
 
   }
 
-  public ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler, Context context) {
+  public ObjektsForQueryTask(AmenService service, ReturnedObjektsHandler handler, Activity context) {
     super(context);
     this.handler = handler;
     this.service = service;

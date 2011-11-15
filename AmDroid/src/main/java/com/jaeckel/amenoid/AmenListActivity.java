@@ -1,8 +1,8 @@
 package com.jaeckel.amenoid;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -455,7 +455,7 @@ public class AmenListActivity extends ListActivity {
 
   private class EndlessLoaderAsyncTask extends AmenLibTask<Long, Integer, List<Amen>> {
 
-    public EndlessLoaderAsyncTask(Context context) {
+    public EndlessLoaderAsyncTask(Activity context) {
       super(context);
     }
 
@@ -503,7 +503,7 @@ public class AmenListActivity extends ListActivity {
 
     private ProgressDialog cachedLoadingProgressDialog;
 
-    public CachedLoaderAsyncTask(Context context) {
+    public CachedLoaderAsyncTask(Activity context) {
       super(context);
     }
 
@@ -593,7 +593,7 @@ public class AmenListActivity extends ListActivity {
     private boolean stopAppending = false;
     private ProgressDialog loadingProgressDialog;
 
-    public LoaderAsyncTask(Context context) {
+    public LoaderAsyncTask(Activity context) {
       super(context);
     }
 
@@ -709,7 +709,7 @@ public class AmenListActivity extends ListActivity {
 
   private class GetDataTask extends AmenLibTask<Void, Void, List<Amen>> {
 
-    public GetDataTask(Context context) {
+    public GetDataTask(Activity context) {
       super(context);
     }
 
@@ -828,7 +828,7 @@ public class AmenListActivity extends ListActivity {
 
   private class AmenRefreshTask extends AmenLibTask<Long, Integer, Amen> {
 
-    public AmenRefreshTask(Context context) {
+    public AmenRefreshTask(Activity context) {
       super(context);
     }
 

@@ -1,7 +1,7 @@
 package com.jaeckel.amenoid.util;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -19,10 +19,10 @@ import java.net.UnknownHostException;
 public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 
   private Throwable lastException = null;
-  private Context context;
+  private Activity context;
   protected static String TAG = "AmenLibTask";
 
-  public AmenLibTask(Context context) {
+  public AmenLibTask(Activity context) {
     this.context = context;
   }
 
@@ -62,28 +62,31 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
         title = "Unknown  Host";
         message = lastException.getMessage();
       }
+      if (context.hasWindowFocus()) {
 
-      new AlertDialog.Builder(context)
-        .setTitle(title)
-        .setMessage(message)
-        .setPositiveButton(R.string.dismiss, new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(context)
+          .setTitle(title)
+          .setMessage(message)
+          .setPositiveButton(R.string.dismiss, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+              Log.e(TAG, "OK clicked");
+            }
+          }).setNegativeButton("Crash", new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialogInterface, int i) {
-            Log.e(TAG, "OK clicked");
+            throw new RuntimeException(lastException);
           }
-        }).setNegativeButton("Crash", new DialogInterface.OnClickListener() {
-        public void onClick(DialogInterface dialogInterface, int i) {
-          throw new RuntimeException(lastException);
-        }
-      })
-        .show();
+        })
+          .show();
 
-      Log.e(TAG, "Dialog shown!");
+        Log.e(TAG, "Dialog shown!");
+
+      }
     }
 
     wrappedOnPostExecute(result);
 
     lastException = null;
-    Log.e(TAG, "lastException reset!");
+//    Log.e(TAG, "lastException reset!");
 
 
   }

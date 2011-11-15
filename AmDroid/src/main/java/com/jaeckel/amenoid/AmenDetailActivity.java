@@ -1,8 +1,8 @@
 package com.jaeckel.amenoid;
 
 
+import android.app.Activity;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -259,7 +259,7 @@ public class AmenDetailActivity extends ListActivity {
   //
   private class TakeBackTask extends AmenLibTask<Long, Integer, Amen> {
 
-    public TakeBackTask(Context context) {
+    public TakeBackTask(Activity context) {
       super(context);
     }
 
@@ -310,7 +310,7 @@ public class AmenDetailActivity extends ListActivity {
   //
   private class AmenTask extends AmenLibTask<Long, Integer, Amen> {
 
-    public AmenTask(Context context) {
+    public AmenTask(Activity context) {
       super(context);
     }
 
@@ -352,7 +352,7 @@ public class AmenDetailActivity extends ListActivity {
   //
   private class GetStatementTask extends AmenLibTask<Long, Integer, Statement> {
 
-    public GetStatementTask(Context context) {
+    public GetStatementTask(Activity context) {
       super(context);
     }
 

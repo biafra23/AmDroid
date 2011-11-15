@@ -1,7 +1,7 @@
 package com.jaeckel.amenoid;
 
+import android.app.Activity;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +46,7 @@ public class SubjectPageActivity extends ListActivity {
 
   private class GetDataTask extends AmenLibTask<Long, Void, List<Amen>> {
 
-    public GetDataTask(Context context) {
+    public GetDataTask(Activity context) {
       super(context);
     }
 
