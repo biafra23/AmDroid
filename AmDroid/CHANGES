@@ -1,3 +1,6 @@
+Version 1.0-ALPHA7
+- BUGFIX: Last Search result was not selectable
+
 Version 1.0-ALPHA6
 - BUGFIX: IllegalArgumentException: historyPos out of range
 - NEW: Search (simple, needs improvement)
