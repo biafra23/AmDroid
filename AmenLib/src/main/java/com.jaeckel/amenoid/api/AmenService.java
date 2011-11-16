@@ -24,9 +24,9 @@ public interface AmenService {
   public final static int OBJEKT_KIND_PLACE  = 1;
   public final static int OBJEKT_KIND_THING  = 2;
 
-  public final static int FEED_TYPE_FOLLOWING   = 0;
-  public final static int FEED_TYPE_RECENT = 1;
-  public final static int FEED_TYPE_POPULAR = 2;
+  public final static int FEED_TYPE_FOLLOWING = 0;
+  public final static int FEED_TYPE_RECENT    = 1;
+  public final static int FEED_TYPE_POPULAR   = 2;
 
   public User getMe();
 
@@ -74,10 +74,10 @@ public interface AmenService {
 
   //sign out
   public void removeAuthToken();
-  
-  //Subject Cards
-  
-  public List<Amen> getAmenForObjekt(Long objId) throws IOException;
-  
 
+  //Subject Cards
+
+  public List<Amen> getAmenForObjekt(Long objId) throws IOException;
+
+  public List<Amen> search(String query) throws IOException;
 }

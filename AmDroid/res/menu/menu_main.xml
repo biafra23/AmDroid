@@ -3,9 +3,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/signin"
-             android:icon="@drawable/ic_menu_sign_in"
-             android:title="Sign In"
-             android:visible="true"
+          android:icon="@drawable/ic_menu_sign_in"
+          android:title="Sign In"
+          android:visible="true"
             />
 
     <item android:id="@+id/refresh"
@@ -30,16 +30,21 @@
             />
 
 
-
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_menu_amen"
           android:title="Amen sth."
             />
+
+    <item android:id="@+id/search"
+          android:icon="@drawable/ic_menu_search"
+          android:title="Search"
+            />
+
     <item android:id="@+id/about_menu_item"
           android:icon="@drawable/ic_menu_about"
           android:title="About"
             />
     <!--<item android:id="@+id/preference"-->
-          <!--android:icon="@drawable/ic_menu_settings"-->
-          <!--android:title="Preferences"/>-->
+    <!--android:icon="@drawable/ic_menu_settings"-->
+    <!--android:title="Preferences"/>-->
 </menu>

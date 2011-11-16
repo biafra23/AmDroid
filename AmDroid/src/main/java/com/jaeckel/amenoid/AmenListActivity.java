@@ -66,6 +66,18 @@ public class AmenListActivity extends ListActivity {
   private static boolean shouldRefresh = false;
 
 
+  @Override
+  public boolean onSearchRequested() {
+
+
+
+    Intent intent = new Intent(this, SearchActivity.class);
+    startActivity(intent);
+
+    return false;
+  }
+
+
   /**
    * Called when the activity is first created.
    *
@@ -232,6 +244,7 @@ public class AmenListActivity extends ListActivity {
     MenuItem popular = menu.findItem(R.id.popular_menu);
     MenuItem amenSth = menu.findItem(R.id.amen);
     MenuItem signInOut = menu.findItem(R.id.signin);
+    MenuItem search = menu.findItem(R.id.search);
 
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
       recent.setVisible(true);
@@ -253,10 +266,13 @@ public class AmenListActivity extends ListActivity {
 
       amenSth.setEnabled(false);
       following.setEnabled(false);
+      search.setEnabled(false);
       signInOut.setTitle("Sign in");
+
     } else {
       amenSth.setEnabled(true);
       following.setEnabled(true);
+      search.setEnabled(true);
       signInOut.setTitle("Sign out");
     }
 
@@ -320,6 +336,14 @@ public class AmenListActivity extends ListActivity {
         }
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
+      }
+      case R.id.search: {
+        Log.d(TAG, "R.id.search");
+
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+
+        return true;
       }
     }
 
@@ -410,6 +434,7 @@ public class AmenListActivity extends ListActivity {
 
         return true;
       }
+
       default:
         return super.onContextItemSelected(item);
     }

@@ -56,6 +56,15 @@ public class AmenDetailActivity extends ListActivity {
   private Typeface            amenTypeThin;
   private Typeface            amenTypeBold;
 
+  @Override
+  public boolean onSearchRequested() {
+
+    Intent intent = new Intent(this, SearchActivity.class);
+    startActivity(intent);
+
+    return false;
+  }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 

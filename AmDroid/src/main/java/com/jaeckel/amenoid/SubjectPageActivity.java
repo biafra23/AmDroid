@@ -23,6 +23,15 @@ public class SubjectPageActivity extends ListActivity {
   private AmenService     service;
   private static final String TAG = "SubjectPageActivity";
 
+  @Override
+  public boolean onSearchRequested() {
+
+    Intent intent = new Intent(this, SearchActivity.class);
+    startActivity(intent);
+
+    return false;
+  }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 

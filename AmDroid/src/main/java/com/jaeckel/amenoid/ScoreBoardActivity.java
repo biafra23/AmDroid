@@ -52,6 +52,15 @@ public class ScoreBoardActivity extends ListActivity {
 
   private ListView list;
 
+  @Override
+  public boolean onSearchRequested() {
+
+    Intent intent = new Intent(this, SearchActivity.class);
+    startActivity(intent);
+
+    return false;
+  }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 

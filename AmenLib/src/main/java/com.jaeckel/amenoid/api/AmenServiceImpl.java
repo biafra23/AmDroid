@@ -617,7 +617,7 @@ public class AmenServiceImpl implements AmenService {
     result = gson.fromJson(responseString, collectionType);
 
 
-    return result;  //To change body of implemented methods use File | Settings | File Templates.
+    return result;
   }
 
   public static String addAuthTokenToJSON(Amen amen, String authToken) {
@@ -631,6 +631,29 @@ public class AmenServiceImpl implements AmenService {
     object.addProperty("auth_token", authToken);
 
     return object.toString();
+  }
+
+  @Override
+  public List<Amen> search(String query) throws IOException {
+
+    List<Amen> result;
+    //   https://getamen.com/things/97282
+    log.debug("search(): " + query);
+
+    HashMap<String, String> params = createAuthenticatedParams();
+    params.put("q", query);
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/search.json", params);
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+
+    Type collectionType = new TypeToken<Collection<Amen>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
+
+    return result;
   }
 
 

@@ -1,5 +1,6 @@
 Version 1.0-ALPHA6
 - BUGFIX: IllegalArgumentException: historyPos out of range
+- NEW: Search (simple, needs improvement)
 
 Version 1.0-ALPHA5
 - BUGFIX: Crash in Timeline

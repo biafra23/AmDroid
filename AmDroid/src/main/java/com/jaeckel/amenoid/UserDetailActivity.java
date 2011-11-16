@@ -58,6 +58,15 @@ public class UserDetailActivity extends ListActivity {
   private MenuItem unfollowMenu;
   private boolean meIsFollowing = false;
 
+  @Override
+  public boolean onSearchRequested() {
+
+    Intent intent = new Intent(this, SearchActivity.class);
+    startActivity(intent);
+
+    return false;
+  }
+
   public void onCreate(Bundle savedInstanceState) {
 
     super.onCreate(savedInstanceState);

@@ -269,4 +269,33 @@ public class AmenServiceITest extends TestCase {
     }
   }
 
+  public void testSearch() throws IOException {
+      System.out.println("testGetAmenForObjekt");
+      List<Amen> result = service.search("Drachenspielplatz");
+
+      assertNotNull(result);
+
+      for (Amen a : result) {
+        System.out.println("a: " + a);
+        assertTrue(a.toString().toLowerCase().contains("drachenspielplatz"));
+
+      }
+    }
+
+  public void testSearch2() throws IOException {
+      System.out.println("testGetAmenForObjekt");
+      List<Amen> result = service.search("worst customer service");
+
+      assertNotNull(result);
+
+      for (Amen a : result) {
+        System.out.println("a: " + a);
+//        assertTrue(a.toString().toLowerCase().contains("\"best\":false"));
+        assertTrue(a.toString().toLowerCase().contains("customer"));
+        assertTrue(a.toString().toLowerCase().contains("service"));
+
+      }
+    }
+
+
 }
