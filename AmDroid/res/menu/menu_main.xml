@@ -35,7 +35,7 @@
           android:title="Amen sth."
             />
 
-    <item android:id="@+id/search"
+    <item android:id="@+id/search_menu_item"
           android:icon="@drawable/ic_menu_search"
           android:title="Search"
             />

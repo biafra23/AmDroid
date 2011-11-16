@@ -244,7 +244,7 @@ public class AmenListActivity extends ListActivity {
     MenuItem popular = menu.findItem(R.id.popular_menu);
     MenuItem amenSth = menu.findItem(R.id.amen);
     MenuItem signInOut = menu.findItem(R.id.signin);
-    MenuItem search = menu.findItem(R.id.search);
+    MenuItem search = menu.findItem(R.id.search_menu_item);
 
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
       recent.setVisible(true);
@@ -336,8 +336,9 @@ public class AmenListActivity extends ListActivity {
         }
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
+        return true;
       }
-      case R.id.search: {
+      case R.id.search_menu_item: {
         Log.d(TAG, "R.id.search");
 
         Intent intent = new Intent(this, SearchActivity.class);

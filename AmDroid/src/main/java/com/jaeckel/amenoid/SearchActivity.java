@@ -68,7 +68,7 @@ public class SearchActivity extends ListActivity {
     adapter = new AmenListAdapter(this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);
 
-    final EditText searchField = (EditText) findViewById(R.id.search);
+    final EditText searchField = (EditText) findViewById(R.id.search_field);
 
     Button searchButton = (Button) findViewById(R.id.submit_search);
     searchButton.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +90,7 @@ public class SearchActivity extends ListActivity {
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    if (position > 0 && position < getListAdapter().getCount()) {
+    if (position > 0 && position <= getListAdapter().getCount()) {
 
       Amen amen = (Amen) getListAdapter().getItem(position - 1);
 
