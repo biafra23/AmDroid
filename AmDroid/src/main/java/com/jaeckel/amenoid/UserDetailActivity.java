@@ -283,10 +283,12 @@ public class UserDetailActivity extends ListActivity {
 
         originalAmen.setText("Original Amen: " + user.getCreatedStatementsCount());
 
-        amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float)user.getCreatedStatementsCount()));
+        amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float) user.getCreatedStatementsCount()));
 
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
         userImageView.setImageDrawable(userImage);
+
+        currentUser = user;
       }
 
     }
@@ -325,9 +327,11 @@ public class UserDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected Boolean wrappedDoInBackground(User... urls) throws IOException {
-
-      return service.unfollow(currentUser);
+    protected Boolean wrappedDoInBackground(User... users) throws IOException {
+      if (users != null && users.length > 0 && users[0] != null) {
+        return service.unfollow(users[0]);
+      }
+      return false;
     }
 
     protected void wrappedOnPostExecute(final Boolean success) {
@@ -335,6 +339,7 @@ public class UserDetailActivity extends ListActivity {
       if (success != null && success) {
         final TextView follow = (TextView) findViewById(R.id.follow);
         follow.setBackgroundColor(Color.GRAY);
+
       }
     }
 
@@ -381,6 +386,12 @@ public class UserDetailActivity extends ListActivity {
 
       case R.id.amen:
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));
+        return true;
+      case R.id.follow:
+        new FollowTask(UserDetailActivity.this).execute(currentUser);
+        return true;
+      case R.id.unfollow:
+        new UnFollowTask(UserDetailActivity.this).execute(currentUser);
         return true;
     }
 
