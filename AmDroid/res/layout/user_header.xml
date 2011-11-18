@@ -44,8 +44,8 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Following"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
+                      android:background="@color/dark_grey"
                     />
 
             <!--follower -->
@@ -56,7 +56,6 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Followers"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
 
@@ -68,7 +67,6 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Following"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
             <!--  Amen received -->
@@ -79,7 +77,6 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Amen received: ?"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
             <!-- Original AMen -->
@@ -90,7 +87,6 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Original Amen: ?"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
 
@@ -102,7 +98,6 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Amen score: ?"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
             <!--  Amen given -->
@@ -113,7 +108,6 @@
                       android:textSize="18dp"
                       android:focusable="false"
                       android:text="Amen given: ?"
-                      android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
         </LinearLayout>
