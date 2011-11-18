@@ -244,7 +244,7 @@ public class AmenListActivity extends ListActivity {
     MenuItem popular = menu.findItem(R.id.popular_menu);
     MenuItem amenSth = menu.findItem(R.id.amen);
     MenuItem signInOut = menu.findItem(R.id.signin);
-    MenuItem search = menu.findItem(R.id.search_menu_item);
+//    MenuItem search = menu.findItem(R.id.search_menu_item);
 
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
       recent.setVisible(true);
@@ -266,13 +266,13 @@ public class AmenListActivity extends ListActivity {
 
       amenSth.setEnabled(false);
       following.setEnabled(false);
-      search.setEnabled(false);
+//      search.setEnabled(false);
       signInOut.setTitle("Sign in");
 
     } else {
       amenSth.setEnabled(true);
       following.setEnabled(true);
-      search.setEnabled(true);
+//      search.setEnabled(true);
       signInOut.setTitle("Sign out");
     }
 

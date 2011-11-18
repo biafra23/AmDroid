@@ -57,6 +57,13 @@ public class UserDetailActivity extends ListActivity {
   private MenuItem followMenu;
   private MenuItem unfollowMenu;
   private boolean meIsFollowing = false;
+  private TextView follow;
+  private TextView following;
+  private TextView followers;
+  private TextView amenReceived;
+  private TextView originalAmen;
+  private TextView amenGiven;
+  private TextView amenScore;
 
   @Override
   public boolean onSearchRequested() {
@@ -111,19 +118,32 @@ public class UserDetailActivity extends ListActivity {
       userName.setText(currentUser.getName());
 
     }
-    final TextView follow = (TextView) findViewById(R.id.follow);
+    follow = (TextView) findViewById(R.id.follow);
 
     follow.setText("Following?");
     follow.setTypeface(amenTypeThin);
     follow.setBackgroundColor(Color.GRAY);
 
-    TextView followers = (TextView) findViewById(R.id.followers);
+    followers = (TextView) findViewById(R.id.followers);
     followers.setTypeface(amenTypeThin);
     followers.setText("? Followers");
 
-    TextView following = (TextView) findViewById(R.id.following);
+    following = (TextView) findViewById(R.id.following);
     following.setTypeface(amenTypeThin);
     following.setText("? Following");
+
+    amenReceived = (TextView) findViewById(R.id.amen_received);
+    amenReceived.setTypeface(amenTypeThin);
+
+    originalAmen = (TextView) findViewById(R.id.original_amen);
+    originalAmen.setTypeface(amenTypeThin);
+
+    amenGiven = (TextView) findViewById(R.id.amen_given);
+    amenGiven.setTypeface(amenTypeThin);
+
+    amenScore = (TextView) findViewById(R.id.amen_score);
+    amenScore.setTypeface(amenTypeThin);
+
 
     adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);
@@ -254,12 +274,16 @@ public class UserDetailActivity extends ListActivity {
           }
         });
 
-        TextView followers = (TextView) findViewById(R.id.followers);
         followers.setText(user.getFollowersCount() + " Followers");
-
-        TextView following = (TextView) findViewById(R.id.following);
         following.setText(user.getFollowingCount() + " Following");
 
+        amenReceived.setText("Amen received: " + user.getReceivedAmenCount());
+
+        amenGiven.setText("Amen given: " + user.getGivenAmenCount());
+
+        originalAmen.setText("Original Amen: " + user.getCreatedStatementsCount());
+
+        amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float)user.getCreatedStatementsCount()));
 
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
         userImageView.setImageDrawable(userImage);

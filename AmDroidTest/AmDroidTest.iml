@@ -29,13 +29,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/r" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/target/android-classes" />
-      <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/combined-resources" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/extracted-dependencies" />
-      <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
-      <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
     </content>
     <orderEntry type="jdk" jdkName="Android 2.1-update1 Platform (1)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -60,7 +55,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-android:1.6.1-RC1" level="project" />
     <orderEntry type="library" name="Maven: android.support:compatibility-v4:r4" level="project" />
-    <orderEntry type="module" module-name="AmDroid" />
+    <orderEntry type="library" name="Maven: com.jaeckel:amenoid:1.0-ALPHA7" level="project" />
     <orderEntry type="library" name="Maven: com.jayway.android.robotium:robotium-solo:2.5" level="project" />
   </component>
 </module>

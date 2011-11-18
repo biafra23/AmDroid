@@ -71,8 +71,51 @@
                       android:background="@color/dark_grey"
                       android:textColor="@color/light_grey"
                     />
+            <!--  Amen received -->
+            <TextView android:id="@+id/amen_received"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:textSize="18dp"
+                      android:focusable="false"
+                      android:text="Amen received: ?"
+                      android:background="@color/dark_grey"
+                      android:textColor="@color/light_grey"
+                    />
+            <!-- Original AMen -->
+            <TextView android:id="@+id/original_amen"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:textSize="18dp"
+                      android:focusable="false"
+                      android:text="Original Amen: ?"
+                      android:background="@color/dark_grey"
+                      android:textColor="@color/light_grey"
+                    />
 
-
+            <!--  Amen Score -->
+            <TextView android:id="@+id/amen_score"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:textSize="18dp"
+                      android:focusable="false"
+                      android:text="Amen score: ?"
+                      android:background="@color/dark_grey"
+                      android:textColor="@color/light_grey"
+                    />
+            <!--  Amen given -->
+            <TextView android:id="@+id/amen_given"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:textSize="18dp"
+                      android:focusable="false"
+                      android:text="Amen given: ?"
+                      android:background="@color/dark_grey"
+                      android:textColor="@color/light_grey"
+                    />
         </LinearLayout>
 
     </LinearLayout>
