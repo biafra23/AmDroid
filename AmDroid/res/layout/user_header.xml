@@ -110,6 +110,15 @@
                       android:text="Amen given: ?"
                       android:textColor="@color/light_grey"
                     />
+            <TextView android:id="@+id/account_created"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_alignParentLeft="true"
+                      android:textSize="18dp"
+                      android:focusable="false"
+                      android:text="Since: ?"
+                      android:textColor="@color/light_grey"
+                    />
         </LinearLayout>
 
     </LinearLayout>

@@ -64,6 +64,7 @@ public class UserDetailActivity extends ListActivity {
   private TextView originalAmen;
   private TextView amenGiven;
   private TextView amenScore;
+  private TextView accountCreated;
 
   @Override
   public boolean onSearchRequested() {
@@ -144,6 +145,8 @@ public class UserDetailActivity extends ListActivity {
     amenScore = (TextView) findViewById(R.id.amen_score);
     amenScore.setTypeface(amenTypeThin);
 
+    accountCreated = (TextView) findViewById(R.id.account_created);
+    accountCreated.setTypeface(amenTypeThin);
 
     adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);
@@ -285,6 +288,8 @@ public class UserDetailActivity extends ListActivity {
 
         amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float) user.getCreatedStatementsCount()));
 
+        accountCreated.setText("Account created: " + AmenDetailActivity.format(user.getCreatedAt()));
+
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
         userImageView.setImageDrawable(userImage);
 
@@ -303,16 +308,30 @@ public class UserDetailActivity extends ListActivity {
       super(context);
     }
 
-    protected Boolean wrappedDoInBackground(User... urls) throws IOException {
+    protected Boolean wrappedDoInBackground(User... users) throws IOException {
 
-      return service.follow(currentUser);
+      if (users != null && users.length > 0 && users[0] != null) {
+
+        boolean result = service.follow(users[0]);
+        if (result) {
+          meIsFollowing = true;
+          return result;
+        }
+      }
+      return false;
     }
 
     protected void wrappedOnPostExecute(final Boolean success) {
 
       if (success != null && success) {
         final TextView follow = (TextView) findViewById(R.id.follow);
-        follow.setBackgroundColor(Color.CYAN);
+        if (meIsFollowing) {
+          follow.setBackgroundColor(Color.CYAN);
+
+        } else {
+          follow.setBackgroundColor(Color.GRAY);
+
+        }
       }
 
     }
@@ -329,7 +348,12 @@ public class UserDetailActivity extends ListActivity {
 
     protected Boolean wrappedDoInBackground(User... users) throws IOException {
       if (users != null && users.length > 0 && users[0] != null) {
-        return service.unfollow(users[0]);
+
+        boolean result = service.unfollow(users[0]);
+        if (result) {
+          meIsFollowing = false;
+          return result;
+        }
       }
       return false;
     }
@@ -338,18 +362,21 @@ public class UserDetailActivity extends ListActivity {
 
       if (success != null && success) {
         final TextView follow = (TextView) findViewById(R.id.follow);
-        follow.setBackgroundColor(Color.GRAY);
+        if (meIsFollowing) {
+          follow.setBackgroundColor(Color.CYAN);
+        } else {
+          follow.setBackgroundColor(Color.GRAY);
 
+        }
       }
     }
 
   }
 
-  public boolean onCreateOptionsMenu(Menu menu) {
-    super.onCreateOptionsMenu(menu);
+  public boolean onPrepareOptionsMenu(Menu menu) {
+    super.onPrepareOptionsMenu(menu);
+    Log.d(TAG, "onPrepareOptionsMenu");
 
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.menu_user_detail, menu);
     followMenu = menu.findItem(R.id.follow);
     unfollowMenu = menu.findItem(R.id.unfollow);
 
@@ -372,6 +399,17 @@ public class UserDetailActivity extends ListActivity {
       followMenu.setVisible(!meIsFollowing);
 
     }
+
+    return true;
+  }
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+    Log.d(TAG, "onCreateOptionsMenu");
+
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_user_detail, menu);
+
     return true;
   }
 

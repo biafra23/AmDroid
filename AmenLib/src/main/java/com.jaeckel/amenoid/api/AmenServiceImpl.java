@@ -208,6 +208,7 @@ public class AmenServiceImpl implements AmenService {
     if (" ".equals(responseString)) {
       result = true;
     }
+    log.debug("responseString: [" + responseString + "]");
 
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
@@ -231,7 +232,7 @@ public class AmenServiceImpl implements AmenService {
     if (" ".equals(responseString)) {
       result = true;
     }
-
+    log.debug("responseString: [" + responseString + "]");
     return result;
   }
 
