@@ -1,3 +1,10 @@
+Version 1.0-ALPHA10
+- BUGFIX: search off by one fix
+
+Version 1.0-ALPHA9
+- NEW: Better Search integration
+- NEW: Have an Amenoid search widget on your home screem
+
 Version 1.0-ALPHA8
 - NEW: Search without sign in
 - NEW: More Fields in user details

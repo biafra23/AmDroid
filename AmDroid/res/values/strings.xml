@@ -26,5 +26,7 @@
     <string name="pull_to_refresh_release_label">Release to refresh...</string>
     <string name="pull_to_refresh_refreshing_label">Loading...</string>
     <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
-    
+    <string name="app_label">Amenoid</string>
+    <string name="search_hint">Search Amen</string>
+
 </resources>

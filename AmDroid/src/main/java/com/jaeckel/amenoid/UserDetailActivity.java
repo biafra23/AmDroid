@@ -68,11 +68,7 @@ public class UserDetailActivity extends ListActivity {
 
   @Override
   public boolean onSearchRequested() {
-
-    Intent intent = new Intent(this, SearchActivity.class);
-    startActivity(intent);
-
-    return false;
+    return super.onSearchRequested();
   }
 
   public void onCreate(Bundle savedInstanceState) {

@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -47,6 +48,7 @@ public class SearchActivity extends ListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+
     amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
     amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
 
@@ -58,41 +60,53 @@ public class SearchActivity extends ListActivity {
     service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.search);
+
+
+
     setTitle("Amenoid/Search");
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
     list = (ListView) findViewById(android.R.id.list);
-    View header = getLayoutInflater().inflate(R.layout.search_header, null, false);
-    list.addHeaderView(header);
+//    View header = getLayoutInflater().inflate(R.layout.search_header, null, false);
+//    list.addHeaderView(header);
 
     adapter = new AmenListAdapter(this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
     setListAdapter(adapter);
 
-    final EditText searchField = (EditText) findViewById(R.id.search_field);
+//    final EditText searchField = (EditText) findViewById(R.id.search_field);
 
-    Button searchButton = (Button) findViewById(R.id.submit_search);
-    searchButton.setOnClickListener(new View.OnClickListener() {
+//    Button searchButton = (Button) findViewById(R.id.submit_search);
+//    searchButton.setOnClickListener(new View.OnClickListener() {
+//
+//      public void onClick(View view) {
+//        Log.d(TAG, "Such!");
+////        Toast.makeText(SearchActivity.this, "Such: " + searchField.getText(), Toast.LENGTH_SHORT).show();
+//
+//        new LoaderAsyncTask(SearchActivity.this).execute(searchField.getText().toString());
+//
+//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//        imm.hideSoftInputFromWindow(searchField.getWindowToken(), 0);
+//
+//      }
+//    });
 
-      public void onClick(View view) {
-        Log.d(TAG, "Such!");
-//        Toast.makeText(SearchActivity.this, "Such: " + searchField.getText(), Toast.LENGTH_SHORT).show();
+    // Get the intent, verify the action and get the query
+    Intent intent = getIntent();
+    if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+      String query = intent.getStringExtra(SearchManager.QUERY);
 
-        new LoaderAsyncTask(SearchActivity.this).execute(searchField.getText().toString());
+      new LoaderAsyncTask(SearchActivity.this).execute(query);
+      setTitle("Amenoid/Search: " + query);
 
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(searchField.getWindowToken(), 0);
-
-      }
-    });
-
+    }
   }
 
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    if (position > 0 && position <= getListAdapter().getCount()) {
+    if (position > 0 && position < getListAdapter().getCount()) {
 
-      Amen amen = (Amen) getListAdapter().getItem(position - 1);
+      Amen amen = (Amen) getListAdapter().getItem(position);
 
       Log.d(TAG, "Selected Amen: " + amen);
 
@@ -134,7 +148,7 @@ public class SearchActivity extends ListActivity {
 //      list.setVisibility(View.INVISIBLE);
       progressBar.setVisibility(View.VISIBLE);
       progressDialog = ProgressDialog.show(SearchActivity.this, "",
-                                                        "Searching...", true);
+                                           "Searching...", true);
 
 //      progressDialog.show();
 

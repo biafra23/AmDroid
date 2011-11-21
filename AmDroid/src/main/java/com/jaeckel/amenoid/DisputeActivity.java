@@ -37,10 +37,12 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
   @Override
   public boolean onSearchRequested() {
-    Intent intent = new Intent(this, SearchActivity.class);
-    startActivity(intent);
+    return super.onSearchRequested();
 
-    return false;
+//    Intent intent = new Intent(this, SearchActivity.class);
+//    startActivity(intent);
+//
+//    return false;
   }
 
   public void onCreate(Bundle savedInstanceState) {

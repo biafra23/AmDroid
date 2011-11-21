@@ -69,12 +69,13 @@ public class AmenListActivity extends ListActivity {
   @Override
   public boolean onSearchRequested() {
 
+    return super.onSearchRequested();
 
 
-    Intent intent = new Intent(this, SearchActivity.class);
-    startActivity(intent);
-
-    return false;
+//    Intent intent = new Intent(this, SearchActivity.class);
+//    startActivity(intent);
+//
+//    return false;
   }
 
 

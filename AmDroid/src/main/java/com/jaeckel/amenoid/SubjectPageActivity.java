@@ -26,10 +26,8 @@ public class SubjectPageActivity extends ListActivity {
   @Override
   public boolean onSearchRequested() {
 
-    Intent intent = new Intent(this, SearchActivity.class);
-    startActivity(intent);
+    return super.onSearchRequested();
 
-    return false;
   }
 
   public void onCreate(Bundle savedInstanceState) {
