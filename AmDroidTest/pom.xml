@@ -36,14 +36,14 @@
       <groupId>com.jaeckel</groupId>
       <artifactId>amenoid</artifactId>
       <type>apk</type>
-      <version>1.0-ALPHA11</version>
+      <version>1.0-ALPHA12</version>
       <classifier>${zipaligned-classifier}</classifier> <!--  classifier set according to the ran profile -->
     </dependency>
     <dependency>
       <groupId>com.jaeckel</groupId>
       <artifactId>amenoid</artifactId>
       <type>jar</type>
-      <version>1.0-ALPHA11</version>
+      <version>1.0-ALPHA12</version>
     </dependency>
       <dependency>
             <groupId>com.jayway.android.robotium</groupId>
