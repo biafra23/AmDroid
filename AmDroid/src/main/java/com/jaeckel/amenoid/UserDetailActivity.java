@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -69,6 +70,12 @@ public class UserDetailActivity extends ListActivity {
   @Override
   public boolean onSearchRequested() {
     return super.onSearchRequested();
+  }
+
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+
   }
 
   public void onCreate(Bundle savedInstanceState) {

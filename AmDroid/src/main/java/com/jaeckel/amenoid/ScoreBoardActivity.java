@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -59,6 +60,11 @@ public class ScoreBoardActivity extends ListActivity {
     startActivity(intent);
 
     return false;
+  }
+
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
   }
 
   public void onCreate(Bundle savedInstanceState) {
@@ -223,4 +229,6 @@ public class ScoreBoardActivity extends ListActivity {
 
     return false;
   }
+
+
 }

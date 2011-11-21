@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,9 +46,14 @@ public class SearchActivity extends ListActivity {
 
   private ProgressDialog progressDialog;
 
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+
+  }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
 
     amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
     amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
@@ -60,7 +66,6 @@ public class SearchActivity extends ListActivity {
     service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.search);
-
 
 
     setTitle("Amenoid/Search");

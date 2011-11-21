@@ -3,8 +3,11 @@ package com.jaeckel.amenoid;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.app.AmenoidApp;
@@ -30,6 +33,12 @@ public class SubjectPageActivity extends ListActivity {
 
   }
 
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+
+  }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
@@ -46,6 +55,21 @@ public class SubjectPageActivity extends ListActivity {
     new GetDataTask(this).execute(objectId);
   }
 
+  @Override
+  protected void onListItemClick(ListView l, View v, int position, long id) {
+
+    if (position < getListAdapter().getCount()) {
+
+      Amen amen = (Amen) getListAdapter().getItem(position);
+
+      Log.d(TAG, "Selected Amen: " + amen);
+
+      //TODO: make AmenDetailActivity show statements as well
+      Intent intent = new Intent(this, AmenDetailActivity.class);
+      intent.putExtra(Constants.EXTRA_STATEMENT, amen.getStatement());
+      startActivity(intent);
+    }
+  }
 
   //
   // GetDataTask

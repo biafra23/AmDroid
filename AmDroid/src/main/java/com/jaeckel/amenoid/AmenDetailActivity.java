@@ -4,6 +4,7 @@ package com.jaeckel.amenoid;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -59,6 +60,12 @@ public class AmenDetailActivity extends ListActivity {
   @Override
   public boolean onSearchRequested() {
     return super.onSearchRequested();
+  }
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    Log.d(TAG, "onConfigurationChanged(): " + newConfig);
+//    setContentView(R.layout.myLayout);
   }
 
   public void onCreate(Bundle savedInstanceState) {
@@ -238,7 +245,7 @@ public class AmenDetailActivity extends ListActivity {
   }
 
   public static String format(Date firstPostedAt) {
-    SimpleDateFormat fmt = new SimpleDateFormat("dd, MMMMM yyyy - HH:mm");
+    SimpleDateFormat fmt = new SimpleDateFormat("dd. MMMMM yyyy - HH:mm");
 
     return fmt.format(firstPostedAt);
   }
@@ -421,8 +428,8 @@ public class AmenDetailActivity extends ListActivity {
         return true;
       }
       case R.id.share: {
-        String amenText = currentAmen.getStatement().toDisplayString();
 
+        String amenText = currentAmen.getStatement().toDisplayString();
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + currentAmen.getStatement().getId());
@@ -437,7 +444,7 @@ public class AmenDetailActivity extends ListActivity {
       case R.id.subject_page: {
         Intent intent = new Intent(this, SubjectPageActivity.class);
 
-        Toast.makeText(this, "id: " + currentAmen.getStatement().getObjekt().getId(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "id: " + currentAmen.getStatement().getObjekt().getId(), Toast.LENGTH_SHORT).show();
 
         intent.putExtra(Constants.EXTRA_OBJEKT_ID, currentAmen.getStatement().getObjekt().getId());
         startActivity(intent);

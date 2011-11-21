@@ -1,3 +1,6 @@
+Version 1.0-ALPHA11
+- BUGFIX: Subject page now links to details page
+
 Version 1.0-ALPHA10
 - BUGFIX: search off by one fix
 

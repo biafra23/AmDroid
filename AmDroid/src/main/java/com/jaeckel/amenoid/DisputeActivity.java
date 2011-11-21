@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -43,6 +44,13 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 //    startActivity(intent);
 //
 //    return false;
+  }
+
+  @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    Log.d(TAG, "onConfigurationChanged(): " + newConfig);
+//    setContentView(R.layout.myLayout);
   }
 
   public void onCreate(Bundle savedInstanceState) {
