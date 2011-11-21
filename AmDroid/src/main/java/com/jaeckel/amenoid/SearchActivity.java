@@ -104,7 +104,7 @@ public class SearchActivity extends ListActivity {
   @Override
   protected void onListItemClick(ListView l, View v, int position, long id) {
 
-    if (position > 0 && position < getListAdapter().getCount()) {
+    if (position < getListAdapter().getCount()) {
 
       Amen amen = (Amen) getListAdapter().getItem(position);
 
