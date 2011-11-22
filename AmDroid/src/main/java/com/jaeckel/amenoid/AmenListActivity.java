@@ -335,9 +335,7 @@ public class AmenListActivity extends ListActivity {
       case R.id.search_menu_item: {
         Log.d(TAG, "R.id.search");
 
-        Intent intent = new Intent(this, SearchActivity.class);
-        startActivity(intent);
-
+        onSearchRequested();
         return true;
       }
     }

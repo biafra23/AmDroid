@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+
+    <EditText android:id="@+id/amen_label"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:gravity="center"
+              android:text="Amen"
+              android:textSize="64dp"
+              android:textColor="@color/light_grey"
+            />
+
+
+    <EditText android:id="@+id/login"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:gravity="center_horizontal"
+              android:text="Login"
+              android:textSize="18dp"
+
+            />
+    <EditText android:id="@+id/sign_up"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:gravity="center_horizontal"
+              android:text="Sign up"
+              android:textSize="18dp"
+            />
+
+    <EditText android:id="@+id/dive_in"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:gravity="center_horizontal"
+              android:text="Dive in"
+              android:textSize="18dp"
+
+            />
+    <EditText android:id="@+id/about"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:gravity="center_horizontal"
+              android:text="About Amen"
+
+            />
+    <EditText android:id="@+id/about_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="About Amen"
+
+              />
+
+</LinearLayout>

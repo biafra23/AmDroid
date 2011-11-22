@@ -9,7 +9,7 @@
                  android:label="@string/app_name"
                  android:name=".app.AmenoidApp"
                  android:debuggable="true"
-                 android:configChanges="orientation"
+
             >
         <meta-data android:name="android.app.default_searchable"
                    android:value=".SearchActivity"/>
@@ -33,19 +33,32 @@
         <!--<activity android:screenOrientation="portrait" android:name=".AmenDetailActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".DisputeActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".MakeStatementActivity"/>-->
-        <activity android:name=".EditPreferencesActivity"/>
-        <activity android:name=".AmenDetailActivity"/>
-        <activity android:name=".DisputeActivity"/>
-        <activity android:name=".statement.MakeStatementActivity"/>
-        <activity android:name=".statement.ChooseStatementTypeActivity"/>
-        <activity android:name=".statement.ChooseObjektActivity"/>
-        <activity android:name=".statement.ChooseScopeActivity"/>
-        <activity android:name=".statement.ChooseTopicActivity"/>
-        <activity android:name=".UserDetailActivity"/>
-        <activity android:name=".ScoreBoardActivity"/>
-        <activity android:name=".AboutActivity"/>
-        <activity android:name=".SettingsActivity"/>
-        <activity android:name=".UrlResolver">
+        <activity android:name=".EditPreferencesActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".AmenDetailActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".DisputeActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".statement.MakeStatementActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".statement.ChooseStatementTypeActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".statement.ChooseObjektActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".statement.ChooseScopeActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".statement.ChooseTopicActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".UserDetailActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".ScoreBoardActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".AboutActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".SettingsActivity"
+                  android:configChanges="orientation"/>
+        <activity android:name=".UrlResolver"
+                  android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -59,9 +72,11 @@
                 <!-- amen://local.domain/ -->
             </intent-filter>
         </activity>
-        <activity android:name=".SubjectPageActivity"/>
-        <activity android:name=".app.ViewPagerActivity"/>
-        <activity android:name=".SearchActivity">
+        <activity android:name=".SubjectPageActivity"
+                  android:configChanges="orientation"/>
+        <!--<activity android:name=".app.ViewPagerActivity"/>-->
+        <activity android:name=".SearchActivity"
+                  android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
@@ -69,6 +84,7 @@
                        android:resource="@xml/searchable"/>
 
         </activity>
+        <activity android:name=".StartPageActivity"/>
 
         <service android:name=".AmenAndroidService"
                 />
