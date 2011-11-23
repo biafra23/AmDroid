@@ -4,6 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jaeckel.amenoid.AmenListActivity;
 import com.jayway.android.robotium.solo.Solo;
 
@@ -19,6 +20,7 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
   }
 
   public void testActivity() {
+    Toast.makeText(getActivity(), "testActivity", Toast.LENGTH_SHORT).show();
     AmenListActivity activity = getActivity();
     assertNotNull(activity);
   }
@@ -27,8 +29,31 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     solo = new Solo(getInstrumentation(), getActivity());
   }
 
+//  @Smoke
+//  public void testEnterCredentials() throws Exception {
+//    Toast.makeText(getActivity(), "testEnterCredentials", Toast.LENGTH_SHORT).show();
+//
+//    solo.clickOnButton("Ok");
+//
+//    ArrayList<TextView> views = solo.clickInList(0);
+//    for (TextView textView : views) {
+//      Log.d(TAG, "textView: " + textView);
+//      Log.d(TAG, "textView: " + textView.getText());
+//    }
+////    solo.enterText();
+////    solo.enterText("d@eu.ro");
+//    solo.clickOnButton(0);
+//
+//    solo.clickInList(1);
+//    solo.enterText(0, "foobar23");
+//    solo.clickOnButton(0);
+//
+//  }
+
   @Smoke
-  public void testEnterCredentials() throws Exception {
+  public void testMenu() throws Exception {
+    Toast.makeText(getActivity(), "testMenu", Toast.LENGTH_SHORT).show();
+
     solo.clickOnButton("Ok");
 
     ArrayList<TextView> views = solo.clickInList(0);
