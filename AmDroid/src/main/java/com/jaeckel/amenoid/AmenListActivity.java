@@ -84,6 +84,11 @@ public class AmenListActivity extends ListActivity {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
 
+
+//    AmenDBAdapter dbAdapter = new AmenDBAdapter(this);
+//    Log.i(TAG, "dbAdapter: " + dbAdapter);
+
+
     setContentView(R.layout.main);
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
