@@ -3,12 +3,16 @@ package com.jaeckel.amenoid.test;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
 import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.jaeckel.amenoid.AmenListActivity;
 import com.jayway.android.robotium.solo.Solo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
 
@@ -50,28 +54,28 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 //
 //  }
 
-  @Smoke
-  public void testMenu() throws Exception {
-    Toast.makeText(getActivity(), "testMenu", Toast.LENGTH_SHORT).show();
-
-    solo.clickOnButton("Ok");
-
-    ArrayList<TextView> views = solo.clickInList(0);
-    for (TextView textView : views) {
-      Log.d(TAG, "textView: " + textView);
-      Log.d(TAG, "textView: " + textView.getText());
-    }
-//    solo.enterText();
-//    solo.enterText("d@eu.ro");
-    solo.clickOnButton(0);
-
-    solo.clickInList(1);
-    solo.enterText(0, "foobar23");
-    solo.clickOnButton(0);
-
-  }
-
 //  @Smoke
+//  public void testMenu() throws Exception {
+//    Toast.makeText(getActivity(), "testMenu", Toast.LENGTH_SHORT).show();
+//
+//    solo.clickOnButton("Ok");
+//
+//    ArrayList<TextView> views = solo.clickInList(0);
+//    for (TextView textView : views) {
+//      Log.d(TAG, "textView: " + textView);
+//      Log.d(TAG, "textView: " + textView.getText());
+//    }
+////    solo.enterText();
+////    solo.enterText("d@eu.ro");
+//    solo.clickOnButton(0);
+//
+//    solo.clickInList(1);
+//    solo.enterText(0, "foobar23");
+//    solo.clickOnButton(0);
+//
+//  }
+
+  //  @Smoke
 //  public void testAddNote() throws Exception {
 //    solo.clickOnMenuItem("Add note");
 //    //Assert that NoteEditor activity is opened
@@ -92,24 +96,58 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 //
 //  }
 //
-//  @Smoke
-//  public void testEditNote() throws Exception {
-//    // Click on the second list line
-//    solo.clickInList(2);
-//    // Change orientation of activity
-//    solo.setActivityOrientation(Solo.LANDSCAPE);
-//    // Change title
-//    solo.clickOnMenuItem("Edit title");
-//    //In first text field (0), add test
-//    solo.enterText(0, " test");
-//    solo.goBackToActivity("NotesList");
-//    boolean expected = true;
-//    // (Regexp) case insensitive
-//    boolean actual = solo.searchText("(?i).*?note 1 test");
-//    //Assert that Note 1 test is found
-//    assertEquals("Note 1 test is not found", expected, actual);
-//
-//  }
+  @Smoke
+  public void testShowDetails() throws Exception {
+
+    ArrayList<View> views = solo.getViews();
+    Log.d(TAG, "views.size(): " + views.size());
+
+    for (View v : views) {
+      Log.d(TAG, "v: " + v);
+    }
+    while (hasVisibleProgressView(solo.getViews())) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+    if (hasVisibleListView(solo.getViews())) {
+      Log.d(TAG, "HAS VISIBLE LISTVIEWs");
+    }
+
+    List<ListView> listViews = solo.getCurrentListViews();
+
+    assertTrue(listViews.size() == 1);
+
+    for (int i = 1; i < 20; i++) {
+
+      List<TextView> texts = solo.clickInList(i);
+
+      for (TextView t : texts) {
+        Log.d(TAG, "TextView: " + t);
+      }
+      solo.sleep(1000);
+      solo.goBack();
+    }
+  }
+
+  private boolean hasVisibleListView(ArrayList<View> views) {
+    for (View v : views) {
+//        Log.d(TAG, "v: " + v);
+      if (v.getClass() == ListView.class && v.getVisibility() == View.VISIBLE) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean hasVisibleProgressView(ArrayList<View> views) {
+    for (View v : views) {
+//      Log.d(TAG, "v: " + v);
+      if (v.getClass() == ProgressBar.class && v.getVisibility() == View.VISIBLE) {
+        return true;
+      }
+    }
+    return false;
+  }
 //
 //
 //  @Smoke
