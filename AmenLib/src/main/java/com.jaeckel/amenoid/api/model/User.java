@@ -28,6 +28,8 @@ public class User implements Parcelable {
   private Boolean    following;
   private List<Amen> recentAmen;
   private String     authToken;
+  private String     bio;
+  private String     username;
 
 
   public User() {
@@ -81,6 +83,8 @@ public class User implements Parcelable {
            ", following=" + following +
            ", recentAmen=" + recentAmen +
            ", authToken='" + authToken + '\'' +
+           ", bio='" + bio + '\'' +
+           ", username='" + username + '\'' +
            '}';
   }
 
@@ -194,7 +198,60 @@ public class User implements Parcelable {
     dest.writeValue(following);
     dest.writeString(authToken);
     dest.writeString(photo);
+    dest.writeString(bio);
+    dest.writeString(username);
 
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    User user = (User) o;
+
+    if (authToken != null ? !authToken.equals(user.authToken) : user.authToken != null) return false;
+    if (bio != null ? !bio.equals(user.bio) : user.bio != null) return false;
+    if (createdAt != null ? !createdAt.equals(user.createdAt) : user.createdAt != null) return false;
+    if (createdStatementsCount != null ? !createdStatementsCount.equals(user.createdStatementsCount) : user.createdStatementsCount != null)
+      return false;
+    if (followersCount != null ? !followersCount.equals(user.followersCount) : user.followersCount != null)
+      return false;
+    if (following != null ? !following.equals(user.following) : user.following != null) return false;
+    if (followingCount != null ? !followingCount.equals(user.followingCount) : user.followingCount != null)
+      return false;
+    if (givenAmenCount != null ? !givenAmenCount.equals(user.givenAmenCount) : user.givenAmenCount != null)
+      return false;
+    if (id != null ? !id.equals(user.id) : user.id != null) return false;
+    if (name != null ? !name.equals(user.name) : user.name != null) return false;
+    if (photo != null ? !photo.equals(user.photo) : user.photo != null) return false;
+    if (picture != null ? !picture.equals(user.picture) : user.picture != null) return false;
+    if (receivedAmenCount != null ? !receivedAmenCount.equals(user.receivedAmenCount) : user.receivedAmenCount != null)
+      return false;
+    if (recentAmen != null ? !recentAmen.equals(user.recentAmen) : user.recentAmen != null) return false;
+    if (username != null ? !username.equals(user.username) : user.username != null) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (picture != null ? picture.hashCode() : 0);
+    result = 31 * result + (photo != null ? photo.hashCode() : 0);
+    result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
+    result = 31 * result + (createdStatementsCount != null ? createdStatementsCount.hashCode() : 0);
+    result = 31 * result + (givenAmenCount != null ? givenAmenCount.hashCode() : 0);
+    result = 31 * result + (receivedAmenCount != null ? receivedAmenCount.hashCode() : 0);
+    result = 31 * result + (followersCount != null ? followersCount.hashCode() : 0);
+    result = 31 * result + (followingCount != null ? followingCount.hashCode() : 0);
+    result = 31 * result + (following != null ? following.hashCode() : 0);
+    result = 31 * result + (recentAmen != null ? recentAmen.hashCode() : 0);
+    result = 31 * result + (authToken != null ? authToken.hashCode() : 0);
+    result = 31 * result + (bio != null ? bio.hashCode() : 0);
+    result = 31 * result + (username != null ? username.hashCode() : 0);
+    return result;
   }
 
   private void readFromParcel(Parcel in) {
@@ -212,6 +269,8 @@ public class User implements Parcelable {
     following = (Boolean) in.readValue(cl);
     authToken = in.readString();
     photo = in.readString();
+    bio = in.readString();
+    username = in.readString();
   }
 
   public String getAuthToken() {
@@ -233,50 +292,19 @@ public class User implements Parcelable {
     this.photo = photo;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-
-    User user = (User) o;
-
-    if (authToken != null ? !authToken.equals(user.authToken) : user.authToken != null) return false;
-    if (createdAt != null ? !createdAt.equals(user.createdAt) : user.createdAt != null) return false;
-    if (createdStatementsCount != null ? !createdStatementsCount.equals(user.createdStatementsCount) : user.createdStatementsCount != null)
-      return false;
-    if (followersCount != null ? !followersCount.equals(user.followersCount) : user.followersCount != null)
-      return false;
-    if (following != null ? !following.equals(user.following) : user.following != null) return false;
-    if (followingCount != null ? !followingCount.equals(user.followingCount) : user.followingCount != null)
-      return false;
-    if (givenAmenCount != null ? !givenAmenCount.equals(user.givenAmenCount) : user.givenAmenCount != null)
-      return false;
-    if (id != null ? !id.equals(user.id) : user.id != null) return false;
-    if (name != null ? !name.equals(user.name) : user.name != null) return false;
-    if (photo != null ? !photo.equals(user.photo) : user.photo != null) return false;
-    if (picture != null ? !picture.equals(user.picture) : user.picture != null) return false;
-    if (receivedAmenCount != null ? !receivedAmenCount.equals(user.receivedAmenCount) : user.receivedAmenCount != null)
-      return false;
-    if (recentAmen != null ? !recentAmen.equals(user.recentAmen) : user.recentAmen != null) return false;
-
-    return true;
+  public String getBio() {
+    return bio;
   }
 
-  @Override
-  public int hashCode() {
-    int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
-    result = 31 * result + (picture != null ? picture.hashCode() : 0);
-    result = 31 * result + (photo != null ? photo.hashCode() : 0);
-    result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-    result = 31 * result + (createdStatementsCount != null ? createdStatementsCount.hashCode() : 0);
-    result = 31 * result + (givenAmenCount != null ? givenAmenCount.hashCode() : 0);
-    result = 31 * result + (receivedAmenCount != null ? receivedAmenCount.hashCode() : 0);
-    result = 31 * result + (followersCount != null ? followersCount.hashCode() : 0);
-    result = 31 * result + (followingCount != null ? followingCount.hashCode() : 0);
-    result = 31 * result + (following != null ? following.hashCode() : 0);
-    result = 31 * result + (recentAmen != null ? recentAmen.hashCode() : 0);
-    result = 31 * result + (authToken != null ? authToken.hashCode() : 0);
-    return result;
+  public void setBio(String bio) {
+    this.bio = bio;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
   }
 }
