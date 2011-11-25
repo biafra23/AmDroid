@@ -1,17 +1,16 @@
 package com.jaeckel.amenoid.test;
 
+import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
+import com.jaeckel.amenoid.AboutActivity;
 import com.jaeckel.amenoid.AmenListActivity;
+import com.jaeckel.amenoid.SearchActivity;
+import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jayway.android.robotium.solo.Solo;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
 
@@ -32,141 +31,172 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     solo = new Solo(getInstrumentation(), getActivity());
   }
 
-//  @Smoke
-//  public void testEnterCredentials() throws Exception {
-//    Toast.makeText(getActivity(), "testEnterCredentials", Toast.LENGTH_SHORT).show();
-//
-//    solo.clickOnButton("Ok");
-//
-//    ArrayList<TextView> views = solo.clickInList(0);
-//    for (TextView textView : views) {
-//      Log.d(TAG, "textView: " + textView);
-//      Log.d(TAG, "textView: " + textView.getText());
-//    }
-////    solo.enterText();
-////    solo.enterText("d@eu.ro");
-//    solo.clickOnButton(0);
-//
-//    solo.clickInList(1);
-//    solo.enterText(0, "foobar23");
-//    solo.clickOnButton(0);
-//
-//  }
-
-//  @Smoke
-//  public void testMenu() throws Exception {
-//    Toast.makeText(getActivity(), "testMenu", Toast.LENGTH_SHORT).show();
-//
-//    solo.clickOnButton("Ok");
-//
-//    ArrayList<TextView> views = solo.clickInList(0);
-//    for (TextView textView : views) {
-//      Log.d(TAG, "textView: " + textView);
-//      Log.d(TAG, "textView: " + textView.getText());
-//    }
-////    solo.enterText();
-////    solo.enterText("d@eu.ro");
-//    solo.clickOnButton(0);
-//
-//    solo.clickInList(1);
-//    solo.enterText(0, "foobar23");
-//    solo.clickOnButton(0);
-//
-//  }
-
-  //  @Smoke
-//  public void testAddNote() throws Exception {
-//    solo.clickOnMenuItem("Add note");
-//    //Assert that NoteEditor activity is opened
-//    solo.assertCurrentActivity("Expected NoteEditor activity", "NoteEditor");
-//    //In text field 0, add Note 1
-//    solo.enterText(0, "Note 1");
-//    solo.goBack();
-//    //Clicks on menu item
-//    solo.clickOnMenuItem("Add note");
-//    //In text field 0, add Note 2
-//    solo.enterText(0, "Note 2");
-//    //Go back to first activity named "NotesList"
-//    solo.goBackToActivity("NotesList");
-//    boolean expected = true;
-//    boolean actual = solo.searchText("Note 1") && solo.searchText("Note 2");
-//    //Assert that Note 1 & Note 2 are found
-//    assertEquals("Note 1 and/or Note 2 are not found", expected, actual);
-//
-//  }
-//
   @Smoke
-  public void testShowDetails() throws Exception {
-
-    ArrayList<View> views = solo.getViews();
-    Log.d(TAG, "views.size(): " + views.size());
-
-    for (View v : views) {
-      Log.d(TAG, "v: " + v);
-    }
+  public void testMenusWhileSignedIn() throws Exception {
     while (hasVisibleProgressView()) {
       solo.sleep(1000);
       Log.d(TAG, "ProgressBar still visible");
     }
-    if (hasVisibleListView()) {
-      Log.d(TAG, "HAS VISIBLE LISTVIEWs");
-    }
 
-    List<ListView> listViews = solo.getCurrentListViews();
+  }
 
-    assertTrue(listViews.size() == 1);
-
-    for (int i = 1; i < 20; i++) {
-
-      List<TextView> texts = solo.clickInList(i);
-
-      for (TextView t : texts) {
-        Log.d(TAG, "TextView: " + t.getText());
-
-      }
+  @Smoke
+  public void testMenusWhileSignedInRefresh() throws Exception {
+    while (hasVisibleProgressView()) {
       solo.sleep(1000);
-      solo.goBack();
+      Log.d(TAG, "ProgressBar still visible");
     }
+    solo.clickOnMenuItem("Refresh");
+    solo.sleep(100);
+    assertTrue(hasVisibleProgressView());
+    solo.sleep(1000);
+    Log.d(TAG, "ProgressBar still visible");
   }
 
-  private boolean hasVisibleListView() {
-    for (View v : solo.getCurrentListViews()) {
-        Log.d(TAG, "v: " + v);
-      if (v.getVisibility() == View.VISIBLE) {
-        return true;
-      }
+
+  @Smoke
+  public void testMenusWhileSignedInPopular() throws Exception {
+    Log.d(TAG, "testMenusWhileSignedInPopular start... ");
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
     }
-    return false;
+
+    solo.clickOnMenuItem("Popular");
+    solo.sleep(100);
+    assertTrue(hasVisibleProgressView());
+
+    solo.goBack();
+    Log.d(TAG, "testMenusWhileSignedInPopular done. ");
+
   }
 
-  private boolean hasVisibleProgressView() {
-    for (View v : solo.getCurrentProgressBars()) {
-      Log.d(TAG, "v: " + v);
-      if (v.getVisibility() == View.VISIBLE) {
-        return true;
-      }
+  @Smoke
+  public void testMenusWhileSignedInNew() throws Exception {
+    Log.d(TAG, "testMenusWhileSignedInNew start... ");
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
     }
-    return false;
+    solo.clickOnMenuItem("New");
+    solo.sleep(100);
+    assertTrue(hasVisibleProgressView());
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+
+    solo.goBack();
+    Log.d(TAG, "testMenusWhileSignedInNew done. ");
+
   }
-//
-//
+
+  @Smoke
+  public void testMenusWhileSignedInAmen() throws Exception {
+    Log.d(TAG, "testMenusWhileSignedInAmen start... ");
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+    solo.clickOnMenuItem("Amen sth.");
+    solo.sleep(100);
+    Log.d(TAG, "Waiting for Activity: " + ChooseStatementTypeActivity.class.getName());
+    solo.waitForActivity(SearchActivity.class.getName(), 10);
+
+    Activity a = solo.getCurrentActivity();
+    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.statement.ChooseStatementTypeActivity");
+    solo.goBack();
+    Log.d(TAG, "testMenusWhileSignedInAmen done. ");
+
+  }
+
+
+  @Smoke
+  public void testMenusWhileSignedInSearch() throws Exception {
+    Log.d(TAG, "testMenusWhileSignedInSearch start... ");
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+    solo.clickOnMenuItem("Search", true);
+    solo.sleep(100);
+    Log.d(TAG, "Waiting for Activity: " + SearchActivity.class.getName());
+    solo.waitForActivity(SearchActivity.class.getName(), 10);
+
+    Activity a = solo.getCurrentActivity();
+    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.SearchActivity");
+    solo.goBack();
+    Log.d(TAG, "testMenusWhileSignedInSearch done. ");
+
+  }
+
+  @Smoke
+  public void testMenusWhileSignedInAbout() throws Exception {
+    Log.d(TAG, "testMenusWhileSignedInAbout start... ");
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+    solo.clickOnMenuItem("About", true);
+
+    Log.d(TAG, "Waiting for Activity: " + AboutActivity.class.getName());
+    solo.waitForActivity(AboutActivity.class.getName(), 10);
+
+    Activity a = solo.getCurrentActivity();
+    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AboutActivity");
+    solo.goBack();
+
+    Log.d(TAG, "testMenusWhileSignedInAbout done. ");
+
+  }
+//    List<Activity> activities = solo.getAllOpenedActivities();
+//    for (Activity a : activities) {
+//      Log.d(TAG, "Activities: " + a.getClass());
+//    }
 //  @Smoke
-//  public void testRemoveNote() throws Exception {
-//    //(Regexp) case insensitive/text that contains "test"
-//    solo.clickOnText("(?i).*?test.*");
-//    //Delete Note 1 test
-//    solo.clickOnMenuItem("Delete");
-//    //Note 1 test & Note 2 should not be found
-//    boolean expected = false;
-//    boolean actual = solo.searchText("Note 1 test");
-//    //Assert that Note 1 test is not found
-//    assertEquals("Note 1 Test is found", expected, actual);
-//    solo.clickLongOnText("Note 2");
-//    //Clicks on Delete in the context menu
-//    solo.clickOnText("(?i).*?Delete.*");
-//    actual = solo.searchText("Note 2");
-//    //Assert that Note 2 is not found
-//    assertEquals("Note 2 is found", expected, actual);
+//  public void testShowDetails() throws Exception {
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    if (hasVisibleListView()) {
+//      Log.d(TAG, "HAS VISIBLE LISTVIEWs");
+//    }
+//
+//    List<ListView> listViews = solo.getCurrentListViews();
+//
+//    assertTrue(listViews.size() == 1);
+//    ListView listView = listViews.get(0);
+//
+//    for (int i = 0; i < listView.getChildCount(); i++) {
+//      View subView = listView.getChildAt(i);
+//
+//      Log.d(TAG, i + ": subView:" + subView.getClass());
+//    }
+//
+//
+//    for (int i = 1; i < 20; i++) {
+//
+//      List<TextView> texts = solo.clickInList(i);
+//
+//      for (TextView t : texts) {
+//        Log.d(TAG, "TextView: " + t.getText());
+//
+//      }
+//      solo.sleep(1000);
+//      solo.goBack();
+//    }
+
 //  }
 
   @Override
@@ -180,5 +210,28 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     getActivity().finish();
     super.tearDown();
   }
+
+// helper methods
+
+  private boolean hasVisibleListView() {
+    for (View v : solo.getCurrentListViews()) {
+//      Log.d(TAG, "v: " + v);
+      if (v.getVisibility() == View.VISIBLE) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean hasVisibleProgressView() {
+    for (View v : solo.getCurrentProgressBars()) {
+//      Log.d(TAG, "v: " + v);
+      if (v.getVisibility() == View.VISIBLE) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
 
