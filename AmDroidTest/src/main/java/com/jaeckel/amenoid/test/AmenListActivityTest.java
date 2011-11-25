@@ -5,7 +5,6 @@ import android.test.suitebuilder.annotation.Smoke;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.jaeckel.amenoid.AmenListActivity;
@@ -105,11 +104,11 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     for (View v : views) {
       Log.d(TAG, "v: " + v);
     }
-    while (hasVisibleProgressView(solo.getViews())) {
+    while (hasVisibleProgressView()) {
       solo.sleep(1000);
       Log.d(TAG, "ProgressBar still visible");
     }
-    if (hasVisibleListView(solo.getViews())) {
+    if (hasVisibleListView()) {
       Log.d(TAG, "HAS VISIBLE LISTVIEWs");
     }
 
@@ -122,27 +121,28 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
       List<TextView> texts = solo.clickInList(i);
 
       for (TextView t : texts) {
-        Log.d(TAG, "TextView: " + t);
+        Log.d(TAG, "TextView: " + t.getText());
+
       }
       solo.sleep(1000);
       solo.goBack();
     }
   }
 
-  private boolean hasVisibleListView(ArrayList<View> views) {
-    for (View v : views) {
-//        Log.d(TAG, "v: " + v);
-      if (v.getClass() == ListView.class && v.getVisibility() == View.VISIBLE) {
+  private boolean hasVisibleListView() {
+    for (View v : solo.getCurrentListViews()) {
+        Log.d(TAG, "v: " + v);
+      if (v.getVisibility() == View.VISIBLE) {
         return true;
       }
     }
     return false;
   }
 
-  private boolean hasVisibleProgressView(ArrayList<View> views) {
-    for (View v : views) {
-//      Log.d(TAG, "v: " + v);
-      if (v.getClass() == ProgressBar.class && v.getVisibility() == View.VISIBLE) {
+  private boolean hasVisibleProgressView() {
+    for (View v : solo.getCurrentProgressBars()) {
+      Log.d(TAG, "v: " + v);
+      if (v.getVisibility() == View.VISIBLE) {
         return true;
       }
     }
