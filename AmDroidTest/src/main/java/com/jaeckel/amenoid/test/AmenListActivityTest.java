@@ -42,15 +42,17 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 
   @Smoke
   public void testMenusWhileSignedInRefresh() throws Exception {
+    Log.d(TAG, "testMenusWhileSignedInRefresh start... ");
+
     while (hasVisibleProgressView()) {
       solo.sleep(1000);
       Log.d(TAG, "ProgressBar still visible");
     }
     solo.clickOnMenuItem("Refresh");
-    solo.sleep(100);
-    assertTrue(hasVisibleProgressView());
-    solo.sleep(1000);
-    Log.d(TAG, "ProgressBar still visible");
+
+    // how to check if it refreshed here?
+
+    Log.d(TAG, "testMenusWhileSignedInRefresh done. ");
   }
 
 
@@ -64,9 +66,24 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     }
 
     solo.clickOnMenuItem("Popular");
-    solo.sleep(100);
-    assertTrue(hasVisibleProgressView());
 
+    Log.d(TAG, "Waiting for Activity: " + AmenListActivity.class.getName());
+    solo.waitForActivity(AmenListActivity.class.getName(), 10);
+
+    Activity a = solo.getCurrentActivity();
+    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListActivity");
+
+    CharSequence title = a.getTitle();
+
+    assertEquals("Wrong title", title, "Amenoid/Timeline: Popular");
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+
+    solo.goBack();
     solo.goBack();
     Log.d(TAG, "testMenusWhileSignedInPopular done. ");
 
@@ -81,8 +98,14 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
       Log.d(TAG, "ProgressBar still visible");
     }
     solo.clickOnMenuItem("New");
-    solo.sleep(100);
-    assertTrue(hasVisibleProgressView());
+
+    Activity a = solo.getCurrentActivity();
+    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListActivity");
+
+    CharSequence title = a.getTitle();
+
+    assertEquals("Wrong title", title, "Amenoid/Timeline: New");
 
     while (hasVisibleProgressView()) {
       solo.sleep(1000);
@@ -129,10 +152,10 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     Log.d(TAG, "Waiting for Activity: " + SearchActivity.class.getName());
     solo.waitForActivity(SearchActivity.class.getName(), 10);
 
-    Activity a = solo.getCurrentActivity();
-    Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.SearchActivity");
-    solo.goBack();
+//    Activity a = solo.getCurrentActivity();
+//    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+//    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.SearchActivity");
+//    solo.goBack();
     Log.d(TAG, "testMenusWhileSignedInSearch done. ");
 
   }
@@ -158,6 +181,10 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     Log.d(TAG, "testMenusWhileSignedInAbout done. ");
 
   }
+
+  public void testListItemClicked() throws Exception {
+    Log.d(TAG, "testListItemClicked start... ");
+
 //    List<Activity> activities = solo.getAllOpenedActivities();
 //    for (Activity a : activities) {
 //      Log.d(TAG, "Activities: " + a.getClass());
@@ -196,8 +223,23 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 //      solo.sleep(1000);
 //      solo.goBack();
 //    }
+    Log.d(TAG, "testListItemClicked done. ");
 
-//  }
+  }
+
+  public void testListItemLongClicked() throws Exception {
+    Log.d(TAG, "testListItemLongClicked start... ");
+
+    Log.d(TAG, "testListItemLongClicked done. ");
+
+  }
+
+  public void testPullToRefresh() throws Exception {
+    Log.d(TAG, "testPullToRefresh start... ");
+
+    Log.d(TAG, "testPullToRefresh done. ");
+
+  }
 
   @Override
   public void tearDown() throws Exception {
