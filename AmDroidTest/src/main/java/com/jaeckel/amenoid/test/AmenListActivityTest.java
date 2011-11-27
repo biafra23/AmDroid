@@ -5,12 +5,16 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.Smoke;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.jaeckel.amenoid.AboutActivity;
+import com.jaeckel.amenoid.AmenDetailActivity;
 import com.jaeckel.amenoid.AmenListActivity;
-import com.jaeckel.amenoid.SearchActivity;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jayway.android.robotium.solo.Solo;
+
+import java.util.List;
 
 public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
 
@@ -29,6 +33,12 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 
   public void setUp() throws Exception {
     solo = new Solo(getInstrumentation(), getActivity());
+  }
+
+  @Smoke
+  public void testAAAA() throws Exception {
+    Log.d(TAG, "------------------------------------------------------------ starting tests...");
+
   }
 
   @Smoke
@@ -84,7 +94,6 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     }
 
     solo.goBack();
-    solo.goBack();
     Log.d(TAG, "testMenusWhileSignedInPopular done. ");
 
   }
@@ -128,7 +137,7 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     solo.clickOnMenuItem("Amen sth.");
     solo.sleep(100);
     Log.d(TAG, "Waiting for Activity: " + ChooseStatementTypeActivity.class.getName());
-    solo.waitForActivity(SearchActivity.class.getName(), 10);
+    solo.waitForActivity(ChooseStatementTypeActivity.class.getName(), 10);
 
     Activity a = solo.getCurrentActivity();
     Log.d(TAG, "Current Activity: " + a.getClass().getName());
@@ -149,14 +158,16 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     }
     solo.clickOnMenuItem("Search", true);
     solo.sleep(100);
-    Log.d(TAG, "Waiting for Activity: " + SearchActivity.class.getName());
-    solo.waitForActivity(SearchActivity.class.getName(), 10);
 
-//    Activity a = solo.getCurrentActivity();
-//    Log.d(TAG, "Current Activity: " + a.getClass().getName());
-//    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.SearchActivity");
-//    solo.goBack();
-    Log.d(TAG, "testMenusWhileSignedInSearch done. ");
+    List<Activity> activities = solo.getAllOpenedActivities();
+
+    for (Activity a : activities) {
+      Log.d(TAG, "a.title: " + a.getTitle());
+      Log.d(TAG, "a: " + a);
+    }
+
+
+    Log.d(TAG, "testMenusWhileSignedInSearch nothing done. ");
 
   }
 
@@ -182,67 +193,129 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 
   }
 
+  @Smoke
   public void testListItemClicked() throws Exception {
     Log.d(TAG, "testListItemClicked start... ");
 
-//    List<Activity> activities = solo.getAllOpenedActivities();
-//    for (Activity a : activities) {
-//      Log.d(TAG, "Activities: " + a.getClass());
-//    }
-//  @Smoke
-//  public void testShowDetails() throws Exception {
-//
-//    while (hasVisibleProgressView()) {
-//      solo.sleep(1000);
-//      Log.d(TAG, "ProgressBar still visible");
-//    }
-//    if (hasVisibleListView()) {
-//      Log.d(TAG, "HAS VISIBLE LISTVIEWs");
-//    }
-//
-//    List<ListView> listViews = solo.getCurrentListViews();
-//
-//    assertTrue(listViews.size() == 1);
-//    ListView listView = listViews.get(0);
-//
-//    for (int i = 0; i < listView.getChildCount(); i++) {
-//      View subView = listView.getChildAt(i);
-//
-//      Log.d(TAG, i + ": subView:" + subView.getClass());
-//    }
-//
-//
-//    for (int i = 1; i < 20; i++) {
-//
-//      List<TextView> texts = solo.clickInList(i);
-//
-//      for (TextView t : texts) {
-//        Log.d(TAG, "TextView: " + t.getText());
-//
-//      }
-//      solo.sleep(1000);
-//      solo.goBack();
-//    }
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+    while (!hasVisibleListView()) {
+      Log.d(TAG, "No visible ListView, yet");
+      solo.sleep(1000);
+    }
+    Log.d(TAG, "HAS VISIBLE LISTVIEWs");
+
+    for (int i = 0; i< 19 ; i++) {
+      checkDetails(i);
+    }
     Log.d(TAG, "testListItemClicked done. ");
 
   }
 
+  private void checkDetails(int position) {
+
+    Log.d(TAG, "----- SNIP -------");
+    Log.d(TAG, "Checking details of Amen at position: " + position);
+
+    List<ListView> listViews = solo.getCurrentListViews();
+
+    assertEquals(1, listViews.size());
+    ListView listView = listViews.get(0);
+
+    for (int i = 0; i < listView.getChildCount(); i++) {
+      View subView = listView.getChildAt(i);
+
+      Log.d(TAG, i + ": subView: id: " + subView.getId());
+    }
+
+//    View view = listView.getChildAt();
+
+    List<TextView> texts = solo.clickInList(position);
+
+    CharSequence statement = texts.get(2).getText();
+    Log.d(TAG, "Statement: " + statement);
+
+
+    for (TextView t : texts) {
+      Log.d(TAG, "TextView.text: " + t.getText());
+
+    }
+
+    Log.d(TAG, "Waiting for Activity: " + AmenDetailActivity.class.getName());
+    solo.waitForActivity(AmenDetailActivity.class.getName(), 10);
+
+    Activity a = solo.getCurrentActivity();
+    assertEquals( "com.jaeckel.amenoid.AmenDetailActivity", a.getClass().getName());
+
+    while (hasVisibleProgressView()) {
+      solo.sleep(1000);
+      Log.d(TAG, "ProgressBar still visible");
+    }
+    while (!hasVisibleListView()) {
+      Log.d(TAG, "No visible ListView, yet");
+      solo.sleep(1000);
+    }
+    Log.d(TAG, "HAS VISIBLE LISTVIEWs");
+
+    listViews = solo.getCurrentListViews();
+
+    assertEquals(1, listViews.size());
+
+    listView = listViews.get(0);
+
+    for (int i = 0; i < listView.getChildCount(); i++) {
+      View subView = listView.getChildAt(i);
+
+      Log.d(TAG, i + ": subView: id: " + subView.getId());
+    }
+
+    texts = solo.clickInList(0); // leads to scorecard
+
+    solo.goBack();
+
+    for (TextView t : texts) {
+      Log.d(TAG, "text: " + t.getText());
+
+    }
+
+    CharSequence detailStatement = texts.get(0).getText();
+
+    Log.d(TAG, "DetailStatement: " + detailStatement);
+    Log.d(TAG, "      Statement: " + statement);
+
+    assertEquals(statement.toString(), detailStatement.toString());
+
+    solo.sleep(1000);
+    solo.goBack();
+  }
+
+  @Smoke
   public void testListItemLongClicked() throws Exception {
     Log.d(TAG, "testListItemLongClicked start... ");
 
-    Log.d(TAG, "testListItemLongClicked done. ");
+    Log.d(TAG, "testListItemLongClicked nothing done. ");
 
   }
 
+  @Smoke
   public void testPullToRefresh() throws Exception {
     Log.d(TAG, "testPullToRefresh start... ");
 
-    Log.d(TAG, "testPullToRefresh done. ");
+    Log.d(TAG, "testPullToRefresh nothing done. ");
+
+  }
+
+  @Smoke
+  public void testZZZZ() throws Exception {
+    Log.d(TAG, "------------------------------------------------------------ all tests done.");
 
   }
 
   @Override
   public void tearDown() throws Exception {
+    Log.d(TAG, "tearDown()...");
     try {
       //Robotium will finish all the activities that have been opened
       solo.finalize();
@@ -251,6 +324,8 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
     }
     getActivity().finish();
     super.tearDown();
+    Log.d(TAG, "done.");
+
   }
 
 // helper methods

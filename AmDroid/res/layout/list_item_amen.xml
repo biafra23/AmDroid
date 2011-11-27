@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/1"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="horizontal">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/2"
                   android:layout_width="wrap_content"
                   android:layout_height="fill_parent"
                   android:orientation="vertical"
@@ -22,12 +24,14 @@
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/3"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
                   android:orientation="vertical"
 
             >
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:id="@+id/4"
                       android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
