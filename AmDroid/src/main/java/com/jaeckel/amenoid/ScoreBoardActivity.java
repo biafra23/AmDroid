@@ -91,11 +91,11 @@ public class ScoreBoardActivity extends ListActivity {
     Intent startingIntent = getIntent();
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
-    Long currentTopicId = startingIntent.getLongExtra(Constants.EXTRA_TOPIC_ID, -1L);
     String currentTopicName = startingIntent.getStringExtra(Constants.EXTRA_TOPIC_NAME);
     int currentObjectKind = startingIntent.getIntExtra(Constants.EXTRA_OBJEKT_KIND, 0);
 
     Log.d(TAG, "currentTopic: " + currentTopic);
+    Log.d(TAG, "currentTopicName: " + currentTopicName);
     if (currentTopic != null) {
 
       new TopicStatementsTask(this).execute(currentTopic.getId() + "");
@@ -180,7 +180,7 @@ public class ScoreBoardActivity extends ListActivity {
 
     protected void wrappedOnPostExecute(final Topic topic) {
 
-      if (topic != null) {
+      if (topic != null && topic.getRankedStatements() != null) {
         currentTopic = topic;
         description.setText(currentTopic.getAsSentence());
         adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());

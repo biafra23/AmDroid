@@ -45,7 +45,7 @@ public class UrlResolver extends Activity {
         }
         Intent startScoreboard = new Intent(this, ScoreBoardActivity.class);
         if (id > 0) {
-          startScoreboard.putExtra(Constants.EXTRA_TOPIC_ID, id);
+          startScoreboard.putExtra(Constants.EXTRA_TOPIC_NAME, id + "");
         } else {
           startScoreboard.putExtra(Constants.EXTRA_TOPIC_NAME, topic);
         }
