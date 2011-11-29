@@ -64,7 +64,7 @@ public interface AmenService {
 
   public Amen getAmenForId(Long id) throws IOException;
 
-  public Topic getTopicsForId(Long id, Long includeStatementId) throws IOException;
+  public Topic getTopicsForId(String id, Long includeStatementId) throws IOException;
 
   public List<User> followers(Long id) throws IOException;
 

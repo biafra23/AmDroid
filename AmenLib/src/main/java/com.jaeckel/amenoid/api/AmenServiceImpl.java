@@ -368,7 +368,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Topic getTopicsForId(Long id, Long includeStatementId) throws IOException {
+  public Topic getTopicsForId(String id, Long includeStatementId) throws IOException {
 
     log.debug("getTopicsForId");
     Topic topic;

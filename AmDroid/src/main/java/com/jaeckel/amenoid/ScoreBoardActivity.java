@@ -92,13 +92,17 @@ public class ScoreBoardActivity extends ListActivity {
 
     currentTopic = startingIntent.getParcelableExtra(Constants.EXTRA_TOPIC);
     Long currentTopicId = startingIntent.getLongExtra(Constants.EXTRA_TOPIC_ID, -1L);
+    String currentTopicName = startingIntent.getStringExtra(Constants.EXTRA_TOPIC_NAME);
     int currentObjectKind = startingIntent.getIntExtra(Constants.EXTRA_OBJEKT_KIND, 0);
 
     Log.d(TAG, "currentTopic: " + currentTopic);
     if (currentTopic != null) {
-      new TopicStatementsTask(this).execute(currentTopic.getId());
+
+      new TopicStatementsTask(this).execute(currentTopic.getId() + "");
+
     } else {
-      new TopicStatementsTask(this).execute(currentTopicId);
+
+      new TopicStatementsTask(this).execute(currentTopicName);
 
     }
 
@@ -136,13 +140,13 @@ public class ScoreBoardActivity extends ListActivity {
   //
   // TopicStatementsTask
   //
-  private class TopicStatementsTask extends AmenLibTask<Long, Integer, Topic> {
+  private class TopicStatementsTask extends AmenLibTask<String, Integer, Topic> {
 
     public TopicStatementsTask(Activity context) {
       super(context);
     }
 
-    protected Topic wrappedDoInBackground(Long... topicId) {
+    protected Topic wrappedDoInBackground(String... topicId) {
       try {
         return service.getTopicsForId(topicId[0], null);
 

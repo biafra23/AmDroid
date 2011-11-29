@@ -35,12 +35,20 @@ public class UrlResolver extends Activity {
         finish();
       }
       if ("topics".equalsIgnoreCase(pathSegments.get(0))) {
+        String topic = pathSegments.get(1);
+        Long id = -1L;
+        try {
+          id = Long.parseLong(topic);
 
-        Long id = Long.valueOf(pathSegments.get(1));
-
+        } catch (Exception e) {
+          // id still -1
+        }
         Intent startScoreboard = new Intent(this, ScoreBoardActivity.class);
-        startScoreboard.putExtra(Constants.EXTRA_TOPIC_ID, id);
-
+        if (id > 0) {
+          startScoreboard.putExtra(Constants.EXTRA_TOPIC_ID, id);
+        } else {
+          startScoreboard.putExtra(Constants.EXTRA_TOPIC_NAME, topic);
+        }
         startActivity(startScoreboard);
 
         finish();
