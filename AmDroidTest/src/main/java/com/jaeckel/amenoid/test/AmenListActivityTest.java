@@ -127,7 +127,7 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
   }
 
   @Smoke
-  public void testMenusWhileSignedInAmen() throws Exception {
+  public void testMenusWhileSignedInAmenSomething() throws Exception {
     Log.d(TAG, "testMenusWhileSignedInAmen start... ");
 
     while (hasVisibleProgressView()) {
