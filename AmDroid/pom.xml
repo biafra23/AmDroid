@@ -11,7 +11,7 @@
 
     <groupId>com.jaeckel</groupId>
     <artifactId>amenoid</artifactId>
-    <version>1.0-ALPHA12</version>
+    <version>1.0-ALPHA13</version>
     <packaging>apk</packaging>
     <name>Amenoid - Application</name>
 
@@ -37,15 +37,15 @@
             <version>r4</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.viewpagerindicator</groupId>-->
-            <!--<artifactId>library</artifactId>-->
-            <!--<version>1.2.1</version>-->
-            <!--<type>apklib</type>-->
+        <!--<groupId>com.viewpagerindicator</groupId>-->
+        <!--<artifactId>library</artifactId>-->
+        <!--<version>1.2.1</version>-->
+        <!--<type>apklib</type>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>com.directionalviewpager</groupId>-->
-            <!--<artifactId>library</artifactId>-->
-            <!--<version>1.2.0</version>-->
+        <!--<groupId>com.directionalviewpager</groupId>-->
+        <!--<artifactId>library</artifactId>-->
+        <!--<version>1.2.0</version>-->
         <!--</dependency>-->
 
     </dependencies>

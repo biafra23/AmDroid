@@ -27,9 +27,8 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/r" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/r" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target/android-classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/combined-resources" />
@@ -59,7 +58,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-android:1.6.1-RC1" level="project" />
     <orderEntry type="library" name="Maven: android.support:compatibility-v4:r4" level="project" />
-    <orderEntry type="module" module-name="AmDroid" />
+    <orderEntry type="library" name="Maven: com.jaeckel:amenoid:1.0-ALPHA12" level="project" />
     <orderEntry type="library" name="Maven: com.jayway.android.robotium:robotium-solo:3.0" level="project" />
     <orderEntry type="jdk" jdkName="Android 2.1-update1 Platform (1)" jdkType="Android SDK" />
   </component>
