@@ -159,7 +159,7 @@ public class AmenServiceITest extends TestCase {
 
   public void testGetTopics() throws IOException {
 
-    Topic topic = service.getTopicsForId(29020L, null);
+    Topic topic = service.getTopicsForId(29020 + "", null);
 
     assertEquals("Wrong topics", (Long) 29020L, topic.getId());
     assertNotNull("Topic has null rankedStatements", topic.getRankedStatements());
@@ -297,5 +297,19 @@ public class AmenServiceITest extends TestCase {
       }
     }
 
+  public void testGetAmenForUser() throws IOException {
+        System.out.println("testGetAmenForUser");
+        List<Amen> result = service.getAmenForUser("dirkjaeckel", 0L);
+
+        assertNotNull(result);
+
+        for (Amen a : result) {
+          System.out.println("a: " + a);
+  //        assertTrue(a.toString().toLowerCase().contains("\"best\":false"));
+//          assertTrue(a.toString().toLowerCase().contains("customer"));
+//          assertTrue(a.toString().toLowerCase().contains("service"));
+
+        }
+      }
 
 }

@@ -33,8 +33,9 @@ public class UrlResolver extends Activity {
         startActivity(startUserDetailActivity);
 
         finish();
-      }
-      if ("topics".equalsIgnoreCase(pathSegments.get(0))) {
+
+      } else if ("topics".equalsIgnoreCase(pathSegments.get(0))) {
+
         String topic = pathSegments.get(1);
         Long id = -1L;
         try {
@@ -52,11 +53,23 @@ public class UrlResolver extends Activity {
         startActivity(startScoreboard);
 
         finish();
+
+      } else {
+        String name = pathSegments.get(0);
+
+        if ("account".equals(name)) {
+          Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+          startActivity(browserIntent);
+
+        }
+        Intent startUserDetailActivity = new Intent(this, UserDetailActivity.class);
+        startUserDetailActivity.putExtra(Constants.EXTRA_USER_ID_STRING, name);
+
+        startActivity(startUserDetailActivity);
+
+        finish();
       }
-
     }
-
-
   }
 
 

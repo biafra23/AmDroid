@@ -56,7 +56,11 @@ public interface AmenService {
 
   public List<Amen> getAmenForUser(Long userId, Long lastAmenId) throws IOException;
 
+  public List<Amen> getAmenForUser(String userName, Long lastAmenId) throws IOException;
+
   public User getUserForId(Long id) throws IOException;
+
+  public User getUserForId(String id) throws IOException;
 
   public Amen addStatement(Statement statement) throws IOException;
 

@@ -107,10 +107,18 @@ public class UserDetailActivity extends ListActivity {
       new AmenForUserTask(this).execute(currentUser.getId());
       new UserInfoTask(this).execute(currentUser.getId());
     } else {
+
       Long currentUserId = startingIntent.getLongExtra(Constants.EXTRA_USER_ID, -1L);
+      String currentUserName = startingIntent.getStringExtra(Constants.EXTRA_USER_ID_STRING);
+
       if (currentUserId != -1L) {
         new AmenForUserTask(this).execute(currentUserId);
         new UserInfoTask(this).execute(currentUserId);
+      } else if (!TextUtils.isEmpty(currentUserName)) {
+
+        new AmenForUserNameTask(this).execute(currentUserName);
+        new UserNameInfoTask(this).execute(currentUserName);
+
       } else {
         Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
       }
@@ -217,6 +225,49 @@ public class UserDetailActivity extends ListActivity {
     }
   }
 
+  //
+  // AmenForUserNameTask
+  //
+  private class AmenForUserNameTask extends AmenLibTask<String, Integer, List<Amen>> {
+    Activity context;
+
+    public AmenForUserNameTask(Activity context) {
+      super(context);
+      this.context = context;
+    }
+
+    protected List<Amen> wrappedDoInBackground(String... ids) throws IOException {
+
+      List<Amen> amen = service.getAmenForUser(ids[0], 0L);
+
+      return amen;
+    }
+
+    @Override
+    protected void onPreExecute() {
+    }
+
+    protected void wrappedOnPostExecute(List<Amen> result) {
+      if (context.hasWindowFocus())
+        if (result != null) {
+          if (result.size() == 0) {
+            stopAppending = true;
+          }
+          adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
+
+          EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
+
+          setListAdapter(endless);
+//        setListAdapter(adapter);
+
+        } else {
+          stopAppending = true;
+        }
+
+      progressBar.setVisibility(View.GONE);
+      list.setVisibility(View.VISIBLE);
+    }
+  }
 
   //
 // UserInfoTask
@@ -301,6 +352,94 @@ public class UserDetailActivity extends ListActivity {
 
     }
   }
+
+  //
+// UserInfoTask
+//
+  private class UserNameInfoTask extends AmenLibTask<String, Integer, User> {
+
+    public UserNameInfoTask(Activity context) {
+      super(context);
+    }
+
+    protected User wrappedDoInBackground(String... ids) throws IOException {
+
+      final User user = service.getUserForId(ids[0]);
+
+      final SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = AmenoidApp.getInstance().getCache();
+      String pictureUrl = user.getPhoto();
+      if (TextUtils.isEmpty(pictureUrl)) {
+        pictureUrl = user.getPicture();
+        if (pictureUrl != null) {
+          pictureUrl += "?type=normal";
+        }
+      }
+      Log.d("UserDetailActivity", "pictureUrl: " + pictureUrl);
+      userImage = cache.get(pictureUrl);
+      currentUser = user;
+
+      return user;
+    }
+
+    protected void wrappedOnPostExecute(final User user) {
+
+      if (user != null) {
+
+        TextView userName = (TextView) findViewById(R.id.name);
+        userName.setText(user.getName());
+        final TextView follow = (TextView) findViewById(R.id.follow);
+
+        if (user.getFollowing() != null && user.getFollowing()) {
+          follow.setBackgroundColor(Color.CYAN);
+          follow.setText("Following");
+          meIsFollowing = true;
+
+        } else {
+          follow.setBackgroundColor(Color.GRAY);
+          meIsFollowing = false;
+
+        }
+
+        follow.setOnClickListener(new View.OnClickListener() {
+          public void onClick(View view) {
+            if (user.getFollowing()) {
+              new UnFollowTask(UserDetailActivity.this).execute(user);
+
+//              service.unfollow(currentUser);
+              follow.setBackgroundColor(Color.GRAY);
+            } else {
+              new FollowTask(UserDetailActivity.this).execute(user);
+//              service.follow(currentUser);
+              follow.setBackgroundColor(Color.CYAN);
+            }
+          }
+        });
+
+        followers.setText(user.getFollowersCount() + " Followers");
+        following.setText(user.getFollowingCount() + " Following");
+
+        amenReceived.setText("Amen received: " + user.getReceivedAmenCount());
+
+        amenGiven.setText("Amen given: " + user.getGivenAmenCount());
+
+        originalAmen.setText("Original Amen: " + user.getCreatedStatementsCount());
+        if (user.getReceivedAmenCount() != null && user.getCreatedStatementsCount() != null) {
+          amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float) user.getCreatedStatementsCount()));
+        } else {
+          amenScore.setText("Amen Score: 0" );
+        }
+
+        accountCreated.setText("Account created: " + AmenDetailActivity.format(user.getCreatedAt()));
+
+        ImageView userImageView = (ImageView) findViewById(R.id.user_image);
+        userImageView.setImageDrawable(userImage);
+
+        currentUser = user;
+      }
+
+    }
+  }
+
 
   //
 // FollowTask

@@ -455,6 +455,40 @@ public class AmenServiceImpl implements AmenService {
 
   }
 
+
+  @Override
+  public List<Amen> getAmenForUser(String userName, Long lastAmenId) throws IOException {
+
+    log.debug("getAmenForUser(User)");
+
+    log.debug("getFeed");
+    ArrayList<Amen> result;
+    User u;
+    HashMap<String, String> params = createAuthenticatedParams();
+    if (lastAmenId > 0) {
+      params.put("last_amen_id", "" + lastAmenId);
+    }
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + userName + ".json", params);
+
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("getAmenForUser produced error: " + responseString);
+    }
+    Type collectionType = new TypeToken<List<Amen>>() {
+    }.getType();
+    u = gson.fromJson(responseString, User.class);
+
+
+    return u.getRecentAmen();
+
+
+  }
+
+
   @Override
   public User getUserForId(Long userId) throws IOException {
     log.debug("getUserInfo(User)");
@@ -463,6 +497,25 @@ public class AmenServiceImpl implements AmenService {
     HashMap<String, String> params = createAuthenticatedParams();
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/users/" + userId + ".json", params);
+
+
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+    result = gson.fromJson(responseString, User.class);
+
+    return result;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+  
+  @Override
+  public User getUserForId(String userName) throws IOException {
+    log.debug("getUserInfo(UserName)");
+    User result;
+
+    HashMap<String, String> params = createAuthenticatedParams();
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + userName + ".json", params);
 
 
     HttpResponse response = httpclient.execute(httpGet);
