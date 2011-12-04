@@ -1,3 +1,7 @@
+
+Version 1.0-ALPHA15
+- BUGFIX: Username links in follow emails handled properly
+
 Version 1.0-ALPHA14
 - BUGFIX: Disputed topics email links handled properly
 
