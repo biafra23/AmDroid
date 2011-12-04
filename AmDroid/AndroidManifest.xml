@@ -89,6 +89,9 @@
         <service android:name=".AmenAndroidService"
                 />
 
+        <provider android:name="com.jaeckel.amenoid.db.StatementsProvider"
+                  android:authorities="com.jaeckel.amenoid">
+        </provider>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

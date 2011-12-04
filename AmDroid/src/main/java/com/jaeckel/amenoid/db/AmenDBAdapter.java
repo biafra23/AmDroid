@@ -106,8 +106,6 @@ public class AmenDBAdapter {
   public int insertEntry(Amen _myObject) {
     // TODO: Create a new ContentValues to represent my row
     // and insert it into the database.
-
-
 //    return index;
     return 0;
   }
