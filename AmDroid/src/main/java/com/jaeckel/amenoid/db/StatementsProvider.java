@@ -41,6 +41,7 @@ public class StatementsProvider extends ContentProvider {
   public Cursor query(Uri uri, String[] projection, String selection,
                       String[] selectionArgs, String sortOrder) {
 
+
     //TODO: where do we fill the database?
     return dbAdapter.getAllEntries();
   }

@@ -61,6 +61,7 @@ public class AmenDetailActivity extends ListActivity {
   public boolean onSearchRequested() {
     return super.onSearchRequested();
   }
+
   @Override
   public void onConfigurationChanged(Configuration newConfig) {
     super.onConfigurationChanged(newConfig);
@@ -246,8 +247,10 @@ public class AmenDetailActivity extends ListActivity {
 
   public static String format(Date firstPostedAt) {
     SimpleDateFormat fmt = new SimpleDateFormat("dd. MMMMM yyyy - HH:mm");
-
-    return fmt.format(firstPostedAt);
+    if (firstPostedAt != null) {
+      fmt.format(firstPostedAt);
+    }
+    return "<date unknown>";
   }
 
   public void onPause() {

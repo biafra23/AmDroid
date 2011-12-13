@@ -1,3 +1,5 @@
+Version 1.0-ALPHA16
+- BUGFIX: Do not crash on empty dates
 
 Version 1.0-ALPHA15
 - BUGFIX: Username links in follow emails handled properly
