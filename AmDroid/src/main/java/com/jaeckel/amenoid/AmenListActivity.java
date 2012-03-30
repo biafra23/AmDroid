@@ -1,5 +1,28 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.DateSerializer;
+import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.api.model.User;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
+//import com.jaeckel.amenoid.db.AmenDao;
+import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.widget.PullToRefreshListView;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -18,27 +41,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.DateSerializer;
-import com.jaeckel.amenoid.api.model.Statement;
-import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
-import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
-import com.jaeckel.amenoid.util.AmenLibTask;
-import com.jaeckel.amenoid.widget.PullToRefreshListView;
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 //public class AmenListActivity extends FragmentActivity {
 public class AmenListActivity extends ListActivity {
@@ -65,6 +67,7 @@ public class AmenListActivity extends ListActivity {
   //  private AlertDialog enterCredentialsDialog;
   private static boolean shouldRefresh = false;
 
+  //private AmenDao amenDao;
 
   @Override
   public boolean onSearchRequested() {
@@ -84,9 +87,57 @@ public class AmenListActivity extends ListActivity {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
 
+/*
+ 4102       AmenListActivity  D  id: 137120
+  4102       AmenListActivity  D  created_at: 1326619879000
+  4102       AmenListActivity  D  user_id: 22653
+  4102       AmenListActivity  D  first_posted_at: null
+  4102       AmenListActivity  D  topic_id: 67242
+  4102       AmenListActivity  D  description: Radio Show
+  4102       AmenListActivity  D  scope: for Sunday Mornings
+  4102       AmenListActivity  D  name: Sunny Side Up on FM4
 
+ */
 //    AmenDBAdapter dbAdapter = new AmenDBAdapter(this);
-//    Log.i(TAG, "dbAdapter: " + dbAdapter);
+//    amenDao = AmenoidApp.getInstance().getAmenDao();
+//    Log.i(TAG, "amenDao: " + amenDao);
+//
+//
+//    Cursor c = amenDao.currentAmen();
+//
+//    if (c != null) {
+//      if (c.getCount() > 0) {
+//        c.moveToFirst();
+//        while (!c.isAfterLast()) {
+//          final int idIndex = c.getColumnIndex(AmenDBHelper.KEY_ID);
+//          if (idIndex >= 0) {
+//
+//          }
+//          final int createdAtIndex = c.getColumnIndex(AmenDBHelper.KEY_CREATED_AT);
+//
+//          Log.d(TAG, c.getString(idIndex) + ": "
+//                     + c.getLong(createdAtIndex) + " "
+//                     + c.getString(c.getColumnIndex(AmenDBHelper.KEY_USER_NAME)) + " "
+//                     + c.getLong(c.getColumnIndex(AmenDBHelper.KEY_BEST)) + " "
+//                     + c.getLong(c.getColumnIndex(AmenDBHelper.KEY_TOTAL_AMEN_COUNT)) + " "
+//                     + c.getString(c.getColumnIndex("objekt_name")) + " is "
+//                     + c.getString(c.getColumnIndex(AmenDBHelper.KEY_DESCRIPTION)) + " "
+//                     + c.getString(c.getColumnIndex(AmenDBHelper.KEY_SCOPE)) + " "
+//
+//               );
+//
+//
+//          c.moveToNext();
+//        }
+//
+//      } else {
+//        Log.i(TAG, "--------------------- NOTHING FOUND ----------------------------");
+//        Log.i(TAG, "Cursor.getCount(): " + c.getCount());
+//      }
+//    } else {
+//      Log.i(TAG, "Cursor: " + c);
+//
+//    }
 
 
     setContentView(R.layout.main);
@@ -491,6 +542,9 @@ public class AmenListActivity extends ListActivity {
 
       if (!isCancelled()) {
         List<Amen> amens = service.getFeed(lastAmenId, 20, feedType);
+
+//        amenDao.insertOrUpdate(amens);
+
         return amens;  //To change body of implemented methods use File | Settings | File Templates.
       }
 
@@ -564,6 +618,7 @@ public class AmenListActivity extends ListActivity {
         // no cached AMens found. Load from network
         Log.d(TAG, "Loader executing");
         amens = service.getFeed(0, 20, feedType);
+//        amenDao.insertOrUpdate(amens);
 
         saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":" + feedType);
 
@@ -626,6 +681,7 @@ public class AmenListActivity extends ListActivity {
       Log.d(TAG, "Loader executing");
 
       List<Amen> amens = service.getFeed(0, 20, feedType);
+//      amenDao.insertOrUpdate(amens);
 
       saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":" + feedType);
 
@@ -761,7 +817,7 @@ public class AmenListActivity extends ListActivity {
 
 //      } while (filteredAmens.size() == pageSize);
 
-
+     // amenDao.insertOrUpdate(newAmens);
       saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS + ":" + feedType);
       return newAmens;
     }

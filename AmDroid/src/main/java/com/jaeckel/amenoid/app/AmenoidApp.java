@@ -33,6 +33,8 @@ import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.db.AmenDBAdapter;
+import com.jaeckel.amenoid.db.AmenDao;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
@@ -64,7 +66,9 @@ public class AmenoidApp extends Application {
   private LocationListener locationListener;
   private PendingIntent    singleUpatePI;
   private Criteria         criteria;
+  private AmenDBAdapter    dbAdapter;
 
+  private AmenDao amenDao;
 
   //CWAC
 
@@ -101,6 +105,11 @@ public class AmenoidApp extends Application {
                                    .build());
     }
     super.onCreate();
+
+    dbAdapter = new AmenDBAdapter(this);
+    dbAdapter.open();
+
+    amenDao = dbAdapter.getAmenDao();
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -394,5 +403,11 @@ public class AmenoidApp extends Application {
     return amenTypeBold;
   }
 
+  public AmenDao getAmenDao() {
+    return amenDao;
+  }
 
+  public void setAmenDao(AmenDao amenDao) {
+    this.amenDao = amenDao;
+  }
 }

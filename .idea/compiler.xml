@@ -2,6 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/AmDroidTest/target/generated-sources/r" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroid/target/generated-sources/r" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroidTest/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroidTest/target/generated-sources/aidl" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroid/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroid/target/generated-sources/aidl" includeSubdirectories="true" />
+    </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="?*.properties" />
@@ -18,7 +26,7 @@
     <annotationProcessing enabled="false" useClasspath="true" />
   </component>
   <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_STRING" value="-target 1.6" />
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-target 1.5" />
     <option name="MAXIMUM_HEAP_SIZE" value="512" />
   </component>
 </project>

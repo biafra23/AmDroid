@@ -15,7 +15,7 @@ import java.util.List;
 public class Objekt implements Parcelable {
 
   private Long      id;
-  private Integer      kindId;
+  private Integer      kindId = 1;
   private String       name;
   private List<String> key;
   private String       category;

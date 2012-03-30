@@ -20,6 +20,10 @@
         <option name="RUN_PROCESS_RESOURCES_MAVEN_TASK" value="false" />
         <option name="GENERATE_UNSIGNED_APK" value="false" />
         <option name="CUSTOM_DEBUG_KEYSTORE_PATH" value="" />
+        <option name="PACK_TEST_CODE" value="false" />
+        <option name="RUN_PROGUARD" value="false" />
+        <option name="PROGUARD_CFG_PATH" value="/proguard.cfg" />
+        <resOverlayFolders />
       </configuration>
     </facet>
   </component>
@@ -29,14 +33,11 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/combined-assets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/r" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/target/android-classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/combined-assets" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/combined-resources" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/extracted-dependencies" />
-      <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -51,14 +52,14 @@
     <orderEntry type="library" name="Maven: org.json:json:20080701" level="project" />
     <orderEntry type="module" module-name="AmenLib" />
     <orderEntry type="library" name="Maven: bouncycastle:bcprov-jdk16:140" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: net.sf.flexjson:flexjson:2.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-classic:0.9.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-api:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-android:1.6.1-RC1" level="project" />
-    <orderEntry type="library" name="Maven: android.support:compatibility-v4:r4" level="project" />
+    <orderEntry type="library" name="Maven: android.support:compatibility-v4:r6" level="project" />
     <orderEntry type="jdk" jdkName="Android 2.1-update1 Platform (1)" jdkType="Android SDK" />
   </component>
 </module>

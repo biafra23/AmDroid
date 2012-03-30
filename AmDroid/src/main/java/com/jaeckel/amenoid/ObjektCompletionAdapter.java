@@ -1,5 +1,8 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.List;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -13,9 +16,6 @@ import android.widget.TextView;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.app.AmenoidApp;
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * User: biafra
