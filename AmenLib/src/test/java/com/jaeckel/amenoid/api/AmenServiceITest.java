@@ -63,7 +63,8 @@ public class AmenServiceITest extends TestCase {
 
     amens = service.getFeed(182126L, 3, AmenService.FEED_TYPE_FOLLOWING);
     assertEquals("Amen amount wrong", 3, amens.size());
-    assertEquals("Amen with wrong id", 182125L, (long) amens.get(0).getId());
+    System.out.println(" : " + amens.get(0));
+    assertEquals("Amen with wrong id", 182043, (long) amens.get(0).getId());
 
     amens = service.getFeed(AmenService.FEED_TYPE_FOLLOWING);
     assertEquals("Amen amount wrong", 25, amens.size());
@@ -220,12 +221,12 @@ public class AmenServiceITest extends TestCase {
     // https://getamen.com/objekts?q=a&kind_id=2
     System.out.println("testGetObjektsForThing");
 
-    final String amadeus = "amadeus";
+    final String amadeus = "wolfgang amadeus";
     List<Objekt> result = service.objektsForQuery(amadeus, AmenService.OBJEKT_KIND_THING, null, null);
 
     assertNotNull(result);
     for (Objekt o : result) {
-      assertTrue("", o.getName().toLowerCase().contains(amadeus.toLowerCase()));
+      assertTrue(o.toString().toLowerCase() + ".contains(" + amadeus + ")", o.toString().toLowerCase().contains(amadeus.toLowerCase()));
     }
     boolean foundMozart = false;
     for (Objekt o : result) {
@@ -233,6 +234,8 @@ public class AmenServiceITest extends TestCase {
 
         foundMozart = true;
         break;
+      } else {
+        System.out.println("o.getName(): " + o.getName());
       }
     }
 
