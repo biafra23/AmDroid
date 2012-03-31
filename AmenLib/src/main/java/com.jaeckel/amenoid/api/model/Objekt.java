@@ -2,6 +2,7 @@ package com.jaeckel.amenoid.api.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
@@ -14,15 +15,16 @@ import java.util.List;
  */
 public class Objekt implements Parcelable {
 
-  private Long      id;
-  private Integer      kindId = 1;
-  private String       name;
-  private List<String> key;
-  private String       category;
-  private String       defaultDescription;
-  private List<String> possibleDescriptions;
-  private List<String> possibleScopes;
-  private String       defaultScope;
+  private Long id;
+  private Integer kindId = 1;
+  private String          name;
+  private List<String>    key;
+  private String          category;
+  private String          defaultDescription;
+  private List<String>    possibleDescriptions;
+  private List<String>    possibleScopes;
+  private List<MediaItem> media;
+  private String          defaultScope;
 
 
   public Objekt() {
@@ -80,19 +82,21 @@ public class Objekt implements Parcelable {
     this.id = id;
   }
 
-  @Override
-  public String toString() {
-    return "Objekt{" +
-           "id=" + id +
-           ", kindId=" + kindId +
-           ", name='" + name + '\'' +
-           ", key=" + key +
-           ", category='" + category + '\'' +
-           ", defaultDescription='" + defaultDescription + '\'' +
-           ", possibleDescriptions=" + possibleDescriptions +
-           ", possibleScopes=" + possibleScopes +
-           ", defaultScope='" + defaultScope + '\'' +
-           '}';
+  @Override public String toString() {
+    final StringBuffer sb = new StringBuffer();
+    sb.append("Objekt");
+    sb.append("{id=").append(id);
+    sb.append(", kindId=").append(kindId);
+    sb.append(", name='").append(name).append('\'');
+    sb.append(", key=").append(key);
+    sb.append(", category='").append(category).append('\'');
+    sb.append(", defaultDescription='").append(defaultDescription).append('\'');
+    sb.append(", possibleDescriptions=").append(possibleDescriptions);
+    sb.append(", possibleScopes=").append(possibleScopes);
+    sb.append(", media=").append(media);
+    sb.append(", defaultScope='").append(defaultScope).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 
   public String json() {

@@ -1,20 +1,19 @@
 package com.jaeckel.amenoid.api.model;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.util.Log;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.GsonBuilder;
-import com.jaeckel.amenoid.api.AmenService;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
+import java.util.Date;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import java.util.Date;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.GsonBuilder;
+import com.jaeckel.amenoid.api.AmenService;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
 
 /**
  * User: biafra
@@ -26,15 +25,16 @@ public class Amen implements Parcelable {
   private transient final Logger log = LoggerFactory.getLogger("Amen");
 
 
-  private Long      id;
-  private Long      userId;
-  private User      user;
-  private Date      createdAt;
-  private Integer   kindId; //normal, amen, dispute ??
-  private Statement statement;
+  private Long            id;
+  private Long            userId;
+  private User            user;
+  private Date            createdAt;
+  private Integer         kindId; //normal, amen, dispute ??
+  private Statement       statement;
   //sometimes disputed Amen
-  private Amen      referringAmen;
-  private Long      referringAmenId;
+  private Amen            referringAmen;
+  private Long            referringAmenId;
+  private List<MediaItem> media;
 
   private static final String TAG = "Amen";
 
@@ -134,17 +134,21 @@ public class Amen implements Parcelable {
     this.referringAmen = referringAmen;
   }
 
-  @Override
-  public String toString() {
-    return "Amen{" +
-           "id=" + id +
-           ", userId=" + userId +
-           ", user=" + user +
-           ", createdAt=" + createdAt +
-           ", kindId=" + kindId +
-           ", statement=" + statement +
-           ", referringAmen=" + referringAmen +
-           '}';
+  @Override public String toString() {
+    final StringBuffer sb = new StringBuffer();
+    sb.append("Amen");
+    sb.append("{log=").append(log);
+    sb.append(", id=").append(id);
+    sb.append(", userId=").append(userId);
+    sb.append(", user=").append(user);
+    sb.append(", createdAt=").append(createdAt);
+    sb.append(", kindId=").append(kindId);
+    sb.append(", statement=").append(statement);
+    sb.append(", referringAmen=").append(referringAmen);
+    sb.append(", referringAmenId=").append(referringAmenId);
+    sb.append(", media=").append(media);
+    sb.append('}');
+    return sb.toString();
   }
 
   public String json() {

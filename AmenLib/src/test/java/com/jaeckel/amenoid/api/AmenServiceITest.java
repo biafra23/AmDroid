@@ -1,17 +1,19 @@
 package com.jaeckel.amenoid.api;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
-import junit.framework.TestCase;
-import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Properties;
+import junit.framework.TestCase;
 
 /**
  * User: biafra
@@ -273,46 +275,62 @@ public class AmenServiceITest extends TestCase {
   }
 
   public void testSearch() throws IOException {
-      System.out.println("testGetAmenForObjekt");
-      List<Amen> result = service.search("Drachenspielplatz");
+    System.out.println("testGetAmenForObjekt");
+    List<Amen> result = service.search("Drachenspielplatz");
 
-      assertNotNull(result);
+    assertNotNull(result);
 
-      for (Amen a : result) {
-        System.out.println("a: " + a);
-        assertTrue(a.toString().toLowerCase().contains("drachenspielplatz"));
+    for (Amen a : result) {
+      System.out.println("a: " + a);
+      assertTrue(a.toString().toLowerCase().contains("drachenspielplatz"));
 
-      }
     }
+  }
 
   public void testSearch2() throws IOException {
-      System.out.println("testGetAmenForObjekt");
-      List<Amen> result = service.search("worst customer service");
+    System.out.println("testGetAmenForObjekt");
+    List<Amen> result = service.search("worst customer service");
 
-      assertNotNull(result);
+    assertNotNull(result);
 
-      for (Amen a : result) {
-        System.out.println("a: " + a);
+    for (Amen a : result) {
+      System.out.println("a: " + a);
 //        assertTrue(a.toString().toLowerCase().contains("\"best\":false"));
-        assertTrue(a.toString().toLowerCase().contains("customer"));
-        assertTrue(a.toString().toLowerCase().contains("service"));
+      assertTrue(a.toString().toLowerCase().contains("customer"));
+      assertTrue(a.toString().toLowerCase().contains("service"));
 
-      }
     }
+  }
 
   public void testGetAmenForUser() throws IOException {
-        System.out.println("testGetAmenForUser");
-        List<Amen> result = service.getAmenForUser("dirkjaeckel", 0L);
+    System.out.println("testGetAmenForUser");
+    List<Amen> result = service.getAmenForUser("dirkjaeckel", 0L);
 
-        assertNotNull(result);
+    assertNotNull(result);
 
-        for (Amen a : result) {
-          System.out.println("a: " + a);
-  //        assertTrue(a.toString().toLowerCase().contains("\"best\":false"));
+    for (Amen a : result) {
+      System.out.println("a: " + a);
+      //        assertTrue(a.toString().toLowerCase().contains("\"best\":false"));
 //          assertTrue(a.toString().toLowerCase().contains("customer"));
 //          assertTrue(a.toString().toLowerCase().contains("service"));
 
-        }
-      }
+    }
+  }
 
+  public void testGetAmenWithMediaItem() throws IOException {
+//https://getamen.com/amen.json?last_amen_id=990399&limit=25&auth_token=GyG8p74rmAqo3ufU6bZq
+
+    System.out.println("testGetAmenForUser");
+    List<Amen> amens = service.getFeed(AmenService.FEED_TYPE_FOLLOWING);
+        assertEquals("Amen amount wrong", 25, amens.size());
+
+        amens = service.getFeed(990399L, 25, AmenService.FEED_TYPE_FOLLOWING);
+
+        assertNotNull(amens);
+
+        for (Amen a : amens) {
+          System.out.println("a: " + a);
+
+        }
+  }
 }
