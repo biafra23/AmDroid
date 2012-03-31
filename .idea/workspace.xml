@@ -16,7 +16,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="parse media items">
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="placeholder for media item">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml" />
     </list>
@@ -272,7 +272,7 @@
       <file leaf-file-name="list_item_amen.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="17" selection-start="942" selection-end="942" vertical-scroll-proportion="0.45126355">
+            <state line="83" column="14" selection-start="3555" selection-end="3555" vertical-scroll-proportion="0.9638989">
               <folding />
             </state>
           </provider>
@@ -1629,7 +1629,11 @@
       <created>1333209289555</created>
       <updated>1333209289555</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="placeholder for media item">
+      <created>1333209876641</created>
+      <updated>1333209876641</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -1706,7 +1710,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="parse media items" />
+    <option name="LAST_COMMIT_MESSAGE" value="placeholder for media item" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1720,7 +1724,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="drafting db adapter" />
     <MESSAGE value="more robotium stuff" />
     <MESSAGE value="even more robotium stuff" />
     <MESSAGE value="added bio and username" />
@@ -1745,6 +1748,7 @@
     <MESSAGE value="typo" />
     <MESSAGE value="version in pom" />
     <MESSAGE value="parse media items" />
+    <MESSAGE value="placeholder for media item" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1865,7 +1869,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="942" selection-end="942" vertical-scroll-proportion="0.45126355">
+        <state line="83" column="14" selection-start="3555" selection-end="3555" vertical-scroll-proportion="0.9638989">
           <folding />
         </state>
       </provider>
