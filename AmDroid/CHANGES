@@ -1,4 +1,8 @@
 Version 1.0-ALPHA16
+- PLATFORM: First, somewhat rough, support for Google TV
+- BUGFIX: Fixed a crash occurring when a place gets the first Amen
+
+Version 1.0-ALPHA16
 - BUGFIX: Do not crash on empty dates
 
 Version 1.0-ALPHA15
