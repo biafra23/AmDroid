@@ -1,71 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/id1"
-              android:layout_width="fill_parent"
+              android:id="@+id/id2"
+              android:layout_width="wrap_content"
               android:layout_height="fill_parent"
-              android:orientation="horizontal">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/id2"
-                  android:layout_width="wrap_content"
-                  android:layout_height="fill_parent"
-                  android:orientation="vertical"
+              android:orientation="vertical"
 
-            >
-        <ImageView android:id="@+id/user_image"
-                   android:layout_width="100dip"
-                   android:layout_height="100dip"
-                   android:src="@drawable/ic_menu_gear"
-                   android:paddingRight="5dp"
-                   android:paddingBottom="5dp"
-                   android:paddingTop="5dp"
-                   android:visibility="visible"
-                />
-    </LinearLayout>
+        >
+    <ImageView android:id="@+id/media_photo"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:contentDescription="Media"
+            />
+    <LinearLayout
+            android:id="@+id/id1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/id3"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  android:orientation="vertical"
-
-            >
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:id="@+id/id4"
-                      android:layout_width="fill_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
+        <LinearLayout android:id="@+id/id2"
+                      android:layout_width="wrap_content"
+                      android:layout_height="fill_parent"
+                      android:orientation="vertical"
 
                 >
-            <TextView android:id="@+id/user"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Franz Nase"
-                      android:paddingTop="2dp"
-                      android:paddingBottom="2dp"
-                      android:layout_weight="1"
-                    />
-            <TextView android:id="@+id/since"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="1d"
-                      android:paddingTop="2dp"
-                      android:paddingBottom="2dp"
-                      android:layout_gravity="right"
-                      android:layout_marginRight="5dp"
-
+            <ImageView android:id="@+id/user_image"
+                       android:layout_width="100dip"
+                       android:layout_height="100dip"
+                       android:src="@drawable/ic_menu_gear"
+                       android:paddingRight="5dp"
+                       android:paddingBottom="5dp"
+                       android:paddingTop="5dp"
+                       android:visibility="visible"
                     />
         </LinearLayout>
-        <TextView android:id="@+id/statement"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:paddingBottom="3dp"
-                  android:shadowColor="@color/dark_grey"
-                />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:id="@+id/id3"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:orientation="vertical"
+
+                >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                          android:id="@+id/id4"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+
+                    >
+                <TextView android:id="@+id/user"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Franz Nase"
+                          android:paddingTop="2dp"
+                          android:paddingBottom="2dp"
+                          android:layout_weight="1"
+                        />
+                <TextView android:id="@+id/since"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="1d"
+                          android:paddingTop="2dp"
+                          android:paddingBottom="2dp"
+                          android:layout_gravity="right"
+                          android:layout_marginRight="5dp"
+
+                        />
+            </LinearLayout>
+            <TextView android:id="@+id/statement"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
+                      android:textSize="20dp"
+                      android:layout_weight="1"
+                      android:paddingBottom="3dp"
+                      android:shadowColor="@color/dark_grey"
+                    />
 
 
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
