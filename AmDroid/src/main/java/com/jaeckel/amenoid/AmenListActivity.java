@@ -53,7 +53,7 @@ public class AmenListActivity extends ListActivity {
   final int pageSize = 20;
 
   private AmenService service;
-  private static final int[] IMAGE_IDS = {R.id.user_image};
+  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.media_photo};
   private AmenListAdapter   amenListAdapter;
   private SharedPreferences prefs;
   private Gson gson = new GsonBuilder()

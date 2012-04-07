@@ -67,7 +67,7 @@
             <TextView android:id="@+id/statement"
                       android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
-                      android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
+                      android:text="Lorem ipsum dolor sit amet. Ceterum censeo Karthago delendam esse. Hier noch mehr text als neben das Bild passt"
                       android:textSize="20dp"
                       android:layout_weight="1"
                       android:paddingBottom="3dp"
@@ -81,5 +81,6 @@
                android:layout_width="fill_parent"
                android:layout_height="wrap_content"
                android:contentDescription="Media"
+               android:visibility="gone"
             />
 </LinearLayout>

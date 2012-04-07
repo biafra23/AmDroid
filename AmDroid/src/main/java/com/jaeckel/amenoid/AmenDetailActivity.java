@@ -1,6 +1,22 @@
 package com.jaeckel.amenoid;
 
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.api.model.Topic;
+import com.jaeckel.amenoid.api.model.User;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amenoid.util.AmenLibTask;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -16,21 +32,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.Statement;
-import com.jaeckel.amenoid.api.model.Topic;
-import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
-import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
-import com.jaeckel.amenoid.util.AmenLibTask;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 /**
  * User: biafra
@@ -99,6 +100,13 @@ public class AmenDetailActivity extends ListActivity {
 
     } else {
       currentStatement = currentAmen.getStatement();
+    }
+
+    if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
+      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl()"
+                 + currentStatement.getObjekt().getMedia().get(0).getContentUrl());
+    } else {
+      Log.d(TAG, "currentStatement.getMedia() -> empty");
     }
 
     header.setOnClickListener(new View.OnClickListener() {

@@ -198,6 +198,7 @@ public class Objekt implements Parcelable {
     dest.writeString(defaultDescription);
     dest.writeList(possibleDescriptions);
     dest.writeList(possibleScopes);
+    dest.writeList(media);
     dest.writeString(defaultScope);
     dest.writeValue(id);
   }
@@ -212,6 +213,7 @@ public class Objekt implements Parcelable {
     defaultDescription = in.readString();
     possibleDescriptions = in.readArrayList(cl);
     possibleScopes = in.readArrayList(cl);
+    media = in.readArrayList(cl);
     defaultScope = in.readString();
     id = (Long) in.readValue(cl);
   }
@@ -224,4 +226,11 @@ public class Objekt implements Parcelable {
     this.possibleScopes = possibleScopes;
   }
 
+  public List<MediaItem> getMedia() {
+    return media;
+  }
+
+  public void setMedia(List<MediaItem> media) {
+    this.media = media;
+  }
 }

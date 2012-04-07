@@ -227,6 +227,22 @@ public class Amen implements Parcelable {
   }
 
 
+  public Long getReferringAmenId() {
+    return referringAmenId;
+  }
+
+  public void setReferringAmenId(Long referringAmenId) {
+    this.referringAmenId = referringAmenId;
+  }
+
+  public List<MediaItem> getMedia() {
+    return media;
+  }
+
+  public void setMedia(List<MediaItem> media) {
+    this.media = media;
+  }
+
   /*
   *
   *   PARCEL STUFF
@@ -288,12 +304,5 @@ public class Amen implements Parcelable {
 
   }
 
-  public Long getReferringAmenId() {
-    return referringAmenId;
-  }
-
-  public void setReferringAmenId(Long referringAmenId) {
-    this.referringAmenId = referringAmenId;
-  }
 }
 

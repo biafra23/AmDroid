@@ -1,21 +1,23 @@
 package com.jaeckel.amenoid;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.List;
+
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
 
-import java.util.List;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * User: biafra
@@ -47,6 +49,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       row.setTag(R.id.user, row.findViewById(R.id.user));
       row.setTag(R.id.statement, row.findViewById(R.id.statement));
       row.setTag(R.id.user_image, row.findViewById(R.id.user_image));
+      row.setTag(R.id.media_photo, row.findViewById(R.id.media_photo));
       row.setTag(R.id.since, row.findViewById(R.id.since));
 
     }
@@ -81,6 +84,23 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     userImage.setImageResource(R.drawable.placeholder);
     userImage.setTag(pictureUrl);
 
+    //Media Photo
+    ImageView mediaPhoto = (ImageView) row.getTag(R.id.media_photo);
+
+    if (amen.getMedia().size() > 0) {
+
+      mediaPhoto.setVisibility(View.VISIBLE);
+      String mediaUrl = amen.getMedia().get(0).getContentUrl();
+
+
+
+      Log.d("AmenListAdapter", "mediaUrl: " + mediaUrl);
+      mediaPhoto.setImageResource(R.drawable.placeholder);
+      mediaPhoto.setTag(mediaUrl);
+
+    } else {
+      mediaPhoto.setVisibility(View.GONE);
+    }
     long now = System.currentTimeMillis();
     if (amen.getCreatedAt() != null) {
       long createdAtDate = amen.getCreatedAt().getTime();

@@ -1,10 +1,18 @@
 package com.jaeckel.amenoid.api.model;
 
+import java.util.Date;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+
 /**
  * @author biafra
  * @date 3/31/12 4:41 PM
  */
-public class MediaItem {
+public class MediaItem implements Parcelable {
+
+  private static final String TAG = "MediaItem";
 
   private String type;
   private String contentUrl;
@@ -44,4 +52,57 @@ public class MediaItem {
   public void setContributor_name(String contributor_name) {
     this.contributor_name = contributor_name;
   }
+
+   /*
+  *
+  *   PARCEL STUFF
+  *
+  */
+
+  public static final Parcelable.Creator<MediaItem> CREATOR = new Parcelable.Creator<MediaItem>() {
+
+    public MediaItem[] newArray(int size) {
+      return new MediaItem[size];
+    }
+
+    public MediaItem createFromParcel(Parcel source) {
+      return new MediaItem(source);
+    }
+  };
+
+  private MediaItem(Parcel in) {
+    readFromParcel(in);
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    Log.d(TAG, "writeToParcel");
+    if (dest == null) {
+      throw new RuntimeException("Parcel must not be null");
+
+    }
+    dest.writeValue(type);
+    dest.writeValue(contentUrl);
+    dest.writeValue(contributor_name);
+
+
+    Log.d(TAG, "writeToParcel. done.‚");
+
+  }
+
+  private void readFromParcel(Parcel in) {
+    final ClassLoader cl = getClass().getClassLoader();
+
+    type = (String) in.readValue(cl);
+    contentUrl = (String) in.readValue(cl);
+    contributor_name = (String) in.readValue(cl);
+
+  }
+
 }
