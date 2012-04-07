@@ -87,7 +87,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     //Media Photo
     ImageView mediaPhoto = (ImageView) row.getTag(R.id.media_photo);
 
-    if (amen.getMedia().size() > 0) {
+    if (amen.getMedia() != null && amen.getMedia().size() > 0) {
 
       mediaPhoto.setVisibility(View.VISIBLE);
       String mediaUrl = amen.getMedia().get(0).getContentUrl();
