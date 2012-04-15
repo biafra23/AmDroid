@@ -1,3 +1,7 @@
+Version 1.0-ALPHA18
+- PLATFORM: Fixed signing process for BlackBerry AppWorld
+- NEW: Pictures (media) in the timelines (new/following/popular)
+
 Version 1.0-ALPHA17
 - PLATFORM: First, somewhat rough, support for Google TV
 - BUGFIX: Fixed a crash occurring when a place gets the first Amen
