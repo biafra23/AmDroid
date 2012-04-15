@@ -8,7 +8,7 @@
   </parent>
   <groupId>com.jaeckel</groupId>
   <artifactId>amenoid</artifactId>
-  <version>1.0-ALPHA17</version>
+  <version>1.0-ALPHA19</version>
   <packaging>apk</packaging>
   <name>Amenoid - Application</name>
   <dependencies>

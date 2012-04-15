@@ -1,3 +1,6 @@
+Version 1.0-ALPHA19
+- DUMMY: Cannot rdk sign bar file with same version twice (BlackBerry limitation)
+
 Version 1.0-ALPHA18
 - PLATFORM: Fixed signing process for BlackBerry AppWorld
 - NEW: Pictures (media) in the timelines (new/following/popular)
