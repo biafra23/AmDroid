@@ -141,8 +141,11 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     } else if (since < 60 * 60 * 24 * 7) {
       return (since / 60 / 60 / 24) + "d";
 
-    } else if (since < 60 * 60 * 24 * 7) {
+    } else if (since < 60 * 60 * 24 * 7 * 4) {
       return (since / 60 / 60 / 24 / 7) + "w";
+
+    } else if (since < 60 * 60 * 24 * 7 * 4 * 12) {
+      return (since / 60 / 60 / 24 / 7 / 4) + "mo";
     }
 
     return "";
