@@ -29,12 +29,14 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
   private LayoutInflater inflater;
   private Typeface       amenTypeThin;
   private Typeface       amenTypeBold;
+  private int            textViewResourceId;
 
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
     amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
     amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
+    this.textViewResourceId = textViewResourceId;
 //    setNotifyOnChange(true);
   }
 
@@ -45,7 +47,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     final Statement stmt = amen.getStatement();
     if (row == null) {
-      row = inflater.inflate(R.layout.list_item_amen, parent, false);
+      row = inflater.inflate(textViewResourceId, parent, false);
       row.setTag(R.id.user, row.findViewById(R.id.user));
       row.setTag(R.id.statement, row.findViewById(R.id.statement));
       row.setTag(R.id.user_image, row.findViewById(R.id.user_image));
@@ -55,34 +57,38 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
     TextView user = (TextView) row.getTag(R.id.user);
-    user.setTypeface(amenTypeThin);
+    if (user != null) {
+      user.setTypeface(amenTypeThin);
+      String from = amen.getUser().getName();
 
-    String from = amen.getUser().getName();
+      if (amen.isAmen() && amen.getReferringAmen() != null) {
+        from = from + " amen'd " + amen.getReferringAmen().getUser().getName();
+      }
+      if (amen.isDispute() && amen.getReferringAmen() != null) {
+        from = from + " disputes " + amen.getReferringAmen().getUser().getName();
+      }
+      user.setText(from);
+    }
 
-    if (amen.isAmen() && amen.getReferringAmen() != null) {
-      from = from + " amen'd " + amen.getReferringAmen().getUser().getName();
-    }
-    if (amen.isDispute() && amen.getReferringAmen() != null) {
-      from = from + " disputes " + amen.getReferringAmen().getUser().getName();
-    }
-    user.setText(from);
 
     TextView statementView = (TextView) row.getTag(R.id.statement);
     statementView.setTypeface(amenTypeBold);
     statementView.setText(styleAmenWithColor(amen, getContext()));
 
     ImageView userImage = (ImageView) row.getTag(R.id.user_image);
-
-    String pictureUrl = amen.getUser().getPhoto();
-    if (TextUtils.isEmpty(pictureUrl)) {
-      pictureUrl = amen.getUser().getPicture();
-      if (!TextUtils.isEmpty(pictureUrl)) {
-        pictureUrl = pictureUrl + "?type=normal";
+    if (userImage != null) {
+      String pictureUrl = amen.getUser().getPhoto();
+      if (TextUtils.isEmpty(pictureUrl)) {
+        pictureUrl = amen.getUser().getPicture();
+        if (!TextUtils.isEmpty(pictureUrl)) {
+          pictureUrl = pictureUrl + "?type=normal";
+        }
       }
-    }
 //    Log.d("AmenListAdapter", "pictureUrl: " + pictureUrl);
-    userImage.setImageResource(R.drawable.placeholder);
-    userImage.setTag(pictureUrl);
+      userImage.setImageResource(R.drawable.placeholder);
+      userImage.setTag(pictureUrl);
+
+    }
 
     //Media Photo
     ImageView mediaPhoto = (ImageView) row.getTag(R.id.media_photo);
@@ -91,7 +97,6 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
       mediaPhoto.setVisibility(View.VISIBLE);
       String mediaUrl = amen.getMedia().get(0).getContentUrl();
-
 
 
       Log.d("AmenListAdapter", "mediaUrl: " + mediaUrl);

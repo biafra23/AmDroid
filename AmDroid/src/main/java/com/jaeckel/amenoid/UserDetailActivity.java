@@ -1,5 +1,20 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.User;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
+import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amenoid.util.AmenLibTask;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -21,20 +36,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
-import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
-import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
-import com.jaeckel.amenoid.util.AmenLibTask;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * User: biafra
@@ -47,7 +48,7 @@ public class UserDetailActivity extends ListActivity {
 
   private User                   currentUser;
   private AmenService            service;
-  private AmenAdapter            adapter;
+  private AmenListAdapter            adapter;
   private Drawable               userImage;
   private ListView               list;
   private ProgressBar            progressBar;
@@ -159,7 +160,7 @@ public class UserDetailActivity extends ListActivity {
     accountCreated = (TextView) findViewById(R.id.account_created);
     accountCreated.setTypeface(amenTypeThin);
 
-    adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
+    adapter = new AmenListAdapter(UserDetailActivity.this, R.layout.list_item_amen_no_pic, new ArrayList<Amen>());
     setListAdapter(adapter);
 
 
@@ -209,7 +210,7 @@ public class UserDetailActivity extends ListActivity {
           if (result.size() == 0) {
             stopAppending = true;
           }
-          adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
+          adapter = new AmenListAdapter(UserDetailActivity.this, R.layout.list_item_amen_no_pic, result);
 
           EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
 
@@ -253,7 +254,7 @@ public class UserDetailActivity extends ListActivity {
           if (result.size() == 0) {
             stopAppending = true;
           }
-          adapter = new AmenAdapter(UserDetailActivity.this, android.R.layout.simple_list_item_1, result);
+          adapter = new AmenListAdapter(UserDetailActivity.this, R.layout.list_item_amen_no_pic, result);
 
           EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
 
@@ -581,7 +582,7 @@ public class UserDetailActivity extends ListActivity {
 
   class EndlessWrapperAdapter extends EndlessAdapter {
 
-    EndlessWrapperAdapter(AmenAdapter amenAdapter) {
+    EndlessWrapperAdapter(AmenListAdapter amenAdapter) {
 
       super(UserDetailActivity.this, amenAdapter, R.layout.pending);
     }

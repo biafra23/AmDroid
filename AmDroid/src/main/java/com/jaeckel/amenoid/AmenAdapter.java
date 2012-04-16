@@ -1,5 +1,13 @@
 package com.jaeckel.amenoid;
 
+import java.util.List;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -8,13 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.Statement;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
-
-import java.util.List;
 
 /**
  * User: biafra
@@ -46,7 +47,7 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
     if (row == null) {
       row = inflater.inflate(R.layout.list_item_amen_no_pic, parent, false);
       row.setTag(R.id.statement, row.findViewById(R.id.statement));
-      row.setTag(R.id.date, row.findViewById(R.id.date));
+//      row.setTag(R.id.date, row.findViewById(R.id.date));
       row.setTag(R.id.amen_count, row.findViewById(R.id.amen_count));
 
     }
@@ -56,9 +57,9 @@ public class AmenAdapter extends ArrayAdapter<Amen> {
     statement.setTypeface(amenTypeBold);
 
 
-    TextView dateView = (TextView) row.getTag(R.id.date);
-    dateView.setTypeface(amenTypeThin);
-    dateView.setText(AmenDetailActivity.format(amen.getCreatedAt()));
+//    TextView dateView = (TextView) row.getTag(R.id.date);
+//    dateView.setTypeface(amenTypeThin);
+//    dateView.setText(AmenDetailActivity.format(amen.getCreatedAt()));
 
     TextView amenCountView = (TextView) row.getTag(R.id.amen_count);
     amenCountView.setTypeface(amenTypeThin);

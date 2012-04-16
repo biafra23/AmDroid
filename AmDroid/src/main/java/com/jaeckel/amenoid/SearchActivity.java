@@ -1,5 +1,15 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amenoid.util.AmenLibTask;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -12,15 +22,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
-import com.jaeckel.amenoid.util.AmenLibTask;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -70,7 +71,7 @@ public class SearchActivity extends ListActivity {
 //    View header = getLayoutInflater().inflate(R.layout.search_header, null, false);
 //    list.addHeaderView(header);
 
-    adapter = new AmenListAdapter(this, android.R.layout.simple_list_item_1, new ArrayList<Amen>());
+    adapter = new AmenListAdapter(this, R.layout.list_item_amen, new ArrayList<Amen>());
     setListAdapter(adapter);
 
 //    final EditText searchField = (EditText) findViewById(R.id.search_field);
@@ -160,7 +161,7 @@ public class SearchActivity extends ListActivity {
 
       if (amens != null) {
 
-        adapter = new AmenListAdapter(SearchActivity.this, android.R.layout.activity_list_item, amens);
+        adapter = new AmenListAdapter(SearchActivity.this, R.layout.list_item_amen, amens);
         ThumbnailAdapter thumbs = new ThumbnailAdapter(SearchActivity.this, adapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
         setListAdapter(thumbs);
       }

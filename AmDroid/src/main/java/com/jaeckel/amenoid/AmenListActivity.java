@@ -640,7 +640,7 @@ public class AmenListActivity extends ListActivity {
     protected void wrappedOnPostExecute(List<Amen> amens) {
       Log.d(TAG, "wrappedOnPostExecute");
       if (amens != null) {
-        amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
+        amenListAdapter = new AmenListAdapter(AmenListActivity.this, R.layout.list_item_amen, amens);
         ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
         EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
@@ -701,7 +701,7 @@ public class AmenListActivity extends ListActivity {
 
       if (amens != null) {
 
-        amenListAdapter = new AmenListAdapter(AmenListActivity.this, android.R.layout.activity_list_item, amens);
+        amenListAdapter = new AmenListAdapter(AmenListActivity.this, R.layout.list_item_amen, amens);
         ThumbnailAdapter thumbs = new ThumbnailAdapter(AmenListActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
         EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);

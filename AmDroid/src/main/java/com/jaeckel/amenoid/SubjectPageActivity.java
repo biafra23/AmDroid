@@ -98,7 +98,7 @@ public class SubjectPageActivity extends ListActivity {
 
         if (result.size() > 0) {
 
-          amenListAdapter = new AmenListAdapter(SubjectPageActivity.this, android.R.layout.activity_list_item, result);
+          amenListAdapter = new AmenListAdapter(SubjectPageActivity.this, R.layout.list_item_amen, result);
 
           setListAdapter(amenListAdapter);
           amenListAdapter.notifyDataSetChanged();
