@@ -29,21 +29,21 @@
                   android:layout_weight="1"
                   android:paddingBottom="3dp"
                 />
-
+        <ImageView android:id="@+id/media_photo"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:contentDescription="Media"
+                   android:visibility="gone"
+                />
         <TextView android:id="@+id/amen_count"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:text="10 Amen"
+                  android:text="23 Amen"
                   android:textSize="15dp"
                   android:layout_weight="1"
                   android:paddingBottom="3dp"
                 />
 
     </LinearLayout>
-    <ImageView android:id="@+id/media_photo"
-               android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:contentDescription="Media"
-               android:visibility="gone"
-            />
+
 </LinearLayout>

@@ -45,7 +45,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     View row = convertView;
     Amen amen = getItem(position);
 
-    final Statement stmt = amen.getStatement();
+//    final Statement stmt = amen.getStatement();
     if (row == null) {
       row = inflater.inflate(textViewResourceId, parent, false);
       row.setTag(R.id.user, row.findViewById(R.id.user));
@@ -53,6 +53,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       row.setTag(R.id.user_image, row.findViewById(R.id.user_image));
       row.setTag(R.id.media_photo, row.findViewById(R.id.media_photo));
       row.setTag(R.id.since, row.findViewById(R.id.since));
+      row.setTag(R.id.amen_count, row.findViewById(R.id.amen_count));
 
     }
 
@@ -119,9 +120,19 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       TextView sinceView = (TextView) row.findViewById(R.id.since);
 
       sinceView.setText(renderShortDeltaT(since));
+
     }
-
-
+    TextView amenCountView = (TextView) row.getTag(R.id.amen_count);
+    if (amenCountView != null) {
+      amenCountView.setTypeface(amenTypeThin);
+      final int size = amen.getStatement().getAgreeingNetwork().size();
+      if (size > 0) {
+        amenCountView.setText(size + " Amen");
+        amenCountView.setVisibility(View.VISIBLE);
+      } else {
+        amenCountView.setVisibility(View.INVISIBLE);
+      }
+    }
 //    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
 
     return row;

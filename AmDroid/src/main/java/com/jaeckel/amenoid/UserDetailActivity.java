@@ -10,6 +10,7 @@ import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
@@ -67,6 +68,8 @@ public class UserDetailActivity extends ListActivity {
   private TextView amenGiven;
   private TextView amenScore;
   private TextView accountCreated;
+  private static final int[] IMAGE_IDS = {R.id.media_photo};
+
 
   @Override
   public boolean onSearchRequested() {
@@ -161,7 +164,9 @@ public class UserDetailActivity extends ListActivity {
     accountCreated.setTypeface(amenTypeThin);
 
     adapter = new AmenListAdapter(UserDetailActivity.this, R.layout.list_item_amen_no_pic, new ArrayList<Amen>());
-    setListAdapter(adapter);
+    ThumbnailAdapter thumbs = new ThumbnailAdapter(UserDetailActivity.this, adapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
+
+    setListAdapter(thumbs);
 
 
   }
@@ -211,8 +216,9 @@ public class UserDetailActivity extends ListActivity {
             stopAppending = true;
           }
           adapter = new AmenListAdapter(UserDetailActivity.this, R.layout.list_item_amen_no_pic, result);
+          ThumbnailAdapter thumbs = new ThumbnailAdapter(UserDetailActivity.this, adapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
-          EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
+          EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
 
           setListAdapter(endless);
 //        setListAdapter(adapter);
@@ -255,8 +261,9 @@ public class UserDetailActivity extends ListActivity {
             stopAppending = true;
           }
           adapter = new AmenListAdapter(UserDetailActivity.this, R.layout.list_item_amen_no_pic, result);
+          ThumbnailAdapter thumbs = new ThumbnailAdapter(UserDetailActivity.this, adapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
-          EndlessWrapperAdapter endless = new EndlessWrapperAdapter(adapter);
+          EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
 
           setListAdapter(endless);
 //        setListAdapter(adapter);
@@ -582,7 +589,7 @@ public class UserDetailActivity extends ListActivity {
 
   class EndlessWrapperAdapter extends EndlessAdapter {
 
-    EndlessWrapperAdapter(AmenListAdapter amenAdapter) {
+    EndlessWrapperAdapter(ThumbnailAdapter amenAdapter) {
 
       super(UserDetailActivity.this, amenAdapter, R.layout.pending);
     }
