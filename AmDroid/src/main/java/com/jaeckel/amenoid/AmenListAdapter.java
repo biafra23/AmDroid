@@ -54,6 +54,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       row.setTag(R.id.media_photo, row.findViewById(R.id.media_photo));
       row.setTag(R.id.since, row.findViewById(R.id.since));
       row.setTag(R.id.amen_count, row.findViewById(R.id.amen_count));
+      row.setTag(R.id.comments_count, row.findViewById(R.id.comments_count));
 
     }
 
@@ -125,13 +126,37 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     TextView amenCountView = (TextView) row.getTag(R.id.amen_count);
     if (amenCountView != null) {
       amenCountView.setTypeface(amenTypeThin);
-      final int size = amen.getStatement().getAgreeingNetwork().size();
-      if (size > 0) {
-        amenCountView.setText(size + " Amen");
+
+      long count = 0;
+      if (amen.getStatement().getAgreeingNetworkCount() != null) {
+
+        count = amen.getStatement().getAgreeingNetworkCount();
+
+      } else {
+        count = amen.getStatement().getTotalAmenCount();
+      }
+      if (count > 0) {
+        amenCountView.setText(count + " Amen");
         amenCountView.setVisibility(View.VISIBLE);
       } else {
         amenCountView.setVisibility(View.INVISIBLE);
       }
+
+
+    }
+
+    TextView commentsCountView = (TextView) row.getTag(R.id.comments_count);
+    if (commentsCountView != null) {
+      commentsCountView.setTypeface(amenTypeThin);
+
+//      if (amen.getCommentsCount() > 0) {
+        commentsCountView.setText(amen.getCommentsCount() + " Comments");
+        commentsCountView.setVisibility(View.VISIBLE);
+//      } else {
+//        commentsCountView.setVisibility(View.INVISIBLE);
+//      }
+
+
     }
 //    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
 

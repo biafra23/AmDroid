@@ -22,6 +22,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -29,6 +30,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -102,11 +104,18 @@ public class AmenDetailActivity extends ListActivity {
       currentStatement = currentAmen.getStatement();
     }
 
+    ImageView mediaPhoto = (ImageView) header.findViewById(R.id.media_photo);
+
     if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
-      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl()"
+      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): "
                  + currentStatement.getObjekt().getMedia().get(0).getContentUrl());
+//      mediaPhoto.setImageResource(R.drawable.placeholder);
+      mediaPhoto.setImageDrawable((Drawable)cache.get(currentStatement.getObjekt().getMedia().get(0).getContentUrl()));
+      mediaPhoto.setVisibility(View.VISIBLE);
+
     } else {
       Log.d(TAG, "currentStatement.getMedia() -> empty");
+      mediaPhoto.setVisibility(View.INVISIBLE);
     }
 
     header.setOnClickListener(new View.OnClickListener() {

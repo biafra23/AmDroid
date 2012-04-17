@@ -35,6 +35,7 @@ public class Amen implements Parcelable {
   private Amen            referringAmen;
   private Long            referringAmenId;
   private List<MediaItem> media;
+  private Long            commentsCount;
 
   private static final String TAG = "Amen";
 
@@ -137,8 +138,8 @@ public class Amen implements Parcelable {
   @Override public String toString() {
     final StringBuffer sb = new StringBuffer();
     sb.append("Amen");
-    sb.append("{log=").append(log);
-    sb.append(", id=").append(id);
+    sb.append("{");
+    sb.append("id=").append(id);
     sb.append(", userId=").append(userId);
     sb.append(", user=").append(user);
     sb.append(", createdAt=").append(createdAt);
@@ -147,6 +148,7 @@ public class Amen implements Parcelable {
     sb.append(", referringAmen=").append(referringAmen);
     sb.append(", referringAmenId=").append(referringAmenId);
     sb.append(", media=").append(media);
+    sb.append(", commentsCount=").append(commentsCount);
     sb.append('}');
     return sb.toString();
   }
@@ -285,6 +287,7 @@ public class Amen implements Parcelable {
     dest.writeParcelable(statement, flags);
     dest.writeParcelable(referringAmen, flags);
     dest.writeValue(referringAmenId);
+    dest.writeValue(commentsCount);
 
     Log.d(TAG, "writeToParcel. done.‚");
 
@@ -301,8 +304,18 @@ public class Amen implements Parcelable {
     statement = in.readParcelable(cl);
     referringAmen = in.readParcelable(cl);
     referringAmenId = (Long) in.readValue(cl);
+    commentsCount = (Long) in.readValue(cl);
 
   }
+
+  public Long getCommentsCount() {
+    return commentsCount;
+  }
+
+  public void setCommentsCount(Long commentsCount) {
+    this.commentsCount = commentsCount;
+  }
+
 
 }
 

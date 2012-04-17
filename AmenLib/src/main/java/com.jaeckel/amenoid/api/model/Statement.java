@@ -20,6 +20,7 @@ public class Statement implements Parcelable {
   private Long       totalAmenCount;
   private Boolean    agreeable;
   private List<User> agreeingNetwork;
+  private Long       agreeingNetworkCount;
   private Topic      topic;
   private Objekt     objekt;
   private User       firstPoster;
@@ -78,19 +79,21 @@ public class Statement implements Parcelable {
     return result;
   }
 
-  @Override
-  public String toString() {
-    return "Statement{" +
-           "id=" + id +
-           ", totalAmenCount=" + totalAmenCount +
-           ", agreeable=" + agreeable +
-           ", agreeingNetwork=" + agreeingNetwork +
-           ", topic=" + topic +
-           ", objekt=" + objekt +
-           ", firstPoster=" + firstPoster +
-           ", firstPostedAt=" + firstPostedAt +
-           ", firstAmenId=" + firstAmenId +
-           '}';
+  @Override public String toString() {
+    final StringBuffer sb = new StringBuffer();
+    sb.append("Statement");
+    sb.append("{id=").append(id);
+    sb.append(", totalAmenCount=").append(totalAmenCount);
+    sb.append(", agreeable=").append(agreeable);
+    sb.append(", agreeingNetwork=").append(agreeingNetwork);
+    sb.append(", agreeingNetworkCount=").append(agreeingNetworkCount);
+    sb.append(", topic=").append(topic);
+    sb.append(", objekt=").append(objekt);
+    sb.append(", firstPoster=").append(firstPoster);
+    sb.append(", firstPostedAt=").append(firstPostedAt);
+    sb.append(", firstAmenId=").append(firstAmenId);
+    sb.append('}');
+    return sb.toString();
   }
 
   public String json() {
@@ -197,6 +200,7 @@ public class Statement implements Parcelable {
     dest.writeValue(totalAmenCount);
     dest.writeValue(agreeable);
     dest.writeList(agreeingNetwork);
+    dest.writeValue(agreeingNetworkCount);
     dest.writeParcelable(topic, flags);
     dest.writeParcelable(objekt, flags);
     dest.writeParcelable(firstPoster, flags);
@@ -212,6 +216,7 @@ public class Statement implements Parcelable {
     totalAmenCount = (Long) in.readValue(cl);
     agreeable = (Boolean) in.readValue(cl);
     agreeingNetwork = in.readArrayList(cl);
+    agreeingNetworkCount = (Long)in.readValue(cl);
     topic = in.readParcelable(cl);
     objekt = in.readParcelable(cl);
     firstPoster = in.readParcelable(cl);
@@ -229,5 +234,11 @@ public class Statement implements Parcelable {
     this.firstAmenId = firstAmenId;
   }
 
+  public Long getAgreeingNetworkCount() {
+    return agreeingNetworkCount;
+  }
 
+  public void setAgreeingNetworkCount(Long agreeingNetworkCount) {
+    this.agreeingNetworkCount = agreeingNetworkCount;
+  }
 }
