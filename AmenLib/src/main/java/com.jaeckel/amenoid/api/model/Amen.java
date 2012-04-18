@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid.api.model;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class Amen implements Parcelable {
   private Long            referringAmenId;
   private List<MediaItem> media;
   private Long            commentsCount;
+  private ArrayList<Comment> comments;
 
   private static final String TAG = "Amen";
 
@@ -287,7 +289,9 @@ public class Amen implements Parcelable {
     dest.writeParcelable(statement, flags);
     dest.writeParcelable(referringAmen, flags);
     dest.writeValue(referringAmenId);
+    Log.d(TAG, "commentsCount: " + commentsCount);
     dest.writeValue(commentsCount);
+    dest.writeList(comments);
 
     Log.d(TAG, "writeToParcel. done.‚");
 
@@ -305,7 +309,7 @@ public class Amen implements Parcelable {
     referringAmen = in.readParcelable(cl);
     referringAmenId = (Long) in.readValue(cl);
     commentsCount = (Long) in.readValue(cl);
-
+    comments = in.readArrayList(cl);
   }
 
   public Long getCommentsCount() {
@@ -316,6 +320,12 @@ public class Amen implements Parcelable {
     this.commentsCount = commentsCount;
   }
 
+  public ArrayList<Comment> getComments() {
+    return comments;
+  }
 
+  public void setComments(ArrayList<Comment> comments) {
+    this.comments = comments;
+  }
 }
 

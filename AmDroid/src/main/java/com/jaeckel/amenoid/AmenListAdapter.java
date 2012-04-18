@@ -144,21 +144,18 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
 
     }
-
     TextView commentsCountView = (TextView) row.getTag(R.id.comments_count);
-    if (commentsCountView != null) {
+    if (amenCountView != null) {
       commentsCountView.setTypeface(amenTypeThin);
 
-//      if (amen.getCommentsCount() > 0) {
-        commentsCountView.setText(amen.getCommentsCount() + " Comments");
+      long count = amen.getCommentsCount();
+      if (amen.getCommentsCount() > 0) {
+        commentsCountView.setText(" / " + count + " Comments");
         commentsCountView.setVisibility(View.VISIBLE);
-//      } else {
-//        commentsCountView.setVisibility(View.INVISIBLE);
-//      }
-
-
+      } else {
+        commentsCountView.setVisibility(View.INVISIBLE);
+      }
     }
-//    BitmapManager.INSTANCE.loadBitmap(pictureUrl, userImage, 64,  64);
 
     return row;
   }

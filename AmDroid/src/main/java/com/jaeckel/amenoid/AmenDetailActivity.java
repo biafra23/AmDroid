@@ -49,6 +49,7 @@ public class AmenDetailActivity extends ListActivity {
   private TextView         statementView;
   private TextView         userView;
   private TextView         amenCount;
+  private TextView         commentsCount;
   private Button           amenTakeBackButton;
   private Button           hellNoButton;
   private UserListAdapter  adapter;
@@ -93,6 +94,9 @@ public class AmenDetailActivity extends ListActivity {
 
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
+
+    Log.d(TAG, "Current Amen: " + currentAmen);
+
     if (currentAmen == null) {
 
       currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
@@ -138,6 +142,7 @@ public class AmenDetailActivity extends ListActivity {
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
 
 
+
   }
 
   private void startScoreBoardActivity() {
@@ -151,10 +156,16 @@ public class AmenDetailActivity extends ListActivity {
     super.onResume();
     statementView = (TextView) findViewById(R.id.statement);
     statementView.setTypeface(amenTypeBold);
+
     userView = (TextView) findViewById(R.id.user);
     userView.setTypeface(amenTypeThin);
+
     amenCount = (TextView) findViewById(R.id.amen_count);
     amenCount.setTypeface(amenTypeThin);
+
+    commentsCount = (TextView) findViewById(R.id.comments_count);
+    commentsCount.setTypeface(amenTypeThin);
+
     amenTakeBackButton = (Button) findViewById(R.id.amen_take_back);
     amenTakeBackButton.setTypeface(amenTypeBold);
     amenTakeBackButton.setEnabled(false);
@@ -207,8 +218,19 @@ public class AmenDetailActivity extends ListActivity {
     if (currentAmen != null && currentAmen.getId() != null) {
 
       setAmenButtonListener();
-    }
 
+      String commentsCountText = "";
+      if (currentAmen.getCommentsCount() == 1) {
+        commentsCountText = currentAmen.getCommentsCount() + " comment";
+      }
+
+      if (currentAmen.getCommentsCount() > 1) {
+        commentsCountText = currentAmen.getCommentsCount() + " comments";
+      }
+
+      commentsCount.setText(commentsCountText);
+
+    }
 
   }
 

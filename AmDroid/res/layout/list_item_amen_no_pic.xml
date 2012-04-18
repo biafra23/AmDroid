@@ -7,7 +7,6 @@
                   android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
-
             >
 
         <TextView android:id="@+id/since"
@@ -35,15 +34,28 @@
                    android:contentDescription="Media"
                    android:visibility="gone"
                 />
-        <TextView android:id="@+id/amen_count"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="23 Amen"
-                  android:textSize="15dp"
-                  android:layout_weight="1"
-                  android:paddingBottom="3dp"
-                />
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                >
+            <TextView android:id="@+id/amen_count"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="23 Amen"
+                      android:textSize="15dp"
+                      android:paddingBottom="3dp"
+                    />
+            <TextView android:id="@+id/comments_count"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text=" / 23 Comments"
+                      android:textSize="15dp"
+                      android:paddingBottom="3dp"
+                    />
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
