@@ -145,7 +145,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     }
     TextView commentsCountView = (TextView) row.getTag(R.id.comments_count);
-    if (amenCountView != null) {
+    if (commentsCountView != null && amen.getCommentsCount() != null) {
       commentsCountView.setTypeface(amenTypeThin);
 
       long count = amen.getCommentsCount();

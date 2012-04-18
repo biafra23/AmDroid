@@ -140,8 +140,8 @@ public class Amen implements Parcelable {
   @Override public String toString() {
     final StringBuffer sb = new StringBuffer();
     sb.append("Amen");
-    sb.append("{");
-    sb.append("id=").append(id);
+    sb.append("{log=").append(log);
+    sb.append(", id=").append(id);
     sb.append(", userId=").append(userId);
     sb.append(", user=").append(user);
     sb.append(", createdAt=").append(createdAt);
@@ -151,6 +151,7 @@ public class Amen implements Parcelable {
     sb.append(", referringAmenId=").append(referringAmenId);
     sb.append(", media=").append(media);
     sb.append(", commentsCount=").append(commentsCount);
+    sb.append(", comments=").append(comments);
     sb.append('}');
     return sb.toString();
   }

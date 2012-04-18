@@ -1,6 +1,11 @@
 package com.jaeckel.amenoid.api;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.Map;
+
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -8,11 +13,6 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Date;
-import java.util.Map;
 
 /**
  * User: biafra
@@ -31,7 +31,7 @@ public class RequestFactory {
     httpPost.addHeader("X-Requested-With", "XMLHttpRequest");
 
     try {
-      log.trace("createJSONPOSTRequest ->  url: " + serviceUrl);
+      log.debug("createJSONPOSTRequest ->  url: " + serviceUrl);
       log.trace("createJSONPOSTRequest -> Body: " + body);
       httpPost.setEntity(new ByteArrayEntity(body.getBytes("UTF8")));
 
@@ -47,7 +47,7 @@ public class RequestFactory {
 
     String queryString = createQueryString(params, false);
     HttpGet httpGet = new HttpGet(serviceUrl + queryString);
-    log.trace("createGETRequest: " + httpGet.getURI());
+    log.debug("createGETRequest: " + httpGet.getURI());
     return httpGet;
 
   }
