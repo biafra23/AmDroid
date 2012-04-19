@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
               android:orientation="vertical">
 
     <TextView android:id="@+id/statement"
@@ -11,7 +11,6 @@
               android:layout_alignParentLeft="true"
               android:layout_centerVertical="true"
               android:layout_alignWithParentIfMissing="true"
-
               android:focusable="false"
               android:textSize="25dp"
               android:text="Trio is the Worst Trio Ever. Amen. http://git.io/amenoid "
@@ -20,14 +19,14 @@
             />
 
 
-    <ImageView android:id="@+id/media_photo"
-               android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:contentDescription="Media"
-               android:visibility="gone"
-            />
-
-
+        <ImageView android:id="@+id/media_photo"
+                   android:layout_width="fill_parent"
+                   android:layout_height="fill_parent"
+                   android:contentDescription="Media"
+                   android:scaleType="centerInside"
+                   android:src="@drawable/ic_menu_gear"
+                   android:visibility="gone"
+                />
 
     <TextView android:id="@+id/user"
               android:layout_width="wrap_content"
@@ -58,7 +57,7 @@
 
                 />
     </LinearLayout>
-    <LinearLayout android:layout_width="fill_parent"
+    <LinearLayout android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
 
                   android:orientation="horizontal"
@@ -73,16 +72,7 @@
                   android:focusable="false"
                   android:text="23 Amen"
                 />
-        <TextView android:id="@+id/count_seperator"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:layout_alignParentLeft="true"
-                          android:layout_centerVertical="true"
-                          android:layout_alignWithParentIfMissing="true"
 
-                          android:focusable="false"
-                          android:text=" / "
-                        />
         <TextView android:id="@+id/comments_count"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
@@ -91,17 +81,17 @@
                   android:layout_alignWithParentIfMissing="true"
 
                   android:focusable="false"
-                  android:text="23 Comment(s)"
+                  android:text=" / 23 Comment(s)"
                 />
         <!--<TextView android:id="@+id/comments"-->
-                  <!--android:layout_width="wrap_content"-->
-                  <!--android:layout_height="wrap_content"-->
-                  <!--android:layout_alignParentLeft="true"-->
-                  <!--android:layout_centerVertical="true"-->
-                  <!--android:layout_alignWithParentIfMissing="true"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignWithParentIfMissing="true"-->
 
-                  <!--android:focusable="false"-->
-                  <!--android:text="23 Comment(s)"-->
-                <!--/>-->
+        <!--android:focusable="false"-->
+        <!--android:text="23 Comment(s)"-->
+        <!--/>-->
     </LinearLayout>
 </LinearLayout>

@@ -20,15 +20,15 @@
                       android:orientation="vertical"
 
                 >
-            <ImageView android:id="@+id/user_image"
-                       android:layout_width="100dip"
-                       android:layout_height="100dip"
-                       android:src="@drawable/ic_menu_gear"
-                       android:paddingRight="5dp"
-                       android:paddingBottom="5dp"
-                       android:paddingTop="5dp"
-                       android:visibility="visible"
-                    />
+        <ImageView android:id="@+id/user_image"
+                   android:layout_width="100dip"
+                   android:layout_height="100dip"
+                   android:src="@drawable/ic_menu_gear"
+                   android:paddingRight="5dp"
+                   android:paddingBottom="5dp"
+                   android:paddingTop="5dp"
+                   android:visibility="visible"
+                />
         </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -87,30 +87,32 @@
         <ImageView android:id="@+id/media_photo"
                    android:layout_width="fill_parent"
                    android:layout_height="wrap_content"
+                   android:scaleType="centerInside"
                    android:contentDescription="Media"
+                   android:src="@drawable/ic_menu_about"
                    android:visibility="gone"
                 />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                       android:layout_width="fill_parent"
-                       android:layout_height="wrap_content"
-                       android:orientation="horizontal"
-                 >
-             <TextView android:id="@+id/amen_count"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="23 Amen"
-                       android:textSize="15dp"
-                       android:paddingBottom="3dp"
-                     />
-             <TextView android:id="@+id/comments_count"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text=" / 23 Comments"
-                       android:textSize="15dp"
-                       android:paddingBottom="3dp"
-                     />
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                >
+            <TextView android:id="@+id/amen_count"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="23 Amen"
+                      android:textSize="15dp"
+                      android:paddingBottom="3dp"
+                    />
+            <TextView android:id="@+id/comments_count"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text=" / 23 Comments"
+                      android:textSize="15dp"
+                      android:paddingBottom="3dp"
+                    />
 
-         </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
