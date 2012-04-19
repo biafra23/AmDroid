@@ -28,11 +28,14 @@
                   android:layout_weight="1"
                   android:paddingBottom="3dp"
                 />
-        <ImageView android:id="@+id/media_photo"
-                   android:layout_width="fill_parent"
-                   android:layout_height="wrap_content"
-                   android:contentDescription="Media"
-                   android:visibility="gone"
+        <com.jaeckel.amenoid.util.AspectRatioImageView
+                android:id="@+id/media_photo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_menu_gear"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
                 />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

@@ -221,11 +221,11 @@ public class AmenDetailActivity extends ListActivity {
 
       String commentsCountText = "";
       if (currentAmen.getCommentsCount() != null && currentAmen.getCommentsCount() == 1) {
-        commentsCountText = currentAmen.getCommentsCount() + " comment";
+        commentsCountText = " / " + currentAmen.getCommentsCount() + " comment";
       }
 
       if ( currentAmen.getCommentsCount() != null && currentAmen.getCommentsCount() > 1) {
-        commentsCountText = currentAmen.getCommentsCount() + " comments";
+        commentsCountText = " / " + currentAmen.getCommentsCount() + " comments";
       }
 
       commentsCount.setText(commentsCountText);
