@@ -220,11 +220,11 @@ public class AmenDetailActivity extends ListActivity {
       setAmenButtonListener();
 
       String commentsCountText = "";
-      if (currentAmen.getCommentsCount() == 1) {
+      if (currentAmen.getCommentsCount() != null && currentAmen.getCommentsCount() == 1) {
         commentsCountText = currentAmen.getCommentsCount() + " comment";
       }
 
-      if (currentAmen.getCommentsCount() > 1) {
+      if ( currentAmen.getCommentsCount() != null && currentAmen.getCommentsCount() > 1) {
         commentsCountText = currentAmen.getCommentsCount() + " comments";
       }
 
