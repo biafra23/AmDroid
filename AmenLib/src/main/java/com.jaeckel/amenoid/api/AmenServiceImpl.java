@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -19,6 +20,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.params.CoreProtocolPNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,7 +71,8 @@ public class AmenServiceImpl implements AmenService {
 //    httpclient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
     this.httpclient = httpClient;
 
-    this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
+    this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amen/1.2.0 CFNetwork/548.1.4 Darwin/11.0.0");
+//    this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
 
   }
 
@@ -441,6 +444,9 @@ public class AmenServiceImpl implements AmenService {
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "users/" + userId + "/amen.json", params);
 
+    Header cookie = new BasicHeader("set-cookie", "_getamen_session_production=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWQ1NGJjNzJhOTkyZTg5MzQ5NjhhZmFhNzRmNDE3Yzk2BjsAVA%3D%3D--59eb5438c0f48c1314caf043f4cd2a36c12ed26e");
+    httpGet.addHeader(cookie);
+
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
@@ -510,7 +516,7 @@ public class AmenServiceImpl implements AmenService {
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
-  
+
   @Override
   public User getUserForId(String userName) throws IOException {
     log.debug("getUserInfo(UserName)");
