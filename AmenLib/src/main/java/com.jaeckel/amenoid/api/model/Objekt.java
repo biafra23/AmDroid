@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
+import com.jaeckel.amenoid.api.AmenService;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 public class Objekt implements Parcelable {
 
   private Long id;
-  private Integer kindId = 1;
+  private Integer kindId = AmenService.OBJEKT_KIND_THING;
   private String          name;
   private List<String>    key;
   private String          category;
