@@ -3,8 +3,13 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.List;
 
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Objekt;
+import com.jaeckel.amenoid.app.AmenoidApp;
+
 import android.content.Context;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.app.AmenoidApp;
 
 /**
  * User: biafra
@@ -28,15 +30,17 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
   private static final String TAG = "ObjektCompletionAdapter";
   private Typeface amenTypeBold;
   private Typeface amenTypeThin;
+  private int      currentKindId;
 
 
-
-  public ObjektCompletionAdapter(Context context, int textViewResourceId, List<Objekt> objects) {
+  public ObjektCompletionAdapter(Context context, int textViewResourceId, List<Objekt> objects, int disputedObjektKindId) {
     super(context, textViewResourceId, objects);
     inflater = LayoutInflater.from(context);
     amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
     amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
+    this.currentKindId = disputedObjektKindId;
   }
+
   @Override
   public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -55,7 +59,7 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
     TextView description = (TextView) row.findViewById(R.id.default_description);
     description.setTypeface(amenTypeThin);
     description.setText(objekt.getDefaultDescription());
-    
+
     return row;
   }
 
@@ -84,7 +88,26 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
         List<Objekt> values = null;
         try {
-          values = service.objektsForQuery(charSequence, AmenService.OBJEKT_KIND_THING, null, null);
+          //TODO: need to have kindId of disputed Amen Objekt
+          //values = service.objektsForQuery(charSequence, AmenService.OBJEKT_KIND_THING, null, null);
+          Double lat = null;
+          Double lon = null;
+          if (currentKindId == AmenService.OBJEKT_KIND_PLACE) {
+            //TODO: get current position here
+            final Location lastLocation = AmenoidApp.getInstance().getLastLocation();
+            if (lastLocation != null) {
+              lon = lastLocation.getLongitude();
+              lat = lastLocation.getLatitude();
+            }
+            Log.v(TAG, "lastLocation: " + lastLocation);
+            Log.v(TAG, "   longitude: " + lon);
+            Log.v(TAG, "    latitude: " + lat);
+          }
+          values = service.objektsForQuery(charSequence, currentKindId, lat, lon);
+          //This should not be necessary
+          for(Objekt v : values) {
+            v.setKindId(currentKindId);
+          }
         } catch (IOException e) {
           e.printStackTrace();
         }

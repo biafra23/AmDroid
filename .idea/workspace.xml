@@ -50,17 +50,15 @@
       </GlobalState>
     </option>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="http://" />
-  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="228" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="don't show empty space for missing images">
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="default kindId is thing now">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -310,7 +308,28 @@
       <file leaf-file-name="DisputeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="77" selection-start="5133" selection-end="5133" vertical-scroll-proportion="3.0384614">
+            <state line="71" column="47" selection-start="2219" selection-end="2219" vertical-scroll-proportion="-13.653846">
+              <folding>
+                <element signature="e#3569#3669#0" expanded="true" />
+                <element signature="e#3662#3663#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="47" selection-start="3330" selection-end="3330" vertical-scroll-proportion="0.6877729">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="10" selection-start="1466" selection-end="1466" vertical-scroll-proportion="-0.5769231">
               <folding />
             </state>
           </provider>
@@ -320,24 +339,6 @@
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/AmenDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="131" column="47" selection-start="4315" selection-end="4315" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvalidCredentialsException.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/InvalidCredentialsException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AmenDetailActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="81" selection-start="5206" selection-end="5206" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -355,7 +356,7 @@
       <file leaf-file-name="AmenService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="62" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
+            <state line="76" column="0" selection-start="2307" selection-end="2307" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -364,7 +365,7 @@
       <file leaf-file-name="AmenServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="302" column="26" selection-start="10098" selection-end="10098" vertical-scroll-proportion="0.0">
+            <state line="621" column="31" selection-start="20098" selection-end="20098" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -388,10 +389,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Objekt.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Objekt.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="-5.3235292">
+            <state line="28" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#5038#5046#0" expanded="true" />
               </folding>
@@ -416,7 +417,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenAdapter.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Comment.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Amen.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/RequestFactory.java" />
@@ -430,8 +430,9 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
       </list>
     </option>
   </component>
@@ -1983,7 +1984,11 @@
       <created>1334883234642</created>
       <updated>1334883234643</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="default kindId is thing now">
+      <created>1334883266500</created>
+      <updated>1334883266500</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -1996,16 +2001,16 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6576577" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34234235" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34234235" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5070785" sideWeight="0.49748382" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59800667" sideWeight="0.50428396" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760897" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31788933" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41039926" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4092664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14810282" sideWeight="0.4261057" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14777619" sideWeight="0.4261057" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1988984" sideWeight="0.74646074" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26685795" sideWeight="0.6576577" order="0" side_tool="false" content_ui="combo" />
@@ -2060,7 +2065,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="replaced numbers with constants" />
+    <option name="LAST_COMMIT_MESSAGE" value="default kindId is thing now" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2074,7 +2079,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="google tv compatibility" />
     <MESSAGE value="use of db disabled. fixed bug where first amen per location failed" />
     <MESSAGE value="changes" />
     <MESSAGE value="typo" />
@@ -2099,6 +2103,7 @@
     <MESSAGE value="really big images!" />
     <MESSAGE value="don't show empty space for missing images" />
     <MESSAGE value="replaced numbers with constants" />
+    <MESSAGE value="default kindId is thing now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2108,16 +2113,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="47" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="18" selection-start="2368" selection-end="2368" vertical-scroll-proportion="0.0">
@@ -2167,30 +2162,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="77" selection-start="5133" selection-end="5133" vertical-scroll-proportion="3.0384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/AmenDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="47" selection-start="4315" selection-end="4315" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="62" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="302" column="26" selection-start="10098" selection-end="10098" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -2211,10 +2185,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="-5.3235292">
+        <state line="28" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#5038#5046#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="621" column="31" selection-start="20098" selection-end="20098" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="2307" selection-end="2307" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/DisputeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="47" selection-start="2219" selection-end="2219" vertical-scroll-proportion="-13.653846">
+          <folding>
+            <element signature="e#3569#3669#0" expanded="true" />
+            <element signature="e#3662#3663#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="10" selection-start="1466" selection-end="1466" vertical-scroll-proportion="-0.5769231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="47" selection-start="3330" selection-end="3330" vertical-scroll-proportion="0.6877729">
+          <folding />
         </state>
       </provider>
     </entry>

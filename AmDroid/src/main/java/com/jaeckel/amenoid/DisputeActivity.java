@@ -63,15 +63,15 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     setTitle("Amenoid/Dispute");
 
-    final ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
-    ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, new ArrayList<Objekt>());
-    textView.setAdapter(adapter);
-    textView.setOnItemClickListener(this);
-
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
-
     Log.d(TAG, "Current Amen from intent: " + currentAmen);
+    int disputedObjektKindId = currentAmen.getStatement().getObjekt().getKindId();
+    
+    final ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
+    ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, new ArrayList<Objekt>(), disputedObjektKindId);
+    textView.setAdapter(adapter);
+    textView.setOnItemClickListener(this);
 
     TextView disputedStatement = (TextView) findViewById(R.id.disputed_statement);
     disputedStatement.setText(styleDisputedStatementWithColor(currentAmen.getStatement(), this));
