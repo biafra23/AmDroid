@@ -1,5 +1,16 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Objekt;
+import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,16 +23,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.api.model.Statement;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.util.AmenLibTask;
-import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * User: biafra
@@ -125,7 +126,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     statementBuilder
       .append("Hell No! ");
 
-    if (stmt.getObjekt().getKindId() == 2) {
+    if (stmt.getObjekt().getKindId() == AmenService.OBJEKT_KIND_THING) {
       //Thing
 
       if (stmt.getTopic().isBest()) {
@@ -139,7 +140,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
         .appendOrange(stmt.getTopic().getScope());
 
 
-    } else if (stmt.getObjekt().getKindId() == 1) {
+    } else if (stmt.getObjekt().getKindId() == AmenService.OBJEKT_KIND_PLACE) {
       //Place
 
       if (stmt.getTopic().isBest()) {
@@ -152,7 +153,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
         .appendBlue(" ")
         .appendBlue(stmt.getTopic().getScope());
 
-    } else if (stmt.getObjekt().getKindId() == 0) {
+    } else if (stmt.getObjekt().getKindId() == AmenService.OBJEKT_KIND_PERSON) {
 
       if (stmt.getTopic().isBest()) {
         statementBuilder.appendGreen("The Best ");
