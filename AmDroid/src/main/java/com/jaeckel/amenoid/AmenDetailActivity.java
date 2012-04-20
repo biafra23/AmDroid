@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Comment;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
@@ -60,6 +61,7 @@ public class AmenDetailActivity extends ListActivity {
   private SimpleWebImageCache cache;
   private Typeface            amenTypeThin;
   private Typeface            amenTypeBold;
+  private TextView            commentsTextView;
 
   @Override
   public boolean onSearchRequested() {
@@ -91,11 +93,14 @@ public class AmenDetailActivity extends ListActivity {
     View header = getLayoutInflater().inflate(R.layout.details_header, null, false);
     list.addHeaderView(header);
 
+    commentsTextView = (TextView) findViewById(R.id.comments);
 
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
 
-    Log.d(TAG, "Current Amen: " + currentAmen);
+    new GetAmenTask(this).execute(currentAmen.getId());
+
+    Log.d(TAG, "Current (OLD!) Amen: " + currentAmen);
 
     if (currentAmen == null) {
 
@@ -114,7 +119,7 @@ public class AmenDetailActivity extends ListActivity {
       Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): "
                  + currentStatement.getObjekt().getMedia().get(0).getContentUrl());
 //      mediaPhoto.setImageResource(R.drawable.placeholder);
-      mediaPhoto.setImageDrawable((Drawable)cache.get(currentStatement.getObjekt().getMedia().get(0).getContentUrl()));
+      mediaPhoto.setImageDrawable((Drawable) cache.get(currentStatement.getObjekt().getMedia().get(0).getContentUrl()));
       mediaPhoto.setVisibility(View.VISIBLE);
 
     } else {
@@ -140,7 +145,6 @@ public class AmenDetailActivity extends ListActivity {
     Intent resultIntent = new Intent();
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
-
 
 
   }
@@ -224,7 +228,7 @@ public class AmenDetailActivity extends ListActivity {
         commentsCountText = " / " + currentAmen.getCommentsCount() + " comment";
       }
 
-      if ( currentAmen.getCommentsCount() != null && currentAmen.getCommentsCount() > 1) {
+      if (currentAmen.getCommentsCount() != null && currentAmen.getCommentsCount() > 1) {
         commentsCountText = " / " + currentAmen.getCommentsCount() + " comments";
       }
 
@@ -403,7 +407,7 @@ public class AmenDetailActivity extends ListActivity {
 
 
   //
-  // AmenTask
+  // StatementTask
   //
   private class GetStatementTask extends AmenLibTask<Long, Integer, Statement> {
 
@@ -437,6 +441,54 @@ public class AmenDetailActivity extends ListActivity {
 
         final List<User> users = currentStatement.getAgreeingNetwork();
         //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
+        thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
+        setListAdapter(thumbs);
+      }
+    }
+  }
+
+  //
+  // AmenTask
+  //
+  private class GetAmenTask extends AmenLibTask<Long, Integer, Amen> {
+
+    public GetAmenTask(Activity context) {
+      super(context);
+    }
+
+    protected Amen wrappedDoInBackground(Long... amenIds) throws IOException {
+
+      Amen amen = service.getAmenForId(amenIds[0]);
+      Log.d(TAG, "Amen returned from getAmenForId(): " + amen);
+
+      return amen;
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+    }
+
+    protected void wrappedOnPostExecute(Amen result) {
+
+      if (result != null) {
+        currentAmen = result;
+
+        Log.d(TAG, "Current (NEW!) Amen: " + currentAmen);
+        StringBuilder commentsText = new StringBuilder();
+        for (Comment comment : currentAmen.getComments()) {
+          Log.d(TAG, "comment: " + comment);
+          commentsText.append(comment.getUser().getName());
+          commentsText.append(": ");
+          commentsText.append(comment.getBody());
+          commentsText.append("\n");
+        }
+        commentsTextView.setText(commentsText.toString());
+
+        setAmenButtonListener();
+        currentStatement = result.getStatement();
+        populateFormWithAmen(false);
+        final List<User> users = currentStatement.getAgreeingNetwork();
         thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
       }
