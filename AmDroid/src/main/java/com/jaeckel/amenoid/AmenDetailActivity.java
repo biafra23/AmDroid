@@ -268,6 +268,7 @@ public class AmenDetailActivity extends ListActivity {
           populateFormWithAmen(false);
 
           Intent intent = new Intent(AmenDetailActivity.this, DisputeActivity.class);
+
           intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
           startActivity(intent);
         }

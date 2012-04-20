@@ -107,6 +107,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     } else {
       mediaPhoto.setVisibility(View.GONE);
+      //necessary?
+      //mediaPhoto.setTag(null);
     }
     long now = System.currentTimeMillis();
     if (amen.getCreatedAt() != null) {
