@@ -88,12 +88,9 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
 
         List<Objekt> values = null;
         try {
-          //TODO: need to have kindId of disputed Amen Objekt
-          //values = service.objektsForQuery(charSequence, AmenService.OBJEKT_KIND_THING, null, null);
           Double lat = null;
           Double lon = null;
           if (currentKindId == AmenService.OBJEKT_KIND_PLACE) {
-            //TODO: get current position here
             final Location lastLocation = AmenoidApp.getInstance().getLastLocation();
             if (lastLocation != null) {
               lon = lastLocation.getLongitude();
@@ -105,7 +102,7 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
           }
           values = service.objektsForQuery(charSequence, currentKindId, lat, lon);
           //This should not be necessary
-          for(Objekt v : values) {
+          for (Objekt v : values) {
             v.setKindId(currentKindId);
           }
         } catch (IOException e) {
