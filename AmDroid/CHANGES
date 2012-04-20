@@ -2,6 +2,7 @@ Version 1.0-ALPHA19, 1.0-ALPHA20, 1.0-ALPHA21
 - DUMMY: Cannot rdk sign bar file with same version twice (BlackBerry limitation)
 - Images in amens
 - FIX: Using ios User-Agent now (so user detail page is working again)
+- FIX: Disputes: Objekts retrieve from the server do not contain kinfId (Person, Thing, Place) and need it to be set to the kindId of the disputed Amen
 
 Version 1.0-ALPHA18
 - PLATFORM: Fixed signing process for BlackBerry AppWorld
