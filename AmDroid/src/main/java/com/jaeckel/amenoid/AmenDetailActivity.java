@@ -98,12 +98,12 @@ public class AmenDetailActivity extends ListActivity {
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
 
-    new GetAmenTask(this).execute(currentAmen.getId());
 
     Log.d(TAG, "Current (OLD!) Amen: " + currentAmen);
 
     if (currentAmen == null) {
 
+      // when coming from scorecard or subjectcard. They contain only statements
       currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
 
       // start downloading statement again to get the first_amen_id
@@ -112,6 +112,8 @@ public class AmenDetailActivity extends ListActivity {
     } else {
       currentStatement = currentAmen.getStatement();
     }
+
+    new GetAmenTask(this).execute(currentAmen.getId());
 
     ImageView mediaPhoto = (ImageView) header.findViewById(R.id.media_photo);
 

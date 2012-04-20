@@ -32,6 +32,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Comment;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.ServerError;
@@ -719,6 +720,44 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
+  @Override
+  public Comment createComment(int amenId, String body) {
 
+    Comment result = null;
+    log.debug("createComment(): " + body);
+
+    JsonObject jsonObject = new JsonObject();
+
+    jsonObject.addProperty("auth_token", authToken);
+    jsonObject.addProperty("body", body);
+    jsonObject.addProperty("amen_id", amenId);
+
+    HttpUriRequest jsonPostRequest = RequestFactory.createJSONPOSTRequest(serviceUrl + "/comments.json", jsonObject.toString());
+
+
+    HttpResponse response = null;
+    try {
+      response = httpclient.execute(jsonPostRequest);
+
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      Type collectionType = new TypeToken<Comment>() {
+      }.getType();
+      result = gson.fromJson(responseString, collectionType);
+
+    } catch (IOException e) {
+      e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    }
+
+    return result;
+  }
+
+  @Override
+  public Boolean deleteComment(int commentId) {
+
+    return false;
+  }
 }
 

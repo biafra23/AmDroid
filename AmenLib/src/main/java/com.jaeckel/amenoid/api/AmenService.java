@@ -1,13 +1,14 @@
 package com.jaeckel.amenoid.api;
 
+import java.io.IOException;
+import java.util.List;
+
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Comment;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * User: biafra
@@ -84,4 +85,7 @@ public interface AmenService {
   public List<Amen> getAmenForObjekt(Long objId) throws IOException;
 
   public List<Amen> search(String query) throws IOException;
+
+  public Comment createComment(int amenId, String body);
+  public Boolean deleteComment(int commentId);
 }

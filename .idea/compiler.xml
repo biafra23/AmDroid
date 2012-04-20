@@ -9,6 +9,7 @@
       <directory url="file://$PROJECT_DIR$/AmDroidTest/target/generated-sources/aidl" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/AmDroid/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/AmDroid/target/generated-sources/aidl" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.0.0/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
