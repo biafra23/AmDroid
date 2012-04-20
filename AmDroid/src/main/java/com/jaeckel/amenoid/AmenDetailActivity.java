@@ -110,10 +110,12 @@ public class AmenDetailActivity extends ListActivity {
       new GetStatementTask(this).execute(currentStatement.getId());
 
     } else {
+
       currentStatement = currentAmen.getStatement();
+      new GetAmenTask(this).execute(currentAmen.getId());
     }
 
-    new GetAmenTask(this).execute(currentAmen.getId());
+
 
     ImageView mediaPhoto = (ImageView) header.findViewById(R.id.media_photo);
 
@@ -433,6 +435,7 @@ public class AmenDetailActivity extends ListActivity {
 
       if (result != null) {
         currentAmen = new Amen(result);
+
         currentAmen.setId(result.getFirstAmenId());
         setAmenButtonListener();
 //        Toast.makeText(AmenDetailActivity.this, "setId on currentAmen", Toast.LENGTH_SHORT).show();
@@ -445,6 +448,8 @@ public class AmenDetailActivity extends ListActivity {
         //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
         thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
+
+        new GetAmenTask(AmenDetailActivity.this).execute(result.getFirstAmenId());
       }
     }
   }
