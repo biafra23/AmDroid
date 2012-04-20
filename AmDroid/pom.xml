@@ -10,7 +10,6 @@
     <groupId>com.jaeckel</groupId>
     <artifactId>amenoid</artifactId>
     <version>1.0-ALPHA23</version>
-    <version>1.0-ALPHA23</version>
     <packaging>apk</packaging>
     <name>Amenoid - Application</name>
     <dependencies>
