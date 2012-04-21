@@ -455,7 +455,7 @@ public class AmenDetailActivity extends ListActivity {
   }
 
   //
-  // AmenTask
+  // GetAmenTask
   //
   private class GetAmenTask extends AmenLibTask<Long, Integer, Amen> {
 
@@ -494,7 +494,7 @@ public class AmenDetailActivity extends ListActivity {
 
         setAmenButtonListener();
         currentStatement = result.getStatement();
-        populateFormWithAmen(false);
+        populateFormWithAmen(true);
         final List<User> users = currentStatement.getAgreeingNetwork();
         thumbs = new ThumbnailAdapter(AmenDetailActivity.this, new UserListAdapter(AmenDetailActivity.this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);

@@ -1,5 +1,14 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.List;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amenoid.util.AmenLibTask;
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -8,13 +17,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.util.AmenLibTask;
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * User: biafra
@@ -25,6 +27,7 @@ public class SubjectPageActivity extends ListActivity {
   private AmenListAdapter amenListAdapter;
   private AmenService     service;
   private static final String TAG = "SubjectPageActivity";
+  private static final int[] IMAGE_IDS = {R.id.media_photo};
 
   @Override
   public boolean onSearchRequested() {
@@ -41,6 +44,8 @@ public class SubjectPageActivity extends ListActivity {
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    this.setTitle("SubjectPage");
 
     setContentView(R.layout.subject_page);
 
@@ -98,9 +103,13 @@ public class SubjectPageActivity extends ListActivity {
 
         if (result.size() > 0) {
 
-          amenListAdapter = new AmenListAdapter(SubjectPageActivity.this, R.layout.list_item_amen, result);
+          amenListAdapter = new AmenListAdapter(SubjectPageActivity.this, R.layout.list_item_amen_no_pic, result);
 
-          setListAdapter(amenListAdapter);
+          
+          ThumbnailAdapter thumbs = new ThumbnailAdapter(SubjectPageActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
+          
+          
+          setListAdapter(thumbs);
           amenListAdapter.notifyDataSetChanged();
         }
 
