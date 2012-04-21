@@ -30,10 +30,10 @@ public class Amen implements Parcelable {
   private Long            userId;
   private User            user;
   private Date            createdAt;
+  private Amen            referringAmen;
   private Integer         kindId; //normal, amen, dispute ??
   private Statement       statement;
   //sometimes disputed Amen
-  private Amen            referringAmen;
   private Long            referringAmenId;
   private List<MediaItem> media;
   private Long            commentsCount;
@@ -61,6 +61,7 @@ public class Amen implements Parcelable {
     this.statement.getTopic().setObjektsCount(null);
   }
 
+  //used by DisputeActivity to create a dispute
   public Amen(Statement statement, Objekt objekt, Long referringAmenId) {
 
     this.kindId = AmenService.AMEN_KIND_DISPUTE;
@@ -71,7 +72,7 @@ public class Amen implements Parcelable {
     this.statement.setObjekt(objekt);
     //    this.statement.getObjekt().setKey(null);
     this.statement.setTotalAmenCount(null);
-    this.statement.getTopic().setId(null);
+//    this.statement.getTopic().setId(null);
     this.statement.getTopic().setObjektsCount(null);
   }
 

@@ -26,6 +26,7 @@ public class Statement implements Parcelable {
   private User       firstPoster;
   private Date       firstPostedAt;
   private Long       firstAmenId;
+  private Integer       rankInTopic;
 
   private static final String TAG = "Statement";
 
@@ -52,12 +53,15 @@ public class Statement implements Parcelable {
     if (agreeable != null ? !agreeable.equals(statement.agreeable) : statement.agreeable != null) return false;
     if (agreeingNetwork != null ? !agreeingNetwork.equals(statement.agreeingNetwork) : statement.agreeingNetwork != null)
       return false;
+    if (agreeingNetworkCount != null ? !agreeingNetworkCount.equals(statement.agreeingNetworkCount) : statement.agreeingNetworkCount != null)
+      return false;
     if (firstAmenId != null ? !firstAmenId.equals(statement.firstAmenId) : statement.firstAmenId != null) return false;
     if (firstPostedAt != null ? !firstPostedAt.equals(statement.firstPostedAt) : statement.firstPostedAt != null)
       return false;
     if (firstPoster != null ? !firstPoster.equals(statement.firstPoster) : statement.firstPoster != null) return false;
     if (id != null ? !id.equals(statement.id) : statement.id != null) return false;
     if (objekt != null ? !objekt.equals(statement.objekt) : statement.objekt != null) return false;
+    if (rankInTopic != null ? !rankInTopic.equals(statement.rankInTopic) : statement.rankInTopic != null) return false;
     if (topic != null ? !topic.equals(statement.topic) : statement.topic != null) return false;
     if (totalAmenCount != null ? !totalAmenCount.equals(statement.totalAmenCount) : statement.totalAmenCount != null)
       return false;
@@ -71,11 +75,13 @@ public class Statement implements Parcelable {
     result = 31 * result + (totalAmenCount != null ? totalAmenCount.hashCode() : 0);
     result = 31 * result + (agreeable != null ? agreeable.hashCode() : 0);
     result = 31 * result + (agreeingNetwork != null ? agreeingNetwork.hashCode() : 0);
+    result = 31 * result + (agreeingNetworkCount != null ? agreeingNetworkCount.hashCode() : 0);
     result = 31 * result + (topic != null ? topic.hashCode() : 0);
     result = 31 * result + (objekt != null ? objekt.hashCode() : 0);
     result = 31 * result + (firstPoster != null ? firstPoster.hashCode() : 0);
     result = 31 * result + (firstPostedAt != null ? firstPostedAt.hashCode() : 0);
     result = 31 * result + (firstAmenId != null ? firstAmenId.hashCode() : 0);
+    result = 31 * result + (rankInTopic != null ? rankInTopic.hashCode() : 0);
     return result;
   }
 
@@ -92,8 +98,17 @@ public class Statement implements Parcelable {
     sb.append(", firstPoster=").append(firstPoster);
     sb.append(", firstPostedAt=").append(firstPostedAt);
     sb.append(", firstAmenId=").append(firstAmenId);
+    sb.append(", rankInTopic=").append(rankInTopic);
     sb.append('}');
     return sb.toString();
+  }
+
+  public Integer getRankInTopic() {
+    return rankInTopic;
+  }
+
+  public void setRankInTopic(Integer rankInTopic) {
+    this.rankInTopic = rankInTopic;
   }
 
   public String json() {
@@ -206,6 +221,8 @@ public class Statement implements Parcelable {
     dest.writeParcelable(firstPoster, flags);
     dest.writeValue(firstPostedAt);
     dest.writeValue(firstAmenId);
+    dest.writeValue(rankInTopic);
+
     Log.d(TAG, "writeToParcel. done.");
   }
 
@@ -222,6 +239,8 @@ public class Statement implements Parcelable {
     firstPoster = in.readParcelable(cl);
     firstPostedAt = (Date) in.readValue(cl);
     firstAmenId = (Long) in.readValue(cl);
+    rankInTopic = (Integer) in.readValue(cl);
+
     Log.d(TAG, "readFromParcel. done.");
 
   }

@@ -2,6 +2,7 @@ package com.jaeckel.amenoid.api.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
@@ -21,6 +22,7 @@ public class Topic implements Parcelable {
   private Integer                objektsCount;
   private List<RankedStatements> rankedStatements;
   private String                 asSentence;
+  private String                 slug;
 
   private static final String TAG = "Topic";
 
@@ -49,6 +51,7 @@ public class Topic implements Parcelable {
     if (rankedStatements != null ? !rankedStatements.equals(topic.rankedStatements) : topic.rankedStatements != null)
       return false;
     if (scope != null ? !scope.equals(topic.scope) : topic.scope != null) return false;
+    if (slug != null ? !slug.equals(topic.slug) : topic.slug != null) return false;
 
     return true;
   }
@@ -62,20 +65,32 @@ public class Topic implements Parcelable {
     result = 31 * result + (objektsCount != null ? objektsCount.hashCode() : 0);
     result = 31 * result + (rankedStatements != null ? rankedStatements.hashCode() : 0);
     result = 31 * result + (asSentence != null ? asSentence.hashCode() : 0);
+    result = 31 * result + (slug != null ? slug.hashCode() : 0);
     return result;
   }
 
-  @Override
-  public String toString() {
-    return "Topic{" +
-           "id=" + id +
-           ", best=" + best +
-           ", description='" + description + '\'' +
-           ", scope='" + scope + '\'' +
-           ", objektsCount=" + objektsCount +
-           ", rankedStatements=" + rankedStatements +
-           ", asSentence='" + asSentence + '\'' +
-           '}';
+  public String getSlug() {
+
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
+  }
+
+  @Override public String toString() {
+    final StringBuffer sb = new StringBuffer();
+    sb.append("Topic");
+    sb.append("{id=").append(id);
+    sb.append(", best=").append(best);
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", scope='").append(scope).append('\'');
+    sb.append(", objektsCount=").append(objektsCount);
+    sb.append(", rankedStatements=").append(rankedStatements);
+    sb.append(", asSentence='").append(asSentence).append('\'');
+    sb.append(", slug='").append(slug).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 
   public Long getId() {
@@ -176,6 +191,7 @@ public class Topic implements Parcelable {
     dest.writeString(description);
     dest.writeString(scope);
     dest.writeValue(objektsCount);
+    dest.writeString(slug);
     dest.writeList(rankedStatements);
   }
 
@@ -187,11 +203,10 @@ public class Topic implements Parcelable {
     description = in.readString();
     scope = in.readString();
     objektsCount = (Integer) in.readValue(cl);
-
+    slug = in.readString();
     rankedStatements = in.readArrayList(cl);
 
   }
-
 
 
 }

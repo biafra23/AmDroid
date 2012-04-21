@@ -46,7 +46,7 @@ import com.jaeckel.amenoid.api.model.User;
 public class AmenServiceImpl implements AmenService {
 
   private final static Logger log        = LoggerFactory.getLogger("Amen");
-//  private final static String serviceUrl = "http://getamen.com/";
+  //  private final static String serviceUrl = "http://getamen.com/";
   private final static String serviceUrl = "https://getamen.com/";
 //  private final static String serviceUrl = "https://staging.getamen.com/";
 
@@ -288,7 +288,22 @@ public class AmenServiceImpl implements AmenService {
   @Override
   public Long dispute(Amen dispute) throws IOException {
 
-    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", addAuthTokenToJSON(dispute, authToken));
+    //remove ranked_statements
+    dispute.getStatement().getTopic().setRankedStatements(null);
+//    dispute.getStatement().setAgreeingNetwork(new ArrayList<User>());
+
+    Map<String, String> map = new HashMap<String, String>();
+//    map.put("share_to_facebook", "false");
+//    map.put("share_to_twitter", "false");
+//    map.put("has_photo", "false");
+//    map.put("shared_to_twitter_on_client", "false");
+//    map.put("local_time", "2012-04-22T00:01:24+020");
+
+    map.put("auth_token", authToken);
+
+    String amenJsonString = addKeyValueToJSON(dispute, map);
+
+    HttpUriRequest httpPost = RequestFactory.createJSONPOSTRequest(serviceUrl + "amen.json", amenJsonString);
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
@@ -683,7 +698,7 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
-  public static String addAuthTokenToJSON(Amen amen, String authToken) {
+  public static String addKeyValueToJSON(Amen amen, Map<String, String> map) {
 
     Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
 
@@ -691,9 +706,17 @@ public class AmenServiceImpl implements AmenService {
 
     JsonObject object = element.getAsJsonObject();
 
-    object.addProperty("auth_token", authToken);
+    for (Map.Entry<String, String> entry : map.entrySet()) {
+      object.addProperty(entry.getKey(), entry.getValue());
+    }
 
     return object.toString();
+  }
+
+  public static String addAuthTokenToJSON(Amen amen, String authToken) {
+    Map<String, String> map = new HashMap<String, String>();
+    map.put("auth_token", authToken);
+    return addKeyValueToJSON(amen, map);
   }
 
   @Override
