@@ -69,6 +69,8 @@ public interface AmenService {
 
   public Amen getAmenForId(Long id) throws IOException;
 
+  public Amen getAmenByUrl(String url) throws IOException;
+
   public Topic getTopicsForId(String id, Long includeStatementId) throws IOException;
 
   public List<User> followers(Long id) throws IOException;
@@ -86,6 +88,8 @@ public interface AmenService {
 
   public List<Amen> search(String query) throws IOException;
 
-  public Comment createComment(int amenId, String body);
-  public Boolean deleteComment(int commentId);
+  public Comment createComment(int amenId, String body) throws IOException;
+
+  public Boolean deleteComment(int commentId) throws IOException;
+
 }

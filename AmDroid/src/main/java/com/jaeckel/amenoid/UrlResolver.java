@@ -1,11 +1,15 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.List;
+
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.app.AmenoidApp;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import java.util.List;
 
 /**
  * User: biafra
@@ -56,6 +60,26 @@ public class UrlResolver extends Activity {
 
       } else {
         String name = pathSegments.get(0);
+        // Is it a comment?
+        String sement2 = pathSegments.get(1);
+        if ("amen".equals(sement2)) {
+
+          try {
+            Amen amen = AmenoidApp.getInstance().getService().getAmenByUrl(uri.toString() + ".json");
+            Intent startAmenDetailActivity = new Intent(this, AmenDetailActivity.class);
+            startAmenDetailActivity.putExtra(Constants.EXTRA_AMEN, amen);
+
+            startActivity(startAmenDetailActivity);
+
+            finish();
+
+          } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+
+          }
+
+
+        }
 
         if ("account".equals(name)) {
           Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
@@ -72,5 +96,10 @@ public class UrlResolver extends Activity {
     }
   }
 
+  // TODO: add support for the following urls:
+  // Comment:
+  // http://getamen.com/jbrennholt/amen/bi-sexual-is-the-best-plan-b-ever
+  // user pages
+  // http://getamen.com/anduela
 
 }

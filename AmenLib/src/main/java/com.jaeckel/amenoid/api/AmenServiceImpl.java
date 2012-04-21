@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -20,7 +19,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.message.BasicHeader;
 import org.apache.http.params.CoreProtocolPNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +46,7 @@ import com.jaeckel.amenoid.api.model.User;
 public class AmenServiceImpl implements AmenService {
 
   private final static Logger log        = LoggerFactory.getLogger("Amen");
+//  private final static String serviceUrl = "http://getamen.com/";
   private final static String serviceUrl = "https://getamen.com/";
 //  private final static String serviceUrl = "https://staging.getamen.com/";
 
@@ -445,8 +444,8 @@ public class AmenServiceImpl implements AmenService {
 
     HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "users/" + userId + "/amen.json", params);
 
-    Header cookie = new BasicHeader("set-cookie", "_getamen_session_production=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWQ1NGJjNzJhOTkyZTg5MzQ5NjhhZmFhNzRmNDE3Yzk2BjsAVA%3D%3D--59eb5438c0f48c1314caf043f4cd2a36c12ed26e");
-    httpGet.addHeader(cookie);
+//    Header cookie = new BasicHeader("set-cookie", "_getamen_session_production=BAh7BkkiD3Nlc3Npb25faWQGOgZFRkkiJWQ1NGJjNzJhOTkyZTg5MzQ5NjhhZmFhNzRmNDE3Yzk2BjsAVA%3D%3D--59eb5438c0f48c1314caf043f4cd2a36c12ed26e");
+//    httpGet.addHeader(cookie);
 
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
@@ -759,5 +758,26 @@ public class AmenServiceImpl implements AmenService {
 
     return false;
   }
+
+  public Amen getAmenByUrl(String url) throws IOException {
+
+    Amen amen;
+    HashMap<String, String> params = createAuthenticatedParams();
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(url, params);
+
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("getAmenForId produced error: " + responseString);
+    }
+    amen = gson.fromJson(responseString, Amen.class);
+
+    return amen;
+
+  }
+
 }
 
