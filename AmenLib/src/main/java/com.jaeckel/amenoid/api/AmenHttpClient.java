@@ -1,5 +1,12 @@
 package com.jaeckel.amenoid.api;
 
+import java.io.InputStream;
+import java.security.KeyStore;
+
+import javax.net.ssl.SSLException;
+
+import org.apache.http.client.protocol.RequestAcceptEncoding;
+import org.apache.http.client.protocol.ResponseContentEncoding;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.scheme.PlainSocketFactory;
 import org.apache.http.conn.scheme.Scheme;
@@ -9,10 +16,7 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-
-import javax.net.ssl.SSLException;
-import java.io.InputStream;
-import java.security.KeyStore;
+import org.apache.http.protocol.BasicHttpProcessor;
 
 /**
  * User: biafra
@@ -64,6 +68,28 @@ public class AmenHttpClient extends DefaultHttpClient {
 //      sf.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
 //      final X509HostnameVerifier delegate = sf.getHostnameVerifier();
 //      if (!(delegate instanceof MyVerifier)) {
+
+//      X509HostnameVerifier verifier = new X509HostnameVerifier() {
+//
+//        @Override
+//        public void verify(String string, SSLSocket ssls) throws IOException {
+//        }
+//
+//        @Override
+//        public void verify(String string, X509Certificate xc) throws SSLException {
+//        }
+//
+//        @Override
+//        public void verify(String string, String[] strings, String[] strings1) throws SSLException {
+//        }
+//
+//        @Override
+//        public boolean verify(String string, SSLSession ssls) {
+//          return true;
+//        }
+//      };
+//
+//      sf.setHostnameVerifier(verifier);
       sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
 //      }
 
@@ -73,6 +99,19 @@ public class AmenHttpClient extends DefaultHttpClient {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  protected BasicHttpProcessor createHttpProcessor() {
+    //for gzip stuff
+    BasicHttpProcessor result = super.createHttpProcessor();
+
+    result.addRequestInterceptor(new RequestAcceptEncoding());
+    result.addResponseInterceptor(new ResponseContentEncoding());
+
+    return result;
+  }
 
 }
 
@@ -98,6 +137,7 @@ class MyVerifier extends AbstractVerifier {
               cn.substring(2)}, subjectAlts);
             ok = true;
           } catch (Exception e1) {
+            e1.printStackTrace();
           }
         }
       }
