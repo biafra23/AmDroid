@@ -1,5 +1,6 @@
 1.0-ALPHA24
 - NEW: Accepting gzipped responses
+- NEW: Comment Links in emails lead to Amen detail screen
 
 1.0-ALPHA23
 - BUGFIX: Fixed crash when coming from scorecard or subject page to detail page.
