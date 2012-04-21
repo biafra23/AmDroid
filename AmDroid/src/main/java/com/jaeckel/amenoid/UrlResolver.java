@@ -61,8 +61,8 @@ public class UrlResolver extends Activity {
       } else {
         String name = pathSegments.get(0);
         // Is it a comment?
-        String sement2 = pathSegments.get(1);
-        if ("amen".equals(sement2)) {
+        String segment2 = pathSegments.get(1);
+        if ("amen".equals(segment2)) {
 
           try {
             Amen amen = AmenoidApp.getInstance().getService().getAmenByUrl(uri.toString() + ".json");
@@ -79,19 +79,20 @@ public class UrlResolver extends Activity {
           }
 
 
+        } else {
+
+          if ("account".equals(name)) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(browserIntent);
+
+          }
+          Intent startUserDetailActivity = new Intent(this, UserDetailActivity.class);
+          startUserDetailActivity.putExtra(Constants.EXTRA_USER_ID_STRING, name);
+
+          startActivity(startUserDetailActivity);
+
+          finish();
         }
-
-        if ("account".equals(name)) {
-          Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
-          startActivity(browserIntent);
-
-        }
-        Intent startUserDetailActivity = new Intent(this, UserDetailActivity.class);
-        startUserDetailActivity.putExtra(Constants.EXTRA_USER_ID_STRING, name);
-
-        startActivity(startUserDetailActivity);
-
-        finish();
       }
     }
   }
