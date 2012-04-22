@@ -483,8 +483,12 @@ public class AmenDetailActivity extends ListActivity {
 
         Log.d(TAG, "Current (NEW!) Amen: " + currentAmen);
         StringBuilder commentsText = new StringBuilder();
+        //commentsText.append("Comment(s):\n");
+
         for (Comment comment : currentAmen.getComments()) {
           Log.d(TAG, "comment: " + comment);
+          commentsText.append(formatCommentDate(comment.getCreatedAt()));
+          commentsText.append(": ");
           commentsText.append(comment.getUser().getName());
           commentsText.append(": ");
           commentsText.append(comment.getBody());
@@ -502,6 +506,14 @@ public class AmenDetailActivity extends ListActivity {
     }
   }
 
+
+  public static String formatCommentDate(Date firstPostedAt) {
+    SimpleDateFormat fmt = new SimpleDateFormat("yy-MM-dd HH:mm");
+    if (firstPostedAt != null) {
+      return fmt.format(firstPostedAt);
+    }
+    return "<unknown>";
+  }
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
 
