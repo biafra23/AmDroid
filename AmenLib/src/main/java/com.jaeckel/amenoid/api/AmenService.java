@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid.api;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.jaeckel.amenoid.api.model.Amen;
@@ -91,5 +92,7 @@ public interface AmenService {
   public Comment createComment(int amenId, String body) throws IOException;
 
   public Boolean deleteComment(int commentId) throws IOException;
+
+  public ArrayList<Comment> getCommentsForAmenId(Long amenId) throws IOException;
 
 }

@@ -72,8 +72,9 @@ public class Amen implements Parcelable {
     this.statement.setObjekt(objekt);
     //    this.statement.getObjekt().setKey(null);
     this.statement.setTotalAmenCount(null);
-//    this.statement.getTopic().setId(null);
     this.statement.getTopic().setObjektsCount(null);
+    this.statement.getTopic().setRankedStatements(null);
+
   }
 
   public Amen(Statement statement) {

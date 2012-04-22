@@ -289,7 +289,6 @@ public class AmenServiceImpl implements AmenService {
   public Long dispute(Amen dispute) throws IOException {
 
     //remove ranked_statements
-    dispute.getStatement().getTopic().setRankedStatements(null);
 //    dispute.getStatement().setAgreeingNetwork(new ArrayList<User>());
 
     Map<String, String> map = new HashMap<String, String>();
@@ -368,7 +367,34 @@ public class AmenServiceImpl implements AmenService {
     }
     amen = gson.fromJson(responseString, Amen.class);
 
+    if (amen.getCommentsCount() > 5) {
+      //get all the comments
+      ArrayList<Comment> comments = getCommentsForAmenId(amen.getId());
+      amen.setComments(comments);
+    }
+
     return amen;
+  }
+
+  @Override
+  public ArrayList<Comment> getCommentsForAmenId(Long amenId) throws IOException {
+    ArrayList<Comment> result;
+    Map params = createAuthenticatedParams();
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/amen/" + amenId + "/comments", params);
+
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+    if (responseString.startsWith("{\"error\":")) {
+      throw new RuntimeException("getAmenForId produced error: " + responseString);
+    }
+    Type collectionType = new TypeToken<List<Comment>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
+
+    return result;
   }
 
   @Override
