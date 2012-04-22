@@ -1,5 +1,9 @@
+1.0-ALPHA26
+- FIX: Profile links from emails
+
 1.0-ALPHA25
 - FIX: Show ALL the comments
+- NEW: Show comments with datetime
 
 1.0-ALPHA24
 - NEW: Accepting gzipped responses
