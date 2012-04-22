@@ -61,24 +61,24 @@ public class UrlResolver extends Activity {
       } else {
         String name = pathSegments.get(0);
         // Is it a comment?
-        String segment2 = pathSegments.get(1);
-        if ("amen".equals(segment2)) {
+        if (pathSegments.size() > 1) {
+          String segment2 = pathSegments.get(1);
+          if ("amen".equals(segment2)) {
 
-          try {
-            Amen amen = AmenoidApp.getInstance().getService().getAmenByUrl(uri.toString() + ".json");
-            Intent startAmenDetailActivity = new Intent(this, AmenDetailActivity.class);
-            startAmenDetailActivity.putExtra(Constants.EXTRA_AMEN, amen);
+            try {
+              Amen amen = AmenoidApp.getInstance().getService().getAmenByUrl(uri.toString() + ".json");
+              Intent startAmenDetailActivity = new Intent(this, AmenDetailActivity.class);
+              startAmenDetailActivity.putExtra(Constants.EXTRA_AMEN, amen);
 
-            startActivity(startAmenDetailActivity);
+              startActivity(startAmenDetailActivity);
 
-            finish();
+              finish();
 
-          } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (IOException e) {
+              e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
 
+            }
           }
-
-
         } else {
 
           if ("account".equals(name)) {

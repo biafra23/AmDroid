@@ -38,7 +38,7 @@ public class SearchActivity extends ListActivity {
   private AmenListAdapter adapter;
   private ProgressBar     progressBar;
   private ListView        list;
-  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.Media.Photo};
+  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.media_photo};
 
   private ProgressDialog progressDialog;
 
