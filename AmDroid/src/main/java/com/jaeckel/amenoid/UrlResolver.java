@@ -17,6 +17,28 @@ import android.os.Bundle;
  * Time: 10:55 PM
  */
 public class UrlResolver extends Activity {
+  // Floria Weber: 6.12.2012
+//  in rails ist das so implementiert, das unsere eigenen urls immer
+//  vorrang haben. defininiert sind zb:
+//  /account
+//  /about
+//  /help
+//  /find-friends
+//  /sign-up
+//  /sign-in
+//  /forgot-password
+//  /feed
+//  /things
+//  /people
+//  /places
+//  /news
+//  /topics
+//  /statements
+//  /follows
+//  /invitations
+//  /search
+//  /amen
+//  /notifications
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
