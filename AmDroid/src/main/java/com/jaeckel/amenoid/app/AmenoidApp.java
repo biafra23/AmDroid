@@ -1,5 +1,28 @@
 package com.jaeckel.amenoid.app;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jaeckel.amenoid.Constants;
+import com.jaeckel.amenoid.R;
+import com.jaeckel.amenoid.api.AmenHttpClient;
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.AmenServiceImpl;
+import com.jaeckel.amenoid.api.model.DateSerializer;
+import com.jaeckel.amenoid.api.model.User;
+import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.db.AmenDBAdapter;
+import com.jaeckel.amenoid.db.AmenDao;
+
 import android.app.AlertDialog;
 import android.app.Application;
 import android.app.PendingIntent;
@@ -20,27 +43,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jaeckel.amenoid.Constants;
-import com.jaeckel.amenoid.R;
-import com.jaeckel.amenoid.api.AmenHttpClient;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.AmenServiceImpl;
-import com.jaeckel.amenoid.api.model.DateSerializer;
-import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
-import com.jaeckel.amenoid.db.AmenDBAdapter;
-import com.jaeckel.amenoid.db.AmenDao;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Date;
-import java.util.List;
 
 /**
  * User: biafra
@@ -164,6 +166,7 @@ public class AmenoidApp extends Application {
   private void configureAmenService() {
     InputStream in = getResources().openRawResource(R.raw.amenkeystore);
     amenHttpClient = new AmenHttpClient(in, "mysecret", "BKS");
+//    amenHttpClient = new DefaultHttpClient();
 
     service = new AmenServiceImpl(amenHttpClient);
 

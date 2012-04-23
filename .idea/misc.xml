@@ -49,6 +49,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="android" url="file://$PROJECT_DIR$/AmDroid" />
     <file type="android" url="file://$PROJECT_DIR$/AmDroidTest" />
+    <file type="android" url="file://$PROJECT_DIR$/httpclientandroidlib" />
   </component>
   <component name="IdProvider" IDEtalkID="058AAD20AFEB0D6E0325BF28A01B33FB" />
   <component name="JavadocGenerationManager">

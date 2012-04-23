@@ -18,6 +18,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.protocol.BasicHttpProcessor;
 
+import android.util.Log;
+
 /**
  * User: biafra
  * Date: 11/13/11
@@ -42,56 +44,24 @@ public class AmenHttpClient extends DefaultHttpClient {
     // Register for port 443 our SSLSocketFactory with our keystore
     // to the ConnectionManager
     registry.register(new Scheme("https", newSslSocketFactory(), 443));
-    return new ThreadSafeClientConnManager(getParams(), registry);
+
+    ThreadSafeClientConnManager connMgr = new ThreadSafeClientConnManager(getParams(), registry);
+//    connMgr.setDefaultMaxPerRoute(10);
+    
+    return connMgr;
   }
 
   private SSLSocketFactory newSslSocketFactory() {
     try {
-      // Get an instance of the Bouncy Castle KeyStore format
-//      KeyStore trusted = KeyStore.getInstance("BKS");
       KeyStore trusted = KeyStore.getInstance(keyStoreType);
-      // Get the raw resource, which contains the keystore with
-      // your trusted certificates (root and any intermediate certs)
-//      InputStream in = context.getResources().openRawResource(R.raw.amenkeystore);
       try {
-        // Initialize the keystore with the provided trusted certificates
-        // Also provide the password of the keystore
         trusted.load(keyStoreStream, keyStorePassword.toCharArray());
       } finally {
         keyStoreStream.close();
       }
-      // Pass the keystore to the SSLSocketFactory. The factory is responsible
-      // for the verification of the server certificate.
       SSLSocketFactory sf = new SSLSocketFactory(trusted);
-      // Hostname verification from certificate
-      // http://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html#d4e506
-//      sf.setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-//      final X509HostnameVerifier delegate = sf.getHostnameVerifier();
-//      if (!(delegate instanceof MyVerifier)) {
 
-//      X509HostnameVerifier verifier = new X509HostnameVerifier() {
-//
-//        @Override
-//        public void verify(String string, SSLSocket ssls) throws IOException {
-//        }
-//
-//        @Override
-//        public void verify(String string, X509Certificate xc) throws SSLException {
-//        }
-//
-//        @Override
-//        public void verify(String string, String[] strings, String[] strings1) throws SSLException {
-//        }
-//
-//        @Override
-//        public boolean verify(String string, SSLSession ssls) {
-//          return true;
-//        }
-//      };
-//
-//      sf.setHostnameVerifier(verifier);
       sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
-//      }
 
       return sf;
     } catch (Exception e) {
@@ -141,7 +111,12 @@ class MyVerifier extends AbstractVerifier {
           }
         }
       }
-      if (!ok) throw e;
+      if (!ok) {
+        Log.d("AmenHttpClient", "verify -> !ok");
+        e.printStackTrace();
+        throw e;
+      }
     }
   }
 }
+
