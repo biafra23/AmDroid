@@ -72,7 +72,11 @@ public class AmenServiceImpl implements AmenService {
     this.httpclient = httpClient;
 
     this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amen/1.2.0 CFNetwork/548.1.4 Darwin/11.0.0");
-//    this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
+    //this.httpclient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Amenoid/1.0 HttpClient/4.0.1 Android");
+    //https://getamen.com/users/3 kapott
+    // curl --user-agent "Amen/1.2.0 CFNetwork/548.1.4 Darwin/11.0.2" https://getamen.com/users/3.json
+    // vs.
+    // curl https://getamen.com/users/3.json
 
   }
 
