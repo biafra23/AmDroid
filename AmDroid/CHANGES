@@ -1,3 +1,6 @@
+1.0-ALPHA28
+- FIX: User-Agent back to "Amenoid/*"
+
 1.0-ALPHA27
 - FIX: Load media photos in search results
 
