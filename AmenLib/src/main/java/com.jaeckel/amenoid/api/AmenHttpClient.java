@@ -8,11 +8,9 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 
 import android.util.Log;
-import ch.boye.httpclientandroidlib.HttpHost;
 import ch.boye.httpclientandroidlib.client.protocol.RequestAcceptEncoding;
 import ch.boye.httpclientandroidlib.client.protocol.ResponseContentEncoding;
 import ch.boye.httpclientandroidlib.conn.ClientConnectionManager;
-import ch.boye.httpclientandroidlib.conn.params.ConnRoutePNames;
 import ch.boye.httpclientandroidlib.conn.scheme.PlainSocketFactory;
 import ch.boye.httpclientandroidlib.conn.scheme.Scheme;
 import ch.boye.httpclientandroidlib.conn.scheme.SchemeRegistry;
@@ -70,9 +68,9 @@ public class AmenHttpClient extends DefaultHttpClient {
     connMgr.setDefaultMaxPerRoute(10);
 
 
-    //TODO: Remove before release!
-    HttpHost proxy = new HttpHost("192.168.1.52", 8888);
-    this.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
+//    //TODO: Remove before release!
+//    HttpHost proxy = new HttpHost("192.168.1.52", 8888);
+//    this.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
 
     this.log.enableTrace(true);
     this.log.enableDebug(true);
