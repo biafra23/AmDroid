@@ -14,24 +14,28 @@
 
 package com.jaeckel.amenoid.cwac.cache;
 
-import android.app.Activity;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
-import com.jaeckel.amenoid.cwac.bus.SimpleBus;
-import com.jaeckel.amenoid.cwac.task.AsyncTaskEx;
-
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.security.MessageDigest;
+
+import com.jaeckel.amenoid.api.RequestFactory;
+import com.jaeckel.amenoid.cwac.bus.SimpleBus;
+import com.jaeckel.amenoid.cwac.task.AsyncTaskEx;
+
+import android.app.Activity;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import ch.boye.httpclientandroidlib.HttpEntity;
+import ch.boye.httpclientandroidlib.HttpResponse;
+import ch.boye.httpclientandroidlib.client.methods.HttpUriRequest;
+import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
 
 public class WebImageCache
 	extends AsyncCache<String, Drawable, SimpleBus, Bundle> {
@@ -159,8 +163,20 @@ public class WebImageCache
 			File cache=(File)params[2];
 			
 			try {
-				URLConnection connection=new URL(url).openConnection();
-				InputStream stream=connection.getInputStream();
+
+//        DefaultHttpClient httpClient = AmenoidApp.getInstance().getAmenHttpClient();
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+
+        HttpUriRequest httpGet = RequestFactory.createGETRequest(url, null);
+
+        HttpResponse response = httpClient.execute(httpGet);
+        HttpEntity responseEntity = response.getEntity();
+
+        InputStream stream = responseEntity.getContent();
+
+//        URLConnection connection=new URL(url).openConnection();
+//				InputStream stream=connection.getInputStream();
+
 				BufferedInputStream in=new BufferedInputStream(stream);
 				ByteArrayOutputStream out=new ByteArrayOutputStream(10240);
 				int read;
@@ -172,7 +188,6 @@ public class WebImageCache
 				
 				out.flush();
 				out.close();
-				
 				byte[] raw=out.toByteArray();
 				
 				WebImageCache.this.put(url, new BitmapDrawable(new ByteArrayInputStream(raw)));

@@ -55,7 +55,9 @@ public class RequestFactory {
 
   private static String createQueryString(Map<String, String> params, boolean addTimeStamp) {
     StringBuilder nameValuePairs = new StringBuilder();
-    nameValuePairs.append("?");
+    if (addTimeStamp || params != null) {
+      nameValuePairs.append("?");
+    }
     if (params != null) {
       for (String key : params.keySet()) {
         final String value = params.get(key);

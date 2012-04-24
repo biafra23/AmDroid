@@ -37,7 +37,6 @@
             <groupId>ch.boye</groupId>
             <artifactId>httpclientandroidlib</artifactId>
             <version>1.0.4</version>
-            <!--<type>apklib</type>-->
         </dependency>
         <!--<dependency>-->
         <!--<groupId>com.viewpagerindicator</groupId>-->

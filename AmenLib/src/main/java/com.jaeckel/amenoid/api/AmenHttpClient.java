@@ -2,7 +2,9 @@ package com.jaeckel.amenoid.api;
 
 import java.io.InputStream;
 import java.security.KeyStore;
+import java.security.NoSuchAlgorithmException;
 
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 
 import android.util.Log;
@@ -13,6 +15,7 @@ import ch.boye.httpclientandroidlib.conn.scheme.PlainSocketFactory;
 import ch.boye.httpclientandroidlib.conn.scheme.Scheme;
 import ch.boye.httpclientandroidlib.conn.scheme.SchemeRegistry;
 import ch.boye.httpclientandroidlib.conn.ssl.AbstractVerifier;
+import ch.boye.httpclientandroidlib.conn.ssl.AllowAllHostnameVerifier;
 import ch.boye.httpclientandroidlib.conn.ssl.SSLSocketFactory;
 import ch.boye.httpclientandroidlib.conn.ssl.X509HostnameVerifier;
 import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
@@ -26,9 +29,9 @@ import ch.boye.httpclientandroidlib.protocol.BasicHttpProcessor;
  */
 public class AmenHttpClient extends DefaultHttpClient {
 
-  final   InputStream keyStoreStream;
-  final   String      keyStorePassword;
-  private String      keyStoreType;
+  final private InputStream keyStoreStream;
+  final private String      keyStorePassword;
+  final private String      keyStoreType;
 
   public AmenHttpClient(InputStream keyStoreStream, String keyStorePassword, String keyStoreType) {
     this.keyStoreStream = keyStoreStream;
@@ -36,17 +39,37 @@ public class AmenHttpClient extends DefaultHttpClient {
     this.keyStoreType = keyStoreType;
   }
 
+  public AmenHttpClient() {
+    this.keyStoreStream = null;
+    this.keyStorePassword = null;
+    this.keyStoreType = null;
+  }
+
   @Override
   protected ClientConnectionManager createClientConnectionManager() {
     SchemeRegistry registry = new SchemeRegistry();
-    registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+    registry.register(new Scheme("http", 80, PlainSocketFactory.getSocketFactory()));
     // Register for port 443 our SSLSocketFactory with our keystore
     // to the ConnectionManager
-    registry.register(new Scheme("https", newSslSocketFactory(), 443));
+    if (keyStoreStream != null) {
+      registry.register(new Scheme("https", 443, newSslSocketFactory()));
 
-    ThreadSafeClientConnManager connMgr = new ThreadSafeClientConnManager(getParams(), registry);
+    } else {
+      SSLContext context = null;
+      try {
+        registry.register(new Scheme("https", 443, new SSLSocketFactory(SSLContext.getDefault(), new AllowAllHostnameVerifier())));
+
+      } catch (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+      }
+
+    }
+
+    ThreadSafeClientConnManager connMgr = new ThreadSafeClientConnManager(registry);
     connMgr.setDefaultMaxPerRoute(20);
-//    connMgr.setDefaultMaxPerRoute(10);
+    this.log.enableTrace(true);
+    this.log.enableDebug(true);
+    this.log.enableWarn(true);
 
     return connMgr;
   }
@@ -60,9 +83,7 @@ public class AmenHttpClient extends DefaultHttpClient {
         keyStoreStream.close();
       }
       SSLSocketFactory sf = new SSLSocketFactory(trusted);
-
       sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER));
-//      sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
 
       return sf;
     } catch (Exception e) {

@@ -94,6 +94,13 @@ public class AmenoidApp extends Application {
     super();
   }
 
+  public DefaultHttpClient getAmenHttpClient() {
+    return amenHttpClient;
+  }
+
+  public void setAmenHttpClient(DefaultHttpClient amenHttpClient) {
+    this.amenHttpClient = amenHttpClient;
+  }
 
   @Override
   public void onCreate() {
