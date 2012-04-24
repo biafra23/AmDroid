@@ -55,7 +55,6 @@ public class AmenHttpClient extends DefaultHttpClient {
       registry.register(new Scheme("https", 443, newSslSocketFactory()));
 
     } else {
-      SSLContext context = null;
       try {
         registry.register(new Scheme("https", 443, new SSLSocketFactory(SSLContext.getDefault(), new AllowAllHostnameVerifier())));
 
@@ -66,7 +65,8 @@ public class AmenHttpClient extends DefaultHttpClient {
     }
 
     ThreadSafeClientConnManager connMgr = new ThreadSafeClientConnManager(registry);
-    connMgr.setDefaultMaxPerRoute(20);
+    connMgr.setDefaultMaxPerRoute(10);
+
     this.log.enableTrace(true);
     this.log.enableDebug(true);
     this.log.enableWarn(true);

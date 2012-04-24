@@ -22,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
 
+import com.jaeckel.amenoid.api.AmenHttpClient;
 import com.jaeckel.amenoid.api.RequestFactory;
 import com.jaeckel.amenoid.cwac.bus.AbstractBus;
 import com.jaeckel.amenoid.cwac.task.AsyncTaskEx;
@@ -39,6 +40,7 @@ public class SimpleWebImageCache<B extends AbstractBus, M>
 	extends CacheBase<String, Drawable> {
 	private static final String TAG="SimpleWebImageCache";
 	private B bus=null;
+  private DefaultHttpClient httpClient = new AmenHttpClient();
 	
 	static public File buildCachedImagePath(File cacheRoot, String url)
 		throws Exception {
@@ -131,9 +133,6 @@ public class SimpleWebImageCache<B extends AbstractBus, M>
 			File cache=(File)params[2];
 			
 			try {
-
-//        DefaultHttpClient httpClient = AmenoidApp.getInstance().getAmenHttpClient();
-        DefaultHttpClient httpClient = new DefaultHttpClient();
 
         HttpUriRequest httpGet = RequestFactory.createGETRequest(url, null);
 
