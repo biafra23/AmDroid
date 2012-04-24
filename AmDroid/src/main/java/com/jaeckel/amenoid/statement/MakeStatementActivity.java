@@ -1,14 +1,10 @@
 package com.jaeckel.amenoid.statement;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -19,7 +15,17 @@ import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
-import java.io.IOException;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import ch.boye.httpclientandroidlib.HttpEntity;
 
 /**
  * User: biafra
@@ -28,32 +34,36 @@ import java.io.IOException;
  */
 public class MakeStatementActivity extends Activity {
 
+  public static final String TMP_IMAGE_PATH = "/sdcard/foo.jpg";
   private AmenService service;
+
+  private boolean hasPhoto = false;
 
   private int objektKind;
 
-  TextView bestView;
-  TextView bestPlaceView;
-  TextView objektView;
-  TextView scopeView;
-  TextView topicPlaceScopeView;
-  TextView topicView;
+  private TextView bestView;
+  private TextView bestPlaceView;
+  private TextView objektView;
+  private TextView scopeView;
+  private TextView topicPlaceScopeView;
+  private TextView topicView;
 
-  Objekt currentObjekt;
-  Topic  currentTopic;
-  String  currentTopicScope;
-  Boolean currentBest;
+  private Objekt  currentObjekt;
+  private Topic   currentTopic;
+  private String  currentTopicScope;
+  private Boolean currentBest;
 
 //  private Drawable backgroundDrawable;
 
-  public static final int REQUEST_CODE_OBJEKT = 10101;
-  public static final int REQUEST_CODE_TOPIC  = 10102;
-  public static final int REQUEST_CODE_SCOPE  = 10103;
+  public static final int REQUEST_CODE_OBJEKT    = 10101;
+  public static final int REQUEST_CODE_TOPIC     = 10102;
+  public static final int REQUEST_CODE_SCOPE     = 10103;
+  public static final int REQUEST_CODE_ADD_IMAGE = 10104;
 
-  private static final String TAG = "MakeStatementActivity";
-  public static final String DEFAULT_PLACE = "Drachenspielplatz";
-  public static final String DEFAULT_PERSON = "Karl Marx";
-  public static final String DEFAULT_THING = "Android";
+  private static final String TAG            = "MakeStatementActivity";
+  public static final  String DEFAULT_PLACE  = "Drachenspielplatz";
+  public static final  String DEFAULT_PERSON = "Karl Marx";
+  public static final  String DEFAULT_THING  = "Android";
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -185,11 +195,42 @@ public class MakeStatementActivity extends Activity {
         currentTopic.setBest(currentBest);
         final Statement statement = new Statement(currentObjekt, currentTopic);
 
-        new MakeStatementTask(MakeStatementActivity.this).execute(statement);
+        new MakeStatementTask(MakeStatementActivity.this, hasPhoto).execute(statement);
 
       }
     });
 
+    Button addPhoto = (Button) findViewById(R.id.add_photo);
+    addPhoto.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+
+//        currentTopic.setBest(currentBest);
+//        final Statement statement = new Statement(currentObjekt, currentTopic);
+
+//        new MakeStatementTask(MakeStatementActivity.this).execute(statement);
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+
+        // We should always get back an image that is no larger than these dimensions
+        intent.putExtra("outputX", 800);
+        intent.putExtra("outputY", 800);
+
+        // Scale the image down to 800 x 800
+        intent.putExtra("scale", true);
+
+        // Tell the picker to write its output to this URI
+        intent.putExtra("output", Uri.fromFile(new File(TMP_IMAGE_PATH)));
+        intent.putExtra("outputFormat", "JPEG");
+
+        startActivityForResult(intent, REQUEST_CODE_ADD_IMAGE);
+      }
+    });
 
   }
 
@@ -226,12 +267,40 @@ public class MakeStatementActivity extends Activity {
         } else {
           Log.d(TAG, "topic was null");
         }
+      } else if (requestCode == REQUEST_CODE_ADD_IMAGE) {
+
+        Log.d(TAG, "REQUEST_CODE_ADD_IMAGE");
+
+        hasPhoto = true;
+
+
       }
 
     } else if (resultCode == RESULT_CANCELED) {
       Log.d(TAG, "onActivityResult | resultCode: RESULT_CANCELED");
     }
   }
+
+  private String makeStringFromEntity(HttpEntity responseEntity) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+    StringBuilder builder = new StringBuilder();
+    String line;
+    while ((line = br.readLine()) != null) {
+
+      Log.d(TAG, "makeStringFromEntity | " + line);
+
+      if ("<!DOCTYPE html>".equals(line)) {
+        //no JSON => Server error
+        Log.e(TAG, "Received HTML!");
+        return "{\"error\": \"Server error\"}";
+      }
+      builder.append(line);
+
+    }
+
+    return builder.toString();
+  }
+
 
   private Drawable createBackgroundDrawable(int kind) {
     Drawable result;
@@ -251,8 +320,11 @@ public class MakeStatementActivity extends Activity {
   //
   private class MakeStatementTask extends AmenLibTask<Statement, Integer, Amen> {
 
-    public MakeStatementTask(Activity context) {
+    private boolean hasPhoto;
+
+    public MakeStatementTask(Activity context, boolean hasPhoto) {
       super(context);
+      this.hasPhoto = hasPhoto;
     }
 
     protected Amen wrappedDoInBackground(Statement... statements) throws IOException {
@@ -271,6 +343,11 @@ public class MakeStatementActivity extends Activity {
         result = service.addStatement(statement);
       }
 
+      if (hasPhoto) {
+
+        service.addImageToAmen(result.getId(), new File(TMP_IMAGE_PATH));
+
+      }
 
       return result;
     }
@@ -286,5 +363,4 @@ public class MakeStatementActivity extends Activity {
       }
     }
   }
-
 }

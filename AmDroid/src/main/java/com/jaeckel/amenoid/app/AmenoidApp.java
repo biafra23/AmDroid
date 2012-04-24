@@ -5,8 +5,6 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
-import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
-
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,6 +41,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
 
 /**
  * User: biafra
@@ -172,7 +171,8 @@ public class AmenoidApp extends Application {
 
   private void configureAmenService() {
     InputStream in = getResources().openRawResource(R.raw.amenkeystore);
-    amenHttpClient = new AmenHttpClient(in, "mysecret", "BKS");
+//    amenHttpClient = new AmenHttpClient(in, "mysecret", "BKS");
+    amenHttpClient = new AmenHttpClient();
 
 //    amenHttpClient = new DefaultHttpClient();
 

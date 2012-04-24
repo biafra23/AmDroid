@@ -1,5 +1,6 @@
 package com.jaeckel.amenoid.api;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -94,5 +95,7 @@ public interface AmenService {
   public Boolean deleteComment(int commentId) throws IOException;
 
   public ArrayList<Comment> getCommentsForAmenId(Long amenId) throws IOException;
+
+  public Boolean addImageToAmen(Long amenId, File image);
 
 }

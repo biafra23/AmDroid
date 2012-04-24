@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid.api;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -37,6 +38,9 @@ import ch.boye.httpclientandroidlib.client.HttpClient;
 import ch.boye.httpclientandroidlib.client.methods.HttpPost;
 import ch.boye.httpclientandroidlib.client.methods.HttpUriRequest;
 import ch.boye.httpclientandroidlib.entity.ByteArrayEntity;
+import ch.boye.httpclientandroidlib.entity.mime.MultipartEntity;
+import ch.boye.httpclientandroidlib.entity.mime.content.FileBody;
+import ch.boye.httpclientandroidlib.entity.mime.content.StringBody;
 import ch.boye.httpclientandroidlib.params.CoreProtocolPNames;
 
 /**
@@ -262,6 +266,7 @@ public class AmenServiceImpl implements AmenService {
 
     return a;
   }
+
 
   @Override
   public Amen amen(Statement statement) throws IOException {
@@ -829,5 +834,41 @@ public class AmenServiceImpl implements AmenService {
 
   }
 
+  public Boolean addImageToAmen(Long amenId, File image) {
+
+    MultipartEntity multipartEntity = new MultipartEntity();
+
+
+    FileBody bin = new FileBody(image, "photo.jpg", "image/jpg", "UTF-8");
+    multipartEntity.addPart("photo", bin);
+
+    try {
+      multipartEntity.addPart("amen_id", new StringBody("" + amenId));
+      multipartEntity.addPart("auth_token", new StringBody(authToken));
+
+    } catch (UnsupportedEncodingException e) {
+
+      throw new RuntimeException("Unsupported Encoding", e);
+    }
+
+    HttpPost httpPost = new HttpPost(serviceUrl + "amen_photos.json");
+    httpPost.setEntity(multipartEntity);
+
+    HttpResponse response = null;
+    try {
+      response = httpclient.execute(httpPost);
+
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+      if (responseString.startsWith("{\"error\":")) {
+        throw new RuntimeException("amen produced error: " + responseString);
+      }
+    } catch (IOException e) {
+      throw new RuntimeException("IOException", e);
+    }
+
+    return true;
+  }
 }
 
