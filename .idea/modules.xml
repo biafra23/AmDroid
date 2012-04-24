@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/AmenLib/AmenLib.iml" filepath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/amdroid-parent.iml" filepath="$PROJECT_DIR$/amdroid-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" filepath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/httpclientandroidlib/gen-external-apklibs/~apklib-de.neofonie.mobile.unicorn_Cache_0.1.0-SNAPSHOT.iml" filepath="$PROJECT_DIR$/httpclientandroidlib/gen-external-apklibs/~apklib-de.neofonie.mobile.unicorn_Cache_0.1.0-SNAPSHOT.iml" />
     </modules>
   </component>
 </project>

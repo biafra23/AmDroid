@@ -6,13 +6,14 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.Map;
 
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.entity.ByteArrayEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import ch.boye.httpclientandroidlib.client.methods.HttpDelete;
+import ch.boye.httpclientandroidlib.client.methods.HttpGet;
+import ch.boye.httpclientandroidlib.client.methods.HttpPost;
+import ch.boye.httpclientandroidlib.client.methods.HttpUriRequest;
+import ch.boye.httpclientandroidlib.entity.ByteArrayEntity;
 
 /**
  * User: biafra

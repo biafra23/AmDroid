@@ -12,14 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.params.CoreProtocolPNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,6 +29,15 @@ import com.jaeckel.amenoid.api.model.ServerError;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
+
+import ch.boye.httpclientandroidlib.HttpEntity;
+import ch.boye.httpclientandroidlib.HttpResponse;
+import ch.boye.httpclientandroidlib.client.ClientProtocolException;
+import ch.boye.httpclientandroidlib.client.HttpClient;
+import ch.boye.httpclientandroidlib.client.methods.HttpPost;
+import ch.boye.httpclientandroidlib.client.methods.HttpUriRequest;
+import ch.boye.httpclientandroidlib.entity.ByteArrayEntity;
+import ch.boye.httpclientandroidlib.params.CoreProtocolPNames;
 
 /**
  * User: biafra

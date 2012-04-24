@@ -9,29 +9,20 @@
   <groupId>ch.boye</groupId>
   <artifactId>httpclientandroidlib</artifactId>
   <version>1.0.4</version>
+  <!--
   <packaging>apklib</packaging>
+  -->
+  <packaging>jar</packaging>
   <name>httpclientandroidlib</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>android</groupId>
+      <groupId>com.google.android</groupId>
       <artifactId>android</artifactId>
-      <version>4.0.3_r2</version>
+      <version>2.3.1</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>de.neofonie.mobile.unicorn</groupId>
-      <artifactId>Cache</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-      <type>apklib</type>
-    </dependency>
-    <dependency>
-      <!-- jsoup HTML parser library @ http://jsoup.org/ -->
-      <groupId>org.jsoup</groupId>
-      <artifactId>jsoup</artifactId>
-      <version>1.6.2</version>
     </dependency>
   </dependencies>
   <build>
@@ -83,9 +74,9 @@
         <!--</executions> -->
         <extensions>true</extensions>
       </plugin>
-      <!-- <plugin> <groupId>com.jayway.maven.plugins.android.generation2</groupId> 
-				<artifactId>maven-android-plugin</artifactId> <inherited>true</inherited> 
-				<configuration> <sign> <debug>true</debug> </sign> </configuration> </plugin> -->
+      <!-- <plugin> <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                      <artifactId>maven-android-plugin</artifactId> <inherited>true</inherited>
+                      <configuration> <sign> <debug>true</debug> </sign> </configuration> </plugin> -->
       <!--<plugin> -->
       <!--<artifactId>maven-resources-plugin</artifactId> -->
       <!--<executions> -->
@@ -117,18 +108,18 @@
       <!--<target>1.6</target> -->
       <!--</configuration> -->
       <!--</plugin> -->
-      <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jarsigner-plugin</artifactId> 
-				<version>1.2</version> <executions> <execution> <id>signing</id> <goals> 
-				<goal>sign</goal> </goals> <phase>package</phase> <inherited>true</inherited> 
-				<configuration> <archiveDirectory></archiveDirectory> <includes> <include>target/*.apk</include> 
-				</includes> <keystore>aosr.keystore</keystore> <storepass>wead5Ocad</storepass> 
-				<keypass>BlaylvAt9</keypass> <alias>ao_android</alias> </configuration> </execution> 
-				</executions> </plugin> -->
+      <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jarsigner-plugin</artifactId>
+                      <version>1.2</version> <executions> <execution> <id>signing</id> <goals>
+                      <goal>sign</goal> </goals> <phase>package</phase> <inherited>true</inherited>
+                      <configuration> <archiveDirectory></archiveDirectory> <includes> <include>target/*.apk</include>
+                      </includes> <keystore>aosr.keystore</keystore> <storepass>wead5Ocad</storepass>
+                      <keypass>BlaylvAt9</keypass> <alias>ao_android</alias> </configuration> </execution>
+                      </executions> </plugin> -->
     </plugins>
     <pluginManagement>
       <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
+        <!--This plugin's configuration is used to store Eclipse m2e settings
+                            only. It has no influence on the Maven build itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>

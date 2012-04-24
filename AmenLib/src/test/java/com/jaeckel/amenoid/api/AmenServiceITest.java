@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.http.impl.client.DefaultHttpClient;
+import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
 
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;

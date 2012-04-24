@@ -33,6 +33,12 @@
             <artifactId>compatibility-v4</artifactId>
             <version>r6</version>
         </dependency>
+        <dependency>
+            <groupId>ch.boye</groupId>
+            <artifactId>httpclientandroidlib</artifactId>
+            <version>1.0.4</version>
+            <!--<type>apklib</type>-->
+        </dependency>
         <!--<dependency>-->
         <!--<groupId>com.viewpagerindicator</groupId>-->
         <!--<artifactId>library</artifactId>-->
@@ -45,10 +51,10 @@
         <!--<version>1.2.0</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>com.actionbarsherlock</groupId>-->
-            <!--<artifactId>library</artifactId>-->
-            <!--<version>4.0.0</version>-->
-            <!--<type>apklib</type>-->
+        <!--<groupId>com.actionbarsherlock</groupId>-->
+        <!--<artifactId>library</artifactId>-->
+        <!--<version>4.0.0</version>-->
+        <!--<type>apklib</type>-->
         <!--</dependency>-->
     </dependencies>
     <build>

@@ -5,20 +5,19 @@ import java.security.KeyStore;
 
 import javax.net.ssl.SSLException;
 
-import org.apache.http.client.protocol.RequestAcceptEncoding;
-import org.apache.http.client.protocol.ResponseContentEncoding;
-import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.scheme.PlainSocketFactory;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.AbstractVerifier;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-import org.apache.http.protocol.BasicHttpProcessor;
-
 import android.util.Log;
+import ch.boye.httpclientandroidlib.client.protocol.RequestAcceptEncoding;
+import ch.boye.httpclientandroidlib.client.protocol.ResponseContentEncoding;
+import ch.boye.httpclientandroidlib.conn.ClientConnectionManager;
+import ch.boye.httpclientandroidlib.conn.scheme.PlainSocketFactory;
+import ch.boye.httpclientandroidlib.conn.scheme.Scheme;
+import ch.boye.httpclientandroidlib.conn.scheme.SchemeRegistry;
+import ch.boye.httpclientandroidlib.conn.ssl.AbstractVerifier;
+import ch.boye.httpclientandroidlib.conn.ssl.SSLSocketFactory;
+import ch.boye.httpclientandroidlib.conn.ssl.X509HostnameVerifier;
+import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
+import ch.boye.httpclientandroidlib.impl.conn.tsccm.ThreadSafeClientConnManager;
+import ch.boye.httpclientandroidlib.protocol.BasicHttpProcessor;
 
 /**
  * User: biafra
@@ -46,8 +45,9 @@ public class AmenHttpClient extends DefaultHttpClient {
     registry.register(new Scheme("https", newSslSocketFactory(), 443));
 
     ThreadSafeClientConnManager connMgr = new ThreadSafeClientConnManager(getParams(), registry);
+    connMgr.setDefaultMaxPerRoute(20);
 //    connMgr.setDefaultMaxPerRoute(10);
-    
+
     return connMgr;
   }
 
@@ -61,7 +61,8 @@ public class AmenHttpClient extends DefaultHttpClient {
       }
       SSLSocketFactory sf = new SSLSocketFactory(trusted);
 
-      sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
+      sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER));
+//      sf.setHostnameVerifier(new MyVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER));
 
       return sf;
     } catch (Exception e) {

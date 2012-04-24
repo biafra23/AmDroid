@@ -30,6 +30,7 @@
     <orderEntry type="library" name="Maven: net.sf.flexjson:flexjson:2.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-classic:0.9.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
+    <orderEntry type="module" module-name="httpclientandroidlib" />
   </component>
 </module>
 
