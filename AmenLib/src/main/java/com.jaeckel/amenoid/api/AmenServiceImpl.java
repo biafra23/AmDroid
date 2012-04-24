@@ -331,11 +331,11 @@ public class AmenServiceImpl implements AmenService {
       }
 
     } else {
-      return null;
+      return a.getId();
     }
 
 
-    return null;
+    return a.getId();
   }
 
   @Override

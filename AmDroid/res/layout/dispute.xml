@@ -10,15 +10,31 @@
             android:layout_height="wrap_content"
             android:textSize="20dip"
             android:text="Hell No! The Best Name For A Spacecraft Ever is:"/>
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+            >
+        <com.jaeckel.amenoid.ObjektAutoCompleteTextView
+                android:id="@+id/autocomplete_objekt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:completionThreshold="1"
+                android:layout_weight="1"
+                />
+        <Button android:id="@+id/add_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add photo"
+                android:layout_weight="0"
+                />
+    </LinearLayout>
 
-    <com.jaeckel.amenoid.ObjektAutoCompleteTextView
-            android:id="@+id/autocomplete_objekt"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:completionThreshold="1"
+    <ImageView android:id="@+id/photo_preview"
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:visibility="gone"
             />
-
     <LinearLayout android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"

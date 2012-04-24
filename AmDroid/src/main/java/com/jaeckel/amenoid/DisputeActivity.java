@@ -1,5 +1,6 @@
 package com.jaeckel.amenoid;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.statement.MakeStatementActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
 
@@ -15,12 +17,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +42,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
   private Objekt      newObjektName;
   private Amen        currentAmen;
   private Button      disputeButton;
+  private boolean hasPhoto = false;
 
   @Override
   public boolean onSearchRequested() {
@@ -54,6 +61,24 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 //    setContentView(R.layout.myLayout);
   }
 
+  public void onResume() {
+    super.onResume();
+
+    ImageView preview = (ImageView) findViewById(R.id.photo_preview);
+
+    if (hasPhoto) {
+      preview.setVisibility(View.VISIBLE);
+
+      // show image!
+      Bitmap bMap = BitmapFactory.decodeFile(MakeStatementActivity.TMP_IMAGE_PATH);
+      preview.setImageBitmap(bMap);
+
+    } else {
+      preview.setVisibility(View.GONE);
+    }
+
+  }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
@@ -67,7 +92,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
     Log.d(TAG, "Current Amen from intent: " + currentAmen);
     int disputedObjektKindId = currentAmen.getStatement().getObjekt().getKindId();
-    
+
     final ObjektAutoCompleteTextView textView = (ObjektAutoCompleteTextView) findViewById(R.id.autocomplete_objekt);
     ObjektCompletionAdapter adapter = new ObjektCompletionAdapter(this, R.layout.dispute_list_item_objekt, new ArrayList<Objekt>(), disputedObjektKindId);
     textView.setAdapter(adapter);
@@ -89,7 +114,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
             newObjektName.setName(textView.getText().toString());
             newObjektName.setKindId(currentAmen.getStatement().getObjekt().getKindId());
           }
-          new DisputeTask(DisputeActivity.this).execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
+          new DisputeTask(DisputeActivity.this, hasPhoto).execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
 
           finish();
         } else {
@@ -109,8 +134,56 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
       }
     });
 
+    Button addPhoto = (Button) findViewById(R.id.add_photo);
+    addPhoto.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View view) {
+
+//        currentTopic.setBest(currentBest);
+//        final Statement statement = new Statement(currentObjekt, currentTopic);
+
+//        new MakeStatementTask(MakeStatementActivity.this).execute(statement);
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+
+        // We should always get back an image that is no larger than these dimensions
+        intent.putExtra("outputX", 800);
+        intent.putExtra("outputY", 800);
+
+        // Scale the image down to 800 x 800
+        intent.putExtra("scale", true);
+
+        // Tell the picker to write its output to this URI
+        intent.putExtra("output", Uri.fromFile(new File(MakeStatementActivity.TMP_IMAGE_PATH)));
+        intent.putExtra("outputFormat", "JPEG");
+
+        startActivityForResult(intent, MakeStatementActivity.REQUEST_CODE_ADD_IMAGE);
+      }
+    });
   }
 
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+    Log.d(TAG, "onActivityResult");
+    if (resultCode == RESULT_OK) {
+      Log.d(TAG, "onActivityResult | resultCode: RESULT_OK");
+
+      if (requestCode == MakeStatementActivity.REQUEST_CODE_ADD_IMAGE) {
+
+        Log.d(TAG, "REQUEST_CODE_ADD_IMAGE");
+
+        hasPhoto = true;
+      }
+
+    } else if (resultCode == RESULT_CANCELED) {
+      Log.d(TAG, "onActivityResult | resultCode: RESULT_CANCELED");
+    }
+  }
 
   public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
     Log.d(TAG, "onItemClick: adapterView: " + adapterView + " view: " + view + ", i: " + i + " l: " + l);
@@ -174,17 +247,26 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
   class DisputeTask extends AmenLibTask<Amen, Integer, Long> {
 
-    public DisputeTask(Activity context) {
+    private boolean hasPhoto;
+
+    public DisputeTask(Activity context, boolean hasPhoto) {
       super(context);
+      this.hasPhoto = hasPhoto;
     }
 
     @Override
     protected Long wrappedDoInBackground(Amen... amens) throws IOException {
       for (Amen amen : amens) {
-        service.dispute(amen);
+        Long id = service.dispute(amen);
+        if (hasPhoto) {
+          service.addImageToAmen(id, new File(MakeStatementActivity.TMP_IMAGE_PATH));
+
+        }
+
       }
 
       return null;
+
     }
 
     @Override

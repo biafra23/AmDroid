@@ -17,12 +17,15 @@ import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ch.boye.httpclientandroidlib.HttpEntity;
@@ -231,6 +234,21 @@ public class MakeStatementActivity extends Activity {
         startActivityForResult(intent, REQUEST_CODE_ADD_IMAGE);
       }
     });
+
+
+    ImageView preview = (ImageView) findViewById(R.id.photo_preview);
+
+    if (hasPhoto) {
+      preview.setVisibility(View.VISIBLE);
+
+      // show image!
+      Bitmap bMap = BitmapFactory.decodeFile(MakeStatementActivity.TMP_IMAGE_PATH);
+      preview.setImageBitmap(bMap);
+
+    } else {
+      preview.setVisibility(View.GONE);
+    }
+
 
   }
 

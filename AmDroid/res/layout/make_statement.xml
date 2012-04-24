@@ -118,6 +118,11 @@
                       android:textSize="32dp"
                       android:layout_weight="1"
                     />
+            <ImageView android:id="@+id/photo_preview"
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:visibility="gone"
+                    />
         </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:layout_width="fill_parent"
