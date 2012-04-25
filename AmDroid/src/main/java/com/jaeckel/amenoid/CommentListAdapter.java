@@ -1,14 +1,18 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.jaeckel.amenoid.api.model.Comment;
+import com.jaeckel.amenoid.app.AmenoidApp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -28,9 +32,10 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
   }
 
   static class ViewHolder {
-    TextView user;
-    TextView body;
-    TextView delete;
+    TextView  user;
+    TextView  body;
+    ImageView delete;
+    long      id;
   }
 
   @Override
@@ -47,7 +52,7 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
 
       holder.user = (TextView) row.findViewById(R.id.user);
       holder.body = (TextView) row.findViewById(R.id.body);
-      holder.delete = (TextView) row.findViewById(R.id.delete);
+      holder.delete = (ImageView) row.findViewById(R.id.delete);
 
       row.setTag(holder);
 
@@ -56,8 +61,31 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
       holder = (ViewHolder) row.getTag();
     }
 
+    final long comment_id = comment.getId();
+
     holder.user.setText(comment.getUser().getName());
     holder.body.setText(comment.getBody());
+
+    if (AmenoidApp.getInstance().getService().getMe().getId() == comment.getUser().getId()) {
+
+      holder.delete.setVisibility(View.VISIBLE);
+      holder.delete.setOnClickListener(new View.OnClickListener() {
+
+        public void onClick(View v) {
+          Log.d("CommentListAdapter", "trash as trash can!!!: id: " + comment_id);
+
+          try {
+
+            AmenoidApp.getInstance().getService().deleteComment(comment_id);
+
+          } catch (IOException e) {
+            throw new RuntimeException(e);
+          }
+        }
+      });
+    } else {
+      holder.delete.setVisibility(View.GONE);
+    }
 
     return row;
   }

@@ -809,9 +809,24 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Boolean deleteComment(int commentId) {
+  public Boolean deleteComment(long commentId) throws IOException{
+    log.debug("unfollow");
+    boolean result = false;
 
-    return false;
+    Map<String, String> params = createAuthenticatedParams();
+
+    HttpUriRequest httpDelete = RequestFactory.createDELETERequest(serviceUrl + "comments/" + commentId + ".json", params);
+
+    HttpResponse response = httpclient.execute(httpDelete);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = makeStringFromEntity(responseEntity);
+
+    if (" ".equals(responseString)) {
+      result = true;
+    }
+    log.debug("responseString: [" + responseString + "]");
+    return result;
   }
 
   public Amen getAmenByUrl(String url) throws IOException {

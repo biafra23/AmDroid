@@ -92,7 +92,7 @@ public interface AmenService {
 
   public Comment createComment(long amenId, String body) throws IOException;
 
-  public Boolean deleteComment(int commentId) throws IOException;
+  public Boolean deleteComment(long commentId) throws IOException;
 
   public ArrayList<Comment> getCommentsForAmenId(Long amenId) throws IOException;
 
