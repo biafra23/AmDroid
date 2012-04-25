@@ -90,7 +90,7 @@ public interface AmenService {
 
   public List<Amen> search(String query) throws IOException;
 
-  public Comment createComment(int amenId, String body) throws IOException;
+  public Comment createComment(long amenId, String body) throws IOException;
 
   public Boolean deleteComment(int commentId) throws IOException;
 

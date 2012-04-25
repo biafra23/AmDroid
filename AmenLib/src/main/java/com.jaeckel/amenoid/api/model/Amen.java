@@ -26,17 +26,17 @@ public class Amen implements Parcelable {
   private transient final Logger log = LoggerFactory.getLogger("Amen");
 
 
-  private Long            id;
-  private Long            userId;
-  private User            user;
-  private Date            createdAt;
-  private Amen            referringAmen;
-  private Integer         kindId; //normal, amen, dispute ??
-  private Statement       statement;
+  private Long               id;
+  private Long               userId;
+  private User               user;
+  private Date               createdAt;
+  private Amen               referringAmen;
+  private Integer            kindId; //normal, amen, dispute ??
+  private Statement          statement;
   //sometimes disputed Amen
-  private Long            referringAmenId;
-  private List<MediaItem> media;
-  private Long            commentsCount;
+  private Long               referringAmenId;
+  private List<MediaItem>    media;
+  private Long               commentsCount;
   private ArrayList<Comment> comments;
 
   private static final String TAG = "Amen";
@@ -250,6 +250,21 @@ public class Amen implements Parcelable {
     this.media = media;
   }
 
+  public Long getCommentsCount() {
+    return commentsCount;
+  }
+
+  public void setCommentsCount(Long commentsCount) {
+    this.commentsCount = commentsCount;
+  }
+
+  public ArrayList<Comment> getComments() {
+    return comments;
+  }
+
+  public void setComments(ArrayList<Comment> comments) {
+    this.comments = comments;
+  }
   /*
   *
   *   PARCEL STUFF
@@ -312,23 +327,9 @@ public class Amen implements Parcelable {
     referringAmen = in.readParcelable(cl);
     referringAmenId = (Long) in.readValue(cl);
     commentsCount = (Long) in.readValue(cl);
-    comments = in.readArrayList(cl);
+    comments = (ArrayList<Comment>) in.readArrayList(cl);
   }
 
-  public Long getCommentsCount() {
-    return commentsCount;
-  }
 
-  public void setCommentsCount(Long commentsCount) {
-    this.commentsCount = commentsCount;
-  }
-
-  public ArrayList<Comment> getComments() {
-    return comments;
-  }
-
-  public void setComments(ArrayList<Comment> comments) {
-    this.comments = comments;
-  }
 }
 

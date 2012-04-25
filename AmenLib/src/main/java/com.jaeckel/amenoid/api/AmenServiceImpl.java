@@ -775,7 +775,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Comment createComment(int amenId, String body) {
+  public Comment createComment(long amenId, String body) {
 
     Comment result = null;
     log.debug("createComment(): " + body);

@@ -40,6 +40,16 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 //    setNotifyOnChange(true);
   }
 
+  static class ViewHolder {
+    TextView  user;
+    ImageView userImage;
+    ImageView mediaPhoto;
+    TextView  statementView;
+    TextView  amenCountView;
+    TextView  commentsCountView;
+    TextView  sinceView;
+  }
+
   @Override
   public View getView(final int position, View convertView, ViewGroup parent) {
     View row = convertView;
@@ -54,20 +64,20 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
       holder.user = (TextView) row.findViewById(R.id.user);
       holder.statementView = (TextView) row.findViewById(R.id.statement);
-      holder.userImage = (TextView) row.findViewById(R.id.user_image);
+      holder.userImage = (ImageView) row.findViewById(R.id.user_image);
       holder.mediaPhoto = (ImageView) row.findViewById(R.id.media_photo);
       holder.sinceView = (TextView) row.findViewById(R.id.since);
       holder.amenCountView = (TextView) row.findViewById(R.id.amen_count);
       holder.commentsCountView = (TextView) row.findViewById(R.id.comments_count);
+      row.setTag(holder);
 
     } else {
 
       holder = (ViewHolder) row.getTag();
     }
 
-    TextView user = holder.user;
-    if (user != null) {
-      user.setTypeface(amenTypeThin);
+    if (holder.user != null) {
+      holder.user.setTypeface(amenTypeThin);
       String from = amen.getUser().getName();
 
       if (amen.isAmen() && amen.getReferringAmen() != null) {
@@ -76,16 +86,14 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       if (amen.isDispute() && amen.getReferringAmen() != null) {
         from = from + " disputes " + amen.getReferringAmen().getUser().getName();
       }
-      user.setText(from);
+      holder.user.setText(from);
     }
 
 
-    TextView statementView = holder.statementView;
-    statementView.setTypeface(amenTypeBold);
-    statementView.setText(styleAmenWithColor(amen, getContext()));
+    holder.statementView.setTypeface(amenTypeBold);
+    holder.statementView.setText(styleAmenWithColor(amen, getContext()));
 
-    ImageView userImage = (ImageView) row.getTag(R.id.user_image);
-    if (userImage != null) {
+    if (holder.userImage != null) {
       String pictureUrl = amen.getUser().getPhoto();
       if (TextUtils.isEmpty(pictureUrl)) {
         pictureUrl = amen.getUser().getPicture();
@@ -94,26 +102,24 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
         }
       }
 //    Log.d("AmenListAdapter", "pictureUrl: " + pictureUrl);
-      userImage.setImageResource(R.drawable.placeholder);
-      userImage.setTag(pictureUrl);
+      holder.userImage.setImageResource(R.drawable.placeholder);
+      holder.userImage.setTag(pictureUrl);
 
     }
 
     //Media Photo
-    ImageView mediaPhoto = holder.mediaPhoto;
-
     if (amen.getMedia() != null && amen.getMedia().size() > 0) {
 
-      mediaPhoto.setVisibility(View.VISIBLE);
+      holder.mediaPhoto.setVisibility(View.VISIBLE);
       String mediaUrl = amen.getMedia().get(0).getContentUrl();
 
 
       Log.d("AmenListAdapter", "mediaUrl: " + mediaUrl);
-      mediaPhoto.setImageResource(R.drawable.placeholder);
-      mediaPhoto.setTag(mediaUrl);
+      holder.mediaPhoto.setImageResource(R.drawable.placeholder);
+      holder.mediaPhoto.setTag(mediaUrl);
 
     } else {
-      mediaPhoto.setVisibility(View.GONE);
+      holder.mediaPhoto.setVisibility(View.GONE);
       //necessary?
       //mediaPhoto.setTag(null);
     }
@@ -169,15 +175,6 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     return row;
   }
 
-  static class ViewHolder {
-    TextView  user;
-    TextView  userImage;
-    ImageView mediaPhoto;
-    TextView  statementView;
-    TextView  amenCountView;
-    TextView  commentsCountView;
-    TextView  sinceView;
-  }
 
   private CharSequence renderShortDeltaT(long since) {
 

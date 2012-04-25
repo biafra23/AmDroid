@@ -31,6 +31,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -94,7 +95,14 @@ public class AmenDetailActivity extends ListActivity {
     list.addHeaderView(header);
 
     commentsTextView = (TextView) findViewById(R.id.comments);
+    commentsTextView.setOnClickListener(new View.OnClickListener() {
 
+      public void onClick(View v) {
+        Intent intent = new Intent(AmenDetailActivity.this, CommentsListActivity.class);
+        intent.putExtra(Constants.EXTRA_AMEN, currentAmen);
+        startActivity(intent);
+      }
+    });
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);
 
@@ -116,7 +124,6 @@ public class AmenDetailActivity extends ListActivity {
     }
 
 
-
     ImageView mediaPhoto = (ImageView) header.findViewById(R.id.media_photo);
 
     if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
@@ -131,12 +138,12 @@ public class AmenDetailActivity extends ListActivity {
       mediaPhoto.setVisibility(View.INVISIBLE);
     }
 
-    header.setOnClickListener(new View.OnClickListener() {
-      public void onClick(View view) {
-        startScoreBoardActivity();
-
-      }
-    });
+//    header.setOnClickListener(new View.OnClickListener() {
+//      public void onClick(View view) {
+//        startScoreBoardActivity();
+//
+//      }
+//    });
 
     final List<User> users = currentStatement.getAgreeingNetwork();
 //    adapter = new UserListAdapter(this, android.R.layout.simple_list_item_1, users);
@@ -150,7 +157,37 @@ public class AmenDetailActivity extends ListActivity {
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
 
+    final View commentLayout = findViewById(R.id.comment_edit_layout);
+    Button addComment = (Button) findViewById(R.id.add_comment);
+    addComment.setOnClickListener(new View.OnClickListener() {
 
+      public void onClick(View v) {
+
+        commentLayout.setVisibility(View.VISIBLE);
+      }
+
+    });
+
+    final EditText commentField = (EditText) findViewById(R.id.comment_edit_text);
+    Button saveComment = (Button) findViewById(R.id.save_comment);
+    saveComment.setOnClickListener(new View.OnClickListener() {
+
+      public void onClick(View v) {
+
+        try {
+          service.createComment(currentAmen.getId(), commentField.getText().toString());
+          new GetAmenTask(AmenDetailActivity.this).execute(currentAmen.getId());
+
+          commentField.setText("");
+          commentLayout.setVisibility(View.GONE);
+
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+
+      }
+
+    });
   }
 
   private void startScoreBoardActivity() {
@@ -514,6 +551,7 @@ public class AmenDetailActivity extends ListActivity {
     }
     return "<unknown>";
   }
+
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
 

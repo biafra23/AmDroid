@@ -1,12 +1,17 @@
 package com.jaeckel.amenoid.api.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
 
 /**
  * @author biafra
  * @date 4/18/12 9:42 PM
  */
-public class Comment {
+public class Comment implements Parcelable{
 
   private Long id;
   private String body;
@@ -55,4 +60,55 @@ public class Comment {
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
+
+
+   /*
+  *
+  *   PARCEL STUFF
+  *
+  */
+
+  public static final Parcelable.Creator<Comment> CREATOR = new Parcelable.Creator<Comment>() {
+
+    public Comment[] newArray(int size) {
+      return new Comment[size];
+    }
+
+    public Comment createFromParcel(Parcel source) {
+      return new Comment(source);
+    }
+  };
+
+  private Comment(Parcel in) {
+    readFromParcel(in);
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    if (dest == null) {
+      throw new RuntimeException("Parcel must not be null");
+
+    }
+    dest.writeValue(id);
+    dest.writeParcelable(user, flags);
+    dest.writeString(body);
+
+  }
+
+  private void readFromParcel(Parcel in) {
+    final ClassLoader cl = getClass().getClassLoader();
+
+    id = (Long) in.readValue(cl);
+    user = in.readParcelable(cl);
+    body = in.readString();
+
+  }
+
+
 }

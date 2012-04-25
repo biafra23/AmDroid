@@ -95,6 +95,7 @@
 
         </activity>
         <activity android:name=".StartPageActivity"/>
+        <activity android:name=".CommentsListActivity"/>
 
         <service android:name=".AmenAndroidService"
                 />
