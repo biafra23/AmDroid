@@ -44,21 +44,28 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
   public View getView(final int position, View convertView, ViewGroup parent) {
     View row = convertView;
     Amen amen = getItem(position);
+    ViewHolder holder;
 
 //    final Statement stmt = amen.getStatement();
     if (row == null) {
-      row = inflater.inflate(textViewResourceId, parent, false);
-      row.setTag(R.id.user, row.findViewById(R.id.user));
-      row.setTag(R.id.statement, row.findViewById(R.id.statement));
-      row.setTag(R.id.user_image, row.findViewById(R.id.user_image));
-      row.setTag(R.id.media_photo, row.findViewById(R.id.media_photo));
-      row.setTag(R.id.since, row.findViewById(R.id.since));
-      row.setTag(R.id.amen_count, row.findViewById(R.id.amen_count));
-      row.setTag(R.id.comments_count, row.findViewById(R.id.comments_count));
 
+      holder = new ViewHolder();
+      row = inflater.inflate(textViewResourceId, parent, false);
+
+      holder.user = (TextView) row.findViewById(R.id.user);
+      holder.statementView = (TextView) row.findViewById(R.id.statement);
+      holder.userImage = (TextView) row.findViewById(R.id.user_image);
+      holder.mediaPhoto = (ImageView) row.findViewById(R.id.media_photo);
+      holder.sinceView = (TextView) row.findViewById(R.id.since);
+      holder.amenCountView = (TextView) row.findViewById(R.id.amen_count);
+      holder.commentsCountView = (TextView) row.findViewById(R.id.comments_count);
+
+    } else {
+
+      holder = (ViewHolder) row.getTag();
     }
 
-    TextView user = (TextView) row.getTag(R.id.user);
+    TextView user = holder.user;
     if (user != null) {
       user.setTypeface(amenTypeThin);
       String from = amen.getUser().getName();
@@ -73,7 +80,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
 
-    TextView statementView = (TextView) row.getTag(R.id.statement);
+    TextView statementView = holder.statementView;
     statementView.setTypeface(amenTypeBold);
     statementView.setText(styleAmenWithColor(amen, getContext()));
 
@@ -93,7 +100,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
     //Media Photo
-    ImageView mediaPhoto = (ImageView) row.getTag(R.id.media_photo);
+    ImageView mediaPhoto = holder.mediaPhoto;
 
     if (amen.getMedia() != null && amen.getMedia().size() > 0) {
 
@@ -120,12 +127,12 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
 //      Log.d("AmenListAdapter", "since: " + since);
 
-      TextView sinceView = (TextView) row.findViewById(R.id.since);
+      TextView sinceView = holder.sinceView;
 
       sinceView.setText(renderShortDeltaT(since));
 
     }
-    TextView amenCountView = (TextView) row.getTag(R.id.amen_count);
+    TextView amenCountView = holder.amenCountView;
     if (amenCountView != null) {
       amenCountView.setTypeface(amenTypeThin);
 
@@ -146,7 +153,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
 
     }
-    TextView commentsCountView = (TextView) row.getTag(R.id.comments_count);
+    TextView commentsCountView = holder.commentsCountView;
     if (commentsCountView != null && amen.getCommentsCount() != null) {
       commentsCountView.setTypeface(amenTypeThin);
 
@@ -160,6 +167,16 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     }
 
     return row;
+  }
+
+  static class ViewHolder {
+    TextView  user;
+    TextView  userImage;
+    ImageView mediaPhoto;
+    TextView  statementView;
+    TextView  amenCountView;
+    TextView  commentsCountView;
+    TextView  sinceView;
   }
 
   private CharSequence renderShortDeltaT(long since) {
