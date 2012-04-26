@@ -1,3 +1,7 @@
+1.0-ALPHA30
+- FIX: SSL for Android 2.1 & 2.2
+- NEW: add/remove comments (rudimentary) Feedback on delete is missing
+
 1.0-ALPHA29
 - NEW: Add photos from thze gallery to Amens and Disputes
 
