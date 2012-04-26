@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid.api;
 
 import java.io.InputStream;
+import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 
@@ -39,11 +40,11 @@ public class AmenHttpClient extends DefaultHttpClient {
     this.keyStoreType = keyStoreType;
   }
 
-  public AmenHttpClient() {
-    this.keyStoreStream = null;
-    this.keyStorePassword = null;
-    this.keyStoreType = null;
-  }
+//  public AmenHttpClient() {
+//    this.keyStoreStream = null;
+//    this.keyStorePassword = null;
+//    this.keyStoreType = null;
+//  }
 
   @Override
   protected ClientConnectionManager createClientConnectionManager() {
@@ -56,10 +57,23 @@ public class AmenHttpClient extends DefaultHttpClient {
 
     } else {
       try {
-        registry.register(new Scheme("https", 443, new SSLSocketFactory(SSLContext.getDefault(), new AllowAllHostnameVerifier())));
+        // Default is not available in Android 2.2. Froyo
+        registry.register(new Scheme("https", 443, new SSLSocketFactory(SSLContext.getInstance("Default"), new AllowAllHostnameVerifier())));
 
       } catch (NoSuchAlgorithmException e) {
         e.printStackTrace();
+        try {
+          final SSLContext sslContext = SSLContext.getInstance("TLS");
+
+          sslContext.init(null, null, null);
+          registry.register(new Scheme("https", 443, newSslSocketFactory()));
+
+        } catch (KeyManagementException e1) {
+          throw new RuntimeException(e1);
+
+        } catch (NoSuchAlgorithmException e1) {
+          throw new RuntimeException(e1);
+        }
       }
 
     }

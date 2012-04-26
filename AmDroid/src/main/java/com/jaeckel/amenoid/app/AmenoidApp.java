@@ -74,7 +74,7 @@ public class AmenoidApp extends Application {
   //CWAC
 
   private ThumbnailBus                                        bus   = new ThumbnailBus();
-  private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+  private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache;
   private Typeface amenTypeThin;
   private Typeface amenTypeBold;
 
@@ -103,6 +103,9 @@ public class AmenoidApp extends Application {
 
   @Override
   public void onCreate() {
+
+    cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+
     if (DEVELOPER_MODE) {
       StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                                    .detectDiskReads()
@@ -171,13 +174,8 @@ public class AmenoidApp extends Application {
 
   private void configureAmenService() {
     InputStream in = getResources().openRawResource(R.raw.amenkeystore);
-//    amenHttpClient = new AmenHttpClient(in, "mysecret", "BKS");
-    amenHttpClient = new AmenHttpClient();
-
-//    amenHttpClient = new DefaultHttpClient();
-
+    amenHttpClient = new AmenHttpClient(in, "mysecret", "BKS");
     service = new AmenServiceImpl(amenHttpClient);
-
   }
 
   private String readAuthTokenFromPrefs(SharedPreferences preferences) {
