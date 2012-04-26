@@ -104,7 +104,7 @@ public class AmenoidApp extends Application {
   @Override
   public void onCreate() {
 
-    cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+    this.cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
 
     if (DEVELOPER_MODE) {
       StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()

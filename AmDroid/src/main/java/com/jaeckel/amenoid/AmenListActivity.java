@@ -148,7 +148,9 @@ public class AmenListActivity extends ListActivity {
     feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
 
     if (!AmenoidApp.getInstance().isSignedIn() && feedType == AmenService.FEED_TYPE_FOLLOWING) {
-      feedType = AmenService.FEED_TYPE_RECENT;
+
+      // if not signed in default to popular. new is gone
+      feedType = AmenService.FEED_TYPE_POPULAR;
     }
 
     final String authToken = readAuthTokenFromPrefs();
