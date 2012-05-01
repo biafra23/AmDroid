@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid;
 
-import android.app.Activity;
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.TextView;
  * Date: 11/5/11
  * Time: 8:13 PM
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends SherlockActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 

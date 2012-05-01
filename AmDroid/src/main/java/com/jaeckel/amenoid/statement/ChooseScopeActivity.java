@@ -3,6 +3,7 @@ package com.jaeckel.amenoid.statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockListActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -10,7 +11,6 @@ import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.app.AmenoidApp;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -33,7 +33,7 @@ import android.widget.TextView;
  * Date: 10/9/11
  * Time: 10:55 PM
  */
-public class ChooseScopeActivity extends ListActivity {
+public class ChooseScopeActivity extends SherlockListActivity {
 
 
   private static final String TAG = "ChooseScopeActivity";

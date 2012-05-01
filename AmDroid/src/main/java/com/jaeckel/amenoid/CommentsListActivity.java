@@ -1,25 +1,16 @@
 package com.jaeckel.amenoid;
 
-import java.io.IOException;
-import java.util.List;
-
+import com.actionbarsherlock.app.SherlockListActivity;
 import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.Comment;
-import com.jaeckel.amenoid.api.model.User;
-import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
-import com.jaeckel.amenoid.util.AmenLibTask;
 
-import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 /**
  * @author biafra
  * @date 4/25/12 10:10 PM
  */
-public class CommentsListActivity extends ListActivity {
+public class CommentsListActivity extends SherlockListActivity {
   private Amen currentAmen;
 
   public void onCreate(Bundle savedInstanceState) {

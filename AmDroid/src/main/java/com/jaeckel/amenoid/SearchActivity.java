@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockListActivity;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.app.AmenoidApp;
@@ -11,7 +12,6 @@ import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Intent;
@@ -29,7 +29,7 @@ import android.widget.ProgressBar;
  * Date: 11/16/11
  * Time: 10:17 PM
  */
-public class SearchActivity extends ListActivity {
+public class SearchActivity extends SherlockListActivity {
   private static String TAG = "SearchActivity";
 
   private Typeface        amenTypeThin;

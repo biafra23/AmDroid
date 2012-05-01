@@ -1,6 +1,16 @@
 package com.jaeckel.amenoid.statement;
 
-import android.app.ListActivity;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.jaeckel.amenoid.Constants;
+import com.jaeckel.amenoid.R;
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Objekt;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.ObjektsForQueryTask;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,22 +29,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.jaeckel.amenoid.Constants;
-import com.jaeckel.amenoid.R;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.util.ObjektsForQueryTask;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * User: biafra
  * Date: 10/9/11
  * Time: 10:54 PM
  */
-public class ChooseObjektActivity extends ListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler {
+public class ChooseObjektActivity extends SherlockListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler {
 
   private static final String TAG = "ChooseObjektActivity";
 

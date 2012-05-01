@@ -3,11 +3,11 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.app.AmenoidApp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import android.widget.Toast;
  * Date: 11/10/11
  * Time: 10:55 PM
  */
-public class UrlResolver extends Activity {
+public class UrlResolver extends SherlockActivity {
 
   private static String TAG = "UrlResolver";
 

@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,13 +22,11 @@ import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
-//import com.jaeckel.amenoid.db.AmenDao;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 import com.jaeckel.amenoid.widget.PullToRefreshListView;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,16 +36,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+//import com.jaeckel.amenoid.db.AmenDao;
+
 //public class AmenListActivity extends FragmentActivity {
-public class AmenListActivity extends ListActivity {
+public class AmenListActivity extends SherlockListActivity {
 
   private static       String TAG                       = "AmenListActivity";
   final private static int    PROGRESS_DIALOG_ID        = 0;
@@ -335,7 +336,7 @@ public class AmenListActivity extends ListActivity {
     super.onCreateOptionsMenu(menu);
     Log.d(TAG, "onCreateOptionsMenu");
 
-    MenuInflater inflater = getMenuInflater();
+    MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_main, menu);
 
 
@@ -421,14 +422,14 @@ public class AmenListActivity extends ListActivity {
   @Override
   public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
     super.onCreateContextMenu(menu, v, menuInfo);
-    Log.d(TAG, "onCreateContextMenu");
-
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.amen_item_menu, menu);
+//    Log.d(TAG, "onCreateContextMenu");
+//
+//    MenuInflater inflater = getSupportMenuInflater();
+//    inflater.inflate(R.menu.amen_item_menu, menu);
   }
 
   @Override
-  public boolean onContextItemSelected(MenuItem item) {
+  public boolean onContextItemSelected(android.view.MenuItem item) {
     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
 
@@ -489,6 +490,7 @@ public class AmenListActivity extends ListActivity {
       default:
         return super.onContextItemSelected(item);
     }
+
   }
 
   class EndlessWrapperAdapter extends EndlessAdapter {
@@ -819,7 +821,7 @@ public class AmenListActivity extends ListActivity {
 
 //      } while (filteredAmens.size() == pageSize);
 
-     // amenDao.insertOrUpdate(newAmens);
+      // amenDao.insertOrUpdate(newAmens);
       saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS + ":" + feedType);
       return newAmens;
     }

@@ -2,6 +2,7 @@ package com.jaeckel.amenoid;
 
 import java.util.Date;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -29,7 +30,7 @@ import android.widget.Toast;
  * Date: 11/9/11
  * Time: 12:11 AM
  */
-public class SettingsActivity extends Activity {
+public class SettingsActivity extends SherlockActivity {
 
   private SharedPreferences prefs;
   private EditText          emailField;

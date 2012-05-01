@@ -6,6 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Comment;
@@ -22,15 +26,11 @@ import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +44,7 @@ import android.widget.Toast;
  * Date: 9/25/11
  * Time: 10:27 AM
  */
-public class AmenDetailActivity extends ListActivity {
+public class AmenDetailActivity extends SherlockListActivity {
 
   private static final String TAG = "AmenDetailActivity";
   private Amen             currentAmen;
@@ -583,7 +583,7 @@ public class AmenDetailActivity extends ListActivity {
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
 
-    MenuInflater inflater = getMenuInflater();
+    MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_detail, menu);
 
     if (!AmenoidApp.getInstance().isSignedIn()) {

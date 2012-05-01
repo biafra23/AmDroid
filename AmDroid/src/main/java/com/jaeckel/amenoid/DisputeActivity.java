@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;
@@ -35,7 +36,7 @@ import android.widget.Toast;
  * Date: 9/25/11
  * Time: 12:59 PM
  */
-public class DisputeActivity extends Activity implements AdapterView.OnItemClickListener {
+public class DisputeActivity extends SherlockActivity implements AdapterView.OnItemClickListener {
 
   private static final String TAG = "DisputeActivity";
   private AmenService service;

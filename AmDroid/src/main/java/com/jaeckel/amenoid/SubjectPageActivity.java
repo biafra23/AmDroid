@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockListActivity;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.app.AmenoidApp;
@@ -10,7 +11,6 @@ import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ import android.widget.ListView;
  * Date: 11/12/11
  * Time: 12:02 AM
  */
-public class SubjectPageActivity extends ListActivity {
+public class SubjectPageActivity extends SherlockListActivity {
   private AmenListAdapter amenListAdapter;
   private AmenService     service;
   private static final String TAG = "SubjectPageActivity";

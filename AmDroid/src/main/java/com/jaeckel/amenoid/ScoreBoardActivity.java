@@ -3,6 +3,10 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.RankedStatements;
 import com.jaeckel.amenoid.api.model.Topic;
@@ -12,7 +16,6 @@ import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -21,9 +24,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -34,7 +34,7 @@ import android.widget.TextView;
  * Date: 10/15/11
  * Time: 5:44 PM
  */
-public class ScoreBoardActivity extends ListActivity {
+public class ScoreBoardActivity extends SherlockListActivity {
 
 
   private static String TAG = "ScoreBoardActivity";
@@ -198,7 +198,7 @@ public class ScoreBoardActivity extends ListActivity {
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
 
-    MenuInflater inflater = getMenuInflater();
+    MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_scoreboard, menu);
     if (!AmenoidApp.getInstance().isSignedIn()) {
       MenuItem amenSth = menu.findItem(R.id.amen);

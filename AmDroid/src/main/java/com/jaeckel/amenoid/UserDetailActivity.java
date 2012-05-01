@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.User;
@@ -17,7 +21,6 @@ import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -27,9 +30,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -43,7 +43,7 @@ import android.widget.Toast;
  * Date: 10/15/11
  * Time: 5:39 AM
  */
-public class UserDetailActivity extends ListActivity {
+public class UserDetailActivity extends SherlockListActivity {
 
   private static String TAG = "UserDetailActivity";
 
@@ -557,7 +557,7 @@ public class UserDetailActivity extends ListActivity {
     super.onCreateOptionsMenu(menu);
     Log.d(TAG, "onCreateOptionsMenu");
 
-    MenuInflater inflater = getMenuInflater();
+    MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_user_detail, menu);
 
     return true;

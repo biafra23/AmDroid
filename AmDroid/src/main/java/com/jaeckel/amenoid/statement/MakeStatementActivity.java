@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -35,7 +36,7 @@ import ch.boye.httpclientandroidlib.HttpEntity;
  * Date: 9/25/11
  * Time: 9:40 PM
  */
-public class MakeStatementActivity extends Activity {
+public class MakeStatementActivity extends SherlockActivity {
 
   public static final String TMP_IMAGE_PATH = "/sdcard/foo.jpg";
   private AmenService service;

@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid;
 
-import android.app.Activity;
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.os.Bundle;
 
 /**
@@ -8,7 +9,7 @@ import android.os.Bundle;
  * Date: 11/21/11
  * Time: 5:52 PM
  */
-public class StartPageActivity extends Activity {
+public class StartPageActivity extends SherlockActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
   }
