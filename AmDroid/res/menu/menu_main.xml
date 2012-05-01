@@ -10,38 +10,41 @@
 
     <item android:id="@+id/refresh"
           android:icon="@drawable/ic_menu_refresh"
-          android:title="Refresh"/>
+          android:title="Refresh"
+          android:showAsAction="ifRoom"/>
 
     <item android:id="@+id/popular_menu"
           android:icon="@drawable/ic_menu_popular"
           android:title="Popular"
           android:visible="true"
             />
-    <item android:id="@+id/recent_menu"
-          android:icon="@drawable/ic_menu_clock"
-          android:title="New"
-          android:visible="true"
-            />
+    <!--<item android:id="@+id/recent_menu"-->
+          <!--android:icon="@drawable/ic_menu_clock"-->
+          <!--android:title="New"-->
+          <!--android:visible="true"-->
+            <!--/>-->
 
     <item android:id="@+id/following_menu"
-          android:icon="@drawable/ic_menu_following"
+          android:icon="@drawable/ic_ac"
           android:title="Following"
           android:visible="false"
             />
 
 
     <item android:id="@+id/amen"
-          android:icon="@drawable/ic_menu_amen"
+          android:icon="@drawable/ic_action_plus_dark"
           android:title="Amen sth."
+          android:showAsAction="ifRoom"
             />
 
     <item android:id="@+id/search_menu_item"
-          android:icon="@drawable/ic_menu_search"
+          android:icon="@drawable/ic_action_search_dark"
           android:title="Search"
+          android:showAsAction="ifRoom"
             />
 
     <item android:id="@+id/about_menu_item"
-          android:icon="@drawable/ic_menu_about"
+          android:icon="@drawable/ic_action_about_dark"
           android:title="About"
             />
     <!--<item android:id="@+id/preference"-->
