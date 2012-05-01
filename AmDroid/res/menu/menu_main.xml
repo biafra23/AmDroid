@@ -25,7 +25,7 @@
             <!--/>-->
 
     <item android:id="@+id/following_menu"
-          android:icon="@drawable/ic_ac"
+          android:icon="@drawable/ic_action_following_dark"
           android:title="Following"
           android:visible="false"
             />
