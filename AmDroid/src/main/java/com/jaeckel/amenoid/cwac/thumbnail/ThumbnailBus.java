@@ -33,8 +33,9 @@ public class ThumbnailBus
 	class MatchStrategy
 		implements AbstractBus.Strategy<ThumbnailMessage, String> {
 		public boolean isMatch(ThumbnailMessage message, String filter) {
-			return(filter!=null && message!=null &&
-						 filter.equals(message.getKey()));
+//			return(filter!=null && message!=null &&
+//						 filter.equals(message.getKey()));
+      return true;
 		}
 	}
 }

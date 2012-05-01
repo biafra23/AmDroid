@@ -13,6 +13,7 @@
       <directory url="file://$PROJECT_DIR$/httpclientandroidlib/gen-external-apklibs/de.neofonie.mobile.unicorn_Cache_0.1.0-SNAPSHOT/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/httpclientandroidlib/target/generated-sources/r" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/httpclientandroidlib/target/generated-sources/aidl" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/httpclientandroidlib/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>

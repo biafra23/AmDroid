@@ -13,8 +13,11 @@ import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.cwac.cache.CacheBase;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
+import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
@@ -23,7 +26,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -59,10 +61,10 @@ public class AmenDetailActivity extends ListActivity {
   private AmenService      service;
   private static final int[]  IMAGE_IDS = {R.id.user_image};
   private              String lastError = null;
-  private SimpleWebImageCache cache;
-  private Typeface            amenTypeThin;
-  private Typeface            amenTypeBold;
-  private TextView            commentsTextView;
+  private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache;
+  private Typeface                                            amenTypeThin;
+  private Typeface                                            amenTypeBold;
+  private TextView                                            commentsTextView;
 
   @Override
   public boolean onSearchRequested() {
@@ -124,20 +126,6 @@ public class AmenDetailActivity extends ListActivity {
     }
 
 
-    ImageView mediaPhoto = (ImageView) header.findViewById(R.id.media_photo);
-
-    if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
-      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): "
-                 + currentStatement.getObjekt().getMedia().get(0).getContentUrl());
-//      mediaPhoto.setImageResource(R.drawable.placeholder);
-      mediaPhoto.setImageDrawable((Drawable) cache.get(currentStatement.getObjekt().getMedia().get(0).getContentUrl()));
-      mediaPhoto.setVisibility(View.VISIBLE);
-
-    } else {
-      Log.d(TAG, "currentStatement.getMedia() -> empty");
-      mediaPhoto.setVisibility(View.INVISIBLE);
-    }
-
 //    header.setOnClickListener(new View.OnClickListener() {
 //      public void onClick(View view) {
 //        startScoreBoardActivity();
@@ -153,6 +141,46 @@ public class AmenDetailActivity extends ListActivity {
     thumbs = new ThumbnailAdapter(this, new UserListAdapter(this, android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
     setListAdapter(thumbs);
 
+
+    ImageView mediaPhotoImageView = (ImageView) header.findViewById(R.id.media_photo);
+
+    if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
+      final String mediaUrl = currentStatement.getObjekt().getMedia().get(0).getContentUrl();
+      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): "
+                 + mediaUrl);
+      mediaPhotoImageView.setVisibility(View.VISIBLE);
+
+      int result = cache.getStatus(mediaUrl);
+
+      if (result == CacheBase.CACHE_MEMORY ) {
+
+        Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
+        mediaPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+
+      } else {
+
+
+        mediaPhotoImageView.setImageResource(R.drawable.placeholder);
+
+        ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
+
+        msg.setImageView(mediaPhotoImageView);
+        msg.setUrl(mediaUrl);
+
+        try {
+
+          cache.notify(msg.getUrl(), msg);
+
+        } catch (Throwable t) {
+          Log.e(TAG, "Exception trying to fetch image", t);
+          throw new RuntimeException(t);
+        }
+      }
+
+    } else {
+      Log.d(TAG, "currentStatement.getMedia() -> empty");
+      mediaPhotoImageView.setVisibility(View.INVISIBLE);
+    }
     Intent resultIntent = new Intent();
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);

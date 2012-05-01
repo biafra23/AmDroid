@@ -109,8 +109,10 @@ public class SimpleWebImageCache<B extends AbstractBus, M>
     } else if (status == CACHE_DISK) {
       new LoadImageTask().execute(message, key,
                                   buildCachedImagePath(key));
-    } else {
+    } else if (status == CACHE_MEMORY) {
       bus.send(message);
+    } else {
+      throw new RuntimeException("Unexpected status from getStatus(): " + status);
     }
   }
 
@@ -172,6 +174,7 @@ public class SimpleWebImageCache<B extends AbstractBus, M>
         M message = (M) params[0];
 
         if (message != null) {
+          Log.d(TAG, "message: " + message);
           bus.send(message);
         }
 
@@ -205,7 +208,7 @@ public class SimpleWebImageCache<B extends AbstractBus, M>
           bus.send(params[0]);
         }
       } catch (Throwable t) {
-        Log.e(TAG, "Exception downloading image", t);
+        Log.e(TAG, "Exception loading image from disk", t);
       }
 
       return (null);

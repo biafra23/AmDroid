@@ -4,7 +4,7 @@
 - FIX: Popular feed is default if not signed in (new feed was removed from the backend)
 
 1.0-ALPHA29
-- NEW: Add photos from thze gallery to Amens and Disputes
+- NEW: Add photos from the gallery to Amens and Disputes
 
 1.0-ALPHA28
 - FIX: User-Agent back to "Amenoid/*"
