@@ -31,10 +31,10 @@
             <!--android:configChanges="orientation"-->
             <!--android:theme="@android:style/Theme.Light"-->
             <!-->-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
 
 
         </activity>
@@ -96,6 +96,12 @@
         </activity>
         <activity android:name=".StartPageActivity"/>
         <activity android:name=".CommentsListActivity"/>
+        <activity android:name=".FragmentDemo">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <service android:name=".AmenAndroidService"
                 />
