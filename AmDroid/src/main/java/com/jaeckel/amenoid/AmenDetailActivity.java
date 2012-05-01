@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -89,6 +90,10 @@ public class AmenDetailActivity extends SherlockListActivity {
     setContentView(R.layout.details);
     setTitle("Amendetails");
 
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
+
+
     amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
     amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
 
@@ -152,7 +157,7 @@ public class AmenDetailActivity extends SherlockListActivity {
 
       int result = cache.getStatus(mediaUrl);
 
-      if (result == CacheBase.CACHE_MEMORY ) {
+      if (result == CacheBase.CACHE_MEMORY) {
 
         Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
         mediaPhotoImageView.setImageDrawable(cache.get(mediaUrl));
@@ -596,10 +601,19 @@ public class AmenDetailActivity extends SherlockListActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
 
+    Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
+
+    final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+    amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
     switch (item.getItemId()) {
 
+      case android.R.id.home: {
+        startActivity(amenListIntent);
+        return true;
+      }
       case R.id.timeline: {
-        startActivity(new Intent(this, AmenListActivity.class));
+        startActivity(amenListIntent);
         return true;
       }
 
@@ -630,6 +644,12 @@ public class AmenDetailActivity extends SherlockListActivity {
         startActivity(intent);
         return true;
       }
+//      default: {
+//        Log.d(TAG, "Unexpected item.getItemId(): " + item.getItemId());
+//        startActivity(amenListIntent);
+//        return true;
+//      }
+
     }
     return false;
   }

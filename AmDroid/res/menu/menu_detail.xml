@@ -6,26 +6,26 @@
     <item android:id="@+id/scoreboard"
           android:icon="@drawable/ic_action_scorecard_dark"
           android:title="Scorecard"
-          android:showAsAction="ifRoom"
+          android:showAsAction="ifRoom|withText"
             />
     <item android:id="@+id/subject_page"
           android:icon="@drawable/ic_action_subjectpage_dark"
           android:title="Subject Page"
-          android:showAsAction="ifRoom"
+          android:showAsAction="ifRoom|withText"
             />
 
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_action_plus_dark"
           android:title="Amen sth."
-          android:showAsAction="ifRoom"
+          android:showAsAction="ifRoom|withText"
             />
     <item android:id="@+id/share"
           android:icon="@drawable/ic_action_share_dark"
           android:title="Share"
-          android:showAsAction="ifRoom"
+          android:showAsAction="ifRoom|withText"
             />
     <item android:id="@+id/timeline"
           android:icon="@drawable/ic_action_timeline_dark"
-          android:title="Timeline"
+          android:title="Timeline|withText"
             />
 </menu>

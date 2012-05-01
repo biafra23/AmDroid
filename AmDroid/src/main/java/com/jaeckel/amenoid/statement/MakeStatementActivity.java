@@ -5,10 +5,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.jaeckel.amenoid.AmenListActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -78,6 +80,9 @@ public class MakeStatementActivity extends SherlockActivity {
 
     service = AmenoidApp.getInstance().getService();
     setTitle("Make A Statement");
+
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
 
     currentBest = true;
     currentObjekt = new Objekt();
@@ -364,6 +369,12 @@ public class MakeStatementActivity extends SherlockActivity {
 
     switch (item.getItemId()) {
 
+      case android.R.id.home: {
+        final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+        amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(amenListIntent);
+        return true;
+      }
       case R.id.add_photo:
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
         intent.setType("image/*");

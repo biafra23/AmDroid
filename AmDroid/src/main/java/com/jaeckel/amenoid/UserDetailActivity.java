@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -96,6 +97,9 @@ public class UserDetailActivity extends SherlockListActivity {
 
     setContentView(R.layout.user);
     setTitle("Userdetails");
+
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
 
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
@@ -567,6 +571,13 @@ public class UserDetailActivity extends SherlockListActivity {
     super.onOptionsItemSelected(item);
 
     switch (item.getItemId()) {
+
+      case android.R.id.home: {
+        final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+        amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(amenListIntent);
+        return true;
+      }
 
       case R.id.timeline:
         startActivity(new Intent(this, AmenListActivity.class));

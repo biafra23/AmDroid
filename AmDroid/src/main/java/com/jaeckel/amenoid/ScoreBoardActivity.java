@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -83,6 +84,10 @@ public class ScoreBoardActivity extends SherlockListActivity {
 
     setContentView(R.layout.score_board);
     setTitle("Scorecard");
+
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
+
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
     list = (ListView) findViewById(android.R.id.list);
@@ -211,6 +216,13 @@ public class ScoreBoardActivity extends SherlockListActivity {
     super.onOptionsItemSelected(item);
 
     switch (item.getItemId()) {
+
+      case android.R.id.home: {
+        final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+        amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(amenListIntent);
+        return true;
+      }
 
       case R.id.timeline:
         startActivity(new Intent(this, AmenListActivity.class));

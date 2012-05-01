@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.List;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
@@ -48,6 +49,9 @@ public class SubjectPageActivity extends SherlockListActivity {
     this.setTitle("SubjectPage");
 
     setContentView(R.layout.subject_page);
+
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
 
     service = AmenoidApp.getInstance().getService();
 

@@ -5,7 +5,6 @@
           android:icon="@drawable/ic_action_photo_dark"
           android:title="Add Photo"
           android:visible="true"
-          android:titleCondensed="Photo"
           android:showAsAction="ifRoom|withText"
             />
 </menu>
