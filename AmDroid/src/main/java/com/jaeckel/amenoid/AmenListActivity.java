@@ -293,24 +293,24 @@ public class AmenListActivity extends SherlockListActivity {
   public boolean onPrepareOptionsMenu(Menu menu) {
     Log.d(TAG, "onPrepareOptionsMenu");
     MenuItem following = menu.findItem(R.id.following_menu);
-    MenuItem recent = menu.findItem(R.id.recent_menu);
+//    MenuItem recent = menu.findItem(R.id.recent_menu);
     MenuItem popular = menu.findItem(R.id.popular_menu);
     MenuItem amenSth = menu.findItem(R.id.amen);
     MenuItem signInOut = menu.findItem(R.id.signin);
 //    MenuItem search = menu.findItem(R.id.search_menu_item);
 
     if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
-      recent.setVisible(true);
+//      recent.setVisible(true);
       following.setVisible(false);
       popular.setVisible(true);
 
     } else if (feedType == AmenService.FEED_TYPE_RECENT) {
-      recent.setVisible(false);
+//      recent.setVisible(false);
       following.setVisible(true);
       popular.setVisible(true);
 
     } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
-      recent.setVisible(true);
+//      recent.setVisible(true);
       following.setVisible(true);
       popular.setVisible(false);
 
@@ -363,13 +363,13 @@ public class AmenListActivity extends SherlockListActivity {
         startActivity(intent);
         return true;
       }
-      case R.id.recent_menu: {
-        Intent intent = new Intent(this, AmenListActivity.class);
-        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_RECENT);
-        startActivity(intent);
-
-        return true;
-      }
+//      case R.id.recent_menu: {
+//        Intent intent = new Intent(this, AmenListActivity.class);
+//        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_RECENT);
+//        startActivity(intent);
+//
+//        return true;
+//      }
       case R.id.popular_menu: {
         Intent intent = new Intent(this, AmenListActivity.class);
         intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_POPULAR);

@@ -134,7 +134,7 @@ public class UserDetailActivity extends SherlockListActivity {
       userName.setText(currentUser.getName());
 
     }
-    follow = (TextView) findViewById(R.id.follow);
+    follow = (TextView) findViewById(R.id.follow_indicator);
 
     follow.setText("Following?");
     follow.setTypeface(amenTypeThin);
@@ -311,7 +311,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
         TextView userName = (TextView) findViewById(R.id.name);
         userName.setText(user.getName());
-        final TextView follow = (TextView) findViewById(R.id.follow);
+        final TextView follow = (TextView) findViewById(R.id.follow_indicator);
 
         if (user.getFollowing() != null && user.getFollowing()) {
           follow.setBackgroundColor(Color.CYAN);
@@ -395,7 +395,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
         TextView userName = (TextView) findViewById(R.id.name);
         userName.setText(user.getName());
-        final TextView follow = (TextView) findViewById(R.id.follow);
+        final TextView follow = (TextView) findViewById(R.id.follow_indicator);
 
         if (user.getFollowing() != null && user.getFollowing()) {
           follow.setBackgroundColor(Color.CYAN);
@@ -474,7 +474,7 @@ public class UserDetailActivity extends SherlockListActivity {
     protected void wrappedOnPostExecute(final Boolean success) {
 
       if (success != null && success) {
-        final TextView follow = (TextView) findViewById(R.id.follow);
+        final TextView follow = (TextView) findViewById(R.id.follow_indicator);
         if (meIsFollowing) {
           follow.setBackgroundColor(Color.CYAN);
 
@@ -511,7 +511,7 @@ public class UserDetailActivity extends SherlockListActivity {
     protected void wrappedOnPostExecute(final Boolean success) {
 
       if (success != null && success) {
-        final TextView follow = (TextView) findViewById(R.id.follow);
+        final TextView follow = (TextView) findViewById(R.id.follow_indicator);
         if (meIsFollowing) {
           follow.setBackgroundColor(Color.CYAN);
         } else {
@@ -575,7 +575,7 @@ public class UserDetailActivity extends SherlockListActivity {
       case R.id.amen:
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));
         return true;
-      case R.id.follow:
+      case R.id.follow_indicator:
         new FollowTask(UserDetailActivity.this).execute(currentUser);
         return true;
       case R.id.unfollow:

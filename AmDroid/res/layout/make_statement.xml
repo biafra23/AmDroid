@@ -136,12 +136,12 @@
                     android:text="Amen."
                     android:layout_weight="1"
                     />
-            <Button android:id="@+id/add_photo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add photo"
-                    android:layout_weight="0"
-                    />
+            <!--<Button android:id="@+id/add_photo"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Add photo"-->
+                    <!--android:layout_weight="0"-->
+                    <!--/>-->
             <!--<Button android:id="@+id/never_mind"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->

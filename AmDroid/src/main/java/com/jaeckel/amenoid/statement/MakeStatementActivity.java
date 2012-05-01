@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -204,37 +207,37 @@ public class MakeStatementActivity extends SherlockActivity {
       }
     });
 
-    Button addPhoto = (Button) findViewById(R.id.add_photo);
-    addPhoto.setOnClickListener(new View.OnClickListener() {
-
-      public void onClick(View view) {
-
-//        currentTopic.setBest(currentBest);
-//        final Statement statement = new Statement(currentObjekt, currentTopic);
-
-//        new MakeStatementTask(MakeStatementActivity.this).execute(statement);
-
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
-        intent.setType("image/*");
-        intent.putExtra("crop", "true");
-
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-
-        // We should always get back an image that is no larger than these dimensions
-        intent.putExtra("outputX", 800);
-        intent.putExtra("outputY", 800);
-
-        // Scale the image down to 800 x 800
-        intent.putExtra("scale", true);
-
-        // Tell the picker to write its output to this URI
-        intent.putExtra("output", Uri.fromFile(new File(TMP_IMAGE_PATH)));
-        intent.putExtra("outputFormat", "JPEG");
-
-        startActivityForResult(intent, REQUEST_CODE_ADD_IMAGE);
-      }
-    });
+//    Button addPhoto = (Button) findViewById(R.id.add_photo);
+//    addPhoto.setOnClickListener(new View.OnClickListener() {
+//
+//      public void onClick(View view) {
+//
+////        currentTopic.setBest(currentBest);
+////        final Statement statement = new Statement(currentObjekt, currentTopic);
+//
+////        new MakeStatementTask(MakeStatementActivity.this).execute(statement);
+//
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+//        intent.setType("image/*");
+//        intent.putExtra("crop", "true");
+//
+//        intent.putExtra("aspectX", 1);
+//        intent.putExtra("aspectY", 1);
+//
+//        // We should always get back an image that is no larger than these dimensions
+//        intent.putExtra("outputX", 800);
+//        intent.putExtra("outputY", 800);
+//
+//        // Scale the image down to 800 x 800
+//        intent.putExtra("scale", true);
+//
+//        // Tell the picker to write its output to this URI
+//        intent.putExtra("output", Uri.fromFile(new File(TMP_IMAGE_PATH)));
+//        intent.putExtra("outputFormat", "JPEG");
+//
+//        startActivityForResult(intent, REQUEST_CODE_ADD_IMAGE);
+//      }
+//    });
 
 
     ImageView preview = (ImageView) findViewById(R.id.photo_preview);
@@ -333,6 +336,61 @@ public class MakeStatementActivity extends SherlockActivity {
 
     return result;
   }
+
+
+  //
+  // Menu handling
+  //
+
+  public boolean onPrepareOptionsMenu(Menu menu) {
+    Log.d(TAG, "onPrepareOptionsMenu");
+
+    return true;
+  }
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+    Log.d(TAG, "onCreateOptionsMenu");
+
+    MenuInflater inflater = getSupportMenuInflater();
+    inflater.inflate(R.menu.menu_add_statement, menu);
+
+
+    return true;
+  }
+
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    switch (item.getItemId()) {
+
+      case R.id.add_photo:
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+        intent.setType("image/*");
+        intent.putExtra("crop", "true");
+
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+
+        // We should always get back an image that is no larger than these dimensions
+        intent.putExtra("outputX", 800);
+        intent.putExtra("outputY", 800);
+
+        // Scale the image down to 800 x 800
+        intent.putExtra("scale", true);
+
+        // Tell the picker to write its output to this URI
+        intent.putExtra("output", Uri.fromFile(new File(TMP_IMAGE_PATH)));
+        intent.putExtra("outputFormat", "JPEG");
+
+        startActivityForResult(intent, REQUEST_CODE_ADD_IMAGE);
+        return true;
+
+    }
+
+    return false;
+  }
+
 
   //
   // MakeStatementTask

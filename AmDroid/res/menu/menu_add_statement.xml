@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/add_photo"
+          android:icon="@drawable/ic_action_photo_dark"
+          android:title="Add Photo"
+          android:visible="true"
+          android:titleCondensed="Photo"
+          android:showAsAction="ifRoom|withText"
+            />
+</menu>
