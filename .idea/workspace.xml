@@ -228,14 +228,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="fragment example 1">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/frag.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/frag.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/frag.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -655,7 +650,7 @@
       <file leaf-file-name="frag.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/frag.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="51" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="269" selection-end="866" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -699,10 +694,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fragment1.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Fragment1.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.1834239">
+            <state line="12" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -710,10 +705,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FragmentDemo.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FragmentDemo.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="3" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+            <state line="43" column="71" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.53125">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -752,8 +747,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment1.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment2.java" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/frag.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java" />
       </list>
     </option>
   </component>
@@ -3121,7 +3116,11 @@
       <created>1335884556337</created>
       <updated>1335884556337</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="fragment example 1">
+      <created>1335887315409</created>
+      <updated>1335887315409</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -3148,11 +3147,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32779622" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.63974" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6843083" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36025998" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3160,7 +3159,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59800667" sideWeight="0.50428396" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683378" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31569174" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31569174" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46560848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18463181" sideWeight="0.34564102" order="11" side_tool="true" content_ui="tabs" />
@@ -3355,16 +3354,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="3" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+        <state line="12" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment2.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
           <folding>
@@ -3375,14 +3374,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/frag.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="51" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+        <state line="7" column="0" selection-start="269" selection-end="866" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Fragment1.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/FragmentDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="253" selection-end="253" vertical-scroll-proportion="0.1834239">
+        <state line="43" column="71" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.53125">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
