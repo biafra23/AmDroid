@@ -9,12 +9,12 @@
             />
 
     <item android:id="@+id/refresh"
-          android:icon="@drawable/ic_menu_refresh"
+          android:icon="@drawable/ic_ac"
           android:title="Refresh"
           android:showAsAction="ifRoom"/>
 
     <item android:id="@+id/popular_menu"
-          android:icon="@drawable/ic_menu_popular"
+          android:icon="@drawable/ic_action_popular_dark"
           android:title="Popular"
           android:visible="true"
             />
