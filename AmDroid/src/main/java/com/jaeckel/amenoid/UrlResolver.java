@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.util.List;
 
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.app.AmenoidApp;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 /**
  * User: biafra
@@ -17,7 +20,10 @@ import android.os.Bundle;
  * Time: 10:55 PM
  */
 public class UrlResolver extends Activity {
-  // Floria Weber: 6.12.2012
+
+  private static String TAG = "UrlResolver";
+
+  //  Floria Weber: 6.12.2012
 //  in rails ist das so implementiert, das unsere eigenen urls immer
 //  vorrang haben. defininiert sind zb:
 //  /account
@@ -45,10 +51,16 @@ public class UrlResolver extends Activity {
     Intent intent = getIntent();
     // check if this intent is started via custom scheme link
     if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+
       Uri uri = intent.getData();
 //      Toast.makeText(this, "uri: " + uri, Toast.LENGTH_LONG).show();
       // may be some test here with your custom uri
+
       List<String> pathSegments = uri.getPathSegments();
+      Log.d(TAG, "uri: " + uri);
+      for (String pathSegment : pathSegments) {
+        Log.d(TAG, "pathSegment: " + pathSegment);
+      }
       if ("users".equalsIgnoreCase(pathSegments.get(0))) {
 
         Long id = Long.valueOf(pathSegments.get(1));
@@ -80,7 +92,27 @@ public class UrlResolver extends Activity {
 
         finish();
 
+      } else if ("statements".equals(pathSegments.get(0))) {
+        Log.d(TAG, "pathSegments.get(0): " + pathSegments.get(0));
+        try {
+          Long statementId = Long.valueOf(pathSegments.get(1));
+          Log.d(TAG, "pathSegments.get(1): " + pathSegments.get(1));
+
+          Statement statement = AmenoidApp.getInstance().getService().getStatementForId(statementId);
+          Intent startAmenDetailActivity = new Intent(this, AmenDetailActivity.class);
+          startAmenDetailActivity.putExtra(Constants.EXTRA_STATEMENT, statement);
+
+          startActivity(startAmenDetailActivity);
+
+          finish();
+
+        } catch (IOException e) {
+          e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+
+        }
+
       } else {
+
         String name = pathSegments.get(0);
         // Is it a comment?
         if (pathSegments.size() > 1) {
@@ -116,7 +148,10 @@ public class UrlResolver extends Activity {
           finish();
         }
       }
+      Toast.makeText(this, "Could not handle given Url: " + uri, Toast.LENGTH_LONG).show();
     }
+
+    finish();
   }
 
   // TODO: add support for the following urls:
