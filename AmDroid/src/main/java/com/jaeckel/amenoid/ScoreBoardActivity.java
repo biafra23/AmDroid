@@ -1,5 +1,15 @@
 package com.jaeckel.amenoid;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.RankedStatements;
+import com.jaeckel.amenoid.api.model.Topic;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amenoid.util.AmenLibTask;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -18,15 +28,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.RankedStatements;
-import com.jaeckel.amenoid.api.model.Topic;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
-import com.jaeckel.amenoid.util.AmenLibTask;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * User: biafra
@@ -81,7 +82,7 @@ public class ScoreBoardActivity extends ListActivity {
     service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.score_board);
-    setTitle("Amenoid/Scorecard");
+    setTitle("Scorecard");
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
     list = (ListView) findViewById(android.R.id.list);

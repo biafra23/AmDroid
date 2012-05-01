@@ -95,7 +95,7 @@ public class UserDetailActivity extends ListActivity {
     service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.user);
-    setTitle("Amenoid/Userdetails");
+    setTitle("Userdetails");
 
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 

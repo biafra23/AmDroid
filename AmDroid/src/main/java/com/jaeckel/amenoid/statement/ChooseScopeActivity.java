@@ -1,5 +1,15 @@
 package com.jaeckel.amenoid.statement;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jaeckel.amenoid.Constants;
+import com.jaeckel.amenoid.R;
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Objekt;
+import com.jaeckel.amenoid.api.model.Topic;
+import com.jaeckel.amenoid.app.AmenoidApp;
+
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,15 +27,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.jaeckel.amenoid.Constants;
-import com.jaeckel.amenoid.R;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.api.model.Topic;
-import com.jaeckel.amenoid.app.AmenoidApp;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * User: biafra
@@ -67,7 +68,7 @@ public class ChooseScopeActivity extends ListActivity {
     possibleScopes = currentObjekt.getPossibleScopes();
 
     setContentView(R.layout.choose_scope);
-    setTitle("Amenoid/Choose Statement Scope");
+    setTitle("Choose Statement Scope");
 
     scopeEditText = (EditText) findViewById(R.id.scope);
     scopeEditText.setHint(currentTopic.getScope());

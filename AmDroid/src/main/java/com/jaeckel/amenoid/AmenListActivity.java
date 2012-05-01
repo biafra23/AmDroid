@@ -170,7 +170,7 @@ public class AmenListActivity extends ListActivity {
     } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
       title = "Popular";
     }
-    setTitle("Amenoid/Timeline: " + title);
+    setTitle("Timeline: " + title);
 
 
     registerForContextMenu(getListView());

@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author biafra
@@ -15,6 +18,22 @@ import android.view.ViewGroup;
 public class Fragment2 extends Fragment {
 
   private final static String TAG = "Fragment2";
+
+
+  @Override
+  public void onStart() {
+    super.onStart();
+    //---Button view---
+    Button btnGetText = (Button) getActivity().findViewById(R.id.btnGetText1);
+
+    btnGetText.setOnClickListener(new View.OnClickListener() {
+      public void onClick(View v) {
+        TextView lbl = (TextView) getActivity().findViewById(R.id.labelFragment1);
+        Toast.makeText(getActivity(), lbl.getText(), Toast.LENGTH_SHORT).show();
+      }
+    });
+  }
+
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,11 +59,11 @@ public class Fragment2 extends Fragment {
     Log.d(TAG, "onActivityCreated");
   }
 
-  @Override
-  public void onStart() {
-    super.onStart();
-    Log.d(TAG, "onStart");
-  }
+//  @Override
+//  public void onStart() {
+//    super.onStart();
+//    Log.d(TAG, "onStart");
+//  }
 
   @Override
   public void onResume() {

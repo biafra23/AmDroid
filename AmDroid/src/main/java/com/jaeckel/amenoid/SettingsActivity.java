@@ -1,5 +1,16 @@
 package com.jaeckel.amenoid;
 
+import java.util.Date;
+
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.InvalidCredentialsException;
+import com.jaeckel.amenoid.api.model.DateSerializer;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.AmenLibTask;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
@@ -12,16 +23,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jaeckel.amenoid.api.AmenService;
-import com.jaeckel.amenoid.api.InvalidCredentialsException;
-import com.jaeckel.amenoid.api.model.DateSerializer;
-import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.util.AmenLibTask;
-
-import java.util.Date;
 
 /**
  * User: biafra
@@ -52,7 +53,7 @@ public class SettingsActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.settings);
-    setTitle("Amenoid/Signing in");
+    setTitle("Signing in");
 
     prefs = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
 

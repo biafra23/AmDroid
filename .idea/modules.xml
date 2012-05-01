@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/AmenLib/AmenLib.iml" filepath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/amdroid-parent.iml" filepath="$PROJECT_DIR$/amdroid-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" filepath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.0.0.iml" filepath="$PROJECT_DIR$/AmDroid/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.0.0.iml" />
     </modules>
   </component>
 </project>

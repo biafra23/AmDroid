@@ -86,7 +86,7 @@ public class DisputeActivity extends Activity implements AdapterView.OnItemClick
 
     setContentView(R.layout.dispute);
 
-    setTitle("Amenoid/Dispute");
+    setTitle("Dispute");
 
     Intent startingIntent = getIntent();
     currentAmen = startingIntent.getParcelableExtra(Constants.EXTRA_AMEN);

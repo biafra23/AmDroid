@@ -73,7 +73,7 @@ public class MakeStatementActivity extends Activity {
     Log.d(TAG, "onCreate");
 
     service = AmenoidApp.getInstance().getService();
-    setTitle("Amenoid/Make A Statement");
+    setTitle("Make A Statement");
 
     currentBest = true;
     currentObjekt = new Objekt();

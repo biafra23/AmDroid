@@ -64,7 +64,7 @@ public class SearchActivity extends ListActivity {
     setContentView(R.layout.search);
 
 
-    setTitle("Amenoid/Search");
+    setTitle("Search");
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
     list = (ListView) findViewById(android.R.id.list);
@@ -97,7 +97,7 @@ public class SearchActivity extends ListActivity {
       String query = intent.getStringExtra(SearchManager.QUERY);
 
       new LoaderAsyncTask(SearchActivity.this).execute(query);
-      setTitle("Amenoid/Search: " + query);
+      setTitle("Search: " + query);
 
     }
   }

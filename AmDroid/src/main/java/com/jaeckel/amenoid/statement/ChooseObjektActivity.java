@@ -84,7 +84,7 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
       }
     }
     setContentView(R.layout.choose_objekt);
-    setTitle("Amenoid/Choose Statement Objekt");
+    setTitle("Choose Statement Objekt");
 
     ListView list = (ListView) findViewById(android.R.id.list);
     final View header = getLayoutInflater().inflate(R.layout.choose_objekt_header, null, false);
