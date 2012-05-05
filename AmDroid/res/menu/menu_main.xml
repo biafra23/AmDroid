@@ -13,37 +13,33 @@
           android:title="Refresh"
           android:showAsAction="ifRoom|withText"/>
 
+    <item android:id="@+id/search_menu_item"
+          android:icon="@drawable/ic_action_search_dark"
+          android:title="Search"
+          android:showAsAction="ifRoom|withText"
+            />
     <item android:id="@+id/popular_menu"
           android:icon="@drawable/ic_action_popular_dark"
           android:title="Popular"
           android:visible="true"
           android:showAsAction="ifRoom|withText"/>
-            />
+    />
     <!--<item android:id="@+id/recent_menu"-->
-          <!--android:icon="@drawable/ic_menu_clock"-->
-          <!--android:title="New"-->
-          <!--android:visible="true"-->
-            <!--/>-->
+    <!--android:icon="@drawable/ic_menu_clock"-->
+    <!--android:title="New"-->
+    <!--android:visible="true"-->
+    <!--/>-->
 
     <item android:id="@+id/following_menu"
           android:icon="@drawable/ic_action_following_dark"
           android:title="Following"
           android:visible="false"
             />
-
-
     <item android:id="@+id/amen"
           android:icon="@drawable/ic_action_plus_dark"
           android:title="Amen sth."
           android:showAsAction="ifRoom|withText"
             />
-
-    <item android:id="@+id/search_menu_item"
-          android:icon="@drawable/ic_action_search_dark"
-          android:title="Search"
-          android:showAsAction="ifRoom|withText"
-            />
-
     <item android:id="@+id/about_menu_item"
           android:icon="@drawable/ic_action_about_dark"
           android:title="About"
