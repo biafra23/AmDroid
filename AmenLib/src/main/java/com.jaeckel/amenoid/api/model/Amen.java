@@ -35,6 +35,7 @@ public class Amen implements Parcelable {
   private Statement          statement;
   //sometimes disputed Amen
   private Long               referringAmenId;
+  // Amen hast the user generated photos, while Objekt has photos from the public databases.
   private List<MediaItem>    media;
   private Long               commentsCount;
   private ArrayList<Comment> comments;
