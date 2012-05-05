@@ -52,23 +52,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>com.viewpagerindicator</groupId>-->
-        <!--<artifactId>library</artifactId>-->
-        <!--<version>1.2.1</version>-->
-        <!--<type>apklib</type>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.directionalviewpager</groupId>-->
-        <!--<artifactId>library</artifactId>-->
-        <!--<version>1.2.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.actionbarsherlock</groupId>-->
-        <!--<artifactId>library</artifactId>-->
-        <!--<version>4.0.0</version>-->
-        <!--<type>apklib</type>-->
-        <!--</dependency>-->
     </dependencies>
     <build>
         <plugins>
@@ -189,5 +172,5 @@
             <!--</repository>-->
             <!--</repositories>-->
         </profile>
-    </profiles>
+        </profiles>
 </project>
