@@ -8,6 +8,7 @@ import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.app.AmenoidApp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.util.Log;
@@ -55,10 +56,12 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
     TextView textView = (TextView) row.findViewById(R.id.completion_item_name);
     textView.setText(objekt.getName());
     textView.setTypeface(amenTypeBold);
+    textView.setTextColor(Color.WHITE);
 
     TextView description = (TextView) row.findViewById(R.id.default_description);
     description.setTypeface(amenTypeThin);
     description.setText(objekt.getDefaultDescription());
+    description.setTextColor(Color.WHITE);
 
     return row;
   }
