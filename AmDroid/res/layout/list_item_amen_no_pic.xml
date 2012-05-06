@@ -19,15 +19,29 @@
                   android:layout_marginRight="5dp"
 
                 />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                >
+            <TextView android:id="@+id/statement"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
+                      android:textSize="20dp"
+                      android:layout_weight="1"
+                      android:paddingBottom="3dp"
+                    />
+            <ImageView
+                    android:id="@+id/objekt_photo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_menu_gear"
+                    android:layout_alignParentTop="true"
+                    />
+        </LinearLayout>
 
-        <TextView android:id="@+id/statement"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:text="Lorem ipsum dolor sit amet. Veterum censeo Kartago delendam esse. Hier noch mehr text als neben das Bild passt"
-                  android:textSize="20dp"
-                  android:layout_weight="1"
-                  android:paddingBottom="3dp"
-                />
         <com.jaeckel.amenoid.util.AspectRatioImageView
                 android:id="@+id/media_photo"
                 android:layout_width="fill_parent"
@@ -37,6 +51,7 @@
                 android:layout_alignParentTop="true"
                 android:adjustViewBounds="true"
                 />
+
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:layout_width="fill_parent"

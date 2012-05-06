@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/id2"
+
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical"
 
         >
 
-    <LinearLayout
-            android:id="@+id/id1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="horizontal">
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:orientation="horizontal">
 
-        <LinearLayout android:id="@+id/id2"
-                      android:layout_width="wrap_content"
+        <LinearLayout android:layout_width="wrap_content"
                       android:layout_height="fill_parent"
                       android:orientation="vertical"
 
@@ -28,19 +25,16 @@
                        android:paddingBottom="5dp"
                        android:paddingTop="5dp"
                        android:visibility="visible"
+                       android:contentDescription="User Image"
                     />
         </LinearLayout>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:id="@+id/id3"
-                      android:layout_width="fill_parent"
+        <LinearLayout android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
                       android:orientation="vertical"
 
                 >
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                          android:id="@+id/id4"
-                          android:layout_width="fill_parent"
+            <LinearLayout android:layout_width="fill_parent"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal"
 
@@ -64,38 +58,61 @@
 
                         />
             </LinearLayout>
-            <TextView android:id="@+id/statement"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:text="Lorem ipsum dolor sit amet. Ceterum censeo Karthago delendam esse. Hier noch mehr text als neben das Bild passt"
-                      android:textSize="20dp"
-                      android:layout_weight="1"
-                      android:paddingBottom="3dp"
-                      android:shadowColor="@color/dark_grey"
-                    />
+            <LinearLayout android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:orientation="horizontal"
 
+                    >
+                <LinearLayout android:layout_width="fill_parent"
+                              android:layout_height="fill_parent"
+                              android:layout_gravity="top"
+                              android:orientation="vertical"
+                              android:layout_weight="1"
 
+                        >
+                    <TextView android:id="@+id/statement"
+                              android:layout_gravity="top"
+                              android:layout_width="wrap_content"
+                              android:layout_height="fill_parent"
+                              android:text="Lorem ipsum dolor sit amet. Ceterum censeo Karthago delendam esse. Hier noch mehr text als neben das Bild passt"
+                              android:textSize="20dp"
+                              android:paddingBottom="3dp"
+                              android:shadowColor="@color/dark_grey"
+
+                            />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/objekt_photo_wrapper"
+                              android:layout_width="fill_parent"
+                              android:layout_height="fill_parent"
+                              android:orientation="vertical"
+                              android:layout_weight="2"
+                        >
+                    <ImageView android:id="@+id/objekt_photo"
+                               android:layout_gravity="top"
+                               android:layout_width="80dp"
+                               android:layout_height="80dp"
+                               android:padding="2dp"
+                               android:src="@drawable/ic_menu_gear"
+                               android:contentDescription="Objekt Photo"
+                            />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
-            android:id="@+id/id3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical">
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:orientation="vertical">
 
         <com.jaeckel.amenoid.util.AspectRatioImageView
                 android:id="@+id/media_photo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_menu_gear"
-                android:layout_alignParentTop="true"
-                android:adjustViewBounds="true"
+
                 />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:layout_width="fill_parent"
+        <LinearLayout android:layout_width="fill_parent"
                       android:layout_height="wrap_content"
                       android:orientation="horizontal"
                 >

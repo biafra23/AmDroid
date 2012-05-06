@@ -44,6 +44,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     TextView  user;
     ImageView userImage;
     ImageView mediaPhoto;
+    ImageView objektPhoto;
+    View      objektPhotoWrapper;
     TextView  statementView;
     TextView  amenCountView;
     TextView  commentsCountView;
@@ -66,6 +68,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
       holder.statementView = (TextView) row.findViewById(R.id.statement);
       holder.userImage = (ImageView) row.findViewById(R.id.user_image);
       holder.mediaPhoto = (ImageView) row.findViewById(R.id.media_photo);
+      holder.objektPhoto = (ImageView) row.findViewById(R.id.objekt_photo);
+      holder.objektPhotoWrapper = row.findViewById(R.id.objekt_photo_wrapper);
       holder.sinceView = (TextView) row.findViewById(R.id.since);
       holder.amenCountView = (TextView) row.findViewById(R.id.amen_count);
       holder.commentsCountView = (TextView) row.findViewById(R.id.comments_count);
@@ -107,7 +111,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     }
 
-    //Media Photo
+    //amen Media Photo
     if (amen.getMedia() != null && amen.getMedia().size() > 0) {
 
       holder.mediaPhoto.setVisibility(View.VISIBLE);
@@ -120,6 +124,23 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     } else {
       holder.mediaPhoto.setVisibility(View.GONE);
+      //necessary?
+      //mediaPhoto.setTag(null);
+    }
+
+    //obkekt  Photo
+    if (amen.getStatement().getObjekt().getMedia() != null && amen.getStatement().getObjekt().getMedia().size() > 0) {
+
+      holder.objektPhotoWrapper.setVisibility(View.VISIBLE);
+      String mediaUrl = amen.getStatement().getObjekt().getMedia().get(0).getContentUrl();
+
+
+      Log.d("AmenListAdapter", "objektPhoto: " + mediaUrl);
+      holder.objektPhoto.setImageResource(R.drawable.placeholder);
+      holder.objektPhoto.setTag(mediaUrl);
+
+    } else {
+      holder.objektPhotoWrapper.setVisibility(View.GONE);
       //necessary?
       //mediaPhoto.setTag(null);
     }

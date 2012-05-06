@@ -54,7 +54,7 @@ public class AmenListActivity extends SherlockListActivity {
   final int pageSize = 20;
 
   private AmenService service;
-  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.media_photo};
+  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.media_photo, R.id.objekt_photo};
   private AmenListAdapter   amenListAdapter;
   private SharedPreferences prefs;
   private Gson gson = new GsonBuilder()
