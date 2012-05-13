@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: android.support:compatibility-v4:r8">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/r8/compatibility-v4-r8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/r8/compatibility-v4-r8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/r8/compatibility-v4-r8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
