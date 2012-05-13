@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -885,5 +886,49 @@ public class AmenServiceImpl implements AmenService {
 
     return true;
   }
+
+  public User signup(String name, String email, String password) {
+
+    User result = null;
+
+    JsonObject jsonObject = new JsonObject();
+
+    jsonObject.addProperty("password", password);
+    jsonObject.addProperty("name", name);
+    jsonObject.addProperty("email", email);
+    Properties props = new Properties();
+
+    try {
+      props.load(this.getClass().getResourceAsStream("amenoid.properties"));
+
+    } catch (IOException e) {
+
+      throw new RuntimeException("Properties not loaded", e);
+    }
+    String signupKey = props.getProperty("amenlib.signup.key");
+
+    HttpUriRequest jsonPostRequest = RequestFactory.createJSONPOSTRequest(serviceUrl + "signup/" + signupKey + ".json", jsonObject.toString());
+
+
+    HttpResponse response = null;
+    try {
+      response = httpclient.execute(jsonPostRequest);
+
+      HttpEntity responseEntity = response.getEntity();
+
+      final String responseString = makeStringFromEntity(responseEntity);
+
+      Type collectionType = new TypeToken<User>() {
+      }.getType();
+      result = gson.fromJson(responseString, collectionType);
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+
+    return result;
+  }
+
 }
 

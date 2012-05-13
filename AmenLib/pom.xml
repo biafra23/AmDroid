@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -7,14 +8,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>amenlib</artifactId>
-
     <packaging>jar</packaging>
     <name>Amenoid - Lib</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-
     <dependencies>
         <!-- needs to be before android:android for unit tests -->
         <dependency>
@@ -23,28 +22,24 @@
             <version>3.8.2</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
             <version>4.0.3_r2</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>ch.boye</groupId>
             <artifactId>httpclientandroidlib</artifactId>
             <version>1.0.4</version>
             <!-- <type>apklib</type> -->
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.6.1</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -55,7 +50,6 @@
             <artifactId>gson</artifactId>
             <version>1.7.1</version>
         </dependency>
-
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -65,7 +59,6 @@
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
-
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -88,19 +81,26 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
             </resource>
         </resources>
-
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </testResource>
+        </testResources>
     </build>
     <repositories>
     </repositories>
-
 </project>
-
-

@@ -24,6 +24,7 @@ public class AmenServiceITest extends TestCase {
 
   private String            username;
   private String            password;
+  private String            signUpKey;
   private AmenService       service;
   private DefaultHttpClient amenHttpClient;
 
@@ -332,5 +333,27 @@ public class AmenServiceITest extends TestCase {
           System.out.println("a: " + a);
 
         }
+  }
+
+  public void testEmptySignUp() throws IOException {
+
+    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+
+    User user = signOutService.signup("", "", "");
+    System.out.println("result: " + user);
+
+    assertNull(user.getId());
+
+  }
+
+  public void testSignUp() throws IOException {
+
+    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+
+    User user = signOutService.signup("dog" + Math.random(), "test-" + Math.random() + "@different.name", "hooligans");
+    System.out.println("result: " + user);
+
+    assertNull(user.getId());
+
   }
 }
