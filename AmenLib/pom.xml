@@ -16,7 +16,7 @@
     </properties>
 
     <dependencies>
-        <!-- needs to be before android:android for unit tests-->
+        <!-- needs to be before android:android for unit tests -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -35,31 +35,8 @@
             <groupId>ch.boye</groupId>
             <artifactId>httpclientandroidlib</artifactId>
             <version>1.0.4</version>
-            <!--<type>apklib</type>-->
+            <!-- <type>apklib</type> -->
         </dependency>
-
-
-        <!--<dependency>-->
-            <!--<groupId>bouncycastle</groupId>-->
-            <!--<artifactId>bcprov-jdk16</artifactId>-->
-            <!--<version>140</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.httpcomponents</groupId>-->
-            <!--<artifactId>httpclient</artifactId>-->
-            <!--<version>4.1.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.apache.httpcomponents</groupId>-->
-            <!--<artifactId>httpcore</artifactId>-->
-            <!--<version>4.1.2</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.json</groupId>-->
-            <!--<artifactId>json</artifactId>-->
-            <!--<version>20090211</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -78,11 +55,7 @@
             <artifactId>gson</artifactId>
             <version>1.7.1</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>net.sf.flexjson</groupId>-->
-            <!--<artifactId>flexjson</artifactId>-->
-            <!--<version>2.0</version>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
