@@ -149,7 +149,7 @@ public class AmenDetailActivity extends SherlockListActivity {
 
     ImageView mediaPhotoImageView = (ImageView) header.findViewById(R.id.media_photo);
 
-    if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
+    if (currentAmen != null && currentAmen.getMedia() != null && currentAmen.getMedia().size() > 0) {
       final String mediaUrl = currentStatement.getObjekt().getMedia().get(0).getContentUrl();
       Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): "
                  + mediaUrl);
@@ -183,9 +183,60 @@ public class AmenDetailActivity extends SherlockListActivity {
       }
 
     } else {
-      Log.d(TAG, "currentStatement.getMedia() -> empty");
+      Log.d(TAG, "                  currentAmen: " + currentAmen);
+      if (currentAmen != null) {
+        Log.d(TAG, "       currentAmen.getMedia(): " + currentAmen.getMedia());
+      }
+      if (currentAmen.getMedia() != null) {
+        Log.d(TAG, "currentAmen.getMedia().size(): " + currentAmen.getMedia().size());
+      }
       mediaPhotoImageView.setVisibility(View.INVISIBLE);
     }
+
+    ImageView objektPhotoImageView = (ImageView) header.findViewById(R.id.objekt_photo);
+    View objektPhotoImageViewWrapper = (View) header.findViewById(R.id.objekt_photo_wrapper);
+
+    if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
+      final String mediaUrl = currentStatement.getObjekt().getMedia().get(0).getContentUrl();
+      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): " + mediaUrl);
+      objektPhotoImageViewWrapper.setVisibility(View.VISIBLE);
+
+      int result = cache.getStatus(mediaUrl);
+
+      if (result == CacheBase.CACHE_MEMORY) {
+
+        Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
+        objektPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+
+      } else {
+
+
+        mediaPhotoImageView.setImageResource(R.drawable.placeholder);
+
+        ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
+
+        msg.setImageView(mediaPhotoImageView);
+        msg.setUrl(mediaUrl);
+
+        try {
+
+          cache.notify(msg.getUrl(), msg);
+
+        } catch (Throwable t) {
+          Log.e(TAG, "Exception trying to fetch image", t);
+          throw new RuntimeException(t);
+        }
+      }
+
+    } else {
+      Log.d(TAG, "       currentStatement.getObjekt().getMedia(): " + currentStatement.getObjekt().getMedia());
+      if (currentStatement.getObjekt().getMedia() != null) {
+        Log.d(TAG, "currentStatement.getObjekt().getMedia().size(): " + currentStatement.getObjekt().getMedia().size());
+      }
+      objektPhotoImageViewWrapper.setVisibility(View.INVISIBLE);
+    }
+
+
     Intent resultIntent = new Intent();
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
     setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
