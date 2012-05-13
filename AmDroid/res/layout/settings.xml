@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             />
-    <Button android:id="@+id/foo_signup_button_foo"
+    <Button android:id="@+id/signup_button"
             android:text="Sign up"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

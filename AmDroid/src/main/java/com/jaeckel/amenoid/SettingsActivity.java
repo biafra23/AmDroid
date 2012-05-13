@@ -2,7 +2,7 @@ package com.jaeckel.amenoid;
 
 import java.util.Date;
 
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,6 +18,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -30,12 +31,13 @@ import android.widget.Toast;
  * Date: 11/9/11
  * Time: 12:11 AM
  */
-public class SettingsActivity extends SherlockActivity {
+public class SettingsActivity extends SherlockFragmentActivity implements SignupDialog.SignupDialogListener {
 
   private SharedPreferences prefs;
   private EditText          emailField;
   private EditText          passwordField;
   private Button            signInButton;
+  private Button            signUpButton;
   private AmenService       service;
   private LoginAsyncTask    loginAsyncTask;
 
@@ -87,6 +89,31 @@ public class SettingsActivity extends SherlockActivity {
       passwordField.setEnabled(false);
       emailField.setEnabled(false);
     }
+
+    signUpButton = (Button) findViewById(R.id.signup_button);
+    signUpButton.setOnClickListener(new View.OnClickListener() {
+
+      @Override public void onClick(View view) {
+        Toast.makeText(SettingsActivity.this, "signup button clicked", Toast.LENGTH_SHORT).show();
+
+
+        showEditDialog();
+
+      }
+
+    });
+  }
+
+  private void showEditDialog() {
+    FragmentManager fm = getSupportFragmentManager();
+    SignupDialog signupDialog = new SignupDialog();
+    signupDialog.show(fm, "fragment_sign_up");
+
+  }
+
+  @Override public void onFinishSignupDialog(String inputText) {
+    Toast.makeText(SettingsActivity.this, "Dialog returend: " + inputText, Toast.LENGTH_SHORT).show();
+
   }
 
 
