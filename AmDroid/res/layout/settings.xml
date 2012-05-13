@@ -32,9 +32,15 @@
             android:layout_height="wrap_content"
             />
     <Button android:id="@+id/signout_button"
-            android:text="Sign in"
-            android:layout_width="wrap_content"
+            android:text="Sign out"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            />
+    <Button android:id="@+id/foo_signup_button_foo"
+            android:text="Sign up"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
             />
 </LinearLayout>

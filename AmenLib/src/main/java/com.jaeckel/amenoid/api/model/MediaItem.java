@@ -19,9 +19,6 @@ public class MediaItem implements Parcelable {
   private String contentUrl;
   private String contributor_name;
 
-  private transient final Logger log = LoggerFactory.getLogger(MediaItem.class.getSimpleName());
-
-
   @Override public String toString() {
     final StringBuffer sb = new StringBuffer();
     sb.append("MediaItem");
@@ -85,7 +82,6 @@ public class MediaItem implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    log.debug("writeToParcel");
     if (dest == null) {
       throw new RuntimeException("Parcel must not be null");
 
@@ -93,10 +89,6 @@ public class MediaItem implements Parcelable {
     dest.writeValue(type);
     dest.writeValue(contentUrl);
     dest.writeValue(contributor_name);
-
-
-    log.debug("writeToParcel. done.‚");
-
   }
 
   private void readFromParcel(Parcel in) {
