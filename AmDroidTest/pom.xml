@@ -25,18 +25,20 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.google.android</groupId>
+            <groupId>android</groupId>
             <artifactId>android</artifactId>
+            <version>4.0.3_r2</version>
+            <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android-test</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>android</groupId>-->
+            <!--<artifactId>android-test</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.jaeckel</groupId>
             <artifactId>amenoid</artifactId>
             <type>apk</type>
-            <version>1.0-ALPHA16</version>
+            <version>1.0-ALPHA30</version>
             <classifier>${zipaligned-classifier}</classifier>
             <!--  classifier set according to the ran profile -->
         </dependency>
