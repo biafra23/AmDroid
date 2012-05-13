@@ -342,7 +342,7 @@ public class AmenServiceITest extends TestCase {
     User user = signOutService.signup("", "", "");
     System.out.println("result: " + user);
 
-    assertNull(user.getId());
+    assertEquals("User id must be -1", -1, user.getId());
 
   }
 
@@ -353,7 +353,7 @@ public class AmenServiceITest extends TestCase {
     User user = signOutService.signup("dog" + Math.random(), "test-" + Math.random() + "@different.name", "hooligans");
     System.out.println("result: " + user);
 
-    assertNull(user.getId());
+    assertTrue("User id must be positive: " + user.getId(), user.getId() > 0);
 
   }
 }

@@ -810,7 +810,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   @Override
-  public Boolean deleteComment(long commentId) throws IOException{
+  public Boolean deleteComment(long commentId) throws IOException {
     log.debug("unfollow");
     boolean result = false;
 
@@ -891,11 +891,15 @@ public class AmenServiceImpl implements AmenService {
 
     User result = null;
 
-    JsonObject jsonObject = new JsonObject();
+    JsonObject userObject = new JsonObject();
 
-    jsonObject.addProperty("password", password);
-    jsonObject.addProperty("name", name);
-    jsonObject.addProperty("email", email);
+    userObject.addProperty("password", password);
+    userObject.addProperty("name", name);
+    userObject.addProperty("email", email);
+
+    JsonObject jsonObject = new JsonObject();
+    jsonObject.add("user", userObject);
+
     Properties props = new Properties();
 
     try {
@@ -907,7 +911,9 @@ public class AmenServiceImpl implements AmenService {
     }
     String signupKey = props.getProperty("amenlib.signup.key");
 
-    HttpUriRequest jsonPostRequest = RequestFactory.createJSONPOSTRequest(serviceUrl + "signup/" + signupKey + ".json", jsonObject.toString());
+    log.debug("jsonObject.toString(): " + jsonObject.toString());
+
+    HttpUriRequest jsonPostRequest = RequestFactory.createJSONPOSTRequest(serviceUrl + "sign-up/" + signupKey + ".json", jsonObject.toString());
 
 
     HttpResponse response = null;
@@ -917,6 +923,8 @@ public class AmenServiceImpl implements AmenService {
       HttpEntity responseEntity = response.getEntity();
 
       final String responseString = makeStringFromEntity(responseEntity);
+
+      log.debug("responseString: " + responseString);
 
       Type collectionType = new TypeToken<User>() {
       }.getType();

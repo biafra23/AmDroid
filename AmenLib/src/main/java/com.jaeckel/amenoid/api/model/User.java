@@ -44,6 +44,9 @@ public class User implements Parcelable {
   }
 
   public long getId() {
+    if (id == null) {
+      return -1;
+    }
     return id;
   }
 
