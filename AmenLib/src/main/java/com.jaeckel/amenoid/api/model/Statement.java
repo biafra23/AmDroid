@@ -2,12 +2,15 @@ package com.jaeckel.amenoid.api.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 
 import java.util.Date;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * User: biafra
@@ -28,7 +31,7 @@ public class Statement implements Parcelable {
   private Long       firstAmenId;
   private Integer       rankInTopic;
 
-  private static final String TAG = "Statement";
+  static private transient final Logger log = LoggerFactory.getLogger(Statement.class.getSimpleName());
 
   public Statement() {
   }
@@ -191,13 +194,13 @@ public class Statement implements Parcelable {
     }
 
     public Statement createFromParcel(Parcel source) {
-      Log.d(TAG, "createFromParcel: " + source);
+      log.debug("createFromParcel: " + source);
       return new Statement(source);
     }
   };
 
   private Statement(Parcel in) {
-    Log.d(TAG, "Statement() parcel: " + in);
+    log.debug("Statement() parcel: " + in);
 
     readFromParcel(in);
   }
@@ -210,7 +213,7 @@ public class Statement implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    Log.d(TAG, "writeToParcel");
+    log.debug("writeToParcel");
     dest.writeValue(id);
     dest.writeValue(totalAmenCount);
     dest.writeValue(agreeable);
@@ -223,12 +226,12 @@ public class Statement implements Parcelable {
     dest.writeValue(firstAmenId);
     dest.writeValue(rankInTopic);
 
-    Log.d(TAG, "writeToParcel. done.");
+    log.debug("writeToParcel. done.");
   }
 
   private void readFromParcel(Parcel in) {
     final ClassLoader cl = getClass().getClassLoader();
-    Log.d(TAG, "readFromParcel");
+    log.debug("readFromParcel");
     id = (Long) in.readValue(cl);
     totalAmenCount = (Long) in.readValue(cl);
     agreeable = (Boolean) in.readValue(cl);
@@ -241,7 +244,7 @@ public class Statement implements Parcelable {
     firstAmenId = (Long) in.readValue(cl);
     rankInTopic = (Integer) in.readValue(cl);
 
-    Log.d(TAG, "readFromParcel. done.");
+    log.debug("readFromParcel. done.");
 
   }
 

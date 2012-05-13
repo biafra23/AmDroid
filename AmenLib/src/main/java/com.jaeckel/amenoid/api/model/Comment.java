@@ -5,7 +5,6 @@ import java.util.Date;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 /**
  * @author biafra

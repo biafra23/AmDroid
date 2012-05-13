@@ -8,7 +8,12 @@ import java.security.NoSuchAlgorithmException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 
-import android.util.Log;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.jaeckel.amenoid.api.model.MediaItem;
+
 import ch.boye.httpclientandroidlib.client.protocol.RequestAcceptEncoding;
 import ch.boye.httpclientandroidlib.client.protocol.ResponseContentEncoding;
 import ch.boye.httpclientandroidlib.conn.ClientConnectionManager;
@@ -29,6 +34,8 @@ import ch.boye.httpclientandroidlib.protocol.BasicHttpProcessor;
  * Time: 9:47 AM
  */
 public class AmenHttpClient extends DefaultHttpClient {
+
+  private static transient final Logger log = LoggerFactory.getLogger(AmenHttpClient.class.getSimpleName());
 
   final private InputStream keyStoreStream;
   final private String      keyStorePassword;
@@ -82,14 +89,6 @@ public class AmenHttpClient extends DefaultHttpClient {
     connMgr.setDefaultMaxPerRoute(10);
 
 
-//    //TODO: Remove before release!
-//    HttpHost proxy = new HttpHost("192.168.1.52", 8888);
-//    this.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
-
-    this.log.enableTrace(true);
-    this.log.enableDebug(true);
-    this.log.enableWarn(true);
-
     return connMgr;
   }
 
@@ -129,6 +128,7 @@ public class AmenHttpClient extends DefaultHttpClient {
 class MyVerifier extends AbstractVerifier {
 
   private final X509HostnameVerifier delegate;
+  private static transient final Logger log = LoggerFactory.getLogger(MyVerifier.class.getSimpleName());
 
   public MyVerifier(final X509HostnameVerifier delegate) {
     this.delegate = delegate;
@@ -153,7 +153,7 @@ class MyVerifier extends AbstractVerifier {
         }
       }
       if (!ok) {
-        Log.d("AmenHttpClient", "verify -> !ok");
+        log.debug("AmenHttpClient", "verify -> !ok");
         e.printStackTrace();
         throw e;
       }

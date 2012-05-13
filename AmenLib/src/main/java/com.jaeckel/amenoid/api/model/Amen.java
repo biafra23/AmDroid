@@ -14,7 +14,7 @@ import com.jaeckel.amenoid.api.AmenService;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
+
 
 /**
  * User: biafra
@@ -23,7 +23,7 @@ import android.util.Log;
  */
 public class Amen implements Parcelable {
 
-  private transient final Logger log = LoggerFactory.getLogger("Amen");
+  private transient final Logger log = LoggerFactory.getLogger(Amen.class.getSimpleName());
 
 
   private Long               id;
@@ -295,7 +295,7 @@ public class Amen implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    Log.d(TAG, "writeToParcel");
+    log.debug("writeToParcel");
     if (dest == null) {
       throw new RuntimeException("Parcel must not be null");
 
@@ -308,11 +308,11 @@ public class Amen implements Parcelable {
     dest.writeParcelable(statement, flags);
     dest.writeParcelable(referringAmen, flags);
     dest.writeValue(referringAmenId);
-    Log.d(TAG, "commentsCount: " + commentsCount);
+    log.debug("commentsCount: " + commentsCount);
     dest.writeValue(commentsCount);
     dest.writeList(comments);
 
-    Log.d(TAG, "writeToParcel. done.‚");
+    log.debug("writeToParcel. done.‚");
 
   }
 

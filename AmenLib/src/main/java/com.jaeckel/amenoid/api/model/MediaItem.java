@@ -2,9 +2,11 @@ package com.jaeckel.amenoid.api.model;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 /**
  * @author biafra
@@ -12,11 +14,12 @@ import android.util.Log;
  */
 public class MediaItem implements Parcelable {
 
-  private static final String TAG = "MediaItem";
 
   private String type;
   private String contentUrl;
   private String contributor_name;
+
+  private transient final Logger log = LoggerFactory.getLogger(MediaItem.class.getSimpleName());
 
 
   @Override public String toString() {
@@ -82,7 +85,7 @@ public class MediaItem implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
-    Log.d(TAG, "writeToParcel");
+    log.debug("writeToParcel");
     if (dest == null) {
       throw new RuntimeException("Parcel must not be null");
 
@@ -92,7 +95,7 @@ public class MediaItem implements Parcelable {
     dest.writeValue(contributor_name);
 
 
-    Log.d(TAG, "writeToParcel. done.‚");
+    log.debug("writeToParcel. done.‚");
 
   }
 

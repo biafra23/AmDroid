@@ -16,12 +16,19 @@
     </properties>
 
     <dependencies>
+        <!-- needs to be before android:android for unit tests-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
             <version>4.0.3_r2</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -31,12 +38,6 @@
             <!--<type>apklib</type>-->
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.2</version>
-            <scope>test</scope>
-        </dependency>
 
         <!--<dependency>-->
             <!--<groupId>bouncycastle</groupId>-->
