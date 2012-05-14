@@ -32,6 +32,7 @@ import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 
+import android.text.TextUtils;
 import ch.boye.httpclientandroidlib.HttpEntity;
 import ch.boye.httpclientandroidlib.HttpResponse;
 import ch.boye.httpclientandroidlib.client.ClientProtocolException;
@@ -887,7 +888,7 @@ public class AmenServiceImpl implements AmenService {
     return true;
   }
 
-  public User signup(String name, String email, String password) {
+  public User signup(String name, String email, String password) throws SignupFailedException {
 
     User result = null;
 
@@ -925,10 +926,39 @@ public class AmenServiceImpl implements AmenService {
       final String responseString = makeStringFromEntity(responseEntity);
 
       log.debug("responseString: " + responseString);
+      log.debug(" response.code: " + response.getStatusLine().getStatusCode());
+      if (response.getStatusLine().getStatusCode() != 200) {
 
-      Type collectionType = new TypeToken<User>() {
-      }.getType();
-      result = gson.fromJson(responseString, collectionType);
+        Type collectionType = new TypeToken<SignupError>() {
+        }.getType();
+        SignupError error  = gson.fromJson(responseString, collectionType);
+
+        System.out.println("error: " + error);
+
+      //{"email":["is invalid"],"password":["is too short (minimum is 6 characters)"]}
+      //{"password":["is too short (minimum is 6 characters)"]}
+
+        if (error.getEmail() != null && !TextUtils.isEmpty(error.getEmail().get(0))) {
+          System.out.println("error.getEmail().get(0): " + error.getEmail().get(0));
+          throw new SignupFailedException("email", error.getEmail().get(0));
+
+        }
+
+        if (error.getPassword() != null && !TextUtils.isEmpty(error.getPassword().get(0))) {
+          System.out.println("error.getPassword().get(0): " + error.getPassword().get(0));
+          throw new SignupFailedException("password", error.getPassword().get(0));
+
+        }
+
+        throw new SignupFailedException("server", "internal error");
+
+      } else {
+        Type collectionType = new TypeToken<User>() {
+        }.getType();
+        result = gson.fromJson(responseString, collectionType);
+
+      }
+
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -938,5 +968,40 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
+  class SignupError {
+    List<String> email;
+    List<String> password;
+
+    public String json() {
+
+      GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+      return builder.create().toJson(this);
+    }
+
+    public List<String> getEmail() {
+      return email;
+    }
+
+    public void setEmail(List<String> email) {
+      this.email = email;
+    }
+
+    public List<String> getPassword() {
+      return password;
+    }
+
+    public void setPassword(List<String> password) {
+      this.password = password;
+    }
+
+    @Override public String toString() {
+      final StringBuffer sb = new StringBuffer();
+      sb.append("SignupError");
+      sb.append("{email=").append(email);
+      sb.append(", password=").append(password);
+      sb.append('}');
+      return sb.toString();
+    }
+  }
 }
 

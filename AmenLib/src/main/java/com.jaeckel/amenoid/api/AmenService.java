@@ -98,6 +98,6 @@ public interface AmenService {
 
   public Boolean addImageToAmen(Long amenId, File image);
 
-  public User signup(String name, String email, String password);
+  public User signup(String name, String email, String password) throws SignupFailedException;
 
 }

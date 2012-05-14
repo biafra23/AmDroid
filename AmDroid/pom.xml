@@ -25,6 +25,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>com.wazabe.holoeverywhere</groupId>
+            <artifactId>library</artifactId>
+            <type>apklib</type>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-android</artifactId>
             <version>1.6.1-RC1</version>
@@ -172,5 +178,5 @@
             <!--</repository>-->
             <!--</repositories>-->
         </profile>
-        </profiles>
+    </profiles>
 </project>

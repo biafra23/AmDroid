@@ -18,14 +18,17 @@ import android.widget.TextView;
 public class SignupDialog extends DialogFragment implements TextView.OnEditorActionListener {
 
 
-  private EditText mEditText;
+  private EditText nameEditText;
+  private EditText emailEditText;
+  private EditText passwordEditText;
+//  private EditText mEditText;
 
   public SignupDialog() {
     // Empty constructor required for DialogFragment
   }
 
   public interface SignupDialogListener {
-    void onFinishSignupDialog(String inputText);
+    void onFinishSignupDialog(String name, String email, String password);
   }
 
   @Override
@@ -33,14 +36,20 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
                            Bundle savedInstanceState) {
 
 
+    setStyle(0, R.style.Theme_HoloEverywhereDark_Sherlock);
+
     View view = inflater.inflate(R.layout.fragment_sign_up, container);
-    mEditText = (EditText) view.findViewById(R.id.txt_your_name);
-    getDialog().setTitle("Hello");
+    nameEditText = (EditText) view.findViewById(R.id.name_edit_text);
+    emailEditText = (EditText) view.findViewById(R.id.email_edit_text);
+    passwordEditText = (EditText) view.findViewById(R.id.passowrd_edit_text);
+
+    getDialog().setTitle("Sign up for getamen.com");
+
 
     // Show soft keyboard automatically
-    mEditText.requestFocus();
+    nameEditText.requestFocus();
     getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-    mEditText.setOnEditorActionListener(this);
+    passwordEditText.setOnEditorActionListener(this);
 
     return view;
   }
@@ -50,7 +59,9 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
     if (EditorInfo.IME_ACTION_DONE == actionId) {
       // Return input text to activity
       SignupDialogListener activity = (SignupDialogListener) getActivity();
-      activity.onFinishSignupDialog(mEditText.getText().toString());
+      activity.onFinishSignupDialog(nameEditText.getText().toString(),
+                                    emailEditText.getText().toString(),
+                                    passwordEditText.getText().toString());
       this.dismiss();
       return true;
     }

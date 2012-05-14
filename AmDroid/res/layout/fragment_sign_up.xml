@@ -3,19 +3,50 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:layout_gravity="center"
-              android:orientation="vertical">
+              android:orientation="vertical"
+        >
 
     <TextView
-            android:id="@+id/lbl_your_name"
-            android:text="Your name"
+            android:id="@+id/lbl_name"
+            android:text="Name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
 
     <EditText
-            android:id="@+id/txt_your_name"
+            android:id="@+id/name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+
+
+    <TextView
+            android:id="@+id/lbl_email"
+            android:text="Email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    <EditText
+            android:id="@+id/email_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+
+    <TextView
+            android:id="@+id/lbl_password"
+            android:text="Password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+    <EditText
+            android:id="@+id/passowrd_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:password="true"
             android:imeOptions="actionDone"
             />
 </LinearLayout>
