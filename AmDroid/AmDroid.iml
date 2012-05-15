@@ -58,6 +58,7 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-android:1.6.1-RC1" level="project" />
     <orderEntry type="library" name="Maven: android.support:compatibility-v4:r8" level="project" />
     <orderEntry type="jdk" jdkName="Android 4.0.3 Platform" jdkType="Android SDK" />
+    <orderEntry type="module" module-name="~apklib-com.wazabe.holoeverywhere_library_1.0.0" />
     <orderEntry type="module" module-name="~apklib-com.actionbarsherlock_library_4.0.2" />
   </component>
 </module>
