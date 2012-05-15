@@ -18,8 +18,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -109,6 +112,12 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
   private void showEditDialog() {
     FragmentManager fm = getSupportFragmentManager();
     SignupDialog signupDialog = new SignupDialog();
+
+    if (Build.VERSION.SDK_INT <= 10 /* Build.VERSION_CODES.GINGERBREAD_MR1 */) {
+      //2.3 or lower
+      signupDialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.Theme_HoloEverywhereDark_Sherlock);
+
+    }
 
     signupDialog.show(fm, "fragment_sign_up");
 
