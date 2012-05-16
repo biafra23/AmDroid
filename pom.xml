@@ -10,7 +10,7 @@
     <module>httpclientandroidlib</module>
     <module>AmenLib</module>
     <module>AmDroid</module>
-    <module>AmDroidTest</module>
+    <!--<module>AmDroidTest</module>-->
   </modules>
   <dependencyManagement>
     <dependencies>
