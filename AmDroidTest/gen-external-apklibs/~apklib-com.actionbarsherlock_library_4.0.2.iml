@@ -38,6 +38,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="Android 4.0 Platform" jdkType="Android SDK" />
+    <orderEntry type="library" name="Maven: android.support:compatibility-v4:r8" level="project" />
   </component>
 </module>
 

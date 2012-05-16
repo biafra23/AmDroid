@@ -8,9 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.InvalidCredentialsException;
-import com.jaeckel.amenoid.api.SignupFailedException;
 import com.jaeckel.amenoid.api.model.DateSerializer;
-import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
@@ -56,6 +54,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     super.onConfigurationChanged(newConfig);
   }
 
+  @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
@@ -111,6 +110,8 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
   private void showEditDialog() {
     FragmentManager fm = getSupportFragmentManager();
     SignupDialog signupDialog = new SignupDialog();
+    signupDialog.setEmail(emailField.getText().toString());
+    signupDialog.setPassword(passwordField.getText().toString());
 
     if (Build.VERSION.SDK_INT <= 10 /* Build.VERSION_CODES.GINGERBREAD_MR1 */) {
       //2.3 or lower
@@ -127,9 +128,8 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
 
     Toast.makeText(SettingsActivity.this, "Dialog returend: name" + name + " email: " + email + "password: " + password, Toast.LENGTH_SHORT).show();
 
-
-    new SignupAsyncTask(SettingsActivity.this, name, email, password).execute();
-
+    emailField.setText(email);
+    passwordField.setText(password);
 
   }
 
@@ -271,121 +271,6 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
         loginProgressDialog = null;
       }
     }
-  }
-
-  //
-  // SignupAsyncTask
-  //
-
-  private class SignupAsyncTask extends AmenLibTask<Void, Integer, AmenService> {
-
-    private ProgressDialog              signupProgressDialog;
-    private InvalidCredentialsException loginFailed;
-    private SignupFailedException signupFailed;
-    private final static String TAG = "LoginAsyncTask";
-
-    final private String name;
-    final private String email;
-    final private String password;
-
-    public SignupAsyncTask(Activity context, String name, String email, String password) {
-      super(context);
-      this.name = name;
-      this.email = email;
-      this.password = password;
-    }
-
-    @Override
-    protected void onPreExecute() {
-      Log.d(TAG, "onPreExecute()");
-
-      if (AmenoidApp.DEVELOPER_MODE) {
-        Toast.makeText(SettingsActivity.this, "SignupAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
-      }
-      signupProgressDialog = ProgressDialog.show(SettingsActivity.this, "",
-                                                 "Signing up. Please wait...", true);
-      signupProgressDialog.show();
-    }
-
-    @Override
-    protected AmenService wrappedDoInBackground(Void... voids) {
-
-      Log.d(TAG, "wrappedDoInBackground()");
-
-      AmenService amenService = null;
-      try {
-        amenService = AmenoidApp.getInstance().getService();
-
-        User createdUser = amenService.signup(name, email, password);
-        if (createdUser.getId() > 0) {
-
-          //Save credentials used to createdUser account
-          SharedPreferences.Editor editor = prefs.edit();
-          editor.putString(Constants.PREFS_USER_NAME, name);
-          editor.putString(Constants.PREFS_PASSWORD, password);
-          editor.commit();
-
-
-        }
-
-        amenService = AmenoidApp.getInstance().getService(name, password);
-
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(Constants.PREFS_AUTH_TOKEN, amenService.getAuthToken());
-        editor.putString(Constants.PREFS_ME, gson.toJson(amenService.getMe()));
-        editor.commit();
-
-      } catch (InvalidCredentialsException e) {
-
-        loginFailed = e;
-      } catch (SignupFailedException e) {
-        e.printStackTrace();
-
-        signupFailed = e;
-      }
-      Log.d(TAG, "wrappedDoInBackground()");
-      return amenService;
-    }
-
-    @Override
-    protected void wrappedOnPostExecute(AmenService service) {
-
-      Log.d(TAG, "wrappedOnPostExecute()");
-
-      if (signupProgressDialog != null) {
-        signupProgressDialog.hide();
-        signupProgressDialog = null;
-      }
-      if (service == null) {
-        Log.e(TAG, "wrappedOnPostExecute() service: " + service);
-
-        if (loginFailed != null) {
-          Toast.makeText(SettingsActivity.this, loginFailed.getMessage(), Toast.LENGTH_LONG).show();
-        }
-
-        if (signupFailed != null) {
-          Toast.makeText(SettingsActivity.this, signupFailed.getField() + ": " + signupFailed.getMsg(), Toast.LENGTH_LONG).show();
-
-        }
-      } else {
-        Log.e(TAG, "wrappedOnPostExecute() service.getAuthToken(): " + service.getAuthToken());
-      }
-      AmenListActivity.setShouldRefresh(true);
-      //go back automatically after successful login
-//      if (service != null && service.getAuthToken() != null) {
-//        finish();
-//      }
-
-    }
-
-//    @Override
-//    protected void onCancelled() {
-//      Log.d(TAG, "cancelled");
-//      if (signupProgressDialog != null) {
-//        signupProgressDialog.hide();
-//        signupProgressDialog = null;
-//      }
-//    }
   }
 
 

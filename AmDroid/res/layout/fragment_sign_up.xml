@@ -52,4 +52,25 @@
             android:imeOptions="actionDone"
             android:hint="secret sauce"
             />
+
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:orientation="horizontal"
+            >
+        <Button android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:layout_weight="1"
+
+                />
+
+        <Button android:id="@+id/button_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign me up"
+                android:layout_weight="1"
+                />
+    </LinearLayout>
 </LinearLayout>
