@@ -38,7 +38,7 @@
             <groupId>com.jaeckel</groupId>
             <artifactId>amenoid</artifactId>
             <type>apk</type>
-            <version>1.0-ALPHA30</version>
+            <version>1.0-ALPHA31</version>
             <classifier>${zipaligned-classifier}</classifier>
             <!--  classifier set according to the ran profile -->
         </dependency>
