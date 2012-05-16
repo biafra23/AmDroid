@@ -361,6 +361,25 @@ public class AmenServiceITest extends TestCase {
 
   }
 
+  public void testSignUpEmailExists() throws IOException {
+
+    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+    try {
+
+      User user = signOutService.signup("myfoobarbaztoolongever", username, "hooligans");
+      System.out.println("result: " + user);
+      fail("Exception not thrown");
+
+    } catch (SignupFailedException e) {
+      System.out.println("e: " + e);
+
+      assertEquals("email", e.getField());
+      assertEquals("has already been taken", e.getMsg());
+    }
+
+
+  }
+
   public void testEmptySignUp() throws IOException {
     User user;
     AmenService signOutService = new AmenServiceImpl(amenHttpClient);
