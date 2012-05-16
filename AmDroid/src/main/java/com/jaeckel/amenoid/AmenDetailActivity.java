@@ -187,7 +187,7 @@ public class AmenDetailActivity extends SherlockListActivity {
       if (currentAmen != null) {
         Log.d(TAG, "       currentAmen.getMedia(): " + currentAmen.getMedia());
       }
-      if (currentAmen.getMedia() != null) {
+      if (currentAmen != null && currentAmen.getMedia() != null) {
         Log.d(TAG, "currentAmen.getMedia().size(): " + currentAmen.getMedia().size());
       }
       mediaPhotoImageView.setVisibility(View.INVISIBLE);
