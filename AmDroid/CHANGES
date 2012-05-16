@@ -1,3 +1,8 @@
+1.0-ALPHA31
+- NEW: signup to create an account
+- NEW: Introducing ActionBar
+- NEW: Holo everywhere
+
 1.0-ALPHA30
 - FIX: SSL for Android 2.1 & 2.2
 - NEW: add/remove comments (rudimentary) Feedback on delete is missing
