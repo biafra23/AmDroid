@@ -43,7 +43,7 @@
       <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Android 2.2 Platform" jdkType="Android SDK" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: android:android:4.0.3_r2" level="project" />
   </component>
 </module>

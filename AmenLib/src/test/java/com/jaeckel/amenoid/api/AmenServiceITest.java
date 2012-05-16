@@ -2,8 +2,13 @@ package com.jaeckel.amenoid.api;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 
+import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Objekt;
+import com.jaeckel.amenoid.api.model.Statement;
+import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 
 import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
@@ -51,7 +56,7 @@ public class AmenServiceITest extends TestCase {
   public void tearDown() {
 
   }
-/*
+
   public void testGetFeed() throws IOException {
 
 
@@ -328,7 +333,7 @@ public class AmenServiceITest extends TestCase {
 
     }
   }
-*/
+
 
 
   public void testSignUp() throws IOException, SignupFailedException {
@@ -413,23 +418,23 @@ public class AmenServiceITest extends TestCase {
       assertEquals("is invalid", e.getMsg());
     }
   }
-  public void testEmptySignUp() throws IOException {
-    User user;
-    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
-    try {
-      user = signOutService.signup("", "", "");
-      System.out.println("result: " + user);
 
-      fail("Exception not thrown");
-
-    } catch (SignupFailedException e) {
-
-      System.out.println("e: " + e);
-      assertEquals("error", e.getField());
-      assertEquals("Server error", e.getMsg());
-
-
-    }
-
-  }
+  //takes a minute before timing out
+//  public void testEmptySignUp() throws IOException {
+//    User user;
+//    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+//    try {
+//      user = signOutService.signup("", "", "");
+//      System.out.println("result: " + user);
+//
+//      fail("Exception not thrown");
+//
+//    } catch (SignupFailedException e) {
+//
+//      System.out.println("e: " + e);
+//      assertEquals("error", e.getField());
+//      assertEquals("Server error", e.getMsg());
+//
+//    }
+//  }
 }
