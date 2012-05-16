@@ -32,7 +32,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -50,7 +49,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
   private User                   currentUser;
   private AmenService            service;
-  private AmenListAdapter            adapter;
+  private AmenListAdapter        adapter;
   private Drawable               userImage;
   private ListView               list;
   private ProgressBar            progressBar;
@@ -86,8 +85,6 @@ public class UserDetailActivity extends SherlockListActivity {
   public void onCreate(Bundle savedInstanceState) {
 
     super.onCreate(savedInstanceState);
-
-    requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
     Log.d(TAG, "onCreate");
 
     amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
@@ -330,16 +327,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
         follow.setOnClickListener(new View.OnClickListener() {
           public void onClick(View view) {
-            if (user.getFollowing()) {
-              new UnFollowTask(UserDetailActivity.this).execute(user);
-
-//              service.unfollow(currentUser);
-              follow.setBackgroundColor(Color.GRAY);
-            } else {
-              new FollowTask(UserDetailActivity.this).execute(user);
-//              service.follow(currentUser);
-              follow.setBackgroundColor(Color.CYAN);
-            }
+            toggleFollowing(user, follow);
           }
         });
 
@@ -362,6 +350,19 @@ public class UserDetailActivity extends SherlockListActivity {
         currentUser = user;
       }
 
+    }
+  }
+
+  private void toggleFollowing(User user, View follow) {
+    if (user.getFollowing()) {
+      new UnFollowTask(this).execute(user);
+
+//              service.unfollow(currentUser);
+      follow.setBackgroundColor(Color.GRAY);
+    } else {
+      new FollowTask(this).execute(user);
+//              service.follow(currentUser);
+      follow.setBackgroundColor(Color.CYAN);
     }
   }
 
@@ -414,16 +415,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
         follow.setOnClickListener(new View.OnClickListener() {
           public void onClick(View view) {
-            if (user.getFollowing()) {
-              new UnFollowTask(UserDetailActivity.this).execute(user);
-
-//              service.unfollow(currentUser);
-              follow.setBackgroundColor(Color.GRAY);
-            } else {
-              new FollowTask(UserDetailActivity.this).execute(user);
-//              service.follow(currentUser);
-              follow.setBackgroundColor(Color.CYAN);
-            }
+            toggleFollowing(user, follow);
           }
         });
 
@@ -438,7 +430,7 @@ public class UserDetailActivity extends SherlockListActivity {
         if (user.getReceivedAmenCount() != null && user.getCreatedStatementsCount() != null) {
           amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float) user.getCreatedStatementsCount()));
         } else {
-          amenScore.setText("Amen Score: 0" );
+          amenScore.setText("Amen Score: 0");
         }
 
         accountCreated.setText("Account created: " + AmenDetailActivity.format(user.getCreatedAt()));
@@ -486,6 +478,10 @@ public class UserDetailActivity extends SherlockListActivity {
           follow.setBackgroundColor(Color.GRAY);
 
         }
+
+        unfollowMenu.setVisible(meIsFollowing);
+        followMenu.setVisible(!meIsFollowing);
+
       }
 
     }
@@ -522,6 +518,11 @@ public class UserDetailActivity extends SherlockListActivity {
           follow.setBackgroundColor(Color.GRAY);
 
         }
+
+        unfollowMenu.setVisible(meIsFollowing);
+        followMenu.setVisible(!meIsFollowing);
+
+
       }
     }
 
@@ -586,7 +587,7 @@ public class UserDetailActivity extends SherlockListActivity {
       case R.id.amen:
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));
         return true;
-      case R.id.follow_indicator:
+      case R.id.follow:
         new FollowTask(UserDetailActivity.this).execute(currentUser);
         return true;
       case R.id.unfollow:
@@ -675,7 +676,6 @@ public class UserDetailActivity extends SherlockListActivity {
       if (amens == null || amens.size() == 0) {
         stopAppending = true;
       }
-
     }
 
     @Override
