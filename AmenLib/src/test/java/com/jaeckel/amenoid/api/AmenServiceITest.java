@@ -380,6 +380,23 @@ public class AmenServiceITest extends TestCase {
 
   }
 
+  public void testSignUpPasswordTooShort() throws IOException {
+
+    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+    try {
+
+      User user = signOutService.signup("Dummy", "test123@different.name", "toosh");
+      System.out.println("result: " + user);
+      fail("Exception not thrown");
+
+    } catch (SignupFailedException e) {
+      System.out.println("e: " + e);
+
+      assertEquals("password", e.getField());
+      assertEquals("is too short (minimum is 6 characters)", e.getMsg());
+    }
+  }
+
   public void testEmptySignUp() throws IOException {
     User user;
     AmenService signOutService = new AmenServiceImpl(amenHttpClient);
