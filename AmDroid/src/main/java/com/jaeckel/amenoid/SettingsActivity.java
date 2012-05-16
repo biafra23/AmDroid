@@ -20,7 +20,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
@@ -340,7 +339,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
 
         loginFailed = e;
       } catch (SignupFailedException e) {
-//        e.printStackTrace();
+        e.printStackTrace();
 
         signupFailed = e;
       }
@@ -359,6 +358,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
       }
       if (service == null) {
         Log.e(TAG, "wrappedOnPostExecute() service: " + service);
+
         if (loginFailed != null) {
           Toast.makeText(SettingsActivity.this, loginFailed.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -372,9 +372,9 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
       }
       AmenListActivity.setShouldRefresh(true);
       //go back automatically after successful login
-      if (service != null && service.getAuthToken() != null) {
-        finish();
-      }
+//      if (service != null && service.getAuthToken() != null) {
+//        finish();
+//      }
 
     }
 

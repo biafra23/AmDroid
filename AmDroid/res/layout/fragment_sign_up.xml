@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:imeOptions="actionDone"
+            android:imeOptions="actionNext"
+            android:hint="John Doe"
             />
 
 
@@ -31,8 +32,9 @@
             android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:hint="john@doe.net"
+            android:imeOptions="actionNext"
             />
 
     <TextView
@@ -48,5 +50,6 @@
             android:inputType="text"
             android:password="true"
             android:imeOptions="actionDone"
+            android:hint="secret sauce"
             />
 </LinearLayout>

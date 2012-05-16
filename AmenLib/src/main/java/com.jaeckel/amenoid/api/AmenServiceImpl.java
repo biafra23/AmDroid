@@ -938,19 +938,25 @@ public class AmenServiceImpl implements AmenService {
       //{"email":["is invalid"],"password":["is too short (minimum is 6 characters)"]}
       //{"password":["is too short (minimum is 6 characters)"]}
 
-        if (error.getEmail() != null && !TextUtils.isEmpty(error.getEmail().get(0))) {
-          System.out.println("error.getEmail().get(0): " + error.getEmail().get(0));
-          throw new SignupFailedException("email", error.getEmail().get(0));
+        if (error.getEmail() != null && error.getEmail() != null) {
+          System.out.println("error.getEmail(): " + error.getEmail());
+          throw new SignupFailedException("email", error.getEmail());
 
         }
 
-        if (error.getPassword() != null && !TextUtils.isEmpty(error.getPassword().get(0))) {
-          System.out.println("error.getPassword().get(0): " + error.getPassword().get(0));
-          throw new SignupFailedException("password", error.getPassword().get(0));
+        if (error.getPassword() != null && error.getPassword() != null) {
+          System.out.println("error.getPassword(): " + error.getPassword());
+          throw new SignupFailedException("password", error.getPassword());
 
         }
 
-        throw new SignupFailedException("server", "internal error");
+        if (error.getUsername() != null && error.getUsername()  != null) {
+          System.out.println("error.getUsername(): " + error.getUsername());
+          throw new SignupFailedException("username", error.getUsername());
+
+        }
+
+        throw new SignupFailedException("error", error.getError());
 
       } else {
         Type collectionType = new TypeToken<User>() {
@@ -969,8 +975,10 @@ public class AmenServiceImpl implements AmenService {
   }
 
   class SignupError {
-    List<String> email;
-    List<String> password;
+    String email;
+    String password;
+    String username;
+    String error;
 
     public String json() {
 
@@ -978,29 +986,47 @@ public class AmenServiceImpl implements AmenService {
       return builder.create().toJson(this);
     }
 
-    public List<String> getEmail() {
-      return email;
-    }
-
-    public void setEmail(List<String> email) {
-      this.email = email;
-    }
-
-    public List<String> getPassword() {
-      return password;
-    }
-
-    public void setPassword(List<String> password) {
-      this.password = password;
-    }
-
     @Override public String toString() {
       final StringBuffer sb = new StringBuffer();
       sb.append("SignupError");
       sb.append("{email=").append(email);
       sb.append(", password=").append(password);
+      sb.append(", username=").append(username);
+      sb.append(", error='").append(error).append('\'');
       sb.append('}');
       return sb.toString();
+    }
+
+    public String getError() {
+      return error;
+    }
+
+    public void setError(String error) {
+      this.error = error;
+    }
+
+    public String getEmail() {
+      return email;
+    }
+
+    public void setEmail(String email) {
+      this.email = email;
+    }
+
+    public String getPassword() {
+      return password;
+    }
+
+    public void setPassword(String password) {
+      this.password = password;
+    }
+
+    public String getUsername() {
+      return username;
+    }
+
+    public void setUsername(String username) {
+      this.username = username;
     }
   }
 }

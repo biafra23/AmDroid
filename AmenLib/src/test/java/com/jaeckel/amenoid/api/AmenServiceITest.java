@@ -2,17 +2,11 @@ package com.jaeckel.amenoid.api;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 import java.util.Properties;
 
-import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
-
-import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.Objekt;
-import com.jaeckel.amenoid.api.model.Statement;
-import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 
+import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
 import junit.framework.TestCase;
 
 /**
@@ -57,7 +51,7 @@ public class AmenServiceITest extends TestCase {
   public void tearDown() {
 
   }
-
+/*
   public void testGetFeed() throws IOException {
 
 
@@ -323,28 +317,19 @@ public class AmenServiceITest extends TestCase {
 
     System.out.println("testGetAmenForUser");
     List<Amen> amens = service.getFeed(AmenService.FEED_TYPE_FOLLOWING);
-        assertEquals("Amen amount wrong", 25, amens.size());
+    assertEquals("Amen amount wrong", 25, amens.size());
 
-        amens = service.getFeed(990399L, 25, AmenService.FEED_TYPE_FOLLOWING);
+    amens = service.getFeed(990399L, 25, AmenService.FEED_TYPE_FOLLOWING);
 
-        assertNotNull(amens);
+    assertNotNull(amens);
 
-        for (Amen a : amens) {
-          System.out.println("a: " + a);
+    for (Amen a : amens) {
+      System.out.println("a: " + a);
 
-        }
+    }
   }
+*/
 
-//  public void testEmptySignUp() throws IOException, SignupFailedException {
-//
-//    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
-//
-//    User user = signOutService.signup("", "", "");
-//    System.out.println("result: " + user);
-//
-//    assertEquals("User id must be -1", -1, user.getId());
-//
-//  }
 
   public void testSignUp() throws IOException, SignupFailedException {
 
@@ -354,6 +339,45 @@ public class AmenServiceITest extends TestCase {
     System.out.println("result: " + user);
 
     assertTrue("User id must be positive: " + user.getId(), user.getId() > 0);
+
+  }
+
+  public void testSignUpNameTooLong() throws IOException {
+
+    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+    try {
+
+      User user = signOutService.signup("myfoobarbaztoolongever", "test-" + Math.random() + "@different.name", "hooligans");
+      System.out.println("result: " + user);
+      fail("Exception not thrown");
+
+    } catch (SignupFailedException e) {
+      System.out.println("e: " + e);
+
+      assertEquals("username", e.getField());
+      assertEquals("is too long (maximum is 20 characters)", e.getMsg());
+    }
+
+
+  }
+
+  public void testEmptySignUp() throws IOException {
+    User user;
+    AmenService signOutService = new AmenServiceImpl(amenHttpClient);
+    try {
+      user = signOutService.signup("", "", "");
+      System.out.println("result: " + user);
+
+      fail("Exception not thrown");
+
+    } catch (SignupFailedException e) {
+
+      System.out.println("e: " + e);
+      assertEquals("error", e.getField());
+      assertEquals("Server error", e.getMsg());
+
+
+    }
 
   }
 }
