@@ -37,7 +37,7 @@
       <sourceFolder url="file://$MODULE_DIR$/com.wazabe.holoeverywhere_library_1.0.0/gen" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="jdk" jdkName="Android 2.2 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android 4.0 Platform" jdkType="Android SDK" />
     <orderEntry type="module" module-name="~apklib-com.actionbarsherlock_library_4.0.2" />
   </component>
 </module>
