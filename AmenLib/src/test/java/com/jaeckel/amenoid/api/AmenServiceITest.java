@@ -340,7 +340,9 @@ public class AmenServiceITest extends TestCase {
 
     AmenService signOutService = new AmenServiceImpl(amenHttpClient);
 
-    User user = signOutService.signup("dog" + Math.random(), "test-" + Math.random() + "@different.name", "hooligans");
+    String name = "dog" + Math.random();
+
+    User user = signOutService.signup(name.substring(0, Math.min(name.length(), 20)), "test-" + Math.random() + "@different.name", "hooligans");
     System.out.println("result: " + user);
 
     assertTrue("User id must be positive: " + user.getId(), user.getId() > 0);
