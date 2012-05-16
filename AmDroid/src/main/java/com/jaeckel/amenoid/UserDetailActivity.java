@@ -348,6 +348,11 @@ public class UserDetailActivity extends SherlockListActivity {
         userImageView.setImageDrawable(userImage);
 
         currentUser = user;
+
+        unfollowMenu.setVisible(meIsFollowing);
+        followMenu.setVisible(!meIsFollowing);
+
+
       }
 
     }
@@ -625,12 +630,9 @@ public class UserDetailActivity extends SherlockListActivity {
         } else {
           endlessTask = new EndlessLoaderAsyncTask(UserDetailActivity.this);
           endlessTask.execute(adapter.getItem(adapter.getCount() - 1).getId());
-
         }
       }
     }
-
-
   }
 
 //
