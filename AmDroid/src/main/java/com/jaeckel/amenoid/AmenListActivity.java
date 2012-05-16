@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -171,8 +172,11 @@ public class AmenListActivity extends SherlockListActivity {
     } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
       title = "Popular";
     }
-    setTitle("Timeline: " + title);
+//    setTitle("Timeline: " + title);
 
+    ActionBar bar = getSupportActionBar();
+    bar.setSubtitle(title);
+    bar.setTitle("Timeline");
 
     registerForContextMenu(getListView());
 

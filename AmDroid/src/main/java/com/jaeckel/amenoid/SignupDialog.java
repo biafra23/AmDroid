@@ -104,7 +104,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
         email = emailEditText.getText().toString();
         password = passwordEditText.getText().toString();
 
-        new SignupAsyncTask(getActivity(), name, email, password);
+        new SignupAsyncTask(getActivity(), name, email, password).execute();
       }
     });
     getDialog().setTitle("Sign up for getamen.com");
@@ -185,8 +185,8 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
     private ProgressDialog              signupProgressDialog;
     private InvalidCredentialsException loginFailed;
     private SignupFailedException       signupFailed;
-    private final static String TAG = "LoginAsyncTask";
 
+    private final static String TAG = "LoginAsyncTask";
 
     final private String name;
     final private String email;
@@ -203,7 +203,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
 
     public SignupAsyncTask(Activity activity, String name, String email, String password) {
       super(activity);
-
+      this.activity = activity;
       this.name = name;
       this.email = email;
       this.password = password;
@@ -218,6 +218,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
       }
       signupProgressDialog = ProgressDialog.show(activity, "",
                                                  "Signing up. Please wait...", true);
+
       signupProgressDialog.show();
     }
 
