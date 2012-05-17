@@ -97,8 +97,6 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     signUpButton.setOnClickListener(new View.OnClickListener() {
 
       @Override public void onClick(View view) {
-        Toast.makeText(SettingsActivity.this, "signup button clicked", Toast.LENGTH_SHORT).show();
-
 
         showEditDialog();
 
@@ -125,8 +123,6 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
   }
 
   @Override public void onFinishSignupDialog(final String name, final String email, final String password) {
-
-    Toast.makeText(SettingsActivity.this, "Dialog returend: name" + name + " email: " + email + "password: " + password, Toast.LENGTH_SHORT).show();
 
     emailField.setText(email);
     passwordField.setText(password);
@@ -205,9 +201,6 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     protected void onPreExecute() {
       Log.d(TAG, "onPreExecute()");
 
-      if (AmenoidApp.DEVELOPER_MODE) {
-        Toast.makeText(SettingsActivity.this, "LoginAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
-      }
       loginProgressDialog = ProgressDialog.show(SettingsActivity.this, "",
                                                 "Logging in. Please wait...", true);
       loginProgressDialog.show();

@@ -213,9 +213,6 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
     protected void onPreExecute() {
       Log.d(TAG, "onPreExecute()");
 
-      if (AmenoidApp.DEVELOPER_MODE) {
-        Toast.makeText(activity, "SignupAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
-      }
       signupProgressDialog = ProgressDialog.show(activity, "",
                                                  "Signing up. Please wait...", true);
 
@@ -242,7 +239,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
           editor.commit();
         }
 
-        amenService = AmenoidApp.getInstance().getService(name, password);
+        amenService = AmenoidApp.getInstance().getService().init(createdUser.getAuthToken(), createdUser);
 
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(Constants.PREFS_AUTH_TOKEN, amenService.getAuthToken());
