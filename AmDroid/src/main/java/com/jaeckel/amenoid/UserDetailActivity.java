@@ -586,9 +586,9 @@ public class UserDetailActivity extends SherlockListActivity {
         return true;
       }
 
-      case R.id.timeline:
-        startActivity(new Intent(this, AmenListActivity.class));
-        return true;
+//      case R.id.timeline:
+//        startActivity(new Intent(this, AmenListActivity.class));
+//        return true;
 
       case R.id.amen:
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));

@@ -228,9 +228,9 @@ public class ScoreBoardActivity extends SherlockListActivity {
         return true;
       }
 
-      case R.id.timeline:
-        startActivity(new Intent(this, AmenListActivity.class));
-        return true;
+//      case R.id.timeline:
+//        startActivity(new Intent(this, AmenListActivity.class));
+//        return true;
 
       case R.id.share:
 

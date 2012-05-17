@@ -27,8 +27,10 @@ import android.widget.ListView;
 public class SubjectPageActivity extends SherlockListActivity {
   private AmenListAdapter amenListAdapter;
   private AmenService     service;
-  private static final String TAG = "SubjectPageActivity";
-  private static final int[] IMAGE_IDS = {R.id.media_photo};
+  private static final String TAG       = "SubjectPageActivity";
+  private static final int[]  IMAGE_IDS = {R.id.media_photo};
+
+  private ActionBar actionBar;
 
   @Override
   public boolean onSearchRequested() {
@@ -46,12 +48,13 @@ public class SubjectPageActivity extends SherlockListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    this.setTitle("SubjectPage");
 
     setContentView(R.layout.subject_page);
 
-    ActionBar actionBar = getSupportActionBar();
+    actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
+    actionBar.setTitle("Subject-Page");
+
 
     service = AmenoidApp.getInstance().getService();
 
@@ -109,10 +112,11 @@ public class SubjectPageActivity extends SherlockListActivity {
 
           amenListAdapter = new AmenListAdapter(SubjectPageActivity.this, R.layout.list_item_amen_no_pic, result);
 
-          
+          actionBar.setSubtitle(result.get(0).getStatement().getObjekt().getName());
+
           ThumbnailAdapter thumbs = new ThumbnailAdapter(SubjectPageActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
-          
-          
+
+
           setListAdapter(thumbs);
           amenListAdapter.notifyDataSetChanged();
         }

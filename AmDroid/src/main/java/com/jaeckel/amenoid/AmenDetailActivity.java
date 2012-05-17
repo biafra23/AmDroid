@@ -663,10 +663,10 @@ public class AmenDetailActivity extends SherlockListActivity {
         startActivity(amenListIntent);
         return true;
       }
-      case R.id.timeline: {
-        startActivity(amenListIntent);
-        return true;
-      }
+//      case R.id.timeline: {
+//        startActivity(amenListIntent);
+//        return true;
+//      }
 
       case R.id.scoreboard: {
         startScoreBoardActivity();
