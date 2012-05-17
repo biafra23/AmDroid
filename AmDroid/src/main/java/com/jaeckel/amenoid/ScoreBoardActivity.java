@@ -83,10 +83,10 @@ public class ScoreBoardActivity extends SherlockListActivity {
     service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.score_board);
-    setTitle("Scorecard");
 
     ActionBar actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
+    actionBar.setTitle("Scorecard");
 
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
@@ -121,9 +121,13 @@ public class ScoreBoardActivity extends SherlockListActivity {
     description.setTypeface(amenTypeBold);
     if (currentTopic != null) {
       if (TextUtils.isEmpty(currentTopic.getAsSentence())) {
-        description.setText("The " + (currentTopic.isBest() ? "Best " : "Worst ") + currentTopic.getDescription() + " " + currentTopic.getScope() + " is");
+        final String topicAsSentence = "The " + (currentTopic.isBest() ? "Best " : "Worst ")
+                                       + currentTopic.getDescription() + " " + currentTopic.getScope() + " is";
+        description.setText(topicAsSentence);
+        actionBar.setSubtitle(topicAsSentence);
       } else {
         description.setText(currentTopic.getAsSentence());
+        actionBar.setSubtitle(currentTopic.getAsSentence());
       }
     }
   }
