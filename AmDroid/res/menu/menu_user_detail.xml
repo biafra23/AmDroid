@@ -18,10 +18,10 @@
           android:title="Amen sth."
           android:showAsAction="ifRoom|withText"
             />
-    <item android:id="@+id/timeline"
-          android:icon="@drawable/ic_menu_timeline"
-          android:title="Timeline"
-          android:showAsAction="ifRoom|withText"
-            />
+    <!--<item android:id="@+id/timeline"-->
+          <!--android:icon="@drawable/ic_menu_timeline"-->
+          <!--android:title="Timeline"-->
+          <!--android:showAsAction="ifRoom|withText"-->
+            <!--/>-->
 
 </menu>
