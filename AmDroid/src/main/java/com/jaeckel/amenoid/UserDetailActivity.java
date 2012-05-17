@@ -93,10 +93,11 @@ public class UserDetailActivity extends SherlockListActivity {
     service = AmenoidApp.getInstance().getService();
 
     setContentView(R.layout.user);
-    setTitle("Userdetails");
 
     ActionBar actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
+    actionBar.setTitle("Userdetails");
+
 
     progressBar = (ProgressBar) findViewById(R.id.progress_listview);
 
@@ -133,7 +134,7 @@ public class UserDetailActivity extends SherlockListActivity {
     userName.setTypeface(amenTypeBold);
     if (currentUser != null) {
       userName.setText(currentUser.getName());
-
+      actionBar.setSubtitle(currentUser.getName());
     }
     follow = (TextView) findViewById(R.id.follow_indicator);
 
