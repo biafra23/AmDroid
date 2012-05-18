@@ -9,9 +9,15 @@
     </parent>
     <groupId>com.jaeckel</groupId>
     <artifactId>amenoid</artifactId>
-    <version>1.0-ALPHA31</version>
     <packaging>apk</packaging>
     <name>Amenoid - Application</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.property.logLevel>DEBUG</project.property.logLevel>
+        <project.property.version.name>1.0-ALPHA32</project.property.version.name>
+        <project.property.version.code>105</project.property.version.code>
+        <project.property.application.debuggable>true</project.property.application.debuggable>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>android</groupId>
@@ -35,7 +41,6 @@
             <artifactId>slf4j-android</artifactId>
             <version>1.6.1-RC1</version>
         </dependency>
-
         <dependency>
             <groupId>ch.boye</groupId>
             <artifactId>httpclientandroidlib</artifactId>
@@ -60,11 +65,62 @@
         </dependency>
     </dependencies>
     <build>
+        <resources>
+
+            <resource>
+                <directory>${project.basedir}/filteredRes</directory>
+                <filtering>true</filtering>
+                <targetPath>${project.basedir}/res/values/</targetPath>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/filteredRes</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.xml</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <targetPath>${project.build.directory}/filtered-manifest</targetPath>
+                <filtering>true</filtering>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>AndroidManifest.xml</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <!--<version>${maven-resources-plugin-version}</version>-->
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
                 <extensions>true</extensions>
+                <configuration>
+                    <!--<sdk>-->
+                    <!--<path>${env.ANDROID_HOME}</path>-->
+                    <!--&lt;!&ndash;<path>/Users/biafra/android/sdk</path> &ndash;&gt;-->
+                    <!--<platform>8</platform>-->
+                    <!--</sdk>-->
+                    <!--<deleteConflictingFiles>true</deleteConflictingFiles>-->
+                    <androidManifestFile>${project.build.directory}/filtered-manifest/AndroidManifest.xml
+                    </androidManifestFile>
+                    <!--<sign>-->
+                    <!--<debug>false</debug>-->
+                    <!--</sign>-->
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -72,6 +128,7 @@
         <profile>
             <id>release</id>
             <build>
+
                 <plugins>
                     <!--
                                         <plugin>
