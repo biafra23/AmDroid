@@ -3,7 +3,7 @@
 
     <string name="log">${project.property.logLevel}</string>
     <string name="versionName">${project.property.version.name}</string>
-    <string name="versionCode">${project.property.version.code}</string>
+    <integer name="versionCode">${project.property.version.code}</integer>
 
     <item name="debuggable" type="bool">${project.property.application.debuggable}</item>
 

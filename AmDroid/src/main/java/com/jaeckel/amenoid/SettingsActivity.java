@@ -12,6 +12,7 @@ import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
+import com.actionbarsherlock.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
@@ -60,6 +61,8 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
 
     setContentView(R.layout.settings);
     setTitle("Signing in");
+    ActionBar actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
 
     prefs = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
 
