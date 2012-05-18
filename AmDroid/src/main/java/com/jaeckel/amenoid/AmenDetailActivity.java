@@ -642,10 +642,10 @@ public class AmenDetailActivity extends SherlockListActivity {
     MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_detail, menu);
 
-    if (!AmenoidApp.getInstance().isSignedIn()) {
-      MenuItem amenSth = menu.findItem(R.id.amen);
-      amenSth.setEnabled(false);
-    }
+//    if (!AmenoidApp.getInstance().isSignedIn()) {
+//      MenuItem amenSth = menu.findItem(R.id.amen);
+//      amenSth.setEnabled(false);
+//    }
     return true;
   }
 
@@ -682,9 +682,9 @@ public class AmenDetailActivity extends SherlockListActivity {
 
         return true;
       }
-      case R.id.amen:
-        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
-        return true;
+//      case R.id.amen:
+//        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
+//        return true;
 
       case R.id.subject_page: {
         Intent intent = new Intent(this, SubjectPageActivity.class);
