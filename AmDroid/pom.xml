@@ -23,36 +23,34 @@
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>4.0.3_r2</version>
+            <version>${android-jar.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jaeckel</groupId>
             <artifactId>amenlib</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.wazabe.holoeverywhere</groupId>
             <artifactId>library</artifactId>
             <type>apklib</type>
-            <version>1.0.0</version>
+            <version>${holoeverywhere.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>ch.boye</groupId>
             <artifactId>httpclientandroidlib</artifactId>
-            <version>1.0.4</version>
+            <version>${httpclientandroidlib.version}</version>
         </dependency>
         <dependency>
             <groupId>android.support</groupId>
             <artifactId>compatibility-v4</artifactId>
-            <version>r8</version>
+            <version>${compatibility-v4.version}</version>
         </dependency>
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
             <artifactId>library</artifactId>
-            <version>4.1.0</version>
+            <version>${actionbarsherlock.version}</version>
             <type>apklib</type>
             <exclusions>
                 <exclusion>
