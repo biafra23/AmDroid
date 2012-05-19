@@ -71,7 +71,7 @@
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
             <artifactId>library</artifactId>
-            <version>4.0.2</version>
+            <!--<version>4.0.2</version>-->
             <type>apklib</type>
             <scope>provided</scope>
             <exclusions>
