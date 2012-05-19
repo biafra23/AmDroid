@@ -235,6 +235,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
           //Save credentials used to createdUser account
           SharedPreferences.Editor editor = prefs.edit();
           editor.putString(Constants.PREFS_USER_NAME, name);
+          editor.putString(Constants.PREFS_EMAIL, email);
           editor.putString(Constants.PREFS_PASSWORD, password);
           editor.commit();
         }

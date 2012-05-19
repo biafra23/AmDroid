@@ -67,7 +67,16 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     prefs = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
 
     emailField = (EditText) findViewById(R.id.email_field);
-    String email = prefs.getString(Constants.PREFS_USER_NAME, "");
+    String email = prefs.getString(Constants.PREFS_EMAIL, "");
+    if (TextUtils.isEmpty(email)) {
+      //For legacy users that have the email in the username field
+      email = prefs.getString(Constants.PREFS_USER_NAME, "");
+      if (!TextUtils.isEmpty(email) && email.contains("@")) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Constants.PREFS_EMAIL, email);
+        editor.commit();
+      }
+    }
     emailField.setText(email);
 
     passwordField = (EditText) findViewById(R.id.password_field);
@@ -214,12 +223,12 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
 
       Log.d(TAG, "wrappedDoInBackground()");
 
-      String username = prefs.getString(Constants.PREFS_USER_NAME, null);
+      String email = prefs.getString(Constants.PREFS_USER_NAME, null);
       String password = prefs.getString(Constants.PREFS_PASSWORD, null);
       AmenService amenService = null;
       try {
 
-        amenService = AmenoidApp.getInstance().getService(username, password);
+        amenService = AmenoidApp.getInstance().getService(email, password);
 
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(Constants.PREFS_AUTH_TOKEN, amenService.getAuthToken());

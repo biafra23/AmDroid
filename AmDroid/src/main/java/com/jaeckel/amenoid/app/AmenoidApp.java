@@ -20,6 +20,8 @@ import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
 import com.jaeckel.amenoid.db.AmenDBAdapter;
 import com.jaeckel.amenoid.db.AmenDao;
+import com.jaeckel.amenoid.util.Config;
+import com.jaeckel.amenoid.util.Log;
 
 import android.app.AlertDialog;
 import android.app.Application;
@@ -39,9 +41,6 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-
-import com.jaeckel.amenoid.util.Config;
-import com.jaeckel.amenoid.util.Log;
 import android.widget.Toast;
 import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
 
@@ -75,10 +74,10 @@ public class AmenoidApp extends Application {
 
   //CWAC
 
-  private ThumbnailBus                                        bus   = new ThumbnailBus();
+  private ThumbnailBus bus = new ThumbnailBus();
   private SimpleWebImageCache<ThumbnailBus, ThumbnailMessage> cache;
-  private Typeface amenTypeThin;
-  private Typeface amenTypeBold;
+  private Typeface                                            amenTypeThin;
+  private Typeface                                            amenTypeBold;
 
   private Handler handler = new Handler();
   private AlertDialog.Builder builder;
@@ -155,7 +154,18 @@ public class AmenoidApp extends Application {
     final String authToken = readAuthTokenFromPrefs(prefs);
     final User me = readMeFromPrefs(prefs);
 
-    final String username = prefs.getString(Constants.PREFS_USER_NAME, null);
+    String email = prefs.getString(Constants.PREFS_EMAIL, null);
+    if (TextUtils.isEmpty(email)) {
+      //For legacy users that have the email in the username field
+      email = prefs.getString(Constants.PREFS_USER_NAME, "");
+      if (!TextUtils.isEmpty(email) && email.contains("@")) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Constants.PREFS_EMAIL, email);
+        editor.commit();
+      }
+    }
+
+
     final String password = prefs.getString(Constants.PREFS_PASSWORD, null);
 
     if (authToken != null && me != null) {
@@ -163,9 +173,9 @@ public class AmenoidApp extends Application {
       configureAmenService();
       service.init(authToken, me);
 
-    } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+    } else if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
 
-      getService(username, password);
+      getService(email, password);
 
     } else {
 
@@ -219,15 +229,15 @@ public class AmenoidApp extends Application {
     return instance;
   }
 
-  public AmenService getService(String username, String password) {
-//    Log.d(TAG, "getService(" + username + ", " + password + ")");
+  public AmenService getService(String email, String password) {
+//    Log.d(TAG, "getService(" + email + ", " + password + ")");
 
     if (service == null || TextUtils.isEmpty(service.getAuthToken())) {
       Log.d(TAG, "service was null || no authToken");
       configureAmenService();
       try {
 
-        service.init(username, password);
+        service.init(email, password);
 
       } catch (IOException e) {
         e.printStackTrace();
