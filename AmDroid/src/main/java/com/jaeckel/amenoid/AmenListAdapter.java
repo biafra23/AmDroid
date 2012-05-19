@@ -4,14 +4,15 @@ import java.util.List;
 
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.MediaItem;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.util.StyleableSpannableStringBuilder;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.TextUtils;
-import com.jaeckel.amenoid.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
   private Typeface       amenTypeThin;
   private Typeface       amenTypeBold;
   private int            textViewResourceId;
+
+  private final static String TAG = AmenListAdapter.class.getSimpleName();
 
   public AmenListAdapter(Context context, int textViewResourceId, List<Amen> objects) {
     super(context, textViewResourceId, objects);
@@ -111,38 +114,47 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     }
 
-    //amen Media Photo
-    if (amen.getMedia() != null && amen.getMedia().size() > 0) {
+    //amen Media items
+    final List<MediaItem> amenMediaItems = amen.getMedia();
+    holder.mediaPhoto.setVisibility(View.GONE);
 
-      holder.mediaPhoto.setVisibility(View.VISIBLE);
-      String mediaUrl = amen.getMedia().get(0).getContentUrl();
+    if (amenMediaItems != null && amenMediaItems.size() > 0) {
 
+      for (MediaItem item : amenMediaItems) {
+        String mediaUrl = item.getContentUrl();
+        Log.d(TAG, "amen mediaItem type: " + item.getType() + " url: " + mediaUrl);
 
-      Log.d("AmenListAdapter", "mediaUrl: " + mediaUrl);
-      holder.mediaPhoto.setImageResource(R.drawable.placeholder);
-      holder.mediaPhoto.setTag(mediaUrl);
-
-    } else {
-      holder.mediaPhoto.setVisibility(View.GONE);
-      //necessary?
-      //mediaPhoto.setTag(null);
+        if (item.getType().contains("photo")) {
+          holder.mediaPhoto.setVisibility(View.VISIBLE);
+          holder.mediaPhoto.setImageResource(R.drawable.placeholder);
+          holder.mediaPhoto.setTag(mediaUrl);
+          // use only the first photo
+          break;
+        }
+      }
     }
 
-    //obkekt  Photo
-    if (amen.getStatement().getObjekt().getMedia() != null && amen.getStatement().getObjekt().getMedia().size() > 0) {
+    //obkekt  objektMediaItems
+    final List<MediaItem> objektMediaItems = amen.getStatement().getObjekt().getMedia();
+    holder.objektPhotoWrapper.setVisibility(View.GONE);
 
-      holder.objektPhotoWrapper.setVisibility(View.VISIBLE);
-      String mediaUrl = amen.getStatement().getObjekt().getMedia().get(0).getContentUrl();
+    if (objektMediaItems != null && objektMediaItems.size() > 0) {
 
+      for (MediaItem item : objektMediaItems) {
+        String mediaUrl = item.getContentUrl();
 
-      Log.d("AmenListAdapter", "objektPhoto: " + mediaUrl);
-      holder.objektPhoto.setImageResource(R.drawable.placeholder);
-      holder.objektPhoto.setTag(mediaUrl);
+        Log.d(TAG, " objekt mediaItem type: " + item.getType() + " url: " + mediaUrl);
 
-    } else {
-      holder.objektPhotoWrapper.setVisibility(View.GONE);
-      //necessary?
-      //mediaPhoto.setTag(null);
+        if (item.getType().contains("photo")) {
+
+          holder.objektPhotoWrapper.setVisibility(View.VISIBLE);
+          holder.objektPhoto.setImageResource(R.drawable.placeholder);
+          holder.objektPhoto.setTag(mediaUrl);
+          holder.objektPhotoWrapper.setVisibility(View.VISIBLE);
+          // use only the first photo
+          break;
+        }
+      }
     }
     long now = System.currentTimeMillis();
     if (amen.getCreatedAt() != null) {

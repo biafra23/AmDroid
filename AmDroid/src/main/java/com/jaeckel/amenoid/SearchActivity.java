@@ -38,7 +38,7 @@ public class SearchActivity extends SherlockListActivity {
   private AmenListAdapter adapter;
   private ProgressBar     progressBar;
   private ListView        list;
-  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.media_photo};
+  private static final int[] IMAGE_IDS = {R.id.user_image, R.id.media_photo, R.id.objekt_photo};
 
   private ProgressDialog progressDialog;
 
