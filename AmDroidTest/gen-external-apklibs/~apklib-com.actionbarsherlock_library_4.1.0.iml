@@ -34,8 +34,10 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/com.actionbarsherlock_library_4.1.0">
       <sourceFolder url="file://$MODULE_DIR$/com.actionbarsherlock_library_4.1.0/gen" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/com.actionbarsherlock_library_4.1.0/src" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="Android 4.0 Platform" jdkType="Android SDK" />
   </component>
 </module>
 
