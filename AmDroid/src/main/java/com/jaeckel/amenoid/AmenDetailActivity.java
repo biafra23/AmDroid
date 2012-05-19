@@ -14,6 +14,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Comment;
+import com.jaeckel.amenoid.api.model.MediaItem;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
@@ -23,15 +24,14 @@ import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
-import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.Log;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -148,92 +148,100 @@ public class AmenDetailActivity extends SherlockListActivity {
 
 
     ImageView mediaPhotoImageView = (ImageView) header.findViewById(R.id.media_photo);
+    mediaPhotoImageView.setVisibility(View.GONE);
 
-    if (currentAmen != null && currentAmen.getMedia() != null && currentAmen.getMedia().size() > 0) {
-      final String mediaUrl = currentStatement.getObjekt().getMedia().get(0).getContentUrl();
-      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): "
-                 + mediaUrl);
-      mediaPhotoImageView.setVisibility(View.VISIBLE);
+    if (currentAmen != null) {
 
-      int result = cache.getStatus(mediaUrl);
+      final List<MediaItem> currentAmenMedia = currentAmen.getMedia();
+      if (currentAmenMedia != null && currentAmenMedia.size() > 0) {
 
-      if (result == CacheBase.CACHE_MEMORY) {
+        for (MediaItem amenMediaItem : currentAmenMedia) {
 
-        Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
-        mediaPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+          final String mediaUrl = amenMediaItem.getContentUrl();
+          Log.d(TAG, "amenMediaItem.getContentUrl(): " + mediaUrl);
+          if (amenMediaItem.getType().contains("photo")) {
 
-      } else {
-
-
-        mediaPhotoImageView.setImageResource(R.drawable.placeholder);
-
-        ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
-
-        msg.setImageView(mediaPhotoImageView);
-        msg.setUrl(mediaUrl);
-
-        try {
-
-          cache.notify(msg.getUrl(), msg);
-
-        } catch (Throwable t) {
-          Log.e(TAG, "Exception trying to fetch image", t);
-          throw new RuntimeException(t);
+            mediaPhotoImageView.setVisibility(View.VISIBLE);
+            int result = cache.getStatus(mediaUrl);
+            if (result == CacheBase.CACHE_MEMORY) {
+              Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
+              mediaPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+            } else {
+              mediaPhotoImageView.setImageResource(R.drawable.placeholder);
+              ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
+              msg.setImageView(mediaPhotoImageView);
+              msg.setUrl(mediaUrl);
+              try {
+                cache.notify(msg.getUrl(), msg);
+              } catch (Throwable t) {
+                Log.e(TAG, "Exception trying to fetch image", t);
+                throw new RuntimeException(t);
+              }
+            }
+          }
         }
-      }
+      } else {
+        Log.d(TAG, "                  currentAmen: " + currentAmen);
+        if (currentAmen != null) {
+          Log.d(TAG, "       currentAmen.getMedia(): " + currentAmenMedia);
+        }
+        if (currentAmen != null && currentAmenMedia != null) {
+          Log.d(TAG, "currentAmen.getMedia().size(): " + currentAmenMedia.size());
+        }
 
-    } else {
-      Log.d(TAG, "                  currentAmen: " + currentAmen);
-      if (currentAmen != null) {
-        Log.d(TAG, "       currentAmen.getMedia(): " + currentAmen.getMedia());
       }
-      if (currentAmen != null && currentAmen.getMedia() != null) {
-        Log.d(TAG, "currentAmen.getMedia().size(): " + currentAmen.getMedia().size());
-      }
-      mediaPhotoImageView.setVisibility(View.INVISIBLE);
     }
+
 
     ImageView objektPhotoImageView = (ImageView) header.findViewById(R.id.objekt_photo);
     View objektPhotoImageViewWrapper = (View) header.findViewById(R.id.objekt_photo_wrapper);
+    objektPhotoImageViewWrapper.setVisibility(View.GONE);
 
-    if (currentStatement.getObjekt().getMedia() != null && currentStatement.getObjekt().getMedia().size() > 0) {
-      final String mediaUrl = currentStatement.getObjekt().getMedia().get(0).getContentUrl();
-      Log.d(TAG, "currentStatement.getMedia().get(0).getContentUrl(): " + mediaUrl);
-      objektPhotoImageViewWrapper.setVisibility(View.VISIBLE);
+    final List<MediaItem> objektMediaItems = currentStatement.getObjekt().getMedia();
 
-      int result = cache.getStatus(mediaUrl);
+    if (objektMediaItems != null && objektMediaItems.size() > 0) {
+      for (MediaItem objektItem : objektMediaItems) {
+        String type = objektItem.getType();
+        if (type.contains("photo")) {
 
-      if (result == CacheBase.CACHE_MEMORY) {
+          final String mediaUrl = objektItem.getContentUrl();
+          Log.d(TAG, "objektItem.getContentUrl(): " + mediaUrl);
+          objektPhotoImageViewWrapper.setVisibility(View.VISIBLE);
 
-        Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
-        objektPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+          int result = cache.getStatus(mediaUrl);
 
-      } else {
+          if (result == CacheBase.CACHE_MEMORY) {
+
+            Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
+            objektPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+
+          } else {
 
 
-        mediaPhotoImageView.setImageResource(R.drawable.placeholder);
+            mediaPhotoImageView.setImageResource(R.drawable.placeholder);
 
-        ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
+            ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
 
-        msg.setImageView(mediaPhotoImageView);
-        msg.setUrl(mediaUrl);
+            msg.setImageView(mediaPhotoImageView);
+            msg.setUrl(mediaUrl);
 
-        try {
+            try {
 
-          cache.notify(msg.getUrl(), msg);
+              cache.notify(msg.getUrl(), msg);
 
-        } catch (Throwable t) {
-          Log.e(TAG, "Exception trying to fetch image", t);
-          throw new RuntimeException(t);
+            } catch (Throwable t) {
+              Log.e(TAG, "Exception trying to fetch image", t);
+              throw new RuntimeException(t);
+            }
+          }
         }
       }
 
     } else {
-      Log.d(TAG, "       currentStatement.getObjekt().getMedia(): " + currentStatement.getObjekt().getMedia());
-      if (currentStatement.getObjekt().getMedia() != null) {
-        Log.d(TAG, "currentStatement.getObjekt().getMedia().size(): " + currentStatement.getObjekt().getMedia().size());
+      Log.d(TAG, "       currentStatement.getObjekt().getMedia(): " + objektMediaItems);
+      if (objektMediaItems != null) {
+        Log.d(TAG, "currentStatement.getObjekt().getMedia().size(): " + objektMediaItems.size());
       }
-      objektPhotoImageViewWrapper.setVisibility(View.INVISIBLE);
     }
 
 
@@ -258,17 +266,10 @@ public class AmenDetailActivity extends SherlockListActivity {
 
       public void onClick(View v) {
 
-        try {
-          service.createComment(currentAmen.getId(), commentField.getText().toString());
-          new GetAmenTask(AmenDetailActivity.this).execute(currentAmen.getId());
+        new CreateCommentTask(AmenDetailActivity.this).execute(commentField.getText().toString());
 
-          commentField.setText("");
-          commentLayout.setVisibility(View.GONE);
-
-        } catch (IOException e) {
-          throw new RuntimeException(e);
-        }
-
+        commentField.setText("");
+        commentLayout.setVisibility(View.GONE);
       }
 
     });
@@ -705,4 +706,28 @@ public class AmenDetailActivity extends SherlockListActivity {
     return false;
   }
 
+  private class CreateCommentTask extends AmenLibTask<String, Integer, Comment> {
+
+    public CreateCommentTask(Activity context) {
+      super(context);
+    }
+
+    @Override
+    protected Comment wrappedDoInBackground(String... commentBodies) throws IOException {
+      Comment result = null;
+      for (String commentBody : commentBodies) {
+        result = service.createComment(currentAmen.getId(), commentBody);
+      }
+      new GetAmenTask(AmenDetailActivity.this).execute(currentAmen.getId());
+
+      return result;
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(Comment result) {
+
+
+    }
+
+  }
 }
