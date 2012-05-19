@@ -1,3 +1,7 @@
 AmDroid/target
 AmDroidTest/target
 AmenLib/target
+res/values/config.xml
+gen-external-apklibs
+gen
+httpclientandroidlib/target
