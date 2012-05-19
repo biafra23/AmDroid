@@ -114,6 +114,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
     }
 
+    String amenMediaUrl = "";
     //amen Media items
     final List<MediaItem> amenMediaItems = amen.getMedia();
     holder.mediaPhoto.setVisibility(View.GONE);
@@ -121,13 +122,13 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
     if (amenMediaItems != null && amenMediaItems.size() > 0) {
 
       for (MediaItem item : amenMediaItems) {
-        String mediaUrl = item.getContentUrl();
-        Log.d(TAG, "amen mediaItem type: " + item.getType() + " url: " + mediaUrl);
+        amenMediaUrl = item.getContentUrl();
+        Log.d(TAG, "amen mediaItem type: " + item.getType() + " url: " + amenMediaUrl);
 
         if (item.getType().contains("photo")) {
           holder.mediaPhoto.setVisibility(View.VISIBLE);
           holder.mediaPhoto.setImageResource(R.drawable.placeholder);
-          holder.mediaPhoto.setTag(mediaUrl);
+          holder.mediaPhoto.setTag(amenMediaUrl);
           // use only the first photo
           break;
         }
@@ -145,7 +146,7 @@ public class AmenListAdapter extends ArrayAdapter<Amen> {
 
         Log.d(TAG, " objekt mediaItem type: " + item.getType() + " url: " + mediaUrl);
 
-        if (item.getType().contains("photo")) {
+        if (item.getType().contains("photo") && !mediaUrl.equals(amenMediaUrl)) {
 
           holder.objektPhotoWrapper.setVisibility(View.VISIBLE);
           holder.objektPhoto.setImageResource(R.drawable.placeholder);
