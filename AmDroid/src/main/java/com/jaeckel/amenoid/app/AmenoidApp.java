@@ -39,7 +39,9 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
+
+import com.jaeckel.amenoid.util.Config;
+import com.jaeckel.amenoid.util.Log;
 import android.widget.Toast;
 import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
 
@@ -105,6 +107,7 @@ public class AmenoidApp extends Application {
   public void onCreate() {
 
     this.cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
+    Config.init(getApplicationContext());
 
     if (DEVELOPER_MODE) {
       StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()

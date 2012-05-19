@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.api.model.Amen;
 
 /**

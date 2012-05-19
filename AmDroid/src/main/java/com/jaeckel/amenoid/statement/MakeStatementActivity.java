@@ -28,7 +28,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;

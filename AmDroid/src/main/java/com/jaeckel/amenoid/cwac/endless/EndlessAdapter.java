@@ -17,7 +17,7 @@ package com.jaeckel.amenoid.cwac.endless;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

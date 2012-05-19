@@ -30,7 +30,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;

@@ -2,7 +2,7 @@ package com.jaeckel.amenoid;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;

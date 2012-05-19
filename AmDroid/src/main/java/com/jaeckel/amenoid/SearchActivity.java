@@ -18,7 +18,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;

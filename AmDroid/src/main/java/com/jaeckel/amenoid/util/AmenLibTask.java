@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.R;
 
 import java.io.IOException;

@@ -3,7 +3,7 @@ package com.jaeckel.amenoid.db;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;

@@ -23,7 +23,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;

@@ -34,7 +34,7 @@ import com.jaeckel.amenoid.cwac.task.AsyncTaskEx;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 
 public class SimpleWebImageCache<B extends AbstractBus, M>
   extends CacheBase<String, Drawable> {

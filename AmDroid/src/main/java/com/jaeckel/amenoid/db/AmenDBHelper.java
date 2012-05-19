@@ -3,7 +3,7 @@ package com.jaeckel.amenoid.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 
 public class AmenDBHelper extends SQLiteOpenHelper {
 

@@ -14,7 +14,7 @@
 
 package com.jaeckel.amenoid.cwac.cache;
 
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.cwac.task.AsyncTaskEx;
 
 import java.io.File;

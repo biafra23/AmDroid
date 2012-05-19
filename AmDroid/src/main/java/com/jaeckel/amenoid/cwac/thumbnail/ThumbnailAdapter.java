@@ -15,7 +15,7 @@
 package com.jaeckel.amenoid.cwac.thumbnail;
 
 import android.app.Activity;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;

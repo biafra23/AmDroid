@@ -37,11 +37,8 @@
             <type>apklib</type>
             <version>1.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-android</artifactId>
-            <version>1.6.1-RC1</version>
-        </dependency>
+
+
         <dependency>
             <groupId>ch.boye</groupId>
             <artifactId>httpclientandroidlib</artifactId>
@@ -127,11 +124,32 @@
     </build>
     <profiles>
         <profile>
+            <id>debug</id>
+            <properties>
+                <project.property.logLevel>DEBUG</project.property.logLevel>
+                <project.property.application.debuggable>false</project.property.application.debuggable>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-android</artifactId>
+                    <version>1.6.1-RC1</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
             <id>release</id>
             <properties>
                 <project.property.logLevel>WARN</project.property.logLevel>
                 <project.property.application.debuggable>false</project.property.application.debuggable>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-nop</artifactId>
+                    <version>1.5.3</version>
+                </dependency>
+            </dependencies>
             <build>
 
                 <plugins>
@@ -207,15 +225,27 @@
             <!--</repositories>-->
         </profile>
         <profile>
-            <id>sign</id>
+            <id>log-warn</id>
+            <properties>
+                <project.property.logLevel>WARN</project.property.logLevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>log-debug</id>
             <properties>
                 <project.property.logLevel>DEBUG</project.property.logLevel>
+            </properties>
+        </profile>
+        <profile>
+            <id>debuggable</id>
+            <properties>
                 <project.property.application.debuggable>true</project.property.application.debuggable>
             </properties>
+        </profile>
+        <profile>
+            <id>sign</id>
             <build>
-
                 <plugins>
-
                     <plugin>
                         <artifactId>maven-jarsigner-plugin</artifactId>
                         <executions>

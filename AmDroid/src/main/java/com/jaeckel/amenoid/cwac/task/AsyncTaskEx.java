@@ -201,7 +201,7 @@ public abstract class AsyncTaskEx<Params, Progress, Result> {
                 try {
                     result = get();
                 } catch (InterruptedException e) {
-                    android.util.Log.w(LOG_TAG, e);
+                    com.jaeckel.amenoid.util.Log.w(LOG_TAG, e);
                 } catch (ExecutionException e) {
                     throw new RuntimeException("An error occured while executing doInBackground()",
                             e.getCause());

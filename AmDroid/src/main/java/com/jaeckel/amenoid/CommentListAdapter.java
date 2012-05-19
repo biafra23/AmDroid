@@ -7,7 +7,7 @@ import com.jaeckel.amenoid.api.model.Comment;
 import com.jaeckel.amenoid.app.AmenoidApp;
 
 import android.content.Context;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +66,8 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
     holder.user.setText(comment.getUser().getName());
     holder.body.setText(comment.getBody());
 
-    if (AmenoidApp.getInstance().getService().getMe().getId() == comment.getUser().getId()) {
+    if (AmenoidApp.getInstance().getService().getMe() != null
+        && AmenoidApp.getInstance().getService().getMe().getId() == comment.getUser().getId()) {
 
       holder.delete.setVisibility(View.VISIBLE);
       holder.delete.setOnClickListener(new View.OnClickListener() {

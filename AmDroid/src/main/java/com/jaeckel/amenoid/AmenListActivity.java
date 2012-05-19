@@ -35,7 +35,7 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
+import com.jaeckel.amenoid.util.Log;
 import android.view.ContextMenu;
 import android.view.View;
 import android.widget.AdapterView;
