@@ -125,7 +125,7 @@
             <id>debug</id>
             <properties>
                 <project.property.logLevel>DEBUG</project.property.logLevel>
-                <project.property.application.debuggable>false</project.property.application.debuggable>
+                <project.property.application.debuggable>true</project.property.application.debuggable>
             </properties>
             <dependencies>
                 <dependency>
