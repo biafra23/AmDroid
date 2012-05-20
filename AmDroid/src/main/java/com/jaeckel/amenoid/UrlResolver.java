@@ -7,11 +7,13 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.Log;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import com.jaeckel.amenoid.util.Log;
 import android.widget.Toast;
 
 /**
@@ -94,22 +96,10 @@ public class UrlResolver extends SherlockActivity {
 
       } else if ("statements".equals(pathSegments.get(0))) {
         Log.d(TAG, "pathSegments.get(0): " + pathSegments.get(0));
-        try {
-          Long statementId = Long.valueOf(pathSegments.get(1));
-          Log.d(TAG, "pathSegments.get(1): " + pathSegments.get(1));
+        Long statementId = Long.valueOf(pathSegments.get(1));
+        Log.d(TAG, "pathSegments.get(1): " + pathSegments.get(1));
 
-          Statement statement = AmenoidApp.getInstance().getService().getStatementForId(statementId);
-          Intent startAmenDetailActivity = new Intent(this, AmenDetailActivity.class);
-          startAmenDetailActivity.putExtra(Constants.EXTRA_STATEMENT, statement);
-
-          startActivity(startAmenDetailActivity);
-
-          finish();
-
-        } catch (IOException e) {
-          e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-
-        }
+        new GetStatementForIdTask(this).execute(statementId);
 
       } else {
 
@@ -118,20 +108,7 @@ public class UrlResolver extends SherlockActivity {
         if (pathSegments.size() > 1) {
           String segment2 = pathSegments.get(1);
           if ("amen".equals(segment2)) {
-
-            try {
-              Amen amen = AmenoidApp.getInstance().getService().getAmenByUrl(uri.toString() + ".json");
-              Intent startAmenDetailActivity = new Intent(this, AmenDetailActivity.class);
-              startAmenDetailActivity.putExtra(Constants.EXTRA_AMEN, amen);
-
-              startActivity(startAmenDetailActivity);
-
-              finish();
-
-            } catch (IOException e) {
-              e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-
-            }
+            new GetAmenByUrlTask(this).execute(uri.toString() + ".json");
           }
         } else {
 
@@ -148,7 +125,7 @@ public class UrlResolver extends SherlockActivity {
           finish();
         }
       }
-      Toast.makeText(this, "Could not handle given Url: " + uri, Toast.LENGTH_LONG).show();
+//      Toast.makeText(this, "Could not handle given Url: " + uri, Toast.LENGTH_LONG).show();
     }
 
     finish();
@@ -160,4 +137,62 @@ public class UrlResolver extends SherlockActivity {
   // user pages
   // http://getamen.com/anduela
 
+  //
+  // GetStatementForIdTask
+  //
+  private class GetStatementForIdTask extends AmenLibTask<Long, Integer, Statement> {
+
+    public GetStatementForIdTask(Activity context) {
+      super(context);
+    }
+
+    @Override
+    protected Statement wrappedDoInBackground(Long... statementIds) throws IOException {
+      Statement result = null;
+      for (Long statementId : statementIds) {
+        result = AmenoidApp.getInstance().getService().getStatementForId(statementId);
+      }
+      return result;
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(Statement result) {
+
+      Intent startAmenDetailActivity = new Intent(UrlResolver.this, AmenDetailActivity.class);
+      startAmenDetailActivity.putExtra(Constants.EXTRA_STATEMENT, result);
+      startActivity(startAmenDetailActivity);
+      finish();
+    }
+  }
+
+
+  //
+  // GetStatementForIdTask
+  //
+  private class GetAmenByUrlTask extends AmenLibTask<String, Integer, Amen> {
+
+    public GetAmenByUrlTask(Activity context) {
+      super(context);
+    }
+
+    @Override
+    protected Amen wrappedDoInBackground(String... statementIds) throws IOException {
+      Amen result = null;
+      for (String amenUrl : statementIds) {
+        result = AmenoidApp.getInstance().getService().getAmenByUrl(amenUrl);
+      }
+      return result;
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(Amen result) {
+
+      Intent startAmenDetailActivity = new Intent(UrlResolver.this, AmenDetailActivity.class);
+      startAmenDetailActivity.putExtra(Constants.EXTRA_AMEN, result);
+
+      startActivity(startAmenDetailActivity);
+
+      finish();
+    }
+  }
 }
