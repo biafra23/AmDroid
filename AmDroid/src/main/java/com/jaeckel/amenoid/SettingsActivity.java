@@ -3,6 +3,7 @@ package com.jaeckel.amenoid;
 import java.util.Date;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,6 +16,7 @@ import com.jaeckel.amenoid.util.AmenLibTask;
 import com.actionbarsherlock.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -43,6 +45,8 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
   private Button            signUpButton;
   private AmenService       service;
   private LoginAsyncTask    loginAsyncTask;
+
+  private final static String TAG = SettingsActivity.class.getSimpleName();
 
   private Gson gson = new GsonBuilder()
     .registerTypeAdapter(Date.class, new DateSerializer())
@@ -194,6 +198,23 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     }
   }
 
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
+
+    final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+    amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+    switch (item.getItemId()) {
+
+      case android.R.id.home: {
+        startActivity(amenListIntent);
+        return true;
+      }
+    }
+    return false;
+  }
 
 //
 // LoginAsyncTask
