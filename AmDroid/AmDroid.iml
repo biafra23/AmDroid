@@ -59,8 +59,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-classic:0.9.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-api:1.6.0" level="project" />
-    <orderEntry type="library" name="Maven: com.wazabe.holoeverywhere:library:apklib:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: com.actionbarsherlock:library:apklib:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: android.support:compatibility-v4:r8" level="project" />
     <orderEntry type="jdk" jdkName="Android 4.0.3 Platform" jdkType="Android SDK" />
     <orderEntry type="module" module-name="~apklib-com.wazabe.holoeverywhere_library_1.0.0" />
