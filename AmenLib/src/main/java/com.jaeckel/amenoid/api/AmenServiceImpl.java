@@ -44,6 +44,7 @@ import ch.boye.httpclientandroidlib.entity.mime.MultipartEntity;
 import ch.boye.httpclientandroidlib.entity.mime.content.FileBody;
 import ch.boye.httpclientandroidlib.entity.mime.content.StringBody;
 import ch.boye.httpclientandroidlib.params.CoreProtocolPNames;
+import ch.boye.httpclientandroidlib.util.EntityUtils;
 
 /**
  * User: biafra
@@ -133,7 +134,7 @@ public class AmenServiceImpl implements AmenService {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity);
       if (responseString.startsWith("{\"error\"")) {
         //TODO: rethink this! will cause trouble in multi threaded environment. What would Buddha recommend? An Exception?
         lastError = gson.fromJson(responseString, ServerError.class);
@@ -186,7 +187,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getFeed produced error: " + responseString);
     }
@@ -211,7 +212,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("follow produced error: " + responseString);
     }
@@ -238,7 +239,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpDelete);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     if (" ".equals(responseString)) {
       result = true;
@@ -258,7 +259,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("amen produced error: " + responseString);
     }
@@ -283,7 +284,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("amen produced error: " + responseString);
     }
@@ -314,7 +315,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     log.trace("dispute: responseString: " + responseString);
     if (responseString.startsWith("{\"error\":")) {
@@ -349,7 +350,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException(responseString);
     }
@@ -369,7 +370,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
@@ -394,7 +395,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
@@ -415,7 +416,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     statement = gson.fromJson(responseString, Statement.class);
 
@@ -437,7 +438,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     topic = gson.fromJson(responseString, Topic.class);
 
@@ -460,7 +461,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpDelete);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     if (" ".equals(responseString)) {
       result = true;
@@ -499,7 +500,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForUser produced error: " + responseString);
     }
@@ -532,7 +533,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForUser produced error: " + responseString);
     }
@@ -560,7 +561,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     result = gson.fromJson(responseString, User.class);
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
@@ -579,31 +580,31 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     result = gson.fromJson(responseString, User.class);
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
-  private String makeStringFromEntity(HttpEntity responseEntity) throws IOException {
-    BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
-    StringBuilder builder = new StringBuilder();
-    String line;
-    while ((line = br.readLine()) != null) {
-
-      log.trace("makeStringFromEntity | " + line);
-
-      if ("<!DOCTYPE html>".equals(line)) {
-        //no JSON => Server error
-        log.error("Received HTML!");
-        return "{\"error\": \"Server error\"}";
-      }
-      builder.append(line);
-
-    }
-
-    return builder.toString();
-  }
+//  private String makeStringFromEntity(HttpEntity responseEntity) throws IOException {
+//    BufferedReader br = new BufferedReader(new InputStreamReader(responseEntity.getContent(), "utf-8"));
+//    StringBuilder builder = new StringBuilder();
+//    String line;
+//    while ((line = br.readLine()) != null) {
+//
+//      log.trace("makeStringFromEntity | " + line);
+//
+//      if ("<!DOCTYPE html>".equals(line)) {
+//        //no JSON => Server error
+//        log.error("Received HTML!");
+//        return "{\"error\": \"Server error\"}";
+//      }
+//      builder.append(line);
+//
+//    }
+//
+//    return builder.toString();
+//  }
 
 
   private String extractCookie(String value) {
@@ -634,7 +635,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     Type collectionType = new TypeToken<Collection<User>>() {
     }.getType();
@@ -657,7 +658,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     Type collectionType = new TypeToken<Collection<User>>() {
     }.getType();
@@ -689,7 +690,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     Type collectionType = new TypeToken<Collection<Objekt>>() {
     }.getType();
@@ -722,7 +723,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     Type collectionType = new TypeToken<Collection<Amen>>() {
     }.getType();
@@ -767,7 +768,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     Type collectionType = new TypeToken<Collection<Amen>>() {
     }.getType();
@@ -797,7 +798,7 @@ public class AmenServiceImpl implements AmenService {
 
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity);
 
       Type collectionType = new TypeToken<Comment>() {
       }.getType();
@@ -822,7 +823,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpDelete);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
 
     if (" ".equals(responseString)) {
       result = true;
@@ -841,7 +842,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = makeStringFromEntity(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity);
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
@@ -877,7 +878,7 @@ public class AmenServiceImpl implements AmenService {
 
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity);
       if (responseString.startsWith("{\"error\":")) {
         throw new RuntimeException("amen produced error: " + responseString);
       }
@@ -923,7 +924,7 @@ public class AmenServiceImpl implements AmenService {
 
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = makeStringFromEntity(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity);
 
       log.debug("responseString: " + responseString);
       log.debug(" response.code: " + response.getStatusLine().getStatusCode());
