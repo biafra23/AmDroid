@@ -115,8 +115,7 @@ public class AmenoidApp extends Application {
                                    .detectNetwork()
                                    .penaltyDropBox()
                                    .penaltyLog()
-                                   .penaltyFlashScreen()
-                                   .penaltyDialog()
+//                                   .penaltyDialog()
                                    .build());
     }
 
