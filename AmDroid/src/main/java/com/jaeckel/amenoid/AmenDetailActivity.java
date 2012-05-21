@@ -11,6 +11,7 @@ import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Comment;
@@ -31,6 +32,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -66,6 +68,7 @@ public class AmenDetailActivity extends SherlockListActivity {
   private Typeface                                            amenTypeThin;
   private Typeface                                            amenTypeBold;
   private TextView                                            commentsTextView;
+  private ShareActionProvider                                 mShareActionProvider;
 
   @Override
   public boolean onSearchRequested() {
@@ -82,7 +85,7 @@ public class AmenDetailActivity extends SherlockListActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    Log.d(TAG, "onCreate");
+    Log.d(TAG, "--> onCreate");
 
     service = AmenoidApp.getInstance().getService();
     cache = AmenoidApp.getInstance().getCache();
@@ -502,6 +505,9 @@ public class AmenDetailActivity extends SherlockListActivity {
     protected Amen wrappedDoInBackground(Long... amenId) throws IOException {
       Amen amen = service.amen(amenId[0]);
       Log.d(TAG, "Amen returned from amen(): " + amen);
+
+      createShareIntent(amen.getStatement());
+
       return amen;
     }
 
@@ -545,6 +551,8 @@ public class AmenDetailActivity extends SherlockListActivity {
 
       Statement statement = service.getStatementForId(statementIds[0]);
       Log.d(TAG, "Statement returned from statement(): " + statement);
+      createShareIntent(statement);
+
       return statement;
 
     }
@@ -639,15 +647,47 @@ public class AmenDetailActivity extends SherlockListActivity {
 
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
+    Log.d(TAG, "--> onCreateOptionsMenu");
 
     MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_detail, menu);
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+      // Get the menu item.
+      MenuItem shareMenuItem = menu.findItem(R.id.share_details);
+      // Get the provider and hold onto it to set/change the share intent.
+      mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
+      // Set history different from the default before getting the action
+      // view since a call to MenuItem.getActionView() calls
+      // onCreateActionView() which uses the backing file name. Omit this
+      // line if using the default share history file is desired.
+      mShareActionProvider.setShareHistoryFileName("custom_share_history.xml");
+
+      if (currentAmen != null) {
+        createShareIntent(currentAmen.getStatement());
+      } else if (currentStatement != null) {
+        createShareIntent(currentStatement);
+      }
+    }
 
 //    if (!AmenoidApp.getInstance().isSignedIn()) {
 //      MenuItem amenSth = menu.findItem(R.id.amen);
 //      amenSth.setEnabled(false);
 //    }
     return true;
+  }
+
+  private void createShareIntent(Statement statement) {
+    if (statement == null) {
+      return;
+    }
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    String amenText = statement.toDisplayString();
+    shareIntent.setType("text/plain");
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + statement.getId());
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
   }
 
   public boolean onOptionsItemSelected(MenuItem item) {
@@ -673,15 +713,23 @@ public class AmenDetailActivity extends SherlockListActivity {
         startScoreBoardActivity();
         return true;
       }
-      case R.id.share: {
+      case R.id.share_details: {
 
-        String amenText = currentAmen.getStatement().toDisplayString();
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + currentAmen.getStatement().getId());
-        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
 
-        return true;
+          String amenText = currentAmen.getStatement().toDisplayString();
+          Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+          sharingIntent.setType("text/plain");
+          sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + currentAmen.getStatement().getId());
+
+          startActivity(Intent.createChooser(sharingIntent, "Share using"));
+
+          return true;
+
+        } else {
+
+          return false;
+        }
       }
 //      case R.id.amen:
 //        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
@@ -692,7 +740,7 @@ public class AmenDetailActivity extends SherlockListActivity {
 
 //        Toast.makeText(this, "id: " + currentAmen.getStatement().getObjekt().getId(), Toast.LENGTH_SHORT).show();
 
-        intent.putExtra(Constants.EXTRA_OBJEKT_ID, currentAmen.getStatement().getObjekt().getId());
+        intent.putExtra(Constants.EXTRA_OBJEKT_ID, getCurrentStatement().getObjekt().getId());
         startActivity(intent);
         return true;
       }
@@ -704,6 +752,13 @@ public class AmenDetailActivity extends SherlockListActivity {
 
     }
     return false;
+  }
+
+  private Statement getCurrentStatement() {
+    if (currentAmen != null && currentAmen.getStatement() != null) {
+      return currentAmen.getStatement();
+    }
+    return currentStatement;
   }
 
   private class CreateCommentTask extends AmenLibTask<String, Integer, Comment> {
@@ -730,4 +785,6 @@ public class AmenDetailActivity extends SherlockListActivity {
     }
 
   }
+
+
 }

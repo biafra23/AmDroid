@@ -25,6 +25,7 @@ import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.widget.PullToRefreshListView;
 
 import android.app.Activity;
@@ -35,7 +36,6 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import com.jaeckel.amenoid.util.Log;
 import android.view.ContextMenu;
 import android.view.View;
 import android.widget.AdapterView;

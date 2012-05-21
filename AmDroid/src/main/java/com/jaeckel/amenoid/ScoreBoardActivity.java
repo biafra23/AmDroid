@@ -232,7 +232,7 @@ public class ScoreBoardActivity extends SherlockListActivity {
 //        startActivity(new Intent(this, AmenListActivity.class));
 //        return true;
 
-      case R.id.share:
+      case R.id.share_scoreboard:
 
         String amenText = currentTopic.getAsSentence();
 

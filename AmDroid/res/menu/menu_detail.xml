@@ -8,20 +8,22 @@
           android:title="Scorecard"
           android:showAsAction="ifRoom|withText"
             />
-    <item android:id="@+id/subject_page"
-          android:icon="@drawable/ic_action_subjectpage_dark"
-          android:title="Subject Page"
-          android:showAsAction="ifRoom|withText"
-            />
+
 
     <!--<item android:id="@+id/amen"-->
           <!--android:icon="@drawable/ic_action_plus_dark"-->
           <!--android:title="Amen sth."-->
           <!--android:showAsAction="ifRoom|withText"-->
             <!--/>-->
-    <item android:id="@+id/share"
+    <item android:id="@+id/share_details"
           android:icon="@drawable/ic_action_share_dark"
           android:title="Share"
+          android:showAsAction="ifRoom|withText"
+          android:actionProviderClass="com.actionbarsherlock.widget.ShareActionProvider"
+            />
+    <item android:id="@+id/subject_page"
+          android:icon="@drawable/ic_action_subjectpage_dark"
+          android:title="Subject Page"
           android:showAsAction="ifRoom|withText"
             />
     <!--<item android:id="@+id/timeline"-->

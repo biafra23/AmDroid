@@ -7,7 +7,7 @@
           <!--android:title="Timeline"-->
           <!--android:showAsAction="ifRoom|withText"-->
             <!--/>-->
-    <item android:id="@+id/share"
+    <item android:id="@+id/share_scoreboard"
           android:icon="@drawable/ic_action_share_dark"
           android:title="Share"
           android:showAsAction="ifRoom|withText"

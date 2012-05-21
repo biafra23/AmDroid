@@ -5,17 +5,18 @@ import java.util.List;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.MenuItem;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.Log;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -83,6 +84,23 @@ public class SubjectPageActivity extends SherlockListActivity {
     }
   }
 
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
+
+    final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+    amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+    switch (item.getItemId()) {
+
+      case android.R.id.home: {
+        startActivity(amenListIntent);
+        return true;
+      }
+    }
+    return false;
+  }
   //
   // GetDataTask
   //
