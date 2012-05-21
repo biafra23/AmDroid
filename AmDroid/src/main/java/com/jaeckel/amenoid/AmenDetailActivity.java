@@ -652,7 +652,7 @@ public class AmenDetailActivity extends SherlockListActivity {
     MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_detail, menu);
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
       // Get the menu item.
       MenuItem shareMenuItem = menu.findItem(R.id.share_details);
       // Get the provider and hold onto it to set/change the share intent.
@@ -668,7 +668,7 @@ public class AmenDetailActivity extends SherlockListActivity {
       } else if (currentStatement != null) {
         createShareIntent(currentStatement);
       }
-    }
+//    }
 
 //    if (!AmenoidApp.getInstance().isSignedIn()) {
 //      MenuItem amenSth = menu.findItem(R.id.amen);
@@ -713,24 +713,24 @@ public class AmenDetailActivity extends SherlockListActivity {
         startScoreBoardActivity();
         return true;
       }
-      case R.id.share_details: {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-
-          String amenText = currentAmen.getStatement().toDisplayString();
-          Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-          sharingIntent.setType("text/plain");
-          sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + currentAmen.getStatement().getId());
-
-          startActivity(Intent.createChooser(sharingIntent, "Share using"));
-
-          return true;
-
-        } else {
-
-          return false;
-        }
-      }
+//      case R.id.share_details: {
+//
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+//
+//          String amenText = currentAmen.getStatement().toDisplayString();
+//          Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+//          sharingIntent.setType("text/plain");
+//          sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + currentAmen.getStatement().getId());
+//
+//          startActivity(Intent.createChooser(sharingIntent, "Share using"));
+//
+//          return true;
+//
+//        } else {
+//
+//          return false;
+//        }
+//      }
 //      case R.id.amen:
 //        startActivity(new Intent(this, ChooseStatementTypeActivity.class));
 //        return true;
