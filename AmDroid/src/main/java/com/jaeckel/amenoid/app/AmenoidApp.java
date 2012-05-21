@@ -108,21 +108,19 @@ public class AmenoidApp extends Application {
     this.cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
     Config.init(getApplicationContext());
 
-    if (DEVELOPER_MODE) {
+    if (getResources().getBoolean(R.bool.debuggable)) {
       StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                                    .detectDiskReads()
                                    .detectDiskWrites()
                                    .detectNetwork()
                                    .penaltyDropBox()
                                    .penaltyLog()
+                                   .penaltyFlashScreen()
+                                   .penaltyDialog()
                                    .build());
     }
+
     super.onCreate();
-
-    dbAdapter = new AmenDBAdapter(this);
-    dbAdapter.open();
-
-    amenDao = dbAdapter.getAmenDao();
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -425,11 +423,11 @@ public class AmenoidApp extends Application {
     return amenTypeBold;
   }
 
-  public AmenDao getAmenDao() {
-    return amenDao;
-  }
-
-  public void setAmenDao(AmenDao amenDao) {
-    this.amenDao = amenDao;
-  }
+//  public AmenDao getAmenDao() {
+//    return amenDao;
+//  }
+//
+//  public void setAmenDao(AmenDao amenDao) {
+//    this.amenDao = amenDao;
+//  }
 }
