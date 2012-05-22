@@ -128,7 +128,6 @@ public class UrlResolver extends SherlockActivity {
 //      Toast.makeText(this, "Could not handle given Url: " + uri, Toast.LENGTH_LONG).show();
     }
 
-    finish();
   }
 
   // TODO: add support for the following urls:
