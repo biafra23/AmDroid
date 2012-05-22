@@ -89,59 +89,6 @@ public class AmenListActivity extends SherlockListActivity {
     super.onCreate(savedInstanceState);
     Log.v(TAG, "onCreate");
 
-/*
- 4102       AmenListActivity  D  id: 137120
-  4102       AmenListActivity  D  created_at: 1326619879000
-  4102       AmenListActivity  D  user_id: 22653
-  4102       AmenListActivity  D  first_posted_at: null
-  4102       AmenListActivity  D  topic_id: 67242
-  4102       AmenListActivity  D  description: Radio Show
-  4102       AmenListActivity  D  scope: for Sunday Mornings
-  4102       AmenListActivity  D  name: Sunny Side Up on FM4
-
- */
-//    AmenDBAdapter dbAdapter = new AmenDBAdapter(this);
-//    amenDao = AmenoidApp.getInstance().getAmenDao();
-//    Log.i(TAG, "amenDao: " + amenDao);
-//
-//
-//    Cursor c = amenDao.currentAmen();
-//
-//    if (c != null) {
-//      if (c.getCount() > 0) {
-//        c.moveToFirst();
-//        while (!c.isAfterLast()) {
-//          final int idIndex = c.getColumnIndex(AmenDBHelper.KEY_ID);
-//          if (idIndex >= 0) {
-//
-//          }
-//          final int createdAtIndex = c.getColumnIndex(AmenDBHelper.KEY_CREATED_AT);
-//
-//          Log.d(TAG, c.getString(idIndex) + ": "
-//                     + c.getLong(createdAtIndex) + " "
-//                     + c.getString(c.getColumnIndex(AmenDBHelper.KEY_USER_NAME)) + " "
-//                     + c.getLong(c.getColumnIndex(AmenDBHelper.KEY_BEST)) + " "
-//                     + c.getLong(c.getColumnIndex(AmenDBHelper.KEY_TOTAL_AMEN_COUNT)) + " "
-//                     + c.getString(c.getColumnIndex("objekt_name")) + " is "
-//                     + c.getString(c.getColumnIndex(AmenDBHelper.KEY_DESCRIPTION)) + " "
-//                     + c.getString(c.getColumnIndex(AmenDBHelper.KEY_SCOPE)) + " "
-//
-//               );
-//
-//
-//          c.moveToNext();
-//        }
-//
-//      } else {
-//        Log.i(TAG, "--------------------- NOTHING FOUND ----------------------------");
-//        Log.i(TAG, "Cursor.getCount(): " + c.getCount());
-//      }
-//    } else {
-//      Log.i(TAG, "Cursor: " + c);
-//
-//    }
-
-
     setContentView(R.layout.main);
 
     prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -192,36 +139,8 @@ public class AmenListActivity extends SherlockListActivity {
 //    }
   }
 
-//  private AlertDialog createEnterCredentialsDialog() {
-//    return new AlertDialog.Builder(this)
-//      .setMessage("Please enter your Amen credentials and sign in!")
-//      .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//
-//        public void onClick(DialogInterface dialogInterface, int i) {
-//          startActivityForResult(new Intent(AmenListActivity.this, SettingsActivity.class), REQUEST_CODE_PREFERENCES);
-//        }
-//      }).create();
-//  }
-
-//  private void redirectOnMissingCredentials(String username, String password) {
-//    if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
-//
-//      enterCredentialsDialog = new AlertDialog.Builder(this)
-//        .setMessage("Please enter your Amen credentials in the preferences.")
-//        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//
-//          public void onClick(DialogInterface dialogInterface, int i) {
-//            startActivityForResult(new Intent(AmenListActivity.this, SettingsActivity.class), REQUEST_CODE_PREFERENCES);
-//          }
-//        }).create();
-//      enterCredentialsDialog.show();
-//    }
-//  }
-
-
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
-
 
     if (requestCode == REQUEST_CODE_AMEN_DETAILS) {
       // receive the new currentObjekt
@@ -426,10 +345,7 @@ public class AmenListActivity extends SherlockListActivity {
   @Override
   public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
     super.onCreateContextMenu(menu, v, menuInfo);
-//    Log.d(TAG, "onCreateContextMenu");
-//
-//    MenuInflater inflater = getSupportMenuInflater();
-//    inflater.inflate(R.menu.amen_item_menu, menu);
+
   }
 
   @Override
@@ -730,66 +646,6 @@ public class AmenListActivity extends SherlockListActivity {
     }
   }
 
-//  //
-//  // LoginAsyncTask
-//  //
-//
-//  private class LoginAsyncTask extends AmenLibTask<Void, Integer, AmenService> {
-//
-//    private ProgressDialog loginProgressDialog;
-//
-//    public LoginAsyncTask(Context context) {
-//      super(context);
-//    }
-//
-//    @Override
-//    protected void onPreExecute() {
-//      if (AmenoidApp.DEVELOPER_MODE) {
-//        Toast.makeText(AmenListActivity.this, "LoginAsyncTask.onPreExecute", Toast.LENGTH_SHORT).show();
-//      }
-//      loginProgressDialog = ProgressDialog.show(AmenListActivity.this, "",
-//                                                "Logging in. Please wait...", true);
-//      loginProgressDialog.show();
-//    }
-//
-//    @Override
-//    protected AmenService wrappedDoInBackground(Void... voids) {
-//
-//
-//      String username = prefs.getString(Constants.PREFS_USER_NAME, null);
-//      String password = prefs.getString(Constants.PREFS_PASSWORD, null);
-//
-//      final AmenService amenService = AmenoidApp.getInstance().getService(username, password);
-//      saveAuthTokenToPrefs(amenService.getAuthToken());
-//      saveMeToPrefs(amenService.getMe());
-//      return amenService;
-//    }
-//
-//    @Override
-//    protected void wrappedOnPostExecute(AmenService service) {
-//
-//      Log.d(TAG, "wrappedOnPostExecute()");
-//
-//      if (service != null) {
-//
-//        AmenListActivity.this.service = service;
-//
-//        refresh();
-//      }
-//      if (loginProgressDialog != null) {
-//        loginProgressDialog.hide();
-//      }
-//    }
-//
-//    @Override
-//    protected void onCancelled() {
-//      Log.d(TAG, "cancelled");
-//      if (loginProgressDialog != null) {
-//        loginProgressDialog.hide();
-//      }
-//    }
-//  }
-
   //
   // GetDataTask
   //
@@ -817,15 +673,10 @@ public class AmenListActivity extends SherlockListActivity {
       List<Amen> filteredAmens;
       List<Amen> newAmens = new ArrayList<Amen>();
 
-//      do {
       List<Amen> amens = service.getFeed(0, pageSize, feedType);
 
       filteredAmens = filterNewAmens(oldAmens, amens);
       newAmens.addAll(filteredAmens);
-
-//      } while (filteredAmens.size() == pageSize);
-
-      // amenDao.insertOrUpdate(newAmens);
       saveAmensToPrefs(newAmens, Constants.PREFS_LAST_NEW_AMENS + ":" + feedType);
       return newAmens;
     }
@@ -877,9 +728,6 @@ public class AmenListActivity extends SherlockListActivity {
   private void saveAmensToPrefs(List<Amen> amens, String prefsKey) {
     SharedPreferences.Editor editor = prefs.edit();
 
-//    if (amens.size() < maxSave || maxSave == 0) {
-//      maxSave = amens.size();
-//    }
     String newAmensJSON = gson.toJson(amens);
     Log.v(TAG, "prefsKey: " + prefsKey + ": " + newAmensJSON);
     editor.putString(prefsKey, newAmensJSON);
@@ -921,16 +769,9 @@ public class AmenListActivity extends SherlockListActivity {
 
     @Override
     protected Amen wrappedDoInBackground(Long... statementIds) throws IOException {
-      //1. find statement in adapter
-
-      //2. reload statement froms server
-
-      //3. update statement in Adapter
 
       Amen result = null;
       for (Long statementId : statementIds) {
-
-
         for (int i = 0; i < amenListAdapter.getCount(); i++) {
 
           Amen amen = amenListAdapter.getItem(i);
@@ -951,7 +792,7 @@ public class AmenListActivity extends SherlockListActivity {
         }
 
       }
-      return result;  //To change body of implemented methods use File | Settings | File Templates.
+      return result;
     }
 
     @Override
@@ -967,48 +808,6 @@ public class AmenListActivity extends SherlockListActivity {
 //    setContentView(R.layout.myLayout);
   }
 
-
-//  public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-//
-////    Log.d(TAG, "Preferences changed!: " + s);
-//
-////    Toast.makeText(this, "Preferences change detected", Toast.LENGTH_SHORT).show();
-//
-//    if (s.equals(Constants.PREFS_USER_NAME) || s.equals(Constants.PREFS_PASSWORD)) {
-//      Toast.makeText(this, "Removing auth_token", Toast.LENGTH_SHORT).show();
-//
-//      resetAccount = true;
-//
-//
-//    }
-//  }
-
-//  private void cleanPrefs(SharedPreferences prefs) {
-//
-//    SharedPreferences.Editor editor = prefs.edit();
-//    editor.remove(Constants.PREFS_AUTH_TOKEN)
-//          .remove(Constants.PREFS_LAST_AMENS + ":" + AmenService.FEED_TYPE_FOLLOWING)
-//          .remove(Constants.PREFS_LAST_AMENS + ":" + AmenService.FEED_TYPE_INTERESTING)
-//          .remove(Constants.PREFS_LAST_NEW_AMENS + ":" + AmenService.FEED_TYPE_FOLLOWING)
-//          .remove(Constants.PREFS_LAST_NEW_AMENS + ":" + AmenService.FEED_TYPE_INTERESTING);
-//    Toast.makeText(this, "onSharedPreferenceChanged.commit()", Toast.LENGTH_SHORT).show();
-//    editor.commit();
-//
-//    String authKey = prefs.getString(Constants.PREFS_AUTH_TOKEN, null);
-//    if (authKey != null) {
-//      Toast.makeText(this, "authKey should be null", Toast.LENGTH_SHORT).show();
-////      } else {
-////        Toast.makeText(this, "authKey == " + authKey, Toast.LENGTH_SHORT).show();
-//    }
-//
-//    if (!TextUtils.isEmpty(prefs.getString(Constants.PREFS_PASSWORD, null))) {
-//      if (loginTask != null) {
-//        loginTask.cancel(true);
-//      }
-//      loginTask = new LoginAsyncTask(this);
-//      loginTask.execute();
-//    }
-//  }
 
   public boolean isShouldRefresh() {
     return shouldRefresh;
