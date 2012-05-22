@@ -48,18 +48,6 @@ public class EditPreferencesActivity extends PreferenceActivity {
 
     switch (item.getItemId()) {
 
-//            case MENU_MAP:
-//                Toast.makeText(this, "MENU_MAP", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(this, Map.class));
-//
-//                return true;
-
-//            case MENU_SAVE:
-//                Toast.makeText(this, "MENU_SAVE", Toast.LENGTH_SHORT).show();
-//
-//                startActivity(new Intent(this, Map.class));
-//                return true;
-
     }
 
     return false;
@@ -72,18 +60,4 @@ public class EditPreferencesActivity extends PreferenceActivity {
 
   }
 
-//  @Override
-//  protected void onStop() {
-//    super.onStop();
-//
-//    Log.d(TAG, "onStop");
-//
-//    if (AmenoidApp.getInstance().getService().getMe() == null) {
-//      Intent restart = new Intent(this, AmenListActivity.class);
-//
-//      startActivity(restart);
-//    }
-//
-//
-//  }
 }

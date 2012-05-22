@@ -131,13 +131,7 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
         startActivity(intent);
         return true;
       }
-      //      case R.id.recent_menu: {
-      //        Intent intent = new Intent(this, AmenListActivity.class);
-      //        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_RECENT);
-      //        startActivity(intent);
-      //
-      //        return true;
-      //      }
+
       case R.id.popular_menu: {
         Intent intent = new Intent(this, AmenListFragmentActivity.class);
         intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_POPULAR);

@@ -228,10 +228,6 @@ public class ScoreBoardActivity extends SherlockListActivity {
         return true;
       }
 
-//      case R.id.timeline:
-//        startActivity(new Intent(this, AmenListActivity.class));
-//        return true;
-
       case R.id.share_scoreboard:
 
         String amenText = currentTopic.getAsSentence();

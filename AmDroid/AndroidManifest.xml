@@ -31,17 +31,6 @@
             </intent-filter>
 
         </activity>
-
-        <activity android:name=".AmenListActivity"
-                  android:configChanges="orientation"
-                >
-            <!--<activity android:name=".AmenListActivity"-->
-            <!--android:configChanges="orientation"-->
-            <!--android:theme="@android:style/Theme.Light"-->
-            <!-->-->
-
-
-        </activity>
         <!--<activity android:screenOrientation="portrait" android:name=".WebActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".EditPreferencesActivity"/>-->
         <!--<activity android:screenOrientation="portrait" android:name=".AmenDetailActivity"/>-->

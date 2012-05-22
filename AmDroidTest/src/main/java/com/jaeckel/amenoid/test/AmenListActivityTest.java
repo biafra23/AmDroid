@@ -10,24 +10,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.jaeckel.amenoid.AboutActivity;
 import com.jaeckel.amenoid.AmenDetailActivity;
-import com.jaeckel.amenoid.AmenListActivity;
+import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jayway.android.robotium.solo.Solo;
 
 import java.util.List;
 
-public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenListActivity> {
+public class AmenListFragmentActivityTest extends ActivityInstrumentationTestCase2<AmenListFragmentActivity> {
 
   Solo solo;
   private static final String TAG = "AmenListActivityTest";
 
-  public AmenListActivityTest() {
-    super("com.jaeckel.amenoid", AmenListActivity.class);
+  public AmenListFragmentActivityTest() {
+    super("com.jaeckel.amenoid", AmenListFragmentActivity.class);
   }
 
   public void testActivity() {
     Toast.makeText(getActivity(), "testActivity", Toast.LENGTH_SHORT).show();
-    AmenListActivity activity = getActivity();
+    AmenListFragmentActivity activity = getActivity();
     assertNotNull(activity);
   }
 
@@ -77,12 +77,12 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 
     solo.clickOnMenuItem("Popular");
 
-    Log.d(TAG, "Waiting for Activity: " + AmenListActivity.class.getName());
-    solo.waitForActivity(AmenListActivity.class.getName(), 10);
+    Log.d(TAG, "Waiting for Activity: " + AmenListFragmentActivity.class.getName());
+    solo.waitForActivity(AmenListFragmentActivity.class.getName(), 10);
 
     Activity a = solo.getCurrentActivity();
     Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListActivity");
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListFragmentActivity");
 
     CharSequence title = a.getTitle();
 
@@ -110,7 +110,7 @@ public class AmenListActivityTest extends ActivityInstrumentationTestCase2<AmenL
 
     Activity a = solo.getCurrentActivity();
     Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListActivity");
+    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListFragmentActivity");
 
     CharSequence title = a.getTitle();
 

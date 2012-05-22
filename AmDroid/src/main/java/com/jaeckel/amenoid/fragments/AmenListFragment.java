@@ -49,7 +49,7 @@ import android.widget.Toast;
 public class AmenListFragment extends ListFragment {
 
 
-  private static       String TAG                       = "AmenListFragment";
+  private static       String TAG                       = AmenListFragment.class.getSimpleName();
   final private static int    PROGRESS_DIALOG_ID        = 0;
   public static final  int    REQUEST_CODE_PREFERENCES  = 1001;
   public static final  int    REQUEST_CODE_AMEN_DETAILS = 1002;
