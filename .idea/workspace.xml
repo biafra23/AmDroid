@@ -1393,9 +1393,11 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="13" selection-start="9189" selection-end="9189" vertical-scroll-proportion="0.36190477">
+            <state line="217" column="0" selection-start="6733" selection-end="6910" vertical-scroll-proportion="-0.023809524">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4982#5206#0" expanded="true" />
+                <element signature="e#5199#5200#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4127,9 +4129,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="13" selection-start="9189" selection-end="9189" vertical-scroll-proportion="0.36190477">
+        <state line="217" column="0" selection-start="6733" selection-end="6910" vertical-scroll-proportion="-0.023809524">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4982#5206#0" expanded="true" />
+            <element signature="e#5199#5200#0" expanded="true" />
           </folding>
         </state>
       </provider>
