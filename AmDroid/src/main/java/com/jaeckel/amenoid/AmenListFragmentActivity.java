@@ -14,7 +14,7 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-setContentView(R.layout.);
+    setContentView(R.layout.activity_fragment_amen_list);
   }
 
 }
