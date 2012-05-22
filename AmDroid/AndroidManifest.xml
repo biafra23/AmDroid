@@ -47,7 +47,8 @@
         <activity android:name=".EditPreferencesActivity"
                   android:configChanges="orientation"/>
         <activity android:name=".AmenDetailActivity"
-                  android:configChanges="orientation"/>
+                  android:configChanges="orientation"
+                  />
         <activity android:name=".DisputeActivity"
                   android:configChanges="orientation"/>
         <activity android:name=".statement.MakeStatementActivity"
