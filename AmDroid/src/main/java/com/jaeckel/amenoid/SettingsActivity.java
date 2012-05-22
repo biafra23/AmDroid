@@ -311,7 +311,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
   public void resetPassword(View v) {
     Log.d(TAG, "resetPassword");
 
-    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://getamen.com/reset-password"));
+    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://getamen.com/forgot-password"));
     startActivity(browserIntent);
   }
 }
