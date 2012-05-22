@@ -13,6 +13,9 @@
         <module>AmDroid</module>
         <module>AmDroidTest</module>
     </modules>
+    <scm>
+    <developerConnection>scm:git:git@github.com:biafra23/AmDroid.git</developerConnection>
+    </scm>
     <properties>
         <actionbarsherlock.version>4.1.0</actionbarsherlock.version>
         <compatibility-v4.version>r8</compatibility-v4.version>

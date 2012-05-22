@@ -18,6 +18,7 @@
         <project.property.version.code>106</project.property.version.code>
         <project.property.application.debuggable>true</project.property.application.debuggable>
         <property.finalName>${artifactId}-${project.property.version.name}</property.finalName>
+        <property.buildnumber>${buildNumber}</property.buildnumber>
     </properties>
     <dependencies>
         <dependency>
@@ -116,6 +117,24 @@
                     <!--<sign>-->
                     <!--<debug>false</debug>-->
                     <!--</sign>-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>true</doCheck>
+                    <doUpdate>true</doUpdate>
+                    <shortRevisionLength>5</shortRevisionLength>
                 </configuration>
             </plugin>
         </plugins>
