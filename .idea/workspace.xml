@@ -573,14 +573,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config files">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_actionbarsherlock_library_apklib_4_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_wazabe_holoeverywhere_library_apklib_1_0_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" afterPath="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/about.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/about.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1345,7 +1348,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="55" selection-start="6040" selection-end="6040" vertical-scroll-proportion="0.7">
+            <state line="195" column="36" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.6571429">
               <folding />
             </state>
           </provider>
@@ -1363,7 +1366,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/filteredRes/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="27" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
+            <state line="4" column="65" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1399,7 +1402,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="53" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+            <state line="1" column="11" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1443,9 +1446,9 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/android/support/v4/app/_ActionBarSherlockTrojanHorse.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/about.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
       </list>
     </option>
@@ -3910,7 +3913,11 @@
       <created>1337708334016</created>
       <updated>1337708334016</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="make timestamp available">
+      <created>1337710609689</created>
+      <updated>1337710609689</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4008,7 +4015,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="config files" />
+    <option name="LAST_COMMIT_MESSAGE" value="make timestamp available" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4023,7 +4030,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="debug profile should poduce debuggable application" />
     <MESSAGE value="load object photos in search result" />
     <MESSAGE value="after reimport" />
     <MESSAGE value="make comment creation asynchron and off the main thread" />
@@ -4048,6 +4054,7 @@
     <MESSAGE value="don't finish early" />
     <MESSAGE value="fragmentizing" />
     <MESSAGE value="config files" />
+    <MESSAGE value="make timestamp available" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4156,23 +4163,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/filteredRes/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="53" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+        <state line="4" column="65" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/filteredRes/config.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="27" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0">
+        <state line="1" column="11" selection-start="50" selection-end="50" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="55" selection-start="6040" selection-end="6040" vertical-scroll-proportion="0.7">
+        <state line="195" column="36" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.6571429">
           <folding />
         </state>
       </provider>
