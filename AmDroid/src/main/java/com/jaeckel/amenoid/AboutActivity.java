@@ -1,5 +1,7 @@
 package com.jaeckel.amenoid;
 
+import java.text.SimpleDateFormat;
+
 import com.actionbarsherlock.app.SherlockActivity;
 
 import android.content.pm.PackageInfo;
@@ -19,6 +21,7 @@ public class AboutActivity extends SherlockActivity {
     setContentView(R.layout.about);
 
     TextView versionTextView = (TextView) findViewById(R.id.version);
+    TextView buildTimeTextView = (TextView) findViewById(R.id.build_time);
     TextView authorTextView = (TextView) findViewById(R.id.author);
 
     setTitle("About Amenoid");
@@ -40,7 +43,9 @@ public class AboutActivity extends SherlockActivity {
 
     versionTextView.setText("Version: " + versionName + " (" + versionCode + ")");
     authorTextView.setText("Author: Dirk Jaeckel <amenoid@dirk.jaeckel.name>\n");
+    final String timestampString = getResources().getString(R.string.buildtimestamp);
 
+    buildTimeTextView.setText("Built: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Long.valueOf(timestampString)));
 
   }
 }

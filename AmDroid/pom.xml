@@ -19,6 +19,7 @@
         <project.property.application.debuggable>true</project.property.application.debuggable>
         <property.finalName>${artifactId}-${project.property.version.name}</property.finalName>
         <property.buildnumber>${buildNumber}</property.buildnumber>
+        <property.build.timestamp>${timestamp}</property.build.timestamp>
     </properties>
     <dependencies>
         <dependency>
@@ -128,12 +129,11 @@
                         <phase>validate</phase>
                         <goals>
                             <goal>create</goal>
+                            <goal>create-timestamp</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <doCheck>true</doCheck>
-                    <doUpdate>true</doUpdate>
                     <shortRevisionLength>5</shortRevisionLength>
                 </configuration>
             </plugin>
@@ -170,7 +170,26 @@
             <build>
 
                 <plugins>
-
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>buildnumber-maven-plugin</artifactId>
+                        <version>1.1</version>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>create</goal>
+                                    <goal>create-timestamp</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <doCheck>true</doCheck>
+                            <doUpdate>true</doUpdate>
+                           
+                            <shortRevisionLength>5</shortRevisionLength>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <artifactId>maven-jarsigner-plugin</artifactId>
                         <executions>

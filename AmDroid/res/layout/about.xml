@@ -21,4 +21,13 @@
               android:autoLink="all"
 
             />
+
+    <TextView android:id="@+id/build_time"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="16dp"
+              android:text="Built: "
+              android:autoLink="none"
+
+            />
 </LinearLayout>
