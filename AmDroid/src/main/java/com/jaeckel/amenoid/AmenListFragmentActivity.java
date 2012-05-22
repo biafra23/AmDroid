@@ -1,20 +1,174 @@
 package com.jaeckel.amenoid;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.fragments.AmenListFragment;
+import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amenoid.util.Log;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.widget.Toast;
 
 /**
  * @author biafra
  * @date 5/22/12 7:08 PM
  */
 public class AmenListFragmentActivity extends SherlockFragmentActivity {
+  private static String TAG      = AmenListFragmentActivity.class.getSimpleName();
+  private        int    feedType = AmenService.FEED_TYPE_FOLLOWING;
+
+  private AmenListFragment amenListFragment;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    Log.d(TAG, "onCreate");
 
     setContentView(R.layout.activity_fragment_amen_list);
+
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    amenListFragment = (AmenListFragment) fragmentManager.findFragmentById(R.id.activity_fragment_amen_list);
+
+    // default feedType is following
+    feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+
+    if (!AmenoidApp.getInstance().isSignedIn() && feedType == AmenService.FEED_TYPE_FOLLOWING) {
+
+      // if not signed in default to popular. new is gone
+      feedType = AmenService.FEED_TYPE_POPULAR;
+    }
+    String title = "";
+    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
+      title = "Following";
+    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
+      title = "New";
+    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
+      title = "Popular";
+    }
+
+    ActionBar bar = getSupportActionBar();
+    bar.setSubtitle(title);
+    bar.setTitle("Timeline");
+
+
   }
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+    Log.d(TAG, "onCreateOptionsMenu");
+
+    MenuInflater inflater = this.getSupportMenuInflater();
+    inflater.inflate(R.menu.menu_main, menu);
+
+    return true;
+  }
+
+  public boolean onPrepareOptionsMenu(Menu menu) {
+    Log.d(TAG, "onPrepareOptionsMenu");
+    MenuItem following = menu.findItem(R.id.following_menu);
+    MenuItem popular = menu.findItem(R.id.popular_menu);
+    MenuItem amenSth = menu.findItem(R.id.amen);
+    MenuItem signInOut = menu.findItem(R.id.signin);
+    //    MenuItem search = menu.findItem(R.id.search_menu_item);
+
+    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
+      //      recent.setVisible(true);
+      following.setVisible(false);
+      popular.setVisible(true);
+
+    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
+      //      recent.setVisible(false);
+      following.setVisible(true);
+      popular.setVisible(true);
+
+    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
+      //      recent.setVisible(true);
+      following.setVisible(true);
+      popular.setVisible(false);
+
+    }
+    if (!AmenoidApp.getInstance().isSignedIn()) {
+
+      amenSth.setEnabled(false);
+      following.setEnabled(false);
+      //      search.setEnabled(false);
+      signInOut.setTitle("Sign in");
+
+    } else {
+      amenSth.setEnabled(true);
+      following.setEnabled(true);
+      //      search.setEnabled(true);
+      signInOut.setTitle("Sign out");
+    }
+
+    return true;
+  }
+
+  public boolean onOptionsItemSelected(MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    switch (item.getItemId()) {
+
+      case R.id.signin: {
+        startActivity(new Intent(this, SettingsActivity.class));
+
+        return true;
+      }
+      case R.id.refresh: {
+        amenListFragment.refresh();
+        return true;
+      }
+      case R.id.following_menu: {
+        Intent intent = new Intent(this, AmenListFragmentActivity.class);
+        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+        startActivity(intent);
+        return true;
+      }
+      //      case R.id.recent_menu: {
+      //        Intent intent = new Intent(this, AmenListActivity.class);
+      //        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_RECENT);
+      //        startActivity(intent);
+      //
+      //        return true;
+      //      }
+      case R.id.popular_menu: {
+        Intent intent = new Intent(this, AmenListFragmentActivity.class);
+        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_POPULAR);
+        startActivity(intent);
+
+        return true;
+      }
+      case R.id.amen: {
+        //        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
+        startActivity(intent);
+        return true;
+      }
+      case R.id.about_menu_item: {
+        if (AmenoidApp.DEVELOPER_MODE) {
+          Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+        }
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+        return true;
+      }
+      case R.id.search_menu_item: {
+        Log.d(TAG, "R.id.search");
+
+        onSearchRequested();
+        return true;
+      }
+    }
+
+    return false;
+  }
+
 
 }

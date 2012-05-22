@@ -24,6 +24,13 @@
             >
         <meta-data android:name="android.app.default_searchable"
                    android:value=".SearchActivity"/>
+        <activity android:name=".AmenListFragmentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
 
         <activity android:name=".AmenListActivity"
                   android:configChanges="orientation"
@@ -32,10 +39,6 @@
             <!--android:configChanges="orientation"-->
             <!--android:theme="@android:style/Theme.Light"-->
             <!-->-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
 
 
         </activity>
@@ -48,7 +51,7 @@
                   android:configChanges="orientation"/>
         <activity android:name=".AmenDetailActivity"
                   android:configChanges="orientation"
-                  />
+                />
         <activity android:name=".DisputeActivity"
                   android:configChanges="orientation"/>
         <activity android:name=".statement.MakeStatementActivity"
@@ -101,11 +104,10 @@
         <activity android:name=".FragmentDemo"
                   android:configChanges="orientation">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--<action android:name="android.intent.action.MAIN"/>-->
+            <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".AmenListFragmentActivity"/>
 
         <service android:name=".AmenAndroidService"
                 />

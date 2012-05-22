@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -16,10 +14,7 @@ import com.jaeckel.amenoid.AmenDetailActivity;
 import com.jaeckel.amenoid.AmenListActivity;
 import com.jaeckel.amenoid.AmenListAdapter;
 import com.jaeckel.amenoid.Constants;
-import com.jaeckel.amenoid.DisputeActivity;
 import com.jaeckel.amenoid.R;
-import com.jaeckel.amenoid.ScoreBoardActivity;
-import com.jaeckel.amenoid.SubjectPageActivity;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.DateSerializer;
@@ -41,11 +36,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -138,25 +131,20 @@ public class AmenListFragment extends ListFragment {
 
     refreshWithCache();
 
+//    registerForContextMenu(getListView());
 
-//    String title = "";
-//    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
-//      title = "Following";
-//    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
-//      title = "New";
-//    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
-//      title = "Popular";
-//    }
-//    setTitle("Timeline: " + title);
 
-//    ActionBar bar = getActivity()..getSupportActionBar();
-//    bar.setSubtitle(title);
-//    bar.setTitle("Timeline");
+  }
 
-    registerForContextMenu(getListView());
+  @Override
+  public void onActivityCreated(Bundle savedInstanceState) {
 
-//    if (feedType != AmenService.FEED_TYPE_POPULAR) {
-    ((PullToRefreshListView) getListView()).setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+    super.onActivityCreated(savedInstanceState);
+
+    final PullToRefreshListView listView = (PullToRefreshListView) getListView();
+
+
+    listView.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
 
       public void onRefresh() {
         Log.v(TAG, "onRefresh()");
@@ -164,7 +152,6 @@ public class AmenListFragment extends ListFragment {
         new GetDataTask(getActivity()).execute();
       }
     });
-//    }
   }
 
   @Override
@@ -194,22 +181,13 @@ public class AmenListFragment extends ListFragment {
   public void onResume() {
     super.onResume();
 
-    if (AmenoidApp.getInstance().isSignedIn()) {
-      // signed in
-
-    } else {
-      //not signed in
-
-    }
-
-
     if (shouldRefresh) {
       refresh();
       shouldRefresh = false;
     }
   }
 
-  private void refresh() {
+  public void refresh() {
 
     service = AmenoidApp.getInstance().getService();
 
@@ -222,7 +200,7 @@ public class AmenListFragment extends ListFragment {
 
   }
 
-  private void refreshWithCache() {
+  public void refreshWithCache() {
 
     service = AmenoidApp.getInstance().getService();
     if (service != null) {
@@ -241,189 +219,12 @@ public class AmenListFragment extends ListFragment {
     super.onPause();
   }
 
-  public boolean onPrepareOptionsMenu(Menu menu) {
-    Log.d(TAG, "onPrepareOptionsMenu");
-    MenuItem following = menu.findItem(R.id.following_menu);
-//    MenuItem recent = menu.findItem(R.id.recent_menu);
-    MenuItem popular = menu.findItem(R.id.popular_menu);
-    MenuItem amenSth = menu.findItem(R.id.amen);
-    MenuItem signInOut = menu.findItem(R.id.signin);
-//    MenuItem search = menu.findItem(R.id.search_menu_item);
-
-    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
-//      recent.setVisible(true);
-      following.setVisible(false);
-      popular.setVisible(true);
-
-    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
-//      recent.setVisible(false);
-      following.setVisible(true);
-      popular.setVisible(true);
-
-    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
-//      recent.setVisible(true);
-      following.setVisible(true);
-      popular.setVisible(false);
-
-    }
-    if (!AmenoidApp.getInstance().isSignedIn()) {
-
-      amenSth.setEnabled(false);
-      following.setEnabled(false);
-//      search.setEnabled(false);
-      signInOut.setTitle("Sign in");
-
-    } else {
-      amenSth.setEnabled(true);
-      following.setEnabled(true);
-//      search.setEnabled(true);
-      signInOut.setTitle("Sign out");
-    }
-
-    return true;
-  }
-
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//    super.onCreateOptionsMenu(menu);
-//    Log.d(TAG, "onCreateOptionsMenu");
+//  @Override
+//  public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+//    super.onCreateContextMenu(menu, v, menuInfo);
 //
-//    MenuInflater inflater = getActivity().getSupportMenuInflater();
-//    inflater.inflate(R.menu.menu_main, menu);
-//
-//
-//    return true;
 //  }
 
-//  public boolean onOptionsItemSelected(MenuItem item) {
-//    super.onOptionsItemSelected(item);
-//
-//    switch (item.getItemId()) {
-//
-//      case R.id.signin:
-//        startActivity(new Intent(this, SettingsActivity.class));
-//
-//        return true;
-//
-//      case R.id.refresh:
-//        refresh();
-//
-//        return true;
-//      case R.id.following_menu: {
-//        Intent intent = new Intent(this, AmenListActivity.class);
-//        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
-//        startActivity(intent);
-//        return true;
-//      }
-////      case R.id.recent_menu: {
-////        Intent intent = new Intent(this, AmenListActivity.class);
-////        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_RECENT);
-////        startActivity(intent);
-////
-////        return true;
-////      }
-//      case R.id.popular_menu: {
-//        Intent intent = new Intent(this, AmenListActivity.class);
-//        intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_POPULAR);
-//        startActivity(intent);
-//
-//        return true;
-//      }
-//      case R.id.amen: {
-////        Toast.makeText(this, "Refreshing Amens", Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(this, ChooseStatementTypeActivity.class);
-//        startActivity(intent);
-//        return true;
-//      }
-//      case R.id.about_menu_item: {
-//        if (AmenoidApp.DEVELOPER_MODE) {
-//          Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
-//        }
-//        Intent intent = new Intent(this, AboutActivity.class);
-//        startActivity(intent);
-//        return true;
-//      }
-//      case R.id.search_menu_item: {
-//        Log.d(TAG, "R.id.search");
-//
-//        onSearchRequested();
-//        return true;
-//      }
-//    }
-//
-//    return false;
-//  }
-
-
-  @Override
-  public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-    super.onCreateContextMenu(menu, v, menuInfo);
-
-  }
-
-  @Override
-  public boolean onContextItemSelected(android.view.MenuItem item) {
-    AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-
-    Amen amen = (Amen) this.getListAdapter().getItem(info.position - 1);
-    switch (item.getItemId()) {
-      case R.id.open_item: {
-        Log.d(TAG, "R.id.open_item");
-        Intent intent = new Intent(getActivity(), AmenDetailActivity.class);
-        intent.putExtra(Constants.EXTRA_AMEN, amen);
-        startActivity(intent);
-        return true;
-      }
-//      case R.id.amen_item: {
-//        Log.d(TAG, "R.id.amen_item");
-//        service.amen(amen.getId());
-//        Toast.makeText(this, "Amen'd " + amen.getStatement().getObjekt().getName(), Toast.LENGTH_SHORT).show();
-//        return true;
-//      }
-      case R.id.dispute_item: {
-        Log.d(TAG, "R.id.dispute_item");
-        Intent intent = new Intent(getActivity(), DisputeActivity.class);
-        intent.putExtra(Constants.EXTRA_AMEN, amen);
-        startActivity(intent);
-        return true;
-      }
-      case R.id.share_item: {
-        Log.d(TAG, "R.id.share_item");
-        String amenText = amen.getStatement().toDisplayString();
-
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/statements/" + amen.getStatement().getId());
-        startActivity(Intent.createChooser(sharingIntent, "Share using"));
-
-
-        return true;
-      }
-      case R.id.scoreboard_for_item: {
-        Log.d(TAG, "R.id.scoreboard_for_item");
-
-        Intent intent = new Intent(getActivity(), ScoreBoardActivity.class);
-        intent.putExtra(Constants.EXTRA_TOPIC, amen.getStatement().getTopic());
-        startActivity(intent);
-
-        return true;
-      }
-
-      case R.id.subject_page: {
-        Log.d(TAG, "R.id.subject_page");
-
-        Intent intent = new Intent(getActivity(), SubjectPageActivity.class);
-        intent.putExtra(Constants.EXTRA_OBJEKT_ID, amen.getStatement().getObjekt().getId());
-        startActivity(intent);
-
-        return true;
-      }
-
-      default:
-        return super.onContextItemSelected(item);
-    }
-
-  }
 
   class EndlessWrapperAdapter extends EndlessAdapter {
 
@@ -828,14 +629,6 @@ public class AmenListFragment extends ListFragment {
   public static void setShouldRefresh(boolean shouldRefresh) {
     AmenListActivity.setShouldRefresh(shouldRefresh);
   }
-
-
-
-
-
-
-
-
 
 
 }

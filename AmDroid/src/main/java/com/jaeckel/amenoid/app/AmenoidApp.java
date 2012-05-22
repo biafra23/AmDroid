@@ -51,8 +51,7 @@ import ch.boye.httpclientandroidlib.impl.client.DefaultHttpClient;
  */
 public class AmenoidApp extends Application {
 
-  //TODO: set to false before release
-  public final static boolean DEVELOPER_MODE = false;
+  public static boolean DEVELOPER_MODE = false;
 
   public static final String TAG                           = "AmenoidApp";
   protected static    String SINGLE_LOCATION_UPDATE_ACTION = "com.jaeckel.amen.SINGLE_LOCATION_UPDATE_ACTION";
@@ -107,6 +106,8 @@ public class AmenoidApp extends Application {
 
     this.cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
     Config.init(getApplicationContext());
+
+    DEVELOPER_MODE = getResources().getBoolean(R.bool.debuggable);
 
     if (getResources().getBoolean(R.bool.debuggable)) {
       StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
