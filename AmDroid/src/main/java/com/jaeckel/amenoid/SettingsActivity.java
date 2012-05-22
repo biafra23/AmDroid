@@ -2,6 +2,7 @@ package com.jaeckel.amenoid;
 
 import java.util.Date;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.FieldNamingPolicy;
@@ -12,23 +13,24 @@ import com.jaeckel.amenoid.api.InvalidCredentialsException;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.Log;
 
-import com.actionbarsherlock.app.ActionBar;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
-import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -45,6 +47,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
   private Button            signUpButton;
   private AmenService       service;
   private LoginAsyncTask    loginAsyncTask;
+  private TextView          passwordReset;
 
   private final static String TAG = SettingsActivity.class.getSimpleName();
 
@@ -299,5 +302,10 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     }
   }
 
+  public void resetPassword(View v) {
+    Log.d(TAG, "resetPassword");
 
+    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://getamen.com/reset-password"));
+    startActivity(browserIntent);
+  }
 }
