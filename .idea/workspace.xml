@@ -1372,10 +1372,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.2472119">
+            <state line="29" column="22" selection-start="945" selection-end="945" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1390,10 +1390,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="0" selection-start="6867" selection-end="7150" vertical-scroll-proportion="-10.576923">
+            <state line="305" column="13" selection-start="9189" selection-end="9189" vertical-scroll-proportion="0.36190477">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1449,9 +1449,9 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       </list>
     </option>
   </component>
@@ -4092,15 +4092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="0" selection-start="6867" selection-end="7150" vertical-scroll-proportion="-10.576923">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" />
@@ -4129,8 +4120,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.2472119">
+        <state line="29" column="22" selection-start="945" selection-end="945" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="305" column="13" selection-start="9189" selection-end="9189" vertical-scroll-proportion="0.36190477">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
