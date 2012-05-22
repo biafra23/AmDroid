@@ -574,9 +574,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config files">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" afterPath="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/about.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/about.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" />
@@ -1353,19 +1351,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/filteredRes/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="56" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
+            <state line="5" column="21" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0697026">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AboutActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AboutActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="83" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.47397768">
+            <state line="45" column="75" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1392,16 +1390,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="36" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FragmentActivity.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/android/support/compatibility-v4/r8/compatibility-v4-r8.jar!/android/support/v4/app/FragmentActivity.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="-2.4">
+            <state line="7" column="52" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1426,7 +1415,6 @@
       <list>
         <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/res/values/config.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/CHANGES" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListActivity.java" />
@@ -1438,8 +1426,9 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/settings.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/about.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/res/values/config.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
       </list>
     </option>
   </component>
@@ -4150,6 +4139,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/buildnumber-maven-plugin/1.1/buildnumber-maven-plugin-1.1.jar!/META-INF/maven/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="8" selection-start="10416" selection-end="10416" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/app/SherlockFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="65" selection-start="828" selection-end="828" vertical-scroll-proportion="0.0">
@@ -4166,27 +4169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="36" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/buildnumber-maven-plugin/1.1/buildnumber-maven-plugin-1.1.jar!/META-INF/maven/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="8" selection-start="10416" selection-end="10416" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="188" column="27" selection-start="7921" selection-end="7921" vertical-scroll-proportion="-31.73077">
@@ -4194,16 +4176,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/filteredRes/config.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="56" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
+        <state line="45" column="75" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="83" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.47397768">
+        <state line="7" column="52" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/filteredRes/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="21" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0697026">
           <folding />
         </state>
       </provider>
