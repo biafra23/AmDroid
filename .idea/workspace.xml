@@ -1365,7 +1365,7 @@
       <file leaf-file-name="AboutActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="42" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.47397768">
+            <state line="45" column="83" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.47397768">
               <folding />
             </state>
           </provider>
@@ -1392,7 +1392,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="36" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+            <state line="7" column="36" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -4168,7 +4168,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/values/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="36" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+        <state line="7" column="36" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -4203,7 +4203,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="42" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.47397768">
+        <state line="45" column="83" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.47397768">
           <folding />
         </state>
       </provider>
