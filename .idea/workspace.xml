@@ -570,7 +570,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="more fragment stuff">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
@@ -1399,11 +1398,11 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="4" selection-start="4983" selection-end="4983" vertical-scroll-proportion="0.5190476">
+            <state line="138" column="11" selection-start="4643" selection-end="4643" vertical-scroll-proportion="0.4904762">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5053#5301#0" expanded="true" />
-                <element signature="e#5290#5291#0" expanded="true" />
+                <element signature="e#4771#4995#0" expanded="true" />
+                <element signature="e#4988#4989#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4217,11 +4216,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="4" selection-start="4983" selection-end="4983" vertical-scroll-proportion="0.5190476">
+        <state line="138" column="11" selection-start="4643" selection-end="4643" vertical-scroll-proportion="0.4904762">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5053#5301#0" expanded="true" />
-            <element signature="e#5290#5291#0" expanded="true" />
+            <element signature="e#4771#4995#0" expanded="true" />
+            <element signature="e#4988#4989#0" expanded="true" />
           </folding>
         </state>
       </provider>
