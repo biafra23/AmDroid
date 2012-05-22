@@ -67,6 +67,12 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.settings);
+    passwordReset = (TextView) findViewById(R.id.forgot_password);
+    passwordReset.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View view) {
+        resetPassword(null);
+      }
+    });
     setTitle("Signing in");
     ActionBar actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
