@@ -48,5 +48,6 @@
                android:layout_height="wrap_content"
                android:text="Forgot Password?"
                android:onClick="resetPassword"
+               android:textSize="20dp"
              />
 </LinearLayout>
