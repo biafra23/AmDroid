@@ -2,9 +2,10 @@
 <resources>
 
     <string name="log">${project.property.logLevel}</string>
-    <string name="versionName">${project.property.version.name}-${buildNumber}</string>
+    <string name="versionName">${project.property.version.name}-r${buildNumber}</string>
     <integer name="versionCode">${project.property.version.code}</integer>
     <string name="buildnumber">${buildNumber}</string>
+    <string name="buildtimestamp">${timestamp}</string>
 
     <item name="debuggable" type="bool">${project.property.application.debuggable}</item>
 
