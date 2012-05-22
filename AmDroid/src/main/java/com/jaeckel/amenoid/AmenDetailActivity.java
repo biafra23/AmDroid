@@ -121,7 +121,7 @@ public class AmenDetailActivity extends SherlockListActivity {
 
     if (currentAmen == null) {
 
-      // when coming from scorecard or subjectcard. They contain only statements
+      // when coming from scorecard or subject card. They contain only statements
       currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
 
       // start downloading statement again to get the first_amen_id
