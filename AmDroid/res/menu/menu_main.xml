@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item android:id="@+id/signin"
           android:icon="@drawable/ic_menu_sign_in"
           android:title="Sign In"
           android:visible="true"
             />
-
     <item android:id="@+id/refresh"
           android:icon="@drawable/ic_action_refresh_dark"
           android:title="Refresh"
@@ -24,12 +22,6 @@
           android:visible="true"
           android:showAsAction="ifRoom|withText"/>
     />
-    <!--<item android:id="@+id/recent_menu"-->
-    <!--android:icon="@drawable/ic_menu_clock"-->
-    <!--android:title="New"-->
-    <!--android:visible="true"-->
-    <!--/>-->
-
     <item android:id="@+id/following_menu"
           android:icon="@drawable/ic_action_following_dark"
           android:title="Following"
@@ -44,7 +36,4 @@
           android:icon="@drawable/ic_action_about_dark"
           android:title="About"
             />
-    <!--<item android:id="@+id/preference"-->
-    <!--android:icon="@drawable/ic_menu_settings"-->
-    <!--android:title="Preferences"/>-->
 </menu>
