@@ -567,6 +567,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="228" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" line="124" />
+    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="124" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing AmenListActivity">
@@ -1245,10 +1246,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="303" column="0" selection-start="11010" selection-end="11010" vertical-scroll-proportion="-22.115385">
+            <state line="124" column="20" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.7190476">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1265,10 +1266,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="57" selection-start="3252" selection-end="3252" vertical-scroll-proportion="0.5576208">
+            <state line="85" column="53" selection-start="3248" selection-end="3248" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1286,7 +1287,7 @@
       <file leaf-file-name="activity_fragment_amen_list.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="11" selection-start="0" selection-end="350" vertical-scroll-proportion="0.0">
+            <state line="2" column="22" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1295,13 +1296,12 @@
       <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="44" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0">
+            <state line="35" column="0" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-20.192308">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#AmenListFragmentActivity#0" expanded="true" />
                 <element signature="method#onCreateOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
                 <element signature="method#onPrepareOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#AmenListFragmentActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1310,42 +1310,30 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="60" selection-start="3127" selection-end="3127" vertical-scroll-proportion="0.0">
+            <state line="137" column="0" selection-start="4606" selection-end="5078" vertical-scroll-proportion="-16.346153">
               <folding>
                 <element signature="e#3280#3282#0" expanded="false" />
-                <element signature="method#onCreate#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="method#onActivityCreated#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onActivityResult#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#refreshAmenWithStatementId#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onResume#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#refresh#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="method#refreshWithCache#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onPause#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="e#6597#6610#0" expanded="false" />
-                <element signature="class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#EndlessWrapperAdapter#0;class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#cacheInBackground#0;class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="method#appendCachedData#0;class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="e#7852#7854#0" expanded="false" />
-                <element signature="class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#EndlessLoaderAsyncTask#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#wrappedDoInBackground#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="method#wrappedOnPostExecute#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onCancelled#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="n#!!doc;n#CachedLoaderAsyncTask#0;n#AmenListFragment#0" expanded="false" />
-                <element signature="class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#CachedLoaderAsyncTask#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#wrappedDoInBackground#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="class#9712:9747" expanded="false" />
                 <element signature="method#onPreExecute#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="method#wrappedOnPostExecute#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onCancelled#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="n#!!doc;n#LoaderAsyncTask#0;n#AmenListFragment#0" expanded="false" />
-                <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#LoaderAsyncTask#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#wrappedDoInBackground#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onPreExecute#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-                <element signature="method#wrappedOnPostExecute#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="method#onCancelled#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="e#13250#13252#0" expanded="false" />
                 <element signature="class#GetDataTask#0;class#AmenListFragment#0" expanded="false" />
@@ -1428,8 +1416,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
       </list>
     </option>
   </component>
@@ -4094,37 +4082,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="0" selection-end="350" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="22" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -4136,66 +4096,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="0" selection-start="11010" selection-end="11010" vertical-scroll-proportion="-22.115385">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="2" column="22" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="53" selection-start="3248" selection-end="3248" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="22" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="44" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0">
+        <state line="35" column="0" selection-start="1159" selection-end="1159" vertical-scroll-proportion="-20.192308">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#AmenListFragmentActivity#0" expanded="true" />
             <element signature="method#onCreateOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
             <element signature="method#onPrepareOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#AmenListFragmentActivity#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="60" selection-start="3127" selection-end="3127" vertical-scroll-proportion="0.0">
+        <state line="137" column="0" selection-start="4606" selection-end="5078" vertical-scroll-proportion="-16.346153">
           <folding>
             <element signature="e#3280#3282#0" expanded="false" />
-            <element signature="method#onCreate#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="method#onActivityCreated#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onActivityResult#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#refreshAmenWithStatementId#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onResume#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#refresh#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="method#refreshWithCache#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onPause#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="e#6597#6610#0" expanded="false" />
-            <element signature="class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#EndlessWrapperAdapter#0;class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#cacheInBackground#0;class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="method#appendCachedData#0;class#EndlessWrapperAdapter#0;class#AmenListFragment#0" expanded="false" />
             <element signature="e#7852#7854#0" expanded="false" />
-            <element signature="class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#EndlessLoaderAsyncTask#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#wrappedDoInBackground#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="method#wrappedOnPostExecute#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onCancelled#0;class#EndlessLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="n#!!doc;n#CachedLoaderAsyncTask#0;n#AmenListFragment#0" expanded="false" />
-            <element signature="class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#CachedLoaderAsyncTask#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#wrappedDoInBackground#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="class#9712:9747" expanded="false" />
             <element signature="method#onPreExecute#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="method#wrappedOnPostExecute#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onCancelled#0;class#CachedLoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="n#!!doc;n#LoaderAsyncTask#0;n#AmenListFragment#0" expanded="false" />
-            <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#LoaderAsyncTask#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#wrappedDoInBackground#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onPreExecute#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="method#wrappedOnPostExecute#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="method#onCancelled#0;class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="e#13250#13252#0" expanded="false" />
             <element signature="class#GetDataTask#0;class#AmenListFragment#0" expanded="false" />
@@ -4219,10 +4192,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="57" selection-start="3252" selection-end="3252" vertical-scroll-proportion="0.5576208">
-          <folding />
+        <state line="124" column="20" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.7190476">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
