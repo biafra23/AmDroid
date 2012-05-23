@@ -567,7 +567,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="228" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" line="124" />
-    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="251" />
+    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="256" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing AmenListActivity">
@@ -1249,7 +1249,7 @@
       <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="7" selection-start="5074" selection-end="5074" vertical-scroll-proportion="0.7942857">
+            <state line="231" column="0" selection-start="8495" selection-end="8495" vertical-scroll-proportion="0.61904764">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4047#4296#0" expanded="true" />
@@ -4302,7 +4302,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="7" selection-start="5074" selection-end="5074" vertical-scroll-proportion="0.7942857">
+        <state line="231" column="0" selection-start="8495" selection-end="8495" vertical-scroll-proportion="0.61904764">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4047#4296#0" expanded="true" />
