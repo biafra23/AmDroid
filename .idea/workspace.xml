@@ -573,7 +573,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
@@ -713,7 +712,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="602" class="com.jaeckel.amenoid.AmenDetailActivity.GetAmenTask" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="608" class="com.jaeckel.amenoid.AmenDetailActivity.GetAmenTask" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1129,7 +1128,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="159" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="165" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1155,7 +1154,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="684" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="690" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1168,7 +1167,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="510" class="com.jaeckel.amenoid.AmenDetailActivity.AmenTask" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="516" class="com.jaeckel.amenoid.AmenDetailActivity.AmenTask" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1181,7 +1180,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="555" class="com.jaeckel.amenoid.AmenDetailActivity.GetStatementTask" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="561" class="com.jaeckel.amenoid.AmenDetailActivity.GetStatementTask" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1194,7 +1193,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="723" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="729" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1207,7 +1206,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="699" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="705" class="com.jaeckel.amenoid.AmenDetailActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1325,7 +1324,7 @@
       <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="11" selection-start="5489" selection-end="5489" vertical-scroll-proportion="0.0">
+            <state line="102" column="113" selection-start="3825" selection-end="3854" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1352,7 +1351,7 @@
       <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="50" selection-start="1151" selection-end="1151" vertical-scroll-proportion="0.0">
+            <state line="36" column="0" selection-start="1160" selection-end="1337" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#AmenListFragmentActivity#0" expanded="true" />
@@ -1430,7 +1429,7 @@
       <file leaf-file-name="activity_fragment_amen_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="11" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0">
+            <state line="7" column="11" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1483,10 +1482,10 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml" />
       </list>
     </option>
   </component>
@@ -4172,37 +4171,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="11" selection-start="0" selection-end="350" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="11" selection-start="5489" selection-end="5489" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="50" selection-start="1151" selection-end="1151" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#AmenListFragmentActivity#0" expanded="true" />
-            <element signature="method#onCreateOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
-            <element signature="method#onPrepareOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#AmenListFragmentActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4273,6 +4245,33 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1160" selection-end="1337" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AmenListFragmentActivity#0" expanded="true" />
+            <element signature="method#onCreateOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
+            <element signature="method#onPrepareOptionsMenu#0;class#AmenListFragmentActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#AmenListFragmentActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="113" selection-start="3825" selection-end="3854" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="11" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
