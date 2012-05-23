@@ -89,7 +89,7 @@ public class SubjectPageActivity extends SherlockListActivity {
 
     Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
 
-    final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+    final Intent amenListIntent = new Intent(this, AmenListFragmentActivity.class);
     amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
     switch (item.getItemId()) {

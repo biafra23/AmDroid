@@ -12,6 +12,7 @@ import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.InvalidCredentialsException;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.util.AmenLibTask;
 import com.jaeckel.amenoid.util.Log;
 
@@ -203,7 +204,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
       if (service != null) {
         service.removeAuthToken();
       }
-      AmenListActivity.setShouldRefresh(true);
+      AmenListFragment.setShouldRefresh(true);
     }
   }
 
@@ -212,7 +213,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
 
     Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
 
-    final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+    final Intent amenListIntent = new Intent(this, AmenDetailActivity.class);
     amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
     switch (item.getItemId()) {
@@ -290,7 +291,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
       } else {
         Log.e(TAG, "wrappedOnPostExecute() service.getAuthToken(): " + service.getAuthToken());
       }
-      AmenListActivity.setShouldRefresh(true);
+      AmenListFragment.setShouldRefresh(true);
       //go back automatically after successful login
       if (service != null && service.getAuthToken() != null) {
         finish();

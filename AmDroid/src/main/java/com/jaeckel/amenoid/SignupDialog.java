@@ -11,6 +11,7 @@ import com.jaeckel.amenoid.api.SignupFailedException;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
 import android.app.Activity;
@@ -280,7 +281,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
 
       } else {
 
-        AmenListActivity.setShouldRefresh(true);
+        AmenListFragment.setShouldRefresh(true);
         //go back automatically after successful login
         if (user.getId() > 0) {
           returnValues();

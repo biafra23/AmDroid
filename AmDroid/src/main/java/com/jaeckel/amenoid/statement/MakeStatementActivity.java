@@ -10,7 +10,8 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.jaeckel.amenoid.AmenListActivity;
+import com.jaeckel.amenoid.AmenDetailActivity;
+import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -370,7 +371,7 @@ public class MakeStatementActivity extends SherlockActivity {
     switch (item.getItemId()) {
 
       case android.R.id.home: {
-        final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+        final Intent amenListIntent = new Intent(this, AmenListFragmentActivity.class);
         amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(amenListIntent);
         return true;

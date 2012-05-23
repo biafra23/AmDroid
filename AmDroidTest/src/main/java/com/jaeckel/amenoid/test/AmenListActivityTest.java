@@ -19,7 +19,7 @@ import java.util.List;
 public class AmenListFragmentActivityTest extends ActivityInstrumentationTestCase2<AmenListFragmentActivity> {
 
   Solo solo;
-  private static final String TAG = "AmenListActivityTest";
+  private static final String TAG = AmenListFragmentActivityTest.class.getSimpleName();
 
   public AmenListFragmentActivityTest() {
     super("com.jaeckel.amenoid", AmenListFragmentActivity.class);

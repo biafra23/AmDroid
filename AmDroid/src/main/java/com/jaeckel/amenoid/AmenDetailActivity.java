@@ -25,6 +25,7 @@ import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.util.AmenLibTask;
 import com.jaeckel.amenoid.util.Log;
 
@@ -32,7 +33,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -125,7 +125,10 @@ public class AmenDetailActivity extends SherlockListActivity {
       currentStatement = startingIntent.getParcelableExtra(Constants.EXTRA_STATEMENT);
 
       // start downloading statement again to get the first_amen_id
-      new GetStatementTask(this).execute(currentStatement.getId());
+      if (currentStatement != null) {
+        new GetStatementTask(this).execute(currentStatement.getId());
+
+      }
 
     } else {
 
@@ -250,7 +253,7 @@ public class AmenDetailActivity extends SherlockListActivity {
 
     Intent resultIntent = new Intent();
     resultIntent.putExtra(Constants.EXTRA_STATEMENT_ID, currentStatement.getId());
-    setResult(AmenListActivity.REQUEST_CODE_AMEN_DETAILS, resultIntent);
+    setResult(AmenListFragment.REQUEST_CODE_AMEN_DETAILS, resultIntent);
 
     final View commentLayout = findViewById(R.id.comment_edit_layout);
     Button addComment = (Button) findViewById(R.id.add_comment);
@@ -653,21 +656,21 @@ public class AmenDetailActivity extends SherlockListActivity {
     inflater.inflate(R.menu.menu_detail, menu);
 
 //    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-      // Get the menu item.
-      MenuItem shareMenuItem = menu.findItem(R.id.share_details);
-      // Get the provider and hold onto it to set/change the share intent.
-      mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
-      // Set history different from the default before getting the action
-      // view since a call to MenuItem.getActionView() calls
-      // onCreateActionView() which uses the backing file name. Omit this
-      // line if using the default share history file is desired.
-      mShareActionProvider.setShareHistoryFileName("custom_share_history.xml");
+    // Get the menu item.
+    MenuItem shareMenuItem = menu.findItem(R.id.share_details);
+    // Get the provider and hold onto it to set/change the share intent.
+    mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
+    // Set history different from the default before getting the action
+    // view since a call to MenuItem.getActionView() calls
+    // onCreateActionView() which uses the backing file name. Omit this
+    // line if using the default share history file is desired.
+    mShareActionProvider.setShareHistoryFileName("custom_share_history.xml");
 
-      if (currentAmen != null) {
-        createShareIntent(currentAmen.getStatement());
-      } else if (currentStatement != null) {
-        createShareIntent(currentStatement);
-      }
+    if (currentAmen != null) {
+      createShareIntent(currentAmen.getStatement());
+    } else if (currentStatement != null) {
+      createShareIntent(currentStatement);
+    }
 //    }
 
 //    if (!AmenoidApp.getInstance().isSignedIn()) {
@@ -695,7 +698,7 @@ public class AmenDetailActivity extends SherlockListActivity {
 
     Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
 
-    final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+    final Intent amenListIntent = new Intent(this, AmenListFragmentActivity.class);
     amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
     switch (item.getItemId()) {

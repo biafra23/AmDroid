@@ -580,7 +580,7 @@ public class UserDetailActivity extends SherlockListActivity {
     switch (item.getItemId()) {
 
       case android.R.id.home: {
-        final Intent amenListIntent = new Intent(this, AmenListActivity.class);
+        final Intent amenListIntent = new Intent(this, AmenListFragmentActivity.class);
         amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(amenListIntent);
         return true;

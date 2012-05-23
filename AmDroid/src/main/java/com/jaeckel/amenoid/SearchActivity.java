@@ -113,7 +113,7 @@ public class SearchActivity extends SherlockListActivity {
 
       Intent intent = new Intent(this, AmenDetailActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
-//      startActivityForResult(intent, REQUEST_CODE_AMEN_DETAILS);
+//      startActivityForResult(intent, AmenListFragment.REQUEST_CODE_AMEN_DETAILS);
       startActivity(intent);
 
     }

@@ -11,8 +11,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amenoid.AmenDetailActivity;
-import com.jaeckel.amenoid.AmenListActivity;
 import com.jaeckel.amenoid.AmenListAdapter;
+import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -88,7 +88,7 @@ public class AmenListFragment extends ListFragment {
 
       Intent intent = new Intent(getActivity(), AmenDetailActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
-      startActivityForResult(intent, AmenListActivity.REQUEST_CODE_AMEN_DETAILS);
+      startActivityForResult(intent, REQUEST_CODE_AMEN_DETAILS);
     }
   }
 
@@ -626,8 +626,9 @@ public class AmenListFragment extends ListFragment {
     return shouldRefresh;
   }
 
-  public static void setShouldRefresh(boolean shouldRefresh) {
-    AmenListActivity.setShouldRefresh(shouldRefresh);
+  public static void setShouldRefresh(boolean refresh) {
+
+    shouldRefresh = refresh;
   }
 
 
