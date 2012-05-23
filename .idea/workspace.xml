@@ -1248,7 +1248,7 @@
       <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="102" selection-start="4209" selection-end="4209" vertical-scroll-proportion="-21.538462">
+            <state line="303" column="0" selection-start="11010" selection-end="11010" vertical-scroll-proportion="-22.115385">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1256,19 +1256,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="442" column="71" selection-start="13900" selection-end="13900" vertical-scroll-proportion="0.61152416">
+            <state line="442" column="71" selection-start="13900" selection-end="13900" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="147" column="38" selection-start="5472" selection-end="5472" vertical-scroll-proportion="0.0">
+            <state line="184" column="3" selection-start="6412" selection-end="6412" vertical-scroll-proportion="0.8745353">
               <folding />
             </state>
           </provider>
@@ -1427,9 +1427,9 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_detail.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
       </list>
     </option>
   </component>
@@ -4203,25 +4203,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="38" selection-start="5472" selection-end="5472" vertical-scroll-proportion="0.0">
+        <state line="442" column="71" selection-start="13900" selection-end="13900" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="102" selection-start="4209" selection-end="4209" vertical-scroll-proportion="-21.538462">
+        <state line="303" column="0" selection-start="11010" selection-end="11010" vertical-scroll-proportion="-22.115385">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="442" column="71" selection-start="13900" selection-end="13900" vertical-scroll-proportion="0.61152416">
+        <state line="184" column="3" selection-start="6412" selection-end="6412" vertical-scroll-proportion="0.8745353">
           <folding />
         </state>
       </provider>
