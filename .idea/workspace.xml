@@ -1133,7 +1133,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="142" class="com.jaeckel.amenoid.AmenDetailFragmentActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="146" class="com.jaeckel.amenoid.AmenDetailFragmentActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1146,7 +1146,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="157" class="com.jaeckel.amenoid.AmenDetailFragmentActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" line="161" class="com.jaeckel.amenoid.AmenDetailFragmentActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1279,7 +1279,7 @@
       <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="8" selection-start="3263" selection-end="3263" vertical-scroll-proportion="0.49519232">
+            <state line="92" column="37" selection-start="3331" selection-end="3331" vertical-scroll-proportion="0.4302974">
               <folding />
             </state>
           </provider>
@@ -1298,7 +1298,13 @@
         <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/android/support/v4/app/_ActionBarSherlockTrojanHorse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="24" column="21" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="docComment;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+                <element signature="docComment;class#OnCreateOptionsMenuListener#0;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+                <element signature="docComment;class#OnPrepareOptionsMenuListener#0;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+                <element signature="docComment;class#OnOptionsItemSelectedListener#0;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3990,7 +3996,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41968432" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41968432" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42432684" sideWeight="0.9850587" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59800667" sideWeight="0.50428396" order="10" side_tool="true" content_ui="tabs" />
@@ -3999,10 +4005,10 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31569174" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6388115" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.50324976" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19903949" sideWeight="0.50324976" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1307364" sideWeight="0.4902507" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26901004" sideWeight="0.57567316" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26894343" sideWeight="0.5803157" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29340762" sideWeight="0.3172338" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="213" y="129" width="919" height="477" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -4193,7 +4199,13 @@
     <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/android/support/v4/app/_ActionBarSherlockTrojanHorse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="21" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+            <element signature="docComment;class#OnCreateOptionsMenuListener#0;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+            <element signature="docComment;class#OnPrepareOptionsMenuListener#0;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+            <element signature="docComment;class#OnOptionsItemSelectedListener#0;class#_ActionBarSherlockTrojanHorse#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4206,7 +4218,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="8" selection-start="3263" selection-end="3263" vertical-scroll-proportion="0.49519232">
+        <state line="92" column="37" selection-start="3331" selection-end="3331" vertical-scroll-proportion="0.4302974">
           <folding />
         </state>
       </provider>
