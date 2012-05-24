@@ -1297,7 +1297,7 @@
       <file leaf-file-name="Objekt.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="245" column="0" selection-start="6646" selection-end="6646" vertical-scroll-proportion="0.71945137">
+            <state line="245" column="3" selection-start="6649" selection-end="6649" vertical-scroll-proportion="0.71945137">
               <folding />
             </state>
           </provider>
@@ -4198,7 +4198,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="0" selection-start="6646" selection-end="6646" vertical-scroll-proportion="0.71945137">
+        <state line="245" column="3" selection-start="6649" selection-end="6649" vertical-scroll-proportion="0.71945137">
           <folding />
         </state>
       </provider>
