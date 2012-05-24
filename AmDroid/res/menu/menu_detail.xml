@@ -32,4 +32,14 @@
           <!--android:showAsAction="ifRoom|withText"-->
 
             <!--/>-->
+    <item android:id="@+id/show_on_map"
+             android:icon="@drawable/ic_action_show_on_map"
+             android:title="Show on map"
+             android:showAsAction="ifRoom|withText"
+               />
+    <item android:id="@+id/route_there"
+                android:icon="@drawable/ic_action_directions"
+                android:title="Directions"
+                android:showAsAction="ifRoom|withText"
+                  />
 </menu>

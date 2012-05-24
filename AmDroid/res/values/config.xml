@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="log">DEBUG</string>
+    <string name="versionName">1.0-ALPHA33-r90658</string>
+    <integer name="versionCode">106</integer>
+    <string name="buildnumber">90658</string>
+    <string name="buildtimestamp">1337840844601</string>
+
+    <item name="debuggable" type="bool">true</item>
+    <item name="strict" type="bool">true</item>
+
+</resources>

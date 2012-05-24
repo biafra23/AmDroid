@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.jaeckel.amenoid.AboutActivity;
-import com.jaeckel.amenoid.AmenDetailActivity;
+import com.jaeckel.amenoid.AmenDetailFragmentActivity;
 import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jayway.android.robotium.solo.Solo;
@@ -243,8 +243,8 @@ public class AmenListFragmentActivityTest extends ActivityInstrumentationTestCas
 
     }
 
-    Log.d(TAG, "Waiting for Activity: " + AmenDetailActivity.class.getName());
-    solo.waitForActivity(AmenDetailActivity.class.getName(), 10);
+    Log.d(TAG, "Waiting for Activity: " + AmenDetailFragmentActivity.class.getName());
+    solo.waitForActivity(AmenDetailFragmentActivity.class.getName(), 10);
 
     Activity a = solo.getCurrentActivity();
     assertEquals( "com.jaeckel.amenoid.AmenDetailActivity", a.getClass().getName());
