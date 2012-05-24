@@ -10,9 +10,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.jaeckel.amenoid.AmenDetailActivity;
+import com.jaeckel.amenoid.AmenDetailFragmentActivity;
 import com.jaeckel.amenoid.AmenListAdapter;
-import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -86,7 +85,7 @@ public class AmenListFragment extends ListFragment {
 
       Log.d(TAG, "Selected Amen: " + amen);
 
-      Intent intent = new Intent(getActivity(), AmenDetailActivity.class);
+      Intent intent = new Intent(getActivity(), AmenDetailFragmentActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
       startActivityForResult(intent, REQUEST_CODE_AMEN_DETAILS);
     }

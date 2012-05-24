@@ -10,7 +10,6 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.jaeckel.amenoid.AmenDetailActivity;
 import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;

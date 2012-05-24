@@ -78,7 +78,7 @@ public class SubjectPageActivity extends SherlockListActivity {
       Log.d(TAG, "Selected Amen: " + amen);
 
       //TODO: make AmenDetailActivity show statements as well
-      Intent intent = new Intent(this, AmenDetailActivity.class);
+      Intent intent = new Intent(this, AmenDetailFragmentActivity.class);
       intent.putExtra(Constants.EXTRA_STATEMENT, amen.getStatement());
       startActivity(intent);
     }

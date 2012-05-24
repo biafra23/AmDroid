@@ -111,7 +111,7 @@ public class SearchActivity extends SherlockListActivity {
 
       Log.d(TAG, "Selected Amen: " + amen);
 
-      Intent intent = new Intent(this, AmenDetailActivity.class);
+      Intent intent = new Intent(this, AmenDetailFragmentActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
 //      startActivityForResult(intent, AmenListFragment.REQUEST_CODE_AMEN_DETAILS);
       startActivity(intent);

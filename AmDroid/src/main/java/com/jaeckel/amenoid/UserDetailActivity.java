@@ -18,6 +18,7 @@ import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailMessage;
+import com.jaeckel.amenoid.fragments.AmenDetailFragment;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
 
@@ -183,7 +184,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
       Log.d(TAG, "Selected Amen: " + amen);
 
-      Intent intent = new Intent(this, AmenDetailActivity.class);
+      Intent intent = new Intent(this, AmenDetailFragmentActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
       startActivity(intent);
     }
@@ -343,7 +344,7 @@ public class UserDetailActivity extends SherlockListActivity {
 
         amenScore.setText("Amen Score: " + ((float) user.getReceivedAmenCount() / (float) user.getCreatedStatementsCount()));
 
-        accountCreated.setText("Account created: " + AmenDetailActivity.format(user.getCreatedAt()));
+        accountCreated.setText("Account created: " + AmenDetailFragment.format(user.getCreatedAt()));
 
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
         userImageView.setImageDrawable(userImage);
@@ -439,7 +440,7 @@ public class UserDetailActivity extends SherlockListActivity {
           amenScore.setText("Amen Score: 0");
         }
 
-        accountCreated.setText("Account created: " + AmenDetailActivity.format(user.getCreatedAt()));
+        accountCreated.setText("Account created: " + AmenDetailFragment.format(user.getCreatedAt()));
 
         ImageView userImageView = (ImageView) findViewById(R.id.user_image);
         userImageView.setImageDrawable(userImage);

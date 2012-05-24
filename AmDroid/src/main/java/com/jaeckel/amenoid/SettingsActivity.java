@@ -213,7 +213,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
 
     Log.d(TAG, "onOptionsItemSelected -> item.getItemId(): " + item.getItemId());
 
-    final Intent amenListIntent = new Intent(this, AmenDetailActivity.class);
+    final Intent amenListIntent = new Intent(this, AmenDetailFragmentActivity.class);
     amenListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
     switch (item.getItemId()) {

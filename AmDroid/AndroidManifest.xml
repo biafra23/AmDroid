@@ -38,9 +38,10 @@
         <!--<activity android:screenOrientation="portrait" android:name=".MakeStatementActivity"/>-->
         <activity android:name=".EditPreferencesActivity"
                   android:configChanges="orientation"/>
-        <activity android:name=".AmenDetailActivity"
+        <activity android:name=".AmenDetailFragmentActivity"
                   android:configChanges="orientation"
-                />
+
+                /> <!-- android:uiOptions="splitActionBarWhenNarrow" -->
         <activity android:name=".DisputeActivity"
                   android:configChanges="orientation"/>
         <activity android:name=".statement.MakeStatementActivity"
@@ -108,6 +109,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--&lt;!&ndash; for telephony manager &ndash;&gt;-->
+    <!--<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATE"/>-->
+    <!--<uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>-->
 
 
 </manifest>

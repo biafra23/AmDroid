@@ -1,5 +1,7 @@
 package com.jaeckel.amenoid;
 
+import java.util.List;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -11,9 +13,13 @@ import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.Log;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.telephony.NeighboringCellInfo;
+import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 /**
@@ -21,6 +27,7 @@ import android.widget.Toast;
  * @date 5/22/12 7:08 PM
  */
 public class AmenListFragmentActivity extends SherlockFragmentActivity {
+
   private static String TAG      = AmenListFragmentActivity.class.getSimpleName();
   private        int    feedType = AmenService.FEED_TYPE_FOLLOWING;
 
@@ -164,5 +171,30 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     return false;
   }
 
+  @Override
+  public void onResume() {
+    super.onResume();
+
+    listNeighbours();
+  }
+
+  private void listNeighbours() {
+    TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+    List<NeighboringCellInfo> neighbours = tm.getNeighboringCellInfo();
+    if (neighbours != null) {
+      Log.d(TAG, "-------> Found " + neighbours.size() + " neighbours");
+
+    } else {
+
+      Log.d(TAG, "-------> Found " + neighbours + " neigbours");
+
+    }
+
+    for (NeighboringCellInfo neighbour : neighbours) {
+      Log.d(TAG, "------->           neighbour: " + neighbour);
+      Log.d(TAG, "------->  neighbour.getCid(): " + neighbour.getCid());
+      Log.d(TAG, "-------> neighbour.getRssi(): " + neighbour.getRssi());
+    }
+  }
 
 }

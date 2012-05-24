@@ -14,7 +14,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
 
 /**
  * User: biafra
@@ -157,7 +156,7 @@ public class UrlResolver extends SherlockActivity {
     @Override
     protected void wrappedOnPostExecute(Statement result) {
 
-      Intent startAmenDetailActivity = new Intent(UrlResolver.this, AmenDetailActivity.class);
+      Intent startAmenDetailActivity = new Intent(UrlResolver.this, AmenDetailFragmentActivity.class);
       startAmenDetailActivity.putExtra(Constants.EXTRA_STATEMENT, result);
       startActivity(startAmenDetailActivity);
       finish();
@@ -186,7 +185,7 @@ public class UrlResolver extends SherlockActivity {
     @Override
     protected void wrappedOnPostExecute(Amen result) {
 
-      Intent startAmenDetailActivity = new Intent(UrlResolver.this, AmenDetailActivity.class);
+      Intent startAmenDetailActivity = new Intent(UrlResolver.this, AmenDetailFragmentActivity.class);
       startAmenDetailActivity.putExtra(Constants.EXTRA_AMEN, result);
 
       startActivity(startAmenDetailActivity);
