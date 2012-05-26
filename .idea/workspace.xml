@@ -1345,10 +1345,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractBus.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AbstractBus.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="47" selection-start="3512" selection-end="3512" vertical-scroll-proportion="0.0">
+            <state line="38" column="3" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.42307693">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1356,10 +1356,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncTaskEx.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AsyncTaskEx.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="463" column="0" selection-start="17194" selection-end="17194" vertical-scroll-proportion="1.6009616">
+            <state line="463" column="0" selection-start="17194" selection-end="17194" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#AsyncTaskEx#0" expanded="true" />
@@ -1414,8 +1414,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UrlResolver.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" />
       </list>
     </option>
   </component>
@@ -4543,15 +4543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="47" selection-start="3512" selection-end="3512" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AmenLibTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="22" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
@@ -4561,7 +4552,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="463" column="0" selection-start="17194" selection-end="17194" vertical-scroll-proportion="1.6009616">
+        <state line="463" column="0" selection-start="17194" selection-end="17194" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#AsyncTaskEx#0" expanded="true" />
@@ -4571,6 +4562,15 @@
             <element signature="e#10983#11023#0" expanded="true" />
             <element signature="docComment;method#execute#0;class#AsyncTaskEx#0" expanded="true" />
             <element signature="e#16903#16951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="3" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.42307693">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
