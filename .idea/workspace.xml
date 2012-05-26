@@ -571,6 +571,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing AmenListActivity">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/StyleableSpannableStringBuilder.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/StyleableSpannableStringBuilder.java" />
     </list>
@@ -1181,7 +1182,7 @@
         <option name="CONDITION" value="&#13;&#13;JAVA" />
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" line="332" class="com.jaeckel.amenoid.fragments.AmenListFragment.CachedLoaderAsyncTask" package="com.jaeckel.amenoid.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" line="336" class="com.jaeckel.amenoid.fragments.AmenListFragment.CachedLoaderAsyncTask" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1194,7 +1195,7 @@
         <option name="CONDITION" value="&#13;&#13;JAVA" />
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" line="546" class="com.jaeckel.amenoid.fragments.AmenListFragment" package="com.jaeckel.amenoid.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" line="561" class="com.jaeckel.amenoid.fragments.AmenListFragment" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1302,12 +1303,16 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="564" column="5" selection-start="16679" selection-end="16679" vertical-scroll-proportion="0.7133333">
+            <state line="361" column="87" selection-start="10821" selection-end="10821" vertical-scroll-proportion="0.7">
               <folding>
                 <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
                 <element signature="e#9495#9501#0" expanded="true" />
-                <element signature="e#16460#16671#0" expanded="true" />
-                <element signature="e#16662#16663#0" expanded="true" />
+                <element signature="e#10195#10423#0" expanded="true" />
+                <element signature="e#10410#10411#0" expanded="true" />
+                <element signature="e#10677#10898#0" expanded="true" />
+                <element signature="e#10887#10888#0" expanded="true" />
+                <element signature="e#17051#17243#0" expanded="true" />
+                <element signature="e#17234#17235#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4483,12 +4488,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="564" column="5" selection-start="16679" selection-end="16679" vertical-scroll-proportion="0.7133333">
+        <state line="361" column="87" selection-start="10821" selection-end="10821" vertical-scroll-proportion="0.7">
           <folding>
             <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
             <element signature="e#9495#9501#0" expanded="true" />
-            <element signature="e#16460#16671#0" expanded="true" />
-            <element signature="e#16662#16663#0" expanded="true" />
+            <element signature="e#10195#10423#0" expanded="true" />
+            <element signature="e#10410#10411#0" expanded="true" />
+            <element signature="e#10677#10898#0" expanded="true" />
+            <element signature="e#10887#10888#0" expanded="true" />
+            <element signature="e#17051#17243#0" expanded="true" />
+            <element signature="e#17234#17235#0" expanded="true" />
           </folding>
         </state>
       </provider>
