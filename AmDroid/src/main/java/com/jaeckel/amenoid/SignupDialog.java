@@ -105,7 +105,7 @@ public class SignupDialog extends DialogFragment implements TextView.OnEditorAct
         email = emailEditText.getText().toString();
         password = passwordEditText.getText().toString();
 
-        new SignupAsyncTask(getActivity(), name, email, password).execute();
+        new SignupAsyncTask(getActivity(), name, email, password).executeOnThreadPool();
       }
     });
     getDialog().setTitle("Sign up for getamen.com");

@@ -181,7 +181,7 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
         queryTask = new ObjektsForQueryTask(service, ChooseObjektActivity.this);
 
         ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(editable.toString(), currentObjektKind, latitude, longitude, delay);
-        queryTask.execute(query);
+        queryTask.executeOnThreadPool(query);
 
 
       }

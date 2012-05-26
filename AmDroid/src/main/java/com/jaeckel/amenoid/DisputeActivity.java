@@ -115,7 +115,8 @@ public class DisputeActivity extends SherlockActivity implements AdapterView.OnI
             newObjektName.setName(textView.getText().toString());
             newObjektName.setKindId(currentAmen.getStatement().getObjekt().getKindId());
           }
-          new DisputeTask(DisputeActivity.this, hasPhoto).execute(new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
+          new DisputeTask(DisputeActivity.this, hasPhoto).executeOnThreadPool(
+            new Amen(currentAmen.getStatement(), newObjektName, currentAmen.getId()));
 
           finish();
         } else {

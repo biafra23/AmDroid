@@ -172,7 +172,7 @@ public class SettingsActivity extends SherlockFragmentActivity implements Signup
         loginAsyncTask.cancel(true);
       }
       loginAsyncTask = new LoginAsyncTask(SettingsActivity.this);
-      loginAsyncTask.execute();
+      loginAsyncTask.executeOnThreadPool();
 
 
     }

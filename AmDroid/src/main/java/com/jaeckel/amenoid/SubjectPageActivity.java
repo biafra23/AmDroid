@@ -65,7 +65,7 @@ public class SubjectPageActivity extends SherlockListActivity {
 
     Log.d(TAG, "currentObjektId: " + objectId);
 
-    new GetDataTask(this).execute(objectId);
+    new GetDataTask(this).executeOnThreadPool(objectId);
   }
 
   @Override

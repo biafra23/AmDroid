@@ -98,7 +98,7 @@ public class UrlResolver extends SherlockActivity {
         Long statementId = Long.valueOf(pathSegments.get(1));
         Log.d(TAG, "pathSegments.get(1): " + pathSegments.get(1));
 
-        new GetStatementForIdTask(this).execute(statementId);
+        new GetStatementForIdTask(this).executeOnThreadPool(statementId);
 
       } else {
 
@@ -107,7 +107,7 @@ public class UrlResolver extends SherlockActivity {
         if (pathSegments.size() > 1) {
           String segment2 = pathSegments.get(1);
           if ("amen".equals(segment2)) {
-            new GetAmenByUrlTask(this).execute(uri.toString() + ".json");
+            new GetAmenByUrlTask(this).executeOnThreadPool(uri.toString() + ".json");
           }
         } else {
 

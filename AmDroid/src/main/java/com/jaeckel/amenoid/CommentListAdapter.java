@@ -79,7 +79,7 @@ public class CommentListAdapter extends ArrayAdapter<Comment> {
           Log.d("CommentListAdapter", "trash as trash can!!!: id: " + comment_id);
 
 
-          new DeleteCommentTask(context).execute(comment_id);
+          new DeleteCommentTask(context).executeOnThreadPool(comment_id);
 
 
         }

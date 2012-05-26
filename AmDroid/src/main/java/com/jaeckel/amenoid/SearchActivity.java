@@ -96,7 +96,7 @@ public class SearchActivity extends SherlockListActivity {
     if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
       String query = intent.getStringExtra(SearchManager.QUERY);
 
-      new LoaderAsyncTask(SearchActivity.this).execute(query);
+      new LoaderAsyncTask(SearchActivity.this).executeOnThreadPool(query);
       setTitle("Search: " + query);
 
     }

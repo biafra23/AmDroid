@@ -104,11 +104,11 @@ public class ScoreBoardActivity extends SherlockListActivity {
     Log.d(TAG, "currentTopicName: " + currentTopicName);
     if (currentTopic != null) {
 
-      new TopicStatementsTask(this).execute(currentTopic.getId() + "");
+      new TopicStatementsTask(this).executeOnThreadPool(currentTopic.getId() + "");
 
     } else {
 
-      new TopicStatementsTask(this).execute(currentTopicName);
+      new TopicStatementsTask(this).executeOnThreadPool(currentTopicName);
 
     }
 

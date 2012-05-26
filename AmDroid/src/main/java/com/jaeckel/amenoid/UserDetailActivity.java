@@ -111,20 +111,20 @@ public class UserDetailActivity extends SherlockListActivity {
 
     currentUser = startingIntent.getParcelableExtra(Constants.EXTRA_USER);
     if (currentUser != null) {
-      new AmenForUserTask(this).execute(currentUser.getId());
-      new UserInfoTask(this).execute(currentUser.getId());
+      new AmenForUserTask(this).executeOnThreadPool(currentUser.getId());
+      new UserInfoTask(this).executeOnThreadPool(currentUser.getId());
     } else {
 
       Long currentUserId = startingIntent.getLongExtra(Constants.EXTRA_USER_ID, -1L);
       String currentUserName = startingIntent.getStringExtra(Constants.EXTRA_USER_ID_STRING);
 
       if (currentUserId != -1L) {
-        new AmenForUserTask(this).execute(currentUserId);
-        new UserInfoTask(this).execute(currentUserId);
+        new AmenForUserTask(this).executeOnThreadPool(currentUserId);
+        new UserInfoTask(this).executeOnThreadPool(currentUserId);
       } else if (!TextUtils.isEmpty(currentUserName)) {
 
-        new AmenForUserNameTask(this).execute(currentUserName);
-        new UserNameInfoTask(this).execute(currentUserName);
+        new AmenForUserNameTask(this).executeOnThreadPool(currentUserName);
+        new UserNameInfoTask(this).executeOnThreadPool(currentUserName);
 
       } else {
         Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
@@ -362,12 +362,12 @@ public class UserDetailActivity extends SherlockListActivity {
 
   private void toggleFollowing(User user, View follow) {
     if (user.getFollowing()) {
-      new UnFollowTask(this).execute(user);
+      new UnFollowTask(this).executeOnThreadPool(user);
 
 //              service.unfollow(currentUser);
       follow.setBackgroundColor(Color.GRAY);
     } else {
-      new FollowTask(this).execute(user);
+      new FollowTask(this).executeOnThreadPool(user);
 //              service.follow(currentUser);
       follow.setBackgroundColor(Color.CYAN);
     }
@@ -591,10 +591,10 @@ public class UserDetailActivity extends SherlockListActivity {
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));
         return true;
       case R.id.follow:
-        new FollowTask(UserDetailActivity.this).execute(currentUser);
+        new FollowTask(UserDetailActivity.this).executeOnThreadPool(currentUser);
         return true;
       case R.id.unfollow:
-        new UnFollowTask(UserDetailActivity.this).execute(currentUser);
+        new UnFollowTask(UserDetailActivity.this).executeOnThreadPool(currentUser);
         return true;
     }
 
@@ -623,11 +623,11 @@ public class UserDetailActivity extends SherlockListActivity {
           AsyncTask.Status status = endlessTask.getStatus();
           if (status == AsyncTask.Status.FINISHED) {
             endlessTask = new EndlessLoaderAsyncTask(UserDetailActivity.this);
-            endlessTask.execute(adapter.getItem(adapter.getCount() - 1).getId());
+            endlessTask.executeOnThreadPool(adapter.getItem(adapter.getCount() - 1).getId());
           }
         } else {
           endlessTask = new EndlessLoaderAsyncTask(UserDetailActivity.this);
-          endlessTask.execute(adapter.getItem(adapter.getCount() - 1).getId());
+          endlessTask.executeOnThreadPool(adapter.getItem(adapter.getCount() - 1).getId());
         }
       }
     }

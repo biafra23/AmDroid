@@ -1,14 +1,15 @@
 package com.jaeckel.amenoid.util;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
+
+import com.jaeckel.amenoid.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import com.jaeckel.amenoid.util.Log;
-import com.jaeckel.amenoid.R;
-
-import java.io.IOException;
-import java.net.UnknownHostException;
+import android.os.Build;
 
 /**
  * User: biafra
@@ -20,7 +21,7 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
 
   private Throwable lastException = null;
   private Activity context;
-  protected static String TAG = "AmenLibTask";
+  protected static String TAG = AmenLibTask.class.getSimpleName();
 
   public AmenLibTask(Activity context) {
     this.context = context;
@@ -89,6 +90,14 @@ public abstract class AmenLibTask<Params, Progress, Result> extends AsyncTask<Pa
 //    Log.e(TAG, "lastException reset!");
 
 
+  }
+
+  public AsyncTask<Params, Progress, Result> executeOnThreadPool(Params... params) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+      return this.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
+    } else {
+      return this.execute(params);
+    }
   }
 
 
