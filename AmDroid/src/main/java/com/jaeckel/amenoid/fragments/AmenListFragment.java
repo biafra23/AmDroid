@@ -33,6 +33,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -69,7 +70,7 @@ public class AmenListFragment extends ListFragment {
   private        boolean stopAppending = false;
   //  private AlertDialog enterCredentialsDialog;
   private static boolean shouldRefresh = false;
-
+  private        Handler handler       = new Handler();
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -325,9 +326,13 @@ public class AmenListFragment extends ListFragment {
 
       List<Amen> amens = new ArrayList<Amen>();
 
-      String newAmensJSON = prefs.getString(Constants.PREFS_LAST_NEW_AMENS + ":" + feedType, null);
+      final String prefsKeyNewAmen = Constants.PREFS_LAST_NEW_AMENS + ":" + feedType;
 
-      String amensJSON = prefs.getString(Constants.PREFS_LAST_AMENS + ":" + feedType, null);
+      String newAmensJSON = prefs.getString(prefsKeyNewAmen, null);
+
+      final String prefsKeyLastAmen = Constants.PREFS_LAST_AMENS + ":" + feedType;
+
+      String amensJSON = prefs.getString(prefsKeyLastAmen, null);
 
       if (amensJSON != null && !"[]".equals(amensJSON)) {
 
@@ -336,8 +341,15 @@ public class AmenListFragment extends ListFragment {
 
         if (newAmensJSON != null && !"[]".equals(newAmensJSON)) {
           Log.v(TAG, "Found new amens in prefs: " + newAmensJSON);
-          List<Amen> newAmens = gson.fromJson(newAmensJSON, collectionType);
 
+
+          final List<Amen> newAmens = gson.fromJson(newAmensJSON, collectionType);
+          handler.post(new Runnable() {
+            @Override
+            public void run() {
+              Toast.makeText(getActivity(), "Read " + newAmens.size() + " amens from prefsKey: " + prefsKeyNewAmen, Toast.LENGTH_SHORT).show();
+            }
+          });
           if (newAmens != null) {
             amens.addAll(newAmens);
           }
@@ -346,6 +358,12 @@ public class AmenListFragment extends ListFragment {
         Log.v(TAG, "Found amens in prefs: " + amensJSON);
 
         final List<Amen> amenList = gson.fromJson(amensJSON, collectionType);
+        handler.post(new Runnable() {
+          @Override
+          public void run() {
+            Toast.makeText(getActivity(), "Read " + amenList.size() + " amens from prefsKey: " + prefsKeyLastAmen, Toast.LENGTH_SHORT).show();
+          }
+        });
         if (amenList != null) {
           amens.addAll(amenList);
         }
@@ -356,7 +374,7 @@ public class AmenListFragment extends ListFragment {
         amens = service.getFeed(0, 20, feedType);
 //        amenDao.insertOrUpdate(amens);
 
-        saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":" + feedType);
+        saveAmensToPrefs(amens, prefsKeyLastAmen);
 
       }
       return amens;
@@ -420,6 +438,7 @@ public class AmenListFragment extends ListFragment {
 //      amenDao.insertOrUpdate(amens);
 
       saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":" + feedType);
+      saveAmensToPrefs(new ArrayList<Amen>(), Constants.PREFS_LAST_NEW_AMENS + ":" + feedType);
 
       return amens;
     }
@@ -537,13 +556,31 @@ public class AmenListFragment extends ListFragment {
     }
   }
 
-  private void saveAmensToPrefs(List<Amen> amens, String prefsKey) {
+  private void saveAmensToPrefs(final List<Amen> amens, final String prefsKey) {
     SharedPreferences.Editor editor = prefs.edit();
 
     String newAmensJSON = gson.toJson(amens);
     Log.v(TAG, "prefsKey: " + prefsKey + ": " + newAmensJSON);
+
     editor.putString(prefsKey, newAmensJSON);
-    editor.commit();
+    boolean result = editor.commit();
+
+    if (result) {
+      if (getResources().getBoolean(R.bool.debuggable)) {
+
+        handler.post(new Runnable() {
+          @Override public void run() {
+            Toast.makeText(getActivity(), "Saved " + amens.size() + " amens to prefsKey: " + prefsKey + " sucessfully", Toast.LENGTH_SHORT).show();
+          }
+        });
+      }
+    } else {
+      handler.post(new Runnable() {
+        @Override public void run() {
+          Toast.makeText(getActivity(), "Saving amens to prefsKey: " + prefsKey + " failed", Toast.LENGTH_LONG).show();
+        }
+      });
+    }
   }
 
   private void saveAuthTokenToPrefs(String authToken) {
