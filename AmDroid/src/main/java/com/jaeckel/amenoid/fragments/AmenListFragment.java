@@ -344,12 +344,9 @@ public class AmenListFragment extends ListFragment {
 
 
           final List<Amen> newAmens = gson.fromJson(newAmensJSON, collectionType);
-          handler.post(new Runnable() {
-            @Override
-            public void run() {
-              Toast.makeText(getActivity(), "Read " + newAmens.size() + " amens from prefsKey: " + prefsKeyNewAmen, Toast.LENGTH_SHORT).show();
-            }
-          });
+          if (getResources().getBoolean(R.bool.debuggable)) {
+            toast("Read " + newAmens.size() + " amens from prefsKey: " + prefsKeyNewAmen, Toast.LENGTH_SHORT);
+          }
           if (newAmens != null) {
             amens.addAll(newAmens);
           }
@@ -358,12 +355,10 @@ public class AmenListFragment extends ListFragment {
         Log.v(TAG, "Found amens in prefs: " + amensJSON);
 
         final List<Amen> amenList = gson.fromJson(amensJSON, collectionType);
-        handler.post(new Runnable() {
-          @Override
-          public void run() {
-            Toast.makeText(getActivity(), "Read " + amenList.size() + " amens from prefsKey: " + prefsKeyLastAmen, Toast.LENGTH_SHORT).show();
-          }
-        });
+        if (getResources().getBoolean(R.bool.debuggable)) {
+          toast("Read " + amenList.size() + " amens from prefsKey: " + prefsKeyLastAmen, Toast.LENGTH_SHORT);
+        }
+
         if (amenList != null) {
           amens.addAll(amenList);
         }
@@ -567,19 +562,13 @@ public class AmenListFragment extends ListFragment {
 
     if (result) {
       if (getResources().getBoolean(R.bool.debuggable)) {
-
-        handler.post(new Runnable() {
-          @Override public void run() {
-            Toast.makeText(getActivity(), "Saved " + amens.size() + " amens to prefsKey: " + prefsKey + " sucessfully", Toast.LENGTH_SHORT).show();
-          }
-        });
+        toast("Saved " + amens.size()
+              + " amens to prefsKey: " + prefsKey + " sucessfully", Toast.LENGTH_SHORT);
       }
     } else {
-      handler.post(new Runnable() {
-        @Override public void run() {
-          Toast.makeText(getActivity(), "Saving amens to prefsKey: " + prefsKey + " failed", Toast.LENGTH_LONG).show();
-        }
-      });
+      if (getResources().getBoolean(R.bool.debuggable)) {
+        toast("Saving amens to prefsKey: " + prefsKey + " failed", Toast.LENGTH_LONG);
+      }
     }
   }
 
@@ -667,5 +656,12 @@ public class AmenListFragment extends ListFragment {
     shouldRefresh = refresh;
   }
 
-
+  private void toast(final String msg, final int duration) {
+    handler.post(new Runnable() {
+      @Override
+      public void run() {
+        Toast.makeText(getActivity(), msg, duration).show();
+      }
+    });
+  }
 }

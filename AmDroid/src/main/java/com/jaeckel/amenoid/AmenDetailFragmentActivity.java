@@ -12,11 +12,14 @@ import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.fragments.AmenDetailFragment;
 import com.jaeckel.amenoid.util.Log;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentManager;
+import android.widget.Toast;
 
 /**
  * User: biafra
@@ -46,6 +49,7 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
 //  private TextView                                            commentsTextView;
   private ShareActionProvider mShareActionProvider;
   private AmenDetailFragment  amenDetailFragment;
+  private Handler handler = new Handler();
 
 
   @Override
@@ -225,7 +229,11 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
 
     Intent showOnMapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uriString));
 
-    startActivity(showOnMapIntent);
+    try {
+      startActivity(showOnMapIntent);
+    } catch (ActivityNotFoundException anf) {
+      toast("No activity found to view " + uriString, Toast.LENGTH_LONG);
+    }
   }
 
   private Amen getCurrentAmen() {
@@ -245,7 +253,13 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
     startActivity(intent);
   }
 
-   interface FooListener {
+  interface FooListener {
     void foo();
+  }
+
+  private void toast(final String msg, final int duration) {
+
+    Toast.makeText(this, msg, duration).show();
+
   }
 }
