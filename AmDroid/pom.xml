@@ -20,6 +20,7 @@
         <property.finalName>${artifactId}-${project.property.version.name}</property.finalName>
         <property.buildnumber>${buildNumber}</property.buildnumber>
         <property.build.timestamp>${timestamp}</property.build.timestamp>
+        <project.property.application.strict>false</project.property.application.strict>
     </properties>
     <dependencies>
         <dependency>
@@ -155,6 +156,12 @@
             </dependencies>
         </profile>
         <profile>
+            <id>strict</id>
+            <properties>
+                <project.property.application.strict>true</project.property.application.strict>
+            </properties>
+        </profile>
+        <profile>
             <id>release</id>
             <properties>
                 <project.property.logLevel>WARN</project.property.logLevel>
@@ -186,7 +193,7 @@
                         <configuration>
                             <doCheck>true</doCheck>
                             <doUpdate>true</doUpdate>
-                           
+
                             <shortRevisionLength>5</shortRevisionLength>
                         </configuration>
                     </plugin>
