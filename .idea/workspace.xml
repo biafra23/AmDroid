@@ -4342,7 +4342,11 @@
       <created>1337999533721</created>
       <updated>1337999533721</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="config files">
+      <created>1337999625786</created>
+      <updated>1337999625786</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
