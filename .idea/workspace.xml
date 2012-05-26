@@ -571,9 +571,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing AmenListActivity">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/StyleableSpannableStringBuilder.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/StyleableSpannableStringBuilder.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
@@ -1273,7 +1272,7 @@
       <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="33" selection-start="8591" selection-end="8591" vertical-scroll-proportion="0.6462264">
+            <state line="226" column="60" selection-start="7682" selection-end="7682" vertical-scroll-proportion="0.6108491">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -4237,7 +4236,15 @@
       <created>1338056901155</created>
       <updated>1338056901155</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="debug messages for succesfully writing amen to prefs">
+      <created>1338066592921</created>
+      <updated>1338066592921</updated>
+    </task>
+    <task id="LOCAL-00181" summary="setting DEVELOPER_MODE to R.bool.debuggable">
+      <created>1338066639533</created>
+      <updated>1338066639533</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4335,7 +4342,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="reset new_amens in prefs on refresh and toast debug statemenst via handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting DEVELOPER_MODE to R.bool.debuggable" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4350,8 +4357,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="action provider in 2.1" />
-    <MESSAGE value="added buildnumber plugin and scm config" />
     <MESSAGE value="passowrd reset" />
     <MESSAGE value="starting migration to fragments" />
     <MESSAGE value="set onclickhandler manually" />
@@ -4375,6 +4380,8 @@
     <MESSAGE value="config files" />
     <MESSAGE value="I see no difference" />
     <MESSAGE value="reset new_amens in prefs on refresh and toast debug statemenst via handler" />
+    <MESSAGE value="debug messages for succesfully writing amen to prefs" />
+    <MESSAGE value="setting DEVELOPER_MODE to R.bool.debuggable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4479,7 +4486,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="33" selection-start="8591" selection-end="8591" vertical-scroll-proportion="0.6462264">
+        <state line="226" column="60" selection-start="7682" selection-end="7682" vertical-scroll-proportion="0.6108491">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
