@@ -571,19 +571,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing AmenListActivity">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.0.2.iml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/values/config.xml" afterPath="$PROJECT_DIR$/AmDroid/res/values/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/StyleableSpannableStringBuilder.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/StyleableSpannableStringBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/pom.xml" afterPath="$PROJECT_DIR$/AmDroidTest/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/AmenLib.iml" afterPath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" afterPath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1347,16 +1340,16 @@
       <file leaf-file-name="AsyncTaskEx.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="463" column="0" selection-start="17194" selection-end="17194" vertical-scroll-proportion="0.0">
+            <state line="459" column="0" selection-start="17117" selection-end="17117" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#AsyncTaskEx#0" expanded="true" />
                 <element signature="docComment;field#FINISHED#0;class#Status#0;class#AsyncTaskEx#0" expanded="true" />
                 <element signature="docComment;method#getStatus#0;class#AsyncTaskEx#0" expanded="true" />
-                <element signature="e#10590#10630#0" expanded="true" />
-                <element signature="e#10983#11023#0" expanded="true" />
+                <element signature="e#10514#10554#0" expanded="true" />
+                <element signature="e#10907#10947#0" expanded="true" />
                 <element signature="docComment;method#execute#0;class#AsyncTaskEx#0" expanded="true" />
-                <element signature="e#16903#16951#0" expanded="true" />
+                <element signature="e#16827#16875#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4345,7 +4338,11 @@
       <created>1337999452783</created>
       <updated>1337999452783</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="config files">
+      <created>1337999533721</created>
+      <updated>1337999533721</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4443,7 +4440,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding lat and lng" />
+    <option name="LAST_COMMIT_MESSAGE" value="config files" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4470,7 +4467,6 @@
     <MESSAGE value="changes" />
     <MESSAGE value="don't finish early" />
     <MESSAGE value="fragmentizing" />
-    <MESSAGE value="config files" />
     <MESSAGE value="make timestamp available" />
     <MESSAGE value="show buildnumber and build date in About" />
     <MESSAGE value="more fragment stuff" />
@@ -4483,6 +4479,7 @@
     <MESSAGE value="using strict profile to enable strict mode (disabled in profile release)" />
     <MESSAGE value="addind strict profile. default for project.property.application.strict is false" />
     <MESSAGE value="adding lat and lng" />
+    <MESSAGE value="config files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4557,16 +4554,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="463" column="0" selection-start="17194" selection-end="17194" vertical-scroll-proportion="0.0">
+        <state line="459" column="0" selection-start="17117" selection-end="17117" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#AsyncTaskEx#0" expanded="true" />
             <element signature="docComment;field#FINISHED#0;class#Status#0;class#AsyncTaskEx#0" expanded="true" />
             <element signature="docComment;method#getStatus#0;class#AsyncTaskEx#0" expanded="true" />
-            <element signature="e#10590#10630#0" expanded="true" />
-            <element signature="e#10983#11023#0" expanded="true" />
+            <element signature="e#10514#10554#0" expanded="true" />
+            <element signature="e#10907#10947#0" expanded="true" />
             <element signature="docComment;method#execute#0;class#AsyncTaskEx#0" expanded="true" />
-            <element signature="e#16903#16951#0" expanded="true" />
+            <element signature="e#16827#16875#0" expanded="true" />
           </folding>
         </state>
       </provider>
