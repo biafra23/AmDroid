@@ -107,9 +107,9 @@ public class AmenoidApp extends Application {
     this.cache = new SimpleWebImageCache<ThumbnailBus, ThumbnailMessage>(null, null, 101, bus);
     Config.init(getApplicationContext());
 
-    DEVELOPER_MODE = getResources().getBoolean(R.bool.debuggable);
+//    DEVELOPER_MODE = getResources().getBoolean(R.bool.debuggable);
 
-    if (getResources().getBoolean(R.bool.debuggable)) {
+    if (getResources().getBoolean(R.bool.strict)) {
       StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
                                    .detectDiskReads()
                                    .detectDiskWrites()

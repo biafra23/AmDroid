@@ -8,5 +8,6 @@
     <string name="buildtimestamp">${timestamp}</string>
 
     <item name="debuggable" type="bool">${project.property.application.debuggable}</item>
+    <item name="strict" type="bool">${project.property.application.strict}</item>
 
 </resources>
