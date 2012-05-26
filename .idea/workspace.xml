@@ -572,7 +572,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="removing AmenListActivity">
       <change type="DELETED" beforePath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.0.2.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" afterPath="$PROJECT_DIR$/AmDroid/filteredRes/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1344,7 +1343,7 @@
       <file leaf-file-name="AsyncTaskEx.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="465" column="0" selection-start="17332" selection-end="17332" vertical-scroll-proportion="0.8076923">
+            <state line="463" column="13" selection-start="17219" selection-end="17219" vertical-scroll-proportion="0.75961536">
               <folding>
                 <element signature="e#10588#10628#0" expanded="true" />
                 <element signature="e#10981#11021#0" expanded="true" />
@@ -4491,7 +4490,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="465" column="0" selection-start="17332" selection-end="17332" vertical-scroll-proportion="0.8076923">
+        <state line="463" column="13" selection-start="17219" selection-end="17219" vertical-scroll-proportion="0.75961536">
           <folding>
             <element signature="e#10588#10628#0" expanded="true" />
             <element signature="e#10981#11021#0" expanded="true" />
