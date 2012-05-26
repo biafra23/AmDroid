@@ -1,13 +1,13 @@
 package com.jaeckel.amenoid.api.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.util.List;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.GsonBuilder;
 import com.jaeckel.amenoid.api.AmenService;
 
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * User: biafra
@@ -26,6 +26,8 @@ public class Objekt implements Parcelable {
   private List<String>    possibleScopes;
   private List<MediaItem> media;
   private String          defaultScope;
+  private Double          lat;
+  private Double          lng;
 
 
   public Objekt() {
@@ -96,6 +98,8 @@ public class Objekt implements Parcelable {
     sb.append(", possibleScopes=").append(possibleScopes);
     sb.append(", media=").append(media);
     sb.append(", defaultScope='").append(defaultScope).append('\'');
+    sb.append(", lat=").append(lat);
+    sb.append(", lng=").append(lng);
     sb.append('}');
     return sb.toString();
   }
@@ -202,6 +206,8 @@ public class Objekt implements Parcelable {
     dest.writeList(media);
     dest.writeString(defaultScope);
     dest.writeValue(id);
+    dest.writeValue(lat);
+    dest.writeValue(lng);
   }
 
   private void readFromParcel(Parcel in) {
@@ -217,6 +223,8 @@ public class Objekt implements Parcelable {
     media = in.readArrayList(cl);
     defaultScope = in.readString();
     id = (Long) in.readValue(cl);
+    lat = (Double) in.readValue(cl);
+    lng = (Double) in.readValue(cl);
   }
 
   public List<String> getPossibleScopes() {
@@ -233,5 +241,21 @@ public class Objekt implements Parcelable {
 
   public void setMedia(List<MediaItem> media) {
     this.media = media;
+  }
+
+  public Double getLat() {
+    return lat;
+  }
+
+  public void setLat(Double lat) {
+    this.lat = lat;
+  }
+
+  public Double getLng() {
+    return lng;
+  }
+
+  public void setLng(Double lng) {
+    this.lng = lng;
   }
 }
