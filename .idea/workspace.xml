@@ -1693,10 +1693,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details_header.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="details_header.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="58" selection-start="3013" selection-end="3013" vertical-scroll-proportion="0.73770493">
+            <state line="71" column="0" selection-start="3243" selection-end="3243" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1722,13 +1722,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="80" selection-start="3528" selection-end="3528" vertical-scroll-proportion="-6.923077">
+            <state line="669" column="28" selection-start="22152" selection-end="22152" vertical-scroll-proportion="0.33286119">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#handleAmenMediaItem#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#GetStatementTask#0;class#AmenDetailFragment#0" expanded="false" />
@@ -1777,8 +1776,8 @@
         <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
       </list>
     </option>
   </component>
@@ -4943,7 +4942,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19903949" sideWeight="0.697431" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.697431" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30256897" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="3" side_tool="false" content_ui="tabs" />
@@ -5401,23 +5400,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="0" selection-start="3243" selection-end="3243" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="80" selection-start="3528" selection-end="3528" vertical-scroll-proportion="-6.923077">
+        <state line="669" column="28" selection-start="22152" selection-end="22152" vertical-scroll-proportion="0.33286119">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#handleAmenMediaItem#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#GetStatementTask#0;class#AmenDetailFragment#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="58" selection-start="3013" selection-end="3013" vertical-scroll-proportion="0.73770493">
-          <folding />
         </state>
       </provider>
     </entry>
