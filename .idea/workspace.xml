@@ -674,7 +674,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_dexmaker_1_0_20120514.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1474,10 +1473,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="8" selection-start="9975" selection-end="9975" vertical-scroll-proportion="0.10253906">
+            <state line="261" column="8" selection-start="9975" selection-end="9975" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
@@ -1497,10 +1496,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="61" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0">
+            <state line="31" column="27" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.4">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
@@ -1549,8 +1548,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
       </list>
     </option>
   </component>
@@ -4797,16 +4796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="61" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/src/com/github/ignition/core/widgets/RemoteImageView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="13" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.0">
@@ -4816,12 +4805,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="8" selection-start="9975" selection-end="9975" vertical-scroll-proportion="0.10253906">
+        <state line="261" column="8" selection-start="9975" selection-end="9975" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#GetStatementTask#0;class#AmenDetailFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="27" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.4">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
           </folding>
         </state>
       </provider>
