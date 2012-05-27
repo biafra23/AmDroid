@@ -223,7 +223,8 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
     Double lat = getCurrentStatement().getObjekt().getLat();
     Double lng = getCurrentStatement().getObjekt().getLng();
 
-    final String uriString = "geo:" + lat + ',' + lng + "?z=15";
+//    final String uriString = "geo:" + lat + ',' + lng + "?z=15";
+    final String uriString = "https://maps.google.com/maps?q=" + lat + ',' + lng + "&z=15";
 
     Log.d(TAG, "uriString for show on map: " + uriString);
 
