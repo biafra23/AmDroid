@@ -73,6 +73,11 @@ public class AmenDetailFragment extends ListFragment {
   private TextView                                            commentsTextView;
   private ShareActionProvider                                 mShareActionProvider;
 
+  private View      objektPhotoImageViewWrapper;
+  private ImageView objektPhotoImageView;
+
+  private ImageView mediaPhotoImageView;
+
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     return inflater.inflate(R.layout.fragment_amen_detail, container, false);
@@ -87,9 +92,6 @@ public class AmenDetailFragment extends ListFragment {
     View header = getLayoutInflater(savedInstanceState).inflate(R.layout.details_header, null, false);
     list.addHeaderView(header);
 
-
-    ImageView mediaPhotoImageView = (ImageView) header.findViewById(R.id.media_photo);
-    mediaPhotoImageView.setVisibility(View.GONE);
 
     commentsTextView = (TextView) header.findViewById(R.id.comments);
     commentsTextView.setOnClickListener(new View.OnClickListener() {
@@ -126,54 +128,23 @@ public class AmenDetailFragment extends ListFragment {
 
     });
 
+    mediaPhotoImageView = (ImageView) header.findViewById(R.id.media_photo);
+    mediaPhotoImageView.setVisibility(View.GONE);
 
-    if (currentAmen != null) {
-
-      final List<MediaItem> currentAmenMedia = currentAmen.getMedia();
-      if (currentAmenMedia != null && currentAmenMedia.size() > 0) {
-
-        for (MediaItem amenMediaItem : currentAmenMedia) {
-
-          final String mediaUrl = amenMediaItem.getContentUrl();
-          Log.d(TAG, "amenMediaItem.getContentUrl(): " + mediaUrl);
-          if (amenMediaItem.getType().contains("photo")) {
-
-            mediaPhotoImageView.setVisibility(View.VISIBLE);
-            int result = cache.getStatus(mediaUrl);
-            if (result == CacheBase.CACHE_MEMORY) {
-              Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
-              mediaPhotoImageView.setImageDrawable(cache.get(mediaUrl));
-            } else {
-              mediaPhotoImageView.setImageResource(R.drawable.placeholder);
-              ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
-              msg.setImageView(mediaPhotoImageView);
-              msg.setUrl(mediaUrl);
-              try {
-                cache.notify(msg.getUrl(), msg);
-              } catch (Throwable t) {
-                Log.e(TAG, "Exception trying to fetch image", t);
-                throw new RuntimeException(t);
-              }
-            }
-          }
-        }
-      } else {
-        Log.d(TAG, "                  currentAmen: " + currentAmen);
-        if (currentAmen != null) {
-          Log.d(TAG, "       currentAmen.getMedia(): " + currentAmenMedia);
-        }
-        if (currentAmen != null && currentAmenMedia != null) {
-          Log.d(TAG, "currentAmen.getMedia().size(): " + currentAmenMedia.size());
-        }
-
-      }
-    }
-
-
-    ImageView objektPhotoImageView = (ImageView) header.findViewById(R.id.objekt_photo);
-    View objektPhotoImageViewWrapper = (View) header.findViewById(R.id.objekt_photo_wrapper);
+    objektPhotoImageView = (ImageView) header.findViewById(R.id.objekt_photo);
+    objektPhotoImageViewWrapper = (View) header.findViewById(R.id.objekt_photo_wrapper);
     objektPhotoImageViewWrapper.setVisibility(View.GONE);
 
+
+    if (currentAmen != null) {
+      handleAmenMediaItem(mediaPhotoImageView);
+    }
+
+    handleObjektMediaItem(mediaPhotoImageView, objektPhotoImageView, objektPhotoImageViewWrapper);
+
+  }
+
+  private void handleObjektMediaItem(ImageView mediaPhotoImageView, ImageView objektPhotoImageView, View objektPhotoImageViewWrapper) {
     final List<User> users = currentStatement.getAgreeingNetwork();
     thumbs = new ThumbnailAdapter(getActivity(), new UserListAdapter(getActivity(), android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
     setListAdapter(thumbs);
@@ -228,9 +199,47 @@ public class AmenDetailFragment extends ListFragment {
         Log.d(TAG, "currentStatement.getObjekt().getMedia().size(): " + objektMediaItems.size());
       }
     }
+  }
 
+  private void handleAmenMediaItem(ImageView mediaPhotoImageView) {
+    final List<MediaItem> currentAmenMedia = currentAmen.getMedia();
+    if (currentAmenMedia != null && currentAmenMedia.size() > 0) {
 
+      for (MediaItem amenMediaItem : currentAmenMedia) {
 
+        final String mediaUrl = amenMediaItem.getContentUrl();
+        Log.d(TAG, "amenMediaItem.getContentUrl(): " + mediaUrl);
+        if (amenMediaItem.getType().contains("photo")) {
+
+          mediaPhotoImageView.setVisibility(View.VISIBLE);
+          int result = cache.getStatus(mediaUrl);
+          if (result == CacheBase.CACHE_MEMORY) {
+            Log.d(TAG, "cache.getStatus(" + mediaUrl + "): CACHE_MEMORY");
+            mediaPhotoImageView.setImageDrawable(cache.get(mediaUrl));
+          } else {
+            mediaPhotoImageView.setImageResource(R.drawable.placeholder);
+            ThumbnailMessage msg = cache.getBus().createMessage(thumbs.toString());
+            msg.setImageView(mediaPhotoImageView);
+            msg.setUrl(mediaUrl);
+            try {
+              cache.notify(msg.getUrl(), msg);
+            } catch (Throwable t) {
+              Log.e(TAG, "Exception trying to fetch image", t);
+              throw new RuntimeException(t);
+            }
+          }
+        }
+      }
+    } else {
+      Log.d(TAG, "                  currentAmen: " + currentAmen);
+      if (currentAmen != null) {
+        Log.d(TAG, "       currentAmen.getMedia(): " + currentAmenMedia);
+      }
+      if (currentAmen != null && currentAmenMedia != null) {
+        Log.d(TAG, "currentAmen.getMedia().size(): " + currentAmenMedia.size());
+      }
+
+    }
   }
 
   @Override
@@ -611,6 +620,9 @@ public class AmenDetailFragment extends ListFragment {
 
       if (result != null) {
         currentAmen = result;
+
+        handleAmenMediaItem(mediaPhotoImageView);
+        handleObjektMediaItem(mediaPhotoImageView, objektPhotoImageView, objektPhotoImageViewWrapper);
 
         Log.d(TAG, "Current (NEW!) Amen: " + currentAmen);
         StringBuilder commentsText = new StringBuilder();
