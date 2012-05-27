@@ -2,6 +2,8 @@
 - FIX: up button in sign-up/in now working
 - NEW: Sharing made easier
 - NEW: Password reset link
+- NEW: Places: Show on Map and give directions
+- NEW: Using ActionProviders to make sharing more easily
 
 1.0-ALPHA32
 - NEW: signup to create an account
