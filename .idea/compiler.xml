@@ -14,6 +14,7 @@
       <directory url="file://$PROJECT_DIR$/AmDroid/target/generated-sources/aidl" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
