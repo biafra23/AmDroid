@@ -1325,10 +1325,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="19" selection-start="2798" selection-end="2798" vertical-scroll-proportion="0.0">
+            <state line="60" column="21" selection-start="2607" selection-end="2607" vertical-scroll-proportion="0.6142857">
               <folding />
             </state>
           </provider>
@@ -1337,7 +1337,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="38" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0">
+            <state line="268" column="23" selection-start="11597" selection-end="11603" vertical-scroll-proportion="-3.8846154">
               <folding />
             </state>
           </provider>
@@ -1394,10 +1394,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="12" selection-start="3719" selection-end="3719" vertical-scroll-proportion="0.8828125">
+            <state line="102" column="12" selection-start="3719" selection-end="3719" vertical-scroll-proportion="-33.03846">
               <folding />
             </state>
           </provider>
@@ -1432,10 +1432,10 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/CHANGES" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -4500,20 +4500,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="19" selection-start="2798" selection-end="2798" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="38" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="22" selection-start="2985" selection-end="2985" vertical-scroll-proportion="-3.4615386">
@@ -4529,7 +4515,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="12" selection-start="3719" selection-end="3719" vertical-scroll-proportion="0.8828125">
+        <state line="102" column="12" selection-start="3719" selection-end="3719" vertical-scroll-proportion="-33.03846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="268" column="23" selection-start="11597" selection-end="11603" vertical-scroll-proportion="-3.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="21" selection-start="2607" selection-end="2607" vertical-scroll-proportion="0.6142857">
           <folding />
         </state>
       </provider>
