@@ -678,6 +678,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/AmenLib.iml" afterPath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
@@ -1476,13 +1477,22 @@
       <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="8" selection-start="9975" selection-end="9975" vertical-scroll-proportion="0.0">
+            <state line="53" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#GetStatementTask#0;class#AmenDetailFragment#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="181" column="22" selection-start="5432" selection-end="5432" vertical-scroll-proportion="0.6857143">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1496,14 +1506,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="27" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.4">
+            <state line="20" column="21" selection-start="475" selection-end="475" vertical-scroll-proportion="-8.076923">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="docComment;class#HelloWorldMaker#0" expanded="true" />
                 <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/android/android/4.0.3_r2/android-4.0.3_r2.jar!/java/lang/reflect/Method.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="26" selection-start="2045" selection-end="2045" vertical-scroll-proportion="-30.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1534,7 +1554,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/values/config.xml" />
@@ -1550,6 +1569,7 @@
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
       </list>
     </option>
   </component>
@@ -1813,6 +1833,102 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reflect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2112,6 +2228,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="filteredRes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4708,15 +4842,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="60" selection-start="7553" selection-end="7553" vertical-scroll-proportion="-9.269231">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="37" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
@@ -4805,7 +4930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="8" selection-start="9975" selection-end="9975" vertical-scroll-proportion="0.0">
+        <state line="53" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
@@ -4815,13 +4940,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/android/android/4.0.3_r2/android-4.0.3_r2.jar!/java/lang/reflect/Method.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="26" selection-start="2045" selection-end="2045" vertical-scroll-proportion="-30.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="27" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.4">
+        <state line="20" column="21" selection-start="475" selection-end="475" vertical-scroll-proportion="-8.076923">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="docComment;class#HelloWorldMaker#0" expanded="true" />
             <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="22" selection-start="5432" selection-end="5432" vertical-scroll-proportion="0.6857143">
+          <folding />
         </state>
       </provider>
     </entry>
