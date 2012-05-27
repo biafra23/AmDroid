@@ -1488,10 +1488,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="22" selection-start="5432" selection-end="5432" vertical-scroll-proportion="0.6857143">
+            <state line="181" column="22" selection-start="5432" selection-end="5432" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1506,10 +1506,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="21" selection-start="475" selection-end="475" vertical-scroll-proportion="-8.076923">
+            <state line="29" column="0" selection-start="815" selection-end="815" vertical-scroll-proportion="0.3076172">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#HelloWorldMaker#0" expanded="true" />
@@ -1568,8 +1568,8 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
       </list>
     </option>
   </component>
@@ -4947,21 +4947,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="22" selection-start="5432" selection-end="5432" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="21" selection-start="475" selection-end="475" vertical-scroll-proportion="-8.076923">
+        <state line="29" column="0" selection-start="815" selection-end="815" vertical-scroll-proportion="0.3076172">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#HelloWorldMaker#0" expanded="true" />
             <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="22" selection-start="5432" selection-end="5432" vertical-scroll-proportion="0.6857143">
-          <folding />
         </state>
       </provider>
     </entry>
