@@ -676,6 +676,7 @@
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
@@ -1436,15 +1437,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="details_header.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="3243" selection-end="3243" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RemoteImageView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/src/com/github/ignition/core/widgets/RemoteImageView.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -1489,12 +1481,28 @@
       <file leaf-file-name="HelloWorldMaker.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="100" selection-start="956" selection-end="956" vertical-scroll-proportion="0.33691406">
+            <state line="31" column="60" selection-start="889" selection-end="916" vertical-scroll-proportion="0.33691406">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#HelloWorldMaker#0" expanded="true" />
                 <element signature="docComment;method#generateHelloMethod#0;class#HelloWorldMaker#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="amen_512x512.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/amen_512x512.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1526,15 +1534,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncTaskEx.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="22" selection-start="5744" selection-end="5744" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -1552,7 +1551,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/values/config.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
@@ -1567,6 +1565,7 @@
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
       </list>
     </option>
@@ -4954,20 +4953,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="40" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/ObjektsForQueryTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="36" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/res/values/attrs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="27" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
@@ -5066,9 +5051,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/amen_512x512.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="100" selection-start="956" selection-end="956" vertical-scroll-proportion="0.33691406">
+        <state line="31" column="60" selection-start="889" selection-end="916" vertical-scroll-proportion="0.33691406">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#HelloWorldMaker#0" expanded="true" />
