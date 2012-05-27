@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
@@ -21,6 +22,7 @@ public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
   private static final String TAG = "StyleableSpannableStringBuilder";
 
   public StyleableSpannableStringBuilder(Context context) {
+
     this.context = context;
   }
 
@@ -53,8 +55,14 @@ public class StyleableSpannableStringBuilder extends SpannableStringBuilder {
   public StyleableSpannableStringBuilder appendOrange(CharSequence text) {
 //    Log.d(TAG, "appendOrange: " + text);
 //    final ForegroundColorSpan c = new ForegroundColorSpan(Color.RED);
-    final ForegroundColorSpan c = new ForegroundColorSpan(context.getResources().getColor(R.color.orange));
-    return appendWithStyle(c, text);
+
+
+    final Resources resources = context.getResources();
+    if (resources != null) {
+      final ForegroundColorSpan c = new ForegroundColorSpan(resources.getColor(R.color.orange));
+      return appendWithStyle(c, text);
+    }
+    return appendWithStyle(new ForegroundColorSpan(0), text);
   }
 
   public StyleableSpannableStringBuilder appendBlue(CharSequence text) {
