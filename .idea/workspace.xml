@@ -669,24 +669,15 @@
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="228" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" line="124" />
-    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="263" />
-    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="131" />
+    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="308" />
+    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="132" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_actionbarsherlock_library_apklib_4_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_support_0_3_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_annotations_r03.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_base_r03.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_collections_r03.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_primitives_r03.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_wazabe_holoeverywhere_library_apklib_1_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/AmenLib.iml" afterPath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
@@ -1301,7 +1292,7 @@
         <option name="CONDITION" value="&#13;&#13;JAVA" />
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="140" class="com.jaeckel.amenoid.fragments.AmenDetailFragment" package="com.jaeckel.amenoid.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="141" class="com.jaeckel.amenoid.fragments.AmenDetailFragment" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1314,7 +1305,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="516" class="com.jaeckel.amenoid.fragments.AmenDetailFragment.AmenTask" package="com.jaeckel.amenoid.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="561" class="com.jaeckel.amenoid.fragments.AmenDetailFragment.AmenTask" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1327,7 +1318,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="562" class="com.jaeckel.amenoid.fragments.AmenDetailFragment.GetStatementTask" package="com.jaeckel.amenoid.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="607" class="com.jaeckel.amenoid.fragments.AmenDetailFragment.GetStatementTask" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1340,7 +1331,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="608" class="com.jaeckel.amenoid.fragments.AmenDetailFragment.GetAmenTask" package="com.jaeckel.amenoid.fragments">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="653" class="com.jaeckel.amenoid.fragments.AmenDetailFragment.GetAmenTask" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1418,26 +1409,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="60" selection-start="7553" selection-end="7553" vertical-scroll-proportion="-9.269231">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CHANGES" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="37" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -1469,7 +1440,247 @@
         <entry file="file://$PROJECT_DIR$/AmDroid/target/generated-sources/r/com/actionbarsherlock/R.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="1497" column="32" selection-start="95526" selection-end="95526" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="docComment;field#absForceOverflow#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarDivider#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarItemBackground#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarSize#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarSplitStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarTabBarStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarTabStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarTabTextStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionBarWidgetTheme#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionButtonStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionDropDownStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionMenuTextAppearance#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionMenuTextColor#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModeBackground#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModeCloseButtonStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModeCloseDrawable#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModePopupWindowStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModeShareDrawable#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModeSplitBackground#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionModeStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionOverflowButtonStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#actionSpinnerItemStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#activatedBackgroundIndicator#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#activityChooserViewStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#background#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#backgroundSplit#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#backgroundStacked#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#buttonStyleSmall#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#customNavigationLayout#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#displayOptions#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#divider#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#dividerVertical#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#dropDownListViewStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#dropdownListPreferredItemHeight#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#expandActivityOverflowButtonDrawable#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#headerBackground#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#height#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#homeAsUpIndicator#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#homeLayout#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#horizontalDivider#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#icon#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#indeterminateProgressStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#initialActivityCount#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#itemBackground#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#itemIconDisabledAlpha#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#itemPadding#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#itemTextAppearance#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#listPopupWindowStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#listPreferredItemHeightSmall#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#listPreferredItemPaddingLeft#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#listPreferredItemPaddingRight#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#logo#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#navigationMode#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#popupMenuStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#preserveIconSpacing#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#progressBarPadding#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#progressBarStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#spinnerDropDownItemStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#spinnerItemStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#subtitle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#subtitleTextStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textAppearanceLargePopupMenu#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textAppearanceListItemSmall#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textAppearanceSmall#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textAppearanceSmallPopupMenu#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textColorPrimary#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textColorPrimaryDisableOnly#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#textColorPrimaryInverse#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#title#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#titleTextStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#verticalDivider#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowActionBar#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowActionBarOverlay#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowActionModeOverlay#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowAnimationStyle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowContentOverlay#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowMinWidthMajor#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowMinWidthMinor#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowNoTitle#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#windowSplitActionBar#0;class#attr#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__config_actionMenuItemAllCaps#0;class#bool#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__config_allowActionMenuItemTextWithIcon#0;class#bool#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__config_showMenuShortcutsWhenKeyboardPresent#0;class#bool#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#holo_blue_light#0;class#color#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_default_height#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_icon_vertical_padding#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_subtitle_bottom_margin#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_subtitle_text_size#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_subtitle_top_margin#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_title_text_size#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_button_min_width#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__alert_dialog_title_height#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__config_prefDialogWidth#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__dialog_min_width_major#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__dialog_min_width_minor#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#action_button_min_width#0;class#dimen#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_home_description#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_bar_up_description#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_menu_overflow_description#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__action_mode_done#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__activity_chooser_view_dialog_title_default#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__activity_chooser_view_see_all#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__activitychooserview_choose_application#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__share_action_provider_share_with#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__shareactionprovider_share_with#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#abs__shareactionprovider_share_with_application#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#pull_to_refresh_pull_label#0;class#string#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#RemoteImageView#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#RemoteImageView_android_indeterminateDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_background#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_backgroundSplit#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_backgroundStacked#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_customNavigationLayout#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_displayOptions#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_divider#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_height#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_homeLayout#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_icon#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_indeterminateProgressStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_itemPadding#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_logo#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_navigationMode#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_progressBarPadding#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_progressBarStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_subtitle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_subtitleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_title#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionBar_titleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMenuItemView#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMenuItemView_android_minWidth#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMode#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMode_background#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMode_backgroundSplit#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMode_height#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMode_subtitleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActionMode_titleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActivityChooserView#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActivityChooserView_android_background#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActivityChooserView_expandActivityOverflowButtonDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockActivityChooserView_initialActivityCount#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup_android_checkableBehavior#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup_android_enabled#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup_android_id#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup_android_menuCategory#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup_android_orderInCategory#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuGroup_android_visible#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_actionLayout#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_actionProviderClass#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_actionViewClass#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_alphabeticShortcut#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_checkable#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_checked#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_enabled#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_icon#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_id#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_menuCategory#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_numericShortcut#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_onClick#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_orderInCategory#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_showAsAction#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_title#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_titleCondensed#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuItem_android_visible#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_headerBackground#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_horizontalDivider#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_itemBackground#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_itemIconDisabledAlpha#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_itemTextAppearance#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_preserveIconSpacing#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_verticalDivider#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockMenuView_windowAnimationStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_dropDownHorizontalOffset#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_dropDownSelector#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_dropDownVerticalOffset#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_dropDownWidth#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_gravity#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_popupBackground#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_popupPromptView#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockSpinner_android_prompt#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_absForceOverflow#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarDivider#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarItemBackground#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarSize#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarSplitStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarTabBarStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarTabStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarTabTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionBarWidgetTheme#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionButtonStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionDropDownStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionMenuTextAppearance#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionMenuTextColor#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModeBackground#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModeCloseButtonStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModeCloseDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModePopupWindowStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModeShareDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModeSplitBackground#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionModeStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionOverflowButtonStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_actionSpinnerItemStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_activatedBackgroundIndicator#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_activityChooserViewStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_android_windowIsFloating#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_buttonStyleSmall#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_dividerVertical#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_dropDownListViewStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_dropdownListPreferredItemHeight#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_homeAsUpIndicator#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_listPopupWindowStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_listPreferredItemHeightSmall#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_listPreferredItemPaddingLeft#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_listPreferredItemPaddingRight#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_popupMenuStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_spinnerDropDownItemStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_spinnerItemStyle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textAppearanceLargePopupMenu#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textAppearanceListItemSmall#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textAppearanceSmall#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textAppearanceSmallPopupMenu#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textColorPrimary#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textColorPrimaryDisableOnly#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_textColorPrimaryInverse#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowActionBar#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowActionBarOverlay#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowActionModeOverlay#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowContentOverlay#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowMinWidthMajor#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowMinWidthMinor#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowNoTitle#0;class#styleable#0;class#R#0" expanded="false" />
+                <element signature="docComment;field#SherlockTheme_windowSplitActionBar#0;class#styleable#0;class#R#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1486,7 +1697,27 @@
       <file leaf-file-name="details_header.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="34" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.0">
+            <state line="56" column="48" selection-start="2587" selection-end="2587" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AspectRatioImageView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="42" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemoteImageView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/src/com/github/ignition/core/widgets/RemoteImageView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="13" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1495,9 +1726,9 @@
       <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="17" selection-start="3037" selection-end="3037" vertical-scroll-proportion="0.33286119">
+            <state line="145" column="0" selection-start="5267" selection-end="5267" vertical-scroll-proportion="0.5311615">
               <folding>
-                <element signature="method#handleObjektMediaItem#0;class#AmenDetailFragment#0" expanded="false" />
+                <element signature="imports" expanded="true" />
                 <element signature="method#handleAmenMediaItem#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
                 <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
@@ -1507,10 +1738,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/pom.xml">
+      <file leaf-file-name="URI.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/android/android/4.0.3_r2/android-4.0.3_r2.jar!/java/net/URI.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="12" selection-start="3719" selection-end="3719" vertical-scroll-proportion="-33.03846">
+            <state line="7" column="9" selection-start="238" selection-end="238" vertical-scroll-proportion="-3.6">
               <folding />
             </state>
           </provider>
@@ -1533,7 +1764,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UrlResolver.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/task/AsyncTaskEx.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/cwac/bus/AbstractBus.java" />
@@ -1542,12 +1772,13 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/CHANGES" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java" />
+        <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
       </list>
     </option>
@@ -1820,6 +2051,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android-4.0.3_r2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="amdroid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1959,6 +2256,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com.github.ignition_ignition-core_0.3-SNAPSHOT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroidTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen-external-apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.github.ignition_ignition-core_0.3-SNAPSHOT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroidTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen-external-apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.github.ignition_ignition-core_0.3-SNAPSHOT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4565,7 +4926,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.69730735" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.697431" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30256897" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="3" side_tool="false" content_ui="tabs" />
@@ -4681,39 +5042,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="658" column="0" selection-start="19161" selection-end="19378" vertical-scroll-proportion="-7.6538463">
-          <folding>
-            <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
-            <element signature="e#4930#5154#0" expanded="true" />
-            <element signature="e#5147#5148#0" expanded="true" />
-            <element signature="e#9495#9501#0" expanded="true" />
-            <element signature="e#14233#14239#0" expanded="true" />
-            <element signature="e#14702#14708#0" expanded="true" />
-            <element signature="e#15110#15116#0" expanded="true" />
-            <element signature="e#19239#19372#0" expanded="true" />
-            <element signature="e#19365#19366#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="254" selection-end="274" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="10" selection-start="954" selection-end="954" vertical-scroll-proportion="0.0">
@@ -4731,13 +5059,6 @@
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="0" selection-start="4791" selection-end="4791" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="34" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -4789,7 +5110,247 @@
     <entry file="file://$PROJECT_DIR$/AmDroid/target/generated-sources/r/com/actionbarsherlock/R.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1497" column="32" selection-start="95526" selection-end="95526" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="docComment;field#absForceOverflow#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarDivider#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarItemBackground#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarSize#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarSplitStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarTabBarStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarTabStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarTabTextStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionBarWidgetTheme#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionButtonStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionDropDownStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionMenuTextAppearance#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionMenuTextColor#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModeBackground#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModeCloseButtonStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModeCloseDrawable#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModePopupWindowStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModeShareDrawable#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModeSplitBackground#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionModeStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionOverflowButtonStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#actionSpinnerItemStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#activatedBackgroundIndicator#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#activityChooserViewStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#background#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#backgroundSplit#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#backgroundStacked#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#buttonStyleSmall#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#customNavigationLayout#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#displayOptions#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#divider#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#dividerVertical#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#dropDownListViewStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#dropdownListPreferredItemHeight#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#expandActivityOverflowButtonDrawable#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#headerBackground#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#height#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#homeAsUpIndicator#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#homeLayout#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#horizontalDivider#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#icon#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#indeterminateProgressStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#initialActivityCount#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#itemBackground#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#itemIconDisabledAlpha#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#itemPadding#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#itemTextAppearance#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#listPopupWindowStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#listPreferredItemHeightSmall#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#listPreferredItemPaddingLeft#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#listPreferredItemPaddingRight#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#logo#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#navigationMode#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#popupMenuStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#preserveIconSpacing#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#progressBarPadding#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#progressBarStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#spinnerDropDownItemStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#spinnerItemStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#subtitle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#subtitleTextStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textAppearanceLargePopupMenu#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textAppearanceListItemSmall#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textAppearanceSmall#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textAppearanceSmallPopupMenu#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textColorPrimary#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textColorPrimaryDisableOnly#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#textColorPrimaryInverse#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#title#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#titleTextStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#verticalDivider#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowActionBar#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowActionBarOverlay#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowActionModeOverlay#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowAnimationStyle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowContentOverlay#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowMinWidthMajor#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowMinWidthMinor#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowNoTitle#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#windowSplitActionBar#0;class#attr#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__config_actionMenuItemAllCaps#0;class#bool#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__config_allowActionMenuItemTextWithIcon#0;class#bool#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__config_showMenuShortcutsWhenKeyboardPresent#0;class#bool#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#holo_blue_light#0;class#color#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_default_height#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_icon_vertical_padding#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_subtitle_bottom_margin#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_subtitle_text_size#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_subtitle_top_margin#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_title_text_size#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_button_min_width#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__alert_dialog_title_height#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__config_prefDialogWidth#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__dialog_min_width_major#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__dialog_min_width_minor#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#action_button_min_width#0;class#dimen#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_home_description#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_bar_up_description#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_menu_overflow_description#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__action_mode_done#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__activity_chooser_view_dialog_title_default#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__activity_chooser_view_see_all#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__activitychooserview_choose_application#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__share_action_provider_share_with#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__shareactionprovider_share_with#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#abs__shareactionprovider_share_with_application#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#pull_to_refresh_pull_label#0;class#string#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#RemoteImageView#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#RemoteImageView_android_indeterminateDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_background#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_backgroundSplit#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_backgroundStacked#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_customNavigationLayout#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_displayOptions#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_divider#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_height#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_homeLayout#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_icon#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_indeterminateProgressStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_itemPadding#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_logo#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_navigationMode#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_progressBarPadding#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_progressBarStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_subtitle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_subtitleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_title#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionBar_titleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMenuItemView#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMenuItemView_android_minWidth#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMode#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMode_background#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMode_backgroundSplit#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMode_height#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMode_subtitleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActionMode_titleTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActivityChooserView#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActivityChooserView_android_background#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActivityChooserView_expandActivityOverflowButtonDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockActivityChooserView_initialActivityCount#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup_android_checkableBehavior#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup_android_enabled#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup_android_id#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup_android_menuCategory#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup_android_orderInCategory#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuGroup_android_visible#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_actionLayout#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_actionProviderClass#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_actionViewClass#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_alphabeticShortcut#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_checkable#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_checked#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_enabled#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_icon#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_id#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_menuCategory#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_numericShortcut#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_onClick#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_orderInCategory#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_showAsAction#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_title#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_titleCondensed#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuItem_android_visible#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_headerBackground#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_horizontalDivider#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_itemBackground#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_itemIconDisabledAlpha#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_itemTextAppearance#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_preserveIconSpacing#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_verticalDivider#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockMenuView_windowAnimationStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_dropDownHorizontalOffset#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_dropDownSelector#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_dropDownVerticalOffset#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_dropDownWidth#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_gravity#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_popupBackground#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_popupPromptView#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockSpinner_android_prompt#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_absForceOverflow#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarDivider#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarItemBackground#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarSize#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarSplitStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarTabBarStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarTabStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarTabTextStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionBarWidgetTheme#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionButtonStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionDropDownStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionMenuTextAppearance#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionMenuTextColor#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModeBackground#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModeCloseButtonStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModeCloseDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModePopupWindowStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModeShareDrawable#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModeSplitBackground#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionModeStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionOverflowButtonStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_actionSpinnerItemStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_activatedBackgroundIndicator#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_activityChooserViewStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_android_windowIsFloating#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_buttonStyleSmall#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_dividerVertical#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_dropDownListViewStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_dropdownListPreferredItemHeight#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_homeAsUpIndicator#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_listPopupWindowStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_listPreferredItemHeightSmall#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_listPreferredItemPaddingLeft#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_listPreferredItemPaddingRight#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_popupMenuStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_spinnerDropDownItemStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_spinnerItemStyle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textAppearanceLargePopupMenu#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textAppearanceListItemSmall#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textAppearanceSmall#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textAppearanceSmallPopupMenu#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textColorPrimary#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textColorPrimaryDisableOnly#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_textColorPrimaryInverse#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowActionBar#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowActionBarOverlay#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowActionModeOverlay#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowContentOverlay#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowMinWidthMajor#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowMinWidthMinor#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowNoTitle#0;class#styleable#0;class#R#0" expanded="false" />
+            <element signature="docComment;field#SherlockTheme_windowSplitActionBar#0;class#styleable#0;class#R#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4800,11 +5361,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/src/com/github/ignition/core/widgets/RemoteImageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="13" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="48" selection-start="2587" selection-end="2587" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/android/android/4.0.3_r2/android-4.0.3_r2.jar!/java/net/URI.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="9" selection-start="238" selection-end="238" vertical-scroll-proportion="-3.6">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="17" selection-start="3037" selection-end="3037" vertical-scroll-proportion="0.33286119">
+        <state line="145" column="0" selection-start="5267" selection-end="5267" vertical-scroll-proportion="0.5311615">
           <folding>
-            <element signature="method#handleObjektMediaItem#0;class#AmenDetailFragment#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#handleAmenMediaItem#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
             <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
