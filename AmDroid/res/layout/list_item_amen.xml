@@ -105,12 +105,12 @@
             android:id="@+id/media_photo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:src="@drawable/ic_menu_gear"
-            android:layout_alignParentTop="true"
-            android:adjustViewBounds="true"
-            />
 
+            />
+    <!--android:layout_centerHorizontal="true"            -->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:adjustViewBounds="true"-->
     <LinearLayout android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
                   android:orientation="horizontal"
