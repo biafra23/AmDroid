@@ -668,17 +668,20 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="228" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
-    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" line="124" />
+    <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" line="126" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="340" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="132" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="ignore orientation change on amen list page">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
@@ -1431,24 +1434,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list_item_amen.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="64" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list_item_amen_no_pic.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="41" selection-start="3504" selection-end="3504" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RemoteImageView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/src/com/github/ignition/core/widgets/RemoteImageView.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -1505,10 +1490,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="264" column="138" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.58563536">
+            <state line="255" column="0" selection-start="7563" selection-end="8054" vertical-scroll-proportion="-10.538462">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubjectPageActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="156" column="138" selection-start="4279" selection-end="4279" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Objekt.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="227" column="30" selection-start="6424" selection-end="6424" vertical-scroll-proportion="0.6">
               <folding />
             </state>
           </provider>
@@ -1540,8 +1543,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/HelloWorldMaker.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
@@ -1556,6 +1557,8 @@
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" />
+        <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
       </list>
     </option>
   </component>
@@ -2536,90 +2539,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4656,7 +4575,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30256897" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28544244" sideWeight="0.9850587" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28544244" sideWeight="0.9850587" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59800667" sideWeight="0.50428396" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683378" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -4768,26 +4687,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="45" selection-start="2847" selection-end="2847" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
-            <element signature="e#9495#9501#0" expanded="true" />
-            <element signature="e#14233#14239#0" expanded="true" />
-            <element signature="e#14702#14708#0" expanded="true" />
-            <element signature="e#15110#15116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="108" selection-end="307" vertical-scroll-proportion="0.14395393">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.4606526">
@@ -4885,7 +4784,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="264" column="138" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.58563536">
+        <state line="255" column="0" selection-start="7563" selection-end="8054" vertical-scroll-proportion="-10.538462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="138" selection-start="4279" selection-end="4279" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="30" selection-start="6424" selection-end="6424" vertical-scroll-proportion="0.6">
           <folding />
         </state>
       </provider>
