@@ -14,7 +14,7 @@
         <module>AmDroidTest</module>
     </modules>
     <scm>
-    <developerConnection>scm:git:git@github.com:biafra23/AmDroid.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:biafra23/AmDroid.git</developerConnection>
     </scm>
     <properties>
         <actionbarsherlock.version>4.1.0</actionbarsherlock.version>
@@ -54,6 +54,16 @@
             <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>ignition-releases</id>
+            <url>http://nexus.qype.com/content/repositories/releases</url>
+        </repository>
+        <repository>
+            <id>ignition-snapshots</id>
+            <url>http://nexus.qype.com/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
     <build>
         <pluginManagement>
             <plugins>
