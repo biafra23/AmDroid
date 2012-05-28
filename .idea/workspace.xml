@@ -675,7 +675,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="ignore orientation change on amen list page">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" afterPath="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1504,7 +1503,7 @@
       <file leaf-file-name="Objekt.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="41" selection-start="5719" selection-end="5719" vertical-scroll-proportion="0.27142859">
+            <state line="237" column="17" selection-start="6663" selection-end="6663" vertical-scroll-proportion="0.44285715">
               <folding />
             </state>
           </provider>
@@ -4585,7 +4584,11 @@
       <created>1338176767982</created>
       <updated>1338176767982</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="config">
+      <created>1338177226086</created>
+      <updated>1338177226086</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4683,7 +4686,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="sharing ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4718,11 +4721,11 @@
     <MESSAGE value="using remoteImageView in details page" />
     <MESSAGE value="AspectRatioImageView extends RemoteImageView" />
     <MESSAGE value="include ignition repos and dependency" />
-    <MESSAGE value="config" />
     <MESSAGE value="ignore orientation change on amen list page" />
     <MESSAGE value="slug added" />
     <MESSAGE value="asSentence property parcelable" />
     <MESSAGE value="sharing ..." />
+    <MESSAGE value="config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4843,7 +4846,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="41" selection-start="5719" selection-end="5719" vertical-scroll-proportion="0.27142859">
+        <state line="237" column="17" selection-start="6663" selection-end="6663" vertical-scroll-proportion="0.44285715">
           <folding />
         </state>
       </provider>
