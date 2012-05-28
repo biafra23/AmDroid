@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ignition="http://github.com/ignition/schema"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical">
@@ -34,25 +35,36 @@
                       android:layout_height="fill_parent"
                       android:orientation="vertical"
                 >
-            <ImageView android:id="@+id/objekt_photo"
-                       android:layout_gravity="top"
-                       android:layout_width="80dp"
-                       android:layout_height="80dp"
-                       android:padding="2dp"
-                       android:src="@drawable/ic_menu_gear"
-                       android:contentDescription="Objekt Photo"
+            <com.github.ignition.core.widgets.RemoteImageView
+                    android:id="@+id/objekt_photo"
+                    android:layout_gravity="top"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_menu_gear"
+                    android:contentDescription="Objekt Photo"
+                    ignition:autoLoad="false"
+                    ignition:imageUrl="http://does.not.exist/"
                     />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout android:layout_width="fill_parent"
                   android:layout_height="wrap_content"
             >
+        <!--<com.jaeckel.amenoid.util.AspectRatioImageView-->
+        <!--android:id="@+id/media_photo"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--/>-->
+
         <com.jaeckel.amenoid.util.AspectRatioImageView
                 android:id="@+id/media_photo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:visibility="gone"
+                android:src="@drawable/ic_menu_gear"
+                ignition:autoLoad="false"
                 />
     </LinearLayout>
     <TextView android:id="@+id/user"
