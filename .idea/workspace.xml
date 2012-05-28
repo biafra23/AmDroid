@@ -1517,10 +1517,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="221" column="59" selection-start="6830" selection-end="6830" vertical-scroll-proportion="0.54423076">
+                <state line="220" column="64" selection-start="6771" selection-end="6771" vertical-scroll-proportion="0.44807693">
                   <folding />
                 </state>
               </provider>
@@ -1541,10 +1541,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="menu_detail.xml" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="menu_detail.xml" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="0.37428024">
+                <state line="16" column="13" selection-start="505" selection-end="505" vertical-scroll-proportion="0.31669867">
                   <folding />
                 </state>
               </provider>
@@ -1608,10 +1608,10 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
       </list>
     </option>
   </component>
@@ -4868,16 +4868,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="59" selection-start="6830" selection-end="6830" vertical-scroll-proportion="0.54423076">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="36" selection-start="4216" selection-end="4216" vertical-scroll-proportion="-4.0384617">
+        <state line="49" column="45" selection-start="1952" selection-end="2004" vertical-scroll-proportion="-15.576923">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -4907,7 +4900,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="0.37428024">
+        <state line="16" column="13" selection-start="505" selection-end="505" vertical-scroll-proportion="0.31669867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="220" column="64" selection-start="6771" selection-end="6771" vertical-scroll-proportion="0.44807693">
           <folding />
         </state>
       </provider>
