@@ -673,7 +673,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="132" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="ignore orientation change on amen list page">
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="amdroid-parent.iws" />
@@ -1503,7 +1503,7 @@
       <file leaf-file-name="Objekt.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="237" column="17" selection-start="6663" selection-end="6663" vertical-scroll-proportion="0.44285715">
+            <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.22857143">
               <folding />
             </state>
           </provider>
@@ -4588,7 +4588,11 @@
       <created>1338177226086</created>
       <updated>1338177226086</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="config">
+      <created>1338177250120</created>
+      <updated>1338177250120</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4846,7 +4850,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="17" selection-start="6663" selection-end="6663" vertical-scroll-proportion="0.44285715">
+        <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.22857143">
           <folding />
         </state>
       </provider>
