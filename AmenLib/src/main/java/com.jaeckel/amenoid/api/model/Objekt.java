@@ -28,6 +28,7 @@ public class Objekt implements Parcelable {
   private String          defaultScope;
   private Double          lat;
   private Double          lng;
+  private String          slug;
 
 
   public Objekt() {
@@ -205,6 +206,7 @@ public class Objekt implements Parcelable {
     dest.writeList(possibleScopes);
     dest.writeList(media);
     dest.writeString(defaultScope);
+    dest.writeString(slug);
     dest.writeValue(id);
     dest.writeValue(lat);
     dest.writeValue(lng);
@@ -222,6 +224,7 @@ public class Objekt implements Parcelable {
     possibleScopes = in.readArrayList(cl);
     media = in.readArrayList(cl);
     defaultScope = in.readString();
+    slug = in.readString();
     id = (Long) in.readValue(cl);
     lat = (Double) in.readValue(cl);
     lng = (Double) in.readValue(cl);
@@ -257,5 +260,13 @@ public class Objekt implements Parcelable {
 
   public void setLng(Double lng) {
     this.lng = lng;
+  }
+
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 }
