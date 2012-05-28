@@ -101,6 +101,4 @@
             </testResource>
         </testResources>
     </build>
-    <repositories>
-    </repositories>
 </project>
