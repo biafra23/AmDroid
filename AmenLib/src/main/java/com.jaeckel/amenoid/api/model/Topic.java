@@ -192,6 +192,7 @@ public class Topic implements Parcelable {
     dest.writeString(scope);
     dest.writeValue(objektsCount);
     dest.writeString(slug);
+    dest.writeString(asSentence);
     dest.writeList(rankedStatements);
   }
 
@@ -204,6 +205,7 @@ public class Topic implements Parcelable {
     scope = in.readString();
     objektsCount = (Integer) in.readValue(cl);
     slug = in.readString();
+    asSentence= in.readString();
     rankedStatements = in.readArrayList(cl);
 
   }
