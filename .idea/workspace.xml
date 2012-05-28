@@ -1455,7 +1455,7 @@
       <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="4" selection-start="7801" selection-end="7801" vertical-scroll-proportion="0.44808742">
+            <state line="242" column="3" selection-start="8206" selection-end="8206" vertical-scroll-proportion="0.73497266">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -4766,7 +4766,11 @@
       <created>1338084095230</created>
       <updated>1338084095230</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="show Objekt.getName as label in the map">
+      <created>1338164940858</created>
+      <updated>1338164940859</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4864,7 +4868,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="config" />
+    <option name="LAST_COMMIT_MESSAGE" value="show Objekt.getName as label in the map" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4879,7 +4883,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="fragmentizing" />
     <MESSAGE value="make timestamp available" />
     <MESSAGE value="show buildnumber and build date in About" />
     <MESSAGE value="more fragment stuff" />
@@ -4904,6 +4907,7 @@
     <MESSAGE value="more failsafe" />
     <MESSAGE value="failsafe" />
     <MESSAGE value="config" />
+    <MESSAGE value="show Objekt.getName as label in the map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -5029,7 +5033,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="4" selection-start="7801" selection-end="7801" vertical-scroll-proportion="0.44808742">
+        <state line="242" column="3" selection-start="8206" selection-end="8206" vertical-scroll-proportion="0.73497266">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
