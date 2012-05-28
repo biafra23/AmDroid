@@ -24,7 +24,9 @@
             >
         <meta-data android:name="android.app.default_searchable"
                    android:value=".SearchActivity"/>
-        <activity android:name=".AmenListFragmentActivity">
+        <activity android:name=".AmenListFragmentActivity"
+                  android:configChanges="orientation"
+                >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -41,7 +43,8 @@
         <activity android:name=".AmenDetailFragmentActivity"
                   android:configChanges="orientation"
 
-                /> <!-- android:uiOptions="splitActionBarWhenNarrow" -->
+                />
+        <!-- android:uiOptions="splitActionBarWhenNarrow" -->
         <activity android:name=".DisputeActivity"
                   android:configChanges="orientation"/>
         <activity android:name=".statement.MakeStatementActivity"
