@@ -675,6 +675,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="ignore orientation change on amen list page">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
@@ -1158,19 +1159,6 @@
         <option name="CONDITION" value="&#13;&#13;JAVA" />
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" line="127" class="com.jaeckel.amenoid.ScoreBoardActivity" package="com.jaeckel.amenoid">
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="&#13;&#13;JAVA" />
-        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
-      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java" line="104" class="com.jaeckel.amenoid.SettingsActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
@@ -1366,7 +1354,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" line="266" class="com.jaeckel.amenoid.ScoreBoardActivity" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" line="262" class="com.jaeckel.amenoid.ScoreBoardActivity" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1518,19 +1506,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="35" selection-start="7989" selection-end="7989" vertical-scroll-proportion="0.0">
+            <state line="238" column="54" selection-start="7031" selection-end="7044" vertical-scroll-proportion="0.026243094">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Topic.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Topic.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="207" column="14" selection-start="5503" selection-end="5503" vertical-scroll-proportion="0.77209944">
+            <state line="78" column="3" selection-start="2620" selection-end="2620" vertical-scroll-proportion="-15.615385">
               <folding />
             </state>
           </provider>
@@ -1567,8 +1555,8 @@
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
       </list>
     </option>
   </component>
@@ -4889,16 +4877,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="35" selection-start="7989" selection-end="7989" vertical-scroll-proportion="0.0">
+        <state line="78" column="3" selection-start="2620" selection-end="2620" vertical-scroll-proportion="-15.615385">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="14" selection-start="5503" selection-end="5503" vertical-scroll-proportion="0.77209944">
+        <state line="238" column="54" selection-start="7031" selection-end="7044" vertical-scroll-proportion="0.026243094">
           <folding />
         </state>
       </provider>
