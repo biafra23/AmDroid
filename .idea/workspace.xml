@@ -674,6 +674,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="ignore orientation change on amen list page">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
@@ -1539,19 +1541,37 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="menu_detail.xml" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="menu_detail.xml" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="0" selection-start="506" selection-end="788" vertical-scroll-proportion="0.0">
+                <state line="18" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="0.37428024">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="menu_scoreboard.xml" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="menu_scoreboard.xml" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="35" selection-start="570" selection-end="570" vertical-scroll-proportion="0.43186182">
+                <state line="16" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="menu_main.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_main.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="menu_subject_page.xml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="4" column="0" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -1576,8 +1596,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
-        <option value="$PROJECT_DIR$/AmDroid/CHANGES" />
         <option value="$PROJECT_DIR$/AmenLib/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1592,6 +1610,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
       </list>
     </option>
   </component>
@@ -4770,25 +4790,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="813" column="98" selection-start="28130" selection-end="28134" vertical-scroll-proportion="-6.576923">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
-            <element signature="class#AmenTask#0;class#AmenDetailFragment#0" expanded="false" />
-            <element signature="class#GetStatementTask#0;class#AmenDetailFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="42" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_amen_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="70" selection-start="218" selection-end="234" vertical-scroll-proportion="0.0">
@@ -4883,16 +4884,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="506" selection-end="788" vertical-scroll-proportion="0.0">
+        <state line="4" column="0" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="35" selection-start="570" selection-end="570" vertical-scroll-proportion="0.43186182">
+        <state line="16" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="0.37428024">
           <folding />
         </state>
       </provider>
