@@ -16,7 +16,6 @@
     <!--android:showAsAction="ifRoom|withText"-->
     <!--/>-->
     <item android:id="@+id/share_details"
-          android:icon="@drawable/ic_action_share_dark"
           android:title="Share"
           android:showAsAction="ifRoom|withText"
           android:actionProviderClass="com.actionbarsherlock.widget.ShareActionProvider"

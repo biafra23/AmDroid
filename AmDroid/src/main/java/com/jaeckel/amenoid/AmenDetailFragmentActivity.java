@@ -120,30 +120,16 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
     MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.menu_detail, menu);
 
-//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-    // Get the menu item.
+
     MenuItem shareMenuItem = menu.findItem(R.id.share_details);
-    // Get the provider and hold onto it to set/change the share intent.
     mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
-    // Set history different from the default before getting the action
-    // view since a call to MenuItem.getActionView() calls
-    // onCreateActionView() which uses the backing file name. Omit this
-    // line if using the default share history file is desired.
-    mShareActionProvider.setShareHistoryFileName("custom_share_history.xml");
 
     if (getCurrentAmen() != null) {
       createShareIntent(getCurrentAmen().getStatement());
     } else if (getCurrentStatement() != null) {
       createShareIntent(getCurrentStatement());
-
     }
 
-//    }
-
-//    if (!AmenoidApp.getInstance().isSignedIn()) {
-//      MenuItem amenSth = menu.findItem(R.id.amen);
-//      amenSth.setEnabled(false);
-//    }
     return true;
   }
 

@@ -5,9 +5,13 @@ import java.util.List;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockListActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.util.AmenLibTask;
@@ -31,7 +35,10 @@ public class SubjectPageActivity extends SherlockListActivity {
   private static final String TAG       = "SubjectPageActivity";
   private static final int[]  IMAGE_IDS = {R.id.media_photo};
 
-  private ActionBar actionBar;
+  private Objekt currentObjekt;
+
+  private ActionBar           actionBar;
+  private ShareActionProvider mShareActionProvider;
 
   @Override
   public boolean onSearchRequested() {
@@ -54,7 +61,7 @@ public class SubjectPageActivity extends SherlockListActivity {
 
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
-    actionBar.setTitle("Subject-Page");
+    actionBar.setTitle("Thing card");
 
 
     service = AmenoidApp.getInstance().getService();
@@ -129,10 +136,13 @@ public class SubjectPageActivity extends SherlockListActivity {
         if (result.size() > 0) {
 
           amenListAdapter = new AmenListAdapter(SubjectPageActivity.this, R.layout.list_item_amen_no_pic, result);
+          currentObjekt = result.get(0).getStatement().getObjekt();
+          createShareIntent(currentObjekt);
 
-          actionBar.setSubtitle(result.get(0).getStatement().getObjekt().getName());
+          actionBar.setSubtitle(currentObjekt.getName());
 
-          ThumbnailAdapter thumbs = new ThumbnailAdapter(SubjectPageActivity.this, amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
+          ThumbnailAdapter thumbs = new ThumbnailAdapter(SubjectPageActivity.this,
+                                                         amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
 
 
           setListAdapter(thumbs);
@@ -142,4 +152,38 @@ public class SubjectPageActivity extends SherlockListActivity {
       }
     }
   }
+
+  public boolean onCreateOptionsMenu(Menu menu) {
+    super.onCreateOptionsMenu(menu);
+
+    MenuInflater inflater = getSupportMenuInflater();
+    inflater.inflate(R.menu.menu_subject_page, menu);
+//    if (!AmenoidApp.getInstance().isSignedIn()) {
+//      MenuItem amenSth = menu.findItem(R.id.amen);
+//      amenSth.setEnabled(false);
+//    }
+
+    MenuItem shareMenuItem = menu.findItem(R.id.share_subject);
+    mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
+
+    if (currentObjekt != null) {
+      createShareIntent(currentObjekt);
+    }
+
+    return true;
+  }
+
+  private void createShareIntent(Objekt objekt) {
+    if (objekt == null) {
+      return;
+    }
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    shareIntent.setType("text/plain");
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, objekt.getName() + " #getamen https://getamen.com/things/" + objekt.getSlug());
+
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
+  }
+
 }

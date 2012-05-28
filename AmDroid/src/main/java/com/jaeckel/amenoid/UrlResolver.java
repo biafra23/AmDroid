@@ -100,6 +100,33 @@ public class UrlResolver extends SherlockActivity {
 
         new GetStatementForIdTask(this).executeOnThreadPool(statementId);
 
+      } else if ("things".equalsIgnoreCase(pathSegments.get(0))) {
+
+        String objekt = pathSegments.get(1);
+        Long id = -1L;
+        try {
+          id = Long.parseLong(objekt);
+
+        } catch (Exception e) {
+          // id still -1
+        }
+        Intent thingCardIntent = new Intent(this, SubjectPageActivity.class);
+        if (id > 0) {
+          thingCardIntent.putExtra(Constants.EXTRA_OBJEKT_ID, id + "");
+        } else {
+          thingCardIntent.putExtra(Constants.EXTRA_OBJEKT, objekt);
+        }
+        startActivity(thingCardIntent);
+
+        finish();
+
+      } else if ("statements".equals(pathSegments.get(0))) {
+        Log.d(TAG, "pathSegments.get(0): " + pathSegments.get(0));
+        Long statementId = Long.valueOf(pathSegments.get(1));
+        Log.d(TAG, "pathSegments.get(1): " + pathSegments.get(1));
+
+        new GetStatementForIdTask(this).executeOnThreadPool(statementId);
+
       } else {
 
         String name = pathSegments.get(0);

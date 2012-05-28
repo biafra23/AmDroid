@@ -8,12 +8,14 @@ import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.RankedStatements;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.AmenLibTask;
+import com.jaeckel.amenoid.util.Log;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -24,7 +26,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.jaeckel.amenoid.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -54,6 +55,8 @@ public class ScoreBoardActivity extends SherlockListActivity {
   private Typeface amenTypeBold;
 
   private ListView list;
+
+  private ShareActionProvider mShareActionProvider;
 
   @Override
   public boolean onSearchRequested() {
@@ -120,15 +123,10 @@ public class ScoreBoardActivity extends SherlockListActivity {
     description = (TextView) findViewById(R.id.description_scope);
     description.setTypeface(amenTypeBold);
     if (currentTopic != null) {
-      if (TextUtils.isEmpty(currentTopic.getAsSentence())) {
-        final String topicAsSentence = "The " + (currentTopic.isBest() ? "Best " : "Worst ")
-                                       + currentTopic.getDescription() + " " + currentTopic.getScope() + " is";
-        description.setText(topicAsSentence);
-        actionBar.setSubtitle(topicAsSentence);
-      } else {
-        description.setText(currentTopic.getAsSentence());
-        actionBar.setSubtitle(currentTopic.getAsSentence());
-      }
+      final String topicAsSentence = topicAsSentence(currentTopic);
+
+      description.setText(topicAsSentence);
+      actionBar.setSubtitle(topicAsSentence);
     }
   }
 
@@ -192,7 +190,7 @@ public class ScoreBoardActivity extends SherlockListActivity {
 
       if (topic != null && topic.getRankedStatements() != null) {
         currentTopic = topic;
-        description.setText(currentTopic.getAsSentence());
+        description.setText(topicAsSentence(currentTopic));
         adapter = new ScoreBoardAdapter(ScoreBoardActivity.this, android.R.layout.simple_list_item_1, topic.getRankedStatements());
         setListAdapter(adapter);
 
@@ -213,6 +211,14 @@ public class ScoreBoardActivity extends SherlockListActivity {
       MenuItem amenSth = menu.findItem(R.id.amen);
       amenSth.setEnabled(false);
     }
+
+    MenuItem shareMenuItem = menu.findItem(R.id.share_scoreboard);
+    mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
+
+    if (currentTopic != null) {
+      createShareIntent(currentTopic);
+    }
+
     return true;
   }
 
@@ -228,16 +234,16 @@ public class ScoreBoardActivity extends SherlockListActivity {
         return true;
       }
 
-      case R.id.share_scoreboard:
-
-        String amenText = currentTopic.getAsSentence();
-
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + "... #getamen https://getamen.com/topics/" + currentTopic.getId());
-        startActivity(Intent.createChooser(sharingIntent, "Share using"));
-
-        return true;
+//      case R.id.share_scoreboard:
+//
+//        String amenText = currentTopic.getAsSentence();
+//
+//        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+//        sharingIntent.setType("text/plain");
+//        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + "... #getamen https://getamen.com/topics/" + currentTopic.getId());
+//        startActivity(Intent.createChooser(sharingIntent, "Share using"));
+//
+//        return true;
 
       case R.id.amen:
         startActivity(new Intent(this, ChooseStatementTypeActivity.class));
@@ -247,5 +253,27 @@ public class ScoreBoardActivity extends SherlockListActivity {
     return false;
   }
 
+  private void createShareIntent(Topic topic) {
+    if (topic == null) {
+      return;
+    }
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    shareIntent.setType("text/plain");
 
+    String topicAsSentence = topicAsSentence(topic);
+
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, topicAsSentence + "... #getamen https://getamen.com/topics/" + topic.getSlug());
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
+  }
+
+  private String topicAsSentence(Topic topic) {
+    String topicAsSentence = topic.getAsSentence();
+    if (TextUtils.isEmpty(topicAsSentence)) {
+      topicAsSentence = "The " + (currentTopic.isBest() ? "Best " : "Worst ")
+                        + currentTopic.getDescription() + " " + currentTopic.getScope() + " is";
+    }
+    return topicAsSentence;
+  }
 }
