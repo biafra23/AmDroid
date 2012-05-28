@@ -11,6 +11,7 @@ import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
+import com.jaeckel.amenoid.util.HelloWorldMaker;
 import com.jaeckel.amenoid.util.Log;
 
 import android.content.Context;
@@ -37,6 +38,8 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate");
+
+
 
     setContentView(R.layout.activity_fragment_amen_list);
 
@@ -174,6 +177,13 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
   @Override
   public void onResume() {
     super.onResume();
+
+//    try {
+//      Log.d(TAG, "---> HelloWorldMaker.main(null);");
+//      HelloWorldMaker.main(null);
+//    } catch (Exception e) {
+//      e.printStackTrace();
+//    }
 
     listNeighbours();
   }
