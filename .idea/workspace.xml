@@ -673,14 +673,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" line="132" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="show Objekt.getName as label">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/AmenLib.iml" afterPath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/pom.xml" afterPath="$PROJECT_DIR$/AmenLib/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" afterPath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
-    </list>
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config" />
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -1523,7 +1516,7 @@
       <file leaf-file-name="details_header.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="10" selection-start="2724" selection-end="2724" vertical-scroll-proportion="0.33333334">
+            <state line="73" column="0" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.5997268">
               <folding />
             </state>
           </provider>
@@ -4759,7 +4752,11 @@
       <created>1338169289068</created>
       <updated>1338169289068</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="config">
+      <created>1338169307420</created>
+      <updated>1338169307420</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4857,7 +4854,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="include ignition repos and dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4889,7 +4886,6 @@
     <MESSAGE value="changes" />
     <MESSAGE value="more failsafe" />
     <MESSAGE value="failsafe" />
-    <MESSAGE value="config" />
     <MESSAGE value="show Objekt.getName as label in the map" />
     <MESSAGE value="show Objekt.getName as label in map" />
     <MESSAGE value="replaycing ( and ) in Objekt.getName as label" />
@@ -4897,6 +4893,7 @@
     <MESSAGE value="using remoteImageView in details page" />
     <MESSAGE value="AspectRatioImageView extends RemoteImageView" />
     <MESSAGE value="include ignition repos and dependency" />
+    <MESSAGE value="config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -5030,7 +5027,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="10" selection-start="2724" selection-end="2724" vertical-scroll-proportion="0.33333334">
+        <state line="73" column="0" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.5997268">
           <folding />
         </state>
       </provider>
