@@ -675,7 +675,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="ignore orientation change on amen list page">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" afterPath="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
@@ -1509,7 +1508,7 @@
       <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="238" column="54" selection-start="7031" selection-end="7044" vertical-scroll-proportion="0.026243094">
+            <state line="264" column="138" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.58563536">
               <folding />
             </state>
           </provider>
@@ -4886,7 +4885,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="54" selection-start="7031" selection-end="7044" vertical-scroll-proportion="0.026243094">
+        <state line="264" column="138" selection-start="7945" selection-end="7945" vertical-scroll-proportion="0.58563536">
           <folding />
         </state>
       </provider>
