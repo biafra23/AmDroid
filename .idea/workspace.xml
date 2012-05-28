@@ -1532,7 +1532,7 @@
       <file leaf-file-name="details_header.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.47677594">
+            <state line="60" column="10" selection-start="2724" selection-end="2724" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -5089,7 +5089,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="3061" selection-end="3061" vertical-scroll-proportion="0.47677594">
+        <state line="60" column="10" selection-start="2724" selection-end="2724" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
