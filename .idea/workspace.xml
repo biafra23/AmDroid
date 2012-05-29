@@ -76,6 +76,7 @@
       <entry key="com.actionbarsherlock_library_4.0.0" value="$MAVEN_REPOSITORY$/com/actionbarsherlock/library/4.0.0/library-4.0.0.apklib" />
       <entry key="com.actionbarsherlock_library_4.0.2" value="$MAVEN_REPOSITORY$/com/actionbarsherlock/library/4.0.2/library-4.0.2.apklib" />
       <entry key="com.actionbarsherlock_library_4.1.0" value="$MAVEN_REPOSITORY$/com/actionbarsherlock/library/4.1.0/library-4.1.0.apklib" />
+      <entry key="com.flattr4android.sdk_flattr-android-sdk_0.0.3.0" value="$MAVEN_REPOSITORY$/com/flattr4android/sdk/flattr-android-sdk/0.0.3.0/flattr-android-sdk-0.0.3.0.apklib" />
       <entry key="com.github.ignition_ignition-core_0.3-SNAPSHOT" value="$MAVEN_REPOSITORY$/com/github/ignition/ignition-core/0.3-SNAPSHOT/ignition-core-0.3-SNAPSHOT.apklib" />
       <entry key="com.wazabe.holoeverywhere_library_1.0.0" value="$MAVEN_REPOSITORY$/com/wazabe/holoeverywhere/library/1.0.0/library-1.0.0.apklib" />
       <entry key="de.neofonie.mobile.unicorn_Cache_0.1.0-SNAPSHOT" value="$MAVEN_REPOSITORY$/de/neofonie/mobile/unicorn/Cache/0.1.0-SNAPSHOT/Cache-0.1.0-SNAPSHOT.apklib" />
@@ -447,6 +448,93 @@
           </resolved-info>
         </value>
       </entry>
+      <entry key="com.flattr4android.sdk_flattr-android-sdk_0.0.3.0">
+        <value>
+          <resolved-info>
+            <option name="apiLevel" value="" />
+            <dependencies>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="junit" />
+                <option name="groupId" value="junit" />
+                <option name="libraryName" value="Maven: junit:junit:4.5" />
+                <option name="type" value="jar" />
+                <option name="version" value="4.5" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="android" />
+                <option name="groupId" value="com.google.android" />
+                <option name="libraryName" value="Maven: com.google.android:android:1.5_r4" />
+                <option name="type" value="jar" />
+                <option name="version" value="1.5_r4" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="commons-logging" />
+                <option name="groupId" value="commons-logging" />
+                <option name="libraryName" value="Maven: commons-logging:commons-logging:1.1.1" />
+                <option name="type" value="jar" />
+                <option name="version" value="1.1.1" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="httpclient" />
+                <option name="groupId" value="org.apache.httpcomponents" />
+                <option name="libraryName" value="Maven: org.apache.httpcomponents:httpclient:4.0.1" />
+                <option name="type" value="jar" />
+                <option name="version" value="4.0.1" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="httpcore" />
+                <option name="groupId" value="org.apache.httpcomponents" />
+                <option name="libraryName" value="Maven: org.apache.httpcomponents:httpcore:4.1.3" />
+                <option name="type" value="jar" />
+                <option name="version" value="4.1.3" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="commons-codec" />
+                <option name="groupId" value="commons-codec" />
+                <option name="libraryName" value="Maven: commons-codec:commons-codec:1.4" />
+                <option name="type" value="jar" />
+                <option name="version" value="1.4" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="opengl-api" />
+                <option name="groupId" value="org.khronos" />
+                <option name="libraryName" value="Maven: org.khronos:opengl-api:gl1.1-android-2.1_r1" />
+                <option name="type" value="jar" />
+                <option name="version" value="gl1.1-android-2.1_r1" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="xmlParserAPIs" />
+                <option name="groupId" value="xerces" />
+                <option name="libraryName" value="Maven: xerces:xmlParserAPIs:2.6.2" />
+                <option name="type" value="jar" />
+                <option name="version" value="2.6.2" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="xpp3" />
+                <option name="groupId" value="xpp3" />
+                <option name="libraryName" value="Maven: xpp3:xpp3:1.1.4c" />
+                <option name="type" value="jar" />
+                <option name="version" value="1.1.4c" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="flattr4j-core" />
+                <option name="groupId" value="org.shredzone.flattr4j" />
+                <option name="libraryName" value="Maven: org.shredzone.flattr4j:flattr4j-core:2.3" />
+                <option name="type" value="jar" />
+                <option name="version" value="2.3" />
+              </MavenDependencyInfo>
+              <MavenDependencyInfo>
+                <option name="artifactId" value="json" />
+                <option name="groupId" value="org.json" />
+                <option name="libraryName" value="Maven: org.json:json:20090211" />
+                <option name="type" value="jar" />
+                <option name="version" value="20090211" />
+              </MavenDependencyInfo>
+            </dependencies>
+            <option name="sdkPath" value="3" />
+          </resolved-info>
+        </value>
+      </entry>
       <entry key="com.github.ignition_ignition-core_0.3-SNAPSHOT">
         <value>
           <resolved-info>
@@ -674,7 +762,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1426,28 +1519,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PullToRefreshListView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="details_header.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="19" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="56" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
+            <state line="22" column="63" selection-start="938" selection-end="969" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="30" selection-start="3193" selection-end="3193" vertical-scroll-proportion="1.0192307">
               <folding />
             </state>
           </provider>
@@ -1500,10 +1584,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Objekt.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Objekt.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.22857143">
+            <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CHANGES" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1535,13 +1628,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml" />
@@ -1551,6 +1642,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UrlResolver.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
+        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
       </list>
     </option>
   </component>
@@ -1657,7 +1750,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1148" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1897,84 +1990,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="android-4.0.3_r2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-4.0.3_r2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-4.0.3_r2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Maven: android:android:4.0.3_r2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android-4.0.3_r2.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reflect" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4618,7 +4633,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1148" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -4739,22 +4754,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="39" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/util/AspectRatioImageView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="269" selection-end="289" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="64" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
@@ -4793,13 +4792,6 @@
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="68" column="19" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="56" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -4850,7 +4842,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.22857143">
+        <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="63" selection-start="938" selection-end="969" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="30" selection-start="3193" selection-end="3193" vertical-scroll-proportion="1.0192307">
           <folding />
         </state>
       </provider>
