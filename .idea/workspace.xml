@@ -1527,7 +1527,7 @@
       <file leaf-file-name="C2DMRegistrationReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
+            <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#C2DMRegistrationReceiver#0" expanded="true" />
@@ -1539,7 +1539,16 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="48" selection-start="7639" selection-end="7639" vertical-scroll-proportion="0.88390094">
+            <state line="19" column="47" selection-start="762" selection-end="762" vertical-scroll-proportion="0.38709676">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionBarSherlock.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/ActionBarSherlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1557,7 +1566,7 @@
       <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="13" selection-start="1392" selection-end="1392" vertical-scroll-proportion="0.0">
+            <state line="75" column="71" selection-start="2432" selection-end="2471" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1566,7 +1575,7 @@
       <file leaf-file-name="C2DMMessageReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+            <state line="18" column="2" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#C2DMMessageReceiver#0" expanded="true" />
@@ -1578,17 +1587,10 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="59" selection-start="3520" selection-end="3520" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu_subject_page.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="22" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="111" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2021,6 +2023,88 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen-external-apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.actionbarsherlock_library_4.1.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen-external-apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.actionbarsherlock_library_4.1.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actionbarsherlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen-external-apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.actionbarsherlock_library_4.1.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4247,11 +4331,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="19" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="30" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0">
@@ -4308,33 +4387,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/ActionBarSherlock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#C2DMRegistrationReceiver#0" expanded="true" />
-          </folding>
+        <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="59" selection-start="3520" selection-end="3520" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="13" selection-start="1392" selection-end="1392" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="111" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+        <state line="18" column="2" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#C2DMMessageReceiver#0" expanded="true" />
@@ -4342,9 +4413,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#C2DMRegistrationReceiver#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="71" selection-start="2432" selection-end="2471" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="48" selection-start="7639" selection-end="7639" vertical-scroll-proportion="0.88390094">
+        <state line="19" column="47" selection-start="762" selection-end="762" vertical-scroll-proportion="0.38709676">
           <folding />
         </state>
       </provider>
