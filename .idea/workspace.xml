@@ -1536,10 +1536,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="47" selection-start="1071" selection-end="1071" vertical-scroll-proportion="-13.846154">
+            <state line="3" column="39" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0867052">
               <folding />
             </state>
           </provider>
@@ -1549,16 +1549,63 @@
         <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/ActionBarSherlock.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AmenListAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="docComment;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#Implementation#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnCreatePanelMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnCreateOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnMenuItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnOptionsItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnPreparePanelListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnPrepareOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnActionModeFinishedListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;class#OnActionModeStartedListener#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;field#FLAG_DELEGATE#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#registerImplementation#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#unregisterImplementation#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#wrap#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#wrap#1;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;field#mActivity#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;field#mIsDelegate#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;field#mMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#getActionBar#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchConfigurationChanged#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchPostResume#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchPause#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchStop#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchInvalidateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchOpenOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchCloseOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchTitleChanged#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchKeyEvent#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchMenuOpened#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchPanelClosed#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#dispatchDestroy#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#callbackCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#callbackPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#callbackOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#hasFeature#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#requestFeature#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setUiOptions#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setUiOptions#1;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setContentView#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setContentView#1;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setContentView#2;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#addContentView#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setTitle#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setTitle#1;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setProgressBarVisibility#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setProgressBarIndeterminateVisibility#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setProgressBarIndeterminate#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setProgress#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#setSecondaryProgress#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#getMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
+                <element signature="docComment;method#startActionMode#0;class#ActionBarSherlock#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1572,14 +1619,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="C2DMMessageReceiver.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="C2DMMessageReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="36" selection-start="641" selection-end="641" vertical-scroll-proportion="0.5108359">
+            <state line="21" column="59" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#C2DMMessageReceiver#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Amen.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Amen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingsActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmenServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="195" column="26" selection-start="6833" selection-end="6846" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1591,33 +1674,6 @@
               <folding>
                 <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Objekt.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CHANGES" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Topic.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="3" selection-start="2620" selection-end="2620" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1653,8 +1709,8 @@
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java" />
-        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java" />
+        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -1761,7 +1817,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1024" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1857,254 +1913,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amenoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amenoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amenoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amenoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="c2dm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amenoid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gen-external-apklibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.actionbarsherlock_library_4.1.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gen-external-apklibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.actionbarsherlock_library_4.1.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actionbarsherlock" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid-parent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amdroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AmDroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gen-external-apklibs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.actionbarsherlock_library_4.1.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4210,13 +4018,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1024" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30204964" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3008963" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28544244" sideWeight="0.9850587" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59800667" sideWeight="0.50428396" order="10" side_tool="true" content_ui="tabs" />
@@ -4227,7 +4035,7 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.5803157" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22785486" sideWeight="0.5803157" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27297008" sideWeight="0.69795036" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27297008" sideWeight="0.6991037" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29340762" sideWeight="0.3172338" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="213" y="129" width="919" height="477" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4331,30 +4139,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="30" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="45" selection-start="1952" selection-end="2004" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="0" selection-start="5981" selection-end="7561" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="57" selection-start="1965" selection-end="1965" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UrlResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="118" column="39" selection-start="3434" selection-end="3434" vertical-scroll-proportion="0.0" />
@@ -4390,7 +4174,63 @@
     <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/ActionBarSherlock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#Implementation#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnCreatePanelMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnCreateOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnMenuItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnOptionsItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnPreparePanelListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnPrepareOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnActionModeFinishedListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;class#OnActionModeStartedListener#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;field#FLAG_DELEGATE#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#registerImplementation#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#unregisterImplementation#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#wrap#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#wrap#1;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;field#mActivity#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;field#mIsDelegate#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;field#mMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#getActionBar#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchConfigurationChanged#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchPostResume#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchPause#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchStop#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchInvalidateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchOpenOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchCloseOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchTitleChanged#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchKeyEvent#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchMenuOpened#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchPanelClosed#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#dispatchDestroy#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#callbackCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#callbackPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#callbackOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#hasFeature#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#requestFeature#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setUiOptions#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setUiOptions#1;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setContentView#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setContentView#1;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setContentView#2;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#addContentView#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setTitle#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setTitle#1;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setProgressBarVisibility#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setProgressBarIndeterminateVisibility#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setProgressBarIndeterminate#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setProgress#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#setSecondaryProgress#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#getMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
+            <element signature="docComment;method#startActionMode#0;class#ActionBarSherlock#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -4420,20 +4260,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="47" selection-start="1071" selection-end="1071" vertical-scroll-proportion="-13.846154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="36" selection-start="641" selection-end="641" vertical-scroll-proportion="0.5108359">
+        <state line="21" column="59" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#C2DMMessageReceiver#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Amen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="26" selection-start="6833" selection-end="6846" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="39" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0867052">
+          <folding />
         </state>
       </provider>
     </entry>
