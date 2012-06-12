@@ -765,6 +765,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1507,8 +1508,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="exception_breakpoints_groupByClasses" value="true" />
+      <property name="field_breakpoints_viewId" value="TABLE" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -1524,96 +1525,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="C2DMRegistrationReceiver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
+      <file leaf-file-name="AmenService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#C2DMRegistrationReceiver#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="39" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0867052">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionBarSherlock.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/ActionBarSherlock.java">
+      <file leaf-file-name="SignupFailedException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/SignupFailedException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="docComment;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#Implementation#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnCreatePanelMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnCreateOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnMenuItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnOptionsItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnPreparePanelListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnPrepareOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnActionModeFinishedListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;class#OnActionModeStartedListener#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;field#FLAG_DELEGATE#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#registerImplementation#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#unregisterImplementation#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#wrap#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#wrap#1;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;field#mActivity#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;field#mIsDelegate#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;field#mMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#getActionBar#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchConfigurationChanged#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchPostResume#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchPause#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchStop#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchInvalidateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchOpenOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchCloseOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchTitleChanged#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchKeyEvent#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchMenuOpened#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchPanelClosed#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#dispatchDestroy#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#callbackCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#callbackPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#callbackOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#hasFeature#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#requestFeature#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setUiOptions#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setUiOptions#1;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setContentView#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setContentView#1;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setContentView#2;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#addContentView#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setTitle#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setTitle#1;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setProgressBarVisibility#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setProgressBarIndeterminateVisibility#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setProgressBarIndeterminate#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setProgress#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#setSecondaryProgress#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#getMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
-                <element signature="docComment;method#startActionMode#0;class#ActionBarSherlock#0" expanded="false" />
-              </folding>
+            <state line="6" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="71" selection-start="2432" selection-end="2471" vertical-scroll-proportion="0.0">
+            <state line="46" column="61" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.35012284">
               <folding />
             </state>
           </provider>
@@ -1622,19 +1555,25 @@
       <file leaf-file-name="C2DMMessageReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="59" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#C2DMMessageReceiver#0" expanded="true" />
-              </folding>
+            <state line="22" column="52" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Amen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Amen.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
+            <state line="72" column="8" selection-start="3528" selection-end="3626" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="C2DMRegistrationReceiver.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1652,7 +1591,16 @@
       <file leaf-file-name="AmenServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="26" selection-start="6833" selection-end="6846" vertical-scroll-proportion="0.0">
+            <state line="181" column="31" selection-start="6277" selection-end="6302" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RequestFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/RequestFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="31" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1663,17 +1611,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1707,10 +1644,10 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SubjectPageActivity.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
       </list>
     </option>
   </component>
@@ -1816,8 +1753,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="878" />
+    <option name="width" value="1677" />
+    <option name="height" value="912" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1912,7 +1849,155 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="AmenLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmenLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmenLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmenLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amenoid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amenoid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="c2dm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2027,12 +2112,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="AndroidTargetDevices" value="192.168.1.55:5555" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2057,29 +2142,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Maven.clean package android:deploy android:run -Prelease,sign">
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-        <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings">
@@ -2128,6 +2190,29 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
         <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
       </method>
@@ -4018,13 +4103,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="878" extended-state="0" />
+    <frame x="0" y="22" width="1677" height="912" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3008963" sideWeight="0.90554965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28544244" sideWeight="0.9850587" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59800667" sideWeight="0.50428396" order="10" side_tool="true" content_ui="tabs" />
@@ -4035,7 +4119,7 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.5803157" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22785486" sideWeight="0.5803157" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27297008" sideWeight="0.6991037" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25230202" sideWeight="0.7824968" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29340762" sideWeight="0.3172338" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="213" y="129" width="919" height="477" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4047,6 +4131,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19903949" sideWeight="0.697431" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21750322" sideWeight="0.9642094" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31493816" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -4139,168 +4224,92 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UrlResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="39" selection-start="3434" selection-end="3434" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="22" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Objekt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="48" selection-start="6252" selection-end="6252" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Topic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="3" selection-start="2620" selection-end="2620" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="27" column="13" selection-start="746" selection-end="746" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/ActionBarSherlock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#Implementation#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnCreatePanelMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnCreateOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnMenuItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnOptionsItemSelectedListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnPreparePanelListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnPrepareOptionsMenuListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnActionModeFinishedListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;class#OnActionModeStartedListener#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;field#FLAG_DELEGATE#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#registerImplementation#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#unregisterImplementation#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#wrap#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#wrap#1;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;field#mActivity#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;field#mIsDelegate#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;field#mMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#getActionBar#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchConfigurationChanged#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchPostResume#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchPause#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchStop#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchInvalidateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchOpenOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchCloseOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchTitleChanged#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchKeyEvent#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchMenuOpened#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchPanelClosed#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#dispatchDestroy#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#callbackCreateOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#callbackPrepareOptionsMenu#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#callbackOptionsItemSelected#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#hasFeature#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#requestFeature#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setUiOptions#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setUiOptions#1;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setContentView#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setContentView#1;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setContentView#2;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#addContentView#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setTitle#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setTitle#1;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setProgressBarVisibility#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setProgressBarIndeterminateVisibility#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setProgressBarIndeterminate#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setProgress#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#setSecondaryProgress#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#getMenuInflater#0;class#ActionBarSherlock#0" expanded="false" />
-            <element signature="docComment;method#startActionMode#0;class#ActionBarSherlock#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="390" column="61" selection-start="14512" selection-end="14512" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;method#onCreate#0;class#AmenListFragment#0" expanded="true" />
-          </folding>
+        <state line="111" column="0" selection-start="3893" selection-end="3893" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Amen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="7" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/SignupFailedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="52" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#C2DMRegistrationReceiver#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="71" selection-start="2432" selection-end="2471" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="59" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#C2DMMessageReceiver#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Amen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="426" selection-end="426" vertical-scroll-proportion="0.0">
+        <state line="32" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="26" selection-start="6833" selection-end="6846" vertical-scroll-proportion="0.0">
+        <state line="181" column="31" selection-start="6277" selection-end="6302" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/RequestFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="31" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="39" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0867052">
+        <state line="72" column="8" selection-start="3528" selection-end="3626" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="61" selection-start="1550" selection-end="1550" vertical-scroll-proportion="0.35012284">
           <folding />
         </state>
       </provider>
