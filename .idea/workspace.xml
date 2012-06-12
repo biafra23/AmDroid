@@ -765,7 +765,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiverFoo.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1543,10 +1542,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="32" selection-start="7013" selection-end="7037" vertical-scroll-proportion="0.5208845">
+            <state line="227" column="32" selection-start="7013" selection-end="7037" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1555,7 +1554,7 @@
       <file leaf-file-name="C2DMMessageReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="52" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
+            <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1570,10 +1569,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="C2DMRegistrationReceiverFoo.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="C2DMRegistrationReceiverFoo.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiverFoo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="37" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
+            <state line="12" column="40" selection-start="269" selection-end="269" vertical-scroll-proportion="0.09213759">
               <folding />
             </state>
           </provider>
@@ -4264,13 +4263,6 @@
         <state line="6" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="52" selection-start="657" selection-end="657" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" />
@@ -4293,13 +4285,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiverFoo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="37" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="41" selection-start="4697" selection-end="4697" vertical-scroll-proportion="-15.846154">
@@ -4309,7 +4294,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="32" selection-start="7013" selection-end="7037" vertical-scroll-proportion="0.5208845">
+        <state line="227" column="32" selection-start="7013" selection-end="7037" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiverFoo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="40" selection-start="269" selection-end="269" vertical-scroll-proportion="0.09213759">
           <folding />
         </state>
       </provider>
