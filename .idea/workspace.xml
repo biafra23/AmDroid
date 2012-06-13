@@ -1551,19 +1551,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="39" selection-start="5950" selection-end="5950" vertical-scroll-proportion="0.5260223">
+            <state line="120" column="39" selection-start="5950" selection-end="5950" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="C2DMRegistrationReceiver.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="C2DMRegistrationReceiver.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="37" selection-start="242" selection-end="266" vertical-scroll-proportion="0.0">
+            <state line="12" column="64" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0697026">
               <folding />
             </state>
           </provider>
@@ -1644,9 +1644,9 @@
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiverFoo.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java" />
       </list>
     </option>
   </component>
@@ -4174,11 +4174,6 @@
         <state line="6" column="13" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="18" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" />
@@ -4199,20 +4194,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="37" selection-start="242" selection-end="266" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CommentListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="13" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="226" column="3" selection-start="7004" selection-end="7004" vertical-scroll-proportion="0.0">
@@ -4222,7 +4203,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="39" selection-start="5950" selection-end="5950" vertical-scroll-proportion="0.5260223">
+        <state line="120" column="39" selection-start="5950" selection-end="5950" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMMessageReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CommentListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/c2dm/C2DMRegistrationReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="64" selection-start="293" selection-end="293" vertical-scroll-proportion="0.0697026">
           <folding />
         </state>
       </provider>
