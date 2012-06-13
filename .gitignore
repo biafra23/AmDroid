@@ -5,3 +5,4 @@ AmDroid/res/values/config.xml
 gen-external-apklibs
 gen
 httpclientandroidlib/target
+.idea/*
