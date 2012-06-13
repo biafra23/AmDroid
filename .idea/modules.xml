@@ -12,7 +12,6 @@
       <module fileurl="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.0.2.iml" filepath="$PROJECT_DIR$/AmDroid/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.0.2.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroid/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" filepath="$PROJECT_DIR$/AmDroid/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.flattr4android.sdk_flattr-android-sdk_0.0.3.0.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.flattr4android.sdk_flattr-android-sdk_0.0.3.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-core_0.3-SNAPSHOT.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-core_0.3-SNAPSHOT.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" />
     </modules>
