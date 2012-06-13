@@ -27,6 +27,7 @@
           <path>/res-overlay</path>
         </resOverlayFolders>
         <includeSystemProguardFile>true</includeSystemProguardFile>
+        <additionalNativeLibs />
       </configuration>
     </facet>
   </component>
@@ -35,8 +36,8 @@
     <output-test url="file://$MODULE_DIR$/target/idea-test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/r" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/aidl" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/classes" />
@@ -55,8 +56,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: ch.qos.logback:logback-classic:0.9.22" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.6.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.wazabe.holoeverywhere:library:apklib:1.0.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.actionbarsherlock:library:apklib:4.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: android.support:compatibility-v4:r8" level="project" />
     <orderEntry type="library" name="Maven: com.google:dexmaker:1.0-20120514" level="project" />
     <orderEntry type="library" name="Maven: com.github.ignition:ignition-core:apklib:0.3-SNAPSHOT" level="project" />
