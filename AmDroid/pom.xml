@@ -51,10 +51,10 @@
             <version>${compatibility-v4.version}</version>
         </dependency>
         <dependency>
-               <groupId>com.google</groupId>
-               <artifactId>dexmaker</artifactId>
-               <version>1.0-20120514</version>
-           </dependency>
+            <groupId>com.google</groupId>
+            <artifactId>dexmaker</artifactId>
+            <version>1.0-20120514</version>
+        </dependency>
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
             <artifactId>library</artifactId>
@@ -67,11 +67,17 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.flattr4android.sdk</groupId>-->
+            <!--<artifactId>flattr-android-sdk</artifactId>-->
+            <!--<type>apklib</type>-->
+            <!--<version>0.0.3.0</version>-->
+        <!--</dependency>-->
         <dependency>
-          <groupId>com.github.ignition</groupId>
-          <artifactId>ignition-core</artifactId>
-          <version>0.3-SNAPSHOT</version>
-          <type>apklib</type>
+            <groupId>com.github.ignition</groupId>
+            <artifactId>ignition-core</artifactId>
+            <version>0.3-SNAPSHOT</version>
+            <type>apklib</type>
         </dependency>
     </dependencies>
     <build>

@@ -16,6 +16,13 @@
             android:name="android.hardware.location.network"
             android:required="false"/>
 
+    <permission
+        android:name="com.jaeckel.amenoid.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission
+        android:name="com.jaeckel.amenoid.permission.C2D_MESSAGE" />
+
     <application android:icon="@drawable/ic_launcher"
                  android:label="@string/app_name"
                  android:name=".app.AmenoidApp"
@@ -108,15 +115,34 @@
         <provider android:name="com.jaeckel.amenoid.db.StatementsProvider"
                   android:authorities="com.jaeckel.amenoid">
         </provider>
+
+        <!-- C2DM -->
+
+        <receiver android:name=".c2dm.C2DMRegistrationReceiver"
+                  android:permission="com.google.android.c2dm.permission.SEND"
+                >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION">
+                </action>
+
+                <category android:name="com.jaeckel.amenoid"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".c2dm.C2DMMessageReceiver"
+                  android:permission="com.google.android.c2dm.permission.SEND"
+                >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.jaeckel.amenoid"/>
+            </intent-filter>
+        </receiver>
+
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!--&lt;!&ndash; for telephony manager &ndash;&gt;-->
-    <!--<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>-->
-    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATE"/>-->
-    <!--<uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>-->
-
 
 </manifest>
 

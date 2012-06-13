@@ -14,13 +14,17 @@ import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.HelloWorldMaker;
 import com.jaeckel.amenoid.util.Log;
 
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
+import android.view.View;
 import android.widget.Toast;
 
 /**
@@ -40,6 +44,14 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     Log.d(TAG, "onCreate");
 
 
+    IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
+    Intent headsetState= this.registerReceiver(null, filter);
+    int state = headsetState.getIntExtra("state", -1);
+    String name = headsetState.getStringExtra("name");
+
+    Log.d("TAG", "state: " + state + " name: " + name);
+
+    c2dmRegister();
 
     setContentView(R.layout.activity_fragment_amen_list);
 
@@ -68,6 +80,13 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     bar.setTitle("Timeline");
 
 
+  }
+
+  public void c2dmRegister() {
+  	Intent intent = new Intent("com.google.android.c2dm.intent.REGISTER");
+  	intent.putExtra("app", PendingIntent.getBroadcast(this, 0, new Intent(), 0));
+  	intent.putExtra("sender", "c2dm.amenoid@googlemail.com");
+  	startService(intent);
   }
 
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -206,5 +225,4 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
       Log.d(TAG, "-------> neighbour.getRssi(): " + neighbour.getRssi());
     }
   }
-
 }
