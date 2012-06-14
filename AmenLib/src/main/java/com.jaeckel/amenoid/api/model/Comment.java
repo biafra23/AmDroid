@@ -10,7 +10,7 @@ import android.os.Parcelable;
  * @author biafra
  * @date 4/18/12 9:42 PM
  */
-public class Comment implements Parcelable{
+public class Comment implements Parcelable {
 
   private Long id;
   private String body;
@@ -61,7 +61,7 @@ public class Comment implements Parcelable{
   }
 
 
-   /*
+ /*
   *
   *   PARCEL STUFF
   *
