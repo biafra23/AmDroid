@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.api.model.Comment;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
@@ -99,5 +100,11 @@ public interface AmenService {
   public Boolean addImageToAmen(Long amenId, File image);
 
   public User signup(String name, String email, String password) throws SignupFailedException;
+
+  //Categories
+
+  public ArrayList<Category> getCategories();
+
+  public ArrayList<Amen> getAmenForCategory(String categoryId, Integer page, Double lat, Double lon);
 
 }

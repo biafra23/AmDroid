@@ -24,6 +24,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.api.model.Comment;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.api.model.Objekt;
@@ -973,6 +974,17 @@ public class AmenServiceImpl implements AmenService {
 
 
     return result;
+  }
+
+  @Override public ArrayList<Category> getCategories() {
+
+
+
+    return null;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  @Override public ArrayList<Amen> getAmenForCategory(String categoryId, Integer page, Double lat, Double lon) {
+    return null;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   class SignupError {

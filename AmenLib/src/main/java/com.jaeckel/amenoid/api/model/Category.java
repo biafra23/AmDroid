@@ -15,7 +15,7 @@ public class Category implements Parcelable {
 
   private String name;
   private String id;
-  private String subTitle;
+  private String subtitle;
   private String icon;
   private String image;
   private String color;
@@ -51,12 +51,12 @@ public class Category implements Parcelable {
     this.id = id;
   }
 
-  public String getSubTitle() {
-    return subTitle;
+  public String getSubtitle() {
+    return subtitle;
   }
 
-  public void setSubTitle(String subTitle) {
-    this.subTitle = subTitle;
+  public void setSubtitle(String subtitle) {
+    this.subtitle = subtitle;
   }
 
   public String getIcon() {
@@ -89,7 +89,7 @@ public class Category implements Parcelable {
     sb.append("Category");
     sb.append("{name='").append(name).append('\'');
     sb.append(", id='").append(id).append('\'');
-    sb.append(", subTitle='").append(subTitle).append('\'');
+    sb.append(", subTitle='").append(subtitle).append('\'');
     sb.append(", icon='").append(icon).append('\'');
     sb.append(", image='").append(image).append('\'');
     sb.append(", color='").append(color).append('\'');
@@ -133,7 +133,7 @@ public class Category implements Parcelable {
     }
     dest.writeValue(name);
     dest.writeValue(id);
-    dest.writeValue(subTitle);
+    dest.writeValue(subtitle);
     dest.writeValue(icon);
     dest.writeValue(image);
     dest.writeValue(color);
@@ -146,7 +146,7 @@ public class Category implements Parcelable {
 
     name = in.readString();
     id = in.readString();
-    subTitle = in.readString();
+    subtitle = in.readString();
     icon = in.readString();
     image = in.readString();
     color = in.readString();
