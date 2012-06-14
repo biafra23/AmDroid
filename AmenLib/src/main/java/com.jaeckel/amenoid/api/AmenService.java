@@ -103,8 +103,8 @@ public interface AmenService {
 
   //Categories
 
-  public ArrayList<Category> getCategories();
+  public ArrayList<Category> getCategories() throws IOException;
 
-  public ArrayList<Amen> getAmenForCategory(String categoryId, Integer page, Double lat, Double lon);
+  public ArrayList<Amen> getAmenForCategory(String categoryId, Integer page, Double lat, Double lon) throws IOException;
 
 }

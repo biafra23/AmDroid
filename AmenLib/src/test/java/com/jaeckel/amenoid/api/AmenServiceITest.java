@@ -2,10 +2,12 @@ package com.jaeckel.amenoid.api;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
@@ -335,7 +337,6 @@ public class AmenServiceITest extends TestCase {
   }
 
 
-
   public void testSignUp() throws IOException, SignupFailedException {
 
     AmenService signOutService = new AmenServiceImpl(amenHttpClient);
@@ -439,4 +440,37 @@ public class AmenServiceITest extends TestCase {
 //
 //    }
 //  }
+
+  public void testGetCategories() throws IOException {
+    try {
+
+      ArrayList<Category> categories = service.getCategories();
+
+      for (Category category : categories) {
+        System.out.println("category: " + category);
+
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void testGetAmenForCategory() throws IOException {
+//    getAmenForCategory(String categoryId, Integer page, Double lat, Double lon)
+    ArrayList<Category> categories = service.getCategories();
+
+    for (Category category : categories) {
+      System.out.println("category: " + category);
+
+      ArrayList<Amen> amenList = service.getAmenForCategory(category.getId(), 0,  52.5172, 13.46);
+
+      for (Amen amen : amenList) {
+        System.out.println("Amen: " + amen);
+
+      }
+
+    }
+
+  }
 }

@@ -1,9 +1,7 @@
 package com.jaeckel.amenoid.api;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -20,8 +18,10 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amenoid.api.model.Amen;
 import com.jaeckel.amenoid.api.model.Category;
@@ -33,7 +33,6 @@ import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 
-import android.text.TextUtils;
 import ch.boye.httpclientandroidlib.HttpEntity;
 import ch.boye.httpclientandroidlib.HttpResponse;
 import ch.boye.httpclientandroidlib.client.ClientProtocolException;
@@ -933,12 +932,28 @@ public class AmenServiceImpl implements AmenService {
 
         Type collectionType = new TypeToken<SignupError>() {
         }.getType();
-        SignupError error  = gson.fromJson(responseString, collectionType);
+
+            // {
+    //    "errors":
+    //    {
+    //     "email":["has already been taken"],
+    //     "username":["is too long (maximum is 20 characters)"]
+    //     "password": [""]
+    //    }
+    // }
+
+        JsonParser jParser = new JsonParser();
+        JsonElement jsonElement = jParser.parse(responseString);
+        JsonObject jo  = jsonElement.getAsJsonObject();
+
+        JsonObject errorsObject = jo.getAsJsonObject("errors");
+
+        SignupError error = gson.fromJson(errorsObject, collectionType);
 
         System.out.println("error: " + error);
 
-      //{"email":["is invalid"],"password":["is too short (minimum is 6 characters)"]}
-      //{"password":["is too short (minimum is 6 characters)"]}
+        //{"email":["is invalid"],"password":["is too short (minimum is 6 characters)"]}
+        //{"password":["is too short (minimum is 6 characters)"]}
 
         if (error.getEmail() != null && error.getEmail() != null) {
           System.out.println("error.getEmail(): " + error.getEmail());
@@ -952,7 +967,7 @@ public class AmenServiceImpl implements AmenService {
 
         }
 
-        if (error.getUsername() != null && error.getUsername()  != null) {
+        if (error.getUsername() != null && error.getUsername() != null) {
           System.out.println("error.getUsername(): " + error.getUsername());
           throw new SignupFailedException("username", error.getUsername());
 
@@ -976,18 +991,77 @@ public class AmenServiceImpl implements AmenService {
     return result;
   }
 
-  @Override public ArrayList<Category> getCategories() {
+  @Override
+  public ArrayList<Category> getCategories() throws IOException {
 
+    ArrayList<Category> result;
+    log.debug("getCategories()");
 
+    HashMap<String, String> params = createAuthenticatedParams();
 
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/categories.json", params);
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = EntityUtils.toString(responseEntity);
+
+    Type collectionType = new TypeToken<Collection<Category>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
+
+    return result;
   }
 
-  @Override public ArrayList<Amen> getAmenForCategory(String categoryId, Integer page, Double lat, Double lon) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+  @Override
+  public ArrayList<Amen> getAmenForCategory(String categoryId, Integer page, Double lat, Double lon) throws IOException {
+
+    //https://getamen.com/categories/nearby/amen.json?lat=52.517200&lng=13.466900&current_page=0&auth_token=GyG8p74rmAqo3ufU6bZq
+
+    ArrayList<Amen> result;
+    log.debug("getAmenForCategory()");
+
+    HashMap<String, String> params = createAuthenticatedParams();
+    if (lon != null) {
+      params.put("lng", "" + lon);
+    }
+
+    if (lat != null) {
+      params.put("lat", "" + lat);
+    }
+    int currentPage = 0;
+    if (page != null && page > 0) {
+      currentPage = page;
+    }
+    params.put("page", "" + currentPage);
+    params.put("current_page", "" + currentPage);
+
+
+    HttpUriRequest httpGet = RequestFactory.createGETRequest(serviceUrl + "/categories/" + categoryId + "/amen.json", params);
+    HttpResponse response = httpclient.execute(httpGet);
+    HttpEntity responseEntity = response.getEntity();
+
+    final String responseString = EntityUtils.toString(responseEntity);
+
+    Type collectionType = new TypeToken<Collection<Amen>>() {
+    }.getType();
+    result = gson.fromJson(responseString, collectionType);
+
+    return result;
   }
 
   class SignupError {
+
+    // {
+    //    "errors":
+    //    {
+    //     "email":["has already been taken"],
+    //     "username":["is too long (maximum is 20 characters)"]
+    //     "password": [""]
+    //    }
+    // }
+
+
+
     String email;
     String password;
     String username;
