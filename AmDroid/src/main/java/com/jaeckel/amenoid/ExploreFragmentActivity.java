@@ -1,5 +1,5 @@
 package com.jaeckel.amenoid;
-import com.jaeckel.Amenoid.R;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -19,7 +19,7 @@ import android.support.v4.app.FragmentManager;
 public class ExploreFragmentActivity extends SherlockFragmentActivity {
 
   private static String TAG = AmenListFragmentActivity.class.getSimpleName();
-
+  private int             feedType;
   private ExploreFragment exploreFragment;
 
   public void onCreate(Bundle savedInstanceState) {
