@@ -22,6 +22,12 @@
           android:visible="true"
           android:showAsAction="ifRoom|withText"/>
     />
+    <item android:id="@+id/explore_menu"
+          android:icon="@drawable/ic_action_popular_dark"
+          android:title="Explore"
+          android:visible="true"
+          android:showAsAction="ifRoom|withText"/>
+    />
     <item android:id="@+id/following_menu"
           android:icon="@drawable/ic_action_following_dark"
           android:title="Following"

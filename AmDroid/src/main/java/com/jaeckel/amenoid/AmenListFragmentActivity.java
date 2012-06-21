@@ -1,7 +1,6 @@
 package com.jaeckel.amenoid;
 
 import java.util.List;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -51,7 +50,7 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
 
     Log.d("TAG", "state: " + state + " name: " + name);
 
-    c2dmRegister();
+    //c2dmRegister();
 
     setContentView(R.layout.activity_fragment_amen_list);
 
@@ -82,12 +81,12 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
 
   }
 
-  public void c2dmRegister() {
-  	Intent intent = new Intent("com.google.android.c2dm.intent.REGISTER");
-  	intent.putExtra("app", PendingIntent.getBroadcast(this, 0, new Intent(), 0));
-  	intent.putExtra("sender", "c2dm.amenoid@googlemail.com");
-  	startService(intent);
-  }
+//  public void c2dmRegister() {
+//  	Intent intent = new Intent("com.google.android.c2dm.intent.REGISTER");
+//  	intent.putExtra("app", PendingIntent.getBroadcast(this, 0, new Intent(), 0));
+//  	intent.putExtra("sender", "c2dm.amenoid@googlemail.com");
+//  	startService(intent);
+//  }
 
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);
