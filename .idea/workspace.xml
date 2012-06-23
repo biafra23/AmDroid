@@ -879,6 +879,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1588,7 +1589,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" line="264" class="com.jaeckel.amenoid.statement.ChooseObjektActivity" package="com.jaeckel.amenoid.statement">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" line="265" class="com.jaeckel.amenoid.statement.ChooseObjektActivity" package="com.jaeckel.amenoid.statement">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1601,7 +1602,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" line="138" class="com.jaeckel.amenoid.statement.ChooseObjektActivity" package="com.jaeckel.amenoid.statement">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" line="139" class="com.jaeckel.amenoid.statement.ChooseObjektActivity" package="com.jaeckel.amenoid.statement">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1679,10 +1680,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="7" selection-start="4744" selection-end="4744" vertical-scroll-proportion="-12.884615">
+            <state line="42" column="42" selection-start="1370" selection-end="1370" vertical-scroll-proportion="-0.8272633">
               <folding />
             </state>
           </provider>
@@ -1691,7 +1692,7 @@
       <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="3" selection-start="4423" selection-end="4423" vertical-scroll-proportion="-26.346153">
+            <state line="32" column="13" selection-start="901" selection-end="901" vertical-scroll-proportion="-12.307693">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
@@ -1709,10 +1710,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="3282" selection-end="3502" vertical-scroll-proportion="0.48387095">
+            <state line="79" column="31" selection-start="3480" selection-end="3480" vertical-scroll-proportion="-20.192308">
               <folding />
             </state>
           </provider>
@@ -1722,15 +1723,6 @@
         <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="265" column="3" selection-start="7479" selection-end="7479" vertical-scroll-proportion="-17.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AmenServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="710" column="3" selection-start="23239" selection-end="23239" vertical-scroll-proportion="-18.576923">
               <folding />
             </state>
           </provider>
@@ -1768,7 +1760,16 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="63" selection-start="7903" selection-end="7903" vertical-scroll-proportion="0.0">
+            <state line="153" column="87" selection-start="7534" selection-end="7534" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreBoardActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="13" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1805,8 +1806,8 @@
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
       </list>
     </option>
   </component>
@@ -4465,13 +4466,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -4535,16 +4529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="3" selection-start="4423" selection-end="4423" vertical-scroll-proportion="-26.346153">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="231" column="3" selection-start="7468" selection-end="7468" vertical-scroll-proportion="-15.384615">
@@ -4561,23 +4545,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="31" selection-start="3480" selection-end="3480" vertical-scroll-proportion="-20.192308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="63" selection-start="7903" selection-end="7903" vertical-scroll-proportion="0.0">
+        <state line="153" column="87" selection-start="7534" selection-end="7534" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ScoreBoardActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="13" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="13" selection-start="901" selection-end="901" vertical-scroll-proportion="-12.307693">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="7" selection-start="4744" selection-end="4744" vertical-scroll-proportion="-12.884615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="3282" selection-end="3502" vertical-scroll-proportion="0.48387095">
+        <state line="42" column="42" selection-start="1370" selection-end="1370" vertical-scroll-proportion="-0.8272633">
           <folding />
         </state>
       </provider>
