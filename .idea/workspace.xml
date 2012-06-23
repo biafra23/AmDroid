@@ -1679,19 +1679,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="0" selection-start="2357" selection-end="2579" vertical-scroll-proportion="0.29656607">
+            <state line="165" column="20" selection-start="5214" selection-end="5226" vertical-scroll-proportion="-73.26923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AboutActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AboutActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.0">
+            <state line="115" column="5" selection-start="3662" selection-end="3662" vertical-scroll-proportion="0.89361703">
               <folding>
                 <element signature="docComment;class#AboutActivity#0" expanded="true" />
               </folding>
@@ -1807,8 +1807,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
       </list>
     </option>
   </component>
@@ -4570,19 +4570,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;class#AboutActivity#0" expanded="true" />
-          </folding>
+        <state line="165" column="20" selection-start="5214" selection-end="5226" vertical-scroll-proportion="-73.26923">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="0" selection-start="2357" selection-end="2579" vertical-scroll-proportion="0.29656607">
-          <folding />
+        <state line="115" column="5" selection-start="3662" selection-end="3662" vertical-scroll-proportion="0.89361703">
+          <folding>
+            <element signature="docComment;class#AboutActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
