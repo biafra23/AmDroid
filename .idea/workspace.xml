@@ -445,7 +445,7 @@
                 <option name="version" value="1.1" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="14" />
           </resolved-info>
         </value>
       </entry>
@@ -633,7 +633,7 @@
                 <option name="version" value="1.1.4c" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="4" />
           </resolved-info>
         </value>
       </entry>
@@ -748,7 +748,7 @@
                 <option name="version" value="20080701" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="4" />
           </resolved-info>
         </value>
       </entry>
@@ -835,7 +835,7 @@
                 <option name="version" value="r7" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="14" />
           </resolved-info>
         </value>
       </entry>
@@ -879,6 +879,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1722,10 +1723,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="21" selection-start="7080" selection-end="7080" vertical-scroll-proportion="0.9558174">
+            <state line="172" column="45" selection-start="7762" selection-end="7762" vertical-scroll-proportion="-16.73077">
               <folding />
             </state>
           </provider>
@@ -1776,10 +1777,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="0" selection-start="6818" selection-end="6818" vertical-scroll-proportion="0.0">
+            <state line="24" column="4" selection-start="946" selection-end="946" vertical-scroll-proportion="0.5106383">
               <folding />
             </state>
           </provider>
@@ -1814,10 +1815,10 @@
         <option value="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
-        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -4577,16 +4578,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="0" selection-start="6818" selection-end="6818" vertical-scroll-proportion="0.0">
+        <state line="172" column="45" selection-start="7762" selection-end="7762" vertical-scroll-proportion="-16.73077">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="21" selection-start="7080" selection-end="7080" vertical-scroll-proportion="0.9558174">
+        <state line="24" column="4" selection-start="946" selection-end="946" vertical-scroll-proportion="0.5106383">
           <folding />
         </state>
       </provider>
