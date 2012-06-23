@@ -879,9 +879,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
@@ -1673,21 +1670,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="24" selection-start="736" selection-end="759" vertical-scroll-proportion="0.0">
+            <state line="25" column="0" selection-start="884" selection-end="884" vertical-scroll-proportion="0.47682118">
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="23" selection-start="3697" selection-end="3697" vertical-scroll-proportion="0.86419755">
+            <state line="85" column="23" selection-start="3697" selection-end="3697" vertical-scroll-proportion="-23.653847">
               <folding />
             </state>
           </provider>
@@ -4550,19 +4548,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="24" selection-start="736" selection-end="759" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
-          </folding>
+        <state line="85" column="23" selection-start="3697" selection-end="3697" vertical-scroll-proportion="-23.653847">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="23" selection-start="3697" selection-end="3697" vertical-scroll-proportion="0.86419755">
-          <folding />
+        <state line="25" column="0" selection-start="884" selection-end="884" vertical-scroll-proportion="0.47682118">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
