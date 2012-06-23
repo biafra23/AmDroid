@@ -879,6 +879,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1691,7 +1692,7 @@
       <file leaf-file-name="AboutActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="43" selection-start="2423" selection-end="2423" vertical-scroll-proportion="0.87841946">
+            <state line="71" column="20" selection-start="2483" selection-end="2483" vertical-scroll-proportion="0.8480243">
               <folding>
                 <element signature="docComment;class#AboutActivity#0" expanded="true" />
               </folding>
@@ -4579,7 +4580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="43" selection-start="2423" selection-end="2423" vertical-scroll-proportion="0.87841946">
+        <state line="71" column="20" selection-start="2483" selection-end="2483" vertical-scroll-proportion="0.8480243">
           <folding>
             <element signature="docComment;class#AboutActivity#0" expanded="true" />
           </folding>
