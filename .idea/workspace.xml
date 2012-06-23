@@ -879,7 +879,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1724,7 +1723,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="66" selection-start="5453" selection-end="5453" vertical-scroll-proportion="0.0625">
+            <state line="127" column="48" selection-start="5243" selection-end="5263" vertical-scroll-proportion="0.15625">
               <folding />
             </state>
           </provider>
@@ -4692,7 +4691,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="66" selection-start="5453" selection-end="5453" vertical-scroll-proportion="0.0625">
+        <state line="127" column="48" selection-start="5243" selection-end="5263" vertical-scroll-proportion="0.15625">
           <folding />
         </state>
       </provider>
