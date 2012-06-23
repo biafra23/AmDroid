@@ -1588,6 +1588,32 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" line="156" class="com.jaeckel.amenoid.ObjektCompletionAdapter" package="com.jaeckel.amenoid">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" line="260" class="com.jaeckel.amenoid.statement.ChooseObjektActivity" package="com.jaeckel.amenoid.statement">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -1653,19 +1679,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="0" selection-start="2426" selection-end="2426" vertical-scroll-proportion="-24.807692">
+            <state line="262" column="16" selection-start="8629" selection-end="8641" vertical-scroll-proportion="0.3328125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="0" selection-start="4657" selection-end="4657" vertical-scroll-proportion="0.8828125">
+            <state line="33" column="13" selection-start="928" selection-end="928" vertical-scroll-proportion="-0.5769231">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
@@ -1775,10 +1801,10 @@
         <option value="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
       </list>
     </option>
   </component>
@@ -4514,13 +4540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="0" selection-start="2426" selection-end="2426" vertical-scroll-proportion="-24.807692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="181" column="19" selection-start="6125" selection-end="6125" vertical-scroll-proportion="-8.769231">
@@ -4544,11 +4563,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="0" selection-start="4657" selection-end="4657" vertical-scroll-proportion="0.8828125">
+        <state line="33" column="13" selection-start="928" selection-end="928" vertical-scroll-proportion="-0.5769231">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="262" column="16" selection-start="8629" selection-end="8641" vertical-scroll-proportion="0.3328125">
+          <folding />
         </state>
       </provider>
     </entry>
