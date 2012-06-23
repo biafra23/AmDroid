@@ -879,7 +879,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1680,11 +1679,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="42" selection-start="1370" selection-end="1370" vertical-scroll-proportion="-0.8272633">
+            <state line="41" column="17" selection-start="1301" selection-end="1328" vertical-scroll-proportion="-1.7307693">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AboutActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="43" selection-start="2423" selection-end="2423" vertical-scroll-proportion="0.87841946">
+              <folding>
+                <element signature="docComment;class#AboutActivity#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1714,15 +1724,6 @@
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="79" column="31" selection-start="3480" selection-end="3480" vertical-scroll-proportion="-20.192308">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AmenServiceITest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="3" selection-start="7479" selection-end="7479" vertical-scroll-proportion="-17.5">
               <folding />
             </state>
           </provider>
@@ -1800,7 +1801,6 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ExploreFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/AmenServiceImpl.java" />
         <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
@@ -1808,6 +1808,7 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
         <option value="$PROJECT_DIR$/AmDroid/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
       </list>
     </option>
   </component>
@@ -4466,13 +4467,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/SignupDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -4578,8 +4572,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="42" selection-start="1370" selection-end="1370" vertical-scroll-proportion="-0.8272633">
+        <state line="41" column="17" selection-start="1301" selection-end="1328" vertical-scroll-proportion="-1.7307693">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="43" selection-start="2423" selection-end="2423" vertical-scroll-proportion="0.87841946">
+          <folding>
+            <element signature="docComment;class#AboutActivity#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
