@@ -134,7 +134,7 @@ public class AmenServiceImpl implements AmenService {
       HttpResponse response = httpclient.execute(httpPost);
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = EntityUtils.toString(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
       if (responseString.startsWith("{\"error\"")) {
         //TODO: rethink this! will cause trouble in multi threaded environment. What would Buddha recommend? An Exception?
         lastError = gson.fromJson(responseString, ServerError.class);
@@ -187,7 +187,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getFeed produced error: " + responseString);
     }
@@ -212,7 +212,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("follow produced error: " + responseString);
     }
@@ -239,7 +239,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpDelete);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     if (" ".equals(responseString)) {
       result = true;
@@ -259,7 +259,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("amen produced error: " + responseString);
     }
@@ -284,7 +284,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("amen produced error: " + responseString);
     }
@@ -315,7 +315,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     log.trace("dispute: responseString: " + responseString);
     if (responseString.startsWith("{\"error\":")) {
@@ -350,7 +350,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpPost);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException(responseString);
     }
@@ -370,7 +370,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
@@ -395,7 +395,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
@@ -416,7 +416,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     statement = gson.fromJson(responseString, Statement.class);
 
@@ -438,7 +438,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     topic = gson.fromJson(responseString, Topic.class);
 
@@ -461,7 +461,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpDelete);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     if (" ".equals(responseString)) {
       result = true;
@@ -500,7 +500,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForUser produced error: " + responseString);
     }
@@ -533,7 +533,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForUser produced error: " + responseString);
     }
@@ -561,7 +561,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     result = gson.fromJson(responseString, User.class);
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
@@ -580,7 +580,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     result = gson.fromJson(responseString, User.class);
 
     return result;  //To change body of implemented methods use File | Settings | File Templates.
@@ -635,7 +635,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     Type collectionType = new TypeToken<Collection<User>>() {
     }.getType();
@@ -658,7 +658,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     Type collectionType = new TypeToken<Collection<User>>() {
     }.getType();
@@ -669,6 +669,7 @@ public class AmenServiceImpl implements AmenService {
   }
 
   public List<Objekt> objektsForQuery(CharSequence query, int kindId, Double lat, Double lon) throws IOException {
+
     List<Objekt> result = null;
 
     log.debug("objektsForQuery() lat: " + lat + " lon: " + lon);
@@ -690,7 +691,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     Type collectionType = new TypeToken<Collection<Objekt>>() {
     }.getType();
@@ -723,7 +724,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     Type collectionType = new TypeToken<Collection<Amen>>() {
     }.getType();
@@ -768,7 +769,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     Type collectionType = new TypeToken<Collection<Amen>>() {
     }.getType();
@@ -798,7 +799,7 @@ public class AmenServiceImpl implements AmenService {
 
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = EntityUtils.toString(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
       Type collectionType = new TypeToken<Comment>() {
       }.getType();
@@ -823,7 +824,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpDelete);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     if (" ".equals(responseString)) {
       result = true;
@@ -842,7 +843,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
     if (responseString.startsWith("{\"error\":")) {
       throw new RuntimeException("getAmenForId produced error: " + responseString);
     }
@@ -878,7 +879,7 @@ public class AmenServiceImpl implements AmenService {
 
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = EntityUtils.toString(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
       if (responseString.startsWith("{\"error\":")) {
         throw new RuntimeException("amen produced error: " + responseString);
       }
@@ -924,7 +925,7 @@ public class AmenServiceImpl implements AmenService {
 
       HttpEntity responseEntity = response.getEntity();
 
-      final String responseString = EntityUtils.toString(responseEntity);
+      final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
       log.debug("responseString: " + responseString);
       log.debug(" response.code: " + response.getStatusLine().getStatusCode());
@@ -1003,7 +1004,7 @@ public class AmenServiceImpl implements AmenService {
     HttpResponse response = httpclient.execute(httpGet);
     HttpEntity responseEntity = response.getEntity();
 
-    final String responseString = EntityUtils.toString(responseEntity);
+    final String responseString = EntityUtils.toString(responseEntity, "UTF-8");
 
     Type collectionType = new TypeToken<Collection<Category>>() {
     }.getType();

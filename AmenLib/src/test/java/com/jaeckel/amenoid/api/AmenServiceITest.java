@@ -473,4 +473,18 @@ public class AmenServiceITest extends TestCase {
     }
 
   }
+
+  public void testUmlautsForPlaces() throws IOException {
+ //    getAmenForCategory(String categoryId, Integer page, Double lat, Double lon)
+     List<Objekt> objekts = service.objektsForQuery("", AmenService.OBJEKT_KIND_PLACE,  52.516997, 13.4665613);
+
+     for (Objekt objekt : objekts) {
+       System.out.println("objekt: " + objekt);
+
+       if (objekt.getName().startsWith("Caf")) {
+         assertEquals("Café Mocca", objekt.getName());
+       }
+     }
+
+   }
 }
