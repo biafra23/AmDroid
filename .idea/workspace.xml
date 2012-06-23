@@ -1673,7 +1673,7 @@
       <file leaf-file-name="ObjektCompletionAdapter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="884" selection-end="884" vertical-scroll-proportion="0.47682118">
+            <state line="134" column="58" selection-start="4007" selection-end="4007" vertical-scroll-proportion="0.4951989">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
@@ -4557,7 +4557,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="884" selection-end="884" vertical-scroll-proportion="0.47682118">
+        <state line="134" column="58" selection-start="4007" selection-end="4007" vertical-scroll-proportion="0.4951989">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#ObjektCompletionAdapter#0" expanded="true" />
