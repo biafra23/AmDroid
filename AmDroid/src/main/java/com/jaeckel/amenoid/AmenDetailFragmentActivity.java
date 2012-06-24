@@ -125,14 +125,25 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
     mShareActionProvider = (ShareActionProvider) shareMenuItem.getActionProvider();
 
     if (getCurrentAmen() != null) {
-      createShareIntent(getCurrentAmen().getStatement());
+      createShareIntent(getCurrentAmen());
     } else if (getCurrentStatement() != null) {
       createShareIntent(getCurrentStatement());
     }
 
     return true;
   }
-
+  private void createShareIntent(Amen amen) {
+    if (amen == null) {
+      return;
+    }
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    String amenText = amen.getStatement().toDisplayString();
+    shareIntent.setType("text/plain");
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/" + amen.getUser().getUsername() + "/amen/" + amen.getStatement().getSlug());
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
+  }
   private void createShareIntent(Statement statement) {
     if (statement == null) {
       return;

@@ -22,7 +22,6 @@ import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
-import com.jaeckel.amenoid.cwac.cache.CacheBase;
 import com.jaeckel.amenoid.cwac.cache.SimpleWebImageCache;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailBus;
@@ -34,7 +33,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -42,7 +40,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,7 +72,7 @@ public class AmenDetailFragment extends ListFragment {
   private TextView                                            commentsTextView;
   private ShareActionProvider                                 mShareActionProvider;
 
-  private View      objektPhotoImageViewWrapper;
+  private View            objektPhotoImageViewWrapper;
   private RemoteImageView objektPhotoImageView;
 
   private RemoteImageView mediaPhotoImageView;
@@ -594,7 +591,7 @@ public class AmenDetailFragment extends ListFragment {
       Amen amen = service.amen(amenId[0]);
       Log.d(TAG, "Amen returned from amen(): " + amen);
 
-      createShareIntent(amen.getStatement());
+      createShareIntent(amen);
 
       return amen;
     }
@@ -723,6 +720,8 @@ public class AmenDetailFragment extends ListFragment {
         final List<User> users = currentStatement.getAgreeingNetwork();
         thumbs = new ThumbnailAdapter(getActivity(), new UserListAdapter(getActivity(), android.R.layout.activity_list_item, users), cache, IMAGE_IDS);
         setListAdapter(thumbs);
+
+        createShareIntent(result);
       }
     }
   }
@@ -736,7 +735,7 @@ public class AmenDetailFragment extends ListFragment {
     return "<unknown>";
   }
 
-//  public boolean onCreateOptionsMenu(Menu menu) {
+  //  public boolean onCreateOptionsMenu(Menu menu) {
 //    super.onCreateOptionsMenu(menu);
 //    Log.d(TAG, "--> onCreateOptionsMenu");
 //
@@ -767,6 +766,18 @@ public class AmenDetailFragment extends ListFragment {
 ////    }
 //    return true;
 //  }
+  private void createShareIntent(Amen amen) {
+    if (amen == null) {
+      return;
+    }
+    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+    String amenText = amen.getStatement().toDisplayString();
+    shareIntent.setType("text/plain");
+    shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, amenText + " #getamen https://getamen.com/" + amen.getUser().getUsername() + "/amen/" + amen.getStatement().getSlug());
+    if (mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
+    }
+  }
 
   private void createShareIntent(Statement statement) {
     if (statement == null) {
