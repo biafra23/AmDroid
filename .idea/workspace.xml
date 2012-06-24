@@ -879,14 +879,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" afterPath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
     </list>
@@ -1691,7 +1690,7 @@
       <file leaf-file-name="AboutActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="55" selection-start="2899" selection-end="2899" vertical-scroll-proportion="0.0">
+            <state line="96" column="41" selection-start="2861" selection-end="2885" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="docComment;class#AboutActivity#0" expanded="true" />
               </folding>
@@ -1723,7 +1722,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="40" selection-start="6021" selection-end="6021" vertical-scroll-proportion="0.3671875">
+            <state line="125" column="9" selection-start="5150" selection-end="5572" vertical-scroll-proportion="0.234375">
               <folding />
             </state>
           </provider>
@@ -4430,7 +4429,11 @@
       <created>1340476380085</created>
       <updated>1340476380085</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="using ignition location">
+      <created>1340497803875</created>
+      <updated>1340497803875</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4528,7 +4531,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing default charset, and adding test to prove it" />
+    <option name="LAST_COMMIT_MESSAGE" value="using ignition location" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4543,7 +4546,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="cleanup" />
     <MESSAGE value="use http-url to have a pin in the map for the geo cordinate" />
     <MESSAGE value="update mediaPhoto after amen was reloaded" />
     <MESSAGE value="changes" />
@@ -4568,6 +4570,7 @@
     <MESSAGE value="config" />
     <MESSAGE value="explore/categories" />
     <MESSAGE value="fixing default charset, and adding test to prove it" />
+    <MESSAGE value="using ignition location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4673,15 +4676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="55" selection-start="2899" selection-end="2899" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;class#AboutActivity#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-core_0.3-SNAPSHOT/res/values-pl/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="47" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
@@ -4689,9 +4683,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="41" selection-start="2861" selection-end="2885" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="docComment;class#AboutActivity#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="40" selection-start="6021" selection-end="6021" vertical-scroll-proportion="0.3671875">
+        <state line="125" column="9" selection-start="5150" selection-end="5572" vertical-scroll-proportion="0.234375">
           <folding />
         </state>
       </provider>
