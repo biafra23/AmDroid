@@ -43,12 +43,12 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     Log.d(TAG, "onCreate");
 
 
-    IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
-    Intent headsetState= this.registerReceiver(null, filter);
-    int state = headsetState.getIntExtra("state", -1);
-    String name = headsetState.getStringExtra("name");
-
-    Log.d("TAG", "state: " + state + " name: " + name);
+//    IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
+//    Intent headsetState= this.registerReceiver(null, filter);
+//    int state = headsetState.getIntExtra("state", -1);
+//    String name = headsetState.getStringExtra("name");
+//
+//    Log.d("TAG", "state: " + state + " name: " + name);
 
     //c2dmRegister();
 
