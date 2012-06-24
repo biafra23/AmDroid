@@ -16,12 +16,20 @@
             android:name="android.hardware.location.network"
             android:required="false"/>
 
-    <permission
-        android:name="com.jaeckel.amenoid.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
+    <!--<permission-->
+    <!--android:name="com.jaeckel.amenoid.permission.C2D_MESSAGE"-->
+    <!--android:protectionLevel="signature" />-->
 
-    <uses-permission
-        android:name="com.jaeckel.amenoid.permission.C2D_MESSAGE" />
+    <!--<uses-permission-->
+    <!--android:name="com.jaeckel.amenoid.permission.C2D_MESSAGE" />-->
+
+    <!--<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>-->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application android:icon="@drawable/ic_launcher"
                  android:label="@string/app_name"
@@ -119,31 +127,55 @@
 
         <!-- C2DM -->
 
-        <receiver android:name=".c2dm.C2DMRegistrationReceiver"
-                  android:permission="com.google.android.c2dm.permission.SEND"
-                >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION">
-                </action>
+        <!--<receiver android:name=".c2dm.C2DMRegistrationReceiver"-->
+        <!--android:permission="com.google.android.c2dm.permission.SEND"-->
+        <!-->-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.google.android.c2dm.intent.REGISTRATION">-->
+        <!--</action>-->
 
-                <category android:name="com.jaeckel.amenoid"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".c2dm.C2DMMessageReceiver"
-                  android:permission="com.google.android.c2dm.permission.SEND"
-                >
+        <!--<category android:name="com.jaeckel.amenoid"/>-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<receiver android:name=".c2dm.C2DMMessageReceiver"-->
+        <!--android:permission="com.google.android.c2dm.permission.SEND"-->
+        <!-->-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.google.android.c2dm.intent.RECEIVE"/>-->
+        <!--<category android:name="com.jaeckel.amenoid"/>-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <!--
+                 these broadcast receivers are necessary in order for the ignition-location
+                 library to work
+             -->
+
+        <receiver android:name="com.github.ignition.location.receivers.IgnitedLocationChangedReceiver">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-                <category android:name="com.jaeckel.amenoid"/>
+                <action android:name="com.github.ignition.location.ACTIVE_LOCATION_UPDATE_ACTION"/>
             </intent-filter>
         </receiver>
+        <receiver android:name="com.github.ignition.location.receivers.IgnitedPassiveLocationChangedReceiver"/>
+        <!-- <receiver android:name="com.github.ignition.location.receivers.ConnectivityChangedReceiver" enabled="false" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.net.conn.CONNECTIVITY_CHANGE" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <receiver android:name="com.github.ignition.location.receivers.IgnitedPowerStateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.github.ignition.location.receivers.IgnitedBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
 
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 </manifest>
 

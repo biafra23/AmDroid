@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.actionbarsherlock.app.SherlockListActivity;
+import com.github.ignition.location.annotations.IgnitedLocation;
+import com.github.ignition.location.annotations.IgnitedLocationActivity;
+import com.github.ignition.location.templates.OnIgnitedLocationChangedListener;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
@@ -11,6 +14,7 @@ import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.ObjektsForQueryTask;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -35,10 +39,10 @@ import android.widget.TextView;
  * Date: 10/9/11
  * Time: 10:54 PM
  */
-public class ChooseObjektActivity extends SherlockListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler {
+@IgnitedLocationActivity()
+public class ChooseObjektActivity extends ListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler, OnIgnitedLocationChangedListener {
 
-  private static final String TAG = "ChooseObjektActivity";
-
+  private static final String TAG = ChooseObjektActivity.class.getSimpleName();
 
   private Objekt        currentObjekt;
   private int           currentObjektKind;
@@ -55,9 +59,40 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
 
   private boolean objektNameIsDefault = false;
 
+  @IgnitedLocation
+  private Location lastLocation;
+
+  // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+    Log.d(TAG, "onCreate()");
 
     final AmenoidApp app = AmenoidApp.getInstance();
 
@@ -69,21 +104,22 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
 
 
       if (currentObjektKind == AmenService.OBJEKT_KIND_PERSON
-          && currentObjekt.getName() == MakeStatementActivity.DEFAULT_PERSON) {
+          && MakeStatementActivity.DEFAULT_PERSON.equals(currentObjekt.getName())) {
 
         objektNameIsDefault = true;
 
       } else if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE
-                 && currentObjekt.getName() == MakeStatementActivity.DEFAULT_PLACE) {
+                 && MakeStatementActivity.DEFAULT_PLACE.equals(currentObjekt.getName())) {
 
         objektNameIsDefault = true;
 
       } else if (currentObjektKind == AmenService.OBJEKT_KIND_THING
-                 && currentObjekt.getName() == MakeStatementActivity.DEFAULT_THING) {
+                 && MakeStatementActivity.DEFAULT_THING.equals(currentObjekt.getName())) {
 
         objektNameIsDefault = true;
       }
     }
+
     setContentView(R.layout.choose_objekt);
     setTitle("Choose Statement Objekt");
 
@@ -127,14 +163,18 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
 
     if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
 
-      final Location lastLocation = app.getLastLocation();
+//      lastLocation = app.getLastLocation();
       if (lastLocation != null) {
         longitude = lastLocation.getLongitude();
         latitude = lastLocation.getLatitude();
       }
-      Log.v(TAG, "lastLocation: " + lastLocation);
-      Log.v(TAG, "   longitude: " + longitude);
-      Log.v(TAG, "    latitude: " + latitude);
+      Log.d(TAG, "lastLocation: " + lastLocation);
+      Log.d(TAG, "   longitude: " + longitude);
+      Log.d(TAG, "    latitude: " + latitude);
+
+    } else {
+
+      Log.d(TAG, "NO PLACE: currentObjektKind: " + currentObjektKind);
     }
 
     objektEditText = (EditText) findViewById(R.id.objekt);
@@ -245,6 +285,15 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
     adapter = new ObjektAdapter(ChooseObjektActivity.this, R.layout.list_item_objekt, result);
     setListAdapter(adapter);
 
+  }
+
+  @Override
+  public boolean onIgnitedLocationChanged(Location newLocation) {
+
+    Log.d(TAG, "onIgnitedLocationChanged: " + newLocation);
+
+    lastLocation = newLocation;
+    return true;
   }
 
 

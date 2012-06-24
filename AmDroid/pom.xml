@@ -12,6 +12,9 @@
     <packaging>apk</packaging>
     <name>Amenoid - Application</name>
     <properties>
+
+        <qypeRepositoryUrl>http://nexus.qype.com/content/repositories</qypeRepositoryUrl>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.property.logLevel>DEBUG</project.property.logLevel>
         <project.property.version.name>1.0-ALPHA33</project.property.version.name>
@@ -68,16 +71,28 @@
             </exclusions>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.flattr4android.sdk</groupId>-->
-            <!--<artifactId>flattr-android-sdk</artifactId>-->
-            <!--<type>apklib</type>-->
-            <!--<version>0.0.3.0</version>-->
+        <!--<groupId>com.flattr4android.sdk</groupId>-->
+        <!--<artifactId>flattr-android-sdk</artifactId>-->
+        <!--<type>apklib</type>-->
+        <!--<version>0.0.3.0</version>-->
         <!--</dependency>-->
         <dependency>
             <groupId>com.github.ignition</groupId>
             <artifactId>ignition-core</artifactId>
             <version>0.3-SNAPSHOT</version>
             <type>apklib</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ignition</groupId>
+            <artifactId>ignition-location</artifactId>
+            <version>0.3-SNAPSHOT</version>
+            <type>apklib</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava-collections</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>
@@ -108,6 +123,42 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <sourceIncludes>
+                        <sourceInclude>**/*.aj</sourceInclude>
+                    </sourceIncludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <aspectLibraries>
+                        <aspectLibrary>
+                            <groupId>com.github.ignition</groupId>
+                            <artifactId>ignition-location</artifactId>
+                            <type>apklib</type>
+                        </aspectLibrary>
+                    </aspectLibraries>
+                    <source>1.6</source>
+
+                </configuration>
+                <executions>
+                    <execution>
+                        <!-- phase need to be before compile, or the build will fail. More info here: http://stackoverflow.com/questions/2610633/maven-compile-aspectj-project-containing-java-1-6-source -->
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                            <!-- <goal>test-compile</goal> -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <!--<version>${maven-resources-plugin-version}</version>-->
@@ -356,4 +407,39 @@
             <!--</repositories>-->
         </profile>
     </profiles>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>qype-snapshots-repository</id>
+            <url>${qypeRepositoryUrl}/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>qype-releases-repository</id>
+            <url>${qypeRepositoryUrl}/releases</url>
+        </repository>
+    </distributionManagement>
+
+
+    <repositories>
+        <repository>
+            <id>qype-snapshots-repository</id>
+            <url>${qypeRepositoryUrl}/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>qype-releases-repository</id>
+            <url>${qypeRepositoryUrl}/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
 </project>
