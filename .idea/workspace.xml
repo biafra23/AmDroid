@@ -878,14 +878,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="^">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ObjektCompletionAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1640,7 +1636,7 @@
       <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="0" selection-start="5767" selection-end="5767" vertical-scroll-proportion="0.34988713">
+            <state line="190" column="0" selection-start="5843" selection-end="5843" vertical-scroll-proportion="0.4006772">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -4492,7 +4488,11 @@
       <created>1340544334654</created>
       <updated>1340544334654</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="config">
+      <created>1340544359251</created>
+      <updated>1340544359251</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4590,7 +4590,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="get location objects upon receiving location, show category in objekt list because it has the adress and distance to current position" />
+    <option name="LAST_COMMIT_MESSAGE" value="config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4623,13 +4623,13 @@
     <MESSAGE value="categories interface" />
     <MESSAGE value="signup errro parsing, category handling" />
     <MESSAGE value="formatting" />
-    <MESSAGE value="config" />
     <MESSAGE value="explore/categories" />
     <MESSAGE value="fixing default charset, and adding test to prove it" />
     <MESSAGE value="using ignition location" />
     <MESSAGE value="removed broken headset test code" />
     <MESSAGE value="location handling stuff left to ignition now" />
     <MESSAGE value="get location objects upon receiving location, show category in objekt list because it has the adress and distance to current position" />
+    <MESSAGE value="config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4755,7 +4755,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="0" selection-start="5767" selection-end="5767" vertical-scroll-proportion="0.34988713">
+        <state line="190" column="0" selection-start="5843" selection-end="5843" vertical-scroll-proportion="0.4006772">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
