@@ -445,7 +445,7 @@
                 <option name="version" value="1.1" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="14" />
+            <option name="sdkPath" value="" />
           </resolved-info>
         </value>
       </entry>
@@ -633,7 +633,7 @@
                 <option name="version" value="1.1.4c" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="4" />
+            <option name="sdkPath" value="" />
           </resolved-info>
         </value>
       </entry>
@@ -748,7 +748,7 @@
                 <option name="version" value="20080701" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="4" />
+            <option name="sdkPath" value="" />
           </resolved-info>
         </value>
       </entry>
@@ -879,7 +879,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_ignition_ignition_core_apklib_0_3_SNAPSHOT.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/pom.xml" afterPath="$PROJECT_DIR$/AmDroid/pom.xml" />
@@ -1724,7 +1723,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="21" selection-start="6718" selection-end="6718" vertical-scroll-proportion="0.625">
+            <state line="145" column="40" selection-start="6021" selection-end="6021" vertical-scroll-proportion="0.3671875">
               <folding />
             </state>
           </provider>
@@ -4692,7 +4691,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="21" selection-start="6718" selection-end="6718" vertical-scroll-proportion="0.625">
+        <state line="145" column="40" selection-start="6021" selection-end="6021" vertical-scroll-proportion="0.3671875">
           <folding />
         </state>
       </provider>
