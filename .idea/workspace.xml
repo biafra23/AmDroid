@@ -878,7 +878,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_explore.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_explore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
@@ -1716,10 +1715,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="775" column="130" selection-start="26809" selection-end="26809" vertical-scroll-proportion="0.50325733">
+            <state line="775" column="134" selection-start="26813" selection-end="26813" vertical-scroll-proportion="-11.884615">
               <folding>
                 <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
               </folding>
@@ -1754,10 +1753,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="125" selection-start="4954" selection-end="4954" vertical-scroll-proportion="-11.884615">
+            <state line="141" column="134" selection-start="4963" selection-end="4963" vertical-scroll-proportion="0.50325733">
               <folding />
             </state>
           </provider>
@@ -1839,8 +1838,8 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_explore.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ExploreFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
       </list>
     </option>
   </component>
@@ -4869,19 +4868,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="125" selection-start="4954" selection-end="4954" vertical-scroll-proportion="-11.884615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="775" column="130" selection-start="26809" selection-end="26809" vertical-scroll-proportion="0.50325733">
+        <state line="775" column="134" selection-start="26813" selection-end="26813" vertical-scroll-proportion="-11.884615">
           <folding>
             <element signature="class#TakeBackTask#0;class#AmenDetailFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="134" selection-start="4963" selection-end="4963" vertical-scroll-proportion="0.50325733">
+          <folding />
         </state>
       </provider>
     </entry>
