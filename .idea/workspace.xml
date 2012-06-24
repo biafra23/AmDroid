@@ -445,7 +445,7 @@
                 <option name="version" value="1.1" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="14" />
           </resolved-info>
         </value>
       </entry>
@@ -633,7 +633,7 @@
                 <option name="version" value="1.1.4c" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="4" />
           </resolved-info>
         </value>
       </entry>
@@ -748,7 +748,7 @@
                 <option name="version" value="20080701" />
               </MavenDependencyInfo>
             </dependencies>
-            <option name="sdkPath" value="" />
+            <option name="sdkPath" value="4" />
           </resolved-info>
         </value>
       </entry>
