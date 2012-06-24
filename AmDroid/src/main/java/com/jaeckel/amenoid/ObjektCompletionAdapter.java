@@ -3,15 +3,18 @@ package com.jaeckel.amenoid;
 import java.io.IOException;
 import java.util.List;
 
+import com.github.ignition.location.annotations.IgnitedLocation;
+import com.github.ignition.location.annotations.IgnitedLocationActivity;
+import com.github.ignition.location.templates.OnIgnitedLocationChangedListener;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.Log;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
-import com.jaeckel.amenoid.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +22,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * User: biafra
  * Date: 10/4/11
  * Time: 12:22 AM
  */
-public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Filterable {
+
+@IgnitedLocationActivity()
+public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Filterable, OnIgnitedLocationChangedListener {
 
   private LayoutInflater inflater;
   private static final String TAG = "ObjektCompletionAdapter";
@@ -33,13 +39,17 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
   private Typeface amenTypeThin;
   private int      currentKindId;
 
+  @IgnitedLocation
+  private Location lastLocation;
+  private Context  context;
 
   public ObjektCompletionAdapter(Context context, int textViewResourceId, List<Objekt> objects, int disputedObjektKindId) {
     super(context, textViewResourceId, objects);
-    inflater = LayoutInflater.from(context);
-    amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
-    amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
+    this.inflater = LayoutInflater.from(context);
+    this.amenTypeThin = AmenoidApp.getInstance().getAmenTypeThin();
+    this.amenTypeBold = AmenoidApp.getInstance().getAmenTypeBold();
     this.currentKindId = disputedObjektKindId;
+    this.context = context;
   }
 
   @Override
@@ -94,7 +104,11 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
           Double lat = null;
           Double lon = null;
           if (currentKindId == AmenService.OBJEKT_KIND_PLACE) {
-            final Location lastLocation = AmenoidApp.getInstance().getLastLocation();
+
+
+            if (lastLocation == null) {
+              lastLocation = AmenoidApp.getInstance().getLastLocation();
+            }
             if (lastLocation != null) {
               lon = lastLocation.getLongitude();
               lat = lastLocation.getLatitude();
@@ -108,7 +122,11 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
           for (Objekt v : values) {
             v.setKindId(currentKindId);
           }
-        } catch (IOException e) {
+        } catch (
+          IOException e
+          )
+
+        {
           e.printStackTrace();
         }
 
@@ -117,6 +135,7 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
         results.count = values.size();
         return results;
       }
+
 
       @Override
       protected void publishResults(CharSequence constraint,
@@ -135,7 +154,19 @@ public class ObjektCompletionAdapter extends ArrayAdapter<Objekt> implements Fil
           notifyDataSetChanged();
         }
       }
-    };
+    }
+
+      ;
+  }
+
+  @Override
+  public boolean onIgnitedLocationChanged(Location newLocation) {
+    if (AmenoidApp.DEVELOPER_MODE) {
+      Toast.makeText(context, "Adapter received Location update: " + newLocation.getProvider()
+                              + " acc: " + newLocation.getAccuracy(), Toast.LENGTH_LONG).show();
+    }
+
+    return true;
   }
 }
 
