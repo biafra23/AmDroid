@@ -12,6 +12,7 @@ import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.util.ObjektsForQueryTask;
 
 import android.app.ListActivity;
@@ -25,7 +26,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import com.jaeckel.amenoid.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +33,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * User: biafra
@@ -40,7 +41,7 @@ import android.widget.TextView;
  * Time: 10:54 PM
  */
 @IgnitedLocationActivity()
-public class ChooseObjektActivity extends ListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler, OnIgnitedLocationChangedListener {
+public class ChooseObjektActivity extends SherlockListActivity implements ObjektsForQueryTask.ReturnedObjektsHandler, OnIgnitedLocationChangedListener {
 
   private static final String TAG = ChooseObjektActivity.class.getSimpleName();
 
@@ -63,31 +64,33 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
   private Location lastLocation;
 
   // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
+  @Override
+  public void onResume() {
+    super.onResume();
 
-    // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
+  }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
+  // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!
+  @Override
+  public void onPause() {
+    super.onPause();
+  }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
+  @Override
+  public void onStart() {
+    super.onStart();
+  }
+
+  @Override
+  public void onStop() {
+    super.onStop();
+  }
+
+  @Override
+  public void onDestroy() {
+    super.onDestroy();
+  }
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -161,21 +164,6 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
 
     headerCompletionItemName.setBackgroundDrawable(backgroundDrawable);
 
-    if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
-
-//      lastLocation = app.getLastLocation();
-      if (lastLocation != null) {
-        longitude = lastLocation.getLongitude();
-        latitude = lastLocation.getLatitude();
-      }
-      Log.d(TAG, "lastLocation: " + lastLocation);
-      Log.d(TAG, "   longitude: " + longitude);
-      Log.d(TAG, "    latitude: " + latitude);
-
-    } else {
-
-      Log.d(TAG, "NO PLACE: currentObjektKind: " + currentObjektKind);
-    }
 
     objektEditText = (EditText) findViewById(R.id.objekt);
     if (objektNameIsDefault) {
@@ -227,15 +215,6 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
       }
     });
 
-    final ObjektsForQueryTask queryTask = new ObjektsForQueryTask(service, ChooseObjektActivity.this);
-    ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(null, currentObjektKind, latitude, longitude);
-    queryTask.execute(query);
-
-//    List<Objekt> objekts = service.objektsForQuery(currentObjekt.getName(), currentObjektKind, latitude, longitude);
-//    List<Objekt> objekts = service.objektsForQuery(null, currentObjektKind, latitude, longitude);
-//    if (!objektInList(currentObjekt.getName(), objekts)) {
-//      objekts.add(0, currentObjekt);
-//    }
 
     headerCompletionItemName.setText(currentObjekt.getName());
     headerDefaultDescription.setText(currentObjekt.getDefaultDescription());
@@ -287,12 +266,35 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
 
   }
 
+
   @Override
   public boolean onIgnitedLocationChanged(Location newLocation) {
 
-    Log.d(TAG, "onIgnitedLocationChanged: " + newLocation);
+    AmenoidApp.getInstance().setLastLocation(newLocation);
 
-    lastLocation = newLocation;
+    if (AmenoidApp.DEVELOPER_MODE) {
+      Toast.makeText(this, "Activity received Location update: " + newLocation.getProvider()
+                           + " acc: " + newLocation.getAccuracy(), Toast.LENGTH_LONG).show();
+    }
+    if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
+
+      if (lastLocation != null) {
+        longitude = lastLocation.getLongitude();
+        latitude = lastLocation.getLatitude();
+      }
+      Log.d(TAG, "lastLocation: " + lastLocation);
+      Log.d(TAG, "   longitude: " + longitude);
+      Log.d(TAG, "    latitude: " + latitude);
+
+    } else {
+
+      Log.d(TAG, "NO PLACE: currentObjektKind: " + currentObjektKind);
+    }
+
+    final ObjektsForQueryTask queryTask = new ObjektsForQueryTask(service, ChooseObjektActivity.this);
+    ObjektsForQueryTask.ObjektQuery query = queryTask.new ObjektQuery(null, currentObjektKind, latitude, longitude);
+    queryTask.execute(query);
+
     return true;
   }
 
@@ -347,7 +349,7 @@ public class ChooseObjektActivity extends ListActivity implements ObjektsForQuer
       textView.setBackgroundDrawable(background);
 
       TextView description = (TextView) row.findViewById(R.id.default_description);
-      description.setText(objekt.getDefaultDescription());
+      description.setText(objekt.getCategory());
 
       return row;
     }
