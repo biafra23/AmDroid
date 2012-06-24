@@ -1,16 +1,16 @@
 package com.jaeckel.amenoid.api.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.GsonBuilder;
-
 import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.GsonBuilder;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * User: biafra
@@ -29,7 +29,8 @@ public class Statement implements Parcelable {
   private User       firstPoster;
   private Date       firstPostedAt;
   private Long       firstAmenId;
-  private Integer       rankInTopic;
+  private Integer    rankInTopic;
+  private String     slug;
 
   static private transient final Logger log = LoggerFactory.getLogger(Statement.class.getSimpleName());
 
@@ -102,6 +103,7 @@ public class Statement implements Parcelable {
     sb.append(", firstPostedAt=").append(firstPostedAt);
     sb.append(", firstAmenId=").append(firstAmenId);
     sb.append(", rankInTopic=").append(rankInTopic);
+    sb.append(", slug='").append(slug).append('\'');
     sb.append('}');
     return sb.toString();
   }
@@ -225,6 +227,7 @@ public class Statement implements Parcelable {
     dest.writeValue(firstPostedAt);
     dest.writeValue(firstAmenId);
     dest.writeValue(rankInTopic);
+    dest.writeString(slug);
 
     log.debug("writeToParcel. done.");
   }
@@ -236,13 +239,14 @@ public class Statement implements Parcelable {
     totalAmenCount = (Long) in.readValue(cl);
     agreeable = (Boolean) in.readValue(cl);
     agreeingNetwork = in.readArrayList(cl);
-    agreeingNetworkCount = (Long)in.readValue(cl);
+    agreeingNetworkCount = (Long) in.readValue(cl);
     topic = in.readParcelable(cl);
     objekt = in.readParcelable(cl);
     firstPoster = in.readParcelable(cl);
     firstPostedAt = (Date) in.readValue(cl);
     firstAmenId = (Long) in.readValue(cl);
     rankInTopic = (Integer) in.readValue(cl);
+    slug = (String) in.readString();
 
     log.debug("readFromParcel. done.");
 
@@ -262,5 +266,13 @@ public class Statement implements Parcelable {
 
   public void setAgreeingNetworkCount(Long agreeingNetworkCount) {
     this.agreeingNetworkCount = agreeingNetworkCount;
+  }
+
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 }
