@@ -22,7 +22,7 @@ import android.widget.TextView;
  * Date: 11/5/11
  * Time: 8:13 PM
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends SherlockActivity {
 
   private final static String TAG = AboutActivity.class.getSimpleName();
 
