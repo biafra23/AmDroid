@@ -28,7 +28,7 @@ public class ExploreFragmentActivity extends SherlockFragmentActivity {
     setContentView(R.layout.activity_fragment_explore);
 
     FragmentManager fragmentManager = getSupportFragmentManager();
-    //exploreFragment = (ExploreFragment) fragmentManager.findFragmentById(R.id.);
+    exploreFragment = (ExploreFragment) fragmentManager.findFragmentById(R.id.activity_fragment_explore);
 
   }
 
@@ -47,6 +47,7 @@ public class ExploreFragmentActivity extends SherlockFragmentActivity {
     Log.d(TAG, "onPrepareOptionsMenu");
     MenuItem following = menu.findItem(R.id.following_menu);
     MenuItem popular = menu.findItem(R.id.popular_menu);
+    MenuItem explore = menu.findItem(R.id.explore_menu);
     MenuItem amenSth = menu.findItem(R.id.amen);
     MenuItem signInOut = menu.findItem(R.id.signin);
     //    MenuItem search = menu.findItem(R.id.search_menu_item);

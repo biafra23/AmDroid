@@ -4320,7 +4320,11 @@
       <created>1340556512996</created>
       <updated>1340556512996</updated>
     </task>
-    <option name="localTasksCounter" value="229" />
+    <task id="LOCAL-00229" summary="config">
+      <created>1340556524604</created>
+      <updated>1340556524604</updated>
+    </task>
+    <option name="localTasksCounter" value="230" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <servers />
@@ -4418,7 +4422,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="version increase" />
+    <option name="LAST_COMMIT_MESSAGE" value="config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4456,8 +4460,8 @@
     <MESSAGE value="get location from app" />
     <MESSAGE value="added slug to statement" />
     <MESSAGE value="create share intent with amen not statement where possible" />
-    <MESSAGE value="config" />
     <MESSAGE value="version increase" />
+    <MESSAGE value="config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

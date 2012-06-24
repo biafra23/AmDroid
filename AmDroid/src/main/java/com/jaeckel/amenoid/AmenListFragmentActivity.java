@@ -1,6 +1,7 @@
 package com.jaeckel.amenoid;
 
 import java.util.List;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -10,20 +11,14 @@ import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
-import com.jaeckel.amenoid.util.HelloWorldMaker;
 import com.jaeckel.amenoid.util.Log;
 
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
-import android.view.View;
 import android.widget.Toast;
 
 /**
@@ -102,6 +97,7 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     Log.d(TAG, "onPrepareOptionsMenu");
     MenuItem following = menu.findItem(R.id.following_menu);
     MenuItem popular = menu.findItem(R.id.popular_menu);
+    MenuItem explore = menu.findItem(R.id.explore_menu);
     MenuItem amenSth = menu.findItem(R.id.amen);
     MenuItem signInOut = menu.findItem(R.id.signin);
     //    MenuItem search = menu.findItem(R.id.search_menu_item);
@@ -163,6 +159,12 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
       case R.id.popular_menu: {
         Intent intent = new Intent(this, AmenListFragmentActivity.class);
         intent.putExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_POPULAR);
+        startActivity(intent);
+
+        return true;
+      }
+      case R.id.explore_menu: {
+        Intent intent = new Intent(this, ExploreFragmentActivity.class);
         startActivity(intent);
 
         return true;
