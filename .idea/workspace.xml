@@ -891,8 +891,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="preps for explore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/main.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/main.xml" />
@@ -1812,7 +1810,7 @@
       <file leaf-file-name="PullToRefreshListView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="41" selection-start="5397" selection-end="5397" vertical-scroll-proportion="0.40592784">
+            <state line="196" column="46" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.77319586">
               <folding />
             </state>
           </provider>
@@ -4560,7 +4558,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="41" selection-start="5397" selection-end="5397" vertical-scroll-proportion="0.40592784">
+        <state line="196" column="46" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.77319586">
           <folding />
         </state>
       </provider>
