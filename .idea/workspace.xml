@@ -879,7 +879,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="preps for explore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/main.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
@@ -1763,7 +1762,7 @@
       <file leaf-file-name="fragment_amen_list.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="18" selection-start="506" selection-end="506" vertical-scroll-proportion="0.5421687">
+            <state line="22" column="24" selection-start="841" selection-end="841" vertical-scroll-proportion="0.5301205">
               <folding />
             </state>
           </provider>
@@ -1836,8 +1835,8 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
+        <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
       </list>
     </option>
   </component>
@@ -4569,7 +4568,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="506" selection-end="506" vertical-scroll-proportion="0.5421687">
+        <state line="22" column="24" selection-start="841" selection-end="841" vertical-scroll-proportion="0.5301205">
           <folding />
         </state>
       </provider>
