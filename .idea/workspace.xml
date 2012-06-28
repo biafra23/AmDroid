@@ -1810,7 +1810,7 @@
       <file leaf-file-name="PullToRefreshListView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="46" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.77319586">
+            <state line="165" column="0" selection-start="5358" selection-end="6738" vertical-scroll-proportion="0.17396908">
               <folding />
             </state>
           </provider>
@@ -4558,7 +4558,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="46" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.77319586">
+        <state line="165" column="0" selection-start="5358" selection-end="6738" vertical-scroll-proportion="0.17396908">
           <folding />
         </state>
       </provider>
