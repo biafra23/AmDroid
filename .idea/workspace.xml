@@ -1810,7 +1810,7 @@
       <file leaf-file-name="PullToRefreshListView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="0" selection-start="5358" selection-end="6738" vertical-scroll-proportion="0.17396908">
+            <state line="193" column="27" selection-start="6684" selection-end="6684" vertical-scroll-proportion="0.6572165">
               <folding />
             </state>
           </provider>
@@ -4495,13 +4495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="13" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/main.xml">
       <provider editor-type-id="text-editor">
         <state line="18" column="0" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
@@ -4556,9 +4549,16 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="13" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="0" selection-start="5358" selection-end="6738" vertical-scroll-proportion="0.17396908">
+        <state line="193" column="27" selection-start="6684" selection-end="6684" vertical-scroll-proportion="0.6572165">
           <folding />
         </state>
       </provider>
