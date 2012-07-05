@@ -1753,11 +1753,11 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="5" selection-start="3082" selection-end="3082" vertical-scroll-proportion="0.3904762">
+            <state line="89" column="29" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.41904762">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5165#5401#0" expanded="true" />
-                <element signature="e#5392#5393#0" expanded="true" />
+                <element signature="e#5173#5409#0" expanded="true" />
+                <element signature="e#5400#5401#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4599,11 +4599,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="5" selection-start="3082" selection-end="3082" vertical-scroll-proportion="0.3904762">
+        <state line="89" column="29" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.41904762">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5165#5401#0" expanded="true" />
-            <element signature="e#5392#5393#0" expanded="true" />
+            <element signature="e#5173#5409#0" expanded="true" />
+            <element signature="e#5400#5401#0" expanded="true" />
           </folding>
         </state>
       </provider>
