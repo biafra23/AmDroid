@@ -892,8 +892,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="preps for explore">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
@@ -1746,8 +1744,11 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="26" selection-start="4838" selection-end="4838" vertical-scroll-proportion="0.31904763">
-              <folding />
+            <state line="555" column="70" selection-start="16511" selection-end="16511" vertical-scroll-proportion="0.34761906">
+              <folding>
+                <element signature="e#5047#5283#0" expanded="true" />
+                <element signature="e#5274#5275#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1870,10 +1871,10 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/widget/PullToRefreshListView.java" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       </list>
     </option>
   </component>
@@ -4577,8 +4578,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="26" selection-start="4838" selection-end="4838" vertical-scroll-proportion="0.31904763">
-          <folding />
+        <state line="555" column="70" selection-start="16511" selection-end="16511" vertical-scroll-proportion="0.34761906">
+          <folding>
+            <element signature="e#5047#5283#0" expanded="true" />
+            <element signature="e#5274#5275#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
