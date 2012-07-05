@@ -141,17 +141,23 @@ public class AmenListFragment extends ListFragment {
 
     super.onActivityCreated(savedInstanceState);
 
-    final PullToRefreshListView listView = (PullToRefreshListView) getListView();
+    final ListView listView = getListView();
+    if (listView instanceof PullToRefreshListView) {
+
+      PullToRefreshListView pullToRefreshListView = (PullToRefreshListView) listView;
+
+      pullToRefreshListView.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
+
+        public void onRefresh() {
+          Log.v(TAG, "onRefresh()");
+          // Do work to refresh the list here.
+          new GetDataTask(getActivity()).execute();
+        }
+      });
+    }
+//    final
 
 
-    listView.setOnRefreshListener(new PullToRefreshListView.OnRefreshListener() {
-
-      public void onRefresh() {
-        Log.v(TAG, "onRefresh()");
-        // Do work to refresh the list here.
-        new GetDataTask(getActivity()).execute();
-      }
-    });
   }
 
   @Override
@@ -546,7 +552,10 @@ public class AmenListFragment extends ListFragment {
         }
 
         // Call onRefreshComplete when the list has been refreshed.
-        ((PullToRefreshListView) getListView()).onRefreshComplete();
+        if (getListView() instanceof PullToRefreshListView) {
+          ((PullToRefreshListView) getListView()).onRefreshComplete();
+        }
+
       }
     }
   }

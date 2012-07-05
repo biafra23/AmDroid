@@ -138,6 +138,8 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
 
+    Log.d(TAG, "onOptionsItemSelected()");
+
     switch (item.getItemId()) {
 
       case R.id.signin: {
@@ -164,6 +166,7 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
         return true;
       }
       case R.id.explore_menu: {
+        Log.d(TAG, "Starting ExploreFragmentActivity ");
         Intent intent = new Intent(this, ExploreFragmentActivity.class);
         startActivity(intent);
 

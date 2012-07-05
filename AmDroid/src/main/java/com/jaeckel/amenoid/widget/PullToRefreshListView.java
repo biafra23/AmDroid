@@ -161,6 +161,8 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+      Log.d(TAG, "onTouchEvent");
         final int y = (int) event.getY();
         mBounceHack = false;
 
@@ -192,6 +194,7 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
                 applyHeaderPadding(event);
                 break;
         }
+      Log.d(TAG, "calling super.onTouchEvent()");
         return super.onTouchEvent(event);
     }
 
