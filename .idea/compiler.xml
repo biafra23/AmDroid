@@ -36,13 +36,6 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="AmDroid" target="1.6" />
-      <module name="amdroid-parent" target="1.6" />
-      <module name="AmDroidTest" target="1.6" />
-      <module name="AmenLib" target="1.6" />
-      <module name="httpclientandroidlib" target="1.6" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="MAXIMUM_HEAP_SIZE" value="512" />
