@@ -891,6 +891,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" afterPath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" afterPath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" />
@@ -1684,11 +1685,11 @@
       <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="50" selection-start="3133" selection-end="3133" vertical-scroll-proportion="0.29301074">
+            <state line="89" column="85" selection-start="3168" selection-end="3168" vertical-scroll-proportion="0.1626344">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5182#5418#0" expanded="true" />
-                <element signature="e#5409#5410#0" expanded="true" />
+                <element signature="e#5187#5423#0" expanded="true" />
+                <element signature="e#5414#5415#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -4537,11 +4538,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="50" selection-start="3133" selection-end="3133" vertical-scroll-proportion="0.29301074">
+        <state line="89" column="85" selection-start="3168" selection-end="3168" vertical-scroll-proportion="0.1626344">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5182#5418#0" expanded="true" />
-            <element signature="e#5409#5410#0" expanded="true" />
+            <element signature="e#5187#5423#0" expanded="true" />
+            <element signature="e#5414#5415#0" expanded="true" />
           </folding>
         </state>
       </provider>
