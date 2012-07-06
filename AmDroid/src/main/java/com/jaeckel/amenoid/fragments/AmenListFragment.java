@@ -71,6 +71,8 @@ public class AmenListFragment extends ListFragment {
   //  private AlertDialog enterCredentialsDialog;
   private static boolean shouldRefresh = false;
   private        Handler handler       = new Handler();
+  private        boolean noPull        = false;
+
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,10 +81,15 @@ public class AmenListFragment extends ListFragment {
 
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
+    int offset = 1;
 
-    if (position > 0 && position < getListAdapter().getCount()) {
+    if (noPull) {
+      offset = 0;
+    }
 
-      Amen amen = (Amen) getListAdapter().getItem(position - 1);
+    if (position > offset - 1 && position < getListAdapter().getCount() + offset) {
+
+      Amen amen = (Amen) getListAdapter().getItem(position - offset);
 
       Log.d(TAG, "Selected Amen: " + amen);
 
@@ -154,6 +161,9 @@ public class AmenListFragment extends ListFragment {
           new GetDataTask(getActivity()).execute();
         }
       });
+      noPull = false;
+    } else {
+      noPull = true;
     }
 //    final
 
