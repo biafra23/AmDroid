@@ -87,7 +87,7 @@ public class AmenListFragment extends ListFragment {
       offset = 0;
     }
 
-    if (position > offset - 1 && position < getListAdapter().getCount() + offset) {
+    if (position > offset - 1 && position < getListAdapter().getCount() + offset - 1 ) {
 
       Amen amen = (Amen) getListAdapter().getItem(position - offset);
 
