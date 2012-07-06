@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ignition="http://github.com/ignition/schema"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="horizontal">
 
-    <ImageView android:id="@+id/category_icon"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:src="@drawable/abs__ab_solid_dark_holo"
-               android:contentDescription="Categroy Icon"
+    <com.github.ignition.core.widgets.RemoteImageView
+            android:id="@+id/category_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/abs__ab_solid_dark_holo"
+            android:contentDescription="Categroy Icon"
+            ignition:autoLoad="false"
+            ignition:imageUrl="http://does.not.exist/"
             />
     <TextView android:id="@+id/category_name"
               android:layout_width="wrap_content"

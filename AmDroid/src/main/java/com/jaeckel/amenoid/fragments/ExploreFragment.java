@@ -1,24 +1,28 @@
 package com.jaeckel.amenoid.fragments;
 
+import java.io.IOException;
+import java.util.List;
+
 import com.jaeckel.amenoid.AmenDetailFragmentActivity;
+import com.jaeckel.amenoid.CategoryListAdapter;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
-import com.jaeckel.amenoid.api.model.User;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.util.AmenLibTask;
 import com.jaeckel.amenoid.util.Log;
-import com.jaeckel.amenoid.widget.PullToRefreshListView;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * @author biafra
@@ -26,14 +30,14 @@ import android.widget.Toast;
  */
 public class ExploreFragment extends ListFragment {
 
-  private static       String TAG                       = ExploreFragment.class.getSimpleName();
-
+  private static String TAG = ExploreFragment.class.getSimpleName();
+  private AmenService         service;
+  private CategoryListAdapter adapter;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-    Log.d(TAG, "onCreateView");
-
+    Log.d(TAG, "onCreateView()");
     return inflater.inflate(R.layout.fragment_category_list, container, false);
   }
 
@@ -67,18 +71,26 @@ public class ExploreFragment extends ListFragment {
    */
   @Override
   public void onCreate(Bundle savedInstanceState) {
+
+
     super.onCreate(savedInstanceState);
-    Log.d(TAG, "onCreate");
+    Log.d(TAG, "onCreate()");
 
-    getActivity().setContentView(R.layout.main);
+//    getActivity().setContentView(R.layout.main);
+    service = AmenoidApp.getInstance().getService();
 
+    // hier den LoaderAsyncTask starten
+
+    Log.d(TAG, "Loading Categories...");
+    new CategoriesLoaderAsyncTask(getActivity()).execute();
 
   }
+
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    Log.d(TAG, "onActivityCreated");
+    Log.d(TAG, "onActivityCreated()");
   }
 
 //  @Override
@@ -102,15 +114,54 @@ public class ExploreFragment extends ListFragment {
   @Override
   public void onResume() {
     super.onResume();
-    Log.d(TAG, "onResume");
+    Log.d(TAG, "onResume()");
 
   }
-
 
 
   @Override
   public void onPause() {
     super.onPause();
-    Log.v(TAG, "onPause");
+    Log.v(TAG, "onPause()");
+  }
+
+
+  private class CategoriesLoaderAsyncTask extends AmenLibTask<Void, Integer, List<Category>> {
+
+    private ProgressDialog progressDialog;
+
+    private final String TAG = CategoriesLoaderAsyncTask.class.getSimpleName();
+
+    public CategoriesLoaderAsyncTask(Activity context) {
+      super(context);
+    }
+
+    @Override
+    protected void onPreExecute() {
+
+      progressDialog = ProgressDialog.show(getActivity(), "",
+                                           "Loading Categories. Please wait...", true);
+      progressDialog.show();
+
+    }
+
+    @Override
+    protected List<Category> wrappedDoInBackground(Void... params) throws IOException {
+      return service.getCategories();
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(List<Category> categories) {
+      Log.d(TAG, "... Loading Categories. Done.");
+
+      if (categories != null) {
+        for (Category category : categories) {
+          Log.d(TAG, "category: " + category);
+        }
+        adapter = new CategoryListAdapter(getActivity(), R.layout.list_item_category, categories);
+        setListAdapter(adapter);
+      }
+      progressDialog.hide();
+    }
   }
 }
