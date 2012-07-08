@@ -903,19 +903,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/choose_objekt.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/choose_objekt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/endless_main.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/endless_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/fragment_category_list.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/fragment_category_list.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/main.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/score_board.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/score_board.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/search.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/subject_page.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/subject_page.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryListAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
     </list>
     <list id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="">
@@ -1777,7 +1767,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="39" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.315">
+            <state line="42" column="52" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.24">
               <folding />
             </state>
           </provider>
@@ -4720,7 +4710,19 @@
       <created>1341785988802</created>
       <updated>1341785988802</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL-00239" summary="config">
+      <created>1341786005870</created>
+      <updated>1341786005871</updated>
+    </task>
+    <task id="LOCAL-00240" summary="don't crash on null result">
+      <created>1341786056763</created>
+      <updated>1341786056763</updated>
+    </task>
+    <task id="LOCAL-00241" summary="drawSelectorOnTop">
+      <created>1341786107446</created>
+      <updated>1341786107446</updated>
+    </task>
+    <option name="localTasksCounter" value="242" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <option name="trackContextForNewChangelist" value="false" />
@@ -4748,7 +4750,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1098" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08591249" sideWeight="0.6823177" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5814186" order="2" side_tool="false" content_ui="tabs" />
@@ -4819,7 +4821,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="config" />
+    <option name="LAST_COMMIT_MESSAGE" value="drawSelectorOnTop" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4834,8 +4836,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="c2dm testing stuff" />
-    <MESSAGE value="added Category" />
     <MESSAGE value="categories interface" />
     <MESSAGE value="signup errro parsing, category handling" />
     <MESSAGE value="formatting" />
@@ -4859,6 +4859,8 @@
     <MESSAGE value="permission needed for ignition cache" />
     <MESSAGE value="aligning objekt photo to the right" />
     <MESSAGE value="config" />
+    <MESSAGE value="don't crash on null result" />
+    <MESSAGE value="drawSelectorOnTop" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -5011,7 +5013,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="39" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.315">
+        <state line="42" column="52" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.24">
           <folding />
         </state>
       </provider>
