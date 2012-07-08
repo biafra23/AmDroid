@@ -69,7 +69,7 @@ public class UserDetailActivity extends SherlockListActivity {
   private TextView amenGiven;
   private TextView amenScore;
   private TextView accountCreated;
-  private static final int[] IMAGE_IDS = {R.id.media_photo};
+  private static final int[] IMAGE_IDS = {R.id.media_photo, R.id.objekt_photo};
 
 
   @Override
