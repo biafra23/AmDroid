@@ -81,7 +81,7 @@
   <component name="AndroidDesignerProfile">
     <option name="fullProfile">
       <profile>
-        <option name="device" value="10.1in WXGA (Tablet)" />
+        <option name="device" value="4in WVGA (Nexus S)" />
         <option name="deviceConfiguration" value="Portrait" />
         <option name="localeLanguage" value="de" />
         <option name="targetHashString" value="android-11" />
@@ -889,8 +889,12 @@
       </GlobalState>
     </option>
     <device-configurations>
+      <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_explore.xml" value="Landscape" />
       <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml" value="Landscape" />
       <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml" value="Landscape" />
+      <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml" value="Landscape" />
+      <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_user.xml" value="Landscape" />
+      <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/user.xml" value="Landscape" />
     </device-configurations>
   </component>
   <component name="BookmarkManager">
@@ -903,10 +907,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/choose_objekt.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/choose_objekt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml" afterPath="$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryListAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryListAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
     </list>
@@ -975,7 +979,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" line="179" class="com.jaeckel.amenoid.AmenListAdapter" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" line="181" class="com.jaeckel.amenoid.AmenListAdapter" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1001,7 +1005,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" line="201" class="com.jaeckel.amenoid.AmenListAdapter" package="com.jaeckel.amenoid">
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" line="203" class="com.jaeckel.amenoid.AmenListAdapter" package="com.jaeckel.amenoid">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1693,23 +1697,74 @@
     <leaf>
       <file leaf-file-name="list_item_category.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml">
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state line="29" column="25" selection-start="1276" selection-end="1276" vertical-scroll-proportion="0.0">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="53" selection-start="574" selection-end="574" vertical-scroll-proportion="-8.181818">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_amen_list.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml">
+      <file leaf-file-name="list_item_topic.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_topic.xml">
           <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
           <provider editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list_item_user.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_user.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="43" selection-start="555" selection-end="555" vertical-scroll-proportion="-8.181818">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserListAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="17" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDetailActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="168" column="27" selection-start="5685" selection-end="5685" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmenListAdapter.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="153" column="51" selection-start="5402" selection-end="5402" vertical-scroll-proportion="0.7022587">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/user.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -1717,11 +1772,11 @@
       </file>
       <file leaf-file-name="list_item_amen_no_pic.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml">
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -1729,71 +1784,23 @@
       </file>
       <file leaf-file-name="list_item_amen.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state line="100" column="19" selection-start="4588" selection-end="4588" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dep-plugins.tree" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/dep-plugins.tree">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4441" column="47" selection-start="538593" selection-end="538593" vertical-scroll-proportion="0.0">
+            <state line="100" column="19" selection-start="4588" selection-end="4588" vertical-scroll-proportion="-43.090908">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenDetailFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="22" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preferences.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/xml/preferences.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="63" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choose_objekt.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/choose_objekt.xml">
-          <provider selected="true" editor-type-id="android-designer">
+      <file leaf-file-name="activity_fragment_explore.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_explore.xml">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state line="8" column="3" selection-start="273" selection-end="490" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="49" selection-start="2506" selection-end="2506" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="details_header.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/details_header.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -1815,7 +1822,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_list.xml" />
@@ -1831,6 +1837,7 @@
         <option value="$PROJECT_DIR$/AmDroid/res/layout/choose_objekt.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/details_header.xml" />
         <option value="$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java" />
       </list>
     </option>
   </component>
@@ -4639,7 +4646,11 @@
       <created>1341786107446</created>
       <updated>1341786107446</updated>
     </task>
-    <option name="localTasksCounter" value="242" />
+    <task id="LOCAL-00242" summary="align images on the right">
+      <created>1341787809445</created>
+      <updated>1341787809445</updated>
+    </task>
+    <option name="localTasksCounter" value="243" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
     <option name="trackContextForNewChangelist" value="false" />
@@ -4669,8 +4680,8 @@
     <frame x="0" y="22" width="1920" height="1098" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08591249" sideWeight="0.6823177" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.5814186" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.08591249" sideWeight="0.6823177" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5814186" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4199573" sideWeight="0.7047354" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -4738,7 +4749,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="drawSelectorOnTop" />
+    <option name="LAST_COMMIT_MESSAGE" value="align images on the right" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4753,7 +4764,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="categories interface" />
     <MESSAGE value="signup errro parsing, category handling" />
     <MESSAGE value="formatting" />
     <MESSAGE value="explore/categories" />
@@ -4778,6 +4788,7 @@
     <MESSAGE value="config" />
     <MESSAGE value="don't crash on null result" />
     <MESSAGE value="drawSelectorOnTop" />
+    <MESSAGE value="align images on the right" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4788,72 +4799,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/subject_page.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="9" column="46" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/endless_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="250" selection-end="250" vertical-scroll-proportion="-4.090909">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_user.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="13" selection-start="1590" selection-end="1590" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/search.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="46" selection-start="446" selection-end="446" vertical-scroll-proportion="-6.818182">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/fragment_amen_detail.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="5" column="42" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/dep-plugins.tree">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4441" column="47" selection-start="538593" selection-end="538593" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="22" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.0">
@@ -4885,37 +4830,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="29" column="25" selection-start="1276" selection-end="1276" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/layout-v16/fragment_amen_list.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="100" column="19" selection-start="4588" selection-end="4588" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
@@ -4931,6 +4846,97 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/activity_fragment_explore.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_category.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="53" selection-start="574" selection-end="574" vertical-scroll-proportion="-8.181818">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_topic.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_user.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="43" selection-start="555" selection-end="555" vertical-scroll-proportion="-8.181818">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="17" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/user.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="19" selection-start="4588" selection-end="4588" vertical-scroll-proportion="-43.090908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/res/layout/list_item_amen_no_pic.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/UserDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="27" selection-start="5685" selection-end="5685" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="51" selection-start="5402" selection-end="5402" vertical-scroll-proportion="0.7022587">
           <folding />
         </state>
       </provider>
