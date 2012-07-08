@@ -917,11 +917,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryListAdapter.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryListAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
+    </list>
+    <list id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" afterPath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" afterPath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmenLib/AmenLib.iml" afterPath="$PROJECT_DIR$/AmenLib/AmenLib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" afterPath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
     </list>
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1778,7 +1777,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="39" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.45918366">
+            <state line="47" column="39" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.315">
               <folding />
             </state>
           </provider>
@@ -3763,6 +3762,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="" />
       <created>1316641654474</created>
       <updated>1318712253454</updated>
     </task>
@@ -4716,9 +4716,14 @@
       <created>1341758177963</created>
       <updated>1341758177963</updated>
     </task>
-    <option name="localTasksCounter" value="238" />
+    <task id="LOCAL-00238" summary="config">
+      <created>1341785988802</created>
+      <updated>1341785988802</updated>
+    </task>
+    <option name="localTasksCounter" value="239" />
     <option name="clearContext" value="false" />
     <option name="createChangelist" value="false" />
+    <option name="trackContextForNewChangelist" value="false" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -4756,7 +4761,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41956243" sideWeight="0.46987087" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683378" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3136863" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3136863" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41858143" sideWeight="0.5251076" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22812052" sideWeight="0.8446602" order="11" side_tool="true" content_ui="tabs" />
@@ -4815,7 +4820,7 @@
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" value="config" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
@@ -5006,7 +5011,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="39" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.45918366">
+        <state line="47" column="39" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.315">
           <folding />
         </state>
       </provider>
