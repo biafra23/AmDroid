@@ -11,16 +11,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/abs__ab_solid_dark_holo"
-            android:contentDescription="Categroy Icon"
+            android:contentDescription="Category Icon"
             ignition:autoLoad="false"
             ignition:imageUrl="http://does.not.exist/"
             />
-    <TextView android:id="@+id/category_name"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-            />
-    <TextView android:id="@+id/category_subtitle"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-            />
+    <LinearLayout android:id="@+id/description"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+
+            >
+        <TextView android:id="@+id/category_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                />
+        <TextView android:id="@+id/category_subtitle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                />
+    </LinearLayout>
 </LinearLayout>
