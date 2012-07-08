@@ -7,4 +7,5 @@
           android:dividerHeight="0dp"
           android:scrollbarStyle="outsideOverlay"
           android:headerDividersEnabled="false"
+          android:drawSelectorOnTop="true"
         />

@@ -27,4 +27,5 @@
         android:dividerHeight="1dp"
         android:scrollbarStyle="outsideOverlay"
         android:headerDividersEnabled="false"
+        android:drawSelectorOnTop="true"
         />
