@@ -173,7 +173,7 @@ public class AmenListFragment extends ListFragment {
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent result) {
 
-    if (requestCode == REQUEST_CODE_AMEN_DETAILS) {
+    if (requestCode == REQUEST_CODE_AMEN_DETAILS && result != null) {
       // receive the new currentObjekt
       Log.d(TAG, "onActivityResult | requestCode: REQUEST_CODE_AMEN_DETAILS");
 
