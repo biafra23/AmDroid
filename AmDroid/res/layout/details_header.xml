@@ -37,7 +37,6 @@
                 >
             <com.github.ignition.core.widgets.RemoteImageView
                     android:id="@+id/objekt_photo"
-                    android:layout_gravity="top"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:padding="2dp"
@@ -45,7 +44,7 @@
                     android:contentDescription="Objekt Photo"
                     ignition:autoLoad="false"
                     ignition:imageUrl="http://does.not.exist/"
-                    />
+                    android:layout_gravity="right"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout android:layout_width="fill_parent"
