@@ -88,13 +88,12 @@
                               android:layout_weight="2"
                         >
                     <ImageView android:id="@+id/objekt_photo"
-                               android:layout_gravity="top"
                                android:layout_width="80dp"
                                android:layout_height="80dp"
                                android:padding="2dp"
                                android:src="@drawable/ic_menu_gear"
                                android:contentDescription="Objekt Photo"
-                            />
+                               android:layout_gravity="right"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
