@@ -40,6 +40,7 @@
     <ui_properties />
   </component>
   <component name="EclipseCodeFormatter">
+    <option name="formatter" value="ECLIPSE" />
     <option name="id" value="1332971941530" />
     <option name="name" value="default" />
   </component>
