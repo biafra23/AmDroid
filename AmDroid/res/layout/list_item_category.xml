@@ -14,6 +14,7 @@
             android:contentDescription="Category Icon"
             ignition:autoLoad="false"
             ignition:imageUrl="http://does.not.exist/"
+            android:scaleType="center"
             />
     <LinearLayout android:id="@+id/description"
                   android:layout_width="wrap_content"

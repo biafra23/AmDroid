@@ -37,16 +37,6 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate");
 
-
-//    IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
-//    Intent headsetState= this.registerReceiver(null, filter);
-//    int state = headsetState.getIntExtra("state", -1);
-//    String name = headsetState.getStringExtra("name");
-//
-//    Log.d("TAG", "state: " + state + " name: " + name);
-
-    //c2dmRegister();
-
     setContentView(R.layout.activity_fragment_amen_list);
 
     FragmentManager fragmentManager = getSupportFragmentManager();
@@ -76,12 +66,6 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
 
   }
 
-//  public void c2dmRegister() {
-//  	Intent intent = new Intent("com.google.android.c2dm.intent.REGISTER");
-//  	intent.putExtra("app", PendingIntent.getBroadcast(this, 0, new Intent(), 0));
-//  	intent.putExtra("sender", "c2dm.amenoid@googlemail.com");
-//  	startService(intent);
-//  }
 
   public boolean onCreateOptionsMenu(Menu menu) {
     super.onCreateOptionsMenu(menu);

@@ -49,7 +49,6 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
 //  private TextView                                            commentsTextView;
   private ShareActionProvider mShareActionProvider;
   private AmenDetailFragment  amenDetailFragment;
-  private Handler handler = new Handler();
 
 
   @Override
@@ -250,10 +249,6 @@ public class AmenDetailFragmentActivity extends SherlockFragmentActivity {
     intent.putExtra(Constants.EXTRA_TOPIC, getCurrentStatement().getTopic());
     intent.putExtra(Constants.EXTRA_OBJEKT_KIND, getCurrentStatement().getObjekt().getKindId());
     startActivity(intent);
-  }
-
-  interface FooListener {
-    void foo();
   }
 
   private void toast(final String msg, final int duration) {
