@@ -1116,17 +1116,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="359" column="7" selection-start="15176" selection-end="15763" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="tag#profile#2;tag#profiles#0;tag#project#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AmenListFragmentActivityTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroidTest/src/main/java/com/jaeckel/amenoid/test/AmenListFragmentActivityTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -1145,16 +1134,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="701" column="8" selection-start="20555" selection-end="20555" vertical-scroll-proportion="0.52468264">
+            <state line="708" column="20" selection-start="20786" selection-end="20786" vertical-scroll-proportion="-18.346153">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="class#GetDataTask#0;class#AmenListFragment#0" expanded="false" />
                 <element signature="e#20300#20306#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExploreFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="19" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.42857143">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1184,13 +1182,13 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Constants.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryAmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroidTest/src/main/java/com/jaeckel/amenoid/test/AmenListFragmentActivityTest.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/src/main/java/com/jaeckel/amenoid/test/ParcelITest.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Category.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
       </list>
     </option>
   </component>
@@ -4249,7 +4247,7 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22812052" sideWeight="0.8446602" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23906083" sideWeight="0.68337977" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20170757" sideWeight="0.5069638" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20170757" sideWeight="0.5069638" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29244444" sideWeight="0.31590182" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.085365854" sideWeight="0.5817246" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="213" y="129" width="919" height="477" />
@@ -4359,13 +4357,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="190" column="7" selection-start="6474" selection-end="6474" vertical-scroll-proportion="-7.076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/GsonTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="13" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0">
@@ -4470,13 +4461,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="701" column="8" selection-start="20555" selection-end="20555" vertical-scroll-proportion="0.52468264">
+        <state line="708" column="20" selection-start="20786" selection-end="20786" vertical-scroll-proportion="-18.346153">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="class#GetDataTask#0;class#AmenListFragment#0" expanded="false" />
             <element signature="e#20300#20306#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="19" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.42857143">
+          <folding />
         </state>
       </provider>
     </entry>
