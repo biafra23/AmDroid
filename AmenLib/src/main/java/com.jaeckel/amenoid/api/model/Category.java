@@ -21,6 +21,9 @@ public class Category implements Parcelable {
   private String color;
   private String amenUrl;
 
+  public Category() {
+  }
+
   public String json() {
 
     GsonBuilder builder = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
@@ -119,6 +122,8 @@ public class Category implements Parcelable {
     readFromParcel(in);
   }
 
+
+
   @Override
   public int describeContents() {
     return 0;
@@ -154,4 +159,33 @@ public class Category implements Parcelable {
 
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Category category = (Category) o;
+
+    if (amenUrl != null ? !amenUrl.equals(category.amenUrl) : category.amenUrl != null) return false;
+    if (color != null ? !color.equals(category.color) : category.color != null) return false;
+    if (icon != null ? !icon.equals(category.icon) : category.icon != null) return false;
+    if (id != null ? !id.equals(category.id) : category.id != null) return false;
+    if (image != null ? !image.equals(category.image) : category.image != null) return false;
+    if (name != null ? !name.equals(category.name) : category.name != null) return false;
+    if (subtitle != null ? !subtitle.equals(category.subtitle) : category.subtitle != null) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = name != null ? name.hashCode() : 0;
+    result = 31 * result + (id != null ? id.hashCode() : 0);
+    result = 31 * result + (subtitle != null ? subtitle.hashCode() : 0);
+    result = 31 * result + (icon != null ? icon.hashCode() : 0);
+    result = 31 * result + (image != null ? image.hashCode() : 0);
+    result = 31 * result + (color != null ? color.hashCode() : 0);
+    result = 31 * result + (amenUrl != null ? amenUrl.hashCode() : 0);
+    return result;
+  }
 }

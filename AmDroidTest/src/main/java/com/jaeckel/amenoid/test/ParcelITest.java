@@ -1,16 +1,18 @@
 package com.jaeckel.amenoid.test;
 
-import android.os.Parcel;
-import android.test.AndroidTestCase;
-import android.util.Log;
+import java.util.Date;
+
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.api.model.Objekt;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.Topic;
 import com.jaeckel.amenoid.api.model.User;
 
-import java.util.Date;
+import android.os.Parcel;
+import android.test.AndroidTestCase;
+import android.util.Log;
 
 /**
  * User: biafra
@@ -252,6 +254,46 @@ public class ParcelITest extends AndroidTestCase {
     User createFromParcel = User.CREATOR.createFromParcel(parcel);
 
     assertEquals(user, createFromParcel);
+
+  }
+
+
+  public void testCategory() throws Exception {
+
+    Log.d(TAG, "testCategory");
+    Category category = new Category();
+    category.setId("berlin");
+    category.setAmenUrl("http://foo.foo");
+    category.setIcon("icon.jpg");
+    category.setImage("http://www.imageurl.de");
+
+
+    // ----------------- parcel here -------------------
+    Parcel parcel = Parcel.obtain();
+    category.writeToParcel(parcel, 0);
+    //done writing, now reset parcel for reading
+    parcel.setDataPosition(0);
+    //finish round trip
+    Category createFromParcel = Category.CREATOR.createFromParcel(parcel);
+
+    assertEquals(category, createFromParcel);
+
+  }
+
+  public void testCategoryEmpty() throws Exception {
+
+    Log.d(TAG, "testCategoryEmpty");
+    Category category = new Category();
+
+    // ----------------- parcel here -------------------
+    Parcel parcel = Parcel.obtain();
+    category.writeToParcel(parcel, 0);
+    //done writing, now reset parcel for reading
+    parcel.setDataPosition(0);
+    //finish round trip
+    User createFromParcel = User.CREATOR.createFromParcel(parcel);
+
+    assertEquals(category, createFromParcel);
 
   }
 }

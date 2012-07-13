@@ -9,6 +9,8 @@
         <option name="RES_FOLDER_RELATIVE_PATH" value="/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/assets" />
         <option name="LIBS_FOLDER_RELATIVE_PATH" value="/src/main/native" />
+        <option name="REGENERATE_R_JAVA" value="true" />
+        <option name="REGENERATE_JAVA_BY_AIDL" value="true" />
         <option name="USE_CUSTOM_APK_RESOURCE_FOLDER" value="false" />
         <option name="CUSTOM_APK_RESOURCE_FOLDER" value="/target/generated-sources/combined-resources/res" />
         <option name="USE_CUSTOM_COMPILER_MANIFEST" value="false" />
@@ -36,16 +38,19 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/r" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/classes" />
       <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/test-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/android-classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/combined-assets" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/combined-resources" />
       <excludeFolder url="file://$MODULE_DIR$/target/generated-sources/extracted-dependencies" />
-      <excludeFolder url="file://$MODULE_DIR$/target/idea-classes" />
-      <excludeFolder url="file://$MODULE_DIR$/target/idea-test-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
+      <excludeFolder url="file://$MODULE_DIR$/target/screenshots" />
+      <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
+      <excludeFolder url="file://$MODULE_DIR$/target/surefire-reports" />
       <excludeFolder url="file://$MODULE_DIR$/target/unpack" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -57,17 +62,13 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: ch.qos.logback:logback-classic:0.9.22" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: ch.qos.logback:logback-core:0.9.22" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.6.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.wazabe.holoeverywhere:library:apklib:1.0.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.actionbarsherlock:library:apklib:4.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: android.support:compatibility-v4:r8" level="project" />
     <orderEntry type="library" name="Maven: com.google:dexmaker:1.0-20120514" level="project" />
-    <orderEntry type="library" name="Maven: com.github.ignition:ignition-core:apklib:0.3-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.github.ignition:ignition-support:0.3-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava-collections:r03" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava-annotations:r03" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava-primitives:r03" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava-base:r03" level="project" />
-    <orderEntry type="library" name="Maven: com.github.ignition:ignition-location:apklib:0.3-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.11" level="project" />
     <orderEntry type="module" module-name="AmDroid" scope="PROVIDED" />
     <orderEntry type="library" name="Maven: com.jayway.android.robotium:robotium-solo:3.2.1" level="project" />
