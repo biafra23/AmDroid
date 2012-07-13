@@ -923,8 +923,6 @@
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryAmenListFragmentActivity.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/CategoryAmenListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AmDroid/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
@@ -1071,10 +1069,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Category.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="20" selection-start="2848" selection-end="2848" vertical-scroll-proportion="0.5578231">
+            <state line="144" column="20" selection-start="2848" selection-end="2848" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#2169#2179#0" expanded="true" />
               </folding>
@@ -1147,10 +1145,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="436" column="32" selection-start="12917" selection-end="12917" vertical-scroll-proportion="0.0">
+            <state line="698" column="63" selection-start="20486" selection-end="20486" vertical-scroll-proportion="0.41466856">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
@@ -1189,10 +1187,10 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/ExploreFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryAmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/pom.xml" />
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/src/main/java/com/jaeckel/amenoid/test/AmenListFragmentActivityTest.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/src/main/java/com/jaeckel/amenoid/test/ParcelITest.java" />
         <option value="$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Category.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
       </list>
     </option>
   </component>
@@ -4440,18 +4438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="436" column="32" selection-start="12917" selection-end="12917" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="class#GetDataTask#0;class#AmenListFragment#0" expanded="false" />
-            <element signature="e#20300#20306#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/android/android/4.0.3_r2/android-4.0.3_r2.jar!/android/test/suitebuilder/annotation/Smoke.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="18" selection-start="368" selection-end="368" vertical-scroll-proportion="-3.6">
@@ -4475,9 +4461,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmenLib/src/main/java/com.jaeckel/amenoid/api/model/Category.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="20" selection-start="2848" selection-end="2848" vertical-scroll-proportion="0.5578231">
+        <state line="144" column="20" selection-start="2848" selection-end="2848" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#2169#2179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="698" column="63" selection-start="20486" selection-end="20486" vertical-scroll-proportion="0.41466856">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#LoaderAsyncTask#0;class#AmenListFragment#0" expanded="false" />
+            <element signature="class#GetDataTask#0;class#AmenListFragment#0" expanded="false" />
+            <element signature="e#20300#20306#0" expanded="true" />
           </folding>
         </state>
       </provider>
