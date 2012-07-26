@@ -1142,7 +1142,10 @@
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ExploreFragmentActivity.java" line="36" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="explore nearby" />
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="explore nearby">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/CHANGES" afterPath="$PROJECT_DIR$/AmDroid/CHANGES" />
+    </list>
     <list id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="" />
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1359,10 +1362,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IgnitedLocationManager.aj" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IgnitedLocationManager.aj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/target/unpack/apklibs/com.github.ignition_ignition-location_apklib_0.3-SNAPSHOT/src/com/github/ignition/location/IgnitedLocationManager.aj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.3324709">
+            <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CHANGES" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="12" selection-end="12" vertical-scroll-proportion="0.019404916">
               <folding />
             </state>
           </provider>
@@ -1417,15 +1438,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_subject_page.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_subject_page.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="menu_user_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_user_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -1451,7 +1463,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Constants.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryAmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/pom.xml" />
         <option value="$PROJECT_DIR$/AmDroidTest/src/main/java/com/jaeckel/amenoid/test/AmenListFragmentActivityTest.java" />
@@ -1467,6 +1478,7 @@
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/CHANGES" />
       </list>
     </option>
   </component>
@@ -4913,7 +4925,11 @@
       <created>1343340971870</created>
       <updated>1343340971870</updated>
     </task>
-    <option name="localTasksCounter" value="257" />
+    <task id="LOCAL-00257" summary="version">
+      <created>1343341692308</created>
+      <updated>1343341692309</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <option name="createChangelist" value="false" />
     <option name="trackContextForNewChangelist" value="false" />
     <servers />
@@ -4952,7 +4968,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21878335" sideWeight="0.24883936" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683378" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.4817778" sideWeight="0.5251076" order="7" side_tool="false" content_ui="tabs" x="1920" y="0" width="1440" height="900" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.4817778" sideWeight="0.5251076" order="7" side_tool="false" content_ui="tabs" x="1920" y="0" width="1440" height="900" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.101387404" sideWeight="0.68337977" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23906083" sideWeight="0.68337977" order="3" side_tool="false" content_ui="tabs" />
@@ -5013,7 +5029,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="explore nearby" />
+    <option name="LAST_COMMIT_MESSAGE" value="version" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -5028,7 +5044,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="back to sherlock, removed location stuff" />
     <MESSAGE value="Sherlock again" />
     <MESSAGE value="get location from app" />
     <MESSAGE value="added slug to statement" />
@@ -5053,6 +5068,7 @@
     <MESSAGE value="config" />
     <MESSAGE value="explicit initialization" />
     <MESSAGE value="explore nearby" />
+    <MESSAGE value="version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -5067,20 +5083,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_add_statement.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_scoreboard.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -5182,7 +5184,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/target/unpack/apklibs/com.github.ignition_ignition-location_apklib_0.3-SNAPSHOT/src/com/github/ignition/location/IgnitedLocationManager.aj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.3324709">
+        <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="12" selection-end="12" vertical-scroll-proportion="0.019404916">
           <folding />
         </state>
       </provider>
