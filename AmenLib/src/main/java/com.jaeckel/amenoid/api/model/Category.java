@@ -136,13 +136,13 @@ public class Category implements Parcelable {
       throw new RuntimeException("Parcel must not be null");
 
     }
-    dest.writeValue(name);
-    dest.writeValue(id);
-    dest.writeValue(subtitle);
-    dest.writeValue(icon);
-    dest.writeValue(image);
-    dest.writeValue(color);
-    dest.writeValue(amenUrl);
+    dest.writeString(name);
+    dest.writeString(id);
+    dest.writeString(subtitle);
+    dest.writeString(icon);
+    dest.writeString(image);
+    dest.writeString(color);
+    dest.writeString(amenUrl);
 
 
   }
