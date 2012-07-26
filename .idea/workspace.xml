@@ -1133,9 +1133,6 @@
       <entry key="file://$PROJECT_DIR$/AmDroid/res/layout/user.xml" value="Landscape" />
     </device-configurations>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Loader executing with categor" />
-  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/AmenLib/src/test/java/com/jaeckel/amenoid/api/AmenServiceITest.java" line="230" mnemonic="0" />
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/db/StatementsProvider.java" line="43" />
@@ -1145,10 +1142,7 @@
     <bookmark url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/ExploreFragmentActivity.java" line="36" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="explicit initialization">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
-    </list>
+    <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="explore nearby" />
     <list id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="" />
     <ignored path="amdroid-parent.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1225,7 +1219,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" line="697" class="com.jaeckel.amenoid.fragments.AmenListFragment.CategoryLoaderAsyncTask" package="com.jaeckel.amenoid.fragments">
-        <option name="ENABLED" value="true" />
+        <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
@@ -1238,7 +1232,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java" line="270" class="com.jaeckel.amenoid.app.AmenoidApp" package="com.jaeckel.amenoid.app">
-        <option name="ENABLED" value="true" />
+        <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
@@ -1251,6 +1245,19 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" line="201" class="com.jaeckel.amenoid.AmenListFragmentActivity" package="com.jaeckel.amenoid">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" line="708" class="com.jaeckel.amenoid.fragments.AmenListFragment.CategoryLoaderAsyncTask" package="com.jaeckel.amenoid.fragments">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -1339,10 +1346,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AmenListFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AmenListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="714" column="0" selection-start="21012" selection-end="21012" vertical-scroll-proportion="0.33333334">
+            <state line="708" column="0" selection-start="20818" selection-end="20818" vertical-scroll-proportion="-9.576923">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20440#20446#0" expanded="true" />
@@ -1352,10 +1359,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="IgnitedLocationManager.aj" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AmDroid/target/unpack/apklibs/com.github.ignition_ignition-location_apklib_0.3-SNAPSHOT/src/com/github/ignition/location/IgnitedLocationManager.aj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.3324709">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AboutActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="109" column="16" selection-start="3428" selection-end="3428" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AmenoidApp.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="269" column="27" selection-start="7616" selection-end="7616" vertical-scroll-proportion="0.0">
+            <state line="283" column="0" selection-start="7826" selection-end="7826" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1426,7 +1451,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/Constants.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryAmenListFragmentActivity.java" />
         <option value="$PROJECT_DIR$/AmDroidTest/pom.xml" />
@@ -1442,6 +1466,7 @@
         <option value="$PROJECT_DIR$/AmDroid/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java" />
         <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java" />
       </list>
     </option>
   </component>
@@ -2103,6 +2128,112 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unpack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unpack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.github.ignition_ignition-location_apklib_0.3-SNAPSHOT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amdroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmDroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unpack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apklibs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.github.ignition_ignition-location_apklib_0.3-SNAPSHOT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="github" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ignition" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="location" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4778,7 +4909,11 @@
       <created>1343296464442</created>
       <updated>1343296464442</updated>
     </task>
-    <option name="localTasksCounter" value="256" />
+    <task id="LOCAL-00256" summary="explore nearby">
+      <created>1343340971870</created>
+      <updated>1343340971870</updated>
+    </task>
+    <option name="localTasksCounter" value="257" />
     <option name="createChangelist" value="false" />
     <option name="trackContextForNewChangelist" value="false" />
     <servers />
@@ -4805,7 +4940,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4816,7 +4951,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29244444" sideWeight="0.6803629" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21878335" sideWeight="0.24883936" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683378" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.4817778" sideWeight="0.5251076" order="7" side_tool="false" content_ui="tabs" x="1920" y="0" width="1440" height="900" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.4817778" sideWeight="0.5251076" order="7" side_tool="false" content_ui="tabs" x="1920" y="0" width="1440" height="900" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.101387404" sideWeight="0.68337977" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23906083" sideWeight="0.68337977" order="3" side_tool="false" content_ui="tabs" />
@@ -4835,7 +4971,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5817246" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21985058" sideWeight="0.95543176" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.6030389" sideWeight="0.50213444" order="12" side_tool="true" content_ui="tabs" x="-1600" y="0" width="1600" height="1024" />
@@ -4878,7 +5013,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="explicit initialization" />
+    <option name="LAST_COMMIT_MESSAGE" value="explore nearby" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4893,7 +5028,6 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmMoveToFailedCommit value="1" />
     <confirmRemoveEmptyChangelist value="1" />
-    <MESSAGE value="unnecessary" />
     <MESSAGE value="back to sherlock, removed location stuff" />
     <MESSAGE value="Sherlock again" />
     <MESSAGE value="get location from app" />
@@ -4918,6 +5052,7 @@
     <MESSAGE value="categories" />
     <MESSAGE value="config" />
     <MESSAGE value="explicit initialization" />
+    <MESSAGE value="explore nearby" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -4932,18 +5067,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/CategoryAmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/amen_item_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_add_statement.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -5007,13 +5130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="269" column="27" selection-start="7616" selection-end="7616" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="150" selection-start="1475" selection-end="1507" vertical-scroll-proportion="-2.4615386">
@@ -5030,6 +5146,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="16" selection-start="3428" selection-end="3428" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="201" column="0" selection-start="6219" selection-end="6219" vertical-scroll-proportion="-21.23077">
@@ -5039,14 +5162,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="283" column="0" selection-start="7826" selection-end="7826" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="714" column="0" selection-start="21012" selection-end="21012" vertical-scroll-proportion="0.33333334">
+        <state line="708" column="0" selection-start="20818" selection-end="20818" vertical-scroll-proportion="-9.576923">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20440#20446#0" expanded="true" />
             <element signature="e#23374#23380#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/target/unpack/apklibs/com.github.ignition_ignition-location_apklib_0.3-SNAPSHOT/src/com/github/ignition/location/IgnitedLocationManager.aj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.3324709">
+          <folding />
         </state>
       </provider>
     </entry>
