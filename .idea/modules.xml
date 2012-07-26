@@ -9,9 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" filepath="$PROJECT_DIR$/httpclientandroidlib/httpclientandroidlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.actionbarsherlock_library_4.1.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-core_0.3-20120720.090126-32.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-core_0.3-20120720.090126-32.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-core_0.3-SNAPSHOT.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-core_0.3-SNAPSHOT.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-location_0.3-20120720.090228-20.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-location_0.3-20120720.090228-20.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-location_0.3-SNAPSHOT.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.github.ignition_ignition-location_0.3-SNAPSHOT.iml" />
       <module fileurl="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" filepath="$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/~apklib-com.wazabe.holoeverywhere_library_1.0.0.iml" />
     </modules>
   </component>
