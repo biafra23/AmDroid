@@ -1,39 +1,47 @@
 package com.jaeckel.amenoid;
 
-import java.util.List;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
 import com.jaeckel.amenoid.api.AmenService;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.fragments.AmenListFragment;
 import com.jaeckel.amenoid.statement.ChooseStatementTypeActivity;
 import com.jaeckel.amenoid.util.Log;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.telephony.NeighboringCellInfo;
-import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 /**
  * @author biafra
- * @date 5/22/12 7:08 PM
+ * @date 7/9/12 1:17 AM
  */
-public class AmenListFragmentActivity extends SherlockFragmentActivity {
+public class CategoryAmenListFragmentActivity extends SherlockFragmentActivity {
 
-  private static String TAG      = AmenListFragmentActivity.class.getSimpleName();
-  private        int    feedType = AmenService.FEED_TYPE_FOLLOWING;
+  private static final String TAG = CategoryAmenListFragmentActivity.class.getSimpleName();
 
-  private AmenListFragment amenListFragment;
+  private static final int[]  IMAGE_IDS = {R.id.user_image};
+  private              String lastError = null;
+  private ShareActionProvider mShareActionProvider;
+  private AmenListFragment    amenListFragment;
+
 
   @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    Log.d(TAG, "onConfigurationChanged(): " + newConfig);
+//    setContentView(R.layout.myLayout);
+  }
+
   public void onCreate(Bundle savedInstanceState) {
+
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate");
 
@@ -42,28 +50,32 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     FragmentManager fragmentManager = getSupportFragmentManager();
     amenListFragment = (AmenListFragment) fragmentManager.findFragmentById(R.id.activity_fragment_amen_list);
 
-    // default feedType is following
-    feedType = getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
-
-    if (!AmenoidApp.getInstance().isSignedIn() && feedType == AmenService.FEED_TYPE_FOLLOWING) {
-
-      // if not signed in default to popular. new is gone
-      feedType = AmenService.FEED_TYPE_POPULAR;
+    Bundle extras = getIntent().getExtras();
+    Category category = null;
+    if (extras != null) {
+      category = (Category) extras.get(Constants.EXTRA_CATEGORY);
+      Log.d(TAG, "---> category: " + category);
+    } else {
+      Log.e(TAG, "---> No EXTRAS");
     }
-    String title = "";
-    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
-      title = "Following";
-    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
-      title = "New";
-    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
-      title = "Popular";
+
+
+    String subTitle = "";
+
+    if (category != null) {
+      subTitle = category.getName();
     }
 
     ActionBar bar = getSupportActionBar();
-    bar.setSubtitle(title);
-    bar.setTitle("Timeline");
+    bar.setSubtitle(subTitle);
+    bar.setTitle("Explore");
 
 
+  }
+
+
+  public void onPause() {
+    super.onPause();
   }
 
 
@@ -86,22 +98,22 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     MenuItem signInOut = menu.findItem(R.id.signin);
     //    MenuItem search = menu.findItem(R.id.search_menu_item);
 
-    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
-      //      recent.setVisible(true);
-      following.setVisible(false);
-      popular.setVisible(true);
-
-    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
-      //      recent.setVisible(false);
-      following.setVisible(true);
-      popular.setVisible(true);
-
-    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
-      //      recent.setVisible(true);
-      following.setVisible(true);
-      popular.setVisible(false);
-
-    }
+//    if (feedType == AmenService.FEED_TYPE_FOLLOWING) {
+//      //      recent.setVisible(true);
+//      following.setVisible(false);
+//      popular.setVisible(true);
+//
+//    } else if (feedType == AmenService.FEED_TYPE_RECENT) {
+//      //      recent.setVisible(false);
+//      following.setVisible(true);
+//      popular.setVisible(true);
+//
+//    } else if (feedType == AmenService.FEED_TYPE_POPULAR) {
+//      //      recent.setVisible(true);
+//      following.setVisible(true);
+//      popular.setVisible(false);
+//
+//    }
     if (!AmenoidApp.getInstance().isSignedIn()) {
 
       amenSth.setEnabled(false);
@@ -185,4 +197,5 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
   public void onResume() {
     super.onResume();
   }
+
 }

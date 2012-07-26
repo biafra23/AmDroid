@@ -29,5 +29,6 @@ public class Constants {
   public static final String EXTRA_FEED_TYPE      = "feed_type";
   public static final String EXTRA_TOPIC_ID       = "topic_id";
   public static final String EXTRA_TOPIC_NAME     = "topic_name";
-  public static final String EXTRA_COMMENT_URL       = "amen_url"; //
+  public static final String EXTRA_COMMENT_URL    = "amen_url"; //
+  public static final String EXTRA_CATEGORY       = "category";
 }

@@ -118,6 +118,7 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".ExploreFragmentActivity"/>
+        <activity android:name=".CategoryAmenListFragmentActivity"/>
 
         <service android:name=".AmenAndroidService"
                 />

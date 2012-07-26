@@ -12,14 +12,17 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.jaeckel.amenoid.AmenDetailFragmentActivity;
 import com.jaeckel.amenoid.AmenListAdapter;
+import com.jaeckel.amenoid.AmenListFragmentActivity;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.api.model.Amen;
+import com.jaeckel.amenoid.api.model.Category;
 import com.jaeckel.amenoid.api.model.DateSerializer;
 import com.jaeckel.amenoid.api.model.Statement;
 import com.jaeckel.amenoid.api.model.User;
 import com.jaeckel.amenoid.app.AmenoidApp;
+import com.jaeckel.amenoid.commands.AbstractCommand;
 import com.jaeckel.amenoid.cwac.endless.EndlessAdapter;
 import com.jaeckel.amenoid.cwac.thumbnail.ThumbnailAdapter;
 import com.jaeckel.amenoid.util.AmenLibTask;
@@ -31,6 +34,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -73,6 +77,7 @@ public class AmenListFragment extends ListFragment {
   private        Handler handler       = new Handler();
   private        boolean noPull        = false;
 
+  private Category currentCategory;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,11 +92,11 @@ public class AmenListFragment extends ListFragment {
       offset = 0;
     }
 
-    if (position > offset - 1 && position < getListAdapter().getCount() + offset - 1 ) {
+    if (position > offset - 1 && position < getListAdapter().getCount() + offset - 1) {
 
       Amen amen = (Amen) getListAdapter().getItem(position - offset);
 
-      Log.d(TAG, "Selected Amen: " + amen);
+      Log.d(TAG, "---> Selected Amen: " + amen);
 
       Intent intent = new Intent(getActivity(), AmenDetailFragmentActivity.class);
       intent.putExtra(Constants.EXTRA_AMEN, amen);
@@ -121,22 +126,41 @@ public class AmenListFragment extends ListFragment {
 
     prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-    // default feedType is following
-    feedType = getActivity().getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+    //CategoryListing
 
-    if (!AmenoidApp.getInstance().isSignedIn() && feedType == AmenService.FEED_TYPE_FOLLOWING) {
-
-      // if not signed in default to popular. new is gone
-      feedType = AmenService.FEED_TYPE_POPULAR;
+    Bundle bundle = getActivity().getIntent().getExtras();
+    if (bundle != null) {
+      currentCategory = (Category) bundle.getParcelable(Constants.EXTRA_CATEGORY);
+    } else {
+      Log.w(TAG, "NO extras!");
     }
 
+    if (currentCategory != null) {
+      Log.d(TAG, "---> Loading currentCategory: " + currentCategory);
+      // switch to currentCategory mode
+      new CategoryLoaderAsyncTask(getActivity()).execute(currentCategory);
+
+    } else {
+
+      // default feedType is following
+      feedType = getActivity().getIntent().getIntExtra(Constants.EXTRA_FEED_TYPE, AmenService.FEED_TYPE_FOLLOWING);
+
+      if (!AmenoidApp.getInstance().isSignedIn() && feedType == AmenService.FEED_TYPE_FOLLOWING) {
+
+        // if not signed in default to popular. new is gone
+        feedType = AmenService.FEED_TYPE_POPULAR;
+      }
+    }
     final String authToken = readAuthTokenFromPrefs();
     final User me = readMeFromPrefs();
     if (AmenoidApp.DEVELOPER_MODE) {
       Toast.makeText(getActivity(), "authToken: " + authToken, Toast.LENGTH_SHORT).show();
     }
 
-    refreshWithCache();
+    if (currentCategory == null) {
+      refreshWithCache();
+
+    }
 
 //    registerForContextMenu(getListView());
 
@@ -413,8 +437,10 @@ public class AmenListFragment extends ListFragment {
         setListAdapter(endless);
 
       }
+      if (getActivity() != null) {
+        Log.v(TAG, "hasWindowFocus(): " + getActivity().hasWindowFocus());
 
-      Log.v(TAG, "hasWindowFocus(): " + getActivity().hasWindowFocus());
+      }
 
       cachedLoadingProgressDialog.hide();
     }
@@ -658,6 +684,77 @@ public class AmenListFragment extends ListFragment {
 
   }
 
+  private class CategoryLoaderAsyncTask extends AmenLibTask<Category, Integer, List<Amen>> {
+
+    private boolean stopAppending = false;
+    private ProgressDialog loadingProgressDialog;
+
+    public CategoryLoaderAsyncTask(Activity context) {
+      super(context);
+    }
+
+    @Override
+    protected List<Amen> wrappedDoInBackground(Category... categories) throws IOException {
+      List<Amen> amens = new ArrayList<Amen>();
+
+      for (Category category : categories) {
+        Log.d(TAG, "Loader executing with category: " + category);
+        service = AmenoidApp.getInstance().getService();
+
+        Log.d(TAG, " Loader executing with service: " + service);
+
+        Double lat, lng = null;
+        Location lastLocation = null; //((AmenListFragmentActivity)getActivity()).getLocation();
+        if (lastLocation != null) {
+          lat = lastLocation.getLatitude();
+          lng = lastLocation.getLongitude();
+        }
+        amens = service.getAmenForCategory(category.getId(), 0, lat, lng);
+      }
+
+//      amenDao.insertOrUpdate(amens);
+
+//      saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":c" + categories[0].getId());
+//      saveAmensToPrefs(new ArrayList<Amen>(), Constants.PREFS_LAST_NEW_AMENS + ":c" + categories[0].getId());
+
+      return amens;
+    }
+
+    @Override
+    protected void onPreExecute() {
+      loadingProgressDialog = ProgressDialog.show(getActivity(), "",
+                                                  "Loading Amen from Server...", true);
+      loadingProgressDialog.show();
+
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(List<Amen> amens) {
+
+      if (amens != null) {
+
+        amenListAdapter = new AmenListAdapter(getActivity(), R.layout.list_item_amen, amens);
+        ThumbnailAdapter thumbs = new ThumbnailAdapter(getActivity(), amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
+
+        EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
+
+        setListAdapter(endless);
+
+      }
+
+      loadingProgressDialog.hide();
+    }
+
+    @Override
+    protected void onCancelled() {
+      Log.d(TAG, "loadingProgressDialog cancelled");
+      if (loadingProgressDialog != null) {
+        loadingProgressDialog.hide();
+      }
+    }
+  }
+
+
   @Override
   public void onConfigurationChanged(Configuration newConfig) {
     super.onConfigurationChanged(newConfig);
@@ -683,4 +780,76 @@ public class AmenListFragment extends ListFragment {
       }
     });
   }
+
+
+  private class CommandLoaderAsyncTask extends AmenLibTask<AbstractCommand<List<Amen>>, Integer, List<Amen>> {
+
+    private boolean stopAppending = false;
+    private ProgressDialog loadingProgressDialog;
+
+    public CommandLoaderAsyncTask(Activity context) {
+      super(context);
+    }
+
+    @Override
+    protected List<Amen> wrappedDoInBackground(AbstractCommand<List<Amen>>... commands) throws IOException {
+      List<Amen> amens = new ArrayList<Amen>();
+
+      for (AbstractCommand command : commands) {
+        Log.d(TAG, "Loader executing with command: " + command);
+        service = AmenoidApp.getInstance().getService();
+
+        Log.d(TAG, " Loader executing with service: " + service);
+
+        Double lat, lng = null;
+        Location lastLocation = null; //((AmenListFragmentActivity)getActivity()).getLocation();
+        if (lastLocation != null) {
+          lat = lastLocation.getLatitude();
+          lng = lastLocation.getLongitude();
+        }
+        amens = (List<Amen>)command.execute();
+      }
+
+//      amenDao.insertOrUpdate(amens);
+
+//      saveAmensToPrefs(amens, Constants.PREFS_LAST_AMENS + ":c" + commands[0].getId());
+//      saveAmensToPrefs(new ArrayList<Amen>(), Constants.PREFS_LAST_NEW_AMENS + ":c" + commands[0].getId());
+
+      return amens;
+    }
+
+    @Override
+    protected void onPreExecute() {
+      loadingProgressDialog = ProgressDialog.show(getActivity(), "",
+                                                  "Loading Amen from Server...", true);
+      loadingProgressDialog.show();
+
+    }
+
+    @Override
+    protected void wrappedOnPostExecute(List<Amen> amens) {
+
+      if (amens != null) {
+
+        amenListAdapter = new AmenListAdapter(getActivity(), R.layout.list_item_amen, amens);
+        ThumbnailAdapter thumbs = new ThumbnailAdapter(getActivity(), amenListAdapter, AmenoidApp.getInstance().getCache(), IMAGE_IDS);
+
+        EndlessWrapperAdapter endless = new EndlessWrapperAdapter(thumbs);
+
+        setListAdapter(endless);
+
+      }
+
+      loadingProgressDialog.hide();
+    }
+
+    @Override
+    protected void onCancelled() {
+      Log.d(TAG, "loadingProgressDialog cancelled");
+      if (loadingProgressDialog != null) {
+        loadingProgressDialog.hide();
+      }
+    }
+  }
+
 }

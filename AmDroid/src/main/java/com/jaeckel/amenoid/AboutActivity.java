@@ -59,7 +59,7 @@ public class AboutActivity extends SherlockActivity {
     buildTimeTextView.setText("Built: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Long.valueOf(timestampString)));
 
 //    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("ssh://biafra@biafra.diskordia.com:22/#biafra")));
-//    startActivity(new Intent(Intent.ACTION_PICK, Uri.parse("ssh://biafra@biafra.diskordia.com:22/#biafra")));
+//    startActivity(new Intent(Intent.ACTION_PICK, Uri.parse("ssh:^//biafra@biafra.diskordia.com:22/#biafra")));
 
   }
   // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!

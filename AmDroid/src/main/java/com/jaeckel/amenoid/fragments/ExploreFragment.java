@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import com.jaeckel.amenoid.AmenDetailFragmentActivity;
+import com.jaeckel.amenoid.AmenListFragmentActivity;
+import com.jaeckel.amenoid.CategoryAmenListFragmentActivity;
 import com.jaeckel.amenoid.CategoryListAdapter;
 import com.jaeckel.amenoid.Constants;
 import com.jaeckel.amenoid.R;
@@ -44,15 +46,17 @@ public class ExploreFragment extends ListFragment {
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
     Log.d(TAG, "onListItemClick");
-    if (position > 0 && position < getListAdapter().getCount()) {
+    if (position >= 0 && position < getListAdapter().getCount()) {
 
-      Amen amen = (Amen) getListAdapter().getItem(position);
+      Category category = (Category) getListAdapter().getItem(position);
 
-      Log.d(TAG, "Selected Amen: " + amen);
+      Log.d(TAG, "---> Selected Category: " + category);
 
-      Intent intent = new Intent(getActivity(), AmenDetailFragmentActivity.class);
-      intent.putExtra(Constants.EXTRA_AMEN, amen);
-      //startActivityForResult(intent, REQUEST_CODE_AMEN_DETAILS);
+      Intent intent = new Intent(getActivity(), CategoryAmenListFragmentActivity.class);
+      intent.putExtra(Constants.EXTRA_CATEGORY, category);
+      startActivity(intent);
+
+
     }
   }
 
