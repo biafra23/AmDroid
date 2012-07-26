@@ -1139,10 +1139,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
     </list>
     <list id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="" />
     <ignored path="amdroid-parent.iws" />
@@ -4360,7 +4357,11 @@
       <created>1343296093076</created>
       <updated>1343296093076</updated>
     </task>
-    <option name="localTasksCounter" value="254" />
+    <task id="LOCAL-00254" summary="config">
+      <created>1343296108139</created>
+      <updated>1343296108139</updated>
+    </task>
+    <option name="localTasksCounter" value="255" />
     <option name="createChangelist" value="false" />
     <option name="trackContextForNewChangelist" value="false" />
     <servers />
@@ -4387,7 +4388,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1024" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -4460,7 +4461,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="categories" />
+    <option name="LAST_COMMIT_MESSAGE" value="config" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -4497,9 +4498,9 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="updaeting tests" />
     <MESSAGE value="fixed category parcelation" />
-    <MESSAGE value="config" />
     <MESSAGE value="version 35" />
     <MESSAGE value="categories" />
+    <MESSAGE value="config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
