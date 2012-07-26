@@ -7,6 +7,9 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.github.ignition.location.annotations.IgnitedLocation;
+import com.github.ignition.location.annotations.IgnitedLocationActivity;
+import com.github.ignition.location.templates.OnIgnitedLocationChangedListener;
 import com.jaeckel.amenoid.api.AmenService;
 import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.fragments.AmenListFragment;
@@ -15,6 +18,7 @@ import com.jaeckel.amenoid.util.Log;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.telephony.NeighboringCellInfo;
@@ -25,12 +29,16 @@ import android.widget.Toast;
  * @author biafra
  * @date 5/22/12 7:08 PM
  */
-public class AmenListFragmentActivity extends SherlockFragmentActivity {
+@IgnitedLocationActivity()
+public class AmenListFragmentActivity extends SherlockFragmentActivity implements OnIgnitedLocationChangedListener  {
 
   private static String TAG      = AmenListFragmentActivity.class.getSimpleName();
   private        int    feedType = AmenService.FEED_TYPE_FOLLOWING;
 
   private AmenListFragment amenListFragment;
+
+  @IgnitedLocation
+  private Location lastLocation;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -63,6 +71,8 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
     bar.setSubtitle(title);
     bar.setTitle("Timeline");
 
+    Log.d(TAG, "LastLocation: " + lastLocation);
+    AmenoidApp.getInstance().setLastLocation(lastLocation);
 
   }
 
@@ -184,5 +194,16 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity {
   @Override
   public void onResume() {
     super.onResume();
+  }
+
+  @Override
+  public boolean onIgnitedLocationChanged(Location newLocation) {
+
+    lastLocation = newLocation;
+
+    AmenoidApp.getInstance().setLastLocation(lastLocation);
+
+    // request more location update requests by returning true
+    return true;
   }
 }

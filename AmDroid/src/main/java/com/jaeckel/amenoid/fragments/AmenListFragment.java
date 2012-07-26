@@ -705,7 +705,9 @@ public class AmenListFragment extends ListFragment {
 
         Double lat = null;
         Double lng = null;
-        Location lastLocation = null; //((AmenListFragmentActivity)getActivity()).getLocation();
+        Location lastLocation = AmenoidApp.getInstance().getLastLocation();
+        Log.d(TAG, "---> LastLocation: " + lastLocation);
+
         if (lastLocation != null) {
           lat = lastLocation.getLatitude();
           lng = lastLocation.getLongitude();
@@ -796,7 +798,7 @@ public class AmenListFragment extends ListFragment {
     protected List<Amen> wrappedDoInBackground(AbstractCommand<List<Amen>>... commands) throws IOException {
       List<Amen> amens = new ArrayList<Amen>();
 
-      for (AbstractCommand command : commands) {
+      for (AbstractCommand<List<Amen>> command : commands) {
         Log.d(TAG, "Loader executing with command: " + command);
         service = AmenoidApp.getInstance().getService();
 
@@ -804,12 +806,15 @@ public class AmenListFragment extends ListFragment {
 
         Double lat = null;
         Double  lng = null;
-        Location lastLocation = null; //((AmenListFragmentActivity)getActivity()).getLocation();
+        Location lastLocation = AmenoidApp.getInstance().getLastLocation();
+        Log.d(TAG, " LastLocation: " + lastLocation);
+
         if (lastLocation != null) {
+
           lat = lastLocation.getLatitude();
           lng = lastLocation.getLongitude();
         }
-        amens = (List<Amen>)command.execute();
+        amens = command.execute();
       }
 
 //      amenDao.insertOrUpdate(amens);

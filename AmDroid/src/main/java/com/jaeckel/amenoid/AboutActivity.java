@@ -22,9 +22,13 @@ import android.widget.TextView;
  * Date: 11/5/11
  * Time: 8:13 PM
  */
-public class AboutActivity extends SherlockActivity {
+@IgnitedLocationActivity
+public class AboutActivity extends SherlockActivity implements OnIgnitedLocationChangedListener {
 
   private final static String TAG = AboutActivity.class.getSimpleName();
+
+  @IgnitedLocation
+  private Location location;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -101,4 +105,8 @@ public class AboutActivity extends SherlockActivity {
         }
         return super.onCreateDialog(id);
     }
+
+  @Override public boolean onIgnitedLocationChanged(Location newLocation) {
+    return true;
+  }
 }
