@@ -291,7 +291,7 @@ public class ParcelITest extends AndroidTestCase {
     //done writing, now reset parcel for reading
     parcel.setDataPosition(0);
     //finish round trip
-    User createFromParcel = User.CREATOR.createFromParcel(parcel);
+    Category createFromParcel = Category.CREATOR.createFromParcel(parcel);
 
     assertEquals(category, createFromParcel);
 

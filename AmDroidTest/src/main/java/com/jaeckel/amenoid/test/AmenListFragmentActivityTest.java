@@ -41,178 +41,178 @@ public class AmenListFragmentActivityTest extends ActivityInstrumentationTestCas
 
   }
 
-  @Smoke
-  public void testMenusWhileSignedIn() throws Exception {
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
+//  @Smoke
+//  public void testMenusWhileSignedIn() throws Exception {
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//
+//  }
 
-  }
-
-  @Smoke
-  public void testMenusWhileSignedInRefresh() throws Exception {
-    Log.d(TAG, "testMenusWhileSignedInRefresh start... ");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-    solo.clickOnMenuItem("Refresh");
-
-    // how to check if it refreshed here?
-
-    Log.d(TAG, "testMenusWhileSignedInRefresh done. ");
-  }
-
-
-  @Smoke
-  public void testMenusWhileSignedInPopular() throws Exception {
-    Log.d(TAG, "testMenusWhileSignedInPopular start... ");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-
-    solo.clickOnMenuItem("Popular");
-
-    Log.d(TAG, "Waiting for Activity: " + AmenListFragmentActivity.class.getName());
-    solo.waitForActivity(AmenListFragmentActivity.class.getName(), 10);
-
-    Activity a = solo.getCurrentActivity();
-    Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListFragmentActivity");
-
-    CharSequence title = a.getTitle();
-
-    assertEquals("Wrong title", title, "Amenoid/Timeline: Popular");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-
-    solo.goBack();
-    Log.d(TAG, "testMenusWhileSignedInPopular done. ");
-
-  }
-
-  @Smoke
-  public void testMenusWhileSignedInNew() throws Exception {
-    Log.d(TAG, "testMenusWhileSignedInNew start... ");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-    solo.clickOnMenuItem("New");
-
-    Activity a = solo.getCurrentActivity();
-    Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListFragmentActivity");
-
-    CharSequence title = a.getTitle();
-
-    assertEquals("Wrong title", title, "Amenoid/Timeline: New");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-
-    solo.goBack();
-    Log.d(TAG, "testMenusWhileSignedInNew done. ");
-
-  }
-
-  @Smoke
-  public void testMenusWhileSignedInAmenSomething() throws Exception {
-    Log.d(TAG, "testMenusWhileSignedInAmen start... ");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-    solo.clickOnMenuItem("Amen sth.");
-    solo.sleep(100);
-    Log.d(TAG, "Waiting for Activity: " + ChooseStatementTypeActivity.class.getName());
-    solo.waitForActivity(ChooseStatementTypeActivity.class.getName(), 10);
-
-    Activity a = solo.getCurrentActivity();
-    Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.statement.ChooseStatementTypeActivity");
-    solo.goBack();
-    Log.d(TAG, "testMenusWhileSignedInAmen done. ");
-
-  }
+//  @Smoke
+//  public void testMenusWhileSignedInRefresh() throws Exception {
+//    Log.d(TAG, "testMenusWhileSignedInRefresh start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    solo.clickOnMenuItem("Refresh");
+//
+//    // how to check if it refreshed here?
+//
+//    Log.d(TAG, "testMenusWhileSignedInRefresh done. ");
+//  }
 
 
-  @Smoke
-  public void testMenusWhileSignedInSearch() throws Exception {
-    Log.d(TAG, "testMenusWhileSignedInSearch start... ");
+//  @Smoke
+//  public void testMenusWhileSignedInPopular() throws Exception {
+//    Log.d(TAG, "testMenusWhileSignedInPopular start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//
+//    solo.clickOnMenuItem("Popular");
+//
+//    Log.d(TAG, "Waiting for Activity: " + AmenListFragmentActivity.class.getName());
+//    solo.waitForActivity(AmenListFragmentActivity.class.getName(), 10);
+//
+//    Activity a = solo.getCurrentActivity();
+//    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+//    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListFragmentActivity");
+//
+//    CharSequence title = a.getTitle();
+//
+//    assertEquals("Wrong title", title, "Amenoid/Timeline: Popular");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//
+//    solo.goBack();
+//    Log.d(TAG, "testMenusWhileSignedInPopular done. ");
+//
+//  }
 
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-    solo.clickOnMenuItem("Search", true);
-    solo.sleep(100);
+//  @Smoke
+//  public void testMenusWhileSignedInNew() throws Exception {
+//    Log.d(TAG, "testMenusWhileSignedInNew start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    solo.clickOnMenuItem("New");
+//
+//    Activity a = solo.getCurrentActivity();
+//    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+//    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AmenListFragmentActivity");
+//
+//    CharSequence title = a.getTitle();
+//
+//    assertEquals("Wrong title", title, "Amenoid/Timeline: New");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//
+//    solo.goBack();
+//    Log.d(TAG, "testMenusWhileSignedInNew done. ");
+//
+//  }
 
-    List<Activity> activities = solo.getAllOpenedActivities();
+//  @Smoke
+//  public void testMenusWhileSignedInAmenSomething() throws Exception {
+//    Log.d(TAG, "testMenusWhileSignedInAmen start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    solo.clickOnMenuItem("Amen sth.");
+//    solo.sleep(100);
+//    Log.d(TAG, "Waiting for Activity: " + ChooseStatementTypeActivity.class.getName());
+//    solo.waitForActivity(ChooseStatementTypeActivity.class.getName(), 10);
+//
+//    Activity a = solo.getCurrentActivity();
+//    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+//    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.statement.ChooseStatementTypeActivity");
+//    solo.goBack();
+//    Log.d(TAG, "testMenusWhileSignedInAmen done. ");
+//
+//  }
 
-    for (Activity a : activities) {
-      Log.d(TAG, "a.title: " + a.getTitle());
-      Log.d(TAG, "a: " + a);
-    }
 
+//  @Smoke
+//  public void testMenusWhileSignedInSearch() throws Exception {
+//    Log.d(TAG, "testMenusWhileSignedInSearch start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    solo.clickOnMenuItem("Search", true);
+//    solo.sleep(100);
+//
+//    List<Activity> activities = solo.getAllOpenedActivities();
+//
+//    for (Activity a : activities) {
+//      Log.d(TAG, "a.title: " + a.getTitle());
+//      Log.d(TAG, "a: " + a);
+//    }
+//
+//
+//    Log.d(TAG, "testMenusWhileSignedInSearch nothing done. ");
+//
+//  }
 
-    Log.d(TAG, "testMenusWhileSignedInSearch nothing done. ");
+//  @Smoke
+//  public void testMenusWhileSignedInAbout() throws Exception {
+//    Log.d(TAG, "testMenusWhileSignedInAbout start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    solo.clickOnMenuItem("About", true);
+//
+//    Log.d(TAG, "Waiting for Activity: " + AboutActivity.class.getName());
+//    solo.waitForActivity(AboutActivity.class.getName(), 10);
+//
+//    Activity a = solo.getCurrentActivity();
+//    Log.d(TAG, "Current Activity: " + a.getClass().getName());
+//    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AboutActivity");
+//    solo.goBack();
+//
+//    Log.d(TAG, "testMenusWhileSignedInAbout done. ");
+//
+//  }
 
-  }
-
-  @Smoke
-  public void testMenusWhileSignedInAbout() throws Exception {
-    Log.d(TAG, "testMenusWhileSignedInAbout start... ");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-    solo.clickOnMenuItem("About", true);
-
-    Log.d(TAG, "Waiting for Activity: " + AboutActivity.class.getName());
-    solo.waitForActivity(AboutActivity.class.getName(), 10);
-
-    Activity a = solo.getCurrentActivity();
-    Log.d(TAG, "Current Activity: " + a.getClass().getName());
-    assertEquals(a.getClass().getName(), "com.jaeckel.amenoid.AboutActivity");
-    solo.goBack();
-
-    Log.d(TAG, "testMenusWhileSignedInAbout done. ");
-
-  }
-
-  @Smoke
-  public void testListItemClicked() throws Exception {
-    Log.d(TAG, "testListItemClicked start... ");
-
-    while (hasVisibleProgressView()) {
-      solo.sleep(1000);
-      Log.d(TAG, "ProgressBar still visible");
-    }
-    while (!hasVisibleListView()) {
-      Log.d(TAG, "No visible ListView, yet");
-      solo.sleep(1000);
-    }
-    Log.d(TAG, "HAS VISIBLE LISTVIEWs");
-
-    for (int i = 0; i< 19 ; i++) {
-      checkDetails(i);
-    }
-    Log.d(TAG, "testListItemClicked done. ");
-
-  }
+//  @Smoke
+//  public void testListItemClicked() throws Exception {
+//    Log.d(TAG, "testListItemClicked start... ");
+//
+//    while (hasVisibleProgressView()) {
+//      solo.sleep(1000);
+//      Log.d(TAG, "ProgressBar still visible");
+//    }
+//    while (!hasVisibleListView()) {
+//      Log.d(TAG, "No visible ListView, yet");
+//      solo.sleep(1000);
+//    }
+//    Log.d(TAG, "HAS VISIBLE LISTVIEWs");
+//
+//    for (int i = 0; i< 19 ; i++) {
+//      checkDetails(i);
+//    }
+//    Log.d(TAG, "testListItemClicked done. ");
+//
+//  }
 
   private void checkDetails(int position) {
 
