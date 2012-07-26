@@ -703,7 +703,8 @@ public class AmenListFragment extends ListFragment {
 
         Log.d(TAG, " Loader executing with service: " + service);
 
-        Double lat, lng = null;
+        Double lat = null;
+        Double lng = null;
         Location lastLocation = null; //((AmenListFragmentActivity)getActivity()).getLocation();
         if (lastLocation != null) {
           lat = lastLocation.getLatitude();
@@ -801,7 +802,8 @@ public class AmenListFragment extends ListFragment {
 
         Log.d(TAG, " Loader executing with service: " + service);
 
-        Double lat, lng = null;
+        Double lat = null;
+        Double  lng = null;
         Location lastLocation = null; //((AmenListFragmentActivity)getActivity()).getLocation();
         if (lastLocation != null) {
           lat = lastLocation.getLatitude();
