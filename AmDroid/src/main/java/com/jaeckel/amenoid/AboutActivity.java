@@ -7,6 +7,7 @@ import com.github.ignition.location.annotations.IgnitedLocation;
 import com.github.ignition.location.annotations.IgnitedLocationActivity;
 import com.github.ignition.location.templates.OnIgnitedLocationChangedListener;
 import com.github.ignition.location.utils.IgnitedLocationSupport;
+import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.Log;
 
 import android.app.Activity;
@@ -106,7 +107,14 @@ public class AboutActivity extends SherlockActivity implements OnIgnitedLocation
         return super.onCreateDialog(id);
     }
 
-  @Override public boolean onIgnitedLocationChanged(Location newLocation) {
+  @Override
+  public boolean onIgnitedLocationChanged(Location newLocation) {
+
+    location = newLocation;
+
+    AmenoidApp.getInstance().setLastLocation(location);
+
+    // request more location update requests by returning true
     return true;
   }
 }
