@@ -197,9 +197,13 @@ public class AmenListFragmentActivity extends SherlockFragmentActivity implement
   }
 
   @Override
+  public void onPause() {
+    super.onPause();
+  }
+  @Override
   public boolean onIgnitedLocationChanged(Location newLocation) {
 
-    lastLocation = newLocation;
+//    lastLocation = newLocation;
 
     AmenoidApp.getInstance().setLastLocation(lastLocation);
 

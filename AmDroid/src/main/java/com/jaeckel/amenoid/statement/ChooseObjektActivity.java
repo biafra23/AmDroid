@@ -15,7 +15,6 @@ import com.jaeckel.amenoid.app.AmenoidApp;
 import com.jaeckel.amenoid.util.Log;
 import com.jaeckel.amenoid.util.ObjektsForQueryTask;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -67,14 +66,12 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
   @Override
   public void onResume() {
     super.onResume();
-
-
   }
 
   // MUST BE OVERRIDDEN OR IGNITION LOCATION WON'T WORK!
   @Override
   public void onPause() {
-    super.onPause();
+      super.onPause();
   }
 
   @Override
@@ -277,6 +274,8 @@ public class ChooseObjektActivity extends SherlockListActivity implements Objekt
                            + " acc: " + newLocation.getAccuracy(), Toast.LENGTH_LONG).show();
     }
     if (currentObjektKind == AmenService.OBJEKT_KIND_PLACE) {
+
+//      Location lastLocation = AmenoidApp.getInstance().getLastLocation();
 
       if (lastLocation != null) {
         longitude = lastLocation.getLongitude();

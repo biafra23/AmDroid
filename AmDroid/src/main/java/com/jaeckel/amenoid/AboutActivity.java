@@ -110,7 +110,7 @@ public class AboutActivity extends SherlockActivity implements OnIgnitedLocation
   @Override
   public boolean onIgnitedLocationChanged(Location newLocation) {
 
-    location = newLocation;
+//    location = newLocation;
 
     AmenoidApp.getInstance().setLastLocation(location);
 
