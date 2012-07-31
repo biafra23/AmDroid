@@ -1367,19 +1367,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="32" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0">
+            <state line="81" column="37" selection-start="3481" selection-end="3486" vertical-scroll-proportion="0.33289126">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="25" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.35278514">
+            <state line="65" column="3" selection-start="2155" selection-end="2155" vertical-scroll-proportion="-5.0384617">
               <folding />
             </state>
           </provider>
@@ -5177,11 +5177,6 @@
         <state line="112" column="12" selection-start="3470" selection-end="3470" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="32" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/app/SherlockListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="19" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.0" />
@@ -5218,7 +5213,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="25" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.35278514">
+        <state line="65" column="3" selection-start="2155" selection-end="2155" vertical-scroll-proportion="-5.0384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="37" selection-start="3481" selection-end="3486" vertical-scroll-proportion="0.33289126">
           <folding />
         </state>
       </provider>
