@@ -18,8 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.property.logLevel>DEBUG</project.property.logLevel>
         <!-- update version here -->
-        <project.property.version.name>1.0-ALPHA36</project.property.version.name>
-        <project.property.version.code>109</project.property.version.code>
+        <project.property.version.name>1.0-ALPHA37</project.property.version.name>
+        <project.property.version.code>110</project.property.version.code>
         <!-- -->
         <project.property.application.debuggable>true</project.property.application.debuggable>
         <property.finalName>${artifactId}-${project.property.version.name}</property.finalName>
