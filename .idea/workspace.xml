@@ -1143,9 +1143,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4c483b1-9a40-4fe9-8b39-68e93df70ae5" name="ScoreBoard" comment="config">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/AmDroid.iml" afterPath="$PROJECT_DIR$/AmDroid/AmDroid.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" afterPath="$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" afterPath="$PROJECT_DIR$/AmDroidTest/AmDroidTest.iml" />
     </list>
     <list id="c2eeccfe-0130-45c3-8e78-b4c5afe821f8" name="ignored" comment="" />
     <ignored path="amdroid-parent.iws" />
@@ -1322,8 +1322,8 @@
       <property name="field_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByClasses" value="true" />
       <property name="exception_breakpoints_viewId" value="TABLE" />
-      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="field_breakpoints_viewId" value="TABLE" />
+      <property name="exception_breakpoints_groupByClasses" value="true" />
       <property name="method_breakpoints_groupByMethods" value="false" />
     </ui_properties>
   </component>
@@ -1350,15 +1350,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CHANGES" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
           <provider selected="true" editor-type-id="text-editor">
@@ -1389,7 +1380,7 @@
       <file leaf-file-name="ChooseObjektActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="260" column="0" selection-start="7718" selection-end="8941" vertical-scroll-proportion="0.14245416">
+            <state line="61" column="0" selection-start="2042" selection-end="2042" vertical-scroll-proportion="-1.9230769">
               <folding />
             </state>
           </provider>
@@ -1407,10 +1398,8 @@
       <file leaf-file-name="AmenListFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="0" selection-start="6140" selection-end="6396" vertical-scroll-proportion="-19.5">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="198" column="0" selection-start="6140" selection-end="6396" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1419,9 +1408,7 @@
         <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-location_0.3-20120720.090228-20/src/com/github/ignition/location/templates/OnIgnitedLocationChangedListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="19" column="17" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="docComment;method#onIgnitedLocationChanged#0;class#OnIgnitedLocationChangedListener#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1568,7 +1555,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1174" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -2591,16 +2578,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="OverrideImplement.combined" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/ignition/pom.xml" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="DEBUGGABLE_DEVICE" value="0146BF541600F003" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="DEBUGGABLE_PROCESS" value="com.jaeckel.amenoid" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -2659,6 +2646,28 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings">
@@ -2707,28 +2716,6 @@
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
         <option name="Make" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -3756,37 +3743,37 @@
       <method />
     </configuration>
     <list size="31">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.run AmDroid on Device" />
-      <item index="1" class="java.lang.String" itemvalue="Android Application.run (emulator)" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GsonTests.testDeserializeUser" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AmenServiceITest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testDispute" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetUserInfo" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetMe" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testAmen" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetStatementForId" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetStatementForId78704" />
-      <item index="10" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetAmenForId" />
-      <item index="11" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testTakeBack" />
-      <item index="12" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testAmening" />
-      <item index="13" class="java.lang.String" itemvalue="JUnit.GsonTests" />
-      <item index="14" class="java.lang.String" itemvalue="JUnit.GsonTests.testDeserializeUser2" />
-      <item index="15" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testFollowers" />
-      <item index="16" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testFollowing" />
-      <item index="17" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetObjektsForThing" />
-      <item index="18" class="java.lang.String" itemvalue="JUnit.ParcelableTest.testPbjektTakesRoundTripThroughParcel" />
-      <item index="19" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testDispute2" />
-      <item index="20" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetFeed" />
-      <item index="21" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetAmenForObjekt" />
-      <item index="22" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetAmenWithMediaItem" />
-      <item index="23" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testSignUp" />
-      <item index="24" class="java.lang.String" itemvalue="Maven.install" />
-      <item index="25" class="java.lang.String" itemvalue="Maven.Integration Tests" />
-      <item index="26" class="java.lang.String" itemvalue="Maven.install AmenLib (no tests)" />
-      <item index="27" class="java.lang.String" itemvalue="Maven.clean package android:deploy android:run -Pdebug,sign" />
-      <item index="28" class="java.lang.String" itemvalue="Maven.clean package android:deploy android:run -Prelease,sign" />
-      <item index="29" class="java.lang.String" itemvalue="Maven.install AmenLib (with tests)" />
-      <item index="30" class="java.lang.String" itemvalue="Android Tests.testCategory()" />
+      <item index="0" class="java.lang.String" itemvalue="Android Tests.testCategory()" />
+      <item index="1" class="java.lang.String" itemvalue="Android Application.run AmDroid on Device" />
+      <item index="2" class="java.lang.String" itemvalue="Android Application.run (emulator)" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GsonTests.testDeserializeUser" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AmenServiceITest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testDispute" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetUserInfo" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetMe" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testAmen" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetStatementForId" />
+      <item index="10" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetStatementForId78704" />
+      <item index="11" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetAmenForId" />
+      <item index="12" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testTakeBack" />
+      <item index="13" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testAmening" />
+      <item index="14" class="java.lang.String" itemvalue="JUnit.GsonTests" />
+      <item index="15" class="java.lang.String" itemvalue="JUnit.GsonTests.testDeserializeUser2" />
+      <item index="16" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testFollowers" />
+      <item index="17" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testFollowing" />
+      <item index="18" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetObjektsForThing" />
+      <item index="19" class="java.lang.String" itemvalue="JUnit.ParcelableTest.testPbjektTakesRoundTripThroughParcel" />
+      <item index="20" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testDispute2" />
+      <item index="21" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetFeed" />
+      <item index="22" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetAmenForObjekt" />
+      <item index="23" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testGetAmenWithMediaItem" />
+      <item index="24" class="java.lang.String" itemvalue="JUnit.AmenServiceITest.testSignUp" />
+      <item index="25" class="java.lang.String" itemvalue="Maven.install" />
+      <item index="26" class="java.lang.String" itemvalue="Maven.Integration Tests" />
+      <item index="27" class="java.lang.String" itemvalue="Maven.install AmenLib (no tests)" />
+      <item index="28" class="java.lang.String" itemvalue="Maven.clean package android:deploy android:run -Pdebug,sign" />
+      <item index="29" class="java.lang.String" itemvalue="Maven.clean package android:deploy android:run -Prelease,sign" />
+      <item index="30" class="java.lang.String" itemvalue="Maven.install AmenLib (with tests)" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -4894,25 +4881,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277623" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31662023" sideWeight="0.98132336" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.8458682" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28133705" sideWeight="0.9850587" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29244444" sideWeight="0.6803629" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21878335" sideWeight="0.24883936" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32683378" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.4817778" sideWeight="0.5251076" order="7" side_tool="false" content_ui="tabs" x="1920" y="0" width="1440" height="900" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.101387404" sideWeight="0.68337977" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23906083" sideWeight="0.68337977" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.49619773" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18996799" sideWeight="0.68337977" order="2" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18943436" sideWeight="0.5633803" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29244444" sideWeight="0.31590182" order="3" side_tool="false" content_ui="tabs" x="84" y="351" width="1761" height="845" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.085365854" sideWeight="0.5817246" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="213" y="129" width="919" height="477" />
@@ -4926,6 +4911,8 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964131" sideWeight="0.5817246" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21985058" sideWeight="0.95543176" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43661973" sideWeight="0.98132336" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3128889" sideWeight="0.49748382" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961932" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39925718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.6030389" sideWeight="0.50213444" order="12" side_tool="true" content_ui="tabs" x="-1600" y="0" width="1600" height="1024" />
@@ -5024,120 +5011,84 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_user_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/res/menu/menu_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="25" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="25" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/commands/AmenForCategoryCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/commands/AbstractCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="20" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="20" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/app/AmenoidApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="283" column="0" selection-start="7826" selection-end="7826" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="283" column="0" selection-start="7826" selection-end="7826" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/fragments/AmenListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="708" column="0" selection-start="20818" selection-end="20818" vertical-scroll-proportion="-9.576923">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#20440#20446#0" expanded="true" />
-            <element signature="e#23374#23380#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="708" column="0" selection-start="20818" selection-end="20818" vertical-scroll-proportion="-9.576923" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="0" selection-start="6140" selection-end="6396" vertical-scroll-proportion="-19.5">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/CHANGES">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="308" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AboutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="12" selection-start="3470" selection-end="3470" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="112" column="12" selection-start="3470" selection-end="3470" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="32" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="32" column="32" selection-start="1602" selection-end="1602" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.actionbarsherlock_library_4.1.0/src/com/actionbarsherlock/app/SherlockListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="19" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.0">
+        <state line="67" column="19" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/AmenListFragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="0" selection-start="6140" selection-end="6396" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-location_0.3-20120720.090228-20/src/com/github/ignition/location/templates/OnIgnitedLocationChangedListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="17" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;method#onIgnitedLocationChanged#0;class#OnIgnitedLocationChangedListener#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-location_0.3-20120720.090228-20/src/com/github/ignition/location/utils/lastlocationfinders/IgnitedGingerbreadLastLocationFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="17" selection-start="704" selection-end="704" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-location_0.3-20120720.090228-20/src/com/github/ignition/location/IgnitedLocationManager.aj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="413" column="0" selection-start="19560" selection-end="19560" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AmDroidTest/gen-external-apklibs/com.github.ignition_ignition-location_0.3-20120720.090228-20/src/com/github/ignition/location/utils/lastlocationfinders/IgnitedGingerbreadLastLocationFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AmDroid/src/main/java/com/jaeckel/amenoid/statement/ChooseObjektActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="260" column="0" selection-start="7718" selection-end="8941" vertical-scroll-proportion="0.14245416">
+        <state line="61" column="0" selection-start="2042" selection-end="2042" vertical-scroll-proportion="-1.9230769">
           <folding />
         </state>
       </provider>
